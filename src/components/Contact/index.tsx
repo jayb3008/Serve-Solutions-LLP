@@ -112,7 +112,7 @@ const Contact = () => {
                     <div className="mt-8">
                       <label>
                         Facing trouble in submitting form? then simply mail us
-                        on{" "}
+                        on &apos;
                         <a
                           className="text-base text-primary hover:text-primary/90 dark:shadow-submit-dark"
                           href="mailto:servewebinfo@gmail.com"
@@ -126,15 +126,6 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          {/* <div className="-mx-4 flex flex-wrap">
-            <div className="lg:w-12/12 xl:w-12/12 w-full px-4">
-              <div
-                className="mb-12 rounded-sm bg-white px-8 py-11 shadow-three dark:bg-gray-dark sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px]"
-                data-wow-delay=".15s
-              "
-              ></div>
-            </div>
-          </div> */}
         </div>
       </div>
     </section>
