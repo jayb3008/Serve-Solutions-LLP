@@ -15,10 +15,12 @@ const AboutPage = () => {
     <>
       <Breadcrumb
         pageName="About Page"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+        description="Serve is a dynamic Software Development and Solutions Agency dedicated to crafting exceptional websites and software applications for our clients. With a deep understanding of the entire development cycle—from concept to coding, testing to release, and ongoing refinement—we ensure unparalleled results beyond launch.
+
+        Our focus is innovation, whether it's developing mobile applications or robust website infrastructure, tailored to meet our clients' needs and demands. At Serve, we are committed to driving growth and success through cutting-edge technology solutions."
       />
       <AboutSectionOne />
-      <AboutSectionTwo />
+      {/* <AboutSectionTwo /> */}
     </>
   );
 };

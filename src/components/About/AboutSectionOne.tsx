@@ -25,8 +25,7 @@ const AboutSectionOne = () => {
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
                 title="Vision of our Company"
-                paragraph="Welcome to Serveweb Info, where we embrace a systematic approach to every project, no matter its complexity. Our team comprises individuals with diverse skill sets ranging from Digital Marketing to IoT/Robotics solutions. With a dedicated team assigned to your project, we employ methodologies such as agile Scrum and agile Kanban to ensure efficiency and effectiveness.
-                At Serveweb Info, we prioritize top-notch quality, timely delivery, and agility in project execution. Whether you require web development, digital marketing strategies, or cutting-edge IoT solutions, we're committed to delivering exceptional results tailored to your needs. Experience the difference with Serveweb Info – where innovation meets reliability."
+                paragraph="Serve envisions a future where technology empowers businesses globally, fostering innovation and sustainable growth. We strive to be leaders in IT excellence, forging impactful partnerships and pushing boundaries for positive change. Our vision is to make cutting-edge IT solutions accessible to all, driving efficiency and success in every industry. At Serve, we believe in harnessing the power of technology to create a brighter, more connected world for generations to come.                "
                 mb="44px"
               />
 

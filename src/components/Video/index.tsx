@@ -8,18 +8,23 @@ import ModalVideo from "react-modal-video";
 import SingleFeature from "../Features/SingleFeature";
 import featuresData from "../Features/featuresData";
 
-const Video = () => {
+const Video = ({
+  type
+}) => {
   const [isOpen, setOpen] = useState(false);
 
   return (
     <section className="relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
-        <SectionTitle
-          title="What we do"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
-          center
-          mb="80px"
-        />
+        {
+          type!=="page"?
+          <SectionTitle
+            title="What we do"
+            paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+            center
+            mb="80px"
+          />:null
+        }
 
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">

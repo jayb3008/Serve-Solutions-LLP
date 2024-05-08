@@ -115,9 +115,9 @@ const Contact = () => {
                         on &apos;
                         <a
                           className="text-base text-primary hover:text-primary/90 dark:shadow-submit-dark"
-                          href="mailto:servewebinfo@gmail.com"
+                          href="mailto:servesolutions3008@gmail.com"
                         >
-                          servewebinfo@gmail.com
+                          serveseolutions3008@gmail.com
                         </a>
                       </label>
                     </div>
