@@ -1,10 +1,24 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Footer = () => {
+  const variants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: "easeInOut" },
+    },
+  };
   return (
-    <>
+    <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: false }}
+    variants={variants}
+  >
       <footer className="relative z-10 bg-white pt-16 dark:bg-gray-dark md:pt-20 lg:pt-24">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
@@ -410,7 +424,7 @@ const Footer = () => {
           </svg>
         </div>
       </footer>
-    </>
+      </motion.div>
   );
 };
 

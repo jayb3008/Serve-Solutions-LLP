@@ -13,3 +13,9 @@ export type Blog = {
   tags: string[];
   publishDate: string;
 };
+export type WorkFlow = {
+  id: string;
+  title: string;
+  paragraph: string;
+  icon: JSX.Element;
+};

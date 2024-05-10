@@ -1,7 +1,22 @@
-import NewsLatterBox from "./NewsLatterBox";
+"use client";
+import { motion } from "framer-motion";
 
 const Contact = () => {
+  const variants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: "easeInOut" },
+    },
+  };
   return (
+    <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: false }}
+    variants={variants}
+  >
     <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
@@ -129,6 +144,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
+    </motion.div>
   );
 };
 

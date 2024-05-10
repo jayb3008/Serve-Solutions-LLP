@@ -1,6 +1,16 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Hero = () => {
+  const variants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: "easeInOut" },
+    },
+  };
   return (
     <>
       <section
@@ -36,20 +46,20 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="area bg-white dark:bg-gray-dark" >
-            <ul className="circles">
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-                    <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
-            </ul>
-    </div >
+        <div className="area bg-white dark:bg-gray-dark">
+          <ul className="circles">
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+            <li className="bg-indigo-200/50 dark:bg-indigo-200/80"></li>
+          </ul>
+        </div>
         <div className="absolute right-0 top-0 z-[-1] opacity-30 lg:opacity-100">
           <svg
             width="450"

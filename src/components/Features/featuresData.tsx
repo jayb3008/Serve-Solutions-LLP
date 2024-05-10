@@ -14,7 +14,7 @@ const featuresData: Feature[] = [
     ),
     title: "Web Application",
     paragraph:
-      "Elevate your digital presence with Serveweb Info's bespoke web application solutions. Experience innovation and reliability tailored to your unique needs.",
+      "Platform independant business solutions for maximum availability",
   },
   {
     id: 1,
@@ -42,7 +42,7 @@ const featuresData: Feature[] = [
     ),
     title: "Cross Platform Development",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Interactive Apps with perfect integration of frontend and backend",
   },
   {
     id: 1,
@@ -57,7 +57,7 @@ const featuresData: Feature[] = [
     ),
     title: "SEO",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Let the world find you on top of others",
   },
   {
     id: 1,
@@ -72,7 +72,7 @@ const featuresData: Feature[] = [
     ),
     title: "Desktop Application",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Advanced autonomous technological softwares to make life simple",
   },
   {
     id: 1,
@@ -87,7 +87,7 @@ const featuresData: Feature[] = [
     ),
     title: "BIG Data",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Get your decision making backed by inteligent insight",
   },
   {
     id: 1,
@@ -102,7 +102,7 @@ const featuresData: Feature[] = [
     ),
     title: "Mobile Applications",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "The simplest but robust technology to accompany with you",
   },
   {
     id: 1,
@@ -117,7 +117,7 @@ const featuresData: Feature[] = [
     ),
     title: "Digital Marketing",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Business made easy in a digital world",
   },
   {
     id: 1,
@@ -186,7 +186,7 @@ const featuresData: Feature[] = [
     ),
     title: "Graphic Design",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Where artistry meets technology, creating immersive experiences that captivate and inspire",
   },
 ];
 export default featuresData;
