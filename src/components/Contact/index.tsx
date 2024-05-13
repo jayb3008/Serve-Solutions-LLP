@@ -10,6 +10,7 @@ const Contact = () => {
       transition: { duration: 1, ease: "easeInOut" },
     },
   };
+
   return (
     <motion.div
     initial="hidden"
