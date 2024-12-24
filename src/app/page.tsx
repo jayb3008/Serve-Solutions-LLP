@@ -14,7 +14,6 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Serve Solutions LLP",
   description: "This is Home for Startup Nextjs Template",
-  // other metadata
 };
 
 export default function Home() {
