@@ -2,11 +2,18 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { ArrowRight, ArrowDown, Clock } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 export function HeroSection() {
+  const heroRef = useRef(null);
+  const textRef = useRef(null);
+  const subTextRef = useRef(null);
+  const buttonsRef = useRef(null);
+  const imageRef = useRef(null);
+  const scrollButtonRef = useRef(null);
+
+  // Scroll to services section
   const scrollToServices = () => {
     const servicesSection = document.getElementById("services");
     if (servicesSection) {
@@ -14,66 +21,62 @@ export function HeroSection() {
     }
   };
 
-  // Particle initialization
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
+  // GSAP Animations
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  // Animation variants for staggered text
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+    tl.fromTo(
+      textRef.current,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1 }
+    )
+      .fromTo(
+        subTextRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        "-=0.5"
+      )
+      .fromTo(
+        buttonsRef.current.children,
+        { opacity: 0, y: 30, stagger: 0.2 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        "-=0.3"
+      )
+      .fromTo(
+        imageRef.current,
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 1 },
+        "-=0.5"
+      )
+      .fromTo(
+        scrollButtonRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut",
+        },
+        "-=0.5"
+      );
 
-  const buttonVariants = {
-    hover: { scale: 1.05, boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)" },
-    tap: { scale: 0.95 },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-    hover: { scale: 1.02, transition: { duration: 0.3 } },
-  };
+    return () => {
+      tl.kill(); // Cleanup GSAP timeline on unmount
+    };
+  }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-gradient-to-br from-white via-brand-lightBlue to-brand-teal dark:from-gray-900 dark:via-gray-800 dark:to-gray-700">
-      {/* Particle Background */}
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={{
-          background: { color: { value: "transparent" } },
-          fpsLimit: 60,
-          particles: {
-            number: { value: 50, density: { enable: true, value_area: 800 } },
-            color: { value: ["#3b82f6", "#14b8a6", "#a855f7"] },
-            shape: { type: "circle" },
-            opacity: { value: 0.3, random: true },
-            size: { value: 3, random: true },
-            move: {
-              enable: true,
-              speed: 0.5,
-              direction: "none",
-              random: true,
-              out_mode: "out",
-            },
-          },
-          interactivity: {
-            events: { onhover: { enable: true, mode: "repulse" } },
-            modes: { repulse: { distance: 100, duration: 0.4 } },
-          },
-        }}
-        className="absolute inset-0 z-0"
-      />
+    <section
+      ref={heroRef}
+      className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center"
+      style={{
+        backgroundImage: `url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80')`,
+      }}
+    >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/40 z-0"></div>
 
       {/* Background Gradient Blobs */}
       <div className="absolute inset-0 overflow-hidden">
@@ -85,34 +88,25 @@ export function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <span className="inline-block py-1 px-3 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-medium mb-4">
                 Service-based IT Company
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            <h1
+              ref={textRef}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
             >
               Unlocking Business{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-purple">
                 Potential
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.div
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 0.2 }}
-              className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8"
+            <div
+              ref={subTextRef}
+              className="text-xl md:text-2xl text-gray-200 mb-8"
             >
               <TypingAnimation
                 texts={[
@@ -132,70 +126,42 @@ export function HeroSection() {
                   <Clock size={16} className="mr-1" /> 24/7 Availability
                 </span>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 0.4 }}
+            <div
+              ref={buttonsRef}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <motion.div
-                whileHover="hover"
-                whileTap="tap"
-                variants={buttonVariants}
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-brand-blue hover:bg-brand-purple transition-colors"
               >
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-full bg-brand-blue hover:bg-brand-purple transition-colors"
-                >
-                  <Link to="/contact">
-                    Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </motion.div>
-              <motion.div
-                whileHover="hover"
-                whileTap="tap"
-                variants={buttonVariants}
+                <Link to="/contact">
+                  Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="rounded-full border-brand-blue text-brand-blue hover:bg-brand-blue/10"
               >
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="rounded-full border-brand-blue text-brand-blue hover:bg-brand-blue/10"
-                >
-                  <Link to="/portfolio">View Our Work</Link>
-                </Button>
-              </motion.div>
-            </motion.div>
+                <Link to="/portfolio">View Our Work</Link>
+              </Button>
+            </div>
           </div>
 
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate="visible"
-            whileHover="hover"
-            className="flex justify-center lg:justify-end"
-          >
+          <div ref={imageRef} className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue via-brand-teal to-brand-purple opacity-20 blur-xl rounded-lg"></div>
-              <img
-                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80"
-                alt="Professional IT Service Team in Workspace"
-                className="relative z-10 rounded-lg shadow-2xl max-w-full object-cover max-h-[400px] w-[350px] md:w-[430px] transition-transform duration-300"
-                loading="lazy"
-              />
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
+        <div
+          ref={scrollButtonRef}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
           <button
             onClick={scrollToServices}
@@ -204,7 +170,7 @@ export function HeroSection() {
           >
             <ArrowDown size={24} />
           </button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

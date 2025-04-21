@@ -1,6 +1,6 @@
+import { useRef, useEffect } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -18,6 +18,10 @@ import {
   Headphones,
   CheckCircle2,
 } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ServiceProps {
   id: string;
@@ -28,7 +32,6 @@ interface ServiceProps {
   technologies: string[];
   imageSrc: string;
   reverseLayout?: boolean;
-  delay?: number;
 }
 
 const ServiceSection = ({
@@ -40,81 +43,160 @@ const ServiceSection = ({
   technologies,
   imageSrc,
   reverseLayout = false,
-  delay = 0,
-}: ServiceProps) => (
-  <section
-    id={id}
-    className="py-20 border-b border-gray-200 dark:border-gray-800"
-  >
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div
-        className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-          reverseLayout ? "lg:flex-row-reverse" : ""
-        }`}
-      >
-        <ScrollReveal
-          animation="slide-in"
-          delay={delay}
-          className={`order-2 ${reverseLayout ? "lg:order-1" : "lg:order-2"}`}
-        >
-          <div className="relative">
-            <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-2"></div>
-            <img
-              src={imageSrc}
-              alt={title}
-              className="rounded-xl shadow-lg w-full h-auto"
-            />
-          </div>
-        </ScrollReveal>
+}: ServiceProps) => {
+  const sectionRef = useRef(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef(null);
 
-        <ScrollReveal
-          animation="fade-in"
-          delay={delay}
-          className={`order-1 ${reverseLayout ? "lg:order-2" : "lg:order-1"}`}
+  useEffect(() => {
+    // Scroll-Triggered Image Animation
+    gsap.fromTo(
+      imageRef.current,
+      { opacity: 0, scale: 0.9 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // Scroll-Triggered Content Animation
+    gsap.fromTo(
+      contentRef.current.children,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // Background Rotation Hover Animation
+    const image = imageRef.current;
+    const background = backgroundRef.current;
+    if (image && background) {
+      const onMouseEnter = () => {
+        gsap.to(background, {
+          rotation: 6,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      };
+      const onMouseLeave = () => {
+        gsap.to(background, {
+          rotation: 2,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      };
+
+      image.addEventListener("mouseenter", onMouseEnter);
+      image.addEventListener("mouseleave", onMouseLeave);
+
+      return () => {
+        image.removeEventListener("mouseenter", onMouseEnter);
+        image.removeEventListener("mouseleave", onMouseLeave);
+      };
+    }
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      id={id}
+      className="py-20 border-b border-gray-200 dark:border-gray-800"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+            reverseLayout ? "lg:flex-row-reverse" : ""
+          }`}
         >
-          <div className="flex items-center mb-4">
-            <div className="bg-brand-lightBlue dark:bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center mr-4 text-brand-blue dark:text-brand-teal">
-              {icon}
+          <div
+            className={`order-2 ${reverseLayout ? "lg:order-1" : "lg:order-2"}`}
+          >
+            <div className="relative">
+              <div
+                ref={backgroundRef}
+                className="absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-2"
+              ></div>
+              <img
+                ref={imageRef}
+                src={imageSrc}
+                alt={title}
+                className="rounded-xl shadow-lg w-full h-auto"
+              />
             </div>
-            <h2 className="text-3xl font-bold">{title}</h2>
           </div>
 
-          <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg">
-            {description}
-          </p>
+          <div
+            ref={contentRef}
+            className={`order-1 ${reverseLayout ? "lg:order-2" : "lg:order-1"}`}
+          >
+            <div className="flex items-center mb-4">
+              <div className="bg-brand-lightBlue dark:bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center mr-4 text-brand-blue dark:text-brand-teal">
+                {icon}
+              </div>
+              <h2 className="text-3xl font-bold">{title}</h2>
+            </div>
 
-          <h3 className="text-xl font-semibold mb-4">Key Features</h3>
-          <ul className="space-y-3 mb-6">
-            {features.map((feature, index) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 text-brand-blue mr-2 mt-1 flex-shrink-0" />
-                <p className="text-gray-700 dark:text-gray-200">{feature}</p>
-              </li>
-            ))}
-          </ul>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg">
+              {description}
+            </p>
 
-          <h3 className="text-xl font-semibold mb-4">Technologies We Use</h3>
-          <div className="flex flex-wrap gap-2 mb-8">
-            {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-sm text-gray-700 dark:text-gray-300"
-              >
-                {tech}
-              </span>
-            ))}
+            <h3 className="text-xl font-semibold mb-4">Key Features</h3>
+            <ul className="space-y-3 mb-6">
+              {features.map((feature, index) => (
+                <li key={index} className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-brand-blue mr-2 mt-1 flex-shrink-0" />
+                  <p className="text-gray-700 dark:text-gray-200">{feature}</p>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="text-xl font-semibold mb-4">Technologies We Use</h3>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {technologies.map((tech, index) => (
+                <span
+                  key={index}
+                  className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-sm text-gray-700 dark:text-gray-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <Button asChild>
+              <Link to="/contact">Discuss Your Project</Link>
+            </Button>
           </div>
-
-          <Button asChild>
-            <Link to="/contact">Discuss Your Project</Link>
-          </Button>
-        </ScrollReveal>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Services = () => {
+  const heroRef = useRef(null);
+  const highlightRef = useRef([]);
+  const processRef = useRef(null);
+  const processStepsRef = useRef([]);
+  const ctaRef = useRef(null);
+
   const services = [
     {
       id: "web-development",
@@ -313,6 +395,102 @@ const Services = () => {
     },
   ];
 
+  useEffect(() => {
+    // Hero Section Animation
+    gsap.fromTo(
+      heroRef.current.children,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // Services Highlight Animation
+    gsap.fromTo(
+      highlightRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: highlightRef.current[0]?.parentElement,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // Our Process Animation
+    gsap.fromTo(
+      processRef.current.children,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: processRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // Process Steps Animation
+    gsap.fromTo(
+      processStepsRef.current,
+      { opacity: 0, x: (index) => (index % 2 === 0 ? -50 : 50) },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: processStepsRef.current[0]?.parentElement,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // CTA Section Animation
+    gsap.fromTo(
+      ctaRef.current.children,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ctaRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -321,20 +499,17 @@ const Services = () => {
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-gradient-to-b from-brand-lightBlue to-white dark:from-gray-900 dark:to-gray-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <ScrollReveal animation="fade-in">
-                <span className="bg-brand-blue/10 text-brand-blue text-sm font-medium py-1 px-3 rounded-full">
-                  Our Services
-                </span>
-                <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-                  Comprehensive Digital Solutions
-                </h1>
-                <p className="text-lg text-gray-600 dark:text-gray-300">
-                  From concept to deployment, we provide end-to-end services to
-                  bring your digital vision to life with expertise and
-                  precision.
-                </p>
-              </ScrollReveal>
+            <div ref={heroRef} className="max-w-3xl mx-auto text-center">
+              <span className="bg-brand-blue/10 text-brand-blue text-sm font-medium py-1 px-3 rounded-full">
+                Our Services
+              </span>
+              <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+                Comprehensive Digital Solutions
+              </h1>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                From concept to deployment, we provide end-to-end services to
+                bring your digital vision to life with expertise and precision.
+              </p>
             </div>
           </div>
         </section>
@@ -344,10 +519,9 @@ const Services = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.slice(0, 3).map((service, index) => (
-                <ScrollReveal
+                <div
                   key={index}
-                  animation="slide-up"
-                  delay={index * 100}
+                  ref={(el) => (highlightRef.current[index] = el)}
                   className="bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
                   <a href={`#${service.id}`} className="block p-6">
@@ -359,7 +533,7 @@ const Services = () => {
                       {service.description}
                     </p>
                   </a>
-                </ScrollReveal>
+                </div>
               ))}
             </div>
           </div>
@@ -377,26 +551,26 @@ const Services = () => {
             technologies={service.technologies}
             imageSrc={service.imageSrc}
             reverseLayout={service.reverseLayout}
-            delay={0}
           />
         ))}
 
         {/* Our Process */}
         <section className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <ScrollReveal animation="fade-in">
-                <span className="bg-brand-teal/10 text-brand-teal text-sm font-medium py-1 px-3 rounded-full">
-                  Our Process
-                </span>
-                <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
-                  How We Work
-                </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-300">
-                  Our proven development approach ensures transparent
-                  communication and successful project delivery.
-                </p>
-              </ScrollReveal>
+            <div
+              ref={processRef}
+              className="max-w-3xl mx-auto text-center mb-16"
+            >
+              <span className="bg-brand-teal/10 text-brand-teal text-sm font-medium py-1 px-3 rounded-full">
+                Our Process
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
+                How We Work
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                Our proven development approach ensures transparent
+                communication and successful project delivery.
+              </p>
             </div>
 
             <div className="relative">
@@ -405,10 +579,9 @@ const Services = () => {
 
               <div className="space-y-12 md:space-y-0 grid md:grid-cols-2 gap-x-12 gap-y-16">
                 {processSteps.map((step, index) => (
-                  <ScrollReveal
+                  <div
                     key={index}
-                    animation="fade-in"
-                    delay={index * 100}
+                    ref={(el) => (processStepsRef.current[index] = el)}
                     className={`relative ${
                       index % 2 === 0 ? "md:text-right" : ""
                     }`}
@@ -443,7 +616,7 @@ const Services = () => {
                         {step.description}
                       </p>
                     </div>
-                  </ScrollReveal>
+                  </div>
                 ))}
               </div>
             </div>
@@ -454,24 +627,25 @@ const Services = () => {
         <section className="py-16 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-gradient-to-r from-brand-blue to-brand-purple rounded-2xl overflow-hidden shadow-xl">
-              <div className="px-6 py-16 md:px-12 text-center text-white">
-                <ScrollReveal animation="fade-in">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                    Ready to Start Your Project?
-                  </h2>
-                  <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto mb-10">
-                    Let's discuss how we can help you achieve your business
-                    goals with our custom technology solutions.
-                  </p>
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="default"
-                    className="bg-white text-brand-darkBlue hover:bg-gray-100 rounded-full"
-                  >
-                    <Link to="/contact">Get in Touch</Link>
-                  </Button>
-                </ScrollReveal>
+              <div
+                ref={ctaRef}
+                className="px-6 py-16 md:px-12 text-center text-white"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Ready to Start Your Project?
+                </h2>
+                <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto mb-10">
+                  Let's discuss how we can help you achieve your business goals
+                  with our custom technology solutions.
+                </p>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="default"
+                  className="bg-white text-brand-darkBlue hover:bg-gray-100 rounded-full"
+                >
+                  <Link to="/contact">Get in Touch</Link>
+                </Button>
               </div>
             </div>
           </div>
