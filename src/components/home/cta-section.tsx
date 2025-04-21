@@ -104,8 +104,8 @@ export function CTASection() {
             <Button
               asChild
               size="lg"
-              variant="default"
-              className="bg-white text-brand-darkBlue hover:bg-gray-100 rounded-full"
+              variant="outline"
+              className="border-white text-brand-darkBlue hover:bg-white/10 hover:text-white rounded-full"
             >
               <Link to="/contact">
                 <MessageSquare className="mr-2 h-5 w-5" /> Schedule a
@@ -116,7 +116,7 @@ export function CTASection() {
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/10 rounded-full"
+              className="border-white text-brand-darkBlue hover:bg-white/10 hover:text-white rounded-full"
             >
               <Link to="tel:+15551234567">
                 <Phone className="mr-2 h-5 w-5" /> Call Us
