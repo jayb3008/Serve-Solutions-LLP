@@ -1,0 +1,75 @@
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
+import { CheckCircle2, Users, Trophy, Calendar } from "lucide-react";
+
+export function AboutPreviewSection() {
+  const stats = [
+    { icon: <Trophy className="h-6 w-6 text-brand-blue" />, value: 100, suffix: "+", label: "Projects Completed" },
+    { icon: <Users className="h-6 w-6 text-brand-teal" />, value: 50, suffix: "+", label: "Happy Clients" },
+    { icon: <Calendar className="h-6 w-6 text-brand-purple" />, value: 10, suffix: "+", label: "Years Experience" },
+  ];
+
+  const keyPoints = [
+    "Expert development team with deep technical knowledge",
+    "Agile methodology for faster delivery and flexibility",
+    "Dedicated support and maintenance services",
+    "Complete transparency throughout the development process",
+    "Scalable solutions that grow with your business"
+  ];
+
+  return (
+    <section className="py-20 bg-white dark:bg-gray-800">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <ScrollReveal animation="slide-in" className="order-2 lg:order-1">
+            <div className="relative">
+              <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-3"></div>
+              <img
+                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=1470&auto=format&fit=crop"
+                alt="Employee collaborating at Serve Solutions"
+                className="rounded-xl shadow-lg w-full h-auto"
+              />
+              <div className="grid grid-cols-3 gap-4 mt-8">
+                {stats.map((stat, index) => (
+                  <div key={index} className="bg-white dark:bg-gray-700 rounded-lg shadow p-4 text-center">
+                    <div className="flex justify-center mb-2">{stat.icon}</div>
+                    <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+                      <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-in" className="order-1 lg:order-2">
+            <span className="bg-brand-purple/10 text-brand-purple text-sm font-medium py-1 px-3 rounded-full">About Us</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">Delivering Digital Excellence Since 2014</h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              WebFlow Architects is a leading IT services company specialized in creating custom web and mobile applications that transform businesses.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
+              We combine technical expertise with strategic thinking to deliver solutions that not only meet your current needs but are built to evolve with your business.
+            </p>
+
+            <div className="space-y-3 mb-8">
+              {keyPoints.map((point, index) => (
+                <div key={index} className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-brand-blue mr-2 mt-1 flex-shrink-0" />
+                  <p className="text-gray-700 dark:text-gray-200">{point}</p>
+                </div>
+              ))}
+            </div>
+
+            <Button asChild className="rounded-full">
+              <Link to="/about">Learn More About Us</Link>
+            </Button>
+          </ScrollReveal>
+        </div>
+      </div>
+    </section>
+  );
+}
