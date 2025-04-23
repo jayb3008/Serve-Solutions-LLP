@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
@@ -8,16 +8,101 @@ import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const heroRef = useRef(null);
-  const contactCardsRef = useRef([]);
-  const formRef = useRef(null);
-  const mapRef = useRef(null);
-  const faqRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Section Animations
+    gsap.fromTo(
+      ".hero-content > *",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top 80%",
+        },
+      }
+    );
+
+    // Contact Information Cards
+    gsap.fromTo(
+      ".contact-card",
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".contact-info-section",
+          start: "top 80%",
+        },
+      }
+    );
+
+    // Contact Form
+    gsap.fromTo(
+      ".contact-form",
+      { opacity: 0, x: -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".form-map-section",
+          start: "top 80%",
+        },
+      }
+    );
+
+    // Map Section
+    gsap.fromTo(
+      ".map-section",
+      { opacity: 0, x: 50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        delay: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".form-map-section",
+          start: "top 80%",
+        },
+      }
+    );
+
+    // FAQ Section
+    gsap.fromTo(
+      ".faq-item",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".faq-section",
+          start: "top 80%",
+        },
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,166 +115,15 @@ const Contact = () => {
     }, 1500);
   };
 
-  useEffect(() => {
-    // Hero Section Animation
-    gsap.fromTo(
-      heroRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Contact Information Cards Animation
-    gsap.fromTo(
-      contactCardsRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: contactCardsRef.current[0]?.parentElement,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Contact Information Cards Hover Animation
-    contactCardsRef.current.forEach((card) => {
-      const background = card.querySelector(".gradient-background");
-      if (background) {
-        const onMouseEnter = () => {
-          gsap.to(background, {
-            rotation: 6,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        };
-        const onMouseLeave = () => {
-          gsap.to(background, {
-            rotation: 2,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        };
-
-        card.addEventListener("mouseenter", onMouseEnter);
-        card.addEventListener("mouseleave", onMouseLeave);
-
-        // Store cleanup function for each card
-        card._cleanup = () => {
-          card.removeEventListener("mouseenter", onMouseEnter);
-          card.removeEventListener("mouseleave", onMouseLeave);
-        };
-      }
-    });
-
-    // Contact Form Animation
-    gsap.fromTo(
-      formRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: formRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Map Section Animation
-    gsap.fromTo(
-      mapRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: mapRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // FAQ Section Animation
-    gsap.fromTo(
-      faqRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: faqRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    return () => {
-      // Clean up ScrollTrigger animations
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      // Clean up hover event listeners
-      contactCardsRef.current.forEach((card) => {
-        if (card._cleanup) card._cleanup();
-      });
-    };
-  }, []);
-
-  // Re-animate form section when formSubmitted changes
-  useEffect(() => {
-    gsap.fromTo(
-      formRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: formRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-  }, [formSubmitted]);
-
   return (
     <div className="min-h-screen">
       <Navbar />
 
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-20 bg-gradient-to-b from-brand-lightBlue to-white dark:from-gray-900 dark:to-gray-800">
+        <section className="pt-32 pb-20 bg-gradient-to-b from-brand-lightBlue to-white dark:from-gray-900 dark:to-gray-800 hero-section">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div ref={heroRef} className="max-w-3xl mx-auto text-center">
+            <div className="max-w-3xl mx-auto text-center hero-content">
               <span className="bg-brand-teal/10 text-brand-teal text-sm font-medium py-1 px-3 rounded-full">
                 Contact Us
               </span>
@@ -205,14 +139,10 @@ const Contact = () => {
         </section>
 
         {/* Contact Information */}
-        <section className="py-16 bg-white dark:bg-gray-800">
+        <section className="py-16 bg-white dark:bg-gray-800 contact-info-section">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div
-                ref={(el) => (contactCardsRef.current[0] = el)}
-                className="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 text-center relative"
-              >
-                <div className="gradient-background absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-2"></div>
+              <div className="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 text-center contact-card">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-blue/10 text-brand-blue mb-4">
                   <Phone className="h-6 w-6" />
                 </div>
@@ -228,11 +158,7 @@ const Contact = () => {
                 </a>
               </div>
 
-              <div
-                ref={(el) => (contactCardsRef.current[1] = el)}
-                className="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 text-center relative"
-              >
-                <div className="gradient-background absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-2"></div>
+              <div className="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 text-center contact-card">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-teal/10 text-brand-teal mb-4">
                   <Mail className="h-6 w-6" />
                 </div>
@@ -248,11 +174,7 @@ const Contact = () => {
                 </a>
               </div>
 
-              <div
-                ref={(el) => (contactCardsRef.current[2] = el)}
-                className="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 text-center relative"
-              >
-                <div className="gradient-background absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-2"></div>
+              <div className="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 text-center contact-card">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-purple/10 text-brand-purple mb-4">
                   <Clock className="h-6 w-6" />
                 </div>
@@ -270,13 +192,10 @@ const Contact = () => {
         </section>
 
         {/* Contact Form and Map */}
-        <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section className="py-16 bg-gray-50 dark:bg-gray-900 form-map-section">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div
-                ref={formRef}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8"
-              >
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 contact-form">
                 <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
 
                 {formSubmitted ? (
@@ -416,10 +335,7 @@ const Contact = () => {
                 )}
               </div>
 
-              <div
-                ref={mapRef}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 h-full"
-              >
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 h-full map-section">
                 <h2 className="text-2xl font-bold mb-6">Our Location</h2>
                 <div className="mb-6 aspect-video rounded-lg overflow-hidden">
                   <iframe
@@ -471,15 +387,15 @@ const Contact = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 bg-white dark:bg-gray-800">
+        <section className="py-16 bg-white dark:bg-gray-800 faq-section">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div ref={faqRef} className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-center">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold mb-8 text-center faq-item">
                 Frequently Asked Questions
               </h2>
 
               <div className="space-y-6">
-                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 faq-item">
                   <h3 className="text-xl font-semibold mb-3">
                     What is your typical project process?
                   </h3>
@@ -491,7 +407,7 @@ const Contact = () => {
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 faq-item">
                   <h3 className="text-xl font-semibold mb-3">
                     How long does it take to complete a project?
                   </h3>
@@ -503,7 +419,7 @@ const Contact = () => {
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 faq-item">
                   <h3 className="text-xl font-semibold mb-3">
                     Do you provide ongoing support after launch?
                   </h3>
@@ -515,7 +431,7 @@ const Contact = () => {
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 faq-item">
                   <h3 className="text-xl font-semibold mb-3">
                     What information do you need to provide a quote?
                   </h3>

@@ -70,33 +70,33 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center"
+      className="relative min-h-[80vh] sm:min-h-screen flex items-center pt-20 sm:pt-24 pb-12 overflow-hidden bg-cover bg-center"
       style={{
         backgroundImage: `url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80')`,
       }}
     >
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40 z-0"></div>
+      <div className="absolute inset-0 bg-black/50 sm:bg-black/40 z-0"></div>
 
       {/* Background Gradient Blobs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-purple/10 blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/3 -left-40 w-96 h-96 rounded-full bg-brand-blue/10 blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-brand-teal/10 blur-3xl animate-pulse delay-2000"></div>
+      <div className="absolute inset-0 overflow-hidden hidden sm:block">
+        <div className="absolute -top-20 sm:-top-40 -right-20 sm:-right-40 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-brand-purple/10 blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 sm:top-1/3 -left-20 sm:-left-40 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-brand-blue/10 blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-0 right-1/3 sm:right-1/4 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-brand-teal/10 blur-3xl animate-pulse delay-2000"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div className="text-center lg:text-left">
             <div>
-              <span className="inline-block py-1 px-3 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-medium mb-4">
+              <span className="inline-block py-1 px-3 rounded-full bg-brand-blue/10 text-brand-blue text-xs sm:text-sm font-medium mb-4">
                 Service-based IT Company
               </span>
             </div>
 
             <h1
               ref={textRef}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
             >
               Unlocking Business{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-purple">
@@ -106,7 +106,7 @@ export function HeroSection() {
 
             <div
               ref={subTextRef}
-              className="text-xl md:text-2xl text-gray-200 mb-8"
+              className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6 sm:mb-8"
             >
               <TypingAnimation
                 texts={[
@@ -117,25 +117,25 @@ export function HeroSection() {
                 ]}
                 className="font-medium text-brand-blue"
               />
-              <p className="mt-4">
+              <p className="mt-3 sm:mt-4 text-base sm:text-lg">
                 Powering your business with reliable solutions for growth and
                 innovation.
               </p>
-              <div className="flex items-center justify-center lg:justify-start mt-4 gap-2">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200">
-                  <Clock size={16} className="mr-1" /> 24/7 Availability
+              <div className="flex items-center justify-center lg:justify-start mt-3 sm:mt-4 gap-2">
+                <span className="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200">
+                  <Clock size={14} className="mr-1" /> 24/7 Availability
                 </span>
               </div>
             </div>
 
             <div
               ref={buttonsRef}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
             >
               <Button
                 asChild
                 size="lg"
-                className="rounded-full bg-brand-blue hover:bg-brand-purple transition-colors"
+                className="rounded-full bg-brand-blue hover:bg-brand-purple transition-colors text-sm sm:text-base"
               >
                 <Link to="/contact">
                   Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
@@ -145,14 +145,17 @@ export function HeroSection() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-full border-brand-blue text-brand-blue hover:bg-brand-blue/10"
+                className="rounded-full border-brand-blue text-brand-blue hover:bg-brand-blue/10 text-sm sm:text-base"
               >
                 <Link to="/portfolio">View Our Work</Link>
               </Button>
             </div>
           </div>
 
-          <div ref={imageRef} className="flex justify-center lg:justify-end">
+          <div
+            ref={imageRef}
+            className="hidden lg:flex justify-center lg:justify-end"
+          >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue via-brand-teal to-brand-purple opacity-20 blur-xl rounded-lg"></div>
             </div>
@@ -161,14 +164,14 @@ export function HeroSection() {
 
         <div
           ref={scrollButtonRef}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <button
             onClick={scrollToServices}
-            className="w-12 h-12 rounded-full flex items-center justify-center border border-gray-300 dark:border-gray-700 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md text-brand-blue hover:bg-brand-blue hover:text-white transition-all"
-            aria-label="Scroll down"
+            className="w-10 sm:w-12 h-10 sm:h-12 rounded-full flex items-center justify-center border border-gray-300 dark:border-gray-700 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md text-brand-blue hover:bg-brand-blue hover:text-white transition-all"
+            aria-label="Scroll to services section"
           >
-            <ArrowDown size={24} />
+            <ArrowDown size={20} className="sm:size-24" />
           </button>
         </div>
       </div>

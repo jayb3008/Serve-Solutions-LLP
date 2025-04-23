@@ -18,19 +18,19 @@ export function AboutPreviewSection() {
 
   const stats = [
     {
-      icon: <Trophy className="h-6 w-6 text-brand-blue" />,
+      icon: <Trophy className="h-5 sm:h-6 w-5 sm:w-6 text-brand-blue" />,
       value: 100,
       suffix: "+",
       label: "Projects Completed",
     },
     {
-      icon: <Users className="h-6 w-6 text-brand-teal" />,
+      icon: <Users className="h-5 sm:h-6 w-5 sm:w-6 text-brand-teal" />,
       value: 50,
       suffix: "+",
       label: "Happy Clients",
     },
     {
-      icon: <Calendar className="h-6 w-6 text-brand-purple" />,
+      icon: <Calendar className="h-5 sm:h-6 w-5 sm:w-6 text-brand-purple" />,
       value: 10,
       suffix: "+",
       label: "Years Experience",
@@ -46,7 +46,7 @@ export function AboutPreviewSection() {
   ];
 
   useEffect(() => {
-    // Text content animation (header, paragraphs)
+    // Text content animation (header, paragraphs, badge)
     gsap.fromTo(
       textRef.current.children,
       { opacity: 0, y: 50 },
@@ -76,7 +76,7 @@ export function AboutPreviewSection() {
         ease: "power3.out",
         scrollTrigger: {
           trigger: textRef.current,
-          start: "top 60%",
+          start: "top 70%",
           toggleActions: "play none none none",
         },
       }
@@ -93,7 +93,7 @@ export function AboutPreviewSection() {
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: textRef.current,
-          start: "top 50%",
+          start: "top 60%",
           toggleActions: "play none none none",
         },
       }
@@ -128,7 +128,7 @@ export function AboutPreviewSection() {
         ease: "power3.out",
         scrollTrigger: {
           trigger: imageRef.current,
-          start: "top 60%",
+          start: "top 70%",
           toggleActions: "play none none none",
         },
       }
@@ -140,30 +140,33 @@ export function AboutPreviewSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white dark:bg-gray-800">
+    <section
+      ref={sectionRef}
+      className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-800"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div className="order-2 lg:order-1">
             <div className="relative">
-              <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-3"></div>
+              <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-3 hidden sm:block"></div>
               <img
                 ref={imageRef}
                 src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=1470&auto=format&fit=crop"
                 alt="Employee collaborating at Serve Solutions"
-                className="rounded-xl shadow-lg w-full h-auto"
+                className="rounded-xl shadow-lg w-full h-auto max-h-[400px] sm:max-h-[500px] object-cover"
               />
-              <div className="grid grid-cols-3 gap-4 mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8">
                 {stats.map((stat, index) => (
                   <div
                     key={index}
                     ref={(el) => (statsRef.current[index] = el)}
-                    className="bg-white dark:bg-gray-700 rounded-lg shadow p-4 text-center"
+                    className="bg-white dark:bg-gray-700 rounded-lg shadow p-3 sm:p-4 text-center"
                   >
                     <div className="flex justify-center mb-2">{stat.icon}</div>
-                    <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
                       <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-300">
+                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                       {stat.label}
                     </div>
                   </div>
@@ -173,38 +176,44 @@ export function AboutPreviewSection() {
           </div>
 
           <div ref={textRef} className="order-1 lg:order-2">
-            <span className="bg-brand-purple/10 text-brand-purple text-sm font-medium py-1 px-3 rounded-full">
+            <span className="inline-block bg-brand-purple/10 text-brand-purple text-xs sm:text-sm font-medium py-1 px-3 rounded-full">
               About Us
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-4 mb-6">
               Delivering Digital Excellence Since 2014
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
+            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-4 sm:mb-6">
               WebFlow Architects is a leading IT services company specialized in
               creating custom web and mobile applications that transform
               businesses.
             </p>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-6 sm:mb-8">
               We combine technical expertise with strategic thinking to deliver
               solutions that not only meet your current needs but are built to
               evolve with your business.
             </p>
 
-            <div className="space-y-3 mb-8">
+            <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
               {keyPoints.map((point, index) => (
                 <div
                   key={index}
                   ref={(el) => (keyPointsRef.current[index] = el)}
                   className="flex items-start"
                 >
-                  <CheckCircle2 className="h-5 w-5 text-brand-blue mr-2 mt-1 flex-shrink-0" />
-                  <p className="text-gray-700 dark:text-gray-200">{point}</p>
+                  <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand-blue mr-2 mt-0.5 sm:mt-1 flex-shrink-0" />
+                  <p className="text-gray-700 dark:text-gray-200 text-sm sm:text-base">
+                    {point}
+                  </p>
                 </div>
               ))}
             </div>
 
             <div ref={buttonRef}>
-              <Button asChild className="rounded-full">
+              <Button
+                asChild
+                className="rounded-full text-sm sm:text-base"
+                size="lg"
+              >
                 <Link to="/about">Learn More About Us</Link>
               </Button>
             </div>
