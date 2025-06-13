@@ -162,7 +162,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div
+        {/* <div
           ref={scrollButtonRef}
           className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2"
         >
@@ -173,7 +173,7 @@ export function HeroSection() {
           >
             <ArrowDown size={20} className="sm:size-24" />
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
