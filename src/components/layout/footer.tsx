@@ -67,7 +67,7 @@ export function Footer() {
           <div className="footer-section">
             <Link to="/" className="inline-block mb-4">
               <span className="text-xl sm:text-2xl font-bold gradient-text">
-                Serve
+                Sarve
                 <span className="text-brand-darkBlue dark:text-white">
                   Solutions
                 </span>
@@ -181,7 +181,7 @@ export function Footer() {
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 footer-bottom">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
-              © {currentYear} Serve Solutions. All rights reserved.
+              © {currentYear} Sarve Solutions. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
               {[

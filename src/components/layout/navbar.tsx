@@ -81,7 +81,7 @@ export function Navbar() {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <span className="text-xl sm:text-2xl font-bold gradient-text whitespace-nowrap">
-                Serve<span className="text-brand-darkBlue">Solutions</span>
+                Sarve<span className="text-brand-darkBlue">Solutions</span>
               </span>
             </Link>
           </div>

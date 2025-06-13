@@ -121,7 +121,7 @@ const About = () => {
       year: "2014",
       title: "Founded",
       description:
-        "Serve Solutions was established with a mission to create custom digital solutions.",
+        "Sarve Solutions was established with a mission to create custom digital solutions.",
     },
     {
       year: "2016",
@@ -285,7 +285,7 @@ const About = () => {
                 We Build Digital Solutions That Drive Growth
               </h1>
               <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300">
-                Serve Solutions is a team of dedicated professionals passionate
+                Sarve Solutions is a team of dedicated professionals passionate
                 about creating custom web and mobile applications that help
                 businesses thrive in the digital landscape.
               </p>
@@ -304,7 +304,7 @@ const About = () => {
                 <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-3 hidden sm:block"></div>
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop"
-                  alt="Our team collaborating at Serve Solutions"
+                  alt="Our team collaborating at Sarve Solutions"
                   className="rounded-xl shadow-lg w-full h-auto max-h-[400px] sm:max-h-[500px] object-cover"
                   loading="lazy"
                 />
@@ -315,7 +315,7 @@ const About = () => {
                   Who We Are
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-                  Founded in 2014, Serve Solutions has grown from a small group
+                  Founded in 2014, Sarve Solutions has grown from a small group
                   of passionate developers to a full-service digital agency with
                   expertise across web development, mobile applications, and
                   custom software solutions.
@@ -451,7 +451,7 @@ const About = () => {
                     <div className="relative overflow-hidden">
                       <img
                         src={member.image}
-                        alt={`${member.name}, ${member.position} at Serve Solutions`}
+                        alt={`${member.name}, ${member.position} at Sarve Solutions`}
                         className="w-full h-56 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />

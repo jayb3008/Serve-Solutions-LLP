@@ -24,7 +24,7 @@ export function TestimonialsSection() {
   const testimonials: Testimonial[] = [
     {
       content:
-        "Serve Solutions helped us develop a custom CRM that perfectly fits our business processes. Their team was extremely professional and delivered beyond our expectations.",
+        "Sarve Solutions helped us develop a custom CRM that perfectly fits our business processes. Their team was extremely professional and delivered beyond our expectations.",
       name: "Sarah Johnson",
       position: "CEO",
       company: "TechVentures Inc",
@@ -33,7 +33,7 @@ export function TestimonialsSection() {
     },
     {
       content:
-        "We've worked with several development teams before, but none matched the technical expertise and attention to detail that Serve Solutions provided. Our e-commerce platform has never performed better.",
+        "We've worked with several development teams before, but none matched the technical expertise and attention to detail that Sarve Solutions provided. Our e-commerce platform has never performed better.",
       name: "Michael Chen",
       position: "CTO",
       company: "RetailNova",

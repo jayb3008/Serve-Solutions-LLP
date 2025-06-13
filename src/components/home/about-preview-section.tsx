@@ -152,7 +152,7 @@ export function AboutPreviewSection() {
               <img
                 ref={imageRef}
                 src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=1470&auto=format&fit=crop"
-                alt="Employee collaborating at Serve Solutions"
+                alt="Employee collaborating at Sarve Solutions"
                 className="rounded-xl shadow-lg w-full h-auto max-h-[400px] sm:max-h-[500px] object-cover"
               />
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8">
