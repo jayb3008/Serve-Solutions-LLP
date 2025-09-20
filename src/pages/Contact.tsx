@@ -52,7 +52,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Email</h3>
-                    <p className="text-gray-600">contact@sarvesolutions.com</p>
+                    <p className="text-gray-600">contact@sarvesolutions.in</p>
                     <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
                   </div>
                 </div>
@@ -63,7 +63,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600">+91-XXXXXXXXXX</p>
+                    <p className="text-gray-600">+91-9904055986</p>
                     <p className="text-sm text-gray-500">Mon-Fri 9:00 AM - 6:00 PM IST</p>
                   </div>
                 </div>
@@ -74,7 +74,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Office</h3>
-                    <p className="text-gray-600">Your Office Location</p>
+                    <p className="text-gray-600">Anand, Gujarat</p>
                     <p className="text-sm text-gray-500">Visit us by appointment</p>
                   </div>
                 </div>
