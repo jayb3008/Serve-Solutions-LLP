@@ -1,484 +1,206 @@
-import { useRef, useEffect } from "react";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { AnimatedCounter } from "@/components/ui/animated-counter";
-import {
-  Users,
-  Award,
-  Target,
-  CheckCircle2,
-  Briefcase,
-  ThumbsUp,
-  HeartHandshake,
-  Globe,
-} from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import React from 'react';
+import { Target, Eye, Heart, Calendar, Users, Code2, Palette, Search } from 'lucide-react';
 
 const About = () => {
-  const heroRef = useRef(null);
-  const overviewRef = useRef(null);
-  const statsRef = useRef([]);
-  const missionVisionRef = useRef(null);
-  const valuesRef = useRef([]);
-  const teamRef = useRef([]);
-  const timelineRef = useRef([]);
-
-  const stats = [
-    {
-      icon: <Briefcase className="h-5 sm:h-6 w-5 sm:w-6 text-brand-blue" />,
-      value: 100,
-      suffix: "+",
-      label: "Projects Completed",
-    },
-    {
-      icon: <Users className="h-5 sm:h-6 w-5 sm:w-6 text-brand-teal" />,
-      value: 50,
-      suffix: "+",
-      label: "Happy Clients",
-    },
-    {
-      icon: <Globe className="h-5 sm:h-6 w-5 sm:w-6 text-brand-purple" />,
-      value: 15,
-      suffix: "+",
-      label: "Countries Served",
-    },
-    {
-      icon: <Award className="h-5 sm:h-6 w-5 sm:w-6 text-brand-blue" />,
-      value: 10,
-      suffix: "+",
-      label: "Years Experience",
-    },
-  ];
-
-  const values = [
-    {
-      icon: (
-        <Target className="h-10 sm:h-12 w-10 sm:w-12 text-brand-blue mb-3 sm:mb-4" />
-      ),
-      title: "Innovation",
-      description:
-        "We push boundaries to create cutting-edge solutions that give our clients a competitive edge.",
-    },
-    {
-      icon: (
-        <CheckCircle2 className="h-10 sm:h-12 w-10 sm:w-12 text-brand-teal mb-3 sm:mb-4" />
-      ),
-      title: "Quality",
-      description:
-        "We maintain the highest standards in our code, designs, and client interactions.",
-    },
-    {
-      icon: (
-        <HeartHandshake className="h-10 sm:h-12 w-10 sm:w-12 text-brand-purple mb-3 sm:mb-4" />
-      ),
-      title: "Partnership",
-      description:
-        "We view ourselves as an extension of your team, committed to your long-term success.",
-    },
-    {
-      icon: (
-        <ThumbsUp className="h-10 sm:h-12 w-10 sm:w-12 text-brand-blue mb-3 sm:mb-4" />
-      ),
-      title: "Transparency",
-      description:
-        "We believe in open communication and keeping you informed at every stage.",
-    },
-  ];
-
-  const team = [
-    {
-      name: "Alex Johnson",
-      position: "CEO & Founder",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      description:
-        "15+ years of experience in software development and team leadership.",
-    },
-    {
-      name: "Sophia Chen",
-      position: "CTO",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
-      description: "Expert in cloud architecture and emerging technologies.",
-    },
-    {
-      name: "Marcus Williams",
-      position: "Lead Developer",
-      image: "https://randomuser.me/api/portraits/men/55.jpg",
-      description: "Full-stack developer specializing in React and Node.js.",
-    },
-    {
-      name: "Olivia Rodriguez",
-      position: "UX/UI Designer",
-      image: "https://randomuser.me/api/portraits/women/68.jpg",
-      description: "Creates intuitive and beautiful user experiences.",
-    },
-  ];
-
-  const timeline = [
-    {
-      year: "2014",
-      title: "Founded",
-      description:
-        "Sarve Solutions was established with a mission to create custom digital solutions.",
-    },
-    {
-      year: "2016",
-      title: "Team Expansion",
-      description:
-        "Grew to a team of 10 specialists and opened our first dedicated office.",
-    },
-    {
-      year: "2018",
-      title: "International Projects",
-      description:
-        "Started working with clients across Europe and North America.",
-    },
-    {
-      year: "2020",
-      title: "Technology Innovation",
-      description:
-        "Launched our proprietary development framework for faster project delivery.",
-    },
-    {
-      year: "2022",
-      title: "Major Milestones",
-      description:
-        "Completed our 100th project and expanded to a team of 25 experts.",
-    },
-    {
-      year: "2024",
-      title: "New Horizons",
-      description:
-        "Continuing to innovate and expand our service offerings to meet evolving client needs.",
-    },
-  ];
-
-  useEffect(() => {
-    // Hero Section Animation
-    gsap.fromTo(
-      heroRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Company Overview Animation
-    gsap.fromTo(
-      overviewRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: overviewRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Stats Animation
-    gsap.fromTo(
-      statsRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: overviewRef.current,
-          start: "top 70%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Mission & Vision Animation
-    gsap.fromTo(
-      missionVisionRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: missionVisionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Values Animation
-    gsap.fromTo(
-      valuesRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: valuesRef.current[0].parentElement,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Team Animation
-    gsap.fromTo(
-      teamRef.current,
-      { opacity: 0, scale: 0.9 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: teamRef.current[0].parentElement,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="pt-[4.5rem]">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold text-white mb-6">About SarveSolutions</h1>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            Empowering businesses with innovative digital solutions since 2021
+          </p>
+        </div>
+      </section>
 
-      <main>
-        {/* Hero Section */}
-        <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 bg-gradient-to-b from-brand-lightBlue to-white dark:from-gray-900 dark:to-gray-800">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div ref={heroRef} className="max-w-3xl mx-auto text-center">
-              <span className="inline-block bg-brand-purple/10 text-brand-purple text-xs sm:text-sm font-medium py-1 px-3 rounded-full">
-                About Us
-              </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-4 sm:mb-6">
-                We Build Digital Solutions That Drive Growth
-              </h1>
-              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300">
-                Sarve Solutions is a team of dedicated professionals passionate
-                about creating custom web and mobile applications that help
-                businesses thrive in the digital landscape.
+      {/* Who We Are */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Who We Are</h2>
+              <p className="text-lg text-gray-600 mb-6">
+                SarveSolutions is a full-service digital solutions company committed to helping businesses thrive in the digital era. From cutting-edge web apps to user-friendly mobile solutions, we empower brands with technology-driven growth.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Company Overview */}
-        <section className="py-12 sm:py-16 lg:py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-              ref={overviewRef}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center"
-            >
-              <div className="relative order-2 lg:order-1">
-                <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-3 hidden sm:block"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop"
-                  alt="Our team collaborating at Sarve Solutions"
-                  className="rounded-xl shadow-lg w-full h-auto max-h-[400px] sm:max-h-[500px] object-cover"
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="order-1 lg:order-2">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-                  Who We Are
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-                  Founded in 2014, Sarve Solutions has grown from a small group
-                  of passionate developers to a full-service digital agency with
-                  expertise across web development, mobile applications, and
-                  custom software solutions.
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-                  We combine technical excellence with strategic thinking to
-                  create digital experiences that not only look beautiful but
-                  also deliver measurable business results.
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-                  Our team of developers, designers, and strategists work
-                  collaboratively to solve complex business challenges through
-                  innovative technology solutions.
-                </p>
-              </div>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-10 sm:mt-12 lg:mt-16">
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  ref={(el) => (statsRef.current[index] = el)}
-                  className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 sm:p-6 text-center"
-                >
-                  <div className="flex justify-center mb-2 sm:mb-3">
-                    {stat.icon}
-                  </div>
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-1 sm:mb-2">
-                    <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
-                    {stat.label}
-                  </div>
+              <p className="text-lg text-gray-600 mb-8">
+                Our team of experienced developers, designers, and digital strategists work together to deliver solutions that not only meet your current needs but also scale with your future ambitions.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+                  <div className="text-gray-600">Projects Completed</div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Mission & Vision */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-gray-900">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 lg:mb-16">
-              <div ref={missionVisionRef}>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-                  Our Mission & Vision
-                </h2>
-                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300">
-                  Guided by a clear purpose and forward-thinking approach.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-brand-blue">
-                  Our Mission
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  To empower businesses with custom technology solutions that
-                  solve real-world problems, enhance user experiences, and drive
-                  measurable growth and success.
-                </p>
-              </div>
-
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-brand-teal">
-                  Our Vision
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  To be the leading digital transformation partner for
-                  businesses worldwide, known for our technical excellence,
-                  innovative approach, and lasting client relationships.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Values */}
-        <section className="py-12 sm:py-16 lg:py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-                Our Core Values
-              </h2>
-              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300">
-                The principles that guide our work and interactions every day.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {values.map((value, index) => (
-                <div
-                  key={index}
-                  ref={(el) => (valuesRef.current[index] = el)}
-                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 sm:p-6 text-center"
-                >
-                  <div className="flex justify-center">{value.icon}</div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                    {value.description}
-                  </p>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">30+</div>
+                  <div className="text-gray-600">Happy Clients</div>
                 </div>
-              ))}
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-100 to-purple-100 p-8 rounded-2xl">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white p-6 rounded-xl text-center">
+                  <Code2 className="h-8 w-8 text-blue-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-gray-900">Development</h3>
+                </div>
+                <div className="bg-white p-6 rounded-xl text-center">
+                  <Palette className="h-8 w-8 text-purple-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-gray-900">Design</h3>
+                </div>
+                <div className="bg-white p-6 rounded-xl text-center">
+                  <Search className="h-8 w-8 text-green-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-gray-900">SEO</h3>
+                </div>
+                <div className="bg-white p-6 rounded-xl text-center">
+                  <Users className="h-8 w-8 text-orange-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-gray-900">Consulting</h3>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Team */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-gray-900">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-                Meet Our Team
-              </h2>
-              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300">
-                The talented individuals behind our successful projects.
+      {/* Mission, Vision, Values */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
+              <div className="inline-flex p-4 rounded-full bg-blue-100 mb-6">
+                <Target className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Mission</h3>
+              <p className="text-gray-600">
+                Deliver world-class digital solutions that combine innovation, design, and performance to help businesses achieve their goals.
               </p>
             </div>
+            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
+              <div className="inline-flex p-4 rounded-full bg-purple-100 mb-6">
+                <Eye className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Vision</h3>
+              <p className="text-gray-600">
+                To become a trusted global partner for digital transformation, empowering businesses worldwide with cutting-edge technology.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
+              <div className="inline-flex p-4 rounded-full bg-red-100 mb-6">
+                <Heart className="h-8 w-8 text-red-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Values</h3>
+              <p className="text-gray-600">
+                Integrity, Innovation, and Customer Success guide everything we do, ensuring exceptional results and lasting partnerships.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {team.map((member, index) => (
+      {/* Our Journey */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From a small startup to a trusted digital partner
+            </p>
+          </div>
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
+            <div className="space-y-12">
+              {[
+                {
+                  year: "2021",
+                  title: "Founded",
+                  description: "Founded with a focus on web development and digital solutions."
+                },
+                {
+                  year: "2022",
+                  title: "Expansion",
+                  description: "Expanded into mobile app and CMS solutions, serving more clients."
+                },
+                {
+                  year: "2023",
+                  title: "Growth",
+                  description: "Established design & SEO services, building a comprehensive service portfolio."
+                },
+                {
+                  year: "Today",
+                  title: "Global Reach",
+                  description: "Serving clients worldwide with complete digital solutions and innovation."
+                }
+              ].map((milestone, index) => (
                 <div
                   key={index}
-                  ref={(el) => (teamRef.current[index] = el)}
-                  className="group"
+                  className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
+                    index % 2 === 0 ? '' : 'md:text-right'
+                  }`}
                 >
-                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-transform duration-300 group-hover:-translate-y-2">
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={member.image}
-                        alt={`${member.name}, ${member.position} at Sarve Solutions`}
-                        className="w-full h-56 sm:h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                        <div className="p-4 sm:p-6">
-                          <p className="text-white text-sm sm:text-base">
-                            {member.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="p-4 sm:p-6">
-                      <h3 className="text-lg sm:text-xl font-bold mb-1">
-                        {member.name}
-                      </h3>
-                      <p className="text-brand-blue dark:text-brand-teal text-sm sm:text-base">
-                        {member.position}
-                      </p>
+                  <div className={index % 2 === 0 ? 'md:order-1' : 'md:order-2'}>
+                    <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                      <div className="text-blue-600 font-bold text-lg mb-2">{milestone.year}</div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">{milestone.title}</h3>
+                      <p className="text-gray-600">{milestone.description}</p>
                     </div>
                   </div>
+                  <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full ${
+                    index % 2 === 0 ? 'md:left-1/2' : 'md:left-1/2'
+                  }`}></div>
                 </div>
               ))}
             </div>
           </div>
-        </section>
-      </main>
-      <Footer />
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Meet the talented professionals behind SarveSolutions
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                name: "CEO/Founder",
+                role: "Chief Executive Officer",
+                description: "Visionary leader driving innovation and growth",
+                color: "blue"
+              },
+              {
+                name: "Project Manager",
+                role: "Project Management",
+                description: "Ensuring timely delivery and quality execution",
+                color: "purple"
+              },
+              {
+                name: "Lead Developer",
+                role: "Development Team",
+                description: "Building robust and scalable applications",
+                color: "green"
+              },
+              {
+                name: "Design Lead",
+                role: "UI/UX & SEO",
+                description: "Creating beautiful experiences and driving visibility",
+                color: "orange"
+              }
+            ].map((member, index) => (
+              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                <div className={`w-20 h-20 bg-${member.color}-100 rounded-full mx-auto mb-6 flex items-center justify-center`}>
+                  <Users className={`h-10 w-10 text-${member.color}-600`} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                <p className={`text-${member.color}-600 font-semibold mb-4`}>{member.role}</p>
+                <p className="text-gray-600">{member.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

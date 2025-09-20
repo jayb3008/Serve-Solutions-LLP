@@ -1,658 +1,209 @@
-import { useRef, useEffect } from "react";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import {
-  Code,
-  Smartphone,
-  Globe,
-  Server,
-  Layers,
-  Database,
-  Rocket,
-  Search,
-  LineChart,
-  ShieldCheck,
-  Clock,
-  Headphones,
-  CheckCircle2,
-} from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-interface ServiceProps {
-  id: string;
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  features: string[];
-  technologies: string[];
-  imageSrc: string;
-  reverseLayout?: boolean;
-}
-
-const ServiceSection = ({
-  id,
-  icon,
-  title,
-  description,
-  features,
-  technologies,
-  imageSrc,
-  reverseLayout = false,
-}: ServiceProps) => {
-  const sectionRef = useRef(null);
-  const imageRef = useRef<HTMLImageElement>(null);
-  const backgroundRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    // Scroll-Triggered Image Animation
-    gsap.fromTo(
-      imageRef.current,
-      { opacity: 0, scale: 0.9 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Scroll-Triggered Content Animation
-    gsap.fromTo(
-      contentRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Background Rotation Hover Animation
-    const image = imageRef.current;
-    const background = backgroundRef.current;
-    if (image && background) {
-      const onMouseEnter = () => {
-        gsap.to(background, {
-          rotation: 6,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      };
-      const onMouseLeave = () => {
-        gsap.to(background, {
-          rotation: 2,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      };
-
-      image.addEventListener("mouseenter", onMouseEnter);
-      image.addEventListener("mouseleave", onMouseLeave);
-
-      return () => {
-        image.removeEventListener("mouseenter", onMouseEnter);
-        image.removeEventListener("mouseleave", onMouseLeave);
-      };
-    }
-  }, []);
-
-  return (
-    <section
-      ref={sectionRef}
-      id={id}
-      className="py-20 border-b border-gray-200 dark:border-gray-800"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-            reverseLayout ? "lg:flex-row-reverse" : ""
-          }`}
-        >
-          <div
-            className={`order-2 ${reverseLayout ? "lg:order-1" : "lg:order-2"}`}
-          >
-            <div className="relative">
-              <div
-                ref={backgroundRef}
-                className="absolute inset-0 -z-10 bg-gradient-to-tr from-brand-blue/10 via-brand-teal/10 to-brand-purple/10 rounded-xl transform rotate-2"
-              ></div>
-              <img
-                ref={imageRef}
-                src={imageSrc}
-                alt={title}
-                className="rounded-xl shadow-lg w-full h-auto"
-              />
-            </div>
-          </div>
-
-          <div
-            ref={contentRef}
-            className={`order-1 ${reverseLayout ? "lg:order-2" : "lg:order-1"}`}
-          >
-            <div className="flex items-center mb-4">
-              <div className="bg-brand-lightBlue dark:bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center mr-4 text-brand-blue dark:text-brand-teal">
-                {icon}
-              </div>
-              <h2 className="text-3xl font-bold">{title}</h2>
-            </div>
-
-            <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg">
-              {description}
-            </p>
-
-            <h3 className="text-xl font-semibold mb-4">Key Features</h3>
-            <ul className="space-y-3 mb-6">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <CheckCircle2 className="h-5 w-5 text-brand-blue mr-2 mt-1 flex-shrink-0" />
-                  <p className="text-gray-700 dark:text-gray-200">{feature}</p>
-                </li>
-              ))}
-            </ul>
-
-            <h3 className="text-xl font-semibold mb-4">Technologies We Use</h3>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-sm text-gray-700 dark:text-gray-300"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <Button asChild>
-              <Link to="/contact">Discuss Your Project</Link>
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+import React from 'react';
+import { Code2, Smartphone, Globe, Palette, Search, ArrowRight, CheckCircle } from 'lucide-react';
 
 const Services = () => {
-  const heroRef = useRef(null);
-  const highlightRef = useRef([]);
-  const processRef = useRef(null);
-  const processStepsRef = useRef([]);
-  const ctaRef = useRef(null);
-
   const services = [
     {
-      id: "web-development",
-      icon: <Code size={24} />,
+      icon: Code2,
       title: "Web Development",
-      description:
-        "Custom websites and web applications tailored to your specific business needs. From responsive designs to complex web platforms, we create solutions that engage users and drive conversions.",
+      description: "We create responsive, secure, and scalable websites using modern frameworks like React, Next.js, and Node.js. From corporate sites to eCommerce platforms, we deliver digital experiences that convert.",
       features: [
-        "Responsive design that works across all devices",
-        "Custom CMS integration for easy content management",
-        "E-commerce functionality with secure payment processing",
-        "Performance optimization for fast loading speeds",
-        "Accessibility compliance and SEO best practices",
+        "Responsive Design",
+        "Modern Frameworks (React, Next.js)",
+        "SEO Optimized",
+        "Fast Performance",
+        "Secure Architecture",
+        "Cross-browser Compatibility"
       ],
-      technologies: [
-        "React",
-        "Vue.js",
-        "Angular",
-        "Node.js",
-        "PHP",
-        "WordPress",
-        "Shopify",
-        "Next.js",
-      ],
-      imageSrc:
-        "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1564&auto=format&fit=crop",
+      color: "blue",
+      technologies: ["React", "Next.js", "Node.js", "TypeScript", "Tailwind CSS"]
     },
     {
-      id: "mobile-apps",
-      icon: <Smartphone size={24} />,
+      icon: Smartphone,
       title: "Mobile App Development",
-      description:
-        "Native and cross-platform mobile applications that provide seamless user experiences across iOS and Android devices. We build apps that are both beautiful and functional.",
+      description: "Cross-platform mobile applications for iOS & Android built with React Native and Flutter. Intuitive designs, seamless performance, and scalable architecture.",
       features: [
-        "Native iOS and Android app development",
-        "Cross-platform solutions for wider reach",
-        "Offline functionality and data synchronization",
-        "Push notifications and user engagement features",
-        "Integration with device features (camera, GPS, etc.)",
+        "Cross-platform Development",
+        "Native Performance",
+        "Intuitive UI/UX",
+        "Push Notifications",
+        "Offline Functionality",
+        "App Store Optimization"
       ],
-      technologies: [
-        "React Native",
-        "Flutter",
-        "Swift",
-        "Kotlin",
-        "Firebase",
-        "Redux",
-        "GraphQL",
-      ],
-      imageSrc:
-        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1470&auto=format&fit=crop",
-      reverseLayout: true,
+      color: "purple",
+      technologies: ["React Native", "Flutter", "iOS", "Android", "Firebase"]
     },
     {
-      id: "cms-development",
-      icon: <Globe size={24} />,
+      icon: Globe,
       title: "CMS Development",
-      description:
-        "Custom content management systems that give you complete control over your digital content. We build solutions that make content creation and management intuitive and efficient.",
+      description: "Custom CMS, WordPress, and Shopify solutions tailored to your business needs. Easy-to-manage, flexible, and built for growth.",
       features: [
-        "Custom admin dashboards tailored to your workflow",
-        "User role management and access controls",
-        "Content versioning and scheduling capabilities",
-        "Media library with advanced asset management",
-        "Multilingual support for global businesses",
+        "Custom CMS Solutions",
+        "WordPress Development",
+        "Shopify Integration",
+        "Content Management",
+        "E-commerce Solutions",
+        "Third-party Integrations"
       ],
-      technologies: [
-        "WordPress",
-        "Strapi",
-        "Sanity",
-        "Contentful",
-        "Drupal",
-        "Custom CMS",
-        "Headless CMS",
-      ],
-      imageSrc:
-        "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=1470&auto=format&fit=crop",
+      color: "green",
+      technologies: ["WordPress", "Shopify", "Custom CMS", "WooCommerce", "Magento"]
     },
     {
-      id: "api-development",
-      icon: <Server size={24} />,
-      title: "API Development",
-      description:
-        "Robust and scalable API services that enable seamless communication between different software systems. We create well-documented APIs that help integrate your existing systems.",
-      features: [
-        "RESTful and GraphQL API design and implementation",
-        "Microservices architecture for scalability",
-        "API documentation and developer resources",
-        "Authentication and security best practices",
-        "Performance optimization and caching strategies",
-      ],
-      technologies: [
-        "Node.js",
-        "Express",
-        "Django",
-        "Laravel",
-        "GraphQL",
-        "REST",
-        "Swagger",
-        "JSON Web Tokens",
-      ],
-      imageSrc:
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1470&auto=format&fit=crop",
-      reverseLayout: true,
-    },
-    {
-      id: "ui-ux-design",
-      icon: <Layers size={24} />,
+      icon: Palette,
       title: "UI/UX Design",
-      description:
-        "User-centered design that creates intuitive, engaging, and accessible digital experiences. We focus on understanding your users' needs and translating them into elegant design solutions.",
+      description: "We design engaging digital experiences. From wireframes to prototypes, we craft intuitive interfaces that keep users hooked.",
       features: [
-        "User research and persona development",
-        "Wireframing and prototyping",
-        "Visual design and branding consistency",
-        "Usability testing and iteration",
-        "Design systems for scalable products",
+        "User Research",
+        "Wireframing & Prototyping",
+        "Visual Design",
+        "User Testing",
+        "Responsive Design",
+        "Design Systems"
       ],
-      technologies: [
-        "Figma",
-        "Adobe XD",
-        "Sketch",
-        "InVision",
-        "Principle",
-        "Framer",
-        "Usability Testing",
-      ],
-      imageSrc:
-        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1470&auto=format&fit=crop",
+      color: "pink",
+      technologies: ["Figma", "Adobe Creative Suite", "Sketch", "InVision", "Principle"]
     },
     {
-      id: "devops-cloud",
-      icon: <Database size={24} />,
-      title: "DevOps & Cloud Services",
-      description:
-        "Streamlined deployment, monitoring, and maintenance of your applications in the cloud. We ensure your systems are reliable, secure, and optimized for performance.",
+      icon: Search,
+      title: "SEO Services",
+      description: "End-to-end SEO services: keyword research, on-page optimization, technical SEO, and link building strategies to improve ranking and drive traffic.",
       features: [
-        "Cloud infrastructure setup and optimization",
-        "Continuous integration and deployment pipelines",
-        "Monitoring and alerting systems",
-        "Security audits and implementation",
-        "Backup and disaster recovery solutions",
+        "Keyword Research",
+        "On-page Optimization",
+        "Technical SEO",
+        "Link Building",
+        "Content Strategy",
+        "Performance Tracking"
       ],
-      technologies: [
-        "AWS",
-        "Google Cloud",
-        "Microsoft Azure",
-        "Docker",
-        "Kubernetes",
-        "Jenkins",
-        "Terraform",
-        "GitHub Actions",
-      ],
-      imageSrc:
-        "https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=1528&auto=format&fit=crop",
-      reverseLayout: true,
-    },
+      color: "orange",
+      technologies: ["Google Analytics", "Search Console", "SEMrush", "Ahrefs", "Screaming Frog"]
+    }
   ];
-
-  const processSteps = [
-    {
-      icon: <Clock size={24} />,
-      title: "Discovery & Planning",
-      description:
-        "We start by understanding your business objectives, target audience, and project requirements to create a detailed roadmap.",
-    },
-    {
-      icon: <Layers size={24} />,
-      title: "Design & Prototyping",
-      description:
-        "Our design team creates wireframes and interactive prototypes that visualize the user experience before development begins.",
-    },
-    {
-      icon: <Code size={24} />,
-      title: "Development",
-      description:
-        "Our engineers build your solution using the latest technologies and best practices for clean, maintainable code.",
-    },
-    {
-      icon: <Search size={24} />,
-      title: "Testing & QA",
-      description:
-        "Rigorous testing ensures your product is bug-free, secure, and provides an excellent user experience across all devices.",
-    },
-    {
-      icon: <Rocket size={24} />,
-      title: "Deployment",
-      description:
-        "We carefully launch your solution and ensure a smooth transition to the live environment.",
-    },
-    {
-      icon: <Headphones size={24} />,
-      title: "Support & Maintenance",
-      description:
-        "Our relationship continues with ongoing support, updates, and improvements to keep your solution running optimally.",
-    },
-  ];
-
-  useEffect(() => {
-    // Hero Section Animation
-    gsap.fromTo(
-      heroRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Services Highlight Animation
-    gsap.fromTo(
-      highlightRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: highlightRef.current[0]?.parentElement,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Our Process Animation
-    gsap.fromTo(
-      processRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: processRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // Process Steps Animation
-    gsap.fromTo(
-      processStepsRef.current,
-      { opacity: 0, x: (index) => (index % 2 === 0 ? -50 : 50) },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.6,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: processStepsRef.current[0]?.parentElement,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    // CTA Section Animation
-    gsap.fromTo(
-      ctaRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="pt-[4.5rem]">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold text-white mb-6">Our Services</h1>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            Comprehensive digital solutions designed to accelerate your business growth and digital transformation
+          </p>
+        </div>
+      </section>
 
-      <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 bg-gradient-to-b from-brand-lightBlue to-white dark:from-gray-900 dark:to-gray-800">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div ref={heroRef} className="max-w-3xl mx-auto text-center">
-              <span className="bg-brand-blue/10 text-brand-blue text-sm font-medium py-1 px-3 rounded-full">
-                Our Services
-              </span>
-              <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-                Comprehensive Digital Solutions
-              </h1>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                From concept to deployment, we provide end-to-end services to
-                bring your digital vision to life with expertise and precision.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Services Highlight */}
-        <section className="py-16 bg-white dark:bg-gray-800">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.slice(0, 3).map((service, index) => (
-                <div
-                  key={index}
-                  ref={(el) => (highlightRef.current[index] = el)}
-                  className="bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
-                >
-                  <a href={`#${service.id}`} className="block p-6">
-                    <div className="bg-brand-lightBlue dark:bg-gray-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-brand-blue dark:text-brand-teal">
-                      {service.icon}
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 line-clamp-3">
-                      {service.description}
-                    </p>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Detailed Services */}
-        {services.map((service, index) => (
-          <ServiceSection
-            key={index}
-            id={service.id}
-            icon={service.icon}
-            title={service.title}
-            description={service.description}
-            features={service.features}
-            technologies={service.technologies}
-            imageSrc={service.imageSrc}
-            reverseLayout={service.reverseLayout}
-          />
-        ))}
-
-        {/* Our Process */}
-        <section className="py-20 bg-gray-50 dark:bg-gray-900">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-              ref={processRef}
-              className="max-w-3xl mx-auto text-center mb-16"
-            >
-              <span className="bg-brand-teal/10 text-brand-teal text-sm font-medium py-1 px-3 rounded-full">
-                Our Process
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
-                How We Work
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                Our proven development approach ensures transparent
-                communication and successful project delivery.
-              </p>
-            </div>
-
-            <div className="relative">
-              {/* Process line */}
-              <div className="hidden md:block absolute left-1/2 top-24 bottom-24 w-1 bg-gray-200 dark:bg-gray-700 transform -translate-x-1/2"></div>
-
-              <div className="space-y-12 md:space-y-0 grid md:grid-cols-2 gap-x-12 gap-y-16">
-                {processSteps.map((step, index) => (
-                  <div
-                    key={index}
-                    ref={(el) => (processStepsRef.current[index] = el)}
-                    className={`relative ${
-                      index % 2 === 0 ? "md:text-right" : ""
-                    }`}
-                  >
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 relative">
-                      <div
-                        className={`hidden md:flex absolute top-12 ${
-                          index % 2 === 0
-                            ? "right-0 transform translate-x-1/2"
-                            : "left-0 transform -translate-x-1/2"
-                        } items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-gray-800 border-4 border-brand-blue dark:border-brand-teal z-10`}
-                      >
-                        <span className="text-xl font-bold">{index + 1}</span>
-                      </div>
-
-                      <div className="md:hidden mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-gray-700 border-2 border-brand-blue dark:border-brand-teal text-brand-blue dark:text-brand-teal">
-                        <span className="text-lg font-bold">{index + 1}</span>
-                      </div>
-
-                      <div className="flex items-center mb-4 md:mb-6">
-                        <div
-                          className={`bg-brand-lightBlue dark:bg-gray-700 w-12 h-12 rounded-lg flex items-center justify-center text-brand-blue dark:text-brand-teal ${
-                            index % 2 === 0 ? "md:order-last md:ml-4" : "mr-4"
-                          }`}
-                        >
-                          {step.icon}
+      {/* Services Grid */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-20">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+                }`}
+              >
+                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                  <div className={`inline-flex p-4 rounded-xl bg-${service.color}-100 mb-6`}>
+                    <service.icon className={`h-10 w-10 text-${service.color}-600`} />
+                  </div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">{service.title}</h2>
+                  <p className="text-lg text-gray-600 mb-8">{service.description}</p>
+                  
+                  {/* Features */}
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">What's Included:</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {service.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center space-x-3">
+                          <CheckCircle className={`h-5 w-5 text-${service.color}-600 flex-shrink-0`} />
+                          <span className="text-gray-700">{feature}</span>
                         </div>
-                        <h3 className="text-xl font-bold">{step.title}</h3>
-                      </div>
-
-                      <p className="text-gray-600 dark:text-gray-300">
-                        {step.description}
-                      </p>
+                      ))}
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-white dark:bg-gray-800">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-r from-brand-blue to-brand-purple rounded-2xl overflow-hidden shadow-xl">
-              <div
-                ref={ctaRef}
-                className="px-6 py-16 md:px-12 text-center text-white"
-              >
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Ready to Start Your Project?
-                </h2>
-                <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto mb-10">
-                  Let's discuss how we can help you achieve your business goals
-                  with our custom technology solutions.
-                </p>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="default"
-                  className="bg-white text-brand-darkBlue hover:bg-gray-100 rounded-full"
-                >
-                  <Link to="/contact">Get in Touch</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+                  {/* Technologies */}
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Technologies:</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {service.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className={`px-3 py-1 bg-${service.color}-100 text-${service.color}-700 rounded-full text-sm font-medium`}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-      <Footer />
+                  <button className={`inline-flex items-center bg-${service.color}-600 text-white px-6 py-3 rounded-lg hover:bg-${service.color}-700 transition-colors duration-300`}>
+                    Get Started
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </button>
+                </div>
+                
+                <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
+                  <div className={`bg-gradient-to-br from-${service.color}-100 to-${service.color}-200 p-8 rounded-2xl`}>
+                    <div className="bg-white p-8 rounded-xl shadow-lg">
+                      <service.icon className={`h-16 w-16 text-${service.color}-600 mx-auto mb-6`} />
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                        <p className="text-gray-600">
+                          Professional {service.title.toLowerCase()} services tailored to your business needs
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Process</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              A proven methodology that ensures successful project delivery every time
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Discovery", description: "We understand your needs, goals, and target audience" },
+              { step: "02", title: "Planning", description: "Strategic planning and technical architecture design" },
+              { step: "03", title: "Development", description: "Agile development with regular progress updates" },
+              { step: "04", title: "Launch", description: "Testing, deployment, and ongoing support" }
+            ].map((phase, index) => (
+              <div key={index} className="text-center">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-blue-600 font-bold text-lg">{phase.step}</span>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">{phase.title}</h3>
+                <p className="text-gray-600">{phase.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-4">Ready to Get Started?</h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Let's discuss your project requirements and create a custom solution that fits your needs
+          </p>
+          <button className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+            Contact Us Today
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </button>
+        </div>
+      </section>
     </div>
   );
 };
