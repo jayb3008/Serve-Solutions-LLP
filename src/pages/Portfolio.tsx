@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, Code2, Smartphone, Globe, Palette, Search } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
-
+  const navigate = useNavigate();
   const projects = [
     {
       id: 1,
@@ -206,7 +207,9 @@ const Portfolio = () => {
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Let's work together to create something amazing for your business
           </p>
-          <button className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+          <button onClick={()=>{
+            navigate('/contact');
+          }} className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
             Start Your Project
             <ExternalLink className="ml-2 h-5 w-5" />
           </button>

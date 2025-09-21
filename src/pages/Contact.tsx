@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, Users, Award } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,15 +9,32 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+const navigate = useNavigate();
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    alert('Thank you for your message! We\'ll get back to you soon.');
-  };
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwJcNux31f9BKHcOUF2vnc-Urkw7zyVmldPaVZffQUICoOqIQkyfP-v5GraM4EiLtm1TQ/exec', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+
+    const result = await response.json();
+    if(result.status === 'success') {
+      alert('Message sent successfully!');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      alert('Failed to send message.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error sending message');
+  }
+};
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -249,10 +267,14 @@ const Contact = () => {
             Don't wait! Let's discuss your ideas and turn them into reality.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <button onClick={()=>{
+              navigate('/contact');
+            }} className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
               Schedule a Call
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300">
+            <button onClick={()=>{
+              navigate('/portfolio');
+            }} className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300">
               View Our Work
             </button>
           </div>
