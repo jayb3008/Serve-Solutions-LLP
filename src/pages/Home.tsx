@@ -1,215 +1,1021 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Code2, Smartphone, Palette, Search, Globe, Users, Award, Target, Star } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import {
+  ArrowRight,
+  Code2,
+  Smartphone,
+  Palette,
+  Search,
+  Globe,
+  Users,
+  Award,
+  Target,
+  CheckCircle,
+  Shield,
+  Clock,
+  Building2,
+  Heart,
+  GraduationCap,
+  ShoppingCart,
+  Factory,
+  CreditCard,
+  Menu,
+  X,
+  ChevronDown,
+} from "lucide-react";
+import Ballpit from "../components/Ballpit";
+import SplitText from "../components/SplitText";
+import BlurText from "../components/BlurText";
+import Shuffle from "../components/Shuffle";
+import ScrollFloat from "../components/ScrollFloat";
+import ScrollReveal from "../components/ScrollReveal";
+import { InfiniteMovingCards } from "../components/ui/infinite-moving-cards";
+import LogoLoop from "../components/LogoLoop";
+import SpotlightCard from "../components/SpotlightCard";
+import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Simulate loading time for better UX
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
+          <p className="text-white text-lg">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div className="min-h-screen">
+      {/* Skip to main content for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50"
+      >
+        Skip to main content
+      </a>
+
+      {/* Mobile Navigation Menu */}
+      <nav className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div className="flex items-center justify-between px-4 py-3">
+          <h1 className="text-xl font-bold text-gray-900">SarveSolutions</h1>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+        {isMenuOpen && (
+          <div className="px-4 pb-4 bg-white border-t border-gray-200">
+            <div className="space-y-2">
+              {[
+                { id: "services", label: "Services" },
+                { id: "why-choose-us", label: "Why Choose Us" },
+                { id: "industries", label: "Industries" },
+                { id: "case-study", label: "Case Study" },
+                { id: "testimonials", label: "Testimonials" },
+                { id: "cta", label: "Get Started" },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-            SarveSolutions
-          </h1>
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Your Partner in Digital Growth
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <section
+        id="hero"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900"
+        role="banner"
+        aria-label="Hero section"
+      >
+        {/* Background Effects */}
+        <div className="absolute inset-0 z-0" aria-hidden="true">
+          <Ballpit
+            className="w-full h-full"
+            followCursor={false}
+            count={100}
+            colors={[0x3b82f6, 0x8b5cf6, 0x06b6d4]}
+            ambientColor={""}
+            ambientIntensity={0.2}
+            lightIntensity={80}
+            materialParams={{
+              metalness: 0.3,
+              roughness: 0.4,
+              clearcoat: 0.8,
+              clearcoatRoughness: 0.2,
+            }}
+            minSize={0.15}
+            maxSize={0.5}
+            gravity={0.006}
+            friction={0.999}
+            wallBounce={0.8}
+            maxVelocity={0.06}
+            maxX={8}
+            maxY={6}
+            maxZ={3}
+          />
+        </div>
+        {/* Main Content */}
+        <main
+          id="main-content"
+          className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 lg:pt-0"
+        >
+          <div className="space-y-4">
+            {/* Main Heading */}
+            <div className="space-y-4">
+              {/* <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight text-white drop-shadow-lg">
+                Transforming Ideas Into
+              </h1> */}
+              <SplitText
+                text="Transforming Ideas Into Digital Excellence"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight text-white drop-shadow-lg"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+              />
+              {/* <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg">
+                Digital Excellence
+              </h1> */}
+            </div>
+
+            {/* Company Name */}
+            {/* <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-cyan-100 tracking-wide drop-shadow-md">
+              SarveSolutions
+            </h2> */}
+            <Shuffle
+              text="SarveSolutions"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-cyan-100 tracking-wide drop-shadow-md"
+              maxDelay={100}
+              duration={0.6}
+              ease="power3.out"
+              shuffleDirection="right"
+              animationMode="evenodd"
+              shuffleTimes={1}
+              stagger={0.03}
+              scrambleCharset=""
+              colorFrom="#3b82f6"
+              colorTo="#8b5cf6"
+              triggerOnce={true}
+              triggerOnHover={true}
+              respectReducedMotion={true}
+            />
+            {/* Description */}
+            {/* <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed text-slate-100 font-light drop-shadow-md">
+              We craft cutting-edge web solutions, mobile apps, and digital
+              experiences that engage users and drive business growth.
+            </p> */}
+            <BlurText
+              text="We craft cutting-edge web solutions, mobile apps, and digital experiences that engage users and drive business growth."
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="text-lg sm:text-xl md:text-2xl text-center mx-auto lg:text-3xl max-w-4xl mx-auto leading-relaxed text-slate-100 font-light drop-shadow-md"
+            />
+          </div>
+
+          {/* Enhanced CTA Buttons */}
+          <div className="mt-24 flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
               to="/contact"
-              className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+              className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-10 py-5 rounded-full text-lg font-semibold flex items-center gap-3 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-cyan-500/30 focus:outline-none focus:ring-4 focus:ring-cyan-500/50"
+              aria-label="Get a free quote for your project"
             >
-              Get Started
+              Get a Free Quote
+              <ArrowRight
+                className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300"
+                aria-hidden="true"
+              />
             </Link>
             <Link
-              to="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 transform hover:scale-105"
+              to="/portfolio"
+              className="group border-2 border-white/90 text-white hover:bg-white hover:text-slate-900 px-10 py-5 rounded-full text-lg font-semibold flex items-center gap-3 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white/50"
+              aria-label="View our portfolio of completed projects"
             >
-              Contact Us
+              View Our Work
+              <ArrowRight
+                className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300"
+                aria-hidden="true"
+              />
             </Link>
           </div>
-        </div>
+        </main>
+
+        {/* Scroll Indicator */}
+        <button
+          onClick={() => scrollToSection("services")}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce focus:outline-none focus:ring-4 focus:ring-white/50 rounded-full p-2"
+          aria-label="Scroll to services section"
+        >
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <ChevronDown className="w-4 h-4 text-white/70 mt-2" />
+          </div>
+        </button>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-20 bg-gray-50">
+      {/* Main Service Pillars */}
+      <section
+        id="services"
+        className="py-24 bg-gradient-to-b from-white to-gray-50"
+        role="region"
+        aria-label="Our services"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive digital solutions to accelerate your business growth
-            </p>
+          <div className="text-center mb-20">
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            >
+              Comprehensive Digital Solutions
+            </ScrollFloat>
+            <ScrollReveal
+              baseOpacity={0.2}
+              enableBlur={true}
+              baseRotation={2}
+              blurStrength={8}
+              containerClassName="max-w-3xl mx-auto"
+              textClassName="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal"
+            >
+              We provide end-to-end digital services that accelerate your
+              business growth and drive digital transformation success
+            </ScrollReveal>
+            <p className=""></p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {[
               {
                 icon: Code2,
                 title: "Web Development",
-                description: "High-performance websites built with modern frameworks like React & Next.js.",
-                color: "blue"
+                description:
+                  "Custom websites and web applications built with modern technologies like React, Next.js, and Node.js.",
+                features: [
+                  "Responsive Design",
+                  "SEO Optimized",
+                  "Fast Loading",
+                  "Scalable Architecture",
+                ],
+                color: "blue",
+                spotlightColor: "rgba(59, 130, 246, 0.3)" as const,
               },
               {
                 icon: Smartphone,
                 title: "Mobile App Development",
-                description: "Cross-platform mobile apps designed for scale and usability.",
-                color: "purple"
+                description:
+                  "Native and cross-platform mobile applications for iOS and Android using React Native and Flutter.",
+                features: [
+                  "Cross-Platform",
+                  "Native Performance",
+                  "App Store Ready",
+                  "Push Notifications",
+                ],
+                color: "green",
+                spotlightColor: "rgba(16, 185, 129, 0.3)" as const,
               },
               {
                 icon: Globe,
-                title: "CMS Development",
-                description: "WordPress, Shopify, and custom CMS solutions to power your business.",
-                color: "green"
+                title: "Cloud & DevOps",
+                description:
+                  "Cloud infrastructure setup, deployment automation, and scalable solutions on AWS, Azure, and Google Cloud.",
+                features: [
+                  "Auto Scaling",
+                  "CI/CD Pipeline",
+                  "Monitoring",
+                  "Security",
+                ],
+                color: "purple",
+                spotlightColor: "rgba(139, 92, 246, 0.3)" as const,
               },
               {
                 icon: Palette,
                 title: "UI/UX Design",
-                description: "Beautiful, intuitive designs that enhance user experiences.",
-                color: "pink"
+                description:
+                  "User-centered design that creates intuitive and engaging digital experiences for your customers.",
+                features: [
+                  "User Research",
+                  "Wireframing",
+                  "Prototyping",
+                  "Design Systems",
+                ],
+                color: "pink",
+                spotlightColor: "rgba(236, 72, 153, 0.3)" as const,
               },
               {
                 icon: Search,
-                title: "SEO",
-                description: "Boost your visibility with proven SEO strategies that drive results.",
-                color: "orange"
-              }
+                title: "Digital Marketing",
+                description:
+                  "SEO, social media marketing, and digital advertising strategies to boost your online presence.",
+                features: [
+                  "SEO Optimization",
+                  "Social Media",
+                  "PPC Campaigns",
+                  "Analytics",
+                ],
+                color: "orange",
+                spotlightColor: "rgba(245, 158, 11, 0.3)" as const,
+              },
+              {
+                icon: Shield,
+                title: "IT Consulting",
+                description:
+                  "Strategic technology consulting to help you make informed decisions about your digital infrastructure.",
+                features: [
+                  "Technology Audit",
+                  "Strategy Planning",
+                  "Security Assessment",
+                  "Process Optimization",
+                ],
+                color: "indigo",
+                spotlightColor: "rgba(99, 102, 241, 0.3)" as const,
+              },
             ].map((service, index) => (
-              <div
+              <SpotlightCard
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
+                className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-gray-100 hover:border-gray-200 focus-within:ring-4 focus-within:ring-blue-500/20"
+                spotlightColor={service.spotlightColor}
               >
-                <div className={`inline-flex p-3 rounded-xl bg-${service.color}-100 mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className={`h-8 w-8 text-${service.color}-600`} />
+                <div className="relative z-10">
+                  <div
+                    className={`inline-flex p-5 rounded-2xl mb-6 transition-colors duration-300 ${
+                      service.color === "blue"
+                        ? "bg-blue-100 group-hover:bg-blue-200"
+                        : service.color === "green"
+                        ? "bg-green-100 group-hover:bg-green-200"
+                        : service.color === "purple"
+                        ? "bg-purple-100 group-hover:bg-purple-200"
+                        : service.color === "pink"
+                        ? "bg-pink-100 group-hover:bg-pink-200"
+                        : service.color === "orange"
+                        ? "bg-orange-100 group-hover:bg-orange-200"
+                        : "bg-indigo-100 group-hover:bg-indigo-200"
+                    }`}
+                  >
+                    <service.icon
+                      className={`h-8 w-8 transition-colors duration-300 ${
+                        service.color === "blue"
+                          ? "text-blue-600 group-hover:text-blue-700"
+                          : service.color === "green"
+                          ? "text-green-600 group-hover:text-green-700"
+                          : service.color === "purple"
+                          ? "text-purple-600 group-hover:text-purple-700"
+                          : service.color === "pink"
+                          ? "text-pink-600 group-hover:text-pink-700"
+                          : service.color === "orange"
+                          ? "text-orange-600 group-hover:text-orange-700"
+                          : "text-indigo-600 group-hover:text-indigo-700"
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-3 mb-8" role="list">
+                    {service.features.map((feature, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-center text-sm text-gray-600"
+                        role="listitem"
+                      >
+                        <CheckCircle
+                          className="h-4 w-4 text-green-500 mr-3 flex-shrink-0"
+                          aria-hidden="true"
+                        />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    to="/services"
+                    className={`inline-flex items-center font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                      service.color === "blue"
+                        ? "text-blue-600 hover:text-blue-700 focus:ring-blue-500"
+                        : service.color === "green"
+                        ? "text-green-600 hover:text-green-700 focus:ring-green-500"
+                        : service.color === "purple"
+                        ? "text-purple-600 hover:text-purple-700 focus:ring-purple-500"
+                        : service.color === "pink"
+                        ? "text-pink-600 hover:text-pink-700 focus:ring-pink-500"
+                        : service.color === "orange"
+                        ? "text-orange-600 hover:text-orange-700 focus:ring-orange-500"
+                        : "text-indigo-600 hover:text-indigo-700 focus:ring-indigo-500"
+                    }`}
+                    aria-label={`Learn more about ${service.title}`}
+                  >
+                    Learn More
+                    <ArrowRight
+                      className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </Link>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <Link
-                  to="/services"
-                  className={`inline-flex items-center text-${service.color}-600 hover:text-${service.color}-700 font-medium transition-colors`}
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      <section
+        id="why-choose-us"
+        className="py-24 bg-gradient-to-b from-gray-50 to-white"
+        role="region"
+        aria-label="Why choose us"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine innovation, expertise, and dedication to deliver exceptional results
-            </p>
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-600 text-sm font-medium mb-6">
+              <span
+                className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"
+                aria-hidden="true"
+              ></span>
+              Why Choose Us
+            </div>
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            >
+              Your Trusted Digital Partner
+            </ScrollFloat>
+            <ScrollReveal
+              baseOpacity={0.2}
+              enableBlur={true}
+              baseRotation={2}
+              blurStrength={8}
+              containerClassName="max-w-3xl mx-auto"
+              textClassName="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal"
+            >
+              We combine technical expertise with business acumen to deliver
+              solutions that drive real results and exceed expectations
+            </ScrollReveal>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             {[
               {
                 icon: Target,
-                title: "Innovative Solutions",
-                description: "Cutting-edge technology and creative approaches to solve complex challenges."
+                title: "Client-Focused Approach",
+                description:
+                  "We prioritize your business goals and work closely with you to achieve measurable results.",
+                color: "blue",
               },
               {
                 icon: Users,
                 title: "Expert Team",
-                description: "5+ years experience with skilled professionals in every domain."
+                description:
+                  "Our skilled developers and designers bring years of experience across multiple industries.",
+                color: "green",
               },
               {
                 icon: Award,
-                title: "Client-Centric Approach",
-                description: "Your success is our priority. We work closely with you every step of the way."
+                title: "Quality Assurance",
+                description:
+                  "Rigorous testing and quality control processes ensure your project meets the highest standards.",
+                color: "purple",
               },
               {
-                icon: Star,
-                title: "Affordable & Scalable",
-                description: "Cost-effective solutions that grow with your business needs."
-              }
+                icon: Clock,
+                title: "On-Time Delivery",
+                description:
+                  "We respect deadlines and deliver projects on time, every time, without compromising quality.",
+                color: "orange",
+              },
             ].map((feature, index) => (
-              <div key={index} className="text-center group">
-                <div className="inline-flex p-4 rounded-full bg-blue-100 mb-6 group-hover:bg-blue-200 transition-colors duration-300">
-                  <feature.icon className="h-8 w-8 text-blue-600" />
+              <div
+                key={index}
+                className="text-center group cursor-pointer"
+                tabIndex={0}
+                role="article"
+                aria-label={feature.title}
+              >
+                <div
+                  className={`inline-flex p-6 rounded-3xl mb-6 transition-colors duration-300 ${
+                    feature.color === "blue"
+                      ? "bg-blue-100 group-hover:bg-blue-200"
+                      : feature.color === "green"
+                      ? "bg-green-100 group-hover:bg-green-200"
+                      : feature.color === "purple"
+                      ? "bg-purple-100 group-hover:bg-purple-200"
+                      : "bg-orange-100 group-hover:bg-orange-200"
+                  }`}
+                >
+                  <feature.icon
+                    className={`h-10 w-10 transition-colors duration-300 ${
+                      feature.color === "blue"
+                        ? "text-blue-600 group-hover:text-blue-700"
+                        : feature.color === "green"
+                        ? "text-green-600 group-hover:text-green-700"
+                        : feature.color === "purple"
+                        ? "text-purple-600 group-hover:text-purple-700"
+                        : "text-orange-600 group-hover:text-orange-700"
+                    }`}
+                    aria-hidden="true"
+                  />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-gray-900">
+      {/* Industries Served */}
+      <section
+        id="industries"
+        className="py-24 bg-white"
+        role="region"
+        aria-label="Industries we serve"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Don't just take our word for it - hear from some of our satisfied clients
-            </p>
+          <div className="text-center mb-20">
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            >
+              Industries We Serve
+            </ScrollFloat>
+            <ScrollReveal
+              baseOpacity={0.2}
+              enableBlur={true}
+              baseRotation={2}
+              blurStrength={8}
+              containerClassName="max-w-3xl mx-auto"
+              textClassName="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal"
+            >
+              We have experience across diverse industries, understanding unique
+              challenges and delivering tailored solutions
+            </ScrollReveal>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                ))}
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
+            {[
+              { icon: Building2, name: "Healthcare", color: "text-red-600" },
+              { icon: CreditCard, name: "FinTech", color: "text-green-600" },
+              {
+                icon: ShoppingCart,
+                name: "E-commerce",
+                color: "text-blue-600",
+              },
+              { icon: GraduationCap, name: "EdTech", color: "text-purple-600" },
+              {
+                icon: Factory,
+                name: "Manufacturing",
+                color: "text-orange-600",
+              },
+              { icon: Heart, name: "Non-Profit", color: "text-pink-600" },
+            ].map((industry, index) => (
+              <div
+                key={index}
+                className="text-center group cursor-pointer"
+                tabIndex={0}
+                role="article"
+                aria-label={`${industry.name} industry`}
+              >
+                <div className="inline-flex p-6 rounded-2xl bg-gray-50 mb-4 group-hover:bg-gray-100 transition-colors duration-300">
+                  <industry.icon
+                    className={`h-12 w-12 ${industry.color}`}
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {industry.name}
+                </h3>
               </div>
-              <p className="text-gray-600 mb-6 text-lg italic">
-                "SarveSolutions transformed our online presence and delivered on time! Their attention to detail and professional approach exceeded our expectations."
-              </p>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-blue-600 font-semibold">CA</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Case Study */}
+      <section
+        id="case-study"
+        className="py-24 bg-gray-900"
+        role="region"
+        aria-label="Featured case study"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <ScrollFloat
+                animationDuration={1}
+                ease="back.inOut(2)"
+                scrollStart="center bottom+=50%"
+                scrollEnd="bottom bottom-=40%"
+                stagger={0.03}
+                containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
+              >
+                Featured Case Study
+              </ScrollFloat>
+              <ScrollReveal
+                baseOpacity={0.2}
+                enableBlur={true}
+                baseRotation={2}
+                blurStrength={8}
+                containerClassName="mb-6"
+                textClassName="text-xl sm:text-2xl font-semibold text-blue-400"
+              >
+                E-commerce Platform Transformation
+              </ScrollReveal>
+              <ScrollReveal
+                baseOpacity={0.2}
+                enableBlur={true}
+                baseRotation={2}
+                blurStrength={8}
+                containerClassName="mb-8"
+                textClassName="text-lg sm:text-xl text-gray-300 leading-relaxed font-normal"
+              >
+                We helped a leading retail company increase their online sales
+                by 300% through a complete digital transformation.
+              </ScrollReveal>
+
+              <div
+                className="grid grid-cols-2 gap-6 mb-10"
+                role="region"
+                aria-label="Project results"
+              >
+                <div>
+                  <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                    300%
+                  </div>
+                  <div className="text-gray-400 text-sm sm:text-base">
+                    Increase in Sales
+                  </div>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Client A</h4>
-                  <p className="text-gray-500">CEO, Tech Startup</p>
+                  <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                    50%
+                  </div>
+                  <div className="text-gray-400 text-sm sm:text-base">
+                    Faster Load Time
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                    95%
+                  </div>
+                  <div className="text-gray-400 text-sm sm:text-base">
+                    User Satisfaction
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                    6
+                  </div>
+                  <div className="text-gray-400 text-sm sm:text-base">
+                    Months Timeline
+                  </div>
                 </div>
               </div>
+
+              <Link
+                to="/portfolio"
+                className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50"
+                aria-label="View full case study details"
+              >
+                View Full Case Study
+                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+              </Link>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                ))}
+
+            <div className="bg-gray-800 rounded-2xl p-8">
+              <div className="bg-gray-700 rounded-lg p-6 mb-6">
+                <h4 className="text-lg font-semibold text-white mb-4">
+                  Tech Stack Used
+                </h4>
+                <div
+                  className="flex flex-wrap gap-2"
+                  role="list"
+                  aria-label="Technologies used"
+                >
+                  {[
+                    "React",
+                    "Node.js",
+                    "MongoDB",
+                    "AWS",
+                    "Stripe",
+                    "Redis",
+                  ].map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm"
+                      role="listitem"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <p className="text-gray-600 mb-6 text-lg italic">
-                "Their mobile app boosted our customer engagement by 200%. The user experience is incredible and our customers love the intuitive design."
-              </p>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-purple-600 font-semibold">CB</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Client B</h4>
-                  <p className="text-gray-500">Marketing Director, E-commerce</p>
-                </div>
+
+              <div className="bg-gray-700 rounded-lg p-6">
+                <h4 className="text-lg font-semibold text-white mb-4">
+                  Key Features
+                </h4>
+                <ul className="space-y-3" role="list">
+                  {[
+                    "Responsive Design",
+                    "Payment Integration",
+                    "Inventory Management",
+                    "Analytics Dashboard",
+                    "Mobile App",
+                  ].map((feature, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center text-gray-300"
+                      role="listitem"
+                    >
+                      <CheckCircle
+                        className="h-4 w-4 text-green-500 mr-3 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Digital Presence?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project and create something amazing together
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-          >
-            Start Your Project
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
+      {/* Client Testimonials */}
+      <section
+        id="testimonials"
+        className="py-24 bg-gradient-to-b from-white to-gray-50"
+        role="region"
+        aria-label="Client testimonials"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-600 text-sm font-medium mb-6">
+              <span
+                className="w-2 h-2 bg-purple-600 rounded-full mr-2 animate-pulse"
+                aria-hidden="true"
+              ></span>
+              Client Testimonials
+            </div>
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            >
+              What Our Clients Say
+            </ScrollFloat>
+            <ScrollReveal
+              baseOpacity={0.2}
+              enableBlur={true}
+              baseRotation={2}
+              blurStrength={8}
+              containerClassName="max-w-3xl mx-auto"
+              textClassName="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal"
+            >
+              Don't just take our word for it - hear from some of our satisfied
+              clients who have transformed their businesses with us
+            </ScrollReveal>
+          </div>
+
+          <InfiniteMovingCards
+            items={[
+              {
+                quote:
+                  "SarveSolutions transformed our online presence completely. Their attention to detail and professional approach exceeded our expectations.",
+                name: "Sarah Johnson",
+                title: "CEO, TechStart Inc.",
+              },
+              {
+                quote:
+                  "The mobile app they built for us increased customer engagement by 200%. The user experience is incredible and our customers love it.",
+                name: "Michael Chen",
+                title: "CTO, RetailCorp",
+              },
+              {
+                quote:
+                  "Working with SarveSolutions was a game-changer. They delivered our project on time and within budget, exceeding all our requirements.",
+                name: "Emily Rodriguez",
+                title: "Marketing Director, HealthTech",
+              },
+              {
+                quote:
+                  "Their cloud infrastructure solutions helped us scale our business 10x faster. The team's expertise in AWS and DevOps is outstanding.",
+                name: "David Kim",
+                title: "Founder, CloudScale",
+              },
+              {
+                quote:
+                  "The UI/UX design they created for our platform increased user retention by 150%. Simply amazing work!",
+                name: "Lisa Wang",
+                title: "Product Manager, DesignFlow",
+              },
+              {
+                quote:
+                  "SarveSolutions helped us modernize our legacy systems. The digital transformation was seamless and exceeded all expectations.",
+                name: "Robert Taylor",
+                title: "CTO, LegacyCorp",
+              },
+            ]}
+            direction="right"
+            speed="slow"
+            pauseOnHover={true}
+            className="max-w-7xl mx-auto"
+          />
         </div>
       </section>
+
+      {/* Client Logos */}
+      <section
+        className="py-16 bg-gray-50"
+        role="region"
+        aria-label="Client logos"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="text-xl sm:text-2xl font-semibold text-gray-600 mb-4"
+            >
+              Trusted by Leading Companies
+            </ScrollFloat>
+          </div>
+          <LogoLoop
+            logos={[
+              {
+                node: (
+                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                    <span className="text-gray-600 font-semibold text-lg">
+                      TechCorp
+                    </span>
+                  </div>
+                ),
+                title: "TechCorp",
+                ariaLabel: "TechCorp logo",
+              },
+              {
+                node: (
+                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                    <span className="text-gray-600 font-semibold text-lg">
+                      InnovateLab
+                    </span>
+                  </div>
+                ),
+                title: "InnovateLab",
+                ariaLabel: "InnovateLab logo",
+              },
+              {
+                node: (
+                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                    <span className="text-gray-600 font-semibold text-lg">
+                      DigitalFirst
+                    </span>
+                  </div>
+                ),
+                title: "DigitalFirst",
+                ariaLabel: "DigitalFirst logo",
+              },
+              {
+                node: (
+                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                    <span className="text-gray-600 font-semibold text-lg">
+                      CloudTech
+                    </span>
+                  </div>
+                ),
+                title: "CloudTech",
+                ariaLabel: "CloudTech logo",
+              },
+              {
+                node: (
+                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                    <span className="text-gray-600 font-semibold text-lg">
+                      NextGen
+                    </span>
+                  </div>
+                ),
+                title: "NextGen",
+                ariaLabel: "NextGen logo",
+              },
+              {
+                node: (
+                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                    <span className="text-gray-600 font-semibold text-lg">
+                      FutureSoft
+                    </span>
+                  </div>
+                ),
+                title: "FutureSoft",
+                ariaLabel: "FutureSoft logo",
+              },
+              {
+                node: (
+                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                    <span className="text-gray-600 font-semibold text-lg">
+                      DataFlow
+                    </span>
+                  </div>
+                ),
+                title: "DataFlow",
+                ariaLabel: "DataFlow logo",
+              },
+              {
+                node: (
+                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                    <span className="text-gray-600 font-semibold text-lg">
+                      WebCraft
+                    </span>
+                  </div>
+                ),
+                title: "WebCraft",
+                ariaLabel: "WebCraft logo",
+              },
+            ]}
+            speed={80}
+            direction="left"
+            logoHeight={64}
+            gap={32}
+            pauseOnHover={true}
+            fadeOut={true}
+            scaleOnHover={true}
+            ariaLabel="Trusted client companies"
+            className="opacity-60"
+          />
+        </div>
+      </section>
+
+      {/* Secondary CTA */}
+      <ReadyToTransformCTA />
     </div>
   );
 };
