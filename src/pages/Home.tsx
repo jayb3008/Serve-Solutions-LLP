@@ -19,8 +19,6 @@ import {
   ShoppingCart,
   Factory,
   CreditCard,
-  Menu,
-  X,
   ChevronDown,
 } from "lucide-react";
 import Ballpit from "../components/Ballpit";
@@ -36,7 +34,6 @@ import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     // Simulate loading time for better UX
@@ -54,7 +51,6 @@ const Home = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false);
   };
 
   if (isLoading) {
@@ -78,47 +74,6 @@ const Home = () => {
         Skip to main content
       </a>
 
-      {/* Mobile Navigation Menu */}
-      <nav className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-        <div className="flex items-center justify-between px-4 py-3">
-          <h1 className="text-xl font-bold text-gray-900">SarveSolutions</h1>
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-md hover:bg-gray-100 transition-colors"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
-        </div>
-        {isMenuOpen && (
-          <div className="px-4 pb-4 bg-white border-t border-gray-200">
-            <div className="space-y-2">
-              {[
-                { id: "services", label: "Services" },
-                { id: "why-choose-us", label: "Why Choose Us" },
-                { id: "industries", label: "Industries" },
-                { id: "case-study", label: "Case Study" },
-                { id: "testimonials", label: "Testimonials" },
-                { id: "cta", label: "Get Started" },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
-
       {/* Hero Section */}
       <section
         id="hero"
@@ -127,7 +82,10 @@ const Home = () => {
         aria-label="Hero section"
       >
         {/* Background Effects */}
-        <div className="absolute inset-0 z-0" aria-hidden="true">
+        <div
+          className="absolute inset-0 z-0 hidden lg:block"
+          aria-hidden="true"
+        >
           <Ballpit
             className="w-full h-full"
             followCursor={false}
@@ -144,8 +102,8 @@ const Home = () => {
             }}
             minSize={0.15}
             maxSize={0.5}
-            gravity={0.006}
-            friction={0.999}
+            gravity={0.06}
+            friction={0.99}
             wallBounce={0.8}
             maxVelocity={0.06}
             maxX={8}
@@ -156,9 +114,9 @@ const Home = () => {
         {/* Main Content */}
         <main
           id="main-content"
-          className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 lg:pt-0"
+          className="relative z-30 max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8 text-center pt-16 max-[393px]:pt-12 sm:pt-20 lg:pt-0"
         >
-          <div className="space-y-4">
+          <div className="space-y-2 max-[393px]:space-y-3 sm:space-y-4 md:space-y-6">
             {/* Main Heading */}
             <div className="space-y-4">
               {/* <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight text-white drop-shadow-lg">
@@ -166,7 +124,7 @@ const Home = () => {
               </h1> */}
               <SplitText
                 text="Transforming Ideas Into Digital Excellence"
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight text-white drop-shadow-lg"
+                className="text-xl max-[393px]:text-lg min-[430px]:text-2xl min-[480px]:text-3xl min-[820px]:text-4xl lg:text-5xl xl:text-6xl min-[1559px]:text-7xl 2xl:text-8xl font-bold leading-tight text-white drop-shadow-lg px-1 max-[393px]:px-2"
                 delay={100}
                 duration={0.6}
                 ease="power3.out"
@@ -188,7 +146,7 @@ const Home = () => {
             </h2> */}
             <Shuffle
               text="SarveSolutions"
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-cyan-100 tracking-wide drop-shadow-md"
+              className="text-base max-[393px]:text-sm min-[430px]:text-lg min-[480px]:text-xl min-[820px]:text-2xl md:text-3xl lg:text-4xl xl:text-5xl min-[1559px]:text-6xl font-bold text-cyan-100 tracking-wide drop-shadow-md px-1 max-[393px]:px-2"
               maxDelay={100}
               duration={0.6}
               ease="power3.out"
@@ -213,31 +171,31 @@ const Home = () => {
               delay={150}
               animateBy="words"
               direction="top"
-              className="text-lg sm:text-xl md:text-2xl text-center mx-auto lg:text-3xl max-w-4xl mx-auto leading-relaxed text-slate-100 font-light drop-shadow-md"
+              className="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl lg:text-2xl xl:text-3xl text-center mx-auto max-w-4xl leading-relaxed text-slate-100 font-light drop-shadow-md px-2 max-[393px]:px-3 sm:px-4"
             />
           </div>
 
           {/* Enhanced CTA Buttons */}
-          <div className="mt-24 flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="mt-6 max-[393px]:mt-4 min-[430px]:mt-8 sm:mt-20 md:mt-24 flex flex-col sm:flex-row gap-2.5 max-[393px]:gap-2 min-[430px]:gap-4 sm:gap-6 justify-center items-center px-2 max-[393px]:px-3 sm:px-4">
             <Link
               to="/contact"
-              className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-10 py-5 rounded-full text-lg font-semibold flex items-center gap-3 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-cyan-500/30 focus:outline-none focus:ring-4 focus:ring-cyan-500/50"
+              className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-4 max-[393px]:px-3 min-[430px]:px-5 min-[480px]:px-6 min-[820px]:px-8 md:px-10 py-2 max-[393px]:py-1.5 min-[430px]:py-2.5 min-[480px]:py-3 min-[820px]:py-4 md:py-5 rounded-full text-xs max-[393px]:text-[11px] min-[430px]:text-xs min-[480px]:text-sm min-[820px]:text-base md:text-lg font-semibold flex items-center gap-1.5 max-[393px]:gap-1 min-[430px]:gap-1.5 min-[480px]:gap-2 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-cyan-500/30 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 w-full min-[820px]:w-auto"
               aria-label="Get a free quote for your project"
             >
               Get a Free Quote
               <ArrowRight
-                className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300"
+                className="h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 min-[480px]:h-4 min-[480px]:w-4 min-[820px]:h-5 min-[820px]:w-5 group-hover:translate-x-1 transition-transform duration-300"
                 aria-hidden="true"
               />
             </Link>
             <Link
               to="/portfolio"
-              className="group border-2 border-white/90 text-white hover:bg-white hover:text-slate-900 px-10 py-5 rounded-full text-lg font-semibold flex items-center gap-3 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white/50"
+              className="group border-2 border-white/90 text-white hover:bg-white hover:text-slate-900 px-4 max-[393px]:px-3 min-[430px]:px-5 min-[480px]:px-6 min-[820px]:px-8 md:px-10 py-2 max-[393px]:py-1.5 min-[430px]:py-2.5 min-[480px]:py-3 min-[820px]:py-4 md:py-5 rounded-full text-xs max-[393px]:text-[11px] min-[430px]:text-xs min-[480px]:text-sm min-[820px]:text-base md:text-lg font-semibold flex items-center gap-1.5 max-[393px]:gap-1 min-[430px]:gap-1.5 min-[480px]:gap-2 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white/50 w-full min-[820px]:w-auto"
               aria-label="View our portfolio of completed projects"
             >
               View Our Work
               <ArrowRight
-                className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300"
+                className="h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 min-[480px]:h-4 min-[480px]:w-4 min-[820px]:h-5 min-[820px]:w-5 group-hover:translate-x-1 transition-transform duration-300"
                 aria-hidden="true"
               />
             </Link>
@@ -247,11 +205,11 @@ const Home = () => {
         {/* Scroll Indicator */}
         <button
           onClick={() => scrollToSection("services")}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce focus:outline-none focus:ring-4 focus:ring-white/50 rounded-full p-2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce focus:outline-none focus:ring-4 focus:ring-white/50 rounded-full p-2"
           aria-label="Scroll to services section"
         >
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <ChevronDown className="w-4 h-4 text-white/70 mt-2" />
+          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white/70 mt-1.5 sm:mt-2" />
           </div>
         </button>
       </section>
@@ -259,19 +217,19 @@ const Home = () => {
       {/* Main Service Pillars */}
       <section
         id="services"
-        className="py-24 bg-gradient-to-b from-white to-gray-50"
+        className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-gradient-to-b from-white to-gray-50"
         role="region"
         aria-label="Our services"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
+        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
             <ScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
             >
               Comprehensive Digital Solutions
             </ScrollFloat>
@@ -281,15 +239,14 @@ const Home = () => {
               baseRotation={2}
               blurStrength={8}
               containerClassName="max-w-3xl mx-auto"
-              textClassName="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal"
+              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
             >
               We provide end-to-end digital services that accelerate your
               business growth and drive digital transformation success
             </ScrollReveal>
-            <p className=""></p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 min-[820px]:grid-cols-2 lg:grid-cols-3 min-[1559px]:grid-cols-3 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8 lg:gap-10">
             {[
               {
                 icon: Code2,
@@ -398,7 +355,7 @@ const Home = () => {
                     }`}
                   >
                     <service.icon
-                      className={`h-8 w-8 transition-colors duration-300 ${
+                      className={`h-4 max-[393px]:h-3.5 w-4 max-[393px]:w-3.5 min-[430px]:h-6 min-[430px]:w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 min-[1559px]:h-9 min-[1559px]:w-9 transition-colors duration-300 ${
                         service.color === "blue"
                           ? "text-blue-600 group-hover:text-blue-700"
                           : service.color === "green"
@@ -415,11 +372,11 @@ const Home = () => {
                     />
                   </div>
 
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2.5">
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600 mb-4 max-[393px]:mb-3 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -427,11 +384,11 @@ const Home = () => {
                     {service.features.map((feature, idx) => (
                       <li
                         key={idx}
-                        className="flex items-center text-sm text-gray-600"
+                        className="flex items-center text-xs max-[393px]:text-[11px] min-[430px]:text-sm text-gray-600"
                         role="listitem"
                       >
                         <CheckCircle
-                          className="h-4 w-4 text-green-500 mr-3 flex-shrink-0"
+                          className="h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 text-green-500 mr-1.5 max-[393px]:mr-1 min-[430px]:mr-2 flex-shrink-0"
                           aria-hidden="true"
                         />
                         {feature}
@@ -441,7 +398,7 @@ const Home = () => {
 
                   <Link
                     to="/services"
-                    className={`inline-flex items-center font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                    className={`inline-flex items-center text-xs max-[393px]:text-[11px] min-[430px]:text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                       service.color === "blue"
                         ? "text-blue-600 hover:text-blue-700 focus:ring-blue-500"
                         : service.color === "green"
@@ -458,7 +415,7 @@ const Home = () => {
                   >
                     Learn More
                     <ArrowRight
-                      className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                      className="ml-1 max-[393px]:ml-0.5 min-[430px]:ml-1.5 h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 transition-transform duration-300 group-hover:translate-x-1"
                       aria-hidden="true"
                     />
                   </Link>
@@ -472,15 +429,15 @@ const Home = () => {
       {/* Why Choose Us */}
       <section
         id="why-choose-us"
-        className="py-24 bg-gradient-to-b from-gray-50 to-white"
+        className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-gradient-to-b from-gray-50 to-white"
         role="region"
         aria-label="Why choose us"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-600 text-sm font-medium mb-6">
+        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
+            <div className="inline-flex items-center px-3 max-[393px]:px-2 py-1.5 max-[393px]:py-1 rounded-full bg-green-100 text-green-600 text-xs max-[393px]:text-[10px] sm:text-sm font-medium mb-4 max-[393px]:mb-3 sm:mb-6">
               <span
-                className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"
+                className="w-1.5 max-[393px]:w-1 h-1.5 max-[393px]:h-1 bg-green-600 rounded-full mr-1.5 max-[393px]:mr-1 animate-pulse"
                 aria-hidden="true"
               ></span>
               Why Choose Us
@@ -491,7 +448,7 @@ const Home = () => {
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
             >
               Your Trusted Digital Partner
             </ScrollFloat>
@@ -501,14 +458,14 @@ const Home = () => {
               baseRotation={2}
               blurStrength={8}
               containerClassName="max-w-3xl mx-auto"
-              textClassName="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal"
+              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
             >
               We combine technical expertise with business acumen to deliver
               solutions that drive real results and exceed expectations
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 min-[1559px]:grid-cols-4 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8 lg:gap-10">
             {[
               {
                 icon: Target,
@@ -558,7 +515,7 @@ const Home = () => {
                   }`}
                 >
                   <feature.icon
-                    className={`h-10 w-10 transition-colors duration-300 ${
+                    className={`h-7 w-7 min-[430px]:h-8 min-[430px]:w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 min-[1559px]:h-12 min-[1559px]:w-12 transition-colors duration-300 ${
                       feature.color === "blue"
                         ? "text-blue-600 group-hover:text-blue-700"
                         : feature.color === "green"
@@ -571,10 +528,10 @@ const Home = () => {
                   />
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -586,19 +543,19 @@ const Home = () => {
       {/* Industries Served */}
       <section
         id="industries"
-        className="py-24 bg-white"
+        className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-white"
         role="region"
         aria-label="Industries we serve"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
+        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
             <ScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
             >
               Industries We Serve
             </ScrollFloat>
@@ -608,14 +565,14 @@ const Home = () => {
               baseRotation={2}
               blurStrength={8}
               containerClassName="max-w-3xl mx-auto"
-              textClassName="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal"
+              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
             >
               We have experience across diverse industries, understanding unique
               challenges and delivering tailored solutions
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 min-[480px]:grid-cols-3 min-[820px]:grid-cols-4 lg:grid-cols-6 min-[1559px]:grid-cols-6 gap-2.5 max-[393px]:gap-2 min-[430px]:gap-4 sm:gap-6 lg:gap-8">
             {[
               { icon: Building2, name: "Healthcare", color: "text-red-600" },
               { icon: CreditCard, name: "FinTech", color: "text-green-600" },
@@ -639,13 +596,13 @@ const Home = () => {
                 role="article"
                 aria-label={`${industry.name} industry`}
               >
-                <div className="inline-flex p-6 rounded-2xl bg-gray-50 mb-4 group-hover:bg-gray-100 transition-colors duration-300">
+                <div className="inline-flex p-3 min-[430px]:p-4 sm:p-5 md:p-6 rounded-2xl bg-gray-50 mb-2.5 min-[430px]:mb-3 sm:mb-4 group-hover:bg-gray-100 transition-colors duration-300">
                   <industry.icon
-                    className={`h-12 w-12 ${industry.color}`}
+                    className={`h-7 w-7 min-[430px]:h-8 min-[430px]:w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 min-[1559px]:h-14 min-[1559px]:w-14 ${industry.color}`}
                     aria-hidden="true"
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-[10px] max-[393px]:text-[9px] min-[430px]:text-xs min-[480px]:text-sm sm:text-base md:text-lg font-semibold text-gray-900">
                   {industry.name}
                 </h3>
               </div>
@@ -657,12 +614,12 @@ const Home = () => {
       {/* Featured Case Study */}
       <section
         id="case-study"
-        className="py-24 bg-gray-900"
+        className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-gray-900"
         role="region"
         aria-label="Featured case study"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 min-[820px]:grid-cols-2 min-[1559px]:grid-cols-2 gap-6 min-[430px]:gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
             <div>
               <ScrollFloat
                 animationDuration={1}
@@ -670,7 +627,7 @@ const Home = () => {
                 scrollStart="center bottom+=50%"
                 scrollEnd="bottom bottom-=40%"
                 stagger={0.03}
-                containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
+                containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-white mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
               >
                 Featured Case Study
               </ScrollFloat>
@@ -679,8 +636,8 @@ const Home = () => {
                 enableBlur={true}
                 baseRotation={2}
                 blurStrength={8}
-                containerClassName="mb-6"
-                textClassName="text-xl sm:text-2xl font-semibold text-blue-400"
+                containerClassName="mb-4 sm:mb-6"
+                textClassName="text-sm max-[393px]:text-xs min-[430px]:text-base min-[480px]:text-lg min-[820px]:text-xl md:text-2xl min-[1559px]:text-3xl font-semibold text-blue-400"
               >
                 E-commerce Platform Transformation
               </ScrollReveal>
@@ -690,46 +647,46 @@ const Home = () => {
                 baseRotation={2}
                 blurStrength={8}
                 containerClassName="mb-8"
-                textClassName="text-lg sm:text-xl text-gray-300 leading-relaxed font-normal"
+                textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-300 leading-relaxed font-normal"
               >
                 We helped a leading retail company increase their online sales
                 by 300% through a complete digital transformation.
               </ScrollReveal>
 
               <div
-                className="grid grid-cols-2 gap-6 mb-10"
+                className="grid grid-cols-2 gap-3 min-[430px]:gap-4 sm:gap-6 mb-6 min-[430px]:mb-8 sm:mb-10"
                 role="region"
                 aria-label="Project results"
               >
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  <div className="text-lg min-[430px]:text-xl sm:text-2xl md:text-3xl min-[1559px]:text-4xl font-bold text-white mb-1 sm:mb-1.5 md:mb-2">
                     300%
                   </div>
-                  <div className="text-gray-400 text-sm sm:text-base">
+                  <div className="text-gray-400 text-[10px] min-[430px]:text-xs sm:text-sm md:text-base">
                     Increase in Sales
                   </div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  <div className="text-lg min-[430px]:text-xl sm:text-2xl md:text-3xl min-[1559px]:text-4xl font-bold text-white mb-1 sm:mb-1.5 md:mb-2">
                     50%
                   </div>
-                  <div className="text-gray-400 text-sm sm:text-base">
+                  <div className="text-gray-400 text-[10px] min-[430px]:text-xs sm:text-sm md:text-base">
                     Faster Load Time
                   </div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  <div className="text-lg min-[430px]:text-xl sm:text-2xl md:text-3xl min-[1559px]:text-4xl font-bold text-white mb-1 sm:mb-1.5 md:mb-2">
                     95%
                   </div>
-                  <div className="text-gray-400 text-sm sm:text-base">
+                  <div className="text-gray-400 text-[10px] min-[430px]:text-xs sm:text-sm md:text-base">
                     User Satisfaction
                   </div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  <div className="text-lg min-[430px]:text-xl sm:text-2xl md:text-3xl min-[1559px]:text-4xl font-bold text-white mb-1 sm:mb-1.5 md:mb-2">
                     6
                   </div>
-                  <div className="text-gray-400 text-sm sm:text-base">
+                  <div className="text-gray-400 text-[10px] min-[430px]:text-xs sm:text-sm md:text-base">
                     Months Timeline
                   </div>
                 </div>
@@ -737,16 +694,19 @@ const Home = () => {
 
               <Link
                 to="/portfolio"
-                className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50"
+                className="inline-flex items-center bg-blue-600 text-white px-3 max-[393px]:px-2.5 min-[430px]:px-4 min-[480px]:px-5 min-[820px]:px-6 py-1.5 max-[393px]:py-1 min-[430px]:py-2 min-[480px]:py-2.5 min-[820px]:py-3 rounded-full text-xs max-[393px]:text-[11px] min-[430px]:text-xs min-[480px]:text-sm min-[820px]:text-base font-semibold hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 w-full min-[820px]:w-auto justify-center"
                 aria-label="View full case study details"
               >
                 View Full Case Study
-                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                <ArrowRight
+                  className="ml-1 max-[393px]:ml-0.5 min-[430px]:ml-1.5 min-[480px]:ml-2 h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 min-[480px]:h-4 min-[480px]:w-4 min-[820px]:h-5 min-[820px]:w-5"
+                  aria-hidden="true"
+                />
               </Link>
             </div>
 
-            <div className="bg-gray-800 rounded-2xl p-8">
-              <div className="bg-gray-700 rounded-lg p-6 mb-6">
+            <div className="bg-gray-800 rounded-2xl p-4 min-[430px]:p-6 sm:p-8 min-[1559px]:p-10">
+              <div className="bg-gray-700 rounded-lg p-3 min-[430px]:p-4 sm:p-6 mb-3 min-[430px]:mb-4 sm:mb-6">
                 <h4 className="text-lg font-semibold text-white mb-4">
                   Tech Stack Used
                 </h4>
@@ -765,7 +725,7 @@ const Home = () => {
                   ].map((tech, idx) => (
                     <span
                       key={idx}
-                      className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm"
+                      className="bg-blue-600 text-white px-1.5 min-[430px]:px-2 sm:px-3 py-0.5 min-[430px]:py-1 rounded-full text-xs max-[393px]:text-[10px] min-[430px]:text-xs sm:text-sm"
                       role="listitem"
                     >
                       {tech}
@@ -774,8 +734,8 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-700 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-white mb-4">
+              <div className="bg-gray-700 rounded-lg p-3 min-[430px]:p-4 sm:p-6">
+                <h4 className="text-sm max-[393px]:text-xs min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg min-[1559px]:text-xl font-semibold text-white mb-2 max-[393px]:mb-1.5 min-[430px]:mb-2.5 min-[480px]:mb-3 sm:mb-4">
                   Key Features
                 </h4>
                 <ul className="space-y-3" role="list">
@@ -788,11 +748,11 @@ const Home = () => {
                   ].map((feature, idx) => (
                     <li
                       key={idx}
-                      className="flex items-center text-gray-300"
+                      className="flex items-center text-xs max-[393px]:text-[11px] min-[430px]:text-sm text-gray-300"
                       role="listitem"
                     >
                       <CheckCircle
-                        className="h-4 w-4 text-green-500 mr-3 flex-shrink-0"
+                        className="h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 text-green-500 mr-1.5 max-[393px]:mr-1 min-[430px]:mr-2 flex-shrink-0"
                         aria-hidden="true"
                       />
                       {feature}
@@ -808,15 +768,15 @@ const Home = () => {
       {/* Client Testimonials */}
       <section
         id="testimonials"
-        className="py-24 bg-gradient-to-b from-white to-gray-50"
+        className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-gradient-to-b from-white to-gray-50"
         role="region"
         aria-label="Client testimonials"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-600 text-sm font-medium mb-6">
+        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
+            <div className="inline-flex items-center px-3 max-[393px]:px-2 py-1.5 max-[393px]:py-1 rounded-full bg-purple-100 text-purple-600 text-xs max-[393px]:text-[10px] sm:text-sm font-medium mb-4 max-[393px]:mb-3 sm:mb-6">
               <span
-                className="w-2 h-2 bg-purple-600 rounded-full mr-2 animate-pulse"
+                className="w-1.5 max-[393px]:w-1 h-1.5 max-[393px]:h-1 bg-purple-600 rounded-full mr-1.5 max-[393px]:mr-1 animate-pulse"
                 aria-hidden="true"
               ></span>
               Client Testimonials
@@ -827,7 +787,7 @@ const Home = () => {
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
             >
               What Our Clients Say
             </ScrollFloat>
@@ -837,7 +797,7 @@ const Home = () => {
               baseRotation={2}
               blurStrength={8}
               containerClassName="max-w-3xl mx-auto"
-              textClassName="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal"
+              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
             >
               Don't just take our word for it - hear from some of our satisfied
               clients who have transformed their businesses with us
@@ -893,19 +853,19 @@ const Home = () => {
 
       {/* Client Logos */}
       <section
-        className="py-16 bg-gray-50"
+        className="py-5 max-[393px]:py-4 min-[430px]:py-6 sm:py-12 md:py-16 min-[1559px]:py-20 bg-gray-50"
         role="region"
         aria-label="Client logos"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12">
             <ScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-xl sm:text-2xl font-semibold text-gray-600 mb-4"
+              containerClassName="text-lg max-[393px]:text-base sm:text-xl md:text-2xl min-[1559px]:text-3xl font-semibold text-gray-600 mb-4"
             >
               Trusted by Leading Companies
             </ScrollFloat>

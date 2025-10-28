@@ -246,8 +246,8 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a
-      href="/"
+    <Link
+      to="/"
       className="relative z-20 flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
     >
       <Code2 className="h-8 w-8 text-blue-400" />
@@ -255,7 +255,7 @@ export const NavbarLogo = () => {
       <span className="font-bold text-lg text-gray-800 group-hover:text-gray-900 transition-colors duration-200">
         SarveSolutions
       </span>
-    </a>
+    </Link>
   );
 };
 
@@ -285,12 +285,12 @@ export const NavbarButton = ({
   };
 
   return (
-    <a
-      href={href || "#"}
+    <Link
+      to={href || "#"}
       className={cn(baseStyles, variantStyles[variant], className)}
       {...props}
     >
       {children}
-    </a>
+    </Link>
   );
 };

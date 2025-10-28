@@ -264,16 +264,16 @@ const Industries = () => {
       />
 
       {/* Industries Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+      <section className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
             <ScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
             >
               Our Industry Expertise
             </ScrollFloat>
@@ -283,7 +283,7 @@ const Industries = () => {
               baseRotation={2}
               blurStrength={8}
               containerClassName="max-w-3xl mx-auto"
-              textClassName="text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
+              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
             >
               From startups to enterprise, we understand the unique challenges
               each industry faces and deliver solutions that drive real business
@@ -291,7 +291,7 @@ const Industries = () => {
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 min-[820px]:grid-cols-2 lg:grid-cols-3 min-[1559px]:grid-cols-3 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8">
             {industries.map((industry) => {
               const colors = getColorClasses(industry.color);
               const IconComponent = industry.icon;
@@ -304,46 +304,50 @@ const Industries = () => {
                   spotlightColor={colors.spotlight}
                 >
                   <div className="relative z-10">
-                    <div className="p-8">
+                    <div className="p-6 max-[393px]:p-4 sm:p-8">
                       <div
-                        className={`inline-flex p-4 rounded-full ${colors.iconBg} mb-6 ${colors.iconHover} transition-colors duration-300`}
+                        className={`inline-flex p-3 max-[393px]:p-2.5 sm:p-4 rounded-full ${colors.iconBg} mb-4 max-[393px]:mb-3 sm:mb-6 ${colors.iconHover} transition-colors duration-300`}
                       >
                         <IconComponent
-                          className={`h-8 w-8 transition-colors duration-300 ${colors.iconText} group-hover:${colors.hover}`}
+                          className={`h-6 w-6 max-[393px]:h-5 max-[393px]:w-5 sm:h-8 sm:w-8 transition-colors duration-300 ${colors.iconText} group-hover:${colors.hover}`}
                         />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                      <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2 sm:mb-4">
                         {industry.name}
                       </h3>
-                      <p className="text-sm md:text-base text-gray-600 mb-6 leading-relaxed">
+                      <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600 mb-4 max-[393px]:mb-3 sm:mb-6 leading-relaxed">
                         {industry.description}
                       </p>
 
-                      <div className="mb-6">
-                        <h4 className="text-sm md:text-base font-semibold text-gray-900 mb-3">
+                      <div className="mb-4 max-[393px]:mb-3 sm:mb-6">
+                        <h4 className="text-sm max-[393px]:text-xs min-[430px]:text-base font-semibold text-gray-900 mb-2 max-[393px]:mb-1.5 sm:mb-3">
                           Key Challenges:
                         </h4>
-                        <ul className="space-y-2 text-xs md:text-sm text-gray-600">
+                        <ul className="space-y-1.5 max-[393px]:space-y-1 sm:space-y-2 text-xs max-[393px]:text-[10px] min-[430px]:text-sm text-gray-600">
                           {industry.challenges.map((challenge, idx) => (
                             <li key={idx} className="flex items-start">
-                              <span className={`${colors.bullet} mr-2`}>•</span>
+                              <span
+                                className={`${colors.bullet} mr-1 max-[393px]:mr-0.5 sm:mr-2`}
+                              >
+                                •
+                              </span>
                               {challenge}
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="mb-6">
-                        <h4 className="text-sm md:text-base font-semibold text-gray-900 mb-3">
+                      <div className="mb-4 max-[393px]:mb-3 sm:mb-6">
+                        <h4 className="text-sm max-[393px]:text-xs min-[430px]:text-base font-semibold text-gray-900 mb-2 max-[393px]:mb-1.5 sm:mb-3">
                           Our Solutions:
                         </h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-1.5 max-[393px]:space-y-1 sm:space-y-2">
                           {industry.solutions.map((solution, idx) => (
                             <li
                               key={idx}
-                              className="flex items-center text-xs md:text-sm text-gray-600"
+                              className="flex items-center text-xs max-[393px]:text-[10px] min-[430px]:text-sm text-gray-600"
                             >
-                              <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                              <CheckCircle className="h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 text-green-500 mr-1 max-[393px]:mr-0.5 min-[430px]:mr-2" />
                               {solution}
                             </li>
                           ))}
@@ -352,10 +356,10 @@ const Industries = () => {
 
                       <Link
                         to="/contact"
-                        className={`inline-flex items-center ${colors.text} hover:${colors.hover} font-medium transition-colors`}
+                        className={`inline-flex items-center text-xs max-[393px]:text-[10px] min-[430px]:text-sm ${colors.text} hover:${colors.hover} font-medium transition-colors`}
                       >
                         Discuss {industry.name} Solutions
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                        <ArrowRight className="ml-1 max-[393px]:ml-0.5 min-[430px]:ml-1.5 h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5" />
                       </Link>
                     </div>
                   </div>
@@ -367,16 +371,16 @@ const Industries = () => {
       </section>
 
       {/* Industry Statistics */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+      <section className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
             <ScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
             >
               Our Industry Impact
             </ScrollFloat>
@@ -386,14 +390,14 @@ const Industries = () => {
               baseRotation={2}
               blurStrength={8}
               containerClassName="max-w-3xl mx-auto"
-              textClassName="text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
+              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
             >
               Numbers that reflect our commitment to delivering exceptional
               results across industries
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 min-[1559px]:grid-cols-4 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8">
             {[
               {
                 number: "50+",
@@ -418,15 +422,15 @@ const Industries = () => {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="text-center p-6 bg-white rounded-2xl shadow-lg"
+                className="text-center p-5 max-[393px]:p-4 sm:p-6 bg-white rounded-2xl shadow-lg"
               >
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-2">
+                <div className="text-xl max-[393px]:text-lg min-[430px]:text-2xl md:text-3xl lg:text-4xl min-[1559px]:text-5xl font-bold text-blue-600 mb-1 max-[393px]:mb-0.5 sm:mb-2">
                   {stat.number}
                 </div>
-                <div className="text-base md:text-lg font-semibold text-gray-900 mb-2">
+                <div className="text-sm max-[393px]:text-xs min-[430px]:text-base font-semibold text-gray-900 mb-1 max-[393px]:mb-0.5 sm:mb-2">
                   {stat.label}
                 </div>
-                <div className="text-gray-600 text-xs md:text-sm">
+                <div className="text-gray-600 text-xs max-[393px]:text-[10px] min-[430px]:text-sm">
                   {stat.description}
                 </div>
               </div>
@@ -436,16 +440,16 @@ const Industries = () => {
       </section>
 
       {/* Why Industry Expertise Matters */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+      <section className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
             <ScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
             >
               Why Industry Expertise Matters
             </ScrollFloat>
@@ -455,14 +459,14 @@ const Industries = () => {
               baseRotation={2}
               blurStrength={8}
               containerClassName="max-w-3xl mx-auto"
-              textClassName="text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
+              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
             >
               Deep industry knowledge enables us to deliver solutions that truly
               address your specific challenges
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 min-[1559px]:grid-cols-3 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8">
             {[
               {
                 icon: Target,
@@ -503,15 +507,15 @@ const Industries = () => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="text-center p-6 bg-gray-50 rounded-2xl"
+                className="text-center p-5 max-[393px]:p-4 sm:p-6 bg-gray-50 rounded-2xl"
               >
-                <div className="inline-flex p-4 rounded-full bg-blue-100 mb-6">
-                  <feature.icon className="h-8 w-8 text-blue-600" />
+                <div className="inline-flex p-3 max-[393px]:p-2.5 sm:p-4 rounded-full bg-blue-100 mb-4 max-[393px]:mb-3 sm:mb-6">
+                  <feature.icon className="h-6 w-6 max-[393px]:h-5 max-[393px]:w-5 sm:h-8 sm:w-8 text-blue-600" />
                 </div>
-                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2 sm:mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-sm md:text-base text-gray-600">
+                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600">
                   {feature.description}
                 </p>
               </div>

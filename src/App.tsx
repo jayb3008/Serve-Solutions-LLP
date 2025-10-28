@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Suspense, lazy, useState } from "react";
 import {
   Navbar,
@@ -76,14 +76,14 @@ function AppContent() {
           </MobileNavHeader>
           <MobileNavMenu isOpen={isMobileMenuOpen}>
             {navItems.map((item, idx) => (
-              <a
+              <Link
                 key={`mobile-link-${idx}`}
-                href={item.link}
+                to={item.link}
                 className="w-full px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
             <div className="w-full pt-2 border-t border-gray-200">
               <NavbarButton
