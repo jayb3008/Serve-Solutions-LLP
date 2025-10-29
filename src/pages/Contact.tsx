@@ -4,6 +4,7 @@ import HeroSection from "../components/HeroSection";
 import ScrollFloat from "../components/ScrollFloat";
 import ScrollReveal from "../components/ScrollReveal";
 import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
+import SwipeButton from "../components/SwipeButton";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -271,13 +272,24 @@ const Contact = () => {
                     ></textarea>
                   </div>
 
-                  <button
+                  <SwipeButton
                     type="submit"
-                    className="w-full bg-blue-600 text-white py-3 max-[393px]:py-2.5 min-[430px]:py-3 sm:py-4 px-5 max-[393px]:px-4 sm:px-6 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-lg font-bold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center space-x-2 max-[393px]:space-x-1.5 sm:space-x-3 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    <Send className="h-5 max-[393px]:h-4 max-[393px]:w-4 min-[430px]:h-5 min-[430px]:w-5 sm:h-6 sm:w-6" />
-                    <span>Send Message</span>
-                  </button>
+                    className="w-full rounded-xl"
+                    firstClass="w-full bg-blue-600 text-white py-3 max-[393px]:py-2.5 min-[430px]:py-3 sm:py-4 px-5 max-[393px]:px-4 sm:px-6 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-lg font-bold flex items-center justify-center space-x-2 max-[393px]:space-x-1.5 sm:space-x-3"
+                    secondClass="w-full bg-blue-700 text-white py-3 max-[393px]:py-2.5 min-[430px]:py-3 sm:py-4 px-5 max-[393px]:px-4 sm:px-6 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-lg font-bold flex items-center justify-center space-x-2 max-[393px]:space-x-1.5 sm:space-x-3"
+                    firstContent={
+                      <>
+                        <Send className="h-5 max-[393px]:h-4 max-[393px]:w-4 min-[430px]:h-5 min-[430px]:w-5 sm:h-6 sm:w-6" />
+                        <span>Send Message</span>
+                      </>
+                    }
+                    secondContent={
+                      <>
+                        <Send className="h-5 max-[393px]:h-4 max-[393px]:w-4 min-[430px]:h-5 min-[430px]:w-5 sm:h-6 sm:w-6" />
+                        <span>Send Message</span>
+                      </>
+                    }
+                  />
                 </form>
               </div>
             </div>

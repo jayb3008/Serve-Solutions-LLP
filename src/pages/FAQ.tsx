@@ -19,6 +19,7 @@ import HeroSection from "../components/HeroSection";
 import ScrollFloat from "../components/ScrollFloat";
 import ScrollReveal from "../components/ScrollReveal";
 import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
+import SwipeButton from "../components/SwipeButton";
 
 const FAQ = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
@@ -276,19 +277,36 @@ const FAQ = () => {
                         key={faqIndex}
                         className="bg-white rounded-xl shadow-sm border border-gray-200"
                       >
-                        <button
+                        <SwipeButton
                           onClick={() => toggleItem(globalIndex)}
-                          className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-                        >
-                          <span className="text-lg font-semibold text-gray-900 pr-4">
-                            {faq.question}
-                          </span>
-                          {isOpen ? (
-                            <ChevronUp className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                          ) : (
-                            <ChevronDown className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                          )}
-                        </button>
+                          className="w-full text-left"
+                          firstClass="w-full px-6 py-4 text-left flex items-center justify-between"
+                          secondClass="w-full px-6 py-4 text-left flex items-center justify-between bg-gray-50"
+                          firstContent={
+                            <>
+                              <span className="text-lg font-semibold text-gray-900 pr-4">
+                                {faq.question}
+                              </span>
+                              {isOpen ? (
+                                <ChevronUp className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                              ) : (
+                                <ChevronDown className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                              )}
+                            </>
+                          }
+                          secondContent={
+                            <>
+                              <span className="text-lg font-semibold text-gray-900 pr-4">
+                                {faq.question}
+                              </span>
+                              {isOpen ? (
+                                <ChevronUp className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                              ) : (
+                                <ChevronDown className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                              )}
+                            </>
+                          }
+                        />
                         {isOpen && (
                           <div className="px-6 pb-4">
                             <p className="text-gray-600 leading-relaxed">

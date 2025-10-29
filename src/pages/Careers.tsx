@@ -24,6 +24,7 @@ import HeroSection from "../components/HeroSection";
 import ScrollFloat from "../components/ScrollFloat";
 import ScrollReveal from "../components/ScrollReveal";
 import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
+import SwipeButton from "../components/SwipeButton";
 
 interface JobPosition {
   id: number;
@@ -651,13 +652,24 @@ const Careers = () => {
             and let us know how you'd like to contribute.
           </ScrollReveal>
           <div className="flex flex-col sm:flex-row gap-4 max-[393px]:gap-3 min-[430px]:gap-5 sm:gap-6 justify-center items-center">
-            <button
+            <SwipeButton
               onClick={() => setIsFormOpen(true)}
-              className="inline-flex items-center bg-white text-blue-600 px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              Send Your Resume
-              <ArrowRight className="ml-1.5 max-[393px]:ml-1 min-[430px]:ml-2 h-4 max-[393px]:h-3 max-[393px]:w-3 min-[430px]:h-4 min-[430px]:w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
-            </button>
+              className="rounded-xl"
+              firstClass="inline-flex items-center bg-white text-blue-600 px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-xl font-bold"
+              secondClass="inline-flex items-center bg-gray-100 text-blue-700 px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-xl font-bold"
+              firstContent={
+                <>
+                  Send Your Resume
+                  <ArrowRight className="ml-1.5 max-[393px]:ml-1 min-[430px]:ml-2 h-4 max-[393px]:h-3 max-[393px]:w-3 min-[430px]:h-4 min-[430px]:w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+                </>
+              }
+              secondContent={
+                <>
+                  Send Your Resume
+                  <ArrowRight className="ml-1.5 max-[393px]:ml-1 min-[430px]:ml-2 h-4 max-[393px]:h-3 max-[393px]:w-3 min-[430px]:h-4 min-[430px]:w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+                </>
+              }
+            />
             <Link
               to="/about"
               className="inline-flex items-center border-2 border-white text-white hover:bg-white hover:text-blue-600 px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-xl font-bold transition-all duration-300 hover:shadow-lg"
@@ -680,12 +692,19 @@ const Careers = () => {
               <h2 className="text-lg max-[393px]:text-base min-[430px]:text-xl sm:text-2xl font-bold text-gray-900">
                 Submit Your Resume
               </h2>
-              <button
+              <SwipeButton
                 onClick={() => setIsFormOpen(false)}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                <X className="h-5 w-5 max-[393px]:h-4 max-[393px]:w-4 sm:h-6 sm:w-6" />
-              </button>
+                aria-label="Close"
+                className="rounded-lg"
+                firstClass="p-1.5 text-gray-400 hover:text-gray-600 bg-transparent"
+                secondClass="p-1.5 text-gray-600 bg-gray-100"
+                firstContent={
+                  <X className="h-5 w-5 max-[393px]:h-4 max-[393px]:w-4 sm:h-6 sm:w-6" />
+                }
+                secondContent={
+                  <X className="h-5 w-5 max-[393px]:h-4 max-[393px]:w-4 sm:h-6 sm:w-6" />
+                }
+              />
             </div>
 
             <form
@@ -845,20 +864,33 @@ const Careers = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 max-[393px]:gap-2 min-[430px]:gap-4 pt-4 max-[393px]:pt-3 sm:pt-6 border-t border-gray-200">
-                <button
+                <SwipeButton
                   type="submit"
-                  className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-lg font-bold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center"
-                >
-                  Submit Application
-                  <ArrowRight className="ml-1.5 max-[393px]:ml-1 min-[430px]:ml-2 h-4 max-[393px]:h-3 max-[393px]:w-3 min-[430px]:h-4 min-[430px]:w-4 sm:h-5 sm:w-5" />
-                </button>
-                <button
+                  className="flex-1 rounded-xl"
+                  firstClass="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-lg font-bold flex items-center justify-center"
+                  secondClass="flex-1 bg-gradient-to-r from-blue-700 to-blue-800 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-lg font-bold flex items-center justify-center"
+                  firstContent={
+                    <>
+                      Submit Application
+                      <ArrowRight className="ml-1.5 max-[393px]:ml-1 min-[430px]:ml-2 h-4 max-[393px]:h-3 max-[393px]:w-3 min-[430px]:h-4 min-[430px]:w-4 sm:h-5 sm:w-5" />
+                    </>
+                  }
+                  secondContent={
+                    <>
+                      Submit Application
+                      <ArrowRight className="ml-1.5 max-[393px]:ml-1 min-[430px]:ml-2 h-4 max-[393px]:h-3 max-[393px]:w-3 min-[430px]:h-4 min-[430px]:w-4 sm:h-5 sm:w-5" />
+                    </>
+                  }
+                />
+                <SwipeButton
                   type="button"
                   onClick={() => setIsFormOpen(false)}
-                  className="px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 border-2 border-gray-300 text-gray-700 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-lg font-bold hover:bg-gray-50 transition-all duration-300"
-                >
-                  Cancel
-                </button>
+                  className="rounded-xl"
+                  firstClass="px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 border-2 border-gray-300 text-gray-700 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-lg font-bold"
+                  secondClass="px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 border-2 border-gray-300 text-gray-700 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-base lg:text-lg font-bold bg-gray-50"
+                  firstContent={<>Cancel</>}
+                  secondContent={<>Cancel</>}
+                />
               </div>
             </form>
           </div>

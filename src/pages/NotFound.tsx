@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
 import { Home, ArrowLeft } from "lucide-react";
+import SwipeButton from "../components/SwipeButton";
 
 const NotFound = () => {
   const location = useLocation();
@@ -32,13 +33,24 @@ const NotFound = () => {
               <Home className="mr-2" size={20} />
               Go Home
             </Link>
-            <button
+            <SwipeButton
               onClick={() => window.history.back()}
-              className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-colors"
-            >
-              <ArrowLeft className="mr-2" size={20} />
-              Go Back
-            </button>
+              className="rounded-lg"
+              firstClass="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold"
+              secondClass="inline-flex items-center justify-center px-6 py-3 bg-white/10 border-2 border-white text-white rounded-lg font-semibold"
+              firstContent={
+                <>
+                  <ArrowLeft className="mr-2" size={20} />
+                  Go Back
+                </>
+              }
+              secondContent={
+                <>
+                  <ArrowLeft className="mr-2" size={20} />
+                  Go Back
+                </>
+              }
+            />
           </div>
         </div>
       </section>

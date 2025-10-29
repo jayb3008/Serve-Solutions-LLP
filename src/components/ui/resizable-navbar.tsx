@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { Code2 } from "lucide-react";
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface NavbarProps {
@@ -50,11 +50,7 @@ interface MobileNavMenuProps {
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
+  const { scrollY } = useScroll();
   const [visible, setVisible] = useState<boolean>(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -66,10 +62,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   });
 
   return (
-    <motion.div
-      ref={ref}
-      className={cn("fixed inset-x-0 top-0 z-50 w-full", className)}
-    >
+    <motion.div className={cn("fixed inset-x-0 top-0 z-50 w-full", className)}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
@@ -87,9 +80,6 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
     <motion.div
       animate={{
         backdropFilter: visible ? "blur(20px)" : "blur(0px)",
-        backgroundColor: visible
-          ? "rgba(255, 255, 255, 0.9)"
-          : "rgba(255, 255, 255, 1)",
         boxShadow: visible
           ? "0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2)"
           : "0 4px 16px rgba(0, 0, 0, 0.05)",
@@ -107,7 +97,9 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         `relative z-[60] mx-auto hidden w-full ${
           visible ? "rounded-2xl" : ""
         } flex-row items-center justify-between  px-6 py-3 lg:flex`,
-        "border border-white/20 ",
+        // Light and dark backgrounds using variables
+        "bg-white/95 dark:bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-white/70 supports-[backdrop-filter]:dark:bg-black/50",
+        "border border-white/20 dark:border-white/10",
         className
       )}
     >
@@ -131,14 +123,14 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <Link
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 rounded-lg"
+          className="relative px-4 py-2 text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white transition-colors duration-200 rounded-lg"
           key={`link-${idx}`}
           to={item.link}
         >
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100"
+              className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-white/5 dark:to-white/10 border border-blue-100 dark:border-white/10"
               transition={{
                 type: "spring",
                 stiffness: 500,
@@ -158,9 +150,6 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
     <motion.div
       animate={{
         backdropFilter: visible ? "blur(20px)" : "blur(0px)",
-        backgroundColor: visible
-          ? "rgba(255, 255, 255, 0.9)"
-          : "rgba(255, 255, 255, 1)",
         boxShadow: visible
           ? "0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2)"
           : "0 4px 16px rgba(0, 0, 0, 0.05)",
@@ -176,7 +165,8 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         `relative z-50 mx-auto flex w-full ${
           visible ? "max-w-[calc(100vw-2rem)] rounded-2xl" : ""
         } flex-col items-center justify-between px-4 py-3 lg:hidden`,
-        "border border-white/20",
+        "bg-white/95 dark:bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-white/70 supports-[backdrop-filter]:dark:bg-black/50",
+        "border border-white/20 dark:border-white/10",
         className
       )}
     >
@@ -219,7 +209,7 @@ export const MobileNavMenu = ({
             damping: 30,
           }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-3 rounded-2xl bg-white/95 backdrop-blur-xl px-6 py-6 shadow-2xl border border-white/20",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-3 rounded-2xl bg-white/95 dark:bg-zinc-900/90 backdrop-blur-xl px-6 py-6 shadow-2xl border border-white/20 dark:border-white/10",
             className
           )}
         >
@@ -248,11 +238,11 @@ export const NavbarLogo = () => {
   return (
     <Link
       to="/"
-      className="relative z-20 flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
+      className="relative z-20 flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-colors duration-200 group"
     >
       <Code2 className="h-8 w-8 text-blue-400" />
 
-      <span className="font-bold text-lg text-gray-800 group-hover:text-gray-900 transition-colors duration-200">
+      <span className="font-bold text-lg text-gray-800 dark:text-gray-100 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200">
         SarveSolutions
       </span>
     </Link>
@@ -276,9 +266,9 @@ export const NavbarButton = ({
 
   const variantStyles = {
     primary:
-      "bg-white text-gray-800 shadow-md border border-gray-200 hover:shadow-xl hover:border-gray-300",
+      "bg-white text-gray-800 dark:bg-gray-100/10 dark:text-gray-100 shadow-md border border-gray-200 dark:border-white/10 hover:shadow-xl hover:border-gray-300 dark:hover:bg-gray-100/15",
     secondary:
-      "bg-transparent text-gray-700 border border-gray-300 hover:bg-gray-50",
+      "bg-transparent text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5",
     dark: "bg-gray-900 text-white shadow-lg hover:bg-gray-800 hover:shadow-xl",
     gradient:
       "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg hover:from-blue-700 hover:to-indigo-700 hover:shadow-xl",

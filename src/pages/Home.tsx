@@ -21,7 +21,7 @@ import {
   CreditCard,
   ChevronDown,
 } from "lucide-react";
-import Ballpit from "../components/Ballpit";
+// import Ballpit from "../components/Ballpit";
 import SplitText from "../components/SplitText";
 import BlurText from "../components/BlurText";
 import Shuffle from "../components/Shuffle";
@@ -31,6 +31,7 @@ import { InfiniteMovingCards } from "../components/ui/infinite-moving-cards";
 import LogoLoop from "../components/LogoLoop";
 import SpotlightCard from "../components/SpotlightCard";
 import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
+import SwipeButton from "../components/SwipeButton";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -86,7 +87,7 @@ const Home = () => {
           className="absolute inset-0 z-0 hidden lg:block"
           aria-hidden="true"
         >
-          <Ballpit
+          {/* <Ballpit
             className="w-full h-full"
             followCursor={false}
             count={100}
@@ -109,7 +110,7 @@ const Home = () => {
             maxX={8}
             maxY={6}
             maxZ={3}
-          />
+          /> */}
         </div>
         {/* Main Content */}
         <main
@@ -203,15 +204,23 @@ const Home = () => {
         </main>
 
         {/* Scroll Indicator */}
-        <button
+        <SwipeButton
           onClick={() => scrollToSection("services")}
-          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce focus:outline-none focus:ring-4 focus:ring-white/50 rounded-full p-2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce rounded-full"
           aria-label="Scroll to services section"
-        >
-          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white/70 mt-1.5 sm:mt-2" />
-          </div>
-        </button>
+          firstClass="rounded-full p-2"
+          secondClass="rounded-full p-2 bg-white/10"
+          firstContent={
+            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/50 rounded-full flex justify-center">
+              <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white/70 mt-1.5 sm:mt-2" />
+            </div>
+          }
+          secondContent={
+            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/70 rounded-full flex justify-center">
+              <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white mt-1.5 sm:mt-2" />
+            </div>
+          }
+        />
       </section>
 
       {/* Main Service Pillars */}
@@ -429,15 +438,15 @@ const Home = () => {
       {/* Why Choose Us */}
       <section
         id="why-choose-us"
-        className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-gradient-to-b from-gray-50 to-white"
+        className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-background"
         role="region"
         aria-label="Why choose us"
       >
         <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
           <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
-            <div className="inline-flex items-center px-3 max-[393px]:px-2 py-1.5 max-[393px]:py-1 rounded-full bg-green-100 text-green-600 text-xs max-[393px]:text-[10px] sm:text-sm font-medium mb-4 max-[393px]:mb-3 sm:mb-6">
+            <div className="inline-flex items-center px-3 max-[393px]:px-2 py-1.5 max-[393px]:py-1 rounded-full bg-green-100 text-green-600 dark:bg-white/10 dark:text-green-300 text-xs max-[393px]:text-[10px] sm:text-sm font-medium mb-4 max-[393px]:mb-3 sm:mb-6">
               <span
-                className="w-1.5 max-[393px]:w-1 h-1.5 max-[393px]:h-1 bg-green-600 rounded-full mr-1.5 max-[393px]:mr-1 animate-pulse"
+                className="w-1.5 max-[393px]:w-1 h-1.5 max-[393px]:h-1 bg-green-600 dark:bg-green-400 rounded-full mr-1.5 max-[393px]:mr-1 animate-pulse"
                 aria-hidden="true"
               ></span>
               Why Choose Us
@@ -448,7 +457,7 @@ const Home = () => {
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
+              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-foreground mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
             >
               Your Trusted Digital Partner
             </ScrollFloat>
@@ -458,7 +467,7 @@ const Home = () => {
               baseRotation={2}
               blurStrength={8}
               containerClassName="max-w-3xl mx-auto"
-              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
+              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-muted-foreground leading-relaxed font-normal"
             >
               We combine technical expertise with business acumen to deliver
               solutions that drive real results and exceed expectations
@@ -504,7 +513,7 @@ const Home = () => {
                 aria-label={feature.title}
               >
                 <div
-                  className={`inline-flex p-6 rounded-3xl mb-6 transition-colors duration-300 ${
+                  className={`inline-flex p-6 rounded-3xl mb-6 transition-colors duration-300 dark:bg-white/10 dark:group-hover:bg-white/15 ${
                     feature.color === "blue"
                       ? "bg-blue-100 group-hover:bg-blue-200"
                       : feature.color === "green"
@@ -528,10 +537,10 @@ const Home = () => {
                   />
                 </div>
 
-                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2">
+                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-foreground mb-3 max-[393px]:mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600 leading-relaxed">
+                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </div>

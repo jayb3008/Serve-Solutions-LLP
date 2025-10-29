@@ -13,6 +13,7 @@ import {
 } from "./components/ui/resizable-navbar";
 import Footer from "./components/Footer";
 import useScrollToTop from "./hook/useEffect";
+import { AnimatedThemeToggler } from "./components/ui/animated-theme-toggler";
 
 // Lazy load components for code splitting
 const Home = lazy(() => import("./pages/Home"));
@@ -56,19 +57,31 @@ function AppContent() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-white">
+    <div className="min-h-screen w-full bg-background text-foreground">
       <Navbar>
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <NavbarButton href="/contact/" variant="gradient">
-            Get Started
-          </NavbarButton>
+          <div className="flex items-center gap-3">
+            <AnimatedThemeToggler
+              className="h-9 w-9 grid place-items-center rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"
+              aria-label="Toggle theme"
+            />
+            <NavbarButton href="/contact/" variant="gradient">
+              Get Started
+            </NavbarButton>
+          </div>
         </NavBody>
 
         <MobileNav>
           <MobileNavHeader>
-            <NavbarLogo />
+            <div className="flex items-center gap-3">
+              <AnimatedThemeToggler
+                className="h-9 w-9 grid place-items-center rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"
+                aria-label="Toggle theme"
+              />
+              <NavbarLogo />
+            </div>
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -79,7 +92,7 @@ function AppContent() {
               <Link
                 key={`mobile-link-${idx}`}
                 to={item.link}
-                className="w-full px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium"
+                className="w-full px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-white dark:hover:bg-white/5 rounded-lg transition-all duration-200 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}

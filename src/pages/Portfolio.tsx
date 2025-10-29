@@ -26,6 +26,7 @@ import ScrollReveal from "../components/ScrollReveal";
 import SpotlightCard from "../components/SpotlightCard";
 import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
 import LogoLoop from "../components/LogoLoop";
+import SwipeButton from "../components/SwipeButton";
 
 const Portfolio = () => {
   const projects = [
@@ -809,12 +810,20 @@ const Portfolio = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 max-[393px]:gap-2 min-[430px]:gap-4 justify-center items-center">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-2.5 max-[393px]:py-2 min-[430px]:py-2.5 sm:py-3 rounded-lg text-xs max-[393px]:text-[10px] min-[430px]:text-sm sm:text-base font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                  View All Technologies
-                </button>
-                <button className="bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-2.5 max-[393px]:py-2 min-[430px]:py-2.5 sm:py-3 rounded-lg text-xs max-[393px]:text-[10px] min-[430px]:text-sm sm:text-base font-semibold transition-all duration-300">
-                  Request Tech Consultation
-                </button>
+                <SwipeButton
+                  className="rounded-lg"
+                  firstClass="bg-blue-600 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-2.5 max-[393px]:py-2 min-[430px]:py-2.5 sm:py-3 rounded-lg text-xs max-[393px]:text-[10px] min-[430px]:text-sm sm:text-base font-semibold"
+                  secondClass="bg-blue-700 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-2.5 max-[393px]:py-2 min-[430px]:py-2.5 sm:py-3 rounded-lg text-xs max-[393px]:text-[10px] min-[430px]:text-sm sm:text-base font-semibold"
+                  firstContent={<>View All Technologies</>}
+                  secondContent={<>View All Technologies</>}
+                />
+                <SwipeButton
+                  className="rounded-lg"
+                  firstClass="bg-transparent border-2 border-blue-600 text-blue-600 px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-2.5 max-[393px]:py-2 min-[430px]:py-2.5 sm:py-3 rounded-lg text-xs max-[393px]:text-[10px] min-[430px]:text-sm sm:text-base font-semibold"
+                  secondClass="bg-blue-600 text-white border-2 border-blue-600 px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-8 py-2.5 max-[393px]:py-2 min-[430px]:py-2.5 sm:py-3 rounded-lg text-xs max-[393px]:text-[10px] min-[430px]:text-sm sm:text-base font-semibold"
+                  firstContent={<>Request Tech Consultation</>}
+                  secondContent={<>Request Tech Consultation</>}
+                />
               </div>
             </div>
           </div>
@@ -934,9 +943,13 @@ const Portfolio = () => {
           />
 
           <div className="text-center mt-6 max-[393px]:mt-4 sm:mt-8">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-10 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-              Become Our Next Success Story
-            </button>
+            <SwipeButton
+              className="rounded-xl"
+              firstClass="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-10 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-lg font-bold"
+              secondClass="bg-gradient-to-r from-blue-700 to-purple-700 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 sm:px-10 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 rounded-xl text-sm max-[393px]:text-xs min-[430px]:text-sm sm:text-lg font-bold"
+              firstContent={<>Become Our Next Success Story</>}
+              secondContent={<>Become Our Next Success Story</>}
+            />
           </div>
         </div>
       </section>

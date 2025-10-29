@@ -25,7 +25,7 @@ const About = () => {
       />
 
       {/* Mission, Vision, Values */}
-      <section className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-white">
+      <section className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
           <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
             <ScrollFloat
@@ -34,7 +34,7 @@ const About = () => {
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
+              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-foreground mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
             >
               Our Mission, Vision & Values
             </ScrollFloat>
@@ -44,7 +44,7 @@ const About = () => {
               baseRotation={2}
               blurStrength={8}
               containerClassName="max-w-3xl mx-auto"
-              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
+              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-muted-foreground leading-relaxed font-normal"
             >
               The principles that guide everything we do
             </ScrollReveal>
@@ -59,10 +59,10 @@ const About = () => {
                 <div className="inline-flex p-4 max-[393px]:p-3 sm:p-5 rounded-2xl mb-4 max-[393px]:mb-3 sm:mb-6 transition-colors duration-300 bg-blue-100 group-hover:bg-blue-200">
                   <Target className="h-6 w-6 max-[393px]:h-5 max-[393px]:w-5 sm:h-8 sm:w-8 transition-colors duration-300 text-blue-600 group-hover:text-blue-700" />
                 </div>
-                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2 sm:mb-4">
+                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-foreground mb-3 max-[393px]:mb-2 sm:mb-4">
                   Our Mission
                 </h3>
-                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600 leading-relaxed">
+                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-muted-foreground leading-relaxed">
                   To empower businesses with cutting-edge technology solutions
                   that drive growth, enhance user experiences, and create
                   lasting value in the digital landscape.
@@ -78,10 +78,10 @@ const About = () => {
                 <div className="inline-flex p-4 max-[393px]:p-3 sm:p-5 rounded-2xl mb-4 max-[393px]:mb-3 sm:mb-6 transition-colors duration-300 bg-purple-100 group-hover:bg-purple-200">
                   <Eye className="h-6 w-6 max-[393px]:h-5 max-[393px]:w-5 sm:h-8 sm:w-8 transition-colors duration-300 text-purple-600 group-hover:text-purple-700" />
                 </div>
-                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2 sm:mb-4">
+                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-foreground mb-3 max-[393px]:mb-2 sm:mb-4">
                   Our Vision
                 </h3>
-                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600 leading-relaxed">
+                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-muted-foreground leading-relaxed">
                   To be the leading technology partner that businesses trust to
                   transform their digital presence and achieve unprecedented
                   success in their industries.
@@ -97,10 +97,10 @@ const About = () => {
                 <div className="inline-flex p-4 max-[393px]:p-3 sm:p-5 rounded-2xl mb-4 max-[393px]:mb-3 sm:mb-6 transition-colors duration-300 bg-green-100 group-hover:bg-green-200">
                   <Heart className="h-6 w-6 max-[393px]:h-5 max-[393px]:w-5 sm:h-8 sm:w-8 transition-colors duration-300 text-green-600 group-hover:text-green-700" />
                 </div>
-                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2 sm:mb-4">
+                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-foreground mb-3 max-[393px]:mb-2 sm:mb-4">
                   Our Values
                 </h3>
-                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600 leading-relaxed">
+                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-muted-foreground leading-relaxed">
                   Integrity, innovation, excellence, and client success are the
                   core values that drive our commitment to delivering
                   exceptional results.

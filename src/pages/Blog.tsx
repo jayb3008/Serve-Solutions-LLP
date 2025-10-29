@@ -20,6 +20,7 @@ import ScrollFloat from "../components/ScrollFloat";
 import ScrollReveal from "../components/ScrollReveal";
 import SpotlightCard from "../components/SpotlightCard";
 import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
+import SwipeButton from "../components/SwipeButton";
 
 const Blog = () => {
   const blogPosts = [
@@ -137,18 +138,34 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-2 max-[393px]:gap-1.5 min-[430px]:gap-3 sm:gap-4 mb-6 max-[393px]:mb-4 sm:mb-8">
             {categories.map((category, index) => (
-              <button
+              <SwipeButton
                 key={index}
-                className="flex items-center gap-1 max-[393px]:gap-0.5 min-[430px]:gap-1.5 sm:gap-2 px-3 max-[393px]:px-2 min-[430px]:px-3 sm:px-4 py-1.5 max-[393px]:py-1 sm:py-2 rounded-full bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 transition-colors duration-300"
-              >
-                <category.icon className="h-3 w-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 sm:h-4 sm:w-4" />
-                <span className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm font-medium">
-                  {category.name}
-                </span>
-                <span className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm text-gray-500">
-                  ({category.count})
-                </span>
-              </button>
+                className="rounded-full"
+                firstClass="flex items-center gap-1 max-[393px]:gap-0.5 min-[430px]:gap-1.5 sm:gap-2 px-3 max-[393px]:px-2 min-[430px]:px-3 sm:px-4 py-1.5 max-[393px]:py-1 sm:py-2 rounded-full bg-gray-100 text-gray-700"
+                secondClass="flex items-center gap-1 max-[393px]:gap-0.5 min-[430px]:gap-1.5 sm:gap-2 px-3 max-[393px]:px-2 min-[430px]:px-3 sm:px-4 py-1.5 max-[393px]:py-1 sm:py-2 rounded-full bg-blue-100 text-blue-700"
+                firstContent={
+                  <>
+                    <category.icon className="h-3 w-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 sm:h-4 sm:w-4" />
+                    <span className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm font-medium">
+                      {category.name}
+                    </span>
+                    <span className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm text-gray-500">
+                      ({category.count})
+                    </span>
+                  </>
+                }
+                secondContent={
+                  <>
+                    <category.icon className="h-3 w-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 sm:h-4 sm:w-4" />
+                    <span className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm font-medium">
+                      {category.name}
+                    </span>
+                    <span className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm text-gray-600">
+                      ({category.count})
+                    </span>
+                  </>
+                }
+              />
             ))}
           </div>
         </div>
@@ -402,9 +419,13 @@ const Blog = () => {
               placeholder="Enter your email address"
               className="flex-1 px-3 max-[393px]:px-2 sm:px-4 py-2 max-[393px]:py-1.5 sm:py-3 rounded-full text-sm max-[393px]:text-xs sm:text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
             />
-            <button className="bg-white text-blue-600 px-4 max-[393px]:px-3 min-[430px]:px-5 sm:px-6 py-2 max-[393px]:py-1.5 min-[430px]:py-2.5 sm:py-3 rounded-full text-xs max-[393px]:text-[10px] min-[430px]:text-sm sm:text-base font-semibold hover:bg-gray-100 transition-colors duration-300">
-              Subscribe
-            </button>
+            <SwipeButton
+              className="rounded-full"
+              firstClass="bg-white text-blue-600 px-4 max-[393px]:px-3 min-[430px]:px-5 sm:px-6 py-2 max-[393px]:py-1.5 min-[430px]:py-2.5 sm:py-3 rounded-full text-xs max-[393px]:text-[10px] min-[430px]:text-sm sm:text-base font-semibold"
+              secondClass="bg-gray-100 text-blue-700 px-4 max-[393px]:px-3 min-[430px]:px-5 sm:px-6 py-2 max-[393px]:py-1.5 min-[430px]:py-2.5 sm:py-3 rounded-full text-xs max-[393px]:text-[10px] min-[430px]:text-sm sm:text-base font-semibold"
+              firstContent={<>Subscribe</>}
+              secondContent={<>Subscribe</>}
+            />
           </div>
           <p className="text-blue-200 text-xs max-[393px]:text-[10px] min-[430px]:text-sm mt-3 max-[393px]:mt-2 sm:mt-4">
             No spam, unsubscribe at any time.
