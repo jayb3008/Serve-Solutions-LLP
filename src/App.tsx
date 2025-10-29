@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Suspense, lazy, useState } from "react";
+import { lazy, useState, useEffect } from "react";
 import {
   Navbar,
   NavBody,
@@ -30,19 +30,45 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Loading component
-const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
-    <div className="text-center">
-      <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
-      <p className="text-white text-lg">Loading...</p>
-    </div>
-  </div>
-);
-
 function AppContent() {
   useScrollToTop();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // Prefetch common routes when the app is idle
+  useEffect(() => {
+    const prefetch = () => {
+      import("./pages/Services");
+      import("./pages/Portfolio");
+      import("./pages/Contact");
+      import("./pages/About");
+      import("./pages/Industries");
+    };
+    // Use requestIdleCallback if available to avoid competing with critical work
+    const ric =
+      (window as Window & typeof globalThis).requestIdleCallback ||
+      ((cb: IdleRequestCallback) => setTimeout(cb, 1500));
+    const id = ric(prefetch);
+    return () => {
+      const cic =
+        (window as Window & typeof globalThis).cancelIdleCallback ||
+        clearTimeout;
+      cic(id);
+    };
+  }, []);
+
+  const prefetchByPath: Record<string, () => Promise<void>> = {
+    "/": () => import("./pages/Home").then(() => {}),
+    "/about/": () => import("./pages/About").then(() => {}),
+    "/services/": () => import("./pages/Services").then(() => {}),
+    "/industries/": () => import("./pages/Industries").then(() => {}),
+    "/portfolio/": () => import("./pages/Portfolio").then(() => {}),
+    "/process/": () => import("./pages/Process").then(() => {}),
+    "/blog/": () => import("./pages/Blog").then(() => {}),
+    "/careers/": () => import("./pages/Careers").then(() => {}),
+    "/testimonials/": () => import("./pages/Testimonials").then(() => {}),
+    "/faq/": () => import("./pages/FAQ").then(() => {}),
+    "/contact/": () => import("./pages/Contact").then(() => {}),
+    "/privacy/": () => import("./pages/Privacy").then(() => {}),
+  };
 
   const navItems = [
     { name: "Home", link: "/" },
@@ -94,6 +120,10 @@ function AppContent() {
                 to={item.link}
                 className="w-full px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-white dark:hover:bg-white/5 rounded-lg transition-all duration-200 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
+                onMouseEnter={() => {
+                  const prefetch = prefetchByPath[item.link];
+                  if (prefetch) void prefetch();
+                }}
               >
                 {item.name}
               </Link>
@@ -111,23 +141,21 @@ function AppContent() {
         </MobileNav>
       </Navbar>
       <main>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about/" element={<About />} />
-            <Route path="/services/" element={<Services />} />
-            <Route path="/industries/" element={<Industries />} />
-            <Route path="/portfolio/" element={<Portfolio />} />
-            <Route path="/process/" element={<Process />} />
-            <Route path="/blog/" element={<Blog />} />
-            <Route path="/careers/" element={<Careers />} />
-            <Route path="/testimonials/" element={<Testimonials />} />
-            <Route path="/faq/" element={<FAQ />} />
-            <Route path="/contact/" element={<Contact />} />
-            <Route path="/privacy/" element={<Privacy />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about/" element={<About />} />
+          <Route path="/services/" element={<Services />} />
+          <Route path="/industries/" element={<Industries />} />
+          <Route path="/portfolio/" element={<Portfolio />} />
+          <Route path="/process/" element={<Process />} />
+          <Route path="/blog/" element={<Blog />} />
+          <Route path="/careers/" element={<Careers />} />
+          <Route path="/testimonials/" element={<Testimonials />} />
+          <Route path="/faq/" element={<FAQ />} />
+          <Route path="/contact/" element={<Contact />} />
+          <Route path="/privacy/" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
       <Footer />
     </div>

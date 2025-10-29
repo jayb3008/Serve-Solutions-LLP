@@ -14,6 +14,9 @@ export default defineConfig({
     exclude: ["lucide-react"],
   },
   build: {
+    esbuild: {
+      drop: ["console", "debugger"],
+    },
     rollupOptions: {
       output: {
         manualChunks: {

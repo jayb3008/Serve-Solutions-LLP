@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Suspense, lazy } from "react";
 import {
   ArrowRight,
   Code2,
@@ -22,48 +22,30 @@ import {
   ChevronDown,
 } from "lucide-react";
 // import Ballpit from "../components/Ballpit";
-import SplitText from "../components/SplitText";
-import BlurText from "../components/BlurText";
-import Shuffle from "../components/Shuffle";
-import ScrollFloat from "../components/ScrollFloat";
-import ScrollReveal from "../components/ScrollReveal";
-import { InfiniteMovingCards } from "../components/ui/infinite-moving-cards";
-import LogoLoop from "../components/LogoLoop";
-import SpotlightCard from "../components/SpotlightCard";
-import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
-import SwipeButton from "../components/SwipeButton";
+const SplitText = lazy(() => import("../components/SplitText"));
+const BlurText = lazy(() => import("../components/BlurText"));
+const Shuffle = lazy(() => import("../components/Shuffle"));
+const ScrollFloat = lazy(() => import("../components/ScrollFloat"));
+const ScrollReveal = lazy(() => import("../components/ScrollReveal"));
+const InfiniteMovingCards = lazy(() =>
+  import("../components/ui/infinite-moving-cards").then((m) => ({
+    default: m.InfiniteMovingCards,
+  }))
+);
+const LogoLoop = lazy(() => import("../components/LogoLoop"));
+const SpotlightCard = lazy(() => import("../components/SpotlightCard"));
+const ReadyToTransformCTA = lazy(
+  () => import("../components/ReadyToTransformCTA")
+);
+const SwipeButton = lazy(() => import("../components/SwipeButton"));
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time for better UX
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
-          <p className="text-white text-lg">Loading...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen">
@@ -123,19 +105,21 @@ const Home = () => {
               {/* <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight text-white drop-shadow-lg">
                 Transforming Ideas Into
               </h1> */}
-              <SplitText
-                text="Transforming Ideas Into Digital Excellence"
-                className="text-xl max-[393px]:text-lg min-[430px]:text-2xl min-[480px]:text-3xl min-[820px]:text-4xl lg:text-5xl xl:text-6xl min-[1559px]:text-7xl 2xl:text-8xl font-bold leading-tight text-white drop-shadow-lg px-1 max-[393px]:px-2"
-                delay={100}
-                duration={0.6}
-                ease="power3.out"
-                splitType="chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-                rootMargin="-100px"
-                textAlign="center"
-              />
+              <Suspense fallback={null}>
+                <SplitText
+                  text="Transforming Ideas Into Digital Excellence"
+                  className="text-xl max-[393px]:text-lg min-[430px]:text-2xl min-[480px]:text-3xl min-[820px]:text-4xl lg:text-5xl xl:text-6xl min-[1559px]:text-7xl 2xl:text-8xl font-bold leading-tight text-white drop-shadow-lg px-1 max-[393px]:px-2"
+                  delay={100}
+                  duration={0.6}
+                  ease="power3.out"
+                  splitType="chars"
+                  from={{ opacity: 0, y: 40 }}
+                  to={{ opacity: 1, y: 0 }}
+                  threshold={0.1}
+                  rootMargin="-100px"
+                  textAlign="center"
+                />
+              </Suspense>
               {/* <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg">
                 Digital Excellence
               </h1> */}
@@ -145,35 +129,39 @@ const Home = () => {
             {/* <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-cyan-100 tracking-wide drop-shadow-md">
               SarveSolutions
             </h2> */}
-            <Shuffle
-              text="SarveSolutions"
-              className="text-base max-[393px]:text-sm min-[430px]:text-lg min-[480px]:text-xl min-[820px]:text-2xl md:text-3xl lg:text-4xl xl:text-5xl min-[1559px]:text-6xl font-bold text-cyan-100 tracking-wide drop-shadow-md px-1 max-[393px]:px-2"
-              maxDelay={100}
-              duration={0.6}
-              ease="power3.out"
-              shuffleDirection="right"
-              animationMode="evenodd"
-              shuffleTimes={1}
-              stagger={0.03}
-              scrambleCharset=""
-              colorFrom="#3b82f6"
-              colorTo="#8b5cf6"
-              triggerOnce={true}
-              triggerOnHover={true}
-              respectReducedMotion={true}
-            />
+            <Suspense fallback={null}>
+              <Shuffle
+                text="SarveSolutions"
+                className="text-base max-[393px]:text-sm min-[430px]:text-lg min-[480px]:text-xl min-[820px]:text-2xl md:text-3xl lg:text-4xl xl:text-5xl min-[1559px]:text-6xl font-bold text-cyan-100 tracking-wide drop-shadow-md px-1 max-[393px]:px-2"
+                maxDelay={100}
+                duration={0.6}
+                ease="power3.out"
+                shuffleDirection="right"
+                animationMode="evenodd"
+                shuffleTimes={1}
+                stagger={0.03}
+                scrambleCharset=""
+                colorFrom="#3b82f6"
+                colorTo="#8b5cf6"
+                triggerOnce={true}
+                triggerOnHover={true}
+                respectReducedMotion={true}
+              />
+            </Suspense>
             {/* Description */}
             {/* <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed text-slate-100 font-light drop-shadow-md">
               We craft cutting-edge web solutions, mobile apps, and digital
               experiences that engage users and drive business growth.
             </p> */}
-            <BlurText
-              text="We craft cutting-edge web solutions, mobile apps, and digital experiences that engage users and drive business growth."
-              delay={150}
-              animateBy="words"
-              direction="top"
-              className="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl lg:text-2xl xl:text-3xl text-center mx-auto max-w-4xl leading-relaxed text-slate-100 font-light drop-shadow-md px-2 max-[393px]:px-3 sm:px-4"
-            />
+            <Suspense fallback={null}>
+              <BlurText
+                text="We craft cutting-edge web solutions, mobile apps, and digital experiences that engage users and drive business growth."
+                delay={150}
+                animateBy="words"
+                direction="top"
+                className="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl lg:text-2xl xl:text-3xl text-center mx-auto max-w-4xl leading-relaxed text-slate-100 font-light drop-shadow-md px-2 max-[393px]:px-3 sm:px-4"
+              />
+            </Suspense>
           </div>
 
           {/* Enhanced CTA Buttons */}
@@ -204,23 +192,25 @@ const Home = () => {
         </main>
 
         {/* Scroll Indicator */}
-        <SwipeButton
-          onClick={() => scrollToSection("services")}
-          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce rounded-full"
-          aria-label="Scroll to services section"
-          firstClass="rounded-full p-2"
-          secondClass="rounded-full p-2 bg-white/10"
-          firstContent={
-            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/50 rounded-full flex justify-center">
-              <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white/70 mt-1.5 sm:mt-2" />
-            </div>
-          }
-          secondContent={
-            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/70 rounded-full flex justify-center">
-              <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white mt-1.5 sm:mt-2" />
-            </div>
-          }
-        />
+        <Suspense fallback={null}>
+          <SwipeButton
+            onClick={() => scrollToSection("services")}
+            className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce rounded-full"
+            aria-label="Scroll to services section"
+            firstClass="rounded-full p-2"
+            secondClass="rounded-full p-2 bg-white/10"
+            firstContent={
+              <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/50 rounded-full flex justify-center">
+                <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white/70 mt-1.5 sm:mt-2" />
+              </div>
+            }
+            secondContent={
+              <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/70 rounded-full flex justify-center">
+                <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white mt-1.5 sm:mt-2" />
+              </div>
+            }
+          />
+        </Suspense>
       </section>
 
       {/* Main Service Pillars */}
@@ -232,27 +222,31 @@ const Home = () => {
       >
         <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
           <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
-            <ScrollFloat
-              animationDuration={1}
-              ease="back.inOut(2)"
-              scrollStart="center bottom+=50%"
-              scrollEnd="bottom bottom-=40%"
-              stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
-            >
-              Comprehensive Digital Solutions
-            </ScrollFloat>
-            <ScrollReveal
-              baseOpacity={0.2}
-              enableBlur={true}
-              baseRotation={2}
-              blurStrength={8}
-              containerClassName="max-w-3xl mx-auto"
-              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
-            >
-              We provide end-to-end digital services that accelerate your
-              business growth and drive digital transformation success
-            </ScrollReveal>
+            <Suspense fallback={null}>
+              <ScrollFloat
+                animationDuration={1}
+                ease="back.inOut(2)"
+                scrollStart="center bottom+=50%"
+                scrollEnd="bottom bottom-=40%"
+                stagger={0.03}
+                containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
+              >
+                Comprehensive Digital Solutions
+              </ScrollFloat>
+            </Suspense>
+            <Suspense fallback={null}>
+              <ScrollReveal
+                baseOpacity={0.2}
+                enableBlur={true}
+                baseRotation={2}
+                blurStrength={8}
+                containerClassName="max-w-3xl mx-auto"
+                textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
+              >
+                We provide end-to-end digital services that accelerate your
+                business growth and drive digital transformation success
+              </ScrollReveal>
+            </Suspense>
           </div>
 
           <div className="grid grid-cols-1 min-[820px]:grid-cols-2 lg:grid-cols-3 min-[1559px]:grid-cols-3 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8 lg:gap-10">
@@ -342,94 +336,96 @@ const Home = () => {
                 spotlightColor: "rgba(99, 102, 241, 0.3)" as const,
               },
             ].map((service, index) => (
-              <SpotlightCard
-                key={index}
-                className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-gray-100 hover:border-gray-200 focus-within:ring-4 focus-within:ring-blue-500/20"
-                spotlightColor={service.spotlightColor}
-              >
-                <div className="relative z-10">
-                  <div
-                    className={`inline-flex p-5 rounded-2xl mb-6 transition-colors duration-300 ${
-                      service.color === "blue"
-                        ? "bg-blue-100 group-hover:bg-blue-200"
-                        : service.color === "green"
-                        ? "bg-green-100 group-hover:bg-green-200"
-                        : service.color === "purple"
-                        ? "bg-purple-100 group-hover:bg-purple-200"
-                        : service.color === "pink"
-                        ? "bg-pink-100 group-hover:bg-pink-200"
-                        : service.color === "orange"
-                        ? "bg-orange-100 group-hover:bg-orange-200"
-                        : "bg-indigo-100 group-hover:bg-indigo-200"
-                    }`}
-                  >
-                    <service.icon
-                      className={`h-4 max-[393px]:h-3.5 w-4 max-[393px]:w-3.5 min-[430px]:h-6 min-[430px]:w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 min-[1559px]:h-9 min-[1559px]:w-9 transition-colors duration-300 ${
+              <Suspense fallback={null}>
+                <SpotlightCard
+                  key={index}
+                  className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-gray-100 hover:border-gray-200 focus-within:ring-4 focus-within:ring-blue-500/20"
+                  spotlightColor={service.spotlightColor}
+                >
+                  <div className="relative z-10">
+                    <div
+                      className={`inline-flex p-5 rounded-2xl mb-6 transition-colors duration-300 ${
                         service.color === "blue"
-                          ? "text-blue-600 group-hover:text-blue-700"
+                          ? "bg-blue-100 group-hover:bg-blue-200"
                           : service.color === "green"
-                          ? "text-green-600 group-hover:text-green-700"
+                          ? "bg-green-100 group-hover:bg-green-200"
                           : service.color === "purple"
-                          ? "text-purple-600 group-hover:text-purple-700"
+                          ? "bg-purple-100 group-hover:bg-purple-200"
                           : service.color === "pink"
-                          ? "text-pink-600 group-hover:text-pink-700"
+                          ? "bg-pink-100 group-hover:bg-pink-200"
                           : service.color === "orange"
-                          ? "text-orange-600 group-hover:text-orange-700"
-                          : "text-indigo-600 group-hover:text-indigo-700"
+                          ? "bg-orange-100 group-hover:bg-orange-200"
+                          : "bg-indigo-100 group-hover:bg-indigo-200"
                       }`}
-                      aria-hidden="true"
-                    />
+                    >
+                      <service.icon
+                        className={`h-4 max-[393px]:h-3.5 w-4 max-[393px]:w-3.5 min-[430px]:h-6 min-[430px]:w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 min-[1559px]:h-9 min-[1559px]:w-9 transition-colors duration-300 ${
+                          service.color === "blue"
+                            ? "text-blue-600 group-hover:text-blue-700"
+                            : service.color === "green"
+                            ? "text-green-600 group-hover:text-green-700"
+                            : service.color === "purple"
+                            ? "text-purple-600 group-hover:text-purple-700"
+                            : service.color === "pink"
+                            ? "text-pink-600 group-hover:text-pink-700"
+                            : service.color === "orange"
+                            ? "text-orange-600 group-hover:text-orange-700"
+                            : "text-indigo-600 group-hover:text-indigo-700"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2.5">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600 mb-4 max-[393px]:mb-3 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <ul className="space-y-3 mb-8" role="list">
+                      {service.features.map((feature, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-center text-xs max-[393px]:text-[11px] min-[430px]:text-sm text-gray-600"
+                          role="listitem"
+                        >
+                          <CheckCircle
+                            className="h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 text-green-500 mr-1.5 max-[393px]:mr-1 min-[430px]:mr-2 flex-shrink-0"
+                            aria-hidden="true"
+                          />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link
+                      to="/services"
+                      className={`inline-flex items-center text-xs max-[393px]:text-[11px] min-[430px]:text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                        service.color === "blue"
+                          ? "text-blue-600 hover:text-blue-700 focus:ring-blue-500"
+                          : service.color === "green"
+                          ? "text-green-600 hover:text-green-700 focus:ring-green-500"
+                          : service.color === "purple"
+                          ? "text-purple-600 hover:text-purple-700 focus:ring-purple-500"
+                          : service.color === "pink"
+                          ? "text-pink-600 hover:text-pink-700 focus:ring-pink-500"
+                          : service.color === "orange"
+                          ? "text-orange-600 hover:text-orange-700 focus:ring-orange-500"
+                          : "text-indigo-600 hover:text-indigo-700 focus:ring-indigo-500"
+                      }`}
+                      aria-label={`Learn more about ${service.title}`}
+                    >
+                      Learn More
+                      <ArrowRight
+                        className="ml-1 max-[393px]:ml-0.5 min-[430px]:ml-1.5 h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                        aria-hidden="true"
+                      />
+                    </Link>
                   </div>
-
-                  <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2.5">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600 mb-4 max-[393px]:mb-3 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <ul className="space-y-3 mb-8" role="list">
-                    {service.features.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-center text-xs max-[393px]:text-[11px] min-[430px]:text-sm text-gray-600"
-                        role="listitem"
-                      >
-                        <CheckCircle
-                          className="h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 text-green-500 mr-1.5 max-[393px]:mr-1 min-[430px]:mr-2 flex-shrink-0"
-                          aria-hidden="true"
-                        />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link
-                    to="/services"
-                    className={`inline-flex items-center text-xs max-[393px]:text-[11px] min-[430px]:text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                      service.color === "blue"
-                        ? "text-blue-600 hover:text-blue-700 focus:ring-blue-500"
-                        : service.color === "green"
-                        ? "text-green-600 hover:text-green-700 focus:ring-green-500"
-                        : service.color === "purple"
-                        ? "text-purple-600 hover:text-purple-700 focus:ring-purple-500"
-                        : service.color === "pink"
-                        ? "text-pink-600 hover:text-pink-700 focus:ring-pink-500"
-                        : service.color === "orange"
-                        ? "text-orange-600 hover:text-orange-700 focus:ring-orange-500"
-                        : "text-indigo-600 hover:text-indigo-700 focus:ring-indigo-500"
-                    }`}
-                    aria-label={`Learn more about ${service.title}`}
-                  >
-                    Learn More
-                    <ArrowRight
-                      className="ml-1 max-[393px]:ml-0.5 min-[430px]:ml-1.5 h-3 max-[393px]:h-2.5 max-[393px]:w-2.5 min-[430px]:h-3.5 min-[430px]:w-3.5 transition-transform duration-300 group-hover:translate-x-1"
-                      aria-hidden="true"
-                    />
-                  </Link>
-                </div>
-              </SpotlightCard>
+                </SpotlightCard>
+              </Suspense>
             ))}
           </div>
         </div>
@@ -451,27 +447,31 @@ const Home = () => {
               ></span>
               Why Choose Us
             </div>
-            <ScrollFloat
-              animationDuration={1}
-              ease="back.inOut(2)"
-              scrollStart="center bottom+=50%"
-              scrollEnd="bottom bottom-=40%"
-              stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-foreground mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
-            >
-              Your Trusted Digital Partner
-            </ScrollFloat>
-            <ScrollReveal
-              baseOpacity={0.2}
-              enableBlur={true}
-              baseRotation={2}
-              blurStrength={8}
-              containerClassName="max-w-3xl mx-auto"
-              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-muted-foreground leading-relaxed font-normal"
-            >
-              We combine technical expertise with business acumen to deliver
-              solutions that drive real results and exceed expectations
-            </ScrollReveal>
+            <Suspense fallback={null}>
+              <ScrollFloat
+                animationDuration={1}
+                ease="back.inOut(2)"
+                scrollStart="center bottom+=50%"
+                scrollEnd="bottom bottom-=40%"
+                stagger={0.03}
+                containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-foreground mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
+              >
+                Your Trusted Digital Partner
+              </ScrollFloat>
+            </Suspense>
+            <Suspense fallback={null}>
+              <ScrollReveal
+                baseOpacity={0.2}
+                enableBlur={true}
+                baseRotation={2}
+                blurStrength={8}
+                containerClassName="max-w-3xl mx-auto"
+                textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-muted-foreground leading-relaxed font-normal"
+              >
+                We combine technical expertise with business acumen to deliver
+                solutions that drive real results and exceed expectations
+              </ScrollReveal>
+            </Suspense>
           </div>
 
           <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 min-[1559px]:grid-cols-4 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8 lg:gap-10">
@@ -558,27 +558,31 @@ const Home = () => {
       >
         <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
           <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
-            <ScrollFloat
-              animationDuration={1}
-              ease="back.inOut(2)"
-              scrollStart="center bottom+=50%"
-              scrollEnd="bottom bottom-=40%"
-              stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
-            >
-              Industries We Serve
-            </ScrollFloat>
-            <ScrollReveal
-              baseOpacity={0.2}
-              enableBlur={true}
-              baseRotation={2}
-              blurStrength={8}
-              containerClassName="max-w-3xl mx-auto"
-              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
-            >
-              We have experience across diverse industries, understanding unique
-              challenges and delivering tailored solutions
-            </ScrollReveal>
+            <Suspense fallback={null}>
+              <ScrollFloat
+                animationDuration={1}
+                ease="back.inOut(2)"
+                scrollStart="center bottom+=50%"
+                scrollEnd="bottom bottom-=40%"
+                stagger={0.03}
+                containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
+              >
+                Industries We Serve
+              </ScrollFloat>
+            </Suspense>
+            <Suspense fallback={null}>
+              <ScrollReveal
+                baseOpacity={0.2}
+                enableBlur={true}
+                baseRotation={2}
+                blurStrength={8}
+                containerClassName="max-w-3xl mx-auto"
+                textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
+              >
+                We have experience across diverse industries, understanding
+                unique challenges and delivering tailored solutions
+              </ScrollReveal>
+            </Suspense>
           </div>
 
           <div className="grid grid-cols-2 min-[480px]:grid-cols-3 min-[820px]:grid-cols-4 lg:grid-cols-6 min-[1559px]:grid-cols-6 gap-2.5 max-[393px]:gap-2 min-[430px]:gap-4 sm:gap-6 lg:gap-8">
@@ -630,37 +634,43 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 min-[820px]:grid-cols-2 min-[1559px]:grid-cols-2 gap-6 min-[430px]:gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
             <div>
-              <ScrollFloat
-                animationDuration={1}
-                ease="back.inOut(2)"
-                scrollStart="center bottom+=50%"
-                scrollEnd="bottom bottom-=40%"
-                stagger={0.03}
-                containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-white mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
-              >
-                Featured Case Study
-              </ScrollFloat>
-              <ScrollReveal
-                baseOpacity={0.2}
-                enableBlur={true}
-                baseRotation={2}
-                blurStrength={8}
-                containerClassName="mb-4 sm:mb-6"
-                textClassName="text-sm max-[393px]:text-xs min-[430px]:text-base min-[480px]:text-lg min-[820px]:text-xl md:text-2xl min-[1559px]:text-3xl font-semibold text-blue-400"
-              >
-                E-commerce Platform Transformation
-              </ScrollReveal>
-              <ScrollReveal
-                baseOpacity={0.2}
-                enableBlur={true}
-                baseRotation={2}
-                blurStrength={8}
-                containerClassName="mb-8"
-                textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-300 leading-relaxed font-normal"
-              >
-                We helped a leading retail company increase their online sales
-                by 300% through a complete digital transformation.
-              </ScrollReveal>
+              <Suspense fallback={null}>
+                <ScrollFloat
+                  animationDuration={1}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50%"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                  containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-white mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
+                >
+                  Featured Case Study
+                </ScrollFloat>
+              </Suspense>
+              <Suspense fallback={null}>
+                <ScrollReveal
+                  baseOpacity={0.2}
+                  enableBlur={true}
+                  baseRotation={2}
+                  blurStrength={8}
+                  containerClassName="mb-4 sm:mb-6"
+                  textClassName="text-sm max-[393px]:text-xs min-[430px]:text-base min-[480px]:text-lg min-[820px]:text-xl md:text-2xl min-[1559px]:text-3xl font-semibold text-blue-400"
+                >
+                  E-commerce Platform Transformation
+                </ScrollReveal>
+              </Suspense>
+              <Suspense fallback={null}>
+                <ScrollReveal
+                  baseOpacity={0.2}
+                  enableBlur={true}
+                  baseRotation={2}
+                  blurStrength={8}
+                  containerClassName="mb-8"
+                  textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-300 leading-relaxed font-normal"
+                >
+                  We helped a leading retail company increase their online sales
+                  by 300% through a complete digital transformation.
+                </ScrollReveal>
+              </Suspense>
 
               <div
                 className="grid grid-cols-2 gap-3 min-[430px]:gap-4 sm:gap-6 mb-6 min-[430px]:mb-8 sm:mb-10"
@@ -868,123 +878,129 @@ const Home = () => {
       >
         <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
           <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12">
-            <ScrollFloat
-              animationDuration={1}
-              ease="back.inOut(2)"
-              scrollStart="center bottom+=50%"
-              scrollEnd="bottom bottom-=40%"
-              stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base sm:text-xl md:text-2xl min-[1559px]:text-3xl font-semibold text-gray-600 mb-4"
-            >
-              Trusted by Leading Companies
-            </ScrollFloat>
+            <Suspense fallback={null}>
+              <ScrollFloat
+                animationDuration={1}
+                ease="back.inOut(2)"
+                scrollStart="center bottom+=50%"
+                scrollEnd="bottom bottom-=40%"
+                stagger={0.03}
+                containerClassName="text-lg max-[393px]:text-base sm:text-xl md:text-2xl min-[1559px]:text-3xl font-semibold text-gray-600 mb-4"
+              >
+                Trusted by Leading Companies
+              </ScrollFloat>
+            </Suspense>
           </div>
-          <LogoLoop
-            logos={[
-              {
-                node: (
-                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
-                    <span className="text-gray-600 font-semibold text-lg">
-                      TechCorp
-                    </span>
-                  </div>
-                ),
-                title: "TechCorp",
-                ariaLabel: "TechCorp logo",
-              },
-              {
-                node: (
-                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
-                    <span className="text-gray-600 font-semibold text-lg">
-                      InnovateLab
-                    </span>
-                  </div>
-                ),
-                title: "InnovateLab",
-                ariaLabel: "InnovateLab logo",
-              },
-              {
-                node: (
-                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
-                    <span className="text-gray-600 font-semibold text-lg">
-                      DigitalFirst
-                    </span>
-                  </div>
-                ),
-                title: "DigitalFirst",
-                ariaLabel: "DigitalFirst logo",
-              },
-              {
-                node: (
-                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
-                    <span className="text-gray-600 font-semibold text-lg">
-                      CloudTech
-                    </span>
-                  </div>
-                ),
-                title: "CloudTech",
-                ariaLabel: "CloudTech logo",
-              },
-              {
-                node: (
-                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
-                    <span className="text-gray-600 font-semibold text-lg">
-                      NextGen
-                    </span>
-                  </div>
-                ),
-                title: "NextGen",
-                ariaLabel: "NextGen logo",
-              },
-              {
-                node: (
-                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
-                    <span className="text-gray-600 font-semibold text-lg">
-                      FutureSoft
-                    </span>
-                  </div>
-                ),
-                title: "FutureSoft",
-                ariaLabel: "FutureSoft logo",
-              },
-              {
-                node: (
-                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
-                    <span className="text-gray-600 font-semibold text-lg">
-                      DataFlow
-                    </span>
-                  </div>
-                ),
-                title: "DataFlow",
-                ariaLabel: "DataFlow logo",
-              },
-              {
-                node: (
-                  <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
-                    <span className="text-gray-600 font-semibold text-lg">
-                      WebCraft
-                    </span>
-                  </div>
-                ),
-                title: "WebCraft",
-                ariaLabel: "WebCraft logo",
-              },
-            ]}
-            speed={80}
-            direction="left"
-            logoHeight={64}
-            gap={32}
-            pauseOnHover={true}
-            fadeOut={true}
-            scaleOnHover={true}
-            ariaLabel="Trusted client companies"
-            className="opacity-60"
-          />
+          <Suspense fallback={null}>
+            <LogoLoop
+              logos={[
+                {
+                  node: (
+                    <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                      <span className="text-gray-600 font-semibold text-lg">
+                        TechCorp
+                      </span>
+                    </div>
+                  ),
+                  title: "TechCorp",
+                  ariaLabel: "TechCorp logo",
+                },
+                {
+                  node: (
+                    <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                      <span className="text-gray-600 font-semibold text-lg">
+                        InnovateLab
+                      </span>
+                    </div>
+                  ),
+                  title: "InnovateLab",
+                  ariaLabel: "InnovateLab logo",
+                },
+                {
+                  node: (
+                    <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                      <span className="text-gray-600 font-semibold text-lg">
+                        DigitalFirst
+                      </span>
+                    </div>
+                  ),
+                  title: "DigitalFirst",
+                  ariaLabel: "DigitalFirst logo",
+                },
+                {
+                  node: (
+                    <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                      <span className="text-gray-600 font-semibold text-lg">
+                        CloudTech
+                      </span>
+                    </div>
+                  ),
+                  title: "CloudTech",
+                  ariaLabel: "CloudTech logo",
+                },
+                {
+                  node: (
+                    <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                      <span className="text-gray-600 font-semibold text-lg">
+                        NextGen
+                      </span>
+                    </div>
+                  ),
+                  title: "NextGen",
+                  ariaLabel: "NextGen logo",
+                },
+                {
+                  node: (
+                    <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                      <span className="text-gray-600 font-semibold text-lg">
+                        FutureSoft
+                      </span>
+                    </div>
+                  ),
+                  title: "FutureSoft",
+                  ariaLabel: "FutureSoft logo",
+                },
+                {
+                  node: (
+                    <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                      <span className="text-gray-600 font-semibold text-lg">
+                        DataFlow
+                      </span>
+                    </div>
+                  ),
+                  title: "DataFlow",
+                  ariaLabel: "DataFlow logo",
+                },
+                {
+                  node: (
+                    <div className="bg-gray-200 rounded-lg p-4 h-16 flex items-center justify-center hover:bg-gray-300 transition-colors duration-300">
+                      <span className="text-gray-600 font-semibold text-lg">
+                        WebCraft
+                      </span>
+                    </div>
+                  ),
+                  title: "WebCraft",
+                  ariaLabel: "WebCraft logo",
+                },
+              ]}
+              speed={80}
+              direction="left"
+              logoHeight={64}
+              gap={32}
+              pauseOnHover={true}
+              fadeOut={true}
+              scaleOnHover={true}
+              ariaLabel="Trusted client companies"
+              className="opacity-60"
+            />
+          </Suspense>
         </div>
       </section>
 
       {/* Secondary CTA */}
-      <ReadyToTransformCTA />
+      <Suspense fallback={null}>
+        <ReadyToTransformCTA />
+      </Suspense>
     </div>
   );
 };
