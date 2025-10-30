@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   Code2,
   Smartphone,
@@ -127,7 +127,7 @@ const Services = () => {
                 </div>
 
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="inline-flex items-center text-xs max-[393px]:text-[10px] min-[430px]:text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-blue-600 hover:text-blue-700 focus:ring-blue-500"
                   aria-label="Learn more about Web Development"
                 >
@@ -206,7 +206,7 @@ const Services = () => {
                 </div>
 
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="inline-flex items-center text-xs max-[393px]:text-[10px] min-[430px]:text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-purple-600 hover:text-purple-700 focus:ring-purple-500"
                   aria-label="Learn more about Mobile App Development"
                 >
@@ -284,7 +284,7 @@ const Services = () => {
                 </div>
 
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="inline-flex items-center text-xs max-[393px]:text-[10px] min-[430px]:text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-green-600 hover:text-green-700 focus:ring-green-500"
                   aria-label="Learn more about Cloud & DevOps"
                 >
@@ -361,7 +361,7 @@ const Services = () => {
                 </div>
 
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="inline-flex items-center text-xs max-[393px]:text-[10px] min-[430px]:text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-pink-600 hover:text-pink-700 focus:ring-pink-500"
                   aria-label="Learn more about UI/UX Design"
                 >
@@ -440,7 +440,7 @@ const Services = () => {
                 </div>
 
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="inline-flex items-center text-xs max-[393px]:text-[10px] min-[430px]:text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-orange-600 hover:text-orange-700 focus:ring-orange-500"
                   aria-label="Learn more about Digital Marketing"
                 >
@@ -518,7 +518,7 @@ const Services = () => {
                 </div>
 
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="inline-flex items-center text-xs max-[393px]:text-[10px] min-[430px]:text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-indigo-600 hover:text-indigo-700 focus:ring-indigo-500"
                   aria-label="Learn more about IT Consulting"
                 >

@@ -299,9 +299,10 @@ const Industries = () => {
               return (
                 <SpotlightCard
                   key={industry.id}
-                  id={industry.id}
                   className={`group bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:${colors.border} focus-within:ring-4 focus-within:ring-${industry.color}-500/20`}
-                  spotlightColor={colors.spotlight}
+                  spotlightColor={
+                    colors.spotlight as `rgba(${number}, ${number}, ${number}, ${number})`
+                  }
                 >
                   <div className="relative z-10">
                     <div className="p-6 max-[393px]:p-4 sm:p-8">

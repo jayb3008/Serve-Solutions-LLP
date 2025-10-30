@@ -26,10 +26,9 @@ const Privacy = () => {
               </p>
             </div>
 
-            <ScrollFloat
-              className="text-3xl font-bold text-gray-900 mb-6 flex items-center"
-              text="Information We Collect"
-            />
+            <ScrollFloat containerClassName="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+              Information We Collect
+            </ScrollFloat>
 
             <h3 className="text-2xl font-semibold text-gray-800 mb-4">
               Personal Information
@@ -66,10 +65,9 @@ const Privacy = () => {
               <li>Cookies and similar tracking technologies</li>
             </ul>
 
-            <ScrollFloat
-              containerClassName="text-3xl font-bold text-gray-900 mb-6 flex items-center"
-              text="How We Use Your Information"
-            />
+            <ScrollFloat containerClassName="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+              How We Use Your Information
+            </ScrollFloat>
 
             <p className="text-gray-600 mb-4">
               We use the information we collect for the following purposes:
@@ -84,10 +82,9 @@ const Privacy = () => {
               <li>To protect our rights and prevent fraud</li>
             </ul>
 
-            <ScrollFloat
-              className="text-3xl font-bold text-gray-900 mb-6 flex items-center"
-              text="Information Sharing"
-            />
+            <ScrollFloat containerClassName="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+              Information Sharing
+            </ScrollFloat>
 
             <p className="text-gray-600 mb-4">
               We do not sell, trade, or rent your personal information to third
@@ -103,10 +100,9 @@ const Privacy = () => {
               <li>With your explicit consent</li>
             </ul>
 
-            <ScrollFloat
-              className="text-3xl font-bold text-gray-900 mb-6"
-              text="Data Security"
-            />
+            <ScrollFloat containerClassName="text-3xl font-bold text-gray-900 mb-6">
+              Data Security
+            </ScrollFloat>
             <p className="text-gray-600 mb-6">
               We implement appropriate technical and organizational measures to
               protect your personal information against unauthorized access,
@@ -115,10 +111,9 @@ const Privacy = () => {
               secure.
             </p>
 
-            <ScrollFloat
-              className="text-3xl font-bold text-gray-900 mb-6"
-              text="Your Rights"
-            />
+            <ScrollFloat containerClassName="text-3xl font-bold text-gray-900 mb-6">
+              Your Rights
+            </ScrollFloat>
             <p className="text-gray-600 mb-4">
               Depending on your location, you may have the following rights
               regarding your personal information:
@@ -176,10 +171,9 @@ const Privacy = () => {
               to review this Privacy Policy periodically for any changes.
             </p>
 
-            <ScrollFloat
-              className="text-3xl font-bold text-gray-900 mb-6"
-              text="Contact Us"
-            />
+            <ScrollFloat containerClassName="text-3xl font-bold text-gray-900 mb-6">
+              Contact Us
+            </ScrollFloat>
             <p className="text-gray-600 mb-4">
               If you have any questions about this Privacy Policy or our privacy
               practices, please contact us:

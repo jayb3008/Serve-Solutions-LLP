@@ -69,8 +69,9 @@ export const AnimatedThemeToggler = ({
     };
 
     // Use View Transitions API when available; otherwise, just toggle
-    // @ts-expect-error - startViewTransition is not in TS lib yet in some versions
-    const startViewTransition = document.startViewTransition?.bind(document);
+    const startViewTransition = (document as any).startViewTransition?.bind(
+      document
+    ) as undefined | ((cb: () => void) => { ready: Promise<void> });
     if (startViewTransition) {
       await startViewTransition(() => {
         flushSync(applyTheme);

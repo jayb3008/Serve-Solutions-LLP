@@ -199,14 +199,12 @@ const Testimonials = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <ScrollFloat
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
-              text="Our Impact in Numbers"
-            />
-            <ScrollReveal
-              className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto"
-              text="The results speak for themselves"
-            />
+            <ScrollFloat containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Our Impact in Numbers
+            </ScrollFloat>
+            <ScrollReveal containerClassName="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              The results speak for themselves
+            </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -232,14 +230,12 @@ const Testimonials = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <ScrollFloat
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
-              text="Success Stories"
-            />
-            <ScrollReveal
-              className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto"
-              text="Real results from real clients"
-            />
+            <ScrollFloat containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Success Stories
+            </ScrollFloat>
+            <ScrollReveal containerClassName="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Real results from real clients
+            </ScrollReveal>
           </div>
 
           <div className="space-y-12">
@@ -318,14 +314,12 @@ const Testimonials = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <ScrollFloat
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
-              text="What Our Clients Say"
-            />
-            <ScrollReveal
-              className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto"
-              text="Testimonials from across all industries"
-            />
+            <ScrollFloat containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              What Our Clients Say
+            </ScrollFloat>
+            <ScrollReveal containerClassName="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Testimonials from across all industries
+            </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -380,14 +374,12 @@ const Testimonials = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <ScrollFloat
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
-              text="Industries We Serve"
-            />
-            <ScrollReveal
-              className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto"
-              text="Trusted by companies across diverse industries"
-            />
+            <ScrollFloat containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Industries We Serve
+            </ScrollFloat>
+            <ScrollReveal containerClassName="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Trusted by companies across diverse industries
+            </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -417,14 +409,12 @@ const Testimonials = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <ScrollFloat
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
-              text="Awards & Recognition"
-            />
-            <ScrollReveal
-              className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto"
-              text="Industry recognition for our commitment to excellence"
-            />
+            <ScrollFloat containerClassName="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Awards & Recognition
+            </ScrollFloat>
+            <ScrollReveal containerClassName="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Industry recognition for our commitment to excellence
+            </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -479,14 +469,13 @@ const Testimonials = () => {
       {/* CTA Section */}
       <section className="py-20 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollFloat
-            className="text-4xl font-bold text-white mb-4"
-            text="Ready to Join Our Success Stories?"
-          />
-          <ScrollReveal
-            className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
-            text="Let's discuss your project and see how we can help you achieve similar results."
-          />
+          <ScrollFloat containerClassName="text-4xl font-bold text-white mb-4">
+            Ready to Join Our Success Stories?
+          </ScrollFloat>
+          <ScrollReveal containerClassName="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Let's discuss your project and see how we can help you achieve
+            similar results.
+          </ScrollReveal>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
               to="/contact"
