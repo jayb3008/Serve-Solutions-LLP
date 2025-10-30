@@ -69,14 +69,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="en_IN" />
-        <meta property="og:site_name" content="SarveSolutions" />
+        <meta property="og:site_name" content="Serve Solutions LLP" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seo.title} />
         <meta name="twitter:description" content={seo.description} />
         <meta name="twitter:image" content={seo.image} />
-        <meta name="twitter:site" content="@sarvesolutions" />
+        <meta name="twitter:site" content="@servesolutions" />
 
         {/* Icons & PWA basics */}
         <link rel="icon" href="/favicon.ico" />
@@ -93,11 +93,29 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(
               generateStructuredData({
-                name: "SarveSolutions",
+                name: "Serve Solutions LLP",
                 url: defaultSEO.url,
                 description: defaultSEO.description,
               })
             ),
+          }}
+        />
+        {/* JSON-LD WebSite with SearchAction */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Serve Solutions LLP",
+              url: defaultSEO.url,
+              inLanguage: "en-IN",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: `${defaultSEO.url}/search?q={search_term_string}`,
+                "query-input": "required name=search_term_string"
+              }
+            })
           }}
         />
       </Head>

@@ -8,11 +8,11 @@ export interface SEOProps {
 }
 
 export const defaultSEO = {
-  title: "SarveSolutions - Digital Agency Website",
+  title: "Serve Solutions LLP — Digital Agency Website",
   description:
-    "Professional web development, mobile apps, CMS solutions, UI/UX design, and SEO services to help your business grow online.",
+    "Serve Solutions LLP delivers web development, mobile apps, CMS, UI/UX, SEO, and cloud services that grow your business.",
   keywords:
-    "Web Development, Mobile App Development, CMS Development, UI/UX Design, SEO Services, Digital Solutions, React Development, Node.js, MongoDB, AWS",
+    "Serve Solutions LLP, Serve Solutions, Sarve Solutions, SarveSolutions, Web Development, Mobile App Development, CMS Development, UI/UX Design, SEO Services, Digital Solutions, React Development, Node.js, MongoDB, AWS",
   image: "https://sarvesolutions.in/og-image.png",
   url: "https://sarvesolutions.in",
   type: "website",
@@ -50,67 +50,67 @@ export const generateStructuredData = (data: {
 // Centralized per-route SEO overrides
 export const routeSEO: Record<string, SEOProps> = {
   "/": {
-    title: "SarveSolutions | Transforming Ideas Into Digital Excellence",
+    title: "Transforming Ideas Into Digital Excellence | Serve Solutions LLP",
     description:
       "Full-stack web and mobile apps, UI/UX, cloud & DevOps, and digital transformation that drives growth.",
   },
   "/about": {
-    title: "About SarveSolutions | Mission, Vision & Team",
+    title: "About Serve Solutions LLP | Mission, Vision & Team",
     description:
       "Learn about our mission, vision, values, and the expert team behind SarveSolutions.",
   },
   "/services": {
-    title: "Services | Web, Mobile, UI/UX, Cloud & Marketing",
+    title: "Services | Web, Mobile, UI/UX, Cloud & Marketing | Serve Solutions LLP",
     description:
       "End-to-end digital services: web development, mobile apps, UI/UX, cloud & DevOps, and digital marketing.",
   },
   "/industries": {
-    title: "Solutions by Industry | Healthcare, FinTech, E‑commerce & More",
+    title: "Solutions by Industry | Healthcare, FinTech, E‑commerce & More | Serve Solutions LLP",
     description:
       "Tailored solutions across healthcare, fintech, e‑commerce, edtech, manufacturing, and non‑profit.",
   },
   "/portfolio": {
-    title: "Portfolio | Case Studies and Delivered Projects",
+    title: "Portfolio | Case Studies and Delivered Projects | Serve Solutions LLP",
     description:
       "Explore our case studies and success stories across industries and technologies.",
   },
   "/process": {
-    title: "Our Process | Discovery to Launch & Support",
+    title: "Our Process | Discovery to Launch & Support | Serve Solutions LLP",
     description:
       "A transparent, proven process: discovery, strategy, development, launch, and ongoing support.",
   },
   "/blog": {
-    title: "Blog | Insights on Tech, Design, and Growth",
+    title: "Blog | Insights on Tech, Design, and Growth | Serve Solutions LLP",
     description:
       "Articles and insights on modern web, mobile, cloud, UI/UX, and digital growth.",
   },
   "/careers": {
-    title: "Careers | Join SarveSolutions",
+    title: "Careers | Join Serve Solutions LLP",
     description:
       "Grow your career with a team building impactful digital products and platforms.",
   },
   "/contact": {
-    title: "Contact | Start Your Project with SarveSolutions",
+    title: "Contact | Start Your Project with Serve Solutions LLP",
     description:
       "Get in touch for quotes, consultations, or collaboration opportunities.",
   },
   "/faq": {
-    title: "FAQ | Frequently Asked Questions",
+    title: "FAQ | Frequently Asked Questions | Serve Solutions LLP",
     description:
       "Answers to common questions about our services, process, timelines, and pricing.",
   },
   "/privacy": {
-    title: "Privacy Policy | SarveSolutions",
+    title: "Privacy Policy | Serve Solutions LLP",
     description:
       "How we collect, use, and protect your data across our products and services.",
   },
   "/testimonials": {
-    title: "Testimonials | What Our Clients Say",
+    title: "Testimonials | What Our Clients Say | Serve Solutions LLP",
     description:
       "See how we help clients achieve measurable results with technology.",
   },
   "/404": {
-    title: "Page Not Found | SarveSolutions",
+    title: "Page Not Found | Serve Solutions LLP",
     description: "The page you are looking for does not exist.",
   },
 };
