@@ -18,5 +18,22 @@
       "sizes": "32x32",
       "type": "image/png"
     }
+  ],
+  "prefer_related_applications": false,
+  "scope": "/",
+  "categories": ["productivity", "business", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch with us",
+      "url": "/contact/"
+    },
+    {
+      "name": "Services",
+      "short_name": "Services",
+      "description": "Explore our services",
+      "url": "/services/"
+    }
   ]
 }
