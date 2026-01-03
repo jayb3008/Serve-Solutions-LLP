@@ -1,211 +1,261 @@
-import React from 'react';
-import { Code2, Smartphone, Globe, Palette, Search, ArrowRight, CheckCircle } from 'lucide-react';
+
+import { useEffect, useRef } from 'react';
+import { Code2, Smartphone, Globe, Palette, Search, ArrowRight, Terminal } from 'lucide-react';
+import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float, MeshDistortMaterial, Sphere } from '@react-three/drei';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Scene = () => {
+    const meshRef = useRef<THREE.Mesh>(null);
+
+    useFrame((state) => {
+        if (meshRef.current) {
+            meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.2;
+            meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
+        }
+    });
+
+    return (
+        <>
+            <ambientLight intensity={1} />
+            <directionalLight position={[10, 10, 10]} intensity={2} />
+            <Float speed={4} rotationIntensity={1} floatIntensity={2}>
+                <Sphere ref={meshRef} args={[1, 100, 200]} scale={2.5}>
+                    <MeshDistortMaterial
+                        color="#27272a"
+                        attach="material"
+                        distort={0.4}
+                        speed={1.5}
+                        roughness={0}
+                    />
+                </Sphere>
+            </Float>
+        </>
+    );
+};
 
 const Services = () => {
-  const services = [
-    {
-      icon: Code2,
-      title: "Web Development",
-      description: "We create responsive, secure, and scalable websites using modern frameworks like React, Next.js, and Node.js. From corporate sites to eCommerce platforms, we deliver digital experiences that convert.",
-      features: [
-        "Responsive Design",
-        "Modern Frameworks (React, Next.js)",
-        "SEO Optimized",
-        "Fast Performance",
-        "Secure Architecture",
-        "Cross-browser Compatibility"
-      ],
-      color: "blue",
-      technologies: ["React", "Next.js", "Node.js", "TypeScript", "Tailwind CSS"]
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile App Development",
-      description: "Cross-platform mobile applications for iOS & Android built with React Native and Flutter. Intuitive designs, seamless performance, and scalable architecture.",
-      features: [
-        "Cross-platform Development",
-        "Native Performance",
-        "Intuitive UI/UX",
-        "Push Notifications",
-        "Offline Functionality",
-        "App Store Optimization"
-      ],
-      color: "purple",
-      technologies: ["React Native", "Flutter", "iOS", "Android", "Firebase"]
-    },
-    {
-      icon: Globe,
-      title: "CMS Development",
-      description: "Custom CMS, WordPress, and Shopify solutions tailored to your business needs. Easy-to-manage, flexible, and built for growth.",
-      features: [
-        "Custom CMS Solutions",
-        "WordPress Development",
-        "Shopify Integration",
-        "Content Management",
-        "E-commerce Solutions",
-        "Third-party Integrations"
-      ],
-      color: "green",
-      technologies: ["WordPress", "Shopify", "Custom CMS", "WooCommerce", "Magento"]
-    },
-    {
-      icon: Palette,
-      title: "UI/UX Design",
-      description: "We design engaging digital experiences. From wireframes to prototypes, we craft intuitive interfaces that keep users hooked.",
-      features: [
-        "User Research",
-        "Wireframing & Prototyping",
-        "Visual Design",
-        "User Testing",
-        "Responsive Design",
-        "Design Systems"
-      ],
-      color: "pink",
-      technologies: ["Figma", "Adobe Creative Suite", "Sketch", "InVision", "Principle"]
-    },
-    {
-      icon: Search,
-      title: "SEO Services",
-      description: "End-to-end SEO services: keyword research, on-page optimization, technical SEO, and link building strategies to improve ranking and drive traffic.",
-      features: [
-        "Keyword Research",
-        "On-page Optimization",
-        "Technical SEO",
-        "Link Building",
-        "Content Strategy",
-        "Performance Tracking"
-      ],
-      color: "orange",
-      technologies: ["Google Analytics", "Search Console", "SEMrush", "Ahrefs", "Screaming Frog"]
-    }
-  ];
+    const containerRef = useRef<HTMLDivElement>(null);
+    const heroRef = useRef<HTMLDivElement>(null);
+    const titleRef = useRef<HTMLHeadingElement>(null);
 
-  return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">Our Services</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Comprehensive digital solutions designed to accelerate your business growth and digital transformation
-          </p>
-        </div>
-      </section>
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            // Hero Title Animation
+            gsap.from(titleRef.current, {
+                y: 100,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power4.out",
+                delay: 0.2
+            });
 
-      {/* Services Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                }`}
-              >
-                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className={`inline-flex p-4 rounded-xl bg-${service.color}-100 mb-6`}>
-                    <service.icon className={`h-10 w-10 text-${service.color}-600`} />
-                  </div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">{service.title}</h2>
-                  <p className="text-lg text-gray-600 mb-8">{service.description}</p>
-                  
-                  {/* Features */}
-                  <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">What's Included:</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center space-x-3">
-                          <CheckCircle className={`h-5 w-5 text-${service.color}-600 flex-shrink-0`} />
-                          <span className="text-gray-700">{feature}</span>
+            // Reveal sections on scroll
+            gsap.utils.toArray<HTMLElement>('.reveal').forEach((elem) => {
+                gsap.from(elem, {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power3.out"
+                });
+            });
+        }, containerRef);
+
+        return () => ctx.revert();
+    }, []);
+
+    const services = [
+        {
+            icon: Code2,
+            title: "Web Engineering",
+            description: "High-performance web applications built on scalable React & Node.js architectures.",
+            features: ["Next.js SSR", "Cloud Infrastructure", "API Integration"]
+        },
+        {
+            icon: Smartphone,
+            title: "Mobile Solutions",
+            description: "Native-grade cross-platform applications deployed to iOS and Android.",
+            features: ["React Native", "Offline-first", "Hardware Integration"]
+        },
+        {
+            icon: Globe,
+            title: "Enterprise CMS",
+            description: "Custom content management systems tailored for complex workflows.",
+            features: ["Headless CMS", "Workflow Automation", "Role-based Access"]
+        },
+        {
+            icon: Palette,
+            title: "UI/UX Design",
+            description: "Data-driven interface design focused on user conversion and retention.",
+            features: ["Design Systems", "Prototyping", "User Testing"]
+        },
+        {
+            icon: Search,
+            title: "SEO Data & Analytics",
+            description: "Technical SEO and analytics implementation for measurable growth.",
+            features: ["Core Web Vitals", "Schema Implementation", "Performance Audits"]
+        }
+    ];
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut"
+            }
+        }
+    };
+
+    return (
+        <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20 overflow-x-hidden">
+
+            {/* Hero Section */}
+            <section ref={heroRef} className="relative bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">
+                {/* Three.js Background */}
+                <div className="absolute inset-0 z-0 opacity-50">
+                    <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+                        <Scene />
+                    </Canvas>
+                </div>
+
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+                        <div>
+                            <motion.span
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                                className="block text-xs font-bold tracking-widest uppercase mb-4 text-zinc-500"
+                            >
+                                Our Expertise
+                            </motion.span>
+                            <h1 ref={titleRef} className="text-5xl md:text-8xl font-bold tracking-tighter max-w-4xl leading-[0.9]">
+                                TECHNICAL<br />CAPABILITIES.
+                            </h1>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Technologies */}
-                  <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Technologies:</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {service.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className={`px-3 py-1 bg-${service.color}-100 text-${service.color}-700 rounded-full text-sm font-medium`}
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.4, duration: 1 }}
+                            className="text-xl text-zinc-400 leading-relaxed pb-2 max-w-md"
                         >
-                          {tech}
-                        </span>
-                      ))}
+                            We deploy cross-functional teams to deliver end-to-end digital solutions. From architecture to deployment.
+                        </motion.p>
                     </div>
-                  </div>
-
-                  <button className={`inline-flex items-center bg-${service.color}-600 text-white px-6 py-3 rounded-lg hover:bg-${service.color}-700 transition-colors duration-300`}>
-                    Get Started
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </button>
                 </div>
-                
-                <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <div className={`bg-gradient-to-br from-${service.color}-100 to-${service.color}-200 p-8 rounded-2xl`}>
-                    <div className="bg-white p-8 rounded-xl shadow-lg">
-                      <service.icon className={`h-16 w-16 text-${service.color}-600 mx-auto mb-6`} />
-                      <div className="text-center">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                        <p className="text-gray-600">
-                          Professional {service.title.toLowerCase()} services tailored to your business needs
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A proven methodology that ensures successful project delivery every time
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Discovery", description: "We understand your needs, goals, and target audience" },
-              { step: "02", title: "Planning", description: "Strategic planning and technical architecture design" },
-              { step: "03", title: "Development", description: "Agile development with regular progress updates" },
-              { step: "04", title: "Launch", description: "Testing, deployment, and ongoing support" }
-            ].map((phase, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-blue-600 font-bold text-lg">{phase.step}</span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{phase.title}</h3>
-                <p className="text-gray-600">{phase.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            {/* Services Grid */}
+            <section className="bg-white border-b border-zinc-200">
+                <div className="max-w-7xl mx-auto">
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-zinc-200 border-l border-r border-zinc-200"
+                    >
+                        {services.map((service, index) => (
+                            <motion.div
+                                key={index}
+                                variants={itemVariants}
+                                className="p-12 group hover:bg-zinc-50 transition-colors border-b border-zinc-200 cursor-default"
+                            >
+                                <div className="overflow-hidden mb-8">
+                                    <service.icon className="h-10 w-10 text-black group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
+                                </div>
+                                <h2 className="text-3xl font-bold tracking-tight mb-4 group-hover:translate-x-2 transition-transform duration-300">{service.title}</h2>
+                                <p className="text-zinc-500 text-lg mb-8 leading-relaxed">{service.description}</p>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Ready to Get Started?</h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project requirements and create a custom solution that fits your needs
-          </p>
-          <button className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
-            Contact Us Today
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
+                                <div className="space-y-4 mb-8">
+                                    {service.features.map((feature, i) => (
+                                        <div key={i} className="flex items-center text-sm font-medium text-zinc-700">
+                                            <motion.div
+                                                whileHover={{ scale: 1.5 }}
+                                                className="w-1.5 h-1.5 bg-black rounded-full mr-3"
+                                            />
+                                            {feature}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <motion.div
+                                    whileHover={{ x: 10 }}
+                                    className="flex items-center text-xs font-bold uppercase tracking-widest text-black cursor-pointer inline-flex"
+                                >
+                                    Explore Solution <ArrowRight className="ml-2 h-4 w-4" />
+                                </motion.div>
+                            </motion.div>
+                        ))}
+
+                        {/* Process Card / Last Grid Item */}
+                        <motion.div
+                            variants={itemVariants}
+                            className="p-12 bg-zinc-900 text-white flex flex-col justify-between"
+                        >
+                            <div>
+                                <Terminal className="h-10 w-10 text-white mb-8" />
+                                <h2 className="text-3xl font-bold tracking-tight mb-4">Our Methodology</h2>
+                                <p className="text-zinc-400 text-lg mb-8">
+                                    We follow a rigorous agile process: Discovery, Architecture, Development, and Quality Assurance.
+                                </p>
+                            </div>
+                            <motion.button
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="w-full py-4 border border-zinc-700 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors"
+                            >
+                                View Full Process
+                            </motion.button>
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* CTA */}
+            <section className="py-32 px-6 text-center reveal">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6">READY TO SCALE?</h2>
+                    <p className="text-zinc-500 text-lg mb-12 max-w-xl mx-auto">
+                        Book a technical consultation to discuss your infrastructure needs and digital transformation strategy.
+                    </p>
+                    <motion.button
+                        whileHover={{ scale: 1.05, backgroundColor: "#333" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="bg-black text-white px-10 py-5 text-sm font-bold uppercase tracking-widest transition-colors"
+                    >
+                        Start Conversation
+                    </motion.button>
+                </motion.div>
+            </section>
         </div>
-      </section>
-    </div>
-  );
+    );
 };
 
 export default Services;

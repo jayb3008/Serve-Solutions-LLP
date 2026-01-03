@@ -1,118 +1,188 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github, Code2, Smartphone, Globe, Palette, Search } from 'lucide-react';
+
+import { useState, useRef, useEffect } from 'react';
+import { ExternalLink, Code2, Smartphone, Globe, Palette, Search, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
+import * as THREE from 'three';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Scene = () => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.2;
+      meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
+    }
+  });
+  return (
+    <>
+      <ambientLight intensity={1} />
+      <directionalLight position={[10, 10, 10]} intensity={2} />
+      <Float speed={4} rotationIntensity={1} floatIntensity={2}>
+        <Sphere ref={meshRef} args={[1, 100, 200]} scale={2.5}>
+          <MeshDistortMaterial
+            color="#27272a"
+            attach="material"
+            distort={0.4}
+            speed={1.5}
+            roughness={0}
+          />
+        </Sphere>
+      </Float>
+    </>
+  );
+};
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const navigate = useNavigate();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(titleRef.current, {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4.out"
+      });
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
 
   const projects = [
     {
       id: 1,
-      title: "Corporate Website",
+      title: "FinTech Dashboard",
       category: "web",
-      description: "Modern corporate website built with React and Next.js, featuring responsive design and optimized performance.",
+      description: "Real-time financial data visualization platform with React and D3.js.",
       image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
-      type: "Web Development",
-      icon: Code2,
-      color: "blue"
+      technologies: ["React", "TypeScript", "D3.js"],
+      type: "Web Engineering",
+      icon: Code2
     },
     {
       id: 2,
-      title: "E-commerce Store",
+      title: "E-Commerce Architecture",
       category: "cms",
-      description: "Full-featured e-commerce platform with Shopify integration and custom CMS for inventory management.",
+      description: "Headless Shopify build with Next.js frontend for a luxury fashion brand.",
       image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Shopify", "Custom CMS", "JavaScript", "CSS3"],
-      type: "CMS Development",
-      icon: Globe,
-      color: "green"
+      technologies: ["Shopify Plus", "Next.js", "Redis"],
+      type: "Enterprise CMS",
+      icon: Globe
     },
     {
       id: 3,
-      title: "Mobile Banking App",
+      title: "Mobile Banking Core",
       category: "mobile",
-      description: "Secure and intuitive mobile banking application built with React Native for iOS and Android platforms.",
+      description: "Secure, biometric-enabled banking application infrastructure.",
       image: "https://images.pexels.com/photos/4386372/pexels-photo-4386372.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["React Native", "Firebase", "Node.js", "MongoDB"],
-      type: "Mobile App Development",
-      icon: Smartphone,
-      color: "purple"
+      technologies: ["React Native", "Node.js", "AWS"],
+      type: "Mobile Solutions",
+      icon: Smartphone
     },
     {
       id: 4,
-      title: "SaaS Platform Redesign",
+      title: "SaaS Design System",
       category: "design",
-      description: "Complete UI/UX redesign for a SaaS platform, improving user experience and conversion rates by 40%.",
+      description: "Comprehensive component library and design language for a global SaaS product.",
       image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Figma", "Adobe XD", "Principle", "User Research"],
+      technologies: ["Figma", "Storybook", "React"],
       type: "UI/UX Design",
-      icon: Palette,
-      color: "pink"
+      icon: Palette
     },
     {
       id: 5,
-      title: "Global Brand SEO Campaign",
+      title: "SEO Data Warehouse",
       category: "seo",
-      description: "Comprehensive SEO campaign that increased organic traffic by 250% and improved search rankings significantly.",
+      description: "Custom analytics tool aggregating data from multiple search APIs.",
       image: "https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Google Analytics", "SEMrush", "Content Strategy", "Link Building"],
-      type: "SEO Services",
-      icon: Search,
-      color: "orange"
+      technologies: ["Python", "BigQuery", "Data Studio"],
+      type: "Data & SEO",
+      icon: Search
     },
     {
       id: 6,
-      title: "Healthcare Portal",
+      title: "Telehealth Platform",
       category: "web",
-      description: "Patient management system with appointment booking, medical records, and telemedicine capabilities.",
+      description: "HIPAA-compliant video consultation portal for healthcare providers.",
       image: "https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["React", "Node.js", "PostgreSQL", "Socket.io"],
-      type: "Web Development",
-      icon: Code2,
-      color: "blue"
+      technologies: ["WebRTC", "PostgreSQL", "Socket.io"],
+      type: "Web Engineering",
+      icon: Code2
     }
   ];
 
   const filters = [
-    { key: 'all', label: 'All Projects' },
-    { key: 'web', label: 'Web Development' },
-    { key: 'mobile', label: 'Mobile Apps' },
-    { key: 'cms', label: 'CMS Development' },
-    { key: 'design', label: 'UI/UX Design' },
-    { key: 'seo', label: 'SEO' }
+    { key: 'all', label: 'All Work' },
+    { key: 'web', label: 'Engineering' },
+    { key: 'mobile', label: 'Mobile' },
+    { key: 'cms', label: 'CMS' },
+    { key: 'design', label: 'Design' }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
+  const filteredProjects = activeFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <div className="pt-20">
+    <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20 overflow-x-hidden">
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">Our Portfolio</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Discover our latest projects and see how we've helped businesses achieve their digital goals
-          </p>
+      <section className="relative bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-40">
+          <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+            <Scene />
+          </Canvas>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="block text-xs font-bold tracking-widest uppercase mb-4 text-zinc-500"
+          >
+            Selected Work
+          </motion.span>
+          <h1 ref={titleRef} className="text-5xl md:text-8xl font-bold tracking-tighter mb-8 max-w-4xl leading-[0.9]">
+            CASE STUDIES.
+          </h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-xl text-zinc-400 max-w-2xl leading-relaxed"
+          >
+            A curated selection of technical challenges we've solved for our partners.
+          </motion.p>
         </div>
       </section>
 
-      {/* Filter Tabs */}
-      <section className="py-12 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
+      {/* Filters */}
+      <section className="bg-white border-b border-zinc-200 sticky top-20 z-40">
+        <div className="max-w-7xl mx-auto px-6 overflow-x-auto">
+          <div className="flex space-x-8">
             {filters.map((filter) => (
               <button
                 key={filter.key}
                 onClick={() => setActiveFilter(filter.key)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeFilter === filter.key
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                className={`py-6 text-sm font-bold uppercase tracking-widest whitespace-nowrap border-b-2 transition-colors relative ${activeFilter === filter.key
+                  ? 'text-black'
+                  : 'text-zinc-400 hover:text-black'
+                  }`}
               >
                 {filter.label}
+                {activeFilter === filter.key && (
+                  <motion.div
+                    layoutId="filter-pill"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-black"
+                  />
+                )}
               </button>
             ))}
           </div>
@@ -120,97 +190,89 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="border-b border-zinc-200 bg-white min-h-[600px]">
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200 border-l border-zinc-200"
+        >
+          <AnimatePresence mode='popLayout'>
             {filteredProjects.map((project) => (
-              <div
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
                 key={project.id}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
+                onClick={() => navigate(`/portfolio/${project.id}`)}
+                className="group border-b border-zinc-200 bg-white hover:bg-zinc-50 transition-colors cursor-pointer"
               >
-                <div className="relative overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden border-b border-zinc-100 relative">
+                  <motion.img
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.7 }}
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="flex space-x-4">
-                      <button className="p-3 bg-white/90 rounded-full hover:bg-white transition-colors">
-                        <ExternalLink className="h-5 w-5 text-gray-900" />
-                      </button>
-                      <button className="p-3 bg-white/90 rounded-full hover:bg-white transition-colors">
-                        <Github className="h-5 w-5 text-gray-900" />
-                      </button>
+                  <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="bg-black text-white p-2 hover:bg-zinc-800">
+                      <ExternalLink className="h-4 w-4" />
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="p-8">
-                  <div className="flex items-center mb-4">
-                    <div className={`inline-flex p-2 rounded-lg bg-${project.color}-100 mr-3`}>
-                      <project.icon className={`h-5 w-5 text-${project.color}-600`} />
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-2">
+                      <project.icon className="h-4 w-4 text-zinc-400" />
+                      <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">{project.type}</span>
                     </div>
-                    <span className={`text-${project.color}-600 font-medium text-sm`}>
-                      {project.type}
-                    </span>
+                    <span className="text-[10px] font-bold text-zinc-300">/0{project.id}</span>
                   </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                  <p className="text-gray-600 mb-6 line-clamp-3">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
-                      >
+
+                  <h3 className="text-2xl font-bold tracking-tight mb-3 group-hover:underline decoration-1 underline-offset-4">{project.title}</h3>
+                  <p className="text-zinc-600 text-sm leading-relaxed mb-6">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.technologies.map((tech) => (
+                      <span key={tech} className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest border border-zinc-100 px-2 py-1">
                         {tech}
                       </span>
                     ))}
                   </div>
-                  
-                  <button className={`w-full bg-${project.color}-600 text-white py-3 rounded-lg hover:bg-${project.color}-700 transition-colors duration-300 font-medium`}>
-                    View Project
-                  </button>
+
+                  <div className="pt-6 border-t border-zinc-100 flex items-center text-[10px] font-bold uppercase tracking-[0.2em] group-hover:text-black text-zinc-400 transition-colors">
+                    View Case Study
+                    <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </AnimatePresence>
+        </motion.div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: "50+", label: "Projects Completed" },
-              { number: "30+", label: "Happy Clients" },
-              { number: "5+", label: "Years Experience" },
-              { number: "100%", label: "Client Satisfaction" }
-            ].map((stat, index) => (
-              <div key={index} className="text-white">
-                <div className="text-4xl font-bold mb-2">{stat.number}</div>
-                <div className="text-blue-100">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Start Your Project?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Let's work together to create something amazing for your business
+      {/* CTA */}
+      <section className="bg-black text-white py-32 px-6 text-center reveal">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6">START A PROJECT</h2>
+          <p className="text-zinc-500 text-lg mb-12 max-w-xl mx-auto">
+            Ready to build something remarkable? Let's talk architecture.
           </p>
-          <button className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
-            Start Your Project
-            <ExternalLink className="ml-2 h-5 w-5" />
-          </button>
-        </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/contact')}
+            className="bg-white text-black px-12 py-6 text-sm font-bold uppercase tracking-widest hover:bg-zinc-200 transition-colors"
+          >
+            Initiate Project
+          </motion.button>
+        </motion.div>
       </section>
     </div>
   );

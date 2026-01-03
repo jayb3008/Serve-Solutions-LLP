@@ -1,77 +1,91 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
-import { Code2, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Code2, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <Code2 className="h-8 w-8 text-blue-400" />
-              <span className="text-2xl font-bold">SarveSolutions</span>
+    <footer className="bg-black text-white border-t border-zinc-800">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-800 border-b border-zinc-800">
+
+          {/* Brand Column */}
+          <div className="p-12 md:col-span-1">
+            <div className="flex items-center space-x-2 mb-6">
+              <Code2 className="h-6 w-6 text-white" />
+              <span className="text-xl font-bold tracking-tight">SARVESOLUTIONS</span>
             </div>
-            <p className="text-gray-300 mb-6">
-              Your Partner in Digital Growth. We deliver world-class digital solutions that combine innovation, design, and performance.
+            <p className="text-zinc-400 text-sm leading-relaxed mb-8">
+              Engineering digital excellence through precision, innovation, and scalable architecture.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
-              <Twitter className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
-              <Linkedin className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
-              <Instagram className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
+              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+                <a key={i} href="#" className="text-zinc-500 hover:text-white transition-colors">
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Services</Link></li>
-              <li><Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors">Portfolio</Link></li>
-              <li><Link to="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link></li>
+          <div className="p-12">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-6">Navigation</h3>
+            <ul className="space-y-4">
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'About', path: '/about' },
+                { name: 'Services', path: '/services' },
+                { name: 'Portfolio', path: '/portfolio' },
+                { name: 'Blog', path: '/blog' }
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-sm text-zinc-300 hover:text-white transition-colors flex items-center group">
+                    <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Services */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li><span className="text-gray-300">Web Development</span></li>
-              <li><span className="text-gray-300">Mobile App Development</span></li>
-              <li><span className="text-gray-300">CMS Development</span></li>
-              <li><span className="text-gray-300">UI/UX Design</span></li>
-              <li><span className="text-gray-300">SEO Services</span></li>
+          <div className="p-12">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-6">Capabilities</h3>
+            <ul className="space-y-4">
+              {['Web Engineering', 'Mobile Solutions', 'Enterprise CMS', 'UI/UX Design', 'SEO & Analytics'].map((service) => (
+                <li key={service} className="text-sm text-zinc-300">
+                  {service}
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">contact@sarvesolutions.com</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">+91-XXXXXXXXXX</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">Your Office Location</span>
-              </div>
-            </div>
+          {/* Contact */}
+          <div className="p-12">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-6">Contact</h3>
+            <ul className="space-y-6">
+              <li className="flex items-start">
+                <Mail className="h-5 w-5 text-zinc-400 mr-3 mt-0.5" />
+                <span className="text-sm text-zinc-300">contact@sarvesolutions.in</span>
+              </li>
+              <li className="flex items-start">
+                <Phone className="h-5 w-5 text-zinc-400 mr-3 mt-0.5" />
+                <span className="text-sm text-zinc-300">+91-9904055986</span>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="h-5 w-5 text-zinc-400 mr-3 mt-0.5" />
+                <span className="text-sm text-zinc-300">Anand, Gujarat<br />India</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p className="text-gray-300">
-            © {new Date().getFullYear()} SarveSolutions. All rights reserved.
-          </p>
+        {/* Copyright */}
+        <div className="py-8 px-12 flex flex-col md:flex-row justify-between items-center text-xs text-zinc-600">
+          <p>© {new Date().getFullYear()} SarveSolutions. All rights reserved.</p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" className="hover:text-zinc-400">Privacy Policy</a>
+            <a href="#" className="hover:text-zinc-400">Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>
