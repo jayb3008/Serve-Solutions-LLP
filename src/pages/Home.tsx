@@ -1,57 +1,17 @@
 
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code2, Smartphone, Palette, Search, Globe, Target, Star, ChevronRight } from 'lucide-react';
+import { Code2, Smartphone, Palette, Search, Globe, Target, Star, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Box, MeshDistortMaterial, PerspectiveCamera } from '@react-three/drei';
-import * as THREE from 'three';
+import { MultiDirectionSlideText } from '@/components/eldoraui/multi-direction-slide-text';
+import Squares from '@/components/ui/squares';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TechScene = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const pointsRef = useRef<THREE.Points>(null);
-
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
-    if (meshRef.current) {
-      meshRef.current.rotation.x = time * 0.1;
-      meshRef.current.rotation.y = time * 0.15;
-    }
-    if (pointsRef.current) {
-      pointsRef.current.rotation.y = time * 0.05;
-    }
-  });
-
-  return (
-    <group>
-      <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
-        <mesh ref={meshRef}>
-          <octahedronGeometry args={[2, 0]} />
-          <MeshDistortMaterial
-            color="#000000"
-            speed={2}
-            distort={0.4}
-            roughness={0.1}
-            metalness={0.9}
-            wireframe
-          />
-        </mesh>
-      </Float>
-      <points ref={pointsRef}>
-        <sphereGeometry args={[4, 32, 32]} />
-        <pointsMaterial color="#cccccc" size={0.02} transparent opacity={0.3} />
-      </points>
-    </group>
-  );
-};
-
 const Home = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const heroTitleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -99,13 +59,13 @@ const Home = () => {
 
         {/* 3D Visual Background */}
         <div className="absolute inset-0 z-0">
-          <Canvas>
-            <PerspectiveCamera makeDefault position={[0, 0, 8]} />
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={1} />
-            <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} />
-            <TechScene />
-          </Canvas>
+          <Squares
+            squareSize={80}
+            direction="diagonal"
+            speed={0.5}
+            borderColor="rgba(0,0,0,0.06)"
+            hoverFillColor="rgba(0,0,0,0.03)"
+          />
         </div>
 
         {/* Content */}
@@ -120,10 +80,13 @@ const Home = () => {
             </span>
           </motion.div>
 
-          <h1 ref={heroTitleRef} className="text-[12vw] sm:text-[10vw] lg:text-[8vw] font-bold tracking-tighter leading-[0.8] mb-12 text-black drop-shadow-sm">
-            SARVE<br />
-            SOLUTIONS.
-          </h1>
+          <div className="mb-12">
+            <MultiDirectionSlideText
+              textLeft="SARVE"
+              textRight="SOLUTIONS."
+              className="text-black"
+            />
+          </div>
 
           <div className="flex flex-col items-center">
             <p className="text-lg sm:text-xl text-zinc-600 max-w-xl leading-relaxed mb-12">

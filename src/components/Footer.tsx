@@ -34,6 +34,7 @@ const Footer = () => {
                 { name: 'Home', path: '/' },
                 { name: 'About', path: '/about' },
                 { name: 'Services', path: '/services' },
+                { name: 'Industries', path: '/industries' },
                 { name: 'Portfolio', path: '/portfolio' },
                 { name: 'Blog', path: '/blog' }
               ].map((link) => (
@@ -51,7 +52,7 @@ const Footer = () => {
           <div className="p-12">
             <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-6">Capabilities</h3>
             <ul className="space-y-4">
-              {['Web Engineering', 'Mobile Solutions', 'Enterprise CMS', 'UI/UX Design', 'SEO & Analytics'].map((service) => (
+              {['Web Development', 'Mobile Apps', 'AI / ML', 'UI/UX Consultancy', 'DevOps & QA'].map((service) => (
                 <li key={service} className="text-sm text-zinc-300">
                   {service}
                 </li>

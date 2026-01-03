@@ -20,9 +20,10 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about/' },
-    { name: 'Services', path: '/services/' },
-    { name: 'Portfolio', path: '/portfolio/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Industries', path: '/industries' },
+    { name: 'Portfolio', path: '/portfolio' },
     { name: 'Blog', path: '/blog/' },
     { name: 'Contact', path: '/contact/' }, // Added Contact to nav items
   ];

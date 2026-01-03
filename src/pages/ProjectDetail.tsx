@@ -62,8 +62,6 @@ const ProjectDetail = () => {
     const project = projects.find(p => p.id === Number(id)) || projects[0];
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-
         const ctx = gsap.context(() => {
             gsap.from(".reveal", {
                 y: 40,

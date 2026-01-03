@@ -1,42 +1,13 @@
 
 import { useEffect, useRef } from 'react';
-import { Code2, Smartphone, Globe, Palette, Search, ArrowRight, Terminal } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Code2, Smartphone, Palette, ArrowRight, Terminal, Cpu, Infinity as InfinityIcon, ShieldCheck, Wifi, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, Sphere } from '@react-three/drei';
+import Squares from '../components/ui/squares';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const Scene = () => {
-    const meshRef = useRef<THREE.Mesh>(null);
-
-    useFrame((state) => {
-        if (meshRef.current) {
-            meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.2;
-            meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
-        }
-    });
-
-    return (
-        <>
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} intensity={2} />
-            <Float speed={4} rotationIntensity={1} floatIntensity={2}>
-                <Sphere ref={meshRef} args={[1, 100, 200]} scale={2.5}>
-                    <MeshDistortMaterial
-                        color="#27272a"
-                        attach="material"
-                        distort={0.4}
-                        speed={1.5}
-                        roughness={0}
-                    />
-                </Sphere>
-            </Float>
-        </>
-    );
-};
 
 const Services = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -75,34 +46,60 @@ const Services = () => {
 
     const services = [
         {
+            slug: "web-development",
             icon: Code2,
-            title: "Web Engineering",
-            description: "High-performance web applications built on scalable React & Node.js architectures.",
-            features: ["Next.js SSR", "Cloud Infrastructure", "API Integration"]
+            title: "Web Development",
+            description: "Sculpting modern, dynamic web applications for a digital-first world.",
+            features: ["React & Next.js", "Scalable Backends", "High Performance"]
         },
         {
+            slug: "mobile-apps",
             icon: Smartphone,
-            title: "Mobile Solutions",
-            description: "Native-grade cross-platform applications deployed to iOS and Android.",
-            features: ["React Native", "Offline-first", "Hardware Integration"]
+            title: "Mobile Apps",
+            description: "Designing high-performing mobile apps for a connected future.",
+            features: ["iOS & Android", "Native Performance", "User Engagement"]
         },
         {
-            icon: Globe,
-            title: "Enterprise CMS",
-            description: "Custom content management systems tailored for complex workflows.",
-            features: ["Headless CMS", "Workflow Automation", "Role-based Access"]
+            slug: "ai-ml",
+            icon: Cpu,
+            title: "AI / ML",
+            description: "Leveraging AI & ML to Deliver innovative solutions.",
+            features: ["Predictive Analytics", "NLP Systems", "LLM Integration"]
         },
         {
+            slug: "ui-ux-consultancy",
             icon: Palette,
-            title: "UI/UX Design",
-            description: "Data-driven interface design focused on user conversion and retention.",
-            features: ["Design Systems", "Prototyping", "User Testing"]
+            title: "UI/UX Consultancy",
+            description: "Enhancing experience with intuitive and user-centric design services.",
+            features: ["Design Systems", "User Research", "Prototyping"]
         },
         {
-            icon: Search,
-            title: "SEO Data & Analytics",
-            description: "Technical SEO and analytics implementation for measurable growth.",
-            features: ["Core Web Vitals", "Schema Implementation", "Performance Audits"]
+            slug: "devops",
+            icon: InfinityIcon,
+            title: "DevOps",
+            description: "Streamlined Processes and Collaboration for code lifecycle.",
+            features: ["CI/CD Automation", "Infrastructure as Code", "Cloud Security"]
+        },
+        {
+            slug: "qa",
+            icon: ShieldCheck,
+            title: "QA",
+            description: "Delivering excellence with robust automated and manual QA.",
+            features: ["E2E Automation", "API Validation", "Performance Testing"]
+        },
+        {
+            slug: "iot",
+            icon: Wifi,
+            title: "IoT",
+            description: "Leveraging the device ecosystems to build a connected world.",
+            features: ["Embedded Systems", "Real-time Telemetry", "Device Fleet Ops"]
+        },
+        {
+            slug: "marketing",
+            icon: TrendingUp,
+            title: "Marketing",
+            description: "Crafting result-driven strategies to propel your business forward.",
+            features: ["Technical SEO", "Conversion Rate Opt", "Growth Analytics"]
         }
     ];
 
@@ -133,13 +130,15 @@ const Services = () => {
 
             {/* Hero Section */}
             <section ref={heroRef} className="relative bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">
-                {/* Three.js Background */}
-                <div className="absolute inset-0 z-0 opacity-50">
-                    <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-                        <Scene />
-                    </Canvas>
-                </div>
-
+                {/* <div className="absolute inset-0 z-0 scale-125">
+                    <Squares
+                        squareSize={100}
+                        direction="diagonal"
+                        speed={0.3}
+                        borderColor="rgba(255,255,255,0.05)"
+                        hoverFillColor="rgba(255,255,255,0.02)"
+                    />
+                </div> */}
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
                         <div>
@@ -178,10 +177,10 @@ const Services = () => {
                         className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-zinc-200 border-l border-r border-zinc-200"
                     >
                         {services.map((service, index) => (
-                            <motion.div
+                            <Link
                                 key={index}
-                                variants={itemVariants}
-                                className="p-12 group hover:bg-zinc-50 transition-colors border-b border-zinc-200 cursor-default"
+                                to={`/services/${service.slug}`}
+                                className="block p-12 group hover:bg-zinc-50 transition-colors border-b border-zinc-200"
                             >
                                 <div className="overflow-hidden mb-8">
                                     <service.icon className="h-10 w-10 text-black group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
@@ -192,22 +191,16 @@ const Services = () => {
                                 <div className="space-y-4 mb-8">
                                     {service.features.map((feature, i) => (
                                         <div key={i} className="flex items-center text-sm font-medium text-zinc-700">
-                                            <motion.div
-                                                whileHover={{ scale: 1.5 }}
-                                                className="w-1.5 h-1.5 bg-black rounded-full mr-3"
-                                            />
+                                            <div className="w-1.5 h-1.5 bg-black rounded-full mr-3 shrink-0" />
                                             {feature}
                                         </div>
                                     ))}
                                 </div>
 
-                                <motion.div
-                                    whileHover={{ x: 10 }}
-                                    className="flex items-center text-xs font-bold uppercase tracking-widest text-black cursor-pointer inline-flex"
-                                >
+                                <div className="flex items-center text-xs font-bold uppercase tracking-widest text-black inline-flex">
                                     Explore Solution <ArrowRight className="ml-2 h-4 w-4" />
-                                </motion.div>
-                            </motion.div>
+                                </div>
+                            </Link>
                         ))}
 
                         {/* Process Card / Last Grid Item */}
