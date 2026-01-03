@@ -1,3 +1,0 @@
-Contact: contact@sarvesolutions.in
-Preferred-Languages: en, hi
-Canonical: https://sarvesolutions.in/.well-known/security.txt

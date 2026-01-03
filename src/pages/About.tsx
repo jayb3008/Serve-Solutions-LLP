@@ -1,550 +1,206 @@
-import { Link } from "react-router-dom";
-import {
-  Target,
-  Eye,
-  Heart,
-  Award,
-  ArrowRight,
-  Code2,
-  Search,
-  Shield,
-  Zap,
-} from "lucide-react";
-import HeroSection from "../components/HeroSection";
-import ScrollFloat from "../components/ScrollFloat";
-import ScrollReveal from "../components/ScrollReveal";
-import SpotlightCard from "../components/SpotlightCard";
-import ReadyToTransformCTA from "../components/ReadyToTransformCTA";
+import React from 'react';
+import { Target, Eye, Heart, Calendar, Users, Code2, Palette, Search } from 'lucide-react';
 
 const About = () => {
   return (
     <div className="pt-20">
-      <HeroSection
-        title="About SarveSolutions"
-        subtitle="We are a team of passionate technologists dedicated to transforming businesses through innovative digital solutions."
-      />
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold text-white mb-6">About SarveSolutions</h1>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            Empowering businesses with innovative digital solutions since 2021
+          </p>
+        </div>
+      </section>
 
-      {/* Mission, Vision, Values */}
-      <section className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-background">
-        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
-            <ScrollFloat
-              animationDuration={1}
-              ease="back.inOut(2)"
-              scrollStart="center bottom+=50%"
-              scrollEnd="bottom bottom-=40%"
-              stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-foreground mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
-            >
-              Our Mission, Vision & Values
-            </ScrollFloat>
-            <ScrollReveal
-              baseOpacity={0.2}
-              enableBlur={true}
-              baseRotation={2}
-              blurStrength={8}
-              containerClassName="max-w-3xl mx-auto"
-              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-muted-foreground leading-relaxed font-normal"
-            >
-              The principles that guide everything we do
-            </ScrollReveal>
-          </div>
-
-          <div className="grid grid-cols-1 min-[820px]:grid-cols-2 lg:grid-cols-3 min-[1559px]:grid-cols-3 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8">
-            <SpotlightCard
-              className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-gray-100 hover:border-gray-200 focus-within:ring-4 focus-within:ring-blue-500/20"
-              spotlightColor="rgba(59, 130, 246, 0.3)"
-            >
-              <div className="relative z-10 text-center p-6 max-[393px]:p-4 sm:p-8">
-                <div className="inline-flex p-4 max-[393px]:p-3 sm:p-5 rounded-2xl mb-4 max-[393px]:mb-3 sm:mb-6 transition-colors duration-300 bg-blue-100 group-hover:bg-blue-200">
-                  <Target className="h-6 w-6 max-[393px]:h-5 max-[393px]:w-5 sm:h-8 sm:w-8 transition-colors duration-300 text-blue-600 group-hover:text-blue-700" />
+      {/* Who We Are */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Who We Are</h2>
+              <p className="text-lg text-gray-600 mb-6">
+                SarveSolutions is a full-service digital solutions company committed to helping businesses thrive in the digital era. From cutting-edge web apps to user-friendly mobile solutions, we empower brands with technology-driven growth.
+              </p>
+              <p className="text-lg text-gray-600 mb-8">
+                Our team of experienced developers, designers, and digital strategists work together to deliver solutions that not only meet your current needs but also scale with your future ambitions.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+                  <div className="text-gray-600">Projects Completed</div>
                 </div>
-                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-foreground mb-3 max-[393px]:mb-2 sm:mb-4">
-                  Our Mission
-                </h3>
-                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-muted-foreground leading-relaxed">
-                  To empower businesses with cutting-edge technology solutions
-                  that drive growth, enhance user experiences, and create
-                  lasting value in the digital landscape.
-                </p>
-              </div>
-            </SpotlightCard>
-
-            <SpotlightCard
-              className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-gray-100 hover:border-gray-200 focus-within:ring-4 focus-within:ring-purple-500/20"
-              spotlightColor="rgba(139, 92, 246, 0.3)"
-            >
-              <div className="relative z-10 text-center p-6 max-[393px]:p-4 sm:p-8">
-                <div className="inline-flex p-4 max-[393px]:p-3 sm:p-5 rounded-2xl mb-4 max-[393px]:mb-3 sm:mb-6 transition-colors duration-300 bg-purple-100 group-hover:bg-purple-200">
-                  <Eye className="h-6 w-6 max-[393px]:h-5 max-[393px]:w-5 sm:h-8 sm:w-8 transition-colors duration-300 text-purple-600 group-hover:text-purple-700" />
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">30+</div>
+                  <div className="text-gray-600">Happy Clients</div>
                 </div>
-                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-foreground mb-3 max-[393px]:mb-2 sm:mb-4">
-                  Our Vision
-                </h3>
-                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-muted-foreground leading-relaxed">
-                  To be the leading technology partner that businesses trust to
-                  transform their digital presence and achieve unprecedented
-                  success in their industries.
-                </p>
               </div>
-            </SpotlightCard>
-
-            <SpotlightCard
-              className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-gray-100 hover:border-gray-200 focus-within:ring-4 focus-within:ring-green-500/20"
-              spotlightColor="rgba(16, 185, 129, 0.3)"
-            >
-              <div className="relative z-10 text-center p-6 max-[393px]:p-4 sm:p-8">
-                <div className="inline-flex p-4 max-[393px]:p-3 sm:p-5 rounded-2xl mb-4 max-[393px]:mb-3 sm:mb-6 transition-colors duration-300 bg-green-100 group-hover:bg-green-200">
-                  <Heart className="h-6 w-6 max-[393px]:h-5 max-[393px]:w-5 sm:h-8 sm:w-8 transition-colors duration-300 text-green-600 group-hover:text-green-700" />
+            </div>
+            <div className="bg-gradient-to-br from-blue-100 to-purple-100 p-8 rounded-2xl">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white p-6 rounded-xl text-center">
+                  <Code2 className="h-8 w-8 text-blue-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-gray-900">Development</h3>
                 </div>
-                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-foreground mb-3 max-[393px]:mb-2 sm:mb-4">
-                  Our Values
-                </h3>
-                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-muted-foreground leading-relaxed">
-                  Integrity, innovation, excellence, and client success are the
-                  core values that drive our commitment to delivering
-                  exceptional results.
-                </p>
+                <div className="bg-white p-6 rounded-xl text-center">
+                  <Palette className="h-8 w-8 text-purple-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-gray-900">Design</h3>
+                </div>
+                <div className="bg-white p-6 rounded-xl text-center">
+                  <Search className="h-8 w-8 text-green-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-gray-900">SEO</h3>
+                </div>
+                <div className="bg-white p-6 rounded-xl text-center">
+                  <Users className="h-8 w-8 text-orange-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-gray-900">Consulting</h3>
+                </div>
               </div>
-            </SpotlightCard>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 min-[820px]:grid-cols-2 min-[1559px]:grid-cols-2 gap-6 min-[430px]:gap-8 sm:gap-10 lg:gap-12 items-center">
-            <div>
-              <ScrollFloat
-                animationDuration={1}
-                ease="back.inOut(2)"
-                scrollStart="center bottom+=50%"
-                scrollEnd="bottom bottom-=40%"
-                stagger={0.03}
-                containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl font-bold text-gray-900 mb-4 max-[393px]:mb-3 sm:mb-6"
-              >
-                Our Story
-              </ScrollFloat>
-              <ScrollReveal
-                baseOpacity={0.2}
-                enableBlur={true}
-                baseRotation={2}
-                blurStrength={8}
-                containerClassName="space-y-6 text-gray-600"
-                textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base md:text-lg lg:text-xl leading-relaxed font-normal"
-              >
-                Founded in 2019, SarveSolutions began as a small team of
-                passionate developers who believed that technology should solve
-                real business problems, not create new ones.
-              </ScrollReveal>
-              <ScrollReveal
-                baseOpacity={0.2}
-                enableBlur={true}
-                baseRotation={2}
-                blurStrength={8}
-                containerClassName="space-y-6 text-gray-600"
-                textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base md:text-lg lg:text-xl leading-relaxed font-normal"
-              >
-                What started as a vision to bridge the gap between complex
-                technology and business needs has grown into a comprehensive
-                digital solutions company serving clients across multiple
-                industries.
-              </ScrollReveal>
-              <ScrollReveal
-                baseOpacity={0.2}
-                enableBlur={true}
-                baseRotation={2}
-                blurStrength={8}
-                containerClassName="space-y-6 text-gray-600"
-                textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base md:text-lg lg:text-xl leading-relaxed font-normal"
-              >
-                Today, we're proud to have delivered over 200 successful
-                projects, helping businesses transform their digital presence
-                and achieve their goals through innovative technology solutions.
-              </ScrollReveal>
-
-              <div className="mt-6 max-[393px]:mt-4 sm:mt-8 grid grid-cols-2 gap-3 max-[393px]:gap-2 min-[430px]:gap-4 sm:gap-6">
-                <div className="text-center">
-                  <div className="text-xl max-[393px]:text-lg min-[430px]:text-2xl md:text-3xl font-bold text-blue-600 mb-1 max-[393px]:mb-0.5 sm:mb-2">
-                    2019
-                  </div>
-                  <div className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm text-gray-600">
-                    Founded
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-xl max-[393px]:text-lg min-[430px]:text-2xl md:text-3xl font-bold text-blue-600 mb-1 max-[393px]:mb-0.5 sm:mb-2">
-                    5+
-                  </div>
-                  <div className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm text-gray-600">
-                    Years Experience
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-xl max-[393px]:text-lg min-[430px]:text-2xl md:text-3xl font-bold text-blue-600 mb-1 max-[393px]:mb-0.5 sm:mb-2">
-                    200+
-                  </div>
-                  <div className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm text-gray-600">
-                    Projects Delivered
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-xl max-[393px]:text-lg min-[430px]:text-2xl md:text-3xl font-bold text-blue-600 mb-1 max-[393px]:mb-0.5 sm:mb-2">
-                    150+
-                  </div>
-                  <div className="text-xs max-[393px]:text-[10px] min-[430px]:text-sm text-gray-600">
-                    Happy Clients
-                  </div>
-                </div>
+      {/* Mission, Vision, Values */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
+              <div className="inline-flex p-4 rounded-full bg-blue-100 mb-6">
+                <Target className="h-8 w-8 text-blue-600" />
               </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Mission</h3>
+              <p className="text-gray-600">
+                Deliver world-class digital solutions that combine innovation, design, and performance to help businesses achieve their goals.
+              </p>
             </div>
-
-            <div className="bg-gray-800 rounded-2xl p-6 max-[393px]:p-4 sm:p-8 min-[1559px]:p-10 text-white">
-              <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl md:text-2xl font-bold mb-4 max-[393px]:mb-3 sm:mb-6">
-                Our Journey
-              </h3>
-              <div className="space-y-3 max-[393px]:space-y-2 sm:space-y-4">
-                <div className="flex items-start">
-                  <div className="w-2 h-2 max-[393px]:w-1.5 max-[393px]:h-1.5 sm:w-3 sm:h-3 bg-blue-400 rounded-full mt-1 max-[393px]:mt-0.5 sm:mt-2 mr-2 max-[393px]:mr-2 sm:mr-4"></div>
-                  <div>
-                    <h4 className="text-sm max-[393px]:text-xs min-[430px]:text-base font-semibold mb-0.5 max-[393px]:mb-0 sm:mb-1">
-                      2019 - The Beginning
-                    </h4>
-                    <p className="text-gray-300 text-xs max-[393px]:text-[10px] min-[430px]:text-sm">
-                      Founded with a vision to democratize technology solutions
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 max-[393px]:w-1.5 max-[393px]:h-1.5 sm:w-3 sm:h-3 bg-blue-400 rounded-full mt-1 max-[393px]:mt-0.5 sm:mt-2 mr-2 max-[393px]:mr-2 sm:mr-4"></div>
-                  <div>
-                    <h4 className="text-sm max-[393px]:text-xs min-[430px]:text-base font-semibold mb-0.5 max-[393px]:mb-0 sm:mb-1">
-                      2020 - First Milestone
-                    </h4>
-                    <p className="text-gray-300 text-xs max-[393px]:text-[10px] min-[430px]:text-sm">
-                      Delivered our first major enterprise project
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 max-[393px]:w-1.5 max-[393px]:h-1.5 sm:w-3 sm:h-3 bg-blue-400 rounded-full mt-1 max-[393px]:mt-0.5 sm:mt-2 mr-2 max-[393px]:mr-2 sm:mr-4"></div>
-                  <div>
-                    <h4 className="text-sm max-[393px]:text-xs min-[430px]:text-base font-semibold mb-0.5 max-[393px]:mb-0 sm:mb-1">
-                      2021 - Team Expansion
-                    </h4>
-                    <p className="text-gray-300 text-xs max-[393px]:text-[10px] min-[430px]:text-sm">
-                      Grew our team and expanded service offerings
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 max-[393px]:w-1.5 max-[393px]:h-1.5 sm:w-3 sm:h-3 bg-blue-400 rounded-full mt-1 max-[393px]:mt-0.5 sm:mt-2 mr-2 max-[393px]:mr-2 sm:mr-4"></div>
-                  <div>
-                    <h4 className="text-sm max-[393px]:text-xs min-[430px]:text-base font-semibold mb-0.5 max-[393px]:mb-0 sm:mb-1">
-                      2022 - Industry Recognition
-                    </h4>
-                    <p className="text-gray-300 text-xs max-[393px]:text-[10px] min-[430px]:text-sm">
-                      Received awards for innovation and excellence
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 max-[393px]:w-1.5 max-[393px]:h-1.5 sm:w-3 sm:h-3 bg-blue-400 rounded-full mt-1 max-[393px]:mt-0.5 sm:mt-2 mr-2 max-[393px]:mr-2 sm:mr-4"></div>
-                  <div>
-                    <h4 className="text-sm max-[393px]:text-xs min-[430px]:text-base font-semibold mb-0.5 max-[393px]:mb-0 sm:mb-1">
-                      2023 - Global Reach
-                    </h4>
-                    <p className="text-gray-300 text-xs max-[393px]:text-[10px] min-[430px]:text-sm">
-                      Expanded to serve clients internationally
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 max-[393px]:w-1.5 max-[393px]:h-1.5 sm:w-3 sm:h-3 bg-green-400 rounded-full mt-1 max-[393px]:mt-0.5 sm:mt-2 mr-2 max-[393px]:mr-2 sm:mr-4"></div>
-                  <div>
-                    <h4 className="text-sm max-[393px]:text-xs min-[430px]:text-base font-semibold mb-0.5 max-[393px]:mb-0 sm:mb-1">
-                      2024 - Future Ready
-                    </h4>
-                    <p className="text-gray-300 text-xs max-[393px]:text-[10px] min-[430px]:text-sm">
-                      Leading innovation in AI and emerging technologies
-                    </p>
-                  </div>
-                </div>
+            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
+              <div className="inline-flex p-4 rounded-full bg-purple-100 mb-6">
+                <Eye className="h-8 w-8 text-purple-600" />
               </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Vision</h3>
+              <p className="text-gray-600">
+                To become a trusted global partner for digital transformation, empowering businesses worldwide with cutting-edge technology.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
+              <div className="inline-flex p-4 rounded-full bg-red-100 mb-6">
+                <Heart className="h-8 w-8 text-red-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Values</h3>
+              <p className="text-gray-600">
+                Integrity, Innovation, and Customer Success guide everything we do, ensuring exceptional results and lasting partnerships.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Journey */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From a small startup to a trusted digital partner
+            </p>
+          </div>
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
+            <div className="space-y-12">
+              {[
+                {
+                  year: "2021",
+                  title: "Founded",
+                  description: "Founded with a focus on web development and digital solutions."
+                },
+                {
+                  year: "2022",
+                  title: "Expansion",
+                  description: "Expanded into mobile app and CMS solutions, serving more clients."
+                },
+                {
+                  year: "2023",
+                  title: "Growth",
+                  description: "Established design & SEO services, building a comprehensive service portfolio."
+                },
+                {
+                  year: "Today",
+                  title: "Global Reach",
+                  description: "Serving clients worldwide with complete digital solutions and innovation."
+                }
+              ].map((milestone, index) => (
+                <div
+                  key={index}
+                  className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
+                    index % 2 === 0 ? '' : 'md:text-right'
+                  }`}
+                >
+                  <div className={index % 2 === 0 ? 'md:order-1' : 'md:order-2'}>
+                    <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                      <div className="text-blue-600 font-bold text-lg mb-2">{milestone.year}</div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">{milestone.title}</h3>
+                      <p className="text-gray-600">{milestone.description}</p>
+                    </div>
+                  </div>
+                  <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full ${
+                    index % 2 === 0 ? 'md:left-1/2' : 'md:left-1/2'
+                  }`}></div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Team Section */}
-      <section
-        id="team"
-        className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-white"
-      >
-        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
-            <ScrollFloat
-              animationDuration={1}
-              ease="back.inOut(2)"
-              scrollStart="center bottom+=50%"
-              scrollEnd="bottom bottom-=40%"
-              stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
-            >
-              Meet Our Team
-            </ScrollFloat>
-            <ScrollReveal
-              baseOpacity={0.2}
-              enableBlur={true}
-              baseRotation={2}
-              blurStrength={8}
-              containerClassName="max-w-3xl mx-auto"
-              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
-            >
-              The talented individuals who make SarveSolutions a trusted
-              technology partner
-            </ScrollReveal>
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Meet the talented professionals behind SarveSolutions
+            </p>
           </div>
-
-          <div className="grid grid-cols-1 min-[820px]:grid-cols-2 lg:grid-cols-3 min-[1559px]:grid-cols-3 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                name: "Sarah Johnson",
-                role: "CEO & Founder",
-                bio: "Visionary leader with 10+ years in technology and business strategy.",
-                image: "SJ",
-                color: "bg-blue-100 text-blue-600",
+                name: "CEO/Founder",
+                role: "Chief Executive Officer",
+                description: "Visionary leader driving innovation and growth",
+                color: "blue"
               },
               {
-                name: "Michael Chen",
-                role: "CTO",
-                bio: "Technical architect specializing in scalable systems and cloud infrastructure.",
-                image: "MC",
-                color: "bg-green-100 text-green-600",
+                name: "Project Manager",
+                role: "Project Management",
+                description: "Ensuring timely delivery and quality execution",
+                color: "purple"
               },
               {
-                name: "Emily Rodriguez",
-                role: "Head of Design",
-                bio: "Creative director focused on user-centered design and digital experiences.",
-                image: "ER",
-                color: "bg-purple-100 text-purple-600",
+                name: "Lead Developer",
+                role: "Development Team",
+                description: "Building robust and scalable applications",
+                color: "green"
               },
               {
-                name: "David Kim",
-                role: "Lead Developer",
-                bio: "Full-stack developer with expertise in React, Node.js, and modern frameworks.",
-                image: "DK",
-                color: "bg-orange-100 text-orange-600",
-              },
-              {
-                name: "Lisa Wang",
-                role: "Project Manager",
-                bio: "Agile project management expert ensuring timely delivery and quality.",
-                image: "LW",
-                color: "bg-pink-100 text-pink-600",
-              },
-              {
-                name: "Alex Thompson",
-                role: "DevOps Engineer",
-                bio: "Infrastructure specialist focused on automation and cloud solutions.",
-                image: "AT",
-                color: "bg-indigo-100 text-indigo-600",
-              },
+                name: "Design Lead",
+                role: "UI/UX & SEO",
+                description: "Creating beautiful experiences and driving visibility",
+                color: "orange"
+              }
             ].map((member, index) => (
-              <SpotlightCard
-                key={index}
-                className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-gray-100 hover:border-gray-200 focus-within:ring-4 focus-within:ring-blue-500/20"
-                spotlightColor="rgba(59, 130, 246, 0.3)"
-              >
-                <div className="relative z-10">
-                  <div className="text-center p-6 max-[393px]:p-4 sm:p-8">
-                    <div
-                      className={`w-16 h-16 max-[393px]:w-12 max-[393px]:h-12 sm:w-20 sm:h-20 rounded-full ${member.color} flex items-center justify-center mx-auto mb-4 max-[393px]:mb-3 sm:mb-6 text-lg max-[393px]:text-base sm:text-2xl font-bold`}
-                    >
-                      {member.image}
-                    </div>
-                    <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-1.5 max-[393px]:mb-1 sm:mb-2">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-blue-600 font-medium mb-3 max-[393px]:mb-2 sm:mb-4">
-                      {member.role}
-                    </p>
-                    <p className="text-gray-600 text-xs max-[393px]:text-[10px] min-[430px]:text-sm leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
+              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                <div className={`w-20 h-20 bg-${member.color}-100 rounded-full mx-auto mb-6 flex items-center justify-center`}>
+                  <Users className={`h-10 w-10 text-${member.color}-600`} />
                 </div>
-              </SpotlightCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications & Awards */}
-      <section className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
-            <ScrollFloat
-              animationDuration={1}
-              ease="back.inOut(2)"
-              scrollStart="center bottom+=50%"
-              scrollEnd="bottom bottom-=40%"
-              stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
-            >
-              Certifications & Awards
-            </ScrollFloat>
-            <ScrollReveal
-              baseOpacity={0.2}
-              enableBlur={true}
-              baseRotation={2}
-              blurStrength={8}
-              containerClassName="max-w-3xl mx-auto"
-              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
-            >
-              Recognition of our commitment to excellence and industry standards
-            </ScrollReveal>
-          </div>
-
-          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 min-[820px]:grid-cols-4 lg:grid-cols-4 min-[1559px]:grid-cols-4 gap-4 max-[393px]:gap-3 min-[430px]:gap-6 sm:gap-8">
-            {[
-              {
-                title: "AWS Certified Partner",
-                description: "Certified cloud solutions provider",
-                icon: Award,
-              },
-              {
-                title: "ISO 27001 Certified",
-                description: "Information security management",
-                icon: Shield,
-              },
-              {
-                title: "Best Tech Startup 2023",
-                description: "Industry recognition award",
-                icon: Award,
-              },
-              {
-                title: "Google Cloud Partner",
-                description: "Certified cloud infrastructure",
-                icon: Award,
-              },
-            ].map((cert, index) => (
-              <SpotlightCard
-                key={index}
-                className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-gray-100 hover:border-gray-200 focus-within:ring-4 focus-within:ring-blue-500/20"
-                spotlightColor="rgba(59, 130, 246, 0.3)"
-              >
-                <div className="relative z-10">
-                  <div className="text-center p-5 max-[393px]:p-4 sm:p-6">
-                    <div className="inline-flex p-4 max-[393px]:p-3 sm:p-5 rounded-2xl mb-3 max-[393px]:mb-2.5 sm:mb-4 transition-colors duration-300 bg-blue-100 group-hover:bg-blue-200">
-                      <cert.icon className="h-6 w-6 max-[393px]:h-5 max-[393px]:w-5 sm:h-8 sm:w-8 transition-colors duration-300 text-blue-600 group-hover:text-blue-700" />
-                    </div>
-                    <h3 className="text-base max-[393px]:text-sm min-[430px]:text-lg font-semibold text-gray-900 mb-1.5 max-[393px]:mb-1 sm:mb-2">
-                      {cert.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs max-[393px]:text-[10px] min-[430px]:text-sm leading-relaxed">
-                      {cert.description}
-                    </p>
-                  </div>
-                </div>
-              </SpotlightCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How We Work */}
-      <section className="py-8 max-[393px]:py-6 min-[430px]:py-10 sm:py-16 md:py-20 lg:py-24 min-[1559px]:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-3 max-[393px]:px-2 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 max-[393px]:mb-6 sm:mb-12 md:mb-16 lg:mb-20">
-            <ScrollFloat
-              animationDuration={1}
-              ease="back.inOut(2)"
-              scrollStart="center bottom+=50%"
-              scrollEnd="bottom bottom-=40%"
-              stagger={0.03}
-              containerClassName="text-lg max-[393px]:text-base min-[430px]:text-xl min-[480px]:text-2xl min-[820px]:text-3xl md:text-4xl lg:text-5xl min-[1559px]:text-6xl font-bold text-gray-900 mb-3 max-[393px]:mb-2.5 sm:mb-4 md:mb-6"
-            >
-              How We Work
-            </ScrollFloat>
-            <ScrollReveal
-              baseOpacity={0.2}
-              enableBlur={true}
-              baseRotation={2}
-              blurStrength={8}
-              containerClassName="max-w-3xl mx-auto"
-              textClassName="text-xs max-[393px]:text-[11px] min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg md:text-xl text-gray-600 leading-relaxed font-normal"
-            >
-              Our proven process ensures successful project delivery and client
-              satisfaction
-            </ScrollReveal>
-          </div>
-
-          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 min-[1559px]:grid-cols-4 gap-6 max-[393px]:gap-4 min-[430px]:gap-8">
-            {[
-              {
-                step: "01",
-                title: "Discovery",
-                description:
-                  "We start by understanding your business goals, challenges, and requirements through detailed consultation.",
-                icon: Search,
-              },
-              {
-                step: "02",
-                title: "Strategy",
-                description:
-                  "Our team develops a comprehensive strategy and technical roadmap tailored to your specific needs.",
-                icon: Target,
-              },
-              {
-                step: "03",
-                title: "Development",
-                description:
-                  "We build your solution using agile methodologies, with regular updates and milestone reviews.",
-                icon: Code2,
-              },
-              {
-                step: "04",
-                title: "Launch & Support",
-                description:
-                  "We deploy your solution and provide ongoing support to ensure continued success and growth.",
-                icon: Zap,
-              },
-            ].map((process, index) => (
-              <div key={index} className="text-center group">
-                <div className="relative mb-4 max-[393px]:mb-3 sm:mb-6">
-                  <div className="w-12 h-12 max-[393px]:w-10 max-[393px]:h-10 sm:w-16 sm:h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto text-base max-[393px]:text-sm sm:text-xl font-bold">
-                    {process.step}
-                  </div>
-                  <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 max-[393px]:w-5 max-[393px]:h-5 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                    <process.icon className="h-3 w-3 max-[393px]:h-2.5 max-[393px]:w-2.5 sm:h-4 sm:w-4 text-blue-600" />
-                  </div>
-                </div>
-                <h3 className="text-lg max-[393px]:text-base min-[430px]:text-xl font-semibold text-gray-900 mb-3 max-[393px]:mb-2 sm:mb-4">
-                  {process.title}
-                </h3>
-                <p className="text-sm max-[393px]:text-xs min-[430px]:text-base text-gray-600">
-                  {process.description}
-                </p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                <p className={`text-${member.color}-600 font-semibold mb-4`}>{member.role}</p>
+                <p className="text-gray-600">{member.description}</p>
               </div>
             ))}
           </div>
-
-          <div className="text-center mt-8 max-[393px]:mt-6 sm:mt-12">
-            <Link
-              to="/process"
-              className="inline-flex items-center bg-blue-600 text-white px-6 max-[393px]:px-4 min-[430px]:px-6 min-[820px]:px-8 py-3 max-[393px]:py-2 min-[430px]:py-3 sm:py-4 rounded-full text-sm max-[393px]:text-xs min-[430px]:text-sm min-[480px]:text-base min-[820px]:text-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
-            >
-              Learn More About Our Process
-              <ArrowRight className="ml-1.5 max-[393px]:ml-1 min-[430px]:ml-1.5 min-[480px]:ml-2 h-4 w-4 max-[393px]:h-3 max-[393px]:w-3 min-[430px]:h-3.5 min-[430px]:w-3.5 min-[480px]:h-4 min-[480px]:w-4 min-[820px]:h-5 min-[820px]:w-5" />
-            </Link>
-          </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <ReadyToTransformCTA />
     </div>
   );
 };
