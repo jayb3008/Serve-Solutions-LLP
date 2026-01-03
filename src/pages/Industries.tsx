@@ -24,6 +24,7 @@ import {
     Store,
     ArrowRight
 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,6 +84,15 @@ const Industries = () => {
 
     return (
         <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20 overflow-x-hidden">
+            <SEO
+                title="Industry Expertise"
+                description="We build specialized digital ecosystems tailored to the unique requirements of global vertical markets including Healthcare, Finance, Logistics, and more."
+                url="https://sarvesolutions.in/industries"
+                breadcrumb={[
+                    { name: "Home", item: "https://sarvesolutions.in" },
+                    { name: "Industries", item: "https://sarvesolutions.in/industries" }
+                ]}
+            />
 
             {/* Hero Section */}
             <section ref={heroRef} className="relative bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">

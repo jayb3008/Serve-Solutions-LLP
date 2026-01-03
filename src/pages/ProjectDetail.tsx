@@ -1,10 +1,11 @@
 
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, ExternalLink, Code2, Cpu, Globe, Layers, Zap } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Cpu, Layers, Zap } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,7 +85,16 @@ const ProjectDetail = () => {
 
     return (
         <div ref={containerRef} className="bg-white min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20">
-
+            <SEO
+                title={project.title}
+                description={project.overview}
+                url={`https://sarvesolutions.in/portfolio/${id}`}
+                breadcrumb={[
+                    { name: "Home", item: "https://sarvesolutions.in" },
+                    { name: "Portfolio", item: "https://sarvesolutions.in/portfolio" },
+                    { name: project.title, item: `https://sarvesolutions.in/portfolio/${id}` }
+                ]}
+            />
             {/* Header Info */}
             <section className="px-6 lg:px-12 py-16 border-b border-zinc-200">
                 <div className="max-w-7xl mx-auto">

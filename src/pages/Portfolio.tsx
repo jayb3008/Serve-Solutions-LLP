@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+import SEO from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -133,6 +134,15 @@ const Portfolio = () => {
 
   return (
     <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20 overflow-x-hidden">
+      <SEO
+        title="Portfolio"
+        description="A curated selection of technical challenges we've solved. See our case studies in Web Engineering, Mobile Solutions, and more."
+        url="https://sarvesolutions.in/portfolio"
+        breadcrumb={[
+          { name: "Home", item: "https://sarvesolutions.in" },
+          { name: "Portfolio", item: "https://sarvesolutions.in/portfolio" }
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="relative bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">

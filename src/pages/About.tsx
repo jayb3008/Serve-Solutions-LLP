@@ -1,9 +1,19 @@
 
 import { Target, Eye, Heart, Users, Code2, Palette, Search } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const About = () => {
   return (
     <div className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20">
+      <SEO
+        title="About Us"
+        description="Learn about Serve Solutions, our mission, vision, and the values that drive our engineering excellence."
+        url="https://sarvesolutions.in/about"
+        breadcrumb={[
+          { name: "Home", item: "https://sarvesolutions.in" },
+          { name: "About", item: "https://sarvesolutions.in/about" }
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="bg-black text-white py-24 border-b border-zinc-800">

@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MultiDirectionSlideText } from '@/components/eldoraui/multi-direction-slide-text';
 import Squares from '@/components/ui/squares';
+import SEO from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,8 +44,12 @@ const Home = () => {
   };
 
   return (
-    <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20 overflow-x-hidden">
-
+    <div ref={containerRef} className="overflow-hidden">
+      <SEO
+        title="Home"
+        description="Serve Solutions engineers high-performance digital products. We specialize in Web Development, Mobile Apps, and AI solutions."
+        url="https://sarvesolutions.in"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden border-b border-zinc-200">
         {/* Background Grid Lines */}

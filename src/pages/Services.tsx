@@ -5,7 +5,8 @@ import { Code2, Smartphone, Palette, ArrowRight, Terminal, Cpu, Infinity as Infi
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Squares from '../components/ui/squares';
+
+import SEO from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -127,7 +128,15 @@ const Services = () => {
 
     return (
         <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20 overflow-x-hidden">
-
+            <SEO
+                title="Our Services"
+                description="Explore our wide range of technical services including Web Development, Mobile Apps, AI/ML, DevOps, and more."
+                url="https://sarvesolutions.in/services"
+                breadcrumb={[
+                    { name: "Home", item: "https://sarvesolutions.in" },
+                    { name: "Services", item: "https://sarvesolutions.in/services" }
+                ]}
+            />
             {/* Hero Section */}
             <section ref={heroRef} className="relative bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">
                 {/* <div className="absolute inset-0 z-0 scale-125">

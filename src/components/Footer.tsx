@@ -12,15 +12,20 @@ const Footer = () => {
           <div className="p-12 md:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
               <Code2 className="h-6 w-6 text-white" />
-              <span className="text-xl font-bold tracking-tight">SARVESOLUTIONS</span>
+              <span className="text-xl font-bold tracking-tight">SERVE SOLUTIONS</span>
             </div>
             <p className="text-zinc-400 text-sm leading-relaxed mb-8">
               Engineering digital excellence through precision, innovation, and scalable architecture.
             </p>
             <div className="flex space-x-4">
-              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                <a key={i} href="#" className="text-zinc-500 hover:text-white transition-colors">
-                  <Icon className="h-5 w-5" />
+              {[
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/serve-solutions" },
+                { Icon: Twitter, href: "https://twitter.com/serve_solutions" },
+                { Icon: Instagram, href: "https://www.instagram.com/serve.solutions" },
+                { Icon: Facebook, href: "https://facebook.com/serve.solutions" }
+              ].map((item, i) => (
+                <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors">
+                  <item.Icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
@@ -82,7 +87,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="py-8 px-12 flex flex-col md:flex-row justify-between items-center text-xs text-zinc-600">
-          <p>© {new Date().getFullYear()} SarveSolutions. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SERVE SOLUTIONS. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-zinc-400">Privacy Policy</a>
             <a href="#" className="hover:text-zinc-400">Terms of Service</a>

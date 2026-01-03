@@ -25,6 +25,7 @@ export const industriesData: Record<string, any> = {
         icon: HeartPulse,
         tagline: "Precision engineering for life-critical systems.",
         overview: "We develop secure, compliant healthcare platforms that prioritize patient data integrity and real-time clinical workflows.",
+        keywords: "healthcare software development, telemedicine apps, ehr systems, hipaa compliant software, digital health solutions",
         capabilities: [
             { title: "Telemedicine", desc: "Encrypted video consultation and remote monitoring." },
             { title: "EHR Systems", desc: "Interoperable electronic health record management." },
@@ -38,6 +39,7 @@ export const industriesData: Record<string, any> = {
         icon: Scale,
         tagline: "Secure digital foundations for truth and justice.",
         overview: "Modernizing legal frameworks with automated document processing and highly secure case management environments.",
+        keywords: "legal tech solutions, case management software, e-discovery tools, secure legal vaults, law firm automation",
         capabilities: [
             { title: "Case Management", desc: "End-to-end legal workflow optimization." },
             { title: "E-Discovery", desc: "AI-powered legal document research and analysis." },
@@ -51,6 +53,7 @@ export const industriesData: Record<string, any> = {
         icon: Truck,
         tagline: "Intelligent systems for moving the world.",
         overview: "Optimizing global supply chains through real-time visibility, automated routing, and data-driven fleet management.",
+        keywords: "logistics software development, fleet tracking systems, route optimization algorithms, warehouse management software, supply chain visibility",
         capabilities: [
             { title: "Fleet Tracking", desc: "Real-time GPS and sensor-based logistics." },
             { title: "Route Optimization", desc: "Algorithm-based efficiency enhancement." },
@@ -64,6 +67,7 @@ export const industriesData: Record<string, any> = {
         icon: Banknote,
         tagline: "Building the next generation of digital wealth.",
         overview: "Engineering robust fintech platforms that bridge traditional banking with modern, decentralized digital finance.",
+        keywords: "fintech development, digital banking apps, wealthtech solutions, payment gateways, blockchain finance, fraud detection software",
         capabilities: [
             { title: "Digital Banking", desc: "Core banking engines for the mobile era." },
             { title: "WealthTech", desc: "Automated investment and portfolio tracking." },
@@ -77,6 +81,7 @@ export const industriesData: Record<string, any> = {
         icon: GraduationCap,
         tagline: "Digital ecosystems that empower learning.",
         overview: "Transforming the educational journey through immersive LMS platforms and data-driven student engagement tools.",
+        keywords: "edtech development, learning management systems, virtual classroom software, student crm, digital exam engines",
         capabilities: [
             { title: "Immersive LMS", desc: "Dynamic content delivery and assessment." },
             { title: "Virtual Class", desc: "Interactive, real-time remote learning tools." },
@@ -90,6 +95,7 @@ export const industriesData: Record<string, any> = {
         icon: MessageSquareShare,
         tagline: "Connecting communities through advanced tech.",
         overview: "Building high-throughput social ecosystems designed for engagement, content virality, and massive scale.",
+        keywords: "social media app development, community platforms, content sharing software, engagement analytics, real-time chat architecture",
         capabilities: [
             { title: "Engagement Algo", desc: "Personalized content discovery systems." },
             { title: "Real-time Chat", desc: "Low-latency messaging architecture." },
@@ -103,6 +109,7 @@ export const industriesData: Record<string, any> = {
         icon: Play,
         tagline: "The future of digital entertainment.",
         overview: "Developing enterprise-grade streaming platforms and content distribution networks for global media consumption.",
+        keywords: "ott platform development, video on demand software, live streaming solutions, content delivery networks, drm systems",
         capabilities: [
             { title: "Video On Demand", desc: "Efficient content delivery and playback." },
             { title: "Live Streaming", desc: "Ultra-low latency live broadcasting." },
@@ -116,6 +123,7 @@ export const industriesData: Record<string, any> = {
         icon: Umbrella,
         tagline: "Reimagining risk for the digital age.",
         overview: "Insurtech solutions that automate underwriting, streamline claims, and enhance policyholder experiences.",
+        keywords: "insurtech development, automated underwriting software, claims management engines, policyholder portals, insurance fraud analytics",
         capabilities: [
             { title: "Underwriting AI", desc: "Data-driven risk profile assessment." },
             { title: "Claims Engine", desc: "Rapid, automated claim processing workflows." },
@@ -129,6 +137,7 @@ export const industriesData: Record<string, any> = {
         icon: Plane,
         tagline: "Orchestrating journeys across continents.",
         overview: "Technical systems for the travel industry, from massive booking engines to personalized concierge applications.",
+        keywords: "travel tech development, booking engine software, travel itinerary management, dynamic pricing algorithms, loyalty program engines",
         capabilities: [
             { title: "Booking Engines", desc: "GDS and hotel API integrations." },
             { title: "Itinerary MGMT", desc: "Real-time updates for global travelers." },
@@ -142,6 +151,7 @@ export const industriesData: Record<string, any> = {
         icon: Factory,
         tagline: "Smart factories for industrial excellence.",
         overview: "Industry 4.0 solutions that integrate IoT data with production workflows for maximum operational efficiency.",
+        keywords: "manufacturing software, industrial iot solutions, smart factory development, predictive maintenance software, supply chain optimization manufacturing",
         capabilities: [
             { title: "Industrial IoT", desc: "Real-time machine health monitoring." },
             { title: "Supply Chain", desc: "Raw material and inventory optimization." },
@@ -155,6 +165,7 @@ export const industriesData: Record<string, any> = {
         icon: ShoppingBag,
         tagline: "Seamless commerce in a hyper-connected world.",
         overview: "Omni-channel retail platforms that bridge the gap between digital storefronts and physical experiences.",
+        keywords: "retail tech development, ecommerce platforms, omni-channel retail software, pos integration, retail personalization ai",
         capabilities: [
             { title: "E-Commerce", desc: "High-conversion digital storefronts." },
             { title: "POS Integration", desc: "Unified inventory across online & offline." },
@@ -168,6 +179,7 @@ export const industriesData: Record<string, any> = {
         icon: Signal,
         tagline: "Architecting the infrastructure of connectivity.",
         overview: "Backend systems for telecom giants and IT service providers that manage million-node networks.",
+        keywords: "telecom software development, network management dashboards, bss oss systems, 5g integration services, it infrastructure software",
         capabilities: [
             { title: "NOC Dashboards", desc: "Real-time network health observability." },
             { title: "BSS/OSS", desc: "Billing and operational support systems." },
@@ -181,6 +193,7 @@ export const industriesData: Record<string, any> = {
         icon: HardHat,
         tagline: "Technical precision for the built environment.",
         overview: "Project management and asset tracking platforms designed for the unique challenges of the job site.",
+        keywords: "construction tech development, bim integration software, project control systems construction, heavy equipment asset management, site safety tech",
         capabilities: [
             { title: "BIM Integration", desc: "Interacting with 3D model data." },
             { title: "Project Controls", desc: "Cost, schedule, and safety monitoring." },
@@ -194,6 +207,7 @@ export const industriesData: Record<string, any> = {
         icon: Sparkles,
         tagline: "Aesthetic digital experiences for luxury brands.",
         overview: "High-end mobile and web apps that capture the essence of lifestyle brands while driving conversion.",
+        keywords: "beauty lifestyle app development, virtual try-on software, luxury brand digital experiences, personal stylist ai, concierge booking systems",
         capabilities: [
             { title: "Virtual Try-on", desc: "AR-based product visualization." },
             { title: "Booking Systems", desc: "Concierge and appointment management." },
@@ -207,6 +221,7 @@ export const industriesData: Record<string, any> = {
         icon: Trophy,
         tagline: "Engineering for peak performance and engagement.",
         overview: "From athlete tracking to massive fan engagement apps, we build for the high-intensity world of sports.",
+        keywords: "sports tech development, fan engagement apps, sports analytics software, dynamic ticketing systems, athlete performance tracking",
         capabilities: [
             { title: "Stat Engines", desc: "Real-time performance data processing." },
             { title: "Fan Engagement", desc: "Gamified stadium and home experiences." },
@@ -220,6 +235,7 @@ export const industriesData: Record<string, any> = {
         icon: Zap,
         tagline: "Speed of service through technical orchestration.",
         overview: "Powering the service economy with ultra-efficient dispatch and matching algorithms.",
+        keywords: "on demand app development, dispatch matching algorithms, real-time service tracking software, local orchestration systems, multi-vendor wallet systems",
         capabilities: [
             { title: "Dispatch Logic", desc: "Real-time demand/supply matching." },
             { title: "Hyper-local Tracking", desc: "Geo-fenced orchestration systems." },
@@ -233,6 +249,7 @@ export const industriesData: Record<string, any> = {
         icon: Store,
         tagline: "Connecting buyers and sellers at scale.",
         overview: "Multi-vendor platforms designed for high-volume transactions and complex governance.",
+        keywords: "marketplace platform development, b2b marketplace software, multi-vendor ecommerce solutions, vendor management portals, secure marketplace transactions",
         capabilities: [
             { title: "Vendor Portals", desc: "Self-service inventory and order mgmt." },
             { title: "Catalog Engines", desc: "Managing millions of unique SKUs." },

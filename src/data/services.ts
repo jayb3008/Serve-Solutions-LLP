@@ -16,6 +16,7 @@ export const servicesData: Record<string, any> = {
         icon: Code2,
         tagline: "Sculpting modern, dynamic web applications for a digital-first world.",
         overview: "We engineer resilient, scalable web architectures that serve as the backbone for modern businesses. Our approach prioritizes performance, security, and exceptional user experience.",
+        keywords: "react development, next.js development, node.js backend, cloud architecture, aws, azure, rest api, graphql, full stack development india",
         capabilities: [
             { title: "React & Next.js", desc: "Building immersive, lightning-fast interfaces." },
             { title: "Node.js Backends", desc: "Scalable server environments for high throughput." },
@@ -36,6 +37,7 @@ export const servicesData: Record<string, any> = {
         icon: Smartphone,
         tagline: "Designing high-performing mobile apps for a connected future.",
         overview: "Building native-parity mobile applications that leverage modern cross-platform technologies. We focus on performance, haptics, and platform-specific design patterns.",
+        keywords: "react native apps, ios development, android development, cross platform mobile apps, mobile ui ux, app store optimization",
         capabilities: [
             { title: "React Native", desc: "Unified codebases for iOS and Android." },
             { title: "Offline-First", desc: "Local data persistence for uninterrupted use." },
@@ -56,6 +58,7 @@ export const servicesData: Record<string, any> = {
         icon: Cpu,
         tagline: "Leveraging AI & ML to Deliver innovative solutions.",
         overview: "Integrating intelligence into your digital ecosystem. We build custom machine learning models and AI integrations that automate complexity and provide predictive insights.",
+        keywords: "artificial intelligence, machine learning india, predictive analytics, natural language processing, computer vision, llm integration, tensorflow, pytorch",
         capabilities: [
             { title: "Predictive Analytics", desc: "Forecasting trends based on historical data." },
             { title: "Nlp Systems", desc: "Natural language processing for smarter interfaces." },
@@ -76,6 +79,7 @@ export const servicesData: Record<string, any> = {
         icon: Palette,
         tagline: "Enhancing experience with intuitive and user-centric design services.",
         overview: "Creating comprehensive design systems that ensure visual consistency across all touchpoints while maintaining high-efficiency development workflows.",
+        keywords: "ui ux design, product design, figma prototyping, design systems, user experience consultancy, creative digital agency",
         capabilities: [
             { title: "Component Labs", desc: "Reusable, documented UI building blocks." },
             { title: "Brand Identity", desc: "Digital-first visual language development." },
@@ -96,6 +100,7 @@ export const servicesData: Record<string, any> = {
         icon: Infinity,
         tagline: "Streamlined Processes and Collaboration for code lifecycle.",
         overview: "Bridging the gap between development and operations. We build technical bridges that automate deployment pipelines and ensure 99.99% uptime for enterprise systems.",
+        keywords: "devops consulting, ci cd automation, kubernetes orchestration, docker, terraform iac, cloud monitoring, aws devops",
         capabilities: [
             { title: "CI/CD Pipelines", desc: "Automated testing and deployment workflows." },
             { title: "IaC Implementation", desc: "Managing infrastructure via code (Terraform)." },
@@ -116,6 +121,7 @@ export const servicesData: Record<string, any> = {
         icon: ShieldCheck,
         tagline: "Delivering excellence with robust automated and manual QA.",
         overview: "Ensuring zero-defect deployments through rigorous technical testing. We combine automated regression suites with manual exploratory testing to guarantee quality.",
+        keywords: "software quality assurance, automated testing, playwright, cypress, selenium, regression testing, load testing",
         capabilities: [
             { title: "E2E Automation", desc: "Full-flow testing with Playwright or Cypress." },
             { title: "API Testing", desc: "Validation of data integrity and endpoint security." },
@@ -136,6 +142,7 @@ export const servicesData: Record<string, any> = {
         icon: Wifi,
         tagline: "Leveraging the device ecosystems to build a connected world.",
         overview: "Connecting the physical world to the digital cloud. We specialize in embedded systems and real-time data streaming for connected device networks.",
+        keywords: "iot solutions, internet of things development, embedded systems, mqtt protocol, aws iot core, sensor networks",
         capabilities: [
             { title: "Embedded Systems", desc: "Low-level programming for specialized hardware." },
             { title: "MQTT Protocols", desc: "Lightweight messaging for real-time telemetry." },
@@ -156,6 +163,7 @@ export const servicesData: Record<string, any> = {
         icon: TrendingUp,
         tagline: "Crafting result-driven strategies to propel your business forward.",
         overview: "Technical growth marketing that blends data science with creative strategy. We focus on conversion optimization and technical SEO for measurable ROI.",
+        keywords: "growth marketing, technical seo, conversion rate optimization, data driven marketing, analytics,ROI focused marketing",
         capabilities: [
             { title: "Technical SEO", desc: "Performance-focused search engine optimization." },
             { title: "CRO Labs", desc: "A/B testing for funnel optimization." },
@@ -170,10 +178,5 @@ export const servicesData: Record<string, any> = {
         ],
         tech: ["GA4", "GTM", "SEMrush", "Hotjar", "Google Ads"],
         image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200"
-    },
-    // Keep legacy aliases for backward compatibility if needed
-    'web-engineering': { alias: 'web-development' },
-    'mobile-solutions': { alias: 'mobile-apps' },
-    'enterprise-cms': { alias: 'ui-ux-consultancy' }, // Map to closest matching existing
-    'seo-analytics': { alias: 'marketing' }
+    }
 };

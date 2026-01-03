@@ -1,5 +1,6 @@
 
 import { ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Blog = () => {
   const blogPosts = [
@@ -37,6 +38,15 @@ const Blog = () => {
 
   return (
     <div className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20">
+      <SEO
+        title="Blog"
+        description="Technical deep dives, architectural patterns, and updates from the SarveSolutions engineering team."
+        url="https://sarvesolutions.in/blog"
+        breadcrumb={[
+          { name: "Home", item: "https://sarvesolutions.in" },
+          { name: "Blog", item: "https://sarvesolutions.in/blog" }
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="bg-black text-white py-24 border-b border-zinc-800">

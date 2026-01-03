@@ -9,6 +9,7 @@ import {
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,7 +36,17 @@ const IndustryDetail = () => {
 
     return (
         <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans pt-20 overflow-x-hidden">
-
+            <SEO
+                title={industry.title}
+                description={industry.tagline}
+                keywords={industry.keywords}
+                url={`https://sarvesolutions.in/industries/${id}`}
+                breadcrumb={[
+                    { name: "Home", item: "https://sarvesolutions.in" },
+                    { name: "Industries", item: "https://sarvesolutions.in/industries" },
+                    { name: industry.title, item: `https://sarvesolutions.in/industries/${id}` }
+                ]}
+            />
             {/* Hero Section */}
             <section className="relative min-h-[60vh] flex items-center bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
