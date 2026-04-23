@@ -161,7 +161,7 @@ const Contact = () => {
               <h2 className="text-3xl font-bold tracking-tight mb-12 uppercase tracking-tighter">COMMUNICATION CHANNELS</h2>
               <div className="space-y-12">
                 {[
-                  { icon: Mail, label: "Email Relay", value: "contact@sarvesolutions.in", href: "mailto:contact@sarvesolutions.in" },
+                  { icon: Mail, label: "Email Relay", value: "info@sarvesolutions.in", href: "mailto:info@sarvesolutions.in" },
                   { icon: Phone, label: "Direct Line", value: "+91-9904055986", href: "tel:+919904055986" },
                   { icon: MapPin, label: "HQ Coordinates", value: "Anand, Gujarat, India, 388001", isAddress: true }
                 ].map((item, i) => (

@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="p-12 md:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
               <Code2 className="h-6 w-6 text-white" />
-              <span className="text-xl font-bold tracking-tight">SERVE SOLUTIONS</span>
+              <span className="text-xl font-bold tracking-tight">SARVE SOLUTIONS</span>
             </div>
             <p className="text-zinc-400 text-sm leading-relaxed mb-8">
               Engineering digital excellence through precision, innovation, and scalable architecture.
@@ -71,7 +71,7 @@ const Footer = () => {
             <ul className="space-y-6">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-zinc-400 mr-3 mt-0.5" />
-                <span className="text-sm text-zinc-300">contact@sarvesolutions.in</span>
+                <span className="text-sm text-zinc-300">info@sarvesolutions.in</span>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 text-zinc-400 mr-3 mt-0.5" />
@@ -87,7 +87,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="py-8 px-12 flex flex-col md:flex-row justify-between items-center text-xs text-zinc-600">
-          <p>© {new Date().getFullYear()} SERVE SOLUTIONS. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SARVE SOLUTIONS. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-zinc-400">Privacy Policy</a>
             <a href="#" className="hover:text-zinc-400">Terms of Service</a>

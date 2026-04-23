@@ -7,7 +7,11 @@ import {
     Infinity,
     ShieldCheck,
     Wifi,
-    TrendingUp
+    TrendingUp,
+    Database,
+    Shield,
+    ShoppingBag,
+    Boxes
 } from 'lucide-react';
 
 export const servicesData: Record<string, any> = {
@@ -178,5 +182,89 @@ export const servicesData: Record<string, any> = {
         ],
         tech: ["GA4", "GTM", "SEMrush", "Hotjar", "Google Ads"],
         image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    },
+    'blockchain': {
+        title: "Blockchain & Web3",
+        icon: Boxes,
+        tagline: "Building decentralized futures with secure blockchain solutions.",
+        overview: "We architect and develop decentralized applications and smart contracts that prioritize security, transparency, and scalability in the Web3 ecosystem.",
+        keywords: "blockchain development, smart contracts, ethereum, solana, dapps, web3 agency, crypto solutions, nft marketplace",
+        capabilities: [
+            { title: "Smart Contracts", desc: "Secure, audited contracts for Ethereum and Solana." },
+            { title: "DApp Development", desc: "User-friendly interfaces for decentralized protocols." },
+            { title: "DeFi Solutions", desc: "Building next-gen financial tools and platforms." },
+            { title: "Tokenomics", desc: "Designing sustainable economic models for projects." }
+        ],
+        workflow: [
+            { step: "01", title: "Tokenomics", desc: "Designing the economic and incentive layer." },
+            { step: "02", title: "Contract Dev", desc: "Writing and local testing of smart contracts." },
+            { step: "03", title: "Security Audit", desc: "Rigorous testing for vulnerabilities and bugs." },
+            { step: "04", title: "Mainnet Launch", desc: "Coordinated deployment and monitoring." }
+        ],
+        tech: ["Solidity", "Rust", "Ethers.js", "Hardhat", "Polygon"],
+        image: "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    },
+    'cybersecurity': {
+        title: "Cybersecurity",
+        icon: Shield,
+        tagline: "Fortifying your digital assets against evolving threats.",
+        overview: "Providing comprehensive security audits and implementation strategies to protect your infrastructure, data, and users from malicious actors.",
+        keywords: "cybersecurity consulting, penetration testing, security audit, data protection, network security, zero trust architecture",
+        capabilities: [
+            { title: "Penetration Testing", desc: "Identifying vulnerabilities before attackers do." },
+            { title: "Compliance Audits", desc: "Ensuring adherence to GDPR, HIPAA, and ISO." },
+            { title: "Zero Trust", desc: "Implementing modern, identity-based security models." },
+            { title: "Incident Response", desc: "Coordinated action plans for security breaches." }
+        ],
+        workflow: [
+            { step: "01", title: "Vulnerability Scan", desc: "Automated and manual assessment of risks." },
+            { step: "02", title: "Threat Modeling", desc: "Identifying likely attack vectors and targets." },
+            { step: "03", title: "Hardening", desc: "Implementing security controls and patches." },
+            { step: "04", title: "Monitoring", desc: "Setting up real-time threat detection systems." }
+        ],
+        tech: ["Kali Linux", "Burp Suite", "Wireshark", "Metasploit", "Cloudflare"],
+        image: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    },
+    'data-engineering': {
+        title: "Data Engineering",
+        icon: Database,
+        tagline: "Transforming raw data into actionable business intelligence.",
+        overview: "Building robust data pipelines and warehousing solutions that empower your organization to make data-driven decisions with confidence.",
+        keywords: "data engineering, big data solutions, data pipelines, etl processes, data warehousing, snowflake, dbt, analytics engineering",
+        capabilities: [
+            { title: "ETL Pipelines", desc: "Automating data movement and transformation." },
+            { title: "Data Warehousing", desc: "Centralizing data for fast, reliable querying." },
+            { title: "Real-time Analytics", desc: "Streaming data processing for instant insights." },
+            { title: "BI Integration", desc: "Connecting data to powerful visualization tools." }
+        ],
+        workflow: [
+            { step: "01", title: "Data Audit", desc: "Mapping sources and defining data requirements." },
+            { step: "02", title: "Pipeline Design", desc: "Architecting ETL/ELT flows and schemas." },
+            { step: "03", title: "Implementation", desc: "Building and testing the data infrastructure." },
+            { step: "04", title: "Visualization", desc: "Setting up dashboards and reporting tools." }
+        ],
+        tech: ["Python", "SQL", "Snowflake", "dbt", "Airflow", "Looker"],
+        image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    },
+    'ecommerce': {
+        title: "E-commerce",
+        icon: ShoppingBag,
+        tagline: "Scalable digital storefronts for modern retail excellence.",
+        overview: "Crafting high-conversion shopping experiences using cutting-edge headless commerce and traditional platforms, optimized for speed and user engagement.",
+        keywords: "ecommerce development, headless commerce, shopify plus, custom shopping carts, payment integration, omni channel retail",
+        capabilities: [
+            { title: "Headless Commerce", desc: "Decoupled frontends for ultimate flexibility." },
+            { title: "Custom Checkouts", desc: "Optimized payment flows for higher conversion." },
+            { title: "Omni-channel", desc: "Seamless shopping across web, mobile, and social." },
+            { title: "Inventory Sync", desc: "Real-time management across multiple warehouses." }
+        ],
+        workflow: [
+            { step: "01", title: "Store Audit", desc: "Analyzing conversion bottlenecks and UX." },
+            { step: "02", title: "Architecture", desc: "Selecting the right platform and integrations." },
+            { step: "03", title: "Development", desc: "Building custom features and themes." },
+            { step: "04", title: "Launch Ops", desc: "Load testing and final payment verification." }
+        ],
+        tech: ["Shopify", "React", "Stripe", "Sanity", "Algolia"],
+        image: "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200"
     }
 };

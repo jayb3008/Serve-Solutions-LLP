@@ -7,7 +7,7 @@ const About = () => {
     <div className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20">
       <SEO
         title="About Us"
-        description="Learn about Serve Solutions, our mission, vision, and the values that drive our engineering excellence."
+        description="Learn about SARVE SOLUTIONS, our mission, vision, and the values that drive our engineering excellence."
         url="https://sarvesolutions.in/about"
         breadcrumb={[
           { name: "Home", item: "https://sarvesolutions.in" },

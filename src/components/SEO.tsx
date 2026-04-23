@@ -13,22 +13,22 @@ interface SEOProps {
 }
 
 const SEO = ({
-    title = "Serve Solutions - Engineering Digital Excellence",
+    title = "SARVE SOLUTIONS - Engineering Digital Excellence",
     description = "Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and DevOps solutions.",
-    keywords = "web development, mobile apps, software engineering, AI, ML, DevOps, digital transformation, Serve Solutions, IT consultancy India, healthcare tech, legal tech, logistics software, fintech, edtech, social media development, OTT platforms, insurtech, travel tech, manufacturing IoT, retail eCommerce, telecom solutions, construction tech, beauty lifestyle apps, sports analytics, on-demand services, marketplace platforms, QA, IoT engineering, technical growth marketing",
+    keywords = "web development, mobile apps, software engineering, AI, ML, DevOps, digital transformation, SARVE SOLUTIONS, IT consultancy India, healthcare tech, legal tech, logistics software, fintech, edtech, social media development, OTT platforms, insurtech, travel tech, manufacturing IoT, retail eCommerce, telecom solutions, construction tech, beauty lifestyle apps, sports analytics, on-demand services, marketplace platforms, QA, IoT engineering, technical growth marketing",
     image = "https://sarvesolutions.in/og-image.jpg",
     url = "https://sarvesolutions.in",
     type = "website",
     schemaType = "ProfessionalService",
     breadcrumb
 }: SEOProps) => {
-    const siteTitle = title.includes("Serve Solutions") ? title : `${title} | Serve Solutions`;
+    const siteTitle = title.includes("SARVE SOLUTIONS") ? title : `${title} | SARVE SOLUTIONS`;
 
     // Base Organization Schema
     const orgSchema = {
         "@context": "https://schema.org",
         "@type": schemaType,
-        "name": "Serve Solutions",
+        "name": "SARVE SOLUTIONS",
         "alternateName": "Sarve Solutions",
         "url": "https://sarvesolutions.in",
         "logo": "https://sarvesolutions.in/logo.png",
@@ -65,7 +65,7 @@ const SEO = ({
             <meta name="title" content={siteTitle} />
             <meta name="description" content={description} />
             <meta name="keywords" content={keywords} />
-            <meta name="author" content="Serve Solutions" />
+            <meta name="author" content="SARVE SOLUTIONS" />
             <meta name="theme-color" content="#000000" />
 
             {/* Robots Tags for Google */}
@@ -81,7 +81,7 @@ const SEO = ({
             <meta property="og:title" content={siteTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
-            <meta property="og:site_name" content="Serve Solutions" />
+            <meta property="og:site_name" content="SARVE SOLUTIONS" />
 
             {/* Twitter */}
             <meta property="twitter:card" content="summary_large_image" />

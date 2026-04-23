@@ -1,12 +1,13 @@
 
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Code2, Smartphone, Palette, ArrowRight, Terminal, Cpu, Infinity as InfinityIcon, ShieldCheck, Wifi, TrendingUp } from 'lucide-react';
+import { ArrowRight, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import SEO from '../components/SEO';
+import { servicesData } from '../data/services';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,64 +46,13 @@ const Services = () => {
         return () => ctx.revert();
     }, []);
 
-    const services = [
-        {
-            slug: "web-development",
-            icon: Code2,
-            title: "Web Development",
-            description: "Sculpting modern, dynamic web applications for a digital-first world.",
-            features: ["React & Next.js", "Scalable Backends", "High Performance"]
-        },
-        {
-            slug: "mobile-apps",
-            icon: Smartphone,
-            title: "Mobile Apps",
-            description: "Designing high-performing mobile apps for a connected future.",
-            features: ["iOS & Android", "Native Performance", "User Engagement"]
-        },
-        {
-            slug: "ai-ml",
-            icon: Cpu,
-            title: "AI / ML",
-            description: "Leveraging AI & ML to Deliver innovative solutions.",
-            features: ["Predictive Analytics", "NLP Systems", "LLM Integration"]
-        },
-        {
-            slug: "ui-ux-consultancy",
-            icon: Palette,
-            title: "UI/UX Consultancy",
-            description: "Enhancing experience with intuitive and user-centric design services.",
-            features: ["Design Systems", "User Research", "Prototyping"]
-        },
-        {
-            slug: "devops",
-            icon: InfinityIcon,
-            title: "DevOps",
-            description: "Streamlined Processes and Collaboration for code lifecycle.",
-            features: ["CI/CD Automation", "Infrastructure as Code", "Cloud Security"]
-        },
-        {
-            slug: "qa",
-            icon: ShieldCheck,
-            title: "QA",
-            description: "Delivering excellence with robust automated and manual QA.",
-            features: ["E2E Automation", "API Validation", "Performance Testing"]
-        },
-        {
-            slug: "iot",
-            icon: Wifi,
-            title: "IoT",
-            description: "Leveraging the device ecosystems to build a connected world.",
-            features: ["Embedded Systems", "Real-time Telemetry", "Device Fleet Ops"]
-        },
-        {
-            slug: "marketing",
-            icon: TrendingUp,
-            title: "Marketing",
-            description: "Crafting result-driven strategies to propel your business forward.",
-            features: ["Technical SEO", "Conversion Rate Opt", "Growth Analytics"]
-        }
-    ];
+    const services = Object.entries(servicesData).map(([slug, data]) => ({
+        slug,
+        icon: data.icon,
+        title: data.title,
+        description: data.tagline,
+        features: data.capabilities.map((cap: any) => cap.title)
+    }));
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -130,7 +80,7 @@ const Services = () => {
         <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20 overflow-x-hidden">
             <SEO
                 title="Our Services"
-                description="Explore our wide range of technical services including Web Development, Mobile Apps, AI/ML, DevOps, and more."
+                description="Explore our wide range of technical services including Web Development, Mobile Apps, AI/ML, Blockchain, Cybersecurity, DevOps, and more."
                 url="https://sarvesolutions.in/services"
                 breadcrumb={[
                     { name: "Home", item: "https://sarvesolutions.in" },
@@ -183,7 +133,7 @@ const Services = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-zinc-200 border-l border-r border-zinc-200"
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y divide-zinc-200 border-l border-r border-zinc-200"
                     >
                         {services.map((service, index) => (
                             <Link
@@ -215,7 +165,7 @@ const Services = () => {
                         {/* Process Card / Last Grid Item */}
                         <motion.div
                             variants={itemVariants}
-                            className="p-12 bg-zinc-900 text-white flex flex-col justify-between"
+                            className="p-12 bg-zinc-900 text-white flex flex-col justify-between lg:col-span-3"
                         >
                             <div>
                                 <Terminal className="h-10 w-10 text-white mb-8" />

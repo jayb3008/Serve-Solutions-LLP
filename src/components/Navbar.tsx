@@ -53,7 +53,7 @@ const Navbar = () => {
             </div>
             <span className={`text-xl font-bold tracking-tight ${isScrolled || !isHomePage ? 'text-black' : 'text-black'
               }`}>
-              SERVE SOLUTIONS
+              SARVE SOLUTIONS
             </span>
           </Link>
 
