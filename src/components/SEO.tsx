@@ -13,25 +13,29 @@ interface SEOProps {
 }
 
 const SEO = ({
-    title = "SARVE SOLUTIONS - Engineering Digital Excellence",
-    description = "Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and DevOps solutions.",
-    keywords = "web development, mobile apps, software engineering, AI, ML, DevOps, digital transformation, SARVE SOLUTIONS, IT consultancy India, healthcare tech, legal tech, logistics software, fintech, edtech, social media development, OTT platforms, insurtech, travel tech, manufacturing IoT, retail eCommerce, telecom solutions, construction tech, beauty lifestyle apps, sports analytics, on-demand services, marketplace platforms, QA, IoT engineering, technical growth marketing",
+    title = "Engineering Digital Excellence",
+    description = "SARVE SOLUTIONS - Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and DevOps solutions.",
+    keywords = "SARVE SOLUTIONS, Sarve Solutions, IT consultancy India, software engineering Anand Gujarat, web development india, mobile app development, artificial intelligence solutions, machine learning, DevOps services, digital transformation, healthcare tech, legal tech, logistics software, fintech solutions, edtech platforms, OTT development, insurtech, travel tech, manufacturing IoT, retail eCommerce, telecom solutions, construction tech, beauty lifestyle apps, sports analytics, on-demand service apps, marketplace platforms, software QA, IoT engineering, technical growth marketing, custom software development india, best IT company in Anand, top software house Gujarat",
     image = "https://sarvesolutions.in/og-image.jpg",
     url = "https://sarvesolutions.in",
     type = "website",
     schemaType = "ProfessionalService",
     breadcrumb
 }: SEOProps) => {
-    const siteTitle = title.includes("SARVE SOLUTIONS") ? title : `${title} | SARVE SOLUTIONS`;
+    // Brand comes first as requested
+    const siteTitle = title === "SARVE SOLUTIONS" || title.includes("SARVE SOLUTIONS") 
+        ? title 
+        : `SARVE SOLUTIONS | ${title}`;
 
     // Base Organization Schema
     const orgSchema = {
         "@context": "https://schema.org",
-        "@type": schemaType,
+        "@type": "Organization",
         "name": "SARVE SOLUTIONS",
         "alternateName": "Sarve Solutions",
         "url": "https://sarvesolutions.in",
         "logo": "https://sarvesolutions.in/logo.png",
+        "description": description,
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+91-9904055986",
@@ -44,6 +48,43 @@ const SEO = ({
             "https://twitter.com/serve_solutions",
             "https://www.instagram.com/serve.solutions"
         ]
+    };
+
+    // Local Business Schema
+    const localBusinessSchema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "SARVE SOLUTIONS",
+        "image": image,
+        "@id": "https://sarvesolutions.in",
+        "url": "https://sarvesolutions.in",
+        "telephone": "+91-9904055986",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Anand",
+            "addressLocality": "Anand",
+            "addressRegion": "Gujarat",
+            "postalCode": "388001",
+            "addressCountry": "IN"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 22.5645,
+            "longitude": 72.9289
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "20:00"
+        }
     };
 
     // Breadcrumb Schema
@@ -97,6 +138,10 @@ const SEO = ({
             {/* Structured Data (JSON-LD) */}
             <script type="application/ld+json">
                 {JSON.stringify(orgSchema)}
+            </script>
+
+            <script type="application/ld+json">
+                {JSON.stringify(localBusinessSchema)}
             </script>
 
             {breadcrumbSchema && (

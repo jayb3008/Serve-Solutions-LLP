@@ -46,8 +46,8 @@ const Home = () => {
   return (
     <div ref={containerRef} className="overflow-hidden">
       <SEO
-        title="Home"
-        description="SARVE SOLUTIONS engineers high-performance digital products. We specialize in Web Development, Mobile Apps, and AI solutions."
+        title="Engineering Digital Excellence"
+        description="SARVE SOLUTIONS engineers high-performance digital products. We specialize in Web Development, Mobile Apps, AI solutions, and Digital Transformation for startups and enterprises."
         url="https://sarvesolutions.in"
       />
       {/* Hero Section */}
