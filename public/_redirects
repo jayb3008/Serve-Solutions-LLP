@@ -1,8 +1,19 @@
-# SARVE SOLUTIONS - SPA Redirects for Netlify
-# This ensures that all requests are handled by index.html, 
-# allowing React Router to manage the routing client-side.
+# SARVE SOLUTIONS - Production Redirects
+# Optimized for Netlify / Cloudflare Pages
 
-/*    /index.html   200
+# ── API Proxies (Optional but recommended for CORS)
+# If you want to proxy your Google Script to avoid CORS issues:
+# /api/contact  https://script.google.com/macros/s/AKfycbwmUK6mBWpFzkMUgzo3Afb-gswa8sqx_MglFhrcERGdICa3lpIDIPJ_4nVzAr7K3vBM/exec  200
 
-# Ensure admin routes are also captured (optional, already covered by /*)
+# ── SPA Routing
+# Specific sub-apps or paths first
 /admin/*    /index.html   200
+
+# Main SPA catch-all
+# This ensures that when you refresh a page like /portfolio/123, 
+# the server serves index.html and let React Router handle the path.
+/*          /index.html   200
+
+# ── Error Handling
+# If you have a custom 404 page, you can uncomment this:
+# /*  /404.html  404
