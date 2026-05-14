@@ -1,213 +1,275 @@
-
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 import SEO from '../components/SEO';
-import { servicesData } from '../data/services';
 
-gsap.registerPlugin(ScrollTrigger);
+const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
-const Services = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const heroRef = useRef<HTMLDivElement>(null);
-    const titleRef = useRef<HTMLHeadingElement>(null);
+const practices = [
+  {
+    num: '01',
+    pre: 'Product',
+    em: 'design',
+    tags: ['UX research', 'Design systems', 'Prototyping'],
+    desc: 'We start with user insight and end with interfaces people actually want to use. Research-driven, pixel-perfect.',
+    list: ['User research & jobs-to-be-done', 'Wireframes & interactive prototypes', 'UI design & component libraries', 'Usability testing & iteration', 'Design ops & handoff', 'Accessibility audits'],
+    href: '/services/product-design',
+  },
+  {
+    num: '02',
+    pre: 'Web',
+    em: 'engineering',
+    tags: ['Next.js', 'CMS', 'Performance'],
+    desc: 'Fast, accessible, rock-solid web applications. From marketing sites to complex SaaS products with millions of users.',
+    list: ['Next.js & React applications', 'Headless CMS integrations', 'E-commerce & Shopify Plus', 'Performance & Core Web Vitals', 'API design & integrations', 'Accessibility (WCAG 2.2)'],
+    href: '/services/web-engineering',
+  },
+  {
+    num: '03',
+    pre: 'Mobile',
+    em: 'apps',
+    tags: ['iOS', 'Android', 'React Native'],
+    desc: 'Native experiences for iOS and Android, or cross-platform with React Native and Flutter. Built for the App Store, loved by users.',
+    list: ['iOS (Swift / SwiftUI)', 'Android (Kotlin / Compose)', 'React Native cross-platform', 'Push notifications & offline', 'In-app purchases & subscriptions', 'App Store optimization'],
+    href: '/services/mobile',
+  },
+  {
+    num: '04',
+    pre: 'AI &',
+    em: 'data',
+    tags: ['LLM', 'RAG', 'Agents'],
+    desc: 'Practical AI that ships. We integrate large language models, build retrieval pipelines, and automate the workflows that slow your team down.',
+    list: ['LLM integration & prompt engineering', 'RAG & vector databases', 'Agentic workflow automation', 'Fine-tuning & model evaluation', 'Data pipelines & ETL', 'Analytics dashboards'],
+    href: '/services/ai-ml',
+  },
+  {
+    num: '05',
+    pre: 'Brand &',
+    em: 'strategy',
+    tags: ['Identity', 'Positioning', 'Content'],
+    desc: 'Brand is the first code you ship. We help founders articulate their positioning, create visual identities, and build content engines.',
+    list: ['Brand positioning & naming', 'Visual identity & logo systems', 'Brand guidelines & voice', 'Marketing site copy', 'Content strategy', 'Go-to-market planning'],
+    href: '/services/brand',
+  },
+];
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            // Hero Title Animation
-            gsap.from(titleRef.current, {
-                y: 100,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power4.out",
-                delay: 0.2
-            });
+const deliverables = [
+  {
+    title: 'Discovery sprint',
+    desc: 'Two-week deep-dive into your users, market, and technical constraints. We come out with a prioritised roadmap.',
+    icon: (
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+    ),
+  },
+  {
+    title: 'Design system',
+    desc: 'A tokenised component library that scales across products and teams. Figma + code in sync.',
+    icon: (
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></svg>
+    ),
+  },
+  {
+    title: 'Full-stack application',
+    desc: 'From auth and API to front-end and deploy. We own the build and hand over a production-ready system.',
+    icon: (
+      <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+    ),
+  },
+  {
+    title: 'Mobile app',
+    desc: 'App Store ready on iOS and/or Android. We handle submission, certificates, and first-launch support.',
+    icon: (
+      <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
+    ),
+  },
+  {
+    title: 'AI integration',
+    desc: 'LLM-powered features embedded in your product — copilots, classifiers, extraction pipelines, and agents.',
+    icon: (
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
+    ),
+  },
+  {
+    title: 'Brand identity',
+    desc: 'Logo, colour, type, motion, and copy — packaged in a brand book your whole team can use.',
+    icon: (
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" /></svg>
+    ),
+  },
+];
 
-            // Reveal sections on scroll
-            gsap.utils.toArray<HTMLElement>('.reveal').forEach((elem) => {
-                gsap.from(elem, {
-                    scrollTrigger: {
-                        trigger: elem,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse"
-                    },
-                    y: 50,
-                    opacity: 0,
-                    duration: 1,
-                    ease: "power3.out"
-                });
-            });
-        }, containerRef);
+const stack = [
+  { name: 'Next.js',       cat: 'Frontend' },
+  { name: 'React Native',  cat: 'Mobile' },
+  { name: 'TypeScript',    cat: 'Language' },
+  { name: 'Node.js',       cat: 'Backend' },
+  { name: 'PostgreSQL',    cat: 'Database' },
+  { name: 'Supabase',      cat: 'Platform' },
+  { name: 'OpenAI',        cat: 'AI/ML' },
+  { name: 'Figma',         cat: 'Design' },
+  { name: 'Vercel',        cat: 'Deploy' },
+  { name: 'AWS',           cat: 'Cloud' },
+];
 
-        return () => ctx.revert();
-    }, []);
+export default function Services() {
+  const heroRef = useRef<HTMLDivElement>(null);
 
-    const services = Object.entries(servicesData).map(([slug, data]) => ({
-        slug,
-        icon: data.icon,
-        title: data.title,
-        description: data.tagline,
-        features: data.capabilities.map((cap: any) => cap.title)
-    }));
+  return (
+    <div>
+      <SEO
+        title="What we do — Five practices, one team"
+        description="Sarve Solutions offers Product Design, Web Engineering, Mobile Apps, AI & Data, and Brand Strategy — all under one roof."
+        url="https://sarvesolutions.in/services"
+        breadcrumb={[
+          { name: 'Home', item: 'https://sarvesolutions.in' },
+          { name: 'Services', item: 'https://sarvesolutions.in/services' },
+        ]}
+      />
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-                ease: "easeOut"
-            }
-        }
-    };
-
-    return (
-        <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20 overflow-x-hidden">
-            <SEO
-                title="Our Services"
-                description="Explore our wide range of technical services including Web Development, Mobile Apps, AI/ML, Blockchain, Cybersecurity, DevOps, and more."
-                url="https://sarvesolutions.in/services"
-                breadcrumb={[
-                    { name: "Home", item: "https://sarvesolutions.in" },
-                    { name: "Services", item: "https://sarvesolutions.in/services" }
-                ]}
-            />
-            {/* Hero Section */}
-            <section ref={heroRef} className="relative bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">
-                {/* <div className="absolute inset-0 z-0 scale-125">
-                    <Squares
-                        squareSize={100}
-                        direction="diagonal"
-                        speed={0.3}
-                        borderColor="rgba(255,255,255,0.05)"
-                        hoverFillColor="rgba(255,255,255,0.02)"
-                    />
-                </div> */}
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
-                        <div>
-                            <motion.span
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6 }}
-                                className="block text-xs font-bold tracking-widest uppercase mb-4 text-zinc-500"
-                            >
-                                Our Expertise
-                            </motion.span>
-                            <h1 ref={titleRef} className="text-5xl md:text-8xl font-bold tracking-tighter max-w-4xl leading-[0.9]">
-                                TECHNICAL<br />CAPABILITIES.
-                            </h1>
-                        </div>
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4, duration: 1 }}
-                            className="text-xl text-zinc-400 leading-relaxed pb-2 max-w-md"
-                        >
-                            We deploy cross-functional teams to deliver end-to-end digital solutions. From architecture to deployment.
-                        </motion.p>
-                    </div>
-                </div>
-            </section>
-
-            {/* Services Grid */}
-            <section className="bg-white border-b border-zinc-200">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y divide-zinc-200 border-l border-r border-zinc-200"
-                    >
-                        {services.map((service, index) => (
-                            <Link
-                                key={index}
-                                to={`/services/${service.slug}`}
-                                className="block p-12 group hover:bg-zinc-50 transition-colors border-b border-zinc-200"
-                            >
-                                <div className="overflow-hidden mb-8">
-                                    <service.icon className="h-10 w-10 text-black group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
-                                </div>
-                                <h2 className="text-3xl font-bold tracking-tight mb-4 group-hover:translate-x-2 transition-transform duration-300">{service.title}</h2>
-                                <p className="text-zinc-500 text-lg mb-8 leading-relaxed">{service.description}</p>
-
-                                <div className="space-y-4 mb-8">
-                                    {service.features.map((feature, i) => (
-                                        <div key={i} className="flex items-center text-sm font-medium text-zinc-700">
-                                            <div className="w-1.5 h-1.5 bg-black rounded-full mr-3 shrink-0" />
-                                            {feature}
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <div className="flex items-center text-xs font-bold uppercase tracking-widest text-black inline-flex">
-                                    Explore Solution <ArrowRight className="ml-2 h-4 w-4" />
-                                </div>
-                            </Link>
-                        ))}
-
-                        {/* Process Card / Last Grid Item */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="p-12 bg-zinc-900 text-white flex flex-col justify-between lg:col-span-3"
-                        >
-                            <div>
-                                <Terminal className="h-10 w-10 text-white mb-8" />
-                                <h2 className="text-3xl font-bold tracking-tight mb-4">Our Methodology</h2>
-                                <p className="text-zinc-400 text-lg mb-8">
-                                    We follow a rigorous agile process: Discovery, Architecture, Development, and Quality Assurance.
-                                </p>
-                            </div>
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="w-full py-4 border border-zinc-700 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors"
-                            >
-                                View Full Process
-                            </motion.button>
-                        </motion.div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* CTA */}
-            <section className="py-32 px-6 text-center reveal">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6">READY TO SCALE?</h2>
-                    <p className="text-zinc-500 text-lg mb-12 max-w-xl mx-auto">
-                        Book a technical consultation to discuss your infrastructure needs and digital transformation strategy.
-                    </p>
-                    <motion.button
-                        whileHover={{ scale: 1.05, backgroundColor: "#333" }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-black text-white px-10 py-5 text-sm font-bold uppercase tracking-widest transition-colors"
-                    >
-                        Start Conversation
-                    </motion.button>
-                </motion.div>
-            </section>
+      {/* Page hero */}
+      <section className="page-hero" ref={heroRef}>
+        <div className="wrap">
+          <div className="page-hero__eyebrow">
+            <span className="ping" />
+            What we do
+          </div>
+          <h1>
+            {(['The work,', 'in plain', '<em>english.</em>'] as const).map((line, i) => (
+              <span key={i} className="row">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.9, ease, delay: 0.3 + i * 0.07 }}
+                  style={{ display: 'inline-block' }}
+                  dangerouslySetInnerHTML={{ __html: line }}
+                />
+              </span>
+            ))}
+          </h1>
+          <div className="page-hero__sub">
+            <div className="breadcrumb">
+              Sarve Solutions &nbsp;/&nbsp; Services
+            </div>
+            <p>
+              Five practices. One team. No handoffs between strategy, design, and engineering — we own the whole thing, end to end.
+            </p>
+          </div>
         </div>
-    );
-};
+      </section>
 
-export default Services;
+      {/* Marquee */}
+      <div className="marquee" aria-hidden="true">
+        <div className="marquee__track">
+          {[0, 1].map(i => (
+            <span key={i} className="marquee__item">
+              Product design <span className="star">✦</span> Web engineering <em>·</em> Mobile apps <span className="star">✦</span> AI &amp; data <em>·</em> Brand strategy <span className="star">✦</span>{' '}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Practices */}
+      <section className="s" style={{ borderTop: '1px solid var(--line)' }}>
+        <div className="wrap">
+          {practices.map(p => (
+            <div key={p.num} className="pract reveal">
+              <div className="pract__num">{p.num}</div>
+              <div className="pract__head">
+                <h2>{p.pre} <em>{p.em}</em></h2>
+                <div className="meta">
+                  {p.tags.map(t => <span key={t}>{t}</span>)}
+                </div>
+              </div>
+              <div className="pract__body">
+                <p>{p.desc}</p>
+                <ul className="pract__list">
+                  {p.list.map(item => <li key={item}>{item}</li>)}
+                </ul>
+                <Link to={p.href} className="btn-ghost" data-hover style={{ marginTop: 32 }}>
+                  Learn more <span className="arr" />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Deliverables */}
+      <section className="s" style={{ background: 'var(--ink)', color: 'var(--bg)', padding: '120px 0' }}>
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+                What you get
+              </div>
+              <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
+                Concrete outputs, <em>every time.</em>
+              </h2>
+            </div>
+          </div>
+          <div className="dlv-grid">
+            {deliverables.map(d => (
+              <div key={d.title} className="dlv reveal">
+                <div className="dlv__icon">{d.icon}</div>
+                <h4>{d.title}</h4>
+                <p>{d.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stack */}
+      <section className="s" style={{ padding: '120px 0' }}>
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <div className="eyebrow reveal">Technology</div>
+              <h2 className="s-title reveal" data-d="1">
+                Our preferred <em>stack.</em>
+              </h2>
+            </div>
+            <p className="reveal" data-d="2" style={{ maxWidth: '32ch', color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.55, margin: 0 }}>
+              We're technology-agnostic, but these are the tools we reach for first — because they're the best at what they do.
+            </p>
+          </div>
+          <div className="stack-grid">
+            {stack.map((s, i) => (
+              <div key={s.name} className="stk reveal" data-d={String(i % 5)}>
+                <div className="stk__dot" />
+                <h5>{s.name}</h5>
+                <span>{s.cat}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="cta-section">
+        <div className="wrap" style={{ position: 'relative' }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+            Tell us what you're building
+          </div>
+          <h2 className="reveal" data-d="1">
+            Got a project in <em>mind?</em>
+          </h2>
+          <a
+            href="mailto:info@sarvesolutions.in"
+            className="big-cta reveal"
+            data-d="2"
+            data-hover
+          >
+            info@sarvesolutions.in
+            <span className="arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14m-6-6 6 6-6 6" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </section>
+    </div>
+  );
+}

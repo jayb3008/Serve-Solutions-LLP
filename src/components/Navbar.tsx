@@ -1,125 +1,112 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Code2 } from 'lucide-react';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+const navLinks = [
+  { label: 'About',       path: '/about' },
+  { label: 'What we do', path: '/services' },
+  { label: 'Industries',  path: '/industries' },
+  { label: 'AI / ML',    path: '/services/ai-ml' },
+  { label: 'Portfolio',   path: '/portfolio' },
+  { label: 'Blog',        path: '/blog' },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen]   = useState(false);
   const location = useLocation();
 
-  // Check if we're on the home page
-  const isHomePage = location.pathname === '/';
-
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const fn = () => setScrolled(window.scrollY > 30);
+    window.addEventListener('scroll', fn, { passive: true });
+    return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Industries', path: '/industries' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Blog', path: '/blog/' },
-    { name: 'Contact', path: '/contact/' }, // Added Contact to nav items
-  ];
-
-  // Navbar styles based on state
-  const navbarClasses = `fixed w-full z-50 transition-all duration-300 border-b ${isScrolled
-    ? 'bg-[#F3F3F3]/90 backdrop-blur-md border-zinc-200'
-    : isHomePage
-      ? 'bg-transparent border-transparent'
-      : 'bg-[#F3F3F3] border-zinc-200'
-    }`;
-
-  const linkBaseClasses = "text-sm font-medium tracking-wide transition-colors duration-200 uppercase";
-  const linkColorClasses = (path: string) => {
-    if (location.pathname === path) return "text-black";
-    return isScrolled || !isHomePage ? "text-zinc-600 hover:text-black" : "text-zinc-800 hover:text-black";
-  };
+  useEffect(() => { setMenuOpen(false); }, [location.pathname]);
 
   return (
-    <nav className={navbarClasses}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="bg-black p-1.5 transition-transform group-hover:scale-105">
-              <Code2 className="h-5 w-5 text-white" />
-            </div>
-            <span className={`text-xl font-bold tracking-tight ${isScrolled || !isHomePage ? 'text-black' : 'text-black'
-              }`}>
-              SARVE SOLUTIONS
-            </span>
-          </Link>
+    <>
+      <style>{`
+        @media (max-width: 980px) {
+          .nav-desktop-cta { display: none !important; }
+          .nav-hamburger    { display: flex !important; }
+        }
+      `}</style>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.filter(item => item.name !== 'Contact').map((item) => (
+      <header id="nav" className={`site-nav${scrolled ? ' scrolled' : ''}`}>
+        <Link to="/" className="logo" data-hover>
+          <span className="logo__mark"><span>S</span></span>
+          Sarve Solutions
+        </Link>
+
+        <nav className="nav-links" aria-label="Main navigation">
+          {navLinks.map(({ label, path }) => (
+            <Link
+              key={label}
+              to={path}
+              className={location.pathname === path ? 'active' : ''}
+              data-hover
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        <Link to="/contact" className="cta-btn nav-desktop-cta" data-hover>
+          Start a project <span className="dot" />
+        </Link>
+
+        <button
+          className="nav-hamburger"
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label="Toggle menu"
+          style={{
+            display: 'none', alignItems: 'center', justifyContent: 'center',
+            background: 'none', border: 'none', cursor: 'pointer',
+            padding: 8, color: 'var(--ink)',
+          }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            {menuOpen
+              ? <path d="M18 6L6 18M6 6l12 12" />
+              : <path d="M3 12h18M3 6h18M3 18h18" />}
+          </svg>
+        </button>
+      </header>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+          background: 'var(--ink)', color: 'var(--bg)',
+          zIndex: 49, display: 'flex', flexDirection: 'column',
+          padding: '100px 28px 40px',
+        }}>
+          <nav style={{ display: 'flex', flexDirection: 'column' }}>
+            {navLinks.map(({ label, path }) => (
               <Link
-                key={item.name}
-                to={item.path}
-                className={`${linkBaseClasses} ${linkColorClasses(item.path)}`}
+                key={label}
+                to={path}
+                style={{
+                  fontFamily: 'var(--display)', fontWeight: 500,
+                  fontSize: 'clamp(28px,8vw,56px)', letterSpacing: '-.02em',
+                  lineHeight: 1.1, padding: '12px 0',
+                  borderBottom: '1px solid rgba(244,239,230,.08)',
+                  color: location.pathname === path ? 'var(--accent)' : 'var(--bg)',
+                }}
               >
-                {item.name}
+                {label}
               </Link>
             ))}
-          </div>
-
-          {/* Actions */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link
-              to="/contact"
-              className="bg-black text-white px-6 py-2.5 text-sm font-medium hover:bg-zinc-800 transition-colors duration-200 uppercase tracking-wide"
-            >
-              Get Started
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 ${isScrolled || !isHomePage ? 'text-black' : 'text-black'
-              }`}
+          </nav>
+          <Link
+            to="/contact"
+            className="cta-btn"
+            style={{ marginTop: 40, alignSelf: 'flex-start', background: 'var(--accent)', color: 'var(--ink)' }}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            Start a project <span className="dot" style={{ background: 'var(--ink)' }} />
+          </Link>
         </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden bg-[#F3F3F3] border-t border-zinc-200 absolute w-full left-0 top-20 h-screen">
-            <div className="px-4 py-8 space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 text-lg font-medium border-l-2 transition-all duration-300 ${location.pathname === item.path
-                    ? 'border-black text-black bg-white'
-                    : 'border-transparent text-zinc-600 hover:text-black hover:bg-white'
-                    }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="block mt-8 bg-black text-white px-6 py-4 text-center font-medium uppercase tracking-wide hover:bg-zinc-800"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
+      )}
+    </>
   );
-};
-
-export default Navbar;
+}

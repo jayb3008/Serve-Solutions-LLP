@@ -1,291 +1,221 @@
-
-import { useState, useRef, useEffect } from 'react';
-import { ExternalLink, Code2, Smartphone, Globe, Palette, Search, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
-import * as THREE from 'three';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 
-gsap.registerPlugin(ScrollTrigger);
+const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
-const Scene = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.2;
-      meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
-    }
-  });
-  return (
-    <>
-      <ambientLight intensity={1} />
-      <directionalLight position={[10, 10, 10]} intensity={2} />
-      <Float speed={4} rotationIntensity={1} floatIntensity={2}>
-        <Sphere ref={meshRef} args={[1, 100, 200]} scale={2.5}>
-          <MeshDistortMaterial
-            color="#27272a"
-            attach="material"
-            distort={0.4}
-            speed={1.5}
-            roughness={0}
-          />
-        </Sphere>
-      </Float>
-    </>
-  );
+type Card = {
+  id: string;
+  title: string;
+  year: string;
+  tags: string[];
+  cat: string;
+  img: string;
+  wide?: boolean;
 };
 
-const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const navigate = useNavigate();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
+const cards: Card[] = [
+  {
+    id: 'lendingflow',
+    title: 'LendingFlow — card-issuing platform for the next million SMEs',
+    year: '2025', tags: ['Fintech', 'Web + iOS'], cat: 'Fintech',
+    img: 'https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    wide: true,
+  },
+  {
+    id: 'tailorpro',
+    title: 'TailorPro — analytics and operations for boutique shops',
+    year: '2025', tags: ['SaaS'], cat: 'SaaS',
+    img: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 'stillwood',
+    title: 'Stillwood Co. — headless storefront for a heritage outdoor brand',
+    year: '2024', tags: ['Commerce'], cat: 'Commerce',
+    img: 'https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 'pelican',
+    title: 'Pelican — an agentic copilot for legal review',
+    year: '2024', tags: ['AI'], cat: 'AI',
+    img: 'https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 'verbena',
+    title: 'Verbena Care — a calmer way to manage chronic conditions',
+    year: '2023', tags: ['Health'], cat: 'Health',
+    img: 'https://images.pexels.com/photos/3985163/pexels-photo-3985163.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 'nordhavn',
+    title: 'Nordhavn — B2B procurement platform for Nordic manufacturers',
+    year: '2023', tags: ['SaaS', 'B2B'], cat: 'SaaS',
+    img: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 'aurum',
+    title: 'Aurum — luxury jewellery brand identity & digital presence',
+    year: '2023', tags: ['Brand', 'Commerce'], cat: 'Commerce',
+    img: 'https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 'traxis',
+    title: 'Traxis — real-time logistics dashboard for last-mile delivery',
+    year: '2022', tags: ['Fintech', 'Mobile'], cat: 'Fintech',
+    img: 'https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 'lumio',
+    title: 'Lumio — AI-powered lesson builder for K–12 educators',
+    year: '2022', tags: ['AI', 'SaaS'], cat: 'AI',
+    img: 'https://images.pexels.com/photos/256395/pexels-photo-256395.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 'vaulter',
+    title: 'Vaulter — crypto portfolio tracker with tax reporting',
+    year: '2022', tags: ['Fintech', 'Mobile'], cat: 'Fintech',
+    img: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+];
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(titleRef.current, {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out"
-      });
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
+const filters = ['All', 'Fintech', 'SaaS', 'Commerce', 'AI', 'Health'];
 
-  const projects = [
-    {
-      id: 1,
-      title: "FinTech Dashboard",
-      category: "web",
-      description: "Real-time financial data visualization platform with React and D3.js.",
-      image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["React", "TypeScript", "D3.js"],
-      type: "Web Engineering",
-      icon: Code2
-    },
-    {
-      id: 2,
-      title: "E-Commerce Architecture",
-      category: "cms",
-      description: "Headless Shopify build with Next.js frontend for a luxury fashion brand.",
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Shopify Plus", "Next.js", "Redis"],
-      type: "Enterprise CMS",
-      icon: Globe
-    },
-    {
-      id: 3,
-      title: "Mobile Banking Core",
-      category: "mobile",
-      description: "Secure, biometric-enabled banking application infrastructure.",
-      image: "https://images.pexels.com/photos/4386372/pexels-photo-4386372.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["React Native", "Node.js", "AWS"],
-      type: "Mobile Solutions",
-      icon: Smartphone
-    },
-    {
-      id: 4,
-      title: "SaaS Design System",
-      category: "design",
-      description: "Comprehensive component library and design language for a global SaaS product.",
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Figma", "Storybook", "React"],
-      type: "UI/UX Design",
-      icon: Palette
-    },
-    {
-      id: 5,
-      title: "SEO Data Warehouse",
-      category: "seo",
-      description: "Custom analytics tool aggregating data from multiple search APIs.",
-      image: "https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Python", "BigQuery", "Data Studio"],
-      type: "Data & SEO",
-      icon: Search
-    },
-    {
-      id: 6,
-      title: "Telehealth Platform",
-      category: "web",
-      description: "HIPAA-compliant video consultation portal for healthcare providers.",
-      image: "https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["WebRTC", "PostgreSQL", "Socket.io"],
-      type: "Web Engineering",
-      icon: Code2
-    }
-  ];
+export default function Portfolio() {
+  const [active, setActive] = useState('All');
 
-  const filters = [
-    { key: 'all', label: 'All Work' },
-    { key: 'web', label: 'Engineering' },
-    { key: 'mobile', label: 'Mobile' },
-    { key: 'cms', label: 'CMS' },
-    { key: 'design', label: 'Design' }
-  ];
-
-  const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(project => project.category === activeFilter);
+  const visible = cards.filter(c => active === 'All' || c.cat === active);
 
   return (
-    <div ref={containerRef} className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20 overflow-x-hidden">
+    <div>
       <SEO
-        title="Portfolio"
-        description="A curated selection of technical challenges we've solved. See our case studies in Web Engineering, Mobile Solutions, and more."
+        title="Portfolio — Products built with great teams"
+        description="A curated selection of digital products built by Sarve Solutions — from fintech platforms to AI copilots and headless storefronts."
         url="https://sarvesolutions.in/portfolio"
         breadcrumb={[
-          { name: "Home", item: "https://sarvesolutions.in" },
-          { name: "Portfolio", item: "https://sarvesolutions.in/portfolio" }
+          { name: 'Home', item: 'https://sarvesolutions.in' },
+          { name: 'Portfolio', item: 'https://sarvesolutions.in/portfolio' },
         ]}
       />
 
-      {/* Hero Section */}
-      <section className="relative bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-40">
-          <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-            <Scene />
-          </Canvas>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <motion.span
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="block text-xs font-bold tracking-widest uppercase mb-4 text-zinc-500"
-          >
-            Selected Work
-          </motion.span>
-          <h1 ref={titleRef} className="text-5xl md:text-8xl font-bold tracking-tighter mb-8 max-w-4xl leading-[0.9]">
-            CASE STUDIES.
-          </h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="text-xl text-zinc-400 max-w-2xl leading-relaxed"
-          >
-            A curated selection of technical challenges we've solved for our partners.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Filters */}
-      <section className="bg-white border-b border-zinc-200 sticky top-20 z-40">
-        <div className="max-w-7xl mx-auto px-6 overflow-x-auto">
-          <div className="flex space-x-8">
-            {filters.map((filter) => (
-              <button
-                key={filter.key}
-                onClick={() => setActiveFilter(filter.key)}
-                className={`py-6 text-sm font-bold uppercase tracking-widest whitespace-nowrap border-b-2 transition-colors relative ${activeFilter === filter.key
-                  ? 'text-black'
-                  : 'text-zinc-400 hover:text-black'
-                  }`}
-              >
-                {filter.label}
-                {activeFilter === filter.key && (
-                  <motion.div
-                    layoutId="filter-pill"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-black"
-                  />
-                )}
-              </button>
+      {/* Page hero */}
+      <section className="page-hero">
+        <div className="wrap">
+          <div className="page-hero__eyebrow">
+            <span className="ping" />
+            Selected work
+          </div>
+          <h1>
+            {(['Products built', 'with great', '<em>teams.</em>'] as const).map((line, i) => (
+              <span key={i} className="row">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.9, ease, delay: 0.3 + i * 0.07 }}
+                  style={{ display: 'inline-block' }}
+                  dangerouslySetInnerHTML={{ __html: line }}
+                />
+              </span>
             ))}
+          </h1>
+          <div className="page-hero__sub">
+            <div className="breadcrumb">
+              Sarve Solutions &nbsp;/&nbsp; Work
+            </div>
+            <p>
+              From zero-to-launch fintech apps to AI copilots and heritage brand identities — a decade of work we're proud to put our name on.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="border-b border-zinc-200 bg-white min-h-[600px]">
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200 border-l border-zinc-200"
-        >
-          <AnimatePresence mode='popLayout'>
-            {filteredProjects.map((project) => (
-              <motion.div
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                key={project.id}
-                onClick={() => navigate(`/portfolio/${project.id}`)}
-                className="group border-b border-zinc-200 bg-white hover:bg-zinc-50 transition-colors cursor-pointer"
+      {/* Filters */}
+      <div className="filters">
+        <div className="wrap">
+          <div className="filter-row">
+            <div className="filter-chips">
+              {filters.map(f => (
+                <button
+                  key={f}
+                  className={`chip${active === f ? ' active' : ''}`}
+                  onClick={() => setActive(f)}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+            <span className="filter-count">
+              {visible.length}&nbsp;project{visible.length !== 1 ? 's' : ''}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Grid */}
+      <section className="s" style={{ padding: '80px 0 120px' }}>
+        <div className="wrap">
+          <div className="arch-grid">
+            {visible.map((c, i) => (
+              <Link
+                key={c.id}
+                to={`/portfolio/${c.id}`}
+                className={`arch reveal${c.wide ? ' wide' : ''}`}
+                data-hover
+                data-d={String(i % 3)}
               >
-                <div className="aspect-[4/3] overflow-hidden border-b border-zinc-100 relative">
-                  <motion.img
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.7 }}
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0"
-                  />
-                  <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="bg-black text-white p-2 hover:bg-zinc-800">
-                      <ExternalLink className="h-4 w-4" />
+                <div
+                  className="arch__bg"
+                  style={{
+                    background: `linear-gradient(rgba(10,8,6,0.48), rgba(10,8,6,0.48)), url(${c.img}) center/cover no-repeat`,
+                  }}
+                />
+                <div className="arch__inner">
+                  <div className="arch__top">
+                    <div className="arch__meta">
+                      <span>{c.year}</span>
+                      {c.tags.map(t => <span key={t}>{t}</span>)}
                     </div>
+                    <span className="arch__cat">{c.cat}</span>
                   </div>
+                  <p className="arch__title">{c.title}</p>
                 </div>
-
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-2">
-                      <project.icon className="h-4 w-4 text-zinc-400" />
-                      <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">{project.type}</span>
-                    </div>
-                    <span className="text-[10px] font-bold text-zinc-300">/0{project.id}</span>
-                  </div>
-
-                  <h3 className="text-2xl font-bold tracking-tight mb-3 group-hover:underline decoration-1 underline-offset-4">{project.title}</h3>
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-6">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest border border-zinc-100 px-2 py-1">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="pt-6 border-t border-zinc-100 flex items-center text-[10px] font-bold uppercase tracking-[0.2em] group-hover:text-black text-zinc-400 transition-colors">
-                    View Case Study
-                    <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
-                  </div>
-                </div>
-              </motion.div>
+                <div className="arch__cta">↗</div>
+              </Link>
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </div>
+
+          {visible.length === 0 && (
+            <p style={{ color: 'var(--muted)', fontFamily: 'var(--mono)', fontSize: 13, marginTop: 48, textAlign: 'center', letterSpacing: '.08em', textTransform: 'uppercase' }}>
+              No projects in this category yet.
+            </p>
+          )}
+        </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-black text-white py-32 px-6 text-center reveal">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6">START A PROJECT</h2>
-          <p className="text-zinc-500 text-lg mb-12 max-w-xl mx-auto">
-            Ready to build something remarkable? Let's talk architecture.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/contact')}
-            className="bg-white text-black px-12 py-6 text-sm font-bold uppercase tracking-widest hover:bg-zinc-200 transition-colors"
+      <section className="cta-section">
+        <div className="wrap" style={{ position: 'relative' }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+            Could your project sit here?
+          </div>
+          <h2 className="reveal" data-d="1">
+            Let's build something <em>worth showing.</em>
+          </h2>
+          <a
+            href="mailto:info@sarvesolutions.in"
+            className="big-cta reveal"
+            data-d="2"
+            data-hover
           >
-            Initiate Project
-          </motion.button>
-        </motion.div>
+            info@sarvesolutions.in
+            <span className="arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14m-6-6 6 6-6 6" />
+              </svg>
+            </span>
+          </a>
+        </div>
       </section>
     </div>
   );
-};
-
-export default Portfolio;
+}

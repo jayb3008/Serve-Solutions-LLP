@@ -5,10 +5,9 @@ export default {
   theme: {
   	extend: {
   		fontFamily: {
-  			sans: [
-  				'Inter',
-  				'sans-serif'
-  			]
+  			display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			sans:    ['"Geist"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			mono:    ['"Geist Mono"', 'ui-monospace', 'monospace'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

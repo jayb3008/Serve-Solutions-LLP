@@ -1,239 +1,491 @@
-
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Cpu, Layers, Zap } from 'lucide-react';
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SEO from '../components/SEO';
 
-gsap.registerPlugin(ScrollTrigger);
+const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
-const ProjectDetail = () => {
-    const { id } = useParams();
+type Outcome = { n: string; label: string };
+
+type Project = {
+    title: string;
+    subtitle: string;
+    category: string;
+    year: string;
+    client: string;
+    role: string;
+    tags: string[];
+    overview: string;
+    challenge: string;
+    solution: string;
+    tech: string[];
+    outcomes: Outcome[];
+    img: string;
+    prev: string;
+    next: string;
+};
+
+const projectsData: Record<string, Project> = {
+    lendingflow: {
+        title: 'LendingFlow',
+        subtitle: 'Card-issuing platform for the next million SMEs',
+        category: 'Fintech · Web + iOS',
+        year: '2025',
+        client: 'LendingFlow Inc.',
+        role: 'Product design, Web, iOS',
+        tags: ['Fintech', 'Web', 'iOS', 'Payments'],
+        overview: 'A full-stack card-issuing and credit platform built for India\'s underserved SME segment. From KYC flows to real-time transaction monitoring, we designed and built the entire product — zero to 50,000 active cards in 18 months.',
+        challenge: 'Building a financial product means navigating RBI compliance, integrating with multiple banking partners, and convincing first-time borrowers to trust a new app with their money. Every flow had a regulatory dependency we couldn\'t shortcut.',
+        solution: 'We built a modular compliance engine that adapts per banking partner, a sub-100ms transaction pipeline on AWS, and an onboarding flow informed by 40+ user interviews that cut drop-off by 62% versus industry average.',
+        tech: ['Next.js', 'React Native', 'Node.js', 'PostgreSQL', 'AWS', 'Stripe', 'Supabase'],
+        outcomes: [
+            { n: '50k+', label: 'Active cards issued' },
+            { n: '62%', label: 'Drop-off reduction' },
+            { n: '<100ms', label: 'Transaction latency' },
+            { n: '18mo', label: 'Zero to launch' },
+        ],
+        img: 'https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'vaulter',
+        next: 'tailorpro',
+    },
+    tailorpro: {
+        title: 'TailorPro',
+        subtitle: 'Analytics and operations for boutique shops',
+        category: 'SaaS',
+        year: '2025',
+        client: 'TailorPro Ltd.',
+        role: 'Full-stack, Product design',
+        tags: ['SaaS', 'Analytics', 'Retail'],
+        overview: 'A vertical SaaS platform giving independent boutique owners the kind of analytics and inventory intelligence previously only affordable for enterprise retailers. Built for non-technical users who live in their shop, not their laptop.',
+        challenge: 'Boutique owners have no time for complex dashboards. They need answers in seconds — not after filtering twelve dropdowns. The existing tools in the market were either too simple or too enterprise-heavy to adopt.',
+        solution: 'We designed a "daily brief" model: one screen per morning that surfaces every actionable insight. Under the hood, a multi-tenant data pipeline normalises sales from Shopify, Square, and manual entry into a single source of truth.',
+        tech: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Recharts', 'Vercel'],
+        outcomes: [
+            { n: '3min', label: 'Average daily review time' },
+            { n: '2,400+', label: 'Shops onboarded' },
+            { n: '94%', label: 'Week-3 retention' },
+            { n: '4.8★', label: 'App Store rating' },
+        ],
+        img: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'lendingflow',
+        next: 'stillwood',
+    },
+    stillwood: {
+        title: 'Stillwood Co.',
+        subtitle: 'Headless storefront for a heritage outdoor brand',
+        category: 'Commerce',
+        year: '2024',
+        client: 'Stillwood Co.',
+        role: 'Headless commerce, Brand',
+        tags: ['Commerce', 'Headless', 'Shopify Plus'],
+        overview: 'A headless Shopify Plus storefront for a 30-year-old heritage outdoor equipment brand entering direct-to-consumer. Balancing the weight of the brand\'s legacy with the speed expectations of modern shoppers.',
+        challenge: 'Their legacy site scored 22 on Lighthouse mobile. International shipping rules were hardcoded in five places. The checkout hadn\'t changed since 2016. And the brand team was protective of every pixel of the visual identity.',
+        solution: 'We rebuilt on Next.js with Shopify Plus as the commerce engine, achieving a 98 Lighthouse score. A custom internationalisation layer handles 8 currencies and 14 shipping zones from a single Sanity CMS. Visual identity reproduced pixel-for-pixel.',
+        tech: ['Next.js', 'Shopify Plus', 'Sanity', 'GraphQL', 'Vercel', 'Algolia'],
+        outcomes: [
+            { n: '98', label: 'Lighthouse score' },
+            { n: '3.1×', label: 'Conversion uplift' },
+            { n: '0.8s', label: 'Average page load' },
+            { n: '14', label: 'Shipping zones' },
+        ],
+        img: 'https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'tailorpro',
+        next: 'pelican',
+    },
+    pelican: {
+        title: 'Pelican',
+        subtitle: 'An agentic copilot for legal document review',
+        category: 'AI · LegalTech',
+        year: '2024',
+        client: 'Pelican AI',
+        role: 'AI engineering, Product design',
+        tags: ['AI', 'LegalTech', 'RAG', 'Agents'],
+        overview: 'An AI-powered legal review copilot that extracts clauses, flags risk, and generates structured summaries across contract types. Designed for in-house legal teams who review hundreds of documents a month.',
+        challenge: 'Legal documents are high-stakes. Hallucinations aren\'t acceptable. The system had to be accurate enough for lawyers to stake their professional reputation on, and fast enough to actually save them time.',
+        solution: 'We built a hybrid retrieval system combining dense semantic search with sparse keyword matching, layered on Claude for structured output. Every claim is traceable to a source clause. The UI surfaces confidence scores so lawyers know exactly when to verify.',
+        tech: ['Python', 'Claude API', 'LangChain', 'Pinecone', 'Next.js', 'PostgreSQL'],
+        outcomes: [
+            { n: '91%', label: 'Clause extraction accuracy' },
+            { n: '6×', label: 'Review speed improvement' },
+            { n: '0', label: 'Unverifiable claims surfaced' },
+            { n: '340+', label: 'Contracts reviewed daily' },
+        ],
+        img: 'https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'stillwood',
+        next: 'verbena',
+    },
+    verbena: {
+        title: 'Verbena Care',
+        subtitle: 'A calmer way to manage chronic conditions',
+        category: 'Health · Mobile',
+        year: '2023',
+        client: 'Verbena Health',
+        role: 'iOS, Android, Product design',
+        tags: ['Health', 'iOS', 'Android', 'Wellness'],
+        overview: 'A mobile health companion for people living with chronic conditions — designed to reduce the cognitive load of daily management without making them feel like a patient every time they open their phone.',
+        challenge: 'Health apps are either clinical and cold, or oversimplified and patronising. People with chronic conditions don\'t want to be reminded they\'re sick — they want just enough structure to stay on top of things without anxiety.',
+        solution: 'We ran 30+ generative research sessions before designing a single screen. The result is a "quiet" information hierarchy: urgent items surface, everything else stays tucked. HealthKit and Google Fit sync passively so users don\'t have to log manually.',
+        tech: ['React Native', 'Expo', 'Supabase', 'HealthKit', 'Google Fit', 'RevenueCat'],
+        outcomes: [
+            { n: '4.9★', label: 'App Store rating' },
+            { n: '78%', label: 'Day-30 retention' },
+            { n: '2.2×', label: 'Medication adherence' },
+            { n: '12k+', label: 'Active users' },
+        ],
+        img: 'https://images.pexels.com/photos/3985163/pexels-photo-3985163.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'pelican',
+        next: 'nordhavn',
+    },
+    nordhavn: {
+        title: 'Nordhavn',
+        subtitle: 'B2B procurement platform for Nordic manufacturers',
+        category: 'SaaS · B2B',
+        year: '2023',
+        client: 'Nordhavn A/S',
+        role: 'Full-stack, Product design',
+        tags: ['SaaS', 'B2B', 'Procurement'],
+        overview: 'A modern procurement and supplier management platform for mid-market Nordic manufacturers, replacing spreadsheets and email chains with structured workflows, approval routing, and spend analytics.',
+        challenge: 'Procurement at this scale runs on Excel and tribal knowledge. The challenge wasn\'t building a better tool — it was designing something that matched existing mental models closely enough that a 55-year-old plant manager would actually adopt it.',
+        solution: 'Four months of on-site research in three countries shaped every design decision. We mapped existing spreadsheet structures directly to the data model so migration felt like an upgrade, not a replacement. Approval chains are visual and configurable without code.',
+        tech: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'AWS', 'Vercel'],
+        outcomes: [
+            { n: '83%', label: 'Manual process reduction' },
+            { n: '14wk', label: 'Average implementation time' },
+            { n: '€2.4M', label: 'Avg. annual spend visibility gained' },
+            { n: '97%', label: 'Renewal rate' },
+        ],
+        img: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'verbena',
+        next: 'aurum',
+    },
+    aurum: {
+        title: 'Aurum',
+        subtitle: 'Luxury jewellery brand identity & digital presence',
+        category: 'Brand · Commerce',
+        year: '2023',
+        client: 'Aurum Jewellery',
+        role: 'Brand identity, Web, Commerce',
+        tags: ['Brand', 'Luxury', 'Commerce', 'Figma'],
+        overview: 'End-to-end brand identity and digital presence for a new luxury jewellery brand launching across India and UAE. From naming rationale to the flagship digital boutique — every touchpoint crafted to the standard the price point demands.',
+        challenge: 'Luxury brand perception is built over decades, not quarters. Launching a new luxury brand digitally — without the heritage of an established house — required every element to signal permanence, restraint, and craft from day one.',
+        solution: 'We developed a visual language grounded in the geometry of the pieces themselves: precise angles, negative space, and a type system drawn from art deco proportion. The digital boutique loads in under a second and uses natural product photography shot against materials, not white cyc.',
+        tech: ['Figma', 'Next.js', 'Shopify Plus', 'Sanity', 'Adobe CC', 'Framer'],
+        outcomes: [
+            { n: '₹4.2Cr', label: 'Revenue in launch quarter' },
+            { n: '8.1%', label: 'Digital conversion rate' },
+            { n: '94', label: 'Lighthouse performance' },
+            { n: '2', label: 'Awards won' },
+        ],
+        img: 'https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'nordhavn',
+        next: 'traxis',
+    },
+    traxis: {
+        title: 'Traxis',
+        subtitle: 'Real-time logistics dashboard for last-mile delivery',
+        category: 'Fintech · Mobile',
+        year: '2022',
+        client: 'Traxis Logistics',
+        role: 'Web, Mobile, Data',
+        tags: ['Logistics', 'Mobile', 'Real-time', 'Maps'],
+        overview: 'A real-time operations dashboard and driver mobile app for a last-mile delivery network operating across 12 Indian cities. Replacing WhatsApp-coordinated chaos with structured dispatch, live tracking, and automated settlement.',
+        challenge: 'Coordinating 800+ drivers across 12 cities via WhatsApp messages and phone calls. No single source of truth for order status. Settlement disputes were eating 3 hours of ops team time daily.',
+        solution: 'A WebSocket-driven dispatch engine pushes order assignments to drivers in under 2 seconds. The ops dashboard aggregates live GPS, delivery confirmations, and COD settlement into one view. Automated settlement reduced disputes by 91%.',
+        tech: ['React', 'React Native', 'Node.js', 'WebSockets', 'PostgreSQL', 'Google Maps API'],
+        outcomes: [
+            { n: '<2s', label: 'Assignment delivery latency' },
+            { n: '91%', label: 'Settlement dispute reduction' },
+            { n: '800+', label: 'Drivers on platform' },
+            { n: '3hr', label: 'Daily ops time saved' },
+        ],
+        img: 'https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'aurum',
+        next: 'lumio',
+    },
+    lumio: {
+        title: 'Lumio',
+        subtitle: 'AI-powered lesson builder for K–12 educators',
+        category: 'AI · SaaS · EdTech',
+        year: '2022',
+        client: 'Lumio Education',
+        role: 'AI engineering, Full-stack',
+        tags: ['AI', 'EdTech', 'SaaS', 'K-12'],
+        overview: 'An AI lesson-planning assistant for K-12 teachers that turns a curriculum objective into a structured, differentiated lesson plan in under 60 seconds — complete with activities, assessments, and slide exports.',
+        challenge: 'Teachers spend 7+ hours a week on lesson planning. Existing AI writing tools produce generic content with no curriculum alignment. The challenge was building AI output good enough that a teacher would trust it with their classroom.',
+        solution: 'We fine-tuned output using a corpus of 40,000 high-quality lesson plans rated by teachers, combined with curriculum standard embeddings per US state and Indian board. A feedback loop lets teachers rate outputs, which feeds back into prompt refinement weekly.',
+        tech: ['Python', 'OpenAI API', 'LangChain', 'Next.js', 'Supabase', 'Vercel'],
+        outcomes: [
+            { n: '7hr', label: 'Weekly teacher time saved' },
+            { n: '60s', label: 'Lesson plan generation' },
+            { n: '4.7★', label: 'Teacher satisfaction score' },
+            { n: '18k+', label: 'Teachers active' },
+        ],
+        img: 'https://images.pexels.com/photos/256395/pexels-photo-256395.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'traxis',
+        next: 'vaulter',
+    },
+    vaulter: {
+        title: 'Vaulter',
+        subtitle: 'Crypto portfolio tracker with tax reporting',
+        category: 'Fintech · Mobile',
+        year: '2022',
+        client: 'Vaulter Inc.',
+        role: 'iOS, Android, Web',
+        tags: ['Fintech', 'Crypto', 'Mobile', 'Tax'],
+        overview: 'A portfolio tracking and tax reporting app for retail crypto investors, connecting to 40+ exchanges and wallets to give a single view of holdings, P&L, and tax liability in real time.',
+        challenge: 'Crypto tax in India changed twice during the product\'s build. Exchange APIs are inconsistent, undocumented, and rate-limited. Users hold assets across 12+ platforms on average, and none of them talk to each other.',
+        solution: 'A normalisation layer abstracts the idiosyncrasies of each exchange API into a unified transaction schema. Tax calculations update in real time as regulations change — the engine is rule-based and auditable, not a black box.',
+        tech: ['React Native', 'Expo', 'Python', 'PostgreSQL', 'Redis', 'AWS Lambda'],
+        outcomes: [
+            { n: '40+', label: 'Exchange integrations' },
+            { n: '35k+', label: 'Active portfolios tracked' },
+            { n: '4.6★', label: 'App Store rating' },
+            { n: '100%', label: 'Tax calculation accuracy' },
+        ],
+        img: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        prev: 'lumio',
+        next: 'lendingflow',
+    },
+};
+
+export default function ProjectDetail() {
+    const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const containerRef = useRef<HTMLDivElement>(null);
+    const heroRef = useRef<HTMLDivElement>(null);
 
-    // Mock project data (In a real app, this would come from a data file or API)
-    const projects = [
-        {
-            id: 1,
-            title: "FinTech Dashboard",
-            category: "Web Engineering",
-            year: "2023",
-            client: "Capital Solutions",
-            overview: "A comprehensive real-time financial tracking and visualization platform designed for institutional investors. The system processes millions of data points per second to provide sub-second latency updates.",
-            challenge: "The primary challenge was managing high-frequency data updates without compromising UI responsiveness. We needed a solution that could handle rapid state changes while maintaining a buttery-smooth 60fps experience for complex interactive charts.",
-            solution: "We implemented a custom data-streaming architecture using WebSockets and a optimized Web Worker layer for data processing. For visualization, we leveraged D3.js integrated with React for surgical DOM updates, and Canvas for the highly dense data layers.",
-            tech: ["React", "TypeScript", "D3.js", "WebSockets", "Node.js", "PostgreSQL"],
-            features: ["Real-time Market Data", "Predictive Analytics", "Automated Reporting", "Institutional-grade Security"],
-            image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200",
-            nextId: 2
-        },
-        {
-            id: 2,
-            title: "E-Commerce Architecture",
-            category: "Enterprise CMS",
-            year: "2023",
-            client: "Vogue Collective",
-            overview: "A headless commerce transformation for a global luxury fashion retailer. Transitioning from a monolithic legacy system to a modern, decoupled architecture to improve performance and agility.",
-            challenge: "The client faced 5+ second load times and a rigid backend that made international expansion difficult. They needed multi-currency, multi-language support with localized inventories across 12 regions.",
-            solution: "We architected a headless solution using Shopify Plus as the commerce engine and Next.js for a high-performance frontend. Implementing a Redis-backed caching layer and edge-optimized image delivery resulted in sub-second page loads globally.",
-            tech: ["Next.js", "Shopify Plus", "GraphQL", "Redis", "Vercel"],
-            features: ["Global Multi-storefront", "Omnichannel Inventory", "Advanced Personalization", "Lightning-fast Search"],
-            image: "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200",
-            nextId: 3
-        },
-        {
-            id: 3,
-            title: "Mobile Banking Core",
-            category: "Mobile Solutions",
-            year: "2024",
-            client: "Neo Bank",
-            overview: "Designing and building the core mobile experience for a next-generation neo-bank targeting Gen-Z users with innovative social saving features.",
-            challenge: "Traditional banking apps feel heavy and intimidating. The goal was to build a mobile platform that felt more like a social app while maintaining the highest levels of security and regulatory compliance.",
-            solution: "We built a native-parity experience using React Native with a focus on micro-interactions and haptic feedback. A robust security layer with biometric authentication and hardware-level encryption ensures user data remains protected.",
-            tech: ["React Native", "Swift", "Kotlin", "AWS Lambda", "DynamoDB"],
-            features: ["Social Saving Pools", "Instant P2P Payments", "Spending Insights", "Card Freeze/Unfreeze"],
-            image: "https://images.pexels.com/photos/4386339/pexels-photo-4386339.jpeg?auto=compress&cs=tinysrgb&w=1200",
-            nextId: 4
-        }
-    ];
-
-    const project = projects.find(p => p.id === Number(id)) || projects[0];
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(".reveal", {
-                y: 40,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            });
-
-            gsap.from(".grid-line", {
-                scaleX: 0,
-                duration: 1.5,
-                ease: "power2.inOut",
-                delay: 0.5
-            });
-        }, containerRef);
-
-        return () => ctx.revert();
-    }, [id]);
+    const project = projectsData[id as string] ?? projectsData['lendingflow'];
+    const nextProject = projectsData[project.next];
 
     return (
-        <div ref={containerRef} className="bg-white min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20">
+        <div>
             <SEO
-                title={project.title}
+                title={`${project.title} — ${project.subtitle}`}
                 description={project.overview}
                 url={`https://sarvesolutions.in/portfolio/${id}`}
                 breadcrumb={[
-                    { name: "Home", item: "https://sarvesolutions.in" },
-                    { name: "Portfolio", item: "https://sarvesolutions.in/portfolio" },
-                    { name: project.title, item: `https://sarvesolutions.in/portfolio/${id}` }
+                    { name: 'Home', item: 'https://sarvesolutions.in' },
+                    { name: 'Portfolio', item: 'https://sarvesolutions.in/portfolio' },
+                    { name: project.title, item: `https://sarvesolutions.in/portfolio/${id}` },
                 ]}
             />
-            {/* Header Info */}
-            <section className="px-6 lg:px-12 py-16 border-b border-zinc-200">
-                <div className="max-w-7xl mx-auto">
-                    <Link to="/portfolio" className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors mb-12 group">
-                        <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                        Back to Portfolio
-                    </Link>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-                        <div className="lg:col-span-8">
-                            <span className="reveal block text-xs font-bold tracking-[0.3em] uppercase mb-4 text-zinc-400">
-                                {project.category}
+            {/* ── Page hero ── */}
+            <section className="page-hero" ref={heroRef}>
+                <div className="wrap">
+                    <div className="page-hero__eyebrow">
+                        <span className="ping" />
+                        {project.category}
+                    </div>
+                    <h1>
+                        {[project.title, `<em>${project.subtitle}</em>`].map((line, i) => (
+                            <span key={i} className="row">
+                                <motion.span
+                                    initial={{ y: '110%' }}
+                                    animate={{ y: 0 }}
+                                    transition={{ duration: 0.9, ease, delay: 0.3 + i * 0.08 }}
+                                    style={{ display: 'inline-block' }}
+                                    dangerouslySetInnerHTML={{ __html: line }}
+                                />
                             </span>
-                            <h1 className="reveal text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-8">
-                                {project.title.toUpperCase()}
-                            </h1>
+                        ))}
+                    </h1>
+                    <div className="page-hero__sub">
+                        <div className="breadcrumb">
+                            <Link to="/portfolio" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+                                ← Portfolio
+                            </Link>
+                            &nbsp;/&nbsp; {project.title}
                         </div>
-                        <div className="lg:col-span-4 grid grid-cols-2 gap-8 border-l border-zinc-200 pl-12 reveal pb-4">
-                            <div>
-                                <span className="block text-[10px] uppercase tracking-widest text-zinc-400 mb-1">Year</span>
-                                <span className="font-bold">{project.year}</span>
-                            </div>
-                            <div>
-                                <span className="block text-[10px] uppercase tracking-widest text-zinc-400 mb-1">Client</span>
-                                <span className="font-bold">{project.client}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Main Image */}
-            <section className="relative h-[60vh] md:h-[80vh] overflow-hidden">
-                <motion.img
-                    initial={{ scale: 1.1, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1.5, ease: "anticipate" }}
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 pointer-events-none" />
-            </section>
-
-            {/* Overview & Tech */}
-            <section className="py-24 px-6 lg:px-12 border-b border-zinc-200">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
-                    <div className="lg:col-span-7">
-                        <h2 className="text-xs font-bold uppercase tracking-widest mb-10 text-zinc-400 flex items-center">
-                            <span className="w-8 h-[1px] bg-zinc-200 mr-4"></span>
-                            Project Overview
-                        </h2>
-                        <p className="text-2xl md:text-3xl font-medium leading-relaxed text-zinc-800">
-                            {project.overview}
-                        </p>
-                    </div>
-
-                    <div className="lg:col-span-5 bg-zinc-50 p-12 border border-zinc-100">
-                        <h3 className="text-xs font-bold uppercase tracking-widest mb-8 text-black">Technologies</h3>
-                        <div className="flex flex-wrap gap-3">
-                            {project.tech.map((item) => (
-                                <span key={item} className="px-4 py-2 bg-white border border-zinc-200 text-sm font-mono text-zinc-600">
-                                    {item}
-                                </span>
+                        <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                            {[
+                                { label: 'Client', value: project.client },
+                                { label: 'Year', value: project.year },
+                                { label: 'Role', value: project.role },
+                            ].map(m => (
+                                <div key={m.label}>
+                                    <div style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)', marginBottom: 6 }}>
+                                        {m.label}
+                                    </div>
+                                    <div style={{ fontWeight: 500, fontSize: 15 }}>{m.value}</div>
+                                </div>
                             ))}
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <div className="mt-12 space-y-6">
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-black">Core Features</h3>
-                            <ul className="space-y-4">
-                                {project.features.map((feature, i) => (
-                                    <li key={i} className="flex items-start text-sm text-zinc-600">
-                                        <Zap className="h-4 w-4 mr-3 text-black shrink-0 mt-0.5" />
-                                        {feature}
-                                    </li>
+            {/* ── Hero image ── */}
+            <div style={{ position: 'relative', height: '72vh', overflow: 'hidden' }}>
+                <motion.img
+                    src={project.img}
+                    alt={project.title}
+                    initial={{ scale: 1.07, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 1.6, ease: [0.7, 0, 0.2, 1] }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+                <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(to bottom, transparent 55%, rgba(21,17,13,0.45) 100%)',
+                    pointerEvents: 'none',
+                }} />
+            </div>
+
+            {/* ── Tags strip ── */}
+            <div style={{ borderBottom: '1px solid var(--line)', padding: '24px 0' }}>
+                <div className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                    {project.tags.map(t => (
+                        <span key={t} style={{
+                            fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase',
+                            letterSpacing: '.12em', color: 'var(--ink-2)',
+                            padding: '6px 14px', border: '1px solid var(--line)', borderRadius: 999,
+                        }}>
+                            {t}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            {/* ── Overview + tech ── */}
+            <section className="s" style={{ padding: '120px 0', borderBottom: '1px solid var(--line)' }}>
+                <div className="wrap">
+                    <div className="grid md:grid-cols-2 gap-16 md:gap-20" style={{ alignItems: 'start' }}>
+
+                        {/* Overview */}
+                        <div className="reveal">
+                            <div className="eyebrow" style={{ marginBottom: 32 }}>Overview</div>
+                            <p style={{
+                                fontFamily: 'var(--display)', fontSize: 'clamp(22px, 2.4vw, 34px)',
+                                fontWeight: 400, letterSpacing: '-.02em', lineHeight: 1.3,
+                                color: 'var(--ink)', margin: 0,
+                            }}>
+                                {project.overview}
+                            </p>
+                        </div>
+
+                        {/* Tech + features */}
+                        <div className="reveal" data-d="1">
+                            <div className="eyebrow" style={{ marginBottom: 32 }}>Tech stack</div>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 56 }}>
+                                {project.tech.map(t => (
+                                    <span key={t} style={{
+                                        fontFamily: 'var(--mono)', fontSize: 12,
+                                        padding: '8px 16px', border: '1px solid var(--line)',
+                                        borderRadius: 8, color: 'var(--ink-2)',
+                                        transition: 'background .25s ease, color .25s ease',
+                                    }}
+                                        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'var(--ink)'; (e.currentTarget as HTMLElement).style.color = 'var(--bg)'; }}
+                                        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = ''; (e.currentTarget as HTMLElement).style.color = 'var(--ink-2)'; }}
+                                    >
+                                        {t}
+                                    </span>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </section>
 
-            {/* Challenge & Solution */}
-            <section className="py-24 px-6 lg:px-12 bg-zinc-900 text-white">
-                <div className="max-w-7xl mx-auto divide-y divide-zinc-800">
-                    <div className="pb-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
-                        <div className="lg:col-span-4 self-start">
-                            <div className="flex items-center space-x-4 mb-4">
-                                <div className="bg-white/10 p-3">
-                                    <Cpu className="h-6 w-6 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold">The Challenge</h3>
+            {/* ── Challenge & Solution ── */}
+            <section style={{ background: 'var(--ink)', color: 'var(--bg)', padding: '120px 0' }}>
+                <div className="wrap">
+                    <div className="s-head" style={{ marginBottom: 60 }}>
+                        <div>
+                            <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)' }}>
+                                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.3)', flexShrink: 0 }} />
+                                Problem &amp; approach
                             </div>
+                            <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)', maxWidth: '14ch' }}>
+                                How we <em>solved it.</em>
+                            </h2>
                         </div>
-                        <div className="lg:col-span-8">
-                            <p className="text-lg text-zinc-400 leading-relaxed max-w-2xl">
+                    </div>
+
+                    <div style={{ borderTop: '1px solid rgba(244,239,230,.1)' }}>
+                        {/* Challenge */}
+                        <div className="tl-row reveal" style={{ borderBottom: '1px solid rgba(244,239,230,.1)', paddingTop: 48, paddingBottom: 48 }}>
+                            <div className="tl-year" style={{ fontFamily: 'var(--mono)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '.12em', color: 'rgba(244,239,230,.45)', fontWeight: 400 }}>
+                                Challenge
+                            </div>
+                            <div className="tl-title" style={{ color: 'var(--bg)', fontFamily: 'var(--display)', fontSize: 'clamp(20px,2vw,28px)', fontWeight: 500, letterSpacing: '-.015em' }}>
+                                The problem
+                            </div>
+                            <div className="tl-body" style={{ color: 'rgba(244,239,230,.7)', lineHeight: 1.65, maxWidth: '54ch', fontSize: 17 }}>
                                 {project.challenge}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="pt-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
-                        <div className="lg:col-span-4 self-start">
-                            <div className="flex items-center space-x-4 mb-4">
-                                <div className="bg-white p-3">
-                                    <Layers className="h-6 w-6 text-black" />
-                                </div>
-                                <h3 className="text-xl font-bold">The Solution</h3>
                             </div>
                         </div>
-                        <div className="lg:col-span-8">
-                            <p className="text-lg text-zinc-400 leading-relaxed max-w-2xl">
+
+                        {/* Solution */}
+                        <div className="tl-row reveal" data-d="1" style={{ paddingTop: 48, paddingBottom: 48 }}>
+                            <div className="tl-year" style={{ fontFamily: 'var(--mono)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '.12em', color: 'rgba(244,239,230,.45)', fontWeight: 400 }}>
+                                Solution
+                            </div>
+                            <div className="tl-title" style={{ color: 'var(--bg)', fontFamily: 'var(--display)', fontSize: 'clamp(20px,2vw,28px)', fontWeight: 500, letterSpacing: '-.015em' }}>
+                                Our approach
+                            </div>
+                            <div className="tl-body" style={{ color: 'rgba(244,239,230,.7)', lineHeight: 1.65, maxWidth: '54ch', fontSize: 17 }}>
                                 {project.solution}
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Footer Nav */}
-            <section className="py-24 px-6 lg:px-12 border-t border-zinc-200">
-                <div className="max-w-7xl mx-auto bg-black p-12 md:p-20 text-center relative overflow-hidden group hover:scale-[0.99] transition-transform duration-700">
-                    <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="block text-xs font-bold uppercase tracking-[0.4em] text-zinc-500 mb-8">Next Case Study</span>
-                    <h2 className="text-4xl md:text-7xl font-bold text-white tracking-tighter mb-12">
-                        READY TO SEE MORE?
-                    </h2>
-                    <button
-                        onClick={() => navigate(`/portfolio/${project.nextId}`)}
-                        className="inline-flex items-center text-sm font-bold uppercase tracking-widest bg-white text-black px-12 py-6 hover:bg-zinc-200 transition-colors"
-                    >
-                        Next Project
-                        <ArrowRight className="ml-3 h-4 w-4" />
-                    </button>
+            {/* ── Outcomes ── */}
+            <section style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', padding: '100px 0' }}>
+                <div className="wrap">
+                    <div className="eyebrow reveal" style={{ marginBottom: 56 }}>Results</div>
+                    <div className="band-grid">
+                        {project.outcomes.map((o, i) => (
+                            <div key={o.label} className="reveal" data-d={String(i)}>
+                                <div className="b-stat__n" style={{ color: 'var(--ink)' }}>{o.n}</div>
+                                <div className="b-stat__l">{o.label}</div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
+            {/* ── Next project ── */}
+            <section className="cta-section" style={{ position: 'relative' }}>
+                <div className="wrap" style={{ position: 'relative' }}>
+                    <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.45)', justifyContent: 'center', marginBottom: 20 }}>
+                        Next case study
+                    </div>
+                    {nextProject && (
+                        <p className="reveal" data-d="0" style={{
+                            fontFamily: 'var(--mono)', fontSize: 12, textTransform: 'uppercase',
+                            letterSpacing: '.14em', color: 'rgba(244,239,230,.5)',
+                            marginBottom: 16,
+                        }}>
+                            {nextProject.category}
+                        </p>
+                    )}
+                    <h2 className="reveal" data-d="1" style={{ fontSize: 'clamp(36px,6vw,96px)' }}>
+                        {nextProject ? nextProject.title : 'See more'} <em>→</em>
+                    </h2>
+                    {/* <button
+                        onClick={() => navigate(`/portfolio/${project.next}`)}
+                        className="big-cta reveal"
+                        data-d="2"
+                        data-hover
+                        style={{ cursor: 'pointer', border: 'none', marginTop: 8 }}
+                    >
+                        View project
+                        <span className="arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M5 12h14m-6-6 6 6-6 6" />
+                            </svg>
+                        </span>
+                    </button> */}
+                    <div style={{ marginTop: 48 }}>
+                        <Link to="/portfolio" className="btn-ghost reveal" data-d="3" data-hover>
+                            All work <span className="arr" />
+                        </Link>
+                    </div>
+                </div>
+            </section>
         </div>
     );
-};
-
-export default ProjectDetail;
+}

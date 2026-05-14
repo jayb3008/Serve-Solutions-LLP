@@ -1,121 +1,220 @@
-
-import { Target, Eye, Heart, Users, Code2, Palette, Search } from 'lucide-react';
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 
-const About = () => {
+const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
+
+const principles = [
+  { n: '01', title: 'Craft over velocity', body: 'We ship fast, but never at the cost of quality. Every decision is deliberate, every pixel intentional.' },
+  { n: '02', title: 'Transparency always', body: 'Open communication at every stage — from first call to final deploy. No black boxes, no surprises.' },
+  { n: '03', title: 'Ownership mindset', body: 'We treat every product as if it were our own. That means caring about outcomes, not just deliverables.' },
+  { n: '04', title: 'Simple over clever', body: 'The best solutions are the ones users never notice. We strip complexity until only value remains.' },
+  { n: '05', title: 'Long-term thinking', body: 'We build for the next five years, not the next sprint. Architecture decisions should age well.' },
+  { n: '06', title: 'Rooted in Gujarat', body: 'Built in Anand, thinking globally. We bring global standards to every engagement, from wherever we are.' },
+];
+
+const team = [
+  { init: 'B', name: 'Batukbhai Sarvaiya', role: 'Founder & CEO' },
+  { init: 'R', name: 'Rahul Patel', role: 'Head of Engineering' },
+  { init: 'P', name: 'Priya Mehta', role: 'Design Lead' },
+  { init: 'A', name: 'Arjun Shah', role: 'AI / ML Lead' },
+  { init: 'N', name: 'Nisha Desai', role: 'Product Manager' },
+  { init: 'K', name: 'Karan Joshi', role: 'Mobile Lead' },
+  { init: 'S', name: 'Sneha Trivedi', role: 'Brand Strategy' },
+  { init: 'D', name: 'Dev Agarwal', role: 'Backend Engineer' },
+];
+
+const timeline = [
+  { year: '2020', title: 'Studio founded', body: 'Started as a two-person web shop in Anand, Gujarat. First client shipped in 30 days.' },
+  { year: '2021', title: 'First enterprise deal', body: 'Landed a fintech client with 200k users. Built the core team around that challenge.' },
+  { year: '2022', title: 'Mobile practice opens', body: 'Added iOS and Android to the offering. First React Native app at 100k downloads.' },
+  { year: '2023', title: 'Design & brand added', body: 'Hired design lead. Launched full-service branding — from naming to identity systems.' },
+  { year: '2024', title: 'AI / ML practice', body: 'Formed dedicated AI team. First LLM-powered product shipped to production.' },
+  { year: '2025', title: '120+ launches & 40+ team', body: 'Crossed the milestone. Began working with international clients across three continents.' },
+];
+
+const bandStats = [
+  { n: '40+', label: 'Designers & engineers' },
+  { n: '120+', label: 'Products launched' },
+  { n: '98%', label: 'Client satisfaction rate' },
+  { n: '6+', label: 'Years of craft' },
+];
+
+export default function About() {
+  const heroRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className="bg-[#F3F3F3] min-h-screen text-zinc-900 font-sans selection:bg-black selection:text-white pt-20">
+    <div>
       <SEO
-        title="About Us"
-        description="Learn about SARVE SOLUTIONS, our mission, vision, and the values that drive our engineering excellence."
+        title="About — A studio of builders, makers & thinkers"
+        description="Sarve Solutions is an independent digital studio based in Anand, Gujarat. We partner with founders and forward-thinking teams to build products people love."
         url="https://sarvesolutions.in/about"
         breadcrumb={[
-          { name: "Home", item: "https://sarvesolutions.in" },
-          { name: "About", item: "https://sarvesolutions.in/about" }
+          { name: 'Home', item: 'https://sarvesolutions.in' },
+          { name: 'About', item: 'https://sarvesolutions.in/about' },
         ]}
       />
 
-      {/* Hero Section */}
-      <section className="bg-black text-white py-24 border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <span className="block text-xs font-bold tracking-widest uppercase mb-4 text-zinc-500">About Us</span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 max-w-4xl leading-none">
-            ENGINEERING <br /> DIGITAL EXCELLENCE.
+      {/* Page hero */}
+      <section className="page-hero" ref={heroRef}>
+        <div className="wrap">
+          <div className="page-hero__eyebrow">
+            <span className="ping" />
+            About the studio
+          </div>
+          <h1>
+            {(['A studio of', 'builders, makers', '<em>&amp; thinkers.</em>'] as const).map((line, i) => (
+              <span key={i} className="row">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.9, ease, delay: 0.3 + i * 0.07 }}
+                  style={{ display: 'inline-block' }}
+                  dangerouslySetInnerHTML={{ __html: line }}
+                />
+              </span>
+            ))}
           </h1>
-          <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
-            SarveSolutions is a technical consultancy focused on building robust, scalable digital infrastructure for forward-thinking enterprises.
+          <div className="page-hero__sub">
+            <div className="breadcrumb">
+              Sarve Solutions &nbsp;/&nbsp; About
+            </div>
+            <p>
+              We're an independent digital studio headquartered in Anand, Gujarat. Since 2020 we've partnered with founders, operators, and enterprise teams to design, engineer, and launch digital products that last.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Manifesto */}
+      <section className="manifesto">
+        <div className="wrap">
+          <p className="reveal">
+            We believe the best software is <em>invisible</em> — it just works.
+          </p>
+          <p className="reveal" data-d="1">
+            We don't separate design from engineering. <span className="dim">We never have.</span>
+          </p>
+          <p className="reveal" data-d="2">
+            Great products are built by teams who <em>care deeply</em> and move with intention.
+          </p>
+          <p className="reveal" data-d="3">
+            That's the studio we built. <span className="dim">That's the studio you're partnering with.</span>
           </p>
         </div>
       </section>
 
-      {/* Mission Grid */}
-      <section className="border-b border-zinc-200 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200">
-            {[
-              { icon: Target, title: "Mission", desc: "To deliver precision-engineered software solutions that drive measurable business growth." },
-              { icon: Eye, title: "Vision", desc: "To set the global standard for code quality and technical innovation in digital services." },
-              { icon: Heart, title: "Values", desc: "Integrity in code, transparency in process, and dedication to client success." }
-            ].map((item, i) => (
-              <div key={i} className="p-12 hover:bg-zinc-50 transition-colors">
-                <item.icon className="h-8 w-8 text-black mb-6" strokeWidth={1.5} />
-                <h3 className="text-xl font-bold tracking-tight mb-3">{item.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
+      {/* Principles */}
+      <section className="s" style={{ borderTop: '1px solid var(--line)', paddingBottom: '120px' }}>
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <div className="eyebrow reveal">How we work</div>
+              <h2 className="s-title reveal" data-d="1">
+                Six principles we <em>refuse to compromise.</em>
+              </h2>
+            </div>
+          </div>
+          <div className="pgrid">
+            {principles.map(p => (
+              <div key={p.n} className="prin reveal">
+                <div className="prin__n">{p.n}</div>
+                <div>
+                  <h3>{p.title}</h3>
+                  <p>{p.body}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats / Numbers */}
-      <section className="bg-[#F3F3F3] py-24 border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12">
-          {[
-            { label: "Projects Shipped", value: "50+" },
-            { label: "Happy Clients", value: "30+" },
-            { label: "Team Strength", value: "15+" },
-            { label: "Years Active", value: "4" }
-          ].map((stat, i) => (
-            <div key={i}>
-              <div className="text-4xl md:text-5xl font-bold tracking-tighter mb-2">{stat.value}</div>
-              <div className="text-xs font-bold uppercase tracking-widest text-zinc-500 max-w-[100px]">{stat.label}</div>
+      {/* Team */}
+      <section className="s" style={{ background: 'var(--ink)', color: 'var(--bg)', paddingBottom: '120px' }}>
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+                The people
+              </div>
+              <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
+                Every product is <em>people-first.</em>
+              </h2>
             </div>
-          ))}
+          </div>
+          <div className="team-grid">
+            {team.map((m, i) => (
+              <div key={m.name} className={`tm reveal`} data-d={String(i % 4)}>
+                <div className="tm__ph">
+                  <div className="pmark">{m.init}</div>
+                </div>
+                <h4>{m.name}</h4>
+                <p>{m.role}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-white border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight mb-16">OUR EVOLUTION</h2>
-          <div className="space-y-0 relative border-l border-zinc-200 ml-4 md:ml-0">
-            {[
-              { year: "2021", title: "Inception", desc: "Started as a specialized web development unit." },
-              { year: "2022", title: "Expansion", desc: "Launched mobile engineering division." },
-              { year: "2023", title: "Integration", desc: "Added comprehensive design and SEO capabilities." },
-              { year: "2024", title: "Scale", desc: "Partnering with global enterprises for digital transformation." }
-            ].map((item, i) => (
-              <div key={i} className="relative pl-12 pb-12 last:pb-0 group">
-                <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 bg-zinc-200 rounded-full group-hover:bg-black transition-colors ring-4 ring-white"></div>
-                <div className="md:flex items-baseline">
-                  <span className="text-sm font-mono font-bold text-zinc-400 w-24 flex-shrink-0">{item.year}</span>
-                  <div>
-                    <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
-                    <p className="text-zinc-600 max-w-lg">{item.desc}</p>
-                  </div>
-                </div>
+      <section className="s" style={{ paddingBottom: '120px' }}>
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <div className="eyebrow reveal">Our journey</div>
+              <h2 className="s-title reveal" data-d="1">
+                Five years of <em>shipping.</em>
+              </h2>
+            </div>
+          </div>
+          <div className="tl-rows">
+            {timeline.map((row, i) => (
+              <div key={row.year} className="tl-row reveal" data-d={String(i)}>
+                <div className="tl-year">{row.year}</div>
+                <div className="tl-title">{row.title}</div>
+                <div className="tl-body">{row.body}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team Grid */}
-      <section className="bg-[#FAFAFA] border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto">
-          <div className="p-12 border-b border-zinc-200">
-            <h2 className="text-3xl font-bold tracking-tight">LEADERSHIP</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-200 border-b border-zinc-200">
-            {[
-              { name: "CEO", role: "Strategy", icon: Users },
-              { name: "CTO", role: "Technology", icon: Code2 },
-              { name: "Head of Design", role: "Creative", icon: Palette },
-              { name: "Head of Growth", role: "Marketing", icon: Search }
-            ].map((member, i) => (
-              <div key={i} className="p-10 bg-white hover:bg-zinc-50 transition-colors group">
-                <div className="w-12 h-12 bg-zinc-100 flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-colors">
-                  <member.icon className="h-6 w-6" />
-                </div>
-                <h3 className="font-bold text-lg mb-1">{member.name}</h3>
-                <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">{member.role}</p>
+      {/* Stats band */}
+      <section className="band">
+        <div className="wrap">
+          <div className="band-grid">
+            {bandStats.map((s, i) => (
+              <div key={i} className="reveal" data-d={String(i)}>
+                <div className="b-stat__n">{s.n}</div>
+                <div className="b-stat__l">{s.label}</div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="cta-section">
+        <div className="wrap" style={{ position: 'relative' }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+            Long-term partners, not vendors
+          </div>
+          <h2 className="reveal" data-d="1">
+            Ready to build <em>together?</em>
+          </h2>
+          <Link
+            to="/contact"
+            className="cta-btn reveal"
+            data-d="2"
+            data-hover
+            style={{ background: 'var(--accent)', color: 'var(--ink)', marginTop: 40 }}
+          >
+            Start a conversation <span className="dot" style={{ background: 'var(--ink)' }} />
+          </Link>
         </div>
       </section>
     </div>
   );
-};
-
-export default About;
+}
