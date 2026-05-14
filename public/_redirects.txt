@@ -1,9 +1,0 @@
-# Standard SPA routing for Netlify
-# Redirect all requests to index.html so Next.js can handle the routing
-/*    /index.html   200
-
-# Ensure admin routes are handled by the main entry point
-/admin/*    /index.html   200
-
-# Optional: Handle 404s
-# /*    /404.html   404

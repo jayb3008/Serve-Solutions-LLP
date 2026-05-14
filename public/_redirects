@@ -1,0 +1,8 @@
+# SARVE SOLUTIONS - SPA Redirects for Netlify
+# This ensures that all requests are handled by index.html, 
+# allowing React Router to manage the routing client-side.
+
+/*    /index.html   200
+
+# Ensure admin routes are also captured (optional, already covered by /*)
+/admin/*    /index.html   200
