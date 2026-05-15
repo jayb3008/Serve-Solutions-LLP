@@ -1,172 +1,261 @@
-
 import { Helmet } from 'react-helmet-async';
 
-interface SEOProps {
-    title?: string;
-    description?: string;
-    keywords?: string;
-    image?: string;
-    url?: string;
-    type?: 'website' | 'article' | 'profile' | 'product';
-    schemaType?: 'Organization' | 'ProfessionalService' | 'TechArticle';
-    breadcrumb?: { name: string; item: string }[];
+interface FAQItem {
+  question: string;
+  answer: string;
 }
 
+interface SEOProps {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
+  type?: 'website' | 'article' | 'profile' | 'product';
+  breadcrumb?: { name: string; item: string }[];
+  datePublished?: string;
+  dateModified?: string;
+  faq?: FAQItem[];
+}
+
+const BASE_URL = 'https://sarvesolutions.in';
+const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
+const COMPANY_NAME = 'SARVE SOLUTIONS';
+const TODAY = '2026-05-15';
+
 const SEO = ({
-    title = "Engineering Digital Excellence",
-    description = "SARVE SOLUTIONS - Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and DevOps solutions.",
-    keywords = "SARVE SOLUTIONS, Sarve Solutions, IT consultancy India, software engineering Anand Gujarat, web development india, mobile app development, artificial intelligence solutions, machine learning, DevOps services, digital transformation, healthcare tech, legal tech, logistics software, fintech solutions, edtech platforms, OTT development, insurtech, travel tech, manufacturing IoT, retail eCommerce, telecom solutions, construction tech, beauty lifestyle apps, sports analytics, on-demand service apps, marketplace platforms, software QA, IoT engineering, technical growth marketing, custom software development india, best IT company in Anand, top software house Gujarat",
-    image = "https://sarvesolutions.in/og-image.jpg",
-    url = "https://sarvesolutions.in",
-    type = "website",
-    schemaType = "ProfessionalService",
-    breadcrumb
+  title = 'Engineering Digital Excellence',
+  description = 'SARVE SOLUTIONS — Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and Digital Transformation from Anand, Gujarat.',
+  keywords = 'SARVE SOLUTIONS, Sarve Solutions, IT consultancy India, software engineering Anand Gujarat, web development india, mobile app development, artificial intelligence solutions, machine learning, DevOps services, digital transformation, custom software development india, best IT company Gujarat',
+  image = DEFAULT_IMAGE,
+  url = BASE_URL,
+  type = 'website',
+  breadcrumb,
+  datePublished = TODAY,
+  dateModified = TODAY,
+  faq,
 }: SEOProps) => {
-    // Brand comes first as requested
-    const siteTitle = title === "SARVE SOLUTIONS" || title.includes("SARVE SOLUTIONS") 
-        ? title 
-        : `SARVE SOLUTIONS | ${title}`;
+  const siteTitle =
+    title === COMPANY_NAME || title.includes(COMPANY_NAME)
+      ? title
+      : `${COMPANY_NAME} | ${title}`;
 
-    // Base Organization Schema
-    const orgSchema = {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "SARVE SOLUTIONS",
-        "alternateName": "Sarve Solutions",
-        "url": "https://sarvesolutions.in",
-        "logo": "https://sarvesolutions.in/logo.png",
-        "description": description,
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+91-9904055986",
-            "contactType": "customer service",
-            "areaServed": "IN",
-            "availableLanguage": ["en", "Hindi", "Gujarati"]
-        },
-        "sameAs": [
-            "https://www.linkedin.com/company/serve-solutions",
-            "https://twitter.com/serve_solutions",
-            "https://www.instagram.com/serve.solutions"
-        ]
-    };
+  /* ── Organisation ── */
+  const orgSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${BASE_URL}/#organization`,
+    name: COMPANY_NAME,
+    alternateName: 'Sarve Solutions',
+    url: BASE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${BASE_URL}/logo.png`,
+      width: 512,
+      height: 512,
+    },
+    description,
+    foundingDate: '2020',
+    founders: [{ '@type': 'Person', name: 'Batukbhai Sarvaiya' }],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Anand',
+      addressLocality: 'Anand',
+      addressRegion: 'Gujarat',
+      postalCode: '388001',
+      addressCountry: 'IN',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+91-9904055986',
+      email: 'info@sarvesolutions.in',
+      contactType: 'customer service',
+      areaServed: 'IN',
+      availableLanguage: ['en', 'Hindi', 'Gujarati'],
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/serve-solutions',
+      'https://twitter.com/serve_solutions',
+      'https://www.instagram.com/serve.solutions',
+    ],
+  };
 
-    // Local Business Schema
-    const localBusinessSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "SARVE SOLUTIONS",
-        "image": image,
-        "@id": "https://sarvesolutions.in",
-        "url": "https://sarvesolutions.in",
-        "telephone": "+91-9904055986",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Anand",
-            "addressLocality": "Anand",
-            "addressRegion": "Gujarat",
-            "postalCode": "388001",
-            "addressCountry": "IN"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 22.5645,
-            "longitude": 72.9289
-        },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-            ],
-            "opens": "09:00",
-            "closes": "20:00"
+  /* ── Local business ── */
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
+    '@id': `${BASE_URL}/#localbusiness`,
+    name: COMPANY_NAME,
+    image,
+    url: BASE_URL,
+    telephone: '+91-9904055986',
+    email: 'info@sarvesolutions.in',
+    priceRange: '₹₹₹',
+    currenciesAccepted: 'INR, USD',
+    paymentAccepted: 'Bank Transfer, UPI, PayPal',
+    description,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Anand',
+      addressLocality: 'Anand',
+      addressRegion: 'Gujarat',
+      postalCode: '388001',
+      addressCountry: 'IN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 22.5645,
+      longitude: 72.9289,
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '09:00',
+      closes: '20:00',
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'India' },
+      { '@type': 'Country', name: 'United States' },
+      { '@type': 'Country', name: 'United Kingdom' },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Digital Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile App Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI & ML Solutions' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Product Design' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Brand Strategy' } },
+      ],
+    },
+  };
+
+  /* ── WebPage ── */
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name: siteTitle,
+    description,
+    isPartOf: { '@id': `${BASE_URL}/#website` },
+    about: { '@id': `${BASE_URL}/#organization` },
+    datePublished,
+    dateModified,
+    inLanguage: 'en-IN',
+    potentialAction: {
+      '@type': 'ReadAction',
+      target: [url],
+    },
+  };
+
+  /* ── WebSite (home only) ── */
+  const webSiteSchema =
+    type === 'website' && url === BASE_URL
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          '@id': `${BASE_URL}/#website`,
+          url: BASE_URL,
+          name: COMPANY_NAME,
+          description,
+          publisher: { '@id': `${BASE_URL}/#organization` },
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/search?q={search_term_string}` },
+            'query-input': 'required name=search_term_string',
+          },
+          inLanguage: 'en-IN',
         }
-    };
+      : null;
 
-    // Breadcrumb Schema
-    const breadcrumbSchema = breadcrumb ? {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": breadcrumb.map((b, i) => ({
-            "@type": "ListItem",
-            "position": i + 1,
-            "name": b.name,
-            "item": b.item
-        }))
-    } : null;
+  /* ── BreadcrumbList ── */
+  const breadcrumbSchema = breadcrumb
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumb.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: b.name,
+          item: b.item,
+        })),
+      }
+    : null;
 
-    return (
-        <Helmet>
-            {/* Primary Meta Tags */}
-            <title>{siteTitle}</title>
-            <meta name="title" content={siteTitle} />
-            <meta name="description" content={description} />
-            <meta name="keywords" content={keywords} />
-            <meta name="author" content="SARVE SOLUTIONS" />
-            <meta name="theme-color" content="#000000" />
+  /* ── FAQPage ── */
+  const faqSchema =
+    faq && faq.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faq.map(({ question, answer }) => ({
+            '@type': 'Question',
+            name: question,
+            acceptedAnswer: { '@type': 'Answer', text: answer },
+          })),
+        }
+      : null;
 
-            {/* Robots Tags for Google */}
-            <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-            <meta name="googlebot" content="index, follow" />
+  return (
+    <Helmet>
+      {/* ── Primary ── */}
+      <html lang="en" />
+      <title>{siteTitle}</title>
+      <meta name="title" content={siteTitle} />
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content={COMPANY_NAME} />
+      <meta name="theme-color" content="#15110d" />
+      <meta name="color-scheme" content="light" />
+      <meta name="format-detection" content="telephone=no" />
 
-            {/* Google Site Verification */}
-            <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
+      {/* ── Robots ── */}
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="bingbot" content="index, follow" />
 
-            {/* Open Graph / Facebook */}
-            <meta property="og:type" content={type} />
-            <meta property="og:url" content={url} />
-            <meta property="og:title" content={siteTitle} />
-            <meta property="og:description" content={description} />
-            <meta property="og:image" content={image} />
-            <meta property="og:site_name" content="SARVE SOLUTIONS" />
+      {/* ── Canonical ── */}
+      <link rel="canonical" href={url} />
 
-            {/* Twitter */}
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:url" content={url} />
-            <meta property="twitter:title" content={siteTitle} />
-            <meta property="twitter:description" content={description} />
-            <meta property="twitter:image" content={image} />
-            <meta name="twitter:site" content="@serve_solutions" />
+      {/* ── Open Graph ── */}
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={siteTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={`${COMPANY_NAME} — ${title}`} />
+      <meta property="og:site_name" content={COMPANY_NAME} />
+      <meta property="og:locale" content="en_IN" />
 
-            {/* Canonical link */}
-            <link rel="canonical" href={url} />
+      {/* ── Twitter / X ── */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@serve_solutions" />
+      <meta name="twitter:creator" content="@serve_solutions" />
+      <meta name="twitter:url" content={url} />
+      <meta name="twitter:title" content={siteTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image:alt" content={`${COMPANY_NAME} — ${title}`} />
 
-            {/* Structured Data (JSON-LD) */}
-            <script type="application/ld+json">
-                {JSON.stringify(orgSchema)}
-            </script>
-
-            <script type="application/ld+json">
-                {JSON.stringify(localBusinessSchema)}
-            </script>
-
-            {breadcrumbSchema && (
-                <script type="application/ld+json">
-                    {JSON.stringify(breadcrumbSchema)}
-                </script>
-            )}
-
-            {/* WebSite Search Schema */}
-            {type === 'website' && (
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "WebSite",
-                        "url": "https://sarvesolutions.in",
-                        "potentialAction": {
-                            "@type": "SearchAction",
-                            "target": "https://sarvesolutions.in/search?q={search_term_string}",
-                            "query-input": "required name=search_term_string"
-                        }
-                    })}
-                </script>
-            )}
-        </Helmet>
-    );
+      {/* ── Structured data ── */}
+      <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
+      {webSiteSchema && (
+        <script type="application/ld+json">{JSON.stringify(webSiteSchema)}</script>
+      )}
+      {breadcrumbSchema && (
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      )}
+      {faqSchema && (
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      )}
+    </Helmet>
+  );
 };
 
 export default SEO;

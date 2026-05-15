@@ -134,10 +134,18 @@ export default function Services() {
       <SEO
         title="What we do — Five practices, one team"
         description="Sarve Solutions offers Product Design, Web Engineering, Mobile Apps, AI & Data, and Brand Strategy — all under one roof."
+        keywords="product design services india, web engineering company, mobile app development india, AI ML services Gujarat, brand strategy agency, full stack development, digital product studio"
         url="https://sarvesolutions.in/services"
         breadcrumb={[
           { name: 'Home', item: 'https://sarvesolutions.in' },
           { name: 'Services', item: 'https://sarvesolutions.in/services' },
+        ]}
+        faq={[
+          { question: 'What services does Sarve Solutions offer?', answer: 'Sarve Solutions offers five core practices: Product Design (UX research, UI systems, prototyping), Web Engineering (Next.js, headless CMS, e-commerce), Mobile Apps (iOS, Android, React Native), AI & Data (LLM integration, RAG, agents), and Brand & Strategy (positioning, identity, content).' },
+          { question: 'Do you work with startups or enterprise clients?', answer: 'We work with both. From early-stage founders validating their first product to scale-ups modernising legacy systems, we adapt our process to the stage and size of the engagement.' },
+          { question: 'How does Sarve Solutions approach a new project?', answer: 'Every engagement starts with a discovery sprint — a structured deep-dive into users, market, and technical constraints. We come out with a prioritised roadmap before any production code is written.' },
+          { question: 'Can Sarve Solutions handle design and engineering in the same team?', answer: 'Yes. Strategy, design, and engineering sit at the same table for the entire build. We don\'t hand off between departments — one team owns the full product.' },
+          { question: 'What is the typical project timeline?', answer: 'A focused MVP typically takes 8–16 weeks from discovery to launch. Full-scale platforms with complex integrations can take 4–9 months. We\'ll give you a realistic estimate after the discovery sprint.' },
         ]}
       />
 

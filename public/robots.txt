@@ -1,4 +1,39 @@
+# SARVE SOLUTIONS — robots.txt
+# https://sarvesolutions.in
+
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*?*        # block query-string crawl traps
+Disallow: /*.json$    # block raw data files
 
+# Allow static assets crawlers need for rendering
+Allow: /favicon.svg
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.woff2$
+
+# Slow down overly aggressive bots
+Crawl-delay: 2
+
+# Google — no restrictions
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 3
+
+# Sitemap
 Sitemap: https://sarvesolutions.in/sitemap.xml

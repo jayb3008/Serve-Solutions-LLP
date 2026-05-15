@@ -78,8 +78,15 @@ export default function Home() {
     <div>
       <SEO
         title="Engineering Digital Excellence"
-        description="Sarve Solutions engineers high-performance digital products. Web Development, Mobile Apps, AI solutions, and Digital Transformation."
+        description="Sarve Solutions is an independent digital studio in Anand, Gujarat. We design, engineer and launch web platforms, mobile apps, AI products, and brand systems for founders and forward-thinking teams."
+        keywords="SARVE SOLUTIONS, Sarve Solutions, digital product studio India, web development agency Gujarat, mobile app development Anand, AI ML solutions India, software engineering company Gujarat, independent digital studio, custom software India"
         url="https://sarvesolutions.in"
+        faq={[
+          { question: 'What does Sarve Solutions do?', answer: 'Sarve Solutions is an independent digital product studio based in Anand, Gujarat. We design, engineer, and launch web platforms, mobile apps, AI products, and brand systems — from zero to scale.' },
+          { question: 'Where is Sarve Solutions based?', answer: 'We are based in Anand, Gujarat, India, with clients across India, the US, UK, and Europe.' },
+          { question: 'How many projects has Sarve Solutions shipped?', answer: 'We have shipped over 120 web and mobile products across fintech, healthcare, SaaS, commerce, legal, and more — with a 98% client satisfaction rate.' },
+          { question: 'How do I start a project with Sarve Solutions?', answer: 'Email us at info@sarvesolutions.in or visit our Contact page. We respond within one business day and typically start with a free discovery call.' },
+        ]}
       />
 
       {/* ── Hero ── */}
