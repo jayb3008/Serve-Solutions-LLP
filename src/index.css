@@ -405,13 +405,27 @@ header.site-nav.scrolled {
 
 /* ── Hero ── */
 .hero {
-  padding: 140px 0 60px;
+  padding: 160px 0 80px;
   position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+@media (max-width: 1024px) {
+  .hero {
+    padding: 140px 0 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 0 40px;
+    min-height: auto;
+  }
+}
+
 
 .hero__orb {
   position: absolute;
@@ -460,11 +474,18 @@ header.site-nav.scrolled {
 h1.hero__title {
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(56px, 11.5vw, 188px);
-  line-height: .92;
-  letter-spacing: -.045em;
-  margin: 0 0 36px;
+  font-size: clamp(48px, 11.5vw, 188px);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  margin: 0 0 48px;
 }
+
+@media (max-width: 768px) {
+  h1.hero__title {
+    margin-bottom: 32px;
+  }
+}
+
 
 h1.hero__title .row {
   display: block;
@@ -494,19 +515,31 @@ h1.hero__title em::after {
 
 .hero__foot {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: end;
+  grid-template-columns: 1.2fr 0.8fr 1fr;
+  align-items: flex-end;
   gap: 40px;
-  margin-top: 60px;
-  padding-top: 32px;
+  margin-top: 80px;
+  padding-top: 40px;
   border-top: 1px solid var(--line);
+}
+
+@media (max-width: 1100px) {
+  .hero__foot {
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+  }
 }
 
 @media (max-width: 880px) {
   .hero__foot {
     grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 60px;
+    padding-top: 32px;
   }
 }
+
+
 
 .hero__foot p {
   margin: 0;
@@ -522,13 +555,35 @@ h1.hero__title em::after {
   justify-content: flex-end;
 }
 
+@media (max-width: 880px) {
+  .hero__foot .stats {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__foot .stats {
+    gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
 .stat__num {
   font-family: var(--display);
   font-size: 44px;
   font-weight: 500;
-  letter-spacing: -.03em;
+  letter-spacing: -0.03em;
   line-height: 1;
 }
+
+@media (max-width: 480px) {
+  .stat__num {
+    font-size: 32px;
+  }
+}
+
 
 .stat__lbl {
   font-family: var(--mono);
@@ -546,12 +601,19 @@ h1.hero__title em::after {
   font-family: var(--mono);
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: .14em;
+  letter-spacing: 0.14em;
   color: var(--muted);
   display: flex;
   align-items: center;
   gap: 14px;
 }
+
+@media (max-width: 768px) {
+  .scroll-ind {
+    display: none;
+  }
+}
+
 
 .scroll-ind .line {
   width: 60px;
@@ -1044,6 +1106,19 @@ section.cta-section {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  section.cta-section {
+    padding: 120px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  section.cta-section {
+    padding: 100px 0;
+  }
+}
+
+
 section.cta-section::before {
   content: "";
   position: absolute;
@@ -1060,11 +1135,19 @@ section.cta-section h2 {
   font-family: var(--display);
   font-weight: 400;
   font-size: clamp(48px, 9vw, 140px);
-  letter-spacing: -.045em;
-  line-height: .92;
-  margin: 24px 0 40px;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  margin: 24px 0 48px;
   position: relative;
 }
+
+@media (max-width: 480px) {
+  section.cta-section h2 {
+    font-size: clamp(38px, 12vw, 64px);
+    margin-bottom: 32px;
+  }
+}
+
 
 section.cta-section h2 em {
   font-style: italic;
@@ -1083,8 +1166,26 @@ section.cta-section h2 em {
   font-family: var(--display);
   font-size: 22px;
   font-weight: 500;
-  transition: transform .4s cubic-bezier(.7, 0, .2, 1);
+  transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
+  max-width: 100%;
 }
+
+@media (max-width: 640px) {
+  .big-cta {
+    font-size: 18px;
+    padding: 18px 24px 18px 28px;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .big-cta {
+    font-size: 15px;
+    padding: 16px 20px 16px 24px;
+    gap: 12px;
+  }
+}
+
 
 .big-cta:hover {
   transform: translateY(-3px);
@@ -1098,8 +1199,17 @@ section.cta-section h2 em {
   color: var(--accent);
   display: grid;
   place-items: center;
-  transition: transform .4s ease;
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
 }
+
+@media (max-width: 640px) {
+  .big-cta .arrow {
+    width: 36px;
+    height: 36px;
+  }
+}
+
 
 .big-cta:hover .arrow {
   transform: rotate(-45deg);

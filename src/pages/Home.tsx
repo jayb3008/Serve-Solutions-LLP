@@ -37,26 +37,26 @@ function CountUp({ to, suffix = '' }: { to: number; suffix?: string }) {
 }
 
 const services = [
-  { num: '01', pre: 'Product', em: 'design',    tags: ['UX research', 'UI systems', 'Prototyping', 'Design ops'],          href: '/services' },
-  { num: '02', pre: 'Web',     em: 'engineering',tags: ['Next.js', 'Headless commerce', 'CMS', 'Performance'],              href: '/services' },
-  { num: '03', pre: 'Mobile',  em: 'apps',       tags: ['iOS', 'Android', 'React Native', 'Flutter'],                       href: '/services' },
-  { num: '04', pre: 'AI &',    em: 'data',       tags: ['LLM integration', 'RAG', 'Agents', 'Workflow automation'],          href: '/services/ai-ml' },
-  { num: '05', pre: 'Brand &', em: 'strategy',   tags: ['Positioning', 'Identity', 'Naming', 'Content'],                    href: '/services' },
+  { num: '01', pre: 'Product', em: 'design', tags: ['UX research', 'UI systems', 'Prototyping', 'Design ops'], href: '/services' },
+  { num: '02', pre: 'Web', em: 'engineering', tags: ['Next.js', 'Headless commerce', 'CMS', 'Performance'], href: '/services' },
+  { num: '03', pre: 'Mobile', em: 'apps', tags: ['iOS', 'Android', 'React Native', 'Flutter'], href: '/services' },
+  { num: '04', pre: 'AI &', em: 'data', tags: ['LLM integration', 'RAG', 'Agents', 'Workflow automation'], href: '/services/ai-ml' },
+  { num: '05', pre: 'Brand &', em: 'strategy', tags: ['Positioning', 'Identity', 'Naming', 'Content'], href: '/services' },
 ];
 
 const workCards = [
-  { cls: 'wc-1 wide', ph: 'circle', year: '2025', tags: ['Fintech', 'Web + iOS'],  title: 'LendingFlow — a card-issuing platform for the next million SMEs',          href: '/portfolio' },
-  { cls: 'wc-2',      ph: 'grid',   year: '2025', tags: ['SaaS'],                  title: 'TailorPro — analytics and operations for boutique shops',                   href: '/portfolio' },
-  { cls: 'wc-3',      ph: 'bars',   year: '2024', tags: ['Commerce'],              title: 'Stillwood Co. — headless storefront for a heritage outdoor brand',          href: '/portfolio' },
-  { cls: 'wc-4',      ph: 'poly',   year: '2024', tags: ['AI'],                    title: 'Pelican — an agentic copilot for legal review',                             href: '/portfolio' },
-  { cls: 'wc-5',      ph: 'wave',   year: '2023', tags: ['Health'],                title: 'Verbena Care — a calmer way to manage chronic conditions',                  href: '/portfolio' },
+  { cls: 'wc-1 wide', ph: 'circle', year: '2025', tags: ['Fintech', 'Web + iOS'], title: 'LendingFlow — a card-issuing platform for the next million SMEs', href: '/portfolio' },
+  { cls: 'wc-2', ph: 'grid', year: '2025', tags: ['SaaS'], title: 'TailorPro — analytics and operations for boutique shops', href: '/portfolio' },
+  { cls: 'wc-3', ph: 'bars', year: '2024', tags: ['Commerce'], title: 'Stillwood Co. — headless storefront for a heritage outdoor brand', href: '/portfolio' },
+  { cls: 'wc-4', ph: 'poly', year: '2024', tags: ['AI'], title: 'Pelican — an agentic copilot for legal review', href: '/portfolio' },
+  { cls: 'wc-5', ph: 'wave', year: '2023', tags: ['Health'], title: 'Verbena Care — a calmer way to manage chronic conditions', href: '/portfolio' },
 ];
 
 const bandStats = [
-  { n: 6,   unit: '+', label: 'Years building digital products' },
+  { n: 6, unit: '+', label: 'Years building digital products' },
   { n: 120, unit: '+', label: 'Web & mobile launches' },
-  { n: 98,  unit: '%', label: 'Client satisfaction rate' },
-  { n: 40,  unit: '+', label: 'Expert engineers' },
+  { n: 98, unit: '%', label: 'Client satisfaction rate' },
+  { n: 40, unit: '+', label: 'Expert engineers' },
 ];
 
 export default function Home() {
@@ -83,7 +83,7 @@ export default function Home() {
       />
 
       {/* ── Hero ── */}
-      <section className="hero">
+      <section className="hero overflow-hidden">
         <div ref={orbRef} className="hero__orb" />
         <div className="wrap" style={{ position: 'relative' }}>
           <div className="hero__eyebrow">
@@ -203,10 +203,10 @@ export default function Home() {
               <Link key={c.title} to={c.href} className={`work-card ${c.cls} reveal`} data-hover>
                 <div className="work-card__bg">
                   {c.ph === 'circle' && <div className="ph circle" />}
-                  {c.ph === 'grid'   && <div className="ph grid" />}
-                  {c.ph === 'bars'   && <div className="ph bars"><i /><i /><i /><i /><i /></div>}
-                  {c.ph === 'poly'   && <div className="ph poly" />}
-                  {c.ph === 'wave'   && <div className="ph wave" />}
+                  {c.ph === 'grid' && <div className="ph grid" />}
+                  {c.ph === 'bars' && <div className="ph bars"><i /><i /><i /><i /><i /></div>}
+                  {c.ph === 'poly' && <div className="ph poly" />}
+                  {c.ph === 'wave' && <div className="ph wave" />}
                 </div>
                 <div className="work-card__inner">
                   <div className="work-card__meta">
