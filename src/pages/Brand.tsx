@@ -135,6 +135,7 @@ export default function Brand() {
       <SEO
         title="Brand & Strategy — The first code you ship"
         description="Sarve Solutions builds brand identity, positioning, and go-to-market strategy for founders who want to show up with confidence from day one."
+        keywords="brand identity design India, brand strategy agency Gujarat, logo design company India, visual identity design, brand positioning India, startup branding agency, go to market strategy India, brand guidelines design, naming agency India, brand voice content strategy, digital brand design India, brand system development, creative agency Gujarat, marketing strategy India, brand consulting company India"
         url="https://sarvesolutions.in/services/brand"
         breadcrumb={[
           { name: 'Home', item: 'https://sarvesolutions.in' },

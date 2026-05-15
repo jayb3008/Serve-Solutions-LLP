@@ -135,6 +135,7 @@ export default function ProductDesign() {
       <SEO
         title="Product Design — Research-driven, pixel-perfect"
         description="Sarve Solutions designs digital products people actually want to use. UX research, prototyping, UI design, and design systems — end to end."
+        keywords="product design company India, UX design agency Gujarat, UI UX design India, user experience design company, Figma design agency India, design system development, prototyping agency India, user research company India, interaction design India, product design studio Gujarat, design ops India, accessibility design India, mobile UX design agency, SaaS product design India, digital product design company"
         url="https://sarvesolutions.in/services/product-design"
         breadcrumb={[
           { name: 'Home', item: 'https://sarvesolutions.in' },

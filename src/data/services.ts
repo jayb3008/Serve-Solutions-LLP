@@ -20,7 +20,7 @@ export const servicesData: Record<string, any> = {
         icon: Code2,
         tagline: "Sculpting modern, dynamic web applications for a digital-first world.",
         overview: "We engineer resilient, scalable web architectures that serve as the backbone for modern businesses. Our approach prioritizes performance, security, and exceptional user experience.",
-        keywords: "react development, next.js development, node.js backend, cloud architecture, aws, azure, rest api, graphql, full stack development india",
+        keywords: "web development company India, full stack development Gujarat, React Next.js development agency India, Node.js backend development, custom web application development India, SaaS web development company, headless CMS development India, API development company Gujarat, TypeScript development India, cloud web architecture AWS Azure, enterprise web application India, web app development Anand Gujarat, scalable web platform development India, progressive web app PWA development, server side rendering Next.js India, web engineering agency Gujarat, custom software development India",
         capabilities: [
             { title: "React & Next.js", desc: "Building immersive, lightning-fast interfaces." },
             { title: "Node.js Backends", desc: "Scalable server environments for high throughput." },
@@ -41,7 +41,7 @@ export const servicesData: Record<string, any> = {
         icon: Smartphone,
         tagline: "Designing high-performing mobile apps for a connected future.",
         overview: "Building native-parity mobile applications that leverage modern cross-platform technologies. We focus on performance, haptics, and platform-specific design patterns.",
-        keywords: "react native apps, ios development, android development, cross platform mobile apps, mobile ui ux, app store optimization",
+        keywords: "mobile app development company India, iOS app development Gujarat, Android app development India, React Native development agency, cross platform mobile app India, Flutter development India, mobile app development Anand Gujarat, custom mobile application India, enterprise mobile app development, offline first mobile apps India, mobile UX design India, app store optimization India, mobile app agency Gujarat, fintech mobile app India, healthcare mobile app development India, React Native agency India",
         capabilities: [
             { title: "React Native", desc: "Unified codebases for iOS and Android." },
             { title: "Offline-First", desc: "Local data persistence for uninterrupted use." },
@@ -62,7 +62,7 @@ export const servicesData: Record<string, any> = {
         icon: Cpu,
         tagline: "Leveraging AI & ML to Deliver innovative solutions.",
         overview: "Integrating intelligence into your digital ecosystem. We build custom machine learning models and AI integrations that automate complexity and provide predictive insights.",
-        keywords: "artificial intelligence, machine learning india, predictive analytics, natural language processing, computer vision, llm integration, tensorflow, pytorch",
+        keywords: "AI ML development company India, artificial intelligence solutions Gujarat, machine learning agency India, LLM integration services India, RAG implementation India, GPT API integration, custom AI model development India, natural language processing India, computer vision solutions India, predictive analytics company India, AI chatbot development India, generative AI development Gujarat, AI product development India, OpenAI LangChain development India, intelligent automation India, AI consulting company Gujarat",
         capabilities: [
             { title: "Predictive Analytics", desc: "Forecasting trends based on historical data." },
             { title: "Nlp Systems", desc: "Natural language processing for smarter interfaces." },
@@ -83,7 +83,7 @@ export const servicesData: Record<string, any> = {
         icon: Palette,
         tagline: "Enhancing experience with intuitive and user-centric design services.",
         overview: "Creating comprehensive design systems that ensure visual consistency across all touchpoints while maintaining high-efficiency development workflows.",
-        keywords: "ui ux design, product design, figma prototyping, design systems, user experience consultancy, creative digital agency",
+        keywords: "UI UX design company India, UX consultancy Gujarat, product design agency India, Figma design services India, design system development India, user experience design company India, interaction design agency Gujarat, UX research company India, SaaS product design India, mobile UX design India, accessibility design WCAG India, design sprint agency, UI design company Gujarat, creative digital agency India, prototype user testing India, product design studio India",
         capabilities: [
             { title: "Component Labs", desc: "Reusable, documented UI building blocks." },
             { title: "Brand Identity", desc: "Digital-first visual language development." },
@@ -104,7 +104,7 @@ export const servicesData: Record<string, any> = {
         icon: Infinity,
         tagline: "Streamlined Processes and Collaboration for code lifecycle.",
         overview: "Bridging the gap between development and operations. We build technical bridges that automate deployment pipelines and ensure 99.99% uptime for enterprise systems.",
-        keywords: "devops consulting, ci cd automation, kubernetes orchestration, docker, terraform iac, cloud monitoring, aws devops",
+        keywords: "DevOps consulting India, CI CD pipeline automation India, Kubernetes orchestration services India, Docker containerization India, Terraform infrastructure as code India, cloud DevOps AWS Azure India, DevOps agency Gujarat, site reliability engineering SRE India, platform engineering India, GitHub Actions CI CD India, cloud cost optimisation India, GitOps implementation India, DevSecOps consulting India, observability monitoring setup India, DevOps transformation consulting India, DevOps company Gujarat",
         capabilities: [
             { title: "CI/CD Pipelines", desc: "Automated testing and deployment workflows." },
             { title: "IaC Implementation", desc: "Managing infrastructure via code (Terraform)." },
@@ -125,7 +125,7 @@ export const servicesData: Record<string, any> = {
         icon: ShieldCheck,
         tagline: "Delivering excellence with robust automated and manual QA.",
         overview: "Ensuring zero-defect deployments through rigorous technical testing. We combine automated regression suites with manual exploratory testing to guarantee quality.",
-        keywords: "software quality assurance, automated testing, playwright, cypress, selenium, regression testing, load testing",
+        keywords: "QA testing company India, software quality assurance Gujarat, automated testing agency India, Playwright Cypress testing India, end to end test automation India, API testing services India, performance load testing India, accessibility testing WCAG India, mobile app QA testing India, regression testing services India, QA consulting company India, test automation framework India, Selenium testing company India, continuous testing CI CD India, software testing outsourcing India, QA agency Gujarat",
         capabilities: [
             { title: "E2E Automation", desc: "Full-flow testing with Playwright or Cypress." },
             { title: "API Testing", desc: "Validation of data integrity and endpoint security." },
@@ -146,7 +146,7 @@ export const servicesData: Record<string, any> = {
         icon: Wifi,
         tagline: "Leveraging the device ecosystems to build a connected world.",
         overview: "Connecting the physical world to the digital cloud. We specialize in embedded systems and real-time data streaming for connected device networks.",
-        keywords: "iot solutions, internet of things development, embedded systems, mqtt protocol, aws iot core, sensor networks",
+        keywords: "IoT development company India, Internet of Things solutions Gujarat, embedded systems development India, IoT platform development India, MQTT protocol implementation India, AWS IoT Core integration India, smart device development India, industrial IoT solutions India, IoT sensor network development India, connected device development India, edge computing India, IoT data pipeline India, Raspberry Pi Arduino development India, fleet IoT management India, smart factory IoT India, IoT consulting company Gujarat",
         capabilities: [
             { title: "Embedded Systems", desc: "Low-level programming for specialized hardware." },
             { title: "MQTT Protocols", desc: "Lightweight messaging for real-time telemetry." },
@@ -167,7 +167,7 @@ export const servicesData: Record<string, any> = {
         icon: TrendingUp,
         tagline: "Crafting result-driven strategies to propel your business forward.",
         overview: "Technical growth marketing that blends data science with creative strategy. We focus on conversion optimization and technical SEO for measurable ROI.",
-        keywords: "growth marketing, technical seo, conversion rate optimization, data driven marketing, analytics,ROI focused marketing",
+        keywords: "digital marketing agency India, growth marketing company Gujarat, technical SEO services India, conversion rate optimisation agency India, data driven marketing India, performance marketing India, analytics setup GA4 GTM India, A/B testing services India, content marketing agency Gujarat, email marketing automation India, PPC campaign management India, marketing analytics consulting India, growth hacking startup India, SEO agency Gujarat Anand, digital growth strategy India, ROI marketing India",
         capabilities: [
             { title: "Technical SEO", desc: "Performance-focused search engine optimization." },
             { title: "CRO Labs", desc: "A/B testing for funnel optimization." },
@@ -188,7 +188,7 @@ export const servicesData: Record<string, any> = {
         icon: Boxes,
         tagline: "Building decentralized futures with secure blockchain solutions.",
         overview: "We architect and develop decentralized applications and smart contracts that prioritize security, transparency, and scalability in the Web3 ecosystem.",
-        keywords: "blockchain development, smart contracts, ethereum, solana, dapps, web3 agency, crypto solutions, nft marketplace",
+        keywords: "blockchain development company India, smart contract development Gujarat, Web3 development agency India, DApp development services India, Ethereum Solana development India, DeFi platform development India, NFT marketplace development India, crypto exchange development India, tokenomics design India, blockchain consulting company India, Solidity Rust development India, decentralized application development India, blockchain audit services India, Web3 startup India Gujarat, crypto wallet development India, blockchain agency India",
         capabilities: [
             { title: "Smart Contracts", desc: "Secure, audited contracts for Ethereum and Solana." },
             { title: "DApp Development", desc: "User-friendly interfaces for decentralized protocols." },
@@ -209,7 +209,7 @@ export const servicesData: Record<string, any> = {
         icon: Shield,
         tagline: "Fortifying your digital assets against evolving threats.",
         overview: "Providing comprehensive security audits and implementation strategies to protect your infrastructure, data, and users from malicious actors.",
-        keywords: "cybersecurity consulting, penetration testing, security audit, data protection, network security, zero trust architecture",
+        keywords: "cybersecurity company India, penetration testing services Gujarat, security audit consulting India, VAPT services India, web application security testing India, network security consulting India, GDPR HIPAA compliance India, zero trust architecture India, ISO 27001 compliance India, cloud security consulting AWS Azure India, incident response services India, DevSecOps consulting India, cybersecurity agency Gujarat, data protection consulting India, vulnerability assessment India, cybersecurity startup India",
         capabilities: [
             { title: "Penetration Testing", desc: "Identifying vulnerabilities before attackers do." },
             { title: "Compliance Audits", desc: "Ensuring adherence to GDPR, HIPAA, and ISO." },
@@ -230,7 +230,7 @@ export const servicesData: Record<string, any> = {
         icon: Database,
         tagline: "Transforming raw data into actionable business intelligence.",
         overview: "Building robust data pipelines and warehousing solutions that empower your organization to make data-driven decisions with confidence.",
-        keywords: "data engineering, big data solutions, data pipelines, etl processes, data warehousing, snowflake, dbt, analytics engineering",
+        keywords: "data engineering company India, data pipeline development Gujarat, ETL ELT development India, data warehousing Snowflake BigQuery India, dbt data transformation India, analytics engineering India, big data solutions company India, Apache Airflow Kafka India, real time data streaming India, business intelligence development India, data lake architecture India, Looker Power BI integration India, data platform engineering India, data ops consulting India, ML data infrastructure India, data engineering agency Gujarat",
         capabilities: [
             { title: "ETL Pipelines", desc: "Automating data movement and transformation." },
             { title: "Data Warehousing", desc: "Centralizing data for fast, reliable querying." },
@@ -251,7 +251,7 @@ export const servicesData: Record<string, any> = {
         icon: ShoppingBag,
         tagline: "Scalable digital storefronts for modern retail excellence.",
         overview: "Crafting high-conversion shopping experiences using cutting-edge headless commerce and traditional platforms, optimized for speed and user engagement.",
-        keywords: "ecommerce development, headless commerce, shopify plus, custom shopping carts, payment integration, omni channel retail",
+        keywords: "ecommerce development company India, headless commerce development India, Shopify Plus development India, custom ecommerce solutions Gujarat, WooCommerce development India, payment gateway integration India, Stripe Razorpay integration India, multi-vendor marketplace India, ecommerce performance optimisation India, ecommerce UX design India, omnichannel retail platform India, ecommerce SEO India, D2C brand website India, checkout optimisation agency India, ecommerce mobile app development India, ecommerce agency Gujarat",
         capabilities: [
             { title: "Headless Commerce", desc: "Decoupled frontends for ultimate flexibility." },
             { title: "Custom Checkouts", desc: "Optimized payment flows for higher conversion." },

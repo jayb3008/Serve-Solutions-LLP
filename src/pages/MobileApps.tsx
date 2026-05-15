@@ -135,6 +135,7 @@ export default function MobileApps() {
       <SEO
         title="Mobile Apps — iOS, Android & React Native"
         description="Sarve Solutions builds native iOS, Android, and React Native apps — App Store ready, loved by users, and built to handle real scale."
+        keywords="mobile app development company India, iOS app development Gujarat, Android app development India, React Native development company, cross platform app development India, Flutter development agency, mobile app development Anand, iPhone app development India, Swift iOS development, Kotlin Android development, mobile app agency Gujarat, App Store optimization India, push notifications integration, offline first mobile app, in-app purchase development, mobile UX design India"
         url="https://sarvesolutions.in/services/mobile"
         breadcrumb={[
           { name: 'Home', item: 'https://sarvesolutions.in' },

@@ -135,6 +135,7 @@ export default function WebEngineering() {
       <SEO
         title="Web Engineering — Fast, accessible, rock-solid"
         description="Sarve Solutions builds Next.js and React applications that are fast, accessible, and production-ready — from marketing sites to complex SaaS products."
+        keywords="web development company India, Next.js development agency, React development India, SaaS development company Gujarat, headless CMS development, web application development India, full stack web development Gujarat, Shopify Plus development India, TypeScript development company, Node.js backend development, REST API development India, GraphQL development, web performance optimization, Core Web Vitals agency, WCAG accessibility India, custom web app development, enterprise web development India"
         url="https://sarvesolutions.in/services/web-engineering"
         breadcrumb={[
           { name: 'Home', item: 'https://sarvesolutions.in' },

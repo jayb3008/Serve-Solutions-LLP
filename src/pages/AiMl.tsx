@@ -135,6 +135,7 @@ export default function AiMl() {
       <SEO
         title="AI & ML — Where intelligence meets engineering"
         description="Sarve Solutions builds production AI products — LLM integrations, RAG pipelines, autonomous agents, and data systems that ship and scale."
+        keywords="AI ML services India, artificial intelligence development company Gujarat, LLM integration services, RAG pipeline development, AI agents India, machine learning company India, OpenAI integration, Anthropic Claude API, LangChain development, vector database India, generative AI company, AI product development studio, custom AI solutions India, natural language processing NLP India, computer vision development, AI automation services Gujarat, production AI India, AI consulting India"
         url="https://sarvesolutions.in/services/ai-ml"
         breadcrumb={[
           { name: 'Home', item: 'https://sarvesolutions.in' },

@@ -91,6 +91,7 @@ export default function Portfolio() {
       <SEO
         title="Portfolio — Products built with great teams"
         description="A curated selection of digital products built by Sarve Solutions — from fintech platforms to AI copilots and headless storefronts."
+        keywords="software portfolio India, digital product case studies, web app portfolio Gujarat, mobile app case studies India, fintech app development portfolio, SaaS case study India, AI product portfolio, headless commerce case study, startup product portfolio India, design engineering portfolio, software agency work India, tech company portfolio Gujarat, Sarve Solutions projects, best software portfolio India"
         url="https://sarvesolutions.in/portfolio"
         breadcrumb={[
           { name: 'Home', item: 'https://sarvesolutions.in' },

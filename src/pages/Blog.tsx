@@ -108,6 +108,7 @@ export default function Blog() {
       <SEO
         title="Journal — Thinking out loud"
         description="Engineering deep dives, design decisions, AI lessons, and product thinking from the Sarve Solutions team."
+        keywords="software engineering blog India, product design articles, AI ML blog India, web development insights, tech blog Gujarat, startup engineering blog, React Next.js tutorials India, UX design blog, mobile development articles, digital product blog, software architecture India, AI product thinking, developer blog India, design engineering journal, Sarve Solutions blog"
         url="https://sarvesolutions.in/blog"
         breadcrumb={[
           { name: 'Home', item: 'https://sarvesolutions.in' },

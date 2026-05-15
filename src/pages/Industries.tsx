@@ -91,8 +91,9 @@ export default function Industries() {
   return (
     <div>
       <SEO
-        title="Industries — Ten verticals, deep expertise"
-        description="Sarve Solutions builds digital products across Fintech, Healthcare, SaaS, Commerce, Legal, Logistics, and more — with domain expertise baked in."
+        title="Industries — Seventeen verticals, deep expertise"
+        description="Sarve Solutions builds digital products across Fintech, Healthcare, SaaS, Commerce, Legal, Logistics, EdTech, OTT, and more — with deep domain expertise baked in from day one."
+        keywords="industry software development India, fintech software company India, healthcare tech India, edtech development company, logistics software India, legal tech company India, OTT platform development, insurtech India, travel tech development, manufacturing software India, retail tech company, telecom software India, construction tech India, marketplace development India, on demand app India, sports tech India, domain specific software development India, vertical SaaS India"
         url="https://sarvesolutions.in/industries"
         breadcrumb={[
           { name: 'Home', item: 'https://sarvesolutions.in' },
