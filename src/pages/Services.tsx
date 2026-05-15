@@ -98,18 +98,33 @@ const deliverables = [
   },
 ];
 
-const stack = [
-  { name: 'Next.js',       cat: 'Frontend' },
-  { name: 'React Native',  cat: 'Mobile' },
-  { name: 'TypeScript',    cat: 'Language' },
-  { name: 'Node.js',       cat: 'Backend' },
-  { name: 'PostgreSQL',    cat: 'Database' },
-  { name: 'Supabase',      cat: 'Platform' },
-  { name: 'OpenAI',        cat: 'AI/ML' },
-  { name: 'Figma',         cat: 'Design' },
-  { name: 'Vercel',        cat: 'Deploy' },
-  { name: 'AWS',           cat: 'Cloud' },
+const stackGroups = [
+  {
+    cat: 'Design',
+    tools: ['Figma', 'Framer', 'Adobe CC'],
+  },
+  {
+    cat: 'Frontend',
+    tools: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js'],
+  },
+  {
+    cat: 'Mobile',
+    tools: ['React Native', 'Flutter', 'SwiftUI', 'Kotlin'],
+  },
+  {
+    cat: 'Backend & DB',
+    tools: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'Supabase', 'Prisma'],
+  },
+  {
+    cat: 'AI & ML',
+    tools: ['OpenAI', 'Anthropic', 'LangChain', 'LlamaIndex', 'Pinecone', 'Weaviate', 'HuggingFace', 'Groq', 'Mistral AI', 'LangSmith'],
+  },
+  {
+    cat: 'Cloud & Ops',
+    tools: ['AWS', 'Vercel', 'Docker', 'GitHub Actions'],
+  },
 ];
+
 
 export default function Services() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -234,12 +249,16 @@ export default function Services() {
               We're technology-agnostic, but these are the tools we reach for first — because they're the best at what they do.
             </p>
           </div>
-          <div className="stack-grid">
-            {stack.map((s, i) => (
-              <div key={s.name} className="stk reveal" data-d={String(i % 5)}>
-                <div className="stk__dot" />
-                <h5>{s.name}</h5>
-                <span>{s.cat}</span>
+
+          <div className="stack-cats reveal" data-d="1">
+            {stackGroups.map((group) => (
+              <div key={group.cat} className="stack-cat">
+                <div className="stack-cat__label">{group.cat}</div>
+                <ul className="stack-cat__tools">
+                  {group.tools.map((tool) => (
+                    <li key={tool}>{tool}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

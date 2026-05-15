@@ -8,7 +8,10 @@
       "Bash(tar -xf /mnt/c/Users/jayde/.claude/projects/D--Serve-Solutions-LLP/2da9f58d-348c-4069-b688-939e2a74d21e/tool-results/design.tar -C /mnt/c/Users/jayde/.claude/projects/D--Serve-Solutions-LLP/2da9f58d-348c-4069-b688-939e2a74d21e/tool-results/design_files)",
       "Read(//mnt/c/Users/jayde/.claude/projects/D--Serve-Solutions-LLP/2da9f58d-348c-4069-b688-939e2a74d21e/tool-results/**)",
       "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\jayde\\\\.claude\\\\projects\\\\D--Serve-Solutions-LLP\\\\2da9f58d-348c-4069-b688-939e2a74d21e\\\\tool-results\\\\design_files\" | Where-Object { -not $_.PSIsContainer } | Select-Object FullName)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(Get-ChildItem -Recurse -Force)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)"
     ]
   }
 }
