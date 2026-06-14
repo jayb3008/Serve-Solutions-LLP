@@ -134,13 +134,13 @@ export default function WebEngineering() {
     <div>
       <SEO
         title="Web Engineering — Fast, accessible, rock-solid"
-        description="Sarve Solutions builds Next.js and React applications that are fast, accessible, and production-ready — from marketing sites to complex SaaS products."
+        description="Satvix Tech Solution builds Next.js and React applications that are fast, accessible, and production-ready — from marketing sites to complex SaaS products."
         keywords="web development company India, Next.js development agency, React development India, SaaS development company Gujarat, headless CMS development, web application development India, full stack web development Gujarat, Shopify Plus development India, TypeScript development company, Node.js backend development, REST API development India, GraphQL development, web performance optimization, Core Web Vitals agency, WCAG accessibility India, custom web app development, enterprise web development India"
-        url="https://sarvesolutions.in/services/web-engineering"
+        url="https://satvixtech.com/services/web-engineering"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'Services', item: 'https://sarvesolutions.in/services' },
-          { name: 'Web Engineering', item: 'https://sarvesolutions.in/services/web-engineering' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'Services', item: 'https://satvixtech.com/services' },
+          { name: 'Web Engineering', item: 'https://satvixtech.com/services/web-engineering' },
         ]}
       />
 
@@ -166,7 +166,7 @@ export default function WebEngineering() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Web Engineering
+              Satvix Tech Solution &nbsp;/&nbsp; Services &nbsp;/&nbsp; Web Engineering
             </div>
             <p>
               Fast, accessible, rock-solid web applications. From marketing sites to complex SaaS products — we own the build from architecture to launch.
@@ -356,12 +356,12 @@ export default function WebEngineering() {
             Ready to ship something <em>great?</em>
           </h2>
           <a
-            href="mailto:info@sarvesolutions.in"
+            href="mailto:info@satvixtech.com"
             className="big-cta reveal"
             data-d="2"
             data-hover
           >
-            info@sarvesolutions.in
+            info@satvixtech.com
             <span className="arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14m-6-6 6 6-6 6" />

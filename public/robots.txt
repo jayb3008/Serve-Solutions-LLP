@@ -1,5 +1,5 @@
-# SARVE SOLUTIONS — robots.txt
-# https://sarvesolutions.in
+# SATVIX TECH SOLUTION — robots.txt
+# https://satvixtech.com
 
 User-agent: *
 Allow: /
@@ -36,4 +36,4 @@ Allow: /
 Crawl-delay: 3
 
 # Sitemap
-Sitemap: https://sarvesolutions.in/sitemap.xml
+Sitemap: https://satvixtech.com/sitemap.xml

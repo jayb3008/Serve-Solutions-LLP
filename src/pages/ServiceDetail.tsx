@@ -42,11 +42,11 @@ const ServiceDetail = () => {
                 title={service.title}
                 description={service.tagline}
                 keywords={service.keywords}
-                url={`https://sarvesolutions.in/services/${id}`}
+                url={`https://satvixtech.com/services/${id}`}
                 breadcrumb={[
-                    { name: "Home", item: "https://sarvesolutions.in" },
-                    { name: "Services", item: "https://sarvesolutions.in/services" },
-                    { name: service.title, item: `https://sarvesolutions.in/services/${id}` }
+                    { name: "Home", item: "https://satvixtech.com" },
+                    { name: "Services", item: "https://satvixtech.com/services" },
+                    { name: service.title, item: `https://satvixtech.com/services/${id}` }
                 ]}
             />
             {/* Hero Section */}

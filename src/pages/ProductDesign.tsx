@@ -134,13 +134,13 @@ export default function ProductDesign() {
     <div>
       <SEO
         title="Product Design — Research-driven, pixel-perfect"
-        description="Sarve Solutions designs digital products people actually want to use. UX research, prototyping, UI design, and design systems — end to end."
+        description="Satvix Tech Solution designs digital products people actually want to use. UX research, prototyping, UI design, and design systems — end to end."
         keywords="product design company India, UX design agency Gujarat, UI UX design India, user experience design company, Figma design agency India, design system development, prototyping agency India, user research company India, interaction design India, product design studio Gujarat, design ops India, accessibility design India, mobile UX design agency, SaaS product design India, digital product design company"
-        url="https://sarvesolutions.in/services/product-design"
+        url="https://satvixtech.com/services/product-design"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'Services', item: 'https://sarvesolutions.in/services' },
-          { name: 'Product Design', item: 'https://sarvesolutions.in/services/product-design' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'Services', item: 'https://satvixtech.com/services' },
+          { name: 'Product Design', item: 'https://satvixtech.com/services/product-design' },
         ]}
       />
 
@@ -166,7 +166,7 @@ export default function ProductDesign() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Product Design
+              Satvix Tech Solution &nbsp;/&nbsp; Services &nbsp;/&nbsp; Product Design
             </div>
             <p>
               We start with user insight and end with interfaces people actually want to use. Research-driven, pixel-perfect, and handed off clean — every time.
@@ -356,12 +356,12 @@ export default function ProductDesign() {
             Got a product worth <em>designing?</em>
           </h2>
           <a
-            href="mailto:info@sarvesolutions.in"
+            href="mailto:info@satvixtech.com"
             className="big-cta reveal"
             data-d="2"
             data-hover
           >
-            info@sarvesolutions.in
+            info@satvixtech.com
             <span className="arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14m-6-6 6 6-6 6" />

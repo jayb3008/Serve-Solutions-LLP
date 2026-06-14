@@ -90,12 +90,12 @@ export default function Portfolio() {
     <div>
       <SEO
         title="Portfolio — Products built with great teams"
-        description="A curated selection of digital products built by Sarve Solutions — from fintech platforms to AI copilots and headless storefronts."
-        keywords="software portfolio India, digital product case studies, web app portfolio Gujarat, mobile app case studies India, fintech app development portfolio, SaaS case study India, AI product portfolio, headless commerce case study, startup product portfolio India, design engineering portfolio, software agency work India, tech company portfolio Gujarat, Sarve Solutions projects, best software portfolio India"
-        url="https://sarvesolutions.in/portfolio"
+        description="A curated selection of digital products built by Satvix Tech Solution — from fintech platforms to AI copilots and headless storefronts."
+        keywords="software portfolio India, digital product case studies, web app portfolio Gujarat, mobile app case studies India, fintech app development portfolio, SaaS case study India, AI product portfolio, headless commerce case study, startup product portfolio India, design engineering portfolio, software agency work India, tech company portfolio Gujarat, Satvix Tech Solution projects, best software portfolio India"
+        url="https://satvixtech.com/portfolio"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'Portfolio', item: 'https://sarvesolutions.in/portfolio' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'Portfolio', item: 'https://satvixtech.com/portfolio' },
         ]}
       />
 
@@ -121,7 +121,7 @@ export default function Portfolio() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; Work
+              Satvix Tech Solution &nbsp;/&nbsp; Work
             </div>
             <p>
               From zero-to-launch fintech apps to AI copilots and heritage brand identities — a decade of work we're proud to put our name on.
@@ -203,12 +203,12 @@ export default function Portfolio() {
             Let's build something <em>worth showing.</em>
           </h2>
           <a
-            href="mailto:info@sarvesolutions.in"
+            href="mailto:info@satvixtech.com"
             className="big-cta reveal"
             data-d="2"
             data-hover
           >
-            info@sarvesolutions.in
+            info@satvixtech.com
             <span className="arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14m-6-6 6 6-6 6" />

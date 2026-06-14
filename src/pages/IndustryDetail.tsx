@@ -40,11 +40,11 @@ const IndustryDetail = () => {
                 title={industry.title}
                 description={industry.tagline}
                 keywords={industry.keywords}
-                url={`https://sarvesolutions.in/industries/${id}`}
+                url={`https://satvixtech.com/industries/${id}`}
                 breadcrumb={[
-                    { name: "Home", item: "https://sarvesolutions.in" },
-                    { name: "Industries", item: "https://sarvesolutions.in/industries" },
-                    { name: industry.title, item: `https://sarvesolutions.in/industries/${id}` }
+                    { name: "Home", item: "https://satvixtech.com" },
+                    { name: "Industries", item: "https://satvixtech.com/industries" },
+                    { name: industry.title, item: `https://satvixtech.com/industries/${id}` }
                 ]}
             />
             {/* Hero Section */}

@@ -89,17 +89,17 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <SEO
-        title="Contact — Start a conversation with Sarve Solutions"
-        description="Ready to build your next digital product? Get in touch with Sarve Solutions — an independent studio in Anand, Gujarat. We respond within one business day."
-        keywords="contact Sarve Solutions, hire software agency India, digital product studio Gujarat, get a quote web development, software development inquiry India"
-        url="https://sarvesolutions.in/contact"
+        title="Contact — Start a conversation with Satvix Tech Solution"
+        description="Ready to build your next digital product? Get in touch with Satvix Tech Solution — an independent studio in Anand, Gujarat. We respond within one business day."
+        keywords="contact Satvix Tech Solution, hire software agency India, digital product studio Gujarat, get a quote web development, software development inquiry India"
+        url="https://satvixtech.com/contact"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'Contact', item: 'https://sarvesolutions.in/contact' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'Contact', item: 'https://satvixtech.com/contact' },
         ]}
         faq={[
-          { question: 'How quickly does Sarve Solutions respond to enquiries?', answer: 'We respond to all project enquiries within one business day. For urgent matters, you can reach us directly at info@sarvesolutions.in or +91-9904055986.' },
-          { question: 'Where is Sarve Solutions located?', answer: 'Our studio is based in Anand, Gujarat, India. We work with clients globally across India, the US, UK, and Europe — fully remote or hybrid depending on your needs.' },
+          { question: 'How quickly does Satvix Tech Solution respond to enquiries?', answer: 'We respond to all project enquiries within one business day. For urgent matters, you can reach us directly at info@satvixtech.com or +91-9904055986.' },
+          { question: 'Where is Satvix Tech Solution located?', answer: 'Our studio is based in Anand, Gujarat, India. We work with clients globally across India, the US, UK, and Europe — fully remote or hybrid depending on your needs.' },
           { question: 'What information should I prepare before reaching out?', answer: 'The more context the better — a brief description of what you\'re building, your target users, your timeline, and a rough budget range will help us give you the most useful first response.' },
           { question: 'Do you sign NDAs?', answer: 'Yes, we\'re happy to sign a mutual NDA before any detailed project discussions. Just mention it in your initial message.' },
         ]}
@@ -127,7 +127,7 @@ const Contact = () => {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; Contact
+              Satvix Tech Solution &nbsp;/&nbsp; Contact
             </div>
             <p>
               We're ready to engineer your digital future. Our team is on standby to discuss your architectural needs, from initial concept to global scale.
@@ -170,7 +170,7 @@ const Contact = () => {
 
               <div className="space-y-12">
                 {[
-                  { icon: Mail, label: "Email Relay", value: "info@sarvesolutions.in", href: "mailto:info@sarvesolutions.in" },
+                  { icon: Mail, label: "Email Relay", value: "info@satvixtech.com", href: "mailto:info@satvixtech.com" },
                   { icon: Phone, label: "Direct Line", value: "+91-9904055986", href: "tel:+919904055986" },
                   { icon: MapPin, label: "HQ Coordinates", value: "Anand, Gujarat, India", isAddress: true }
                 ].map((item, i) => (

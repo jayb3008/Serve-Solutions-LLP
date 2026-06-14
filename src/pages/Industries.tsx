@@ -92,12 +92,12 @@ export default function Industries() {
     <div>
       <SEO
         title="Industries — Seventeen verticals, deep expertise"
-        description="Sarve Solutions builds digital products across Fintech, Healthcare, SaaS, Commerce, Legal, Logistics, EdTech, OTT, and more — with deep domain expertise baked in from day one."
+        description="Satvix Tech Solution builds digital products across Fintech, Healthcare, SaaS, Commerce, Legal, Logistics, EdTech, OTT, and more — with deep domain expertise baked in from day one."
         keywords="industry software development India, fintech software company India, healthcare tech India, edtech development company, logistics software India, legal tech company India, OTT platform development, insurtech India, travel tech development, manufacturing software India, retail tech company, telecom software India, construction tech India, marketplace development India, on demand app India, sports tech India, domain specific software development India, vertical SaaS India"
-        url="https://sarvesolutions.in/industries"
+        url="https://satvixtech.com/industries"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'Industries', item: 'https://sarvesolutions.in/industries' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'Industries', item: 'https://satvixtech.com/industries' },
         ]}
       />
 
@@ -123,7 +123,7 @@ export default function Industries() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; Industries
+              Satvix Tech Solution &nbsp;/&nbsp; Industries
             </div>
             <p>
               Deep domain knowledge means fewer wrong turns. We've shipped products in ten verticals — so we know the compliance traps, the table-stakes features, and where the real opportunity hides.

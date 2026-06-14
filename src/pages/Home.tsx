@@ -78,14 +78,14 @@ export default function Home() {
     <div>
       <SEO
         title="Engineering Digital Excellence"
-        description="Sarve Solutions is an independent digital studio in Anand, Gujarat. We design, engineer and launch web platforms, mobile apps, AI products, and brand systems for founders and forward-thinking teams."
-        keywords="SARVE SOLUTIONS, Sarve Solutions, digital product studio India, web development agency Gujarat, mobile app development Anand, AI ML solutions India, software engineering company Gujarat, independent digital studio, custom software India"
-        url="https://sarvesolutions.in"
+        description="Satvix Tech Solution is an independent digital studio in Anand, Gujarat. We design, engineer and launch web platforms, mobile apps, AI products, and brand systems for founders and forward-thinking teams."
+        keywords="SATVIX TECH SOLUTION, Satvix Tech Solution, digital product studio India, web development agency Gujarat, mobile app development Anand, AI ML solutions India, software engineering company Gujarat, independent digital studio, custom software India"
+        url="https://satvixtech.com"
         faq={[
-          { question: 'What does Sarve Solutions do?', answer: 'Sarve Solutions is an independent digital product studio based in Anand, Gujarat. We design, engineer, and launch web platforms, mobile apps, AI products, and brand systems — from zero to scale.' },
-          { question: 'Where is Sarve Solutions based?', answer: 'We are based in Anand, Gujarat, India, with clients across India, the US, UK, and Europe.' },
-          { question: 'How many projects has Sarve Solutions shipped?', answer: 'We have shipped over 120 web and mobile products across fintech, healthcare, SaaS, commerce, legal, and more — with a 98% client satisfaction rate.' },
-          { question: 'How do I start a project with Sarve Solutions?', answer: 'Email us at info@sarvesolutions.in or visit our Contact page. We respond within one business day and typically start with a free discovery call.' },
+          { question: 'What does Satvix Tech Solution do?', answer: 'Satvix Tech Solution is an independent digital product studio based in Anand, Gujarat. We design, engineer, and launch web platforms, mobile apps, AI products, and brand systems — from zero to scale.' },
+          { question: 'Where is Satvix Tech Solution based?', answer: 'We are based in Anand, Gujarat, India, with clients across India, the US, UK, and Europe.' },
+          { question: 'How many projects has Satvix Tech Solution shipped?', answer: 'We have shipped over 120 web and mobile products across fintech, healthcare, SaaS, commerce, legal, and more — with a 98% client satisfaction rate.' },
+          { question: 'How do I start a project with Satvix Tech Solution?', answer: 'Email us at info@satvixtech.com or visit our Contact page. We respond within one business day and typically start with a free discovery call.' },
         ]}
       />
 
@@ -113,7 +113,7 @@ export default function Home() {
           </h1>
 
           <div className="hero__foot">
-            <p>Sarve Solutions partners with founders and forward-thinking teams to build software, brands, and experiences people love using — from zero to scale.</p>
+            <p>Satvix Tech Solution partners with founders and forward-thinking teams to build software, brands, and experiences people love using — from zero to scale.</p>
             <Link to="/portfolio" className="cta-btn" data-hover>
               See selected work <span className="dot" />
             </Link>
@@ -255,12 +255,12 @@ export default function Home() {
             Got an idea worth <em>shipping?</em>
           </h2>
           <a
-            href="mailto:info@sarvesolutions.in"
+            href="mailto:info@satvixtech.com"
             className="big-cta reveal"
             data-d="2"
             data-hover
           >
-            info@sarvesolutions.in
+            info@satvixtech.com
             <span className="arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14m-6-6 6 6-6 6" />

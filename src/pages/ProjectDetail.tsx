@@ -261,11 +261,11 @@ export default function ProjectDetail() {
             <SEO
                 title={`${project.title} — ${project.subtitle}`}
                 description={project.overview}
-                url={`https://sarvesolutions.in/portfolio/${id}`}
+                url={`https://satvixtech.com/portfolio/${id}`}
                 breadcrumb={[
-                    { name: 'Home', item: 'https://sarvesolutions.in' },
-                    { name: 'Portfolio', item: 'https://sarvesolutions.in/portfolio' },
-                    { name: project.title, item: `https://sarvesolutions.in/portfolio/${id}` },
+                    { name: 'Home', item: 'https://satvixtech.com' },
+                    { name: 'Portfolio', item: 'https://satvixtech.com/portfolio' },
+                    { name: project.title, item: `https://satvixtech.com/portfolio/${id}` },
                 ]}
             />
 
