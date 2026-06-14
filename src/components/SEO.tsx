@@ -18,15 +18,15 @@ interface SEOProps {
   faq?: FAQItem[];
 }
 
-const BASE_URL = 'https://sarvesolutions.in';
+const BASE_URL = 'https://satvixtech.com';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
-const COMPANY_NAME = 'SARVE SOLUTIONS';
+const COMPANY_NAME = 'SATVIX TECH SOLUTION';
 const TODAY = '2026-05-15';
 
 const SEO = ({
   title = 'Engineering Digital Excellence',
-  description = 'SARVE SOLUTIONS — Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and Digital Transformation from Anand, Gujarat.',
-  keywords = 'SARVE SOLUTIONS, Sarve Solutions, IT consultancy India, software engineering Anand Gujarat, web development india, mobile app development, artificial intelligence solutions, machine learning, DevOps services, digital transformation, custom software development india, best IT company Gujarat',
+  description = 'SATVIX TECH SOLUTION — Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and Digital Transformation from Anand, Gujarat.',
+  keywords = 'SATVIX TECH SOLUTION, Satvix Tech Solution, IT consultancy India, software engineering Anand Gujarat, web development india, mobile app development, artificial intelligence solutions, machine learning, DevOps services, digital transformation, custom software development india, best IT company Gujarat',
   image = DEFAULT_IMAGE,
   url = BASE_URL,
   type = 'website',
@@ -46,7 +46,7 @@ const SEO = ({
     '@type': 'Organization',
     '@id': `${BASE_URL}/#organization`,
     name: COMPANY_NAME,
-    alternateName: 'Sarve Solutions',
+    alternateName: 'Satvix Tech Solution',
     url: BASE_URL,
     logo: {
       '@type': 'ImageObject',
@@ -68,15 +68,15 @@ const SEO = ({
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+91-9904055986',
-      email: 'info@sarvesolutions.in',
+      email: 'info@satvixtech.com',
       contactType: 'customer service',
       areaServed: 'IN',
       availableLanguage: ['en', 'Hindi', 'Gujarati'],
     },
     sameAs: [
-      'https://www.linkedin.com/company/serve-solutions',
-      'https://twitter.com/serve_solutions',
-      'https://www.instagram.com/serve.solutions',
+      'https://www.linkedin.com/company/satvix-tech-solution',
+      'https://twitter.com/satvixtech',
+      'https://www.instagram.com/satvixtech',
     ],
   };
 
@@ -89,7 +89,7 @@ const SEO = ({
     image,
     url: BASE_URL,
     telephone: '+91-9904055986',
-    email: 'info@sarvesolutions.in',
+    email: 'info@satvixtech.com',
     priceRange: '₹₹₹',
     currenciesAccepted: 'INR, USD',
     paymentAccepted: 'Bank Transfer, UPI, PayPal',
@@ -233,8 +233,8 @@ const SEO = ({
 
       {/* ── Twitter / X ── */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@serve_solutions" />
-      <meta name="twitter:creator" content="@serve_solutions" />
+      <meta name="twitter:site" content="@satvixtech" />
+      <meta name="twitter:creator" content="@satvixtech" />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={siteTitle} />
       <meta name="twitter:description" content={description} />

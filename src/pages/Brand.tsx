@@ -134,13 +134,13 @@ export default function Brand() {
     <div>
       <SEO
         title="Brand & Strategy — The first code you ship"
-        description="Sarve Solutions builds brand identity, positioning, and go-to-market strategy for founders who want to show up with confidence from day one."
+        description="Satvix Tech Solution builds brand identity, positioning, and go-to-market strategy for founders who want to show up with confidence from day one."
         keywords="brand identity design India, brand strategy agency Gujarat, logo design company India, visual identity design, brand positioning India, startup branding agency, go to market strategy India, brand guidelines design, naming agency India, brand voice content strategy, digital brand design India, brand system development, creative agency Gujarat, marketing strategy India, brand consulting company India"
-        url="https://sarvesolutions.in/services/brand"
+        url="https://satvixtech.com/services/brand"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'Services', item: 'https://sarvesolutions.in/services' },
-          { name: 'Brand & Strategy', item: 'https://sarvesolutions.in/services/brand' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'Services', item: 'https://satvixtech.com/services' },
+          { name: 'Brand & Strategy', item: 'https://satvixtech.com/services/brand' },
         ]}
       />
 
@@ -166,7 +166,7 @@ export default function Brand() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Brand &amp; Strategy
+              Satvix Tech Solution &nbsp;/&nbsp; Services &nbsp;/&nbsp; Brand &amp; Strategy
             </div>
             <p>
               We help founders articulate their positioning, create visual identities, and build content engines that turn a strong brand into measurable growth.
@@ -356,12 +356,12 @@ export default function Brand() {
             Ready to own your <em>category?</em>
           </h2>
           <a
-            href="mailto:info@sarvesolutions.in"
+            href="mailto:info@satvixtech.com"
             className="big-cta reveal"
             data-d="2"
             data-hover
           >
-            info@sarvesolutions.in
+            info@satvixtech.com
             <span className="arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14m-6-6 6 6-6 6" />

@@ -134,13 +134,13 @@ export default function AiMl() {
     <div>
       <SEO
         title="AI & ML — Where intelligence meets engineering"
-        description="Sarve Solutions builds production AI products — LLM integrations, RAG pipelines, autonomous agents, and data systems that ship and scale."
+        description="Satvix Tech Solution builds production AI products — LLM integrations, RAG pipelines, autonomous agents, and data systems that ship and scale."
         keywords="AI ML services India, artificial intelligence development company Gujarat, LLM integration services, RAG pipeline development, AI agents India, machine learning company India, OpenAI integration, Anthropic Claude API, LangChain development, vector database India, generative AI company, AI product development studio, custom AI solutions India, natural language processing NLP India, computer vision development, AI automation services Gujarat, production AI India, AI consulting India"
-        url="https://sarvesolutions.in/services/ai-ml"
+        url="https://satvixtech.com/services/ai-ml"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'Services', item: 'https://sarvesolutions.in/services' },
-          { name: 'AI & ML', item: 'https://sarvesolutions.in/services/ai-ml' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'Services', item: 'https://satvixtech.com/services' },
+          { name: 'AI & ML', item: 'https://satvixtech.com/services/ai-ml' },
         ]}
       />
 
@@ -166,7 +166,7 @@ export default function AiMl() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; AI &amp; ML
+              Satvix Tech Solution &nbsp;/&nbsp; AI &amp; ML
             </div>
             <p>
               We don't do AI demos. We build production AI features — LLM integrations, retrieval pipelines, autonomous agents — that your users depend on daily and your team can maintain.
@@ -356,12 +356,12 @@ export default function AiMl() {
             Got an AI idea worth <em>shipping?</em>
           </h2>
           <a
-            href="mailto:info@sarvesolutions.in"
+            href="mailto:info@satvixtech.com"
             className="big-cta reveal"
             data-d="2"
             data-hover
           >
-            info@sarvesolutions.in
+            info@satvixtech.com
             <span className="arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14m-6-6 6 6-6 6" />

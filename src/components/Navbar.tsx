@@ -35,7 +35,7 @@ export default function Navbar() {
       <header id="nav" className={`site-nav${scrolled ? ' scrolled' : ''}`}>
         <Link to="/" className="logo" data-hover>
           <span className="logo__mark"><span>S</span></span>
-          Sarve Solutions
+          Satvix Tech Solution
         </Link>
 
         <nav className="nav-links" aria-label="Main navigation">

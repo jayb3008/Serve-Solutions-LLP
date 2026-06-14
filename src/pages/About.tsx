@@ -48,18 +48,18 @@ export default function About() {
     <div>
       <SEO
         title="About — A studio of builders, makers & thinkers"
-        description="Sarve Solutions is an independent digital studio based in Anand, Gujarat. Founded in 2020, we partner with founders and forward-thinking teams to build software, brands, and experiences people love."
-        keywords="about Sarve Solutions, digital product studio India, software company Anand Gujarat, independent dev studio, who we are Sarve Solutions, founders team India"
-        url="https://sarvesolutions.in/about"
+        description="Satvix Tech Solution is an independent digital studio based in Anand, Gujarat. Founded in 2020, we partner with founders and forward-thinking teams to build software, brands, and experiences people love."
+        keywords="about Satvix Tech Solution, digital product studio India, software company Anand Gujarat, independent dev studio, who we are Satvix Tech Solution, founders team India"
+        url="https://satvixtech.com/about"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'About', item: 'https://sarvesolutions.in/about' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'About', item: 'https://satvixtech.com/about' },
         ]}
         faq={[
-          { question: 'When was Sarve Solutions founded?', answer: 'Sarve Solutions was founded in 2020 in Anand, Gujarat, India, starting as a two-person web studio and growing into a full-service digital product team.' },
-          { question: 'How big is the Sarve Solutions team?', answer: 'We are a focused team of 40+ engineers, designers, and strategists. We keep the team small enough to care deeply about every project and large enough to cover the full stack.' },
-          { question: 'What makes Sarve Solutions different from other agencies?', answer: 'We don\'t hand off between strategy, design, and engineering. One team owns the entire build. We also refuse to take on more projects than we can give our full attention — quality over volume.' },
-          { question: 'Does Sarve Solutions only work with Indian clients?', answer: 'No. While we are based in Gujarat, India, we work with clients globally — including the US, UK, Europe, and the Middle East — fully remotely or in hybrid arrangements.' },
+          { question: 'When was Satvix Tech Solution founded?', answer: 'Satvix Tech Solution was founded in 2020 in Anand, Gujarat, India, starting as a two-person web studio and growing into a full-service digital product team.' },
+          { question: 'How big is the Satvix Tech Solution team?', answer: 'We are a focused team of 40+ engineers, designers, and strategists. We keep the team small enough to care deeply about every project and large enough to cover the full stack.' },
+          { question: 'What makes Satvix Tech Solution different from other agencies?', answer: 'We don\'t hand off between strategy, design, and engineering. One team owns the entire build. We also refuse to take on more projects than we can give our full attention — quality over volume.' },
+          { question: 'Does Satvix Tech Solution only work with Indian clients?', answer: 'No. While we are based in Gujarat, India, we work with clients globally — including the US, UK, Europe, and the Middle East — fully remotely or in hybrid arrangements.' },
         ]}
       />
 
@@ -85,7 +85,7 @@ export default function About() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; About
+              Satvix Tech Solution &nbsp;/&nbsp; About
             </div>
             <p>
               We're an independent digital studio headquartered in Anand, Gujarat. Since 2020 we've partnered with founders, operators, and enterprise teams to design, engineer, and launch digital products that last.

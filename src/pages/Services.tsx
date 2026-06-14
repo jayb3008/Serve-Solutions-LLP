@@ -133,18 +133,18 @@ export default function Services() {
     <div>
       <SEO
         title="What we do — Five practices, one team"
-        description="Sarve Solutions offers Product Design, Web Engineering, Mobile Apps, AI & Data, and Brand Strategy — all under one roof."
+        description="Satvix Tech Solution offers Product Design, Web Engineering, Mobile Apps, AI & Data, and Brand Strategy — all under one roof."
         keywords="product design services india, web engineering company, mobile app development india, AI ML services Gujarat, brand strategy agency, full stack development, digital product studio"
-        url="https://sarvesolutions.in/services"
+        url="https://satvixtech.com/services"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'Services', item: 'https://sarvesolutions.in/services' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'Services', item: 'https://satvixtech.com/services' },
         ]}
         faq={[
-          { question: 'What services does Sarve Solutions offer?', answer: 'Sarve Solutions offers five core practices: Product Design (UX research, UI systems, prototyping), Web Engineering (Next.js, headless CMS, e-commerce), Mobile Apps (iOS, Android, React Native), AI & Data (LLM integration, RAG, agents), and Brand & Strategy (positioning, identity, content).' },
+          { question: 'What services does Satvix Tech Solution offer?', answer: 'Satvix Tech Solution offers five core practices: Product Design (UX research, UI systems, prototyping), Web Engineering (Next.js, headless CMS, e-commerce), Mobile Apps (iOS, Android, React Native), AI & Data (LLM integration, RAG, agents), and Brand & Strategy (positioning, identity, content).' },
           { question: 'Do you work with startups or enterprise clients?', answer: 'We work with both. From early-stage founders validating their first product to scale-ups modernising legacy systems, we adapt our process to the stage and size of the engagement.' },
-          { question: 'How does Sarve Solutions approach a new project?', answer: 'Every engagement starts with a discovery sprint — a structured deep-dive into users, market, and technical constraints. We come out with a prioritised roadmap before any production code is written.' },
-          { question: 'Can Sarve Solutions handle design and engineering in the same team?', answer: 'Yes. Strategy, design, and engineering sit at the same table for the entire build. We don\'t hand off between departments — one team owns the full product.' },
+          { question: 'How does Satvix Tech Solution approach a new project?', answer: 'Every engagement starts with a discovery sprint — a structured deep-dive into users, market, and technical constraints. We come out with a prioritised roadmap before any production code is written.' },
+          { question: 'Can Satvix Tech Solution handle design and engineering in the same team?', answer: 'Yes. Strategy, design, and engineering sit at the same table for the entire build. We don\'t hand off between departments — one team owns the full product.' },
           { question: 'What is the typical project timeline?', answer: 'A focused MVP typically takes 8–16 weeks from discovery to launch. Full-scale platforms with complex integrations can take 4–9 months. We\'ll give you a realistic estimate after the discovery sprint.' },
         ]}
       />
@@ -171,7 +171,7 @@ export default function Services() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; Services
+              Satvix Tech Solution &nbsp;/&nbsp; Services
             </div>
             <p>
               Five practices. One team. No handoffs between strategy, design, and engineering — we own the whole thing, end to end.
@@ -283,12 +283,12 @@ export default function Services() {
             Got a project in <em>mind?</em>
           </h2>
           <a
-            href="mailto:info@sarvesolutions.in"
+            href="mailto:info@satvixtech.com"
             className="big-cta reveal"
             data-d="2"
             data-hover
           >
-            info@sarvesolutions.in
+            info@satvixtech.com
             <span className="arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14m-6-6 6 6-6 6" />

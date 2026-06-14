@@ -134,13 +134,13 @@ export default function MobileApps() {
     <div>
       <SEO
         title="Mobile Apps — iOS, Android & React Native"
-        description="Sarve Solutions builds native iOS, Android, and React Native apps — App Store ready, loved by users, and built to handle real scale."
+        description="Satvix Tech Solution builds native iOS, Android, and React Native apps — App Store ready, loved by users, and built to handle real scale."
         keywords="mobile app development company India, iOS app development Gujarat, Android app development India, React Native development company, cross platform app development India, Flutter development agency, mobile app development Anand, iPhone app development India, Swift iOS development, Kotlin Android development, mobile app agency Gujarat, App Store optimization India, push notifications integration, offline first mobile app, in-app purchase development, mobile UX design India"
-        url="https://sarvesolutions.in/services/mobile"
+        url="https://satvixtech.com/services/mobile"
         breadcrumb={[
-          { name: 'Home', item: 'https://sarvesolutions.in' },
-          { name: 'Services', item: 'https://sarvesolutions.in/services' },
-          { name: 'Mobile Apps', item: 'https://sarvesolutions.in/services/mobile' },
+          { name: 'Home', item: 'https://satvixtech.com' },
+          { name: 'Services', item: 'https://satvixtech.com/services' },
+          { name: 'Mobile Apps', item: 'https://satvixtech.com/services/mobile' },
         ]}
       />
 
@@ -166,7 +166,7 @@ export default function MobileApps() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Sarve Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Mobile Apps
+              Satvix Tech Solution &nbsp;/&nbsp; Services &nbsp;/&nbsp; Mobile Apps
             </div>
             <p>
               Native experiences for iOS and Android, or cross-platform with React Native. Built for the App Store, loved by users, and handed over production-ready.
@@ -356,12 +356,12 @@ export default function MobileApps() {
             Got an app worth <em>shipping?</em>
           </h2>
           <a
-            href="mailto:info@sarvesolutions.in"
+            href="mailto:info@satvixtech.com"
             className="big-cta reveal"
             data-d="2"
             data-hover
           >
-            info@sarvesolutions.in
+            info@satvixtech.com
             <span className="arrow">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14m-6-6 6 6-6 6" />
