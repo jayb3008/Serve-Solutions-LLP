@@ -69,13 +69,13 @@ export default function Navbar() {
         .mega--right { left: auto; right: 0; }
         .mega--sm { width: 320px; }
         .mega__inner { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 70px -24px rgba(18,21,24,.35); padding: 18px; }
-        .mega__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-        .mega__grid--ind { grid-template-columns: repeat(4, 1fr); }
-        .mega__grid--one { grid-template-columns: 1fr; }
-        .mega__link { display: block; padding: 11px 13px; border-radius: 11px; transition: background .18s ease; }
+        .mega__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; }
+        .mega__grid--ind { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .mega__grid--one { grid-template-columns: minmax(0, 1fr); }
+        .mega__link { display: block; min-width: 0; padding: 11px 13px; border-radius: 11px; transition: background .18s ease; }
         .mega__link:hover { background: var(--bg-2); }
-        .mega__link .t { font-family: var(--display); font-size: 15px; font-weight: 500; letter-spacing: -.01em; display: block; color: var(--ink); }
-        .mega__link .d { font-size: 12px; color: var(--muted); line-height: 1.4; margin-top: 2px; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .mega__link .t { font-family: var(--display); font-size: 15px; font-weight: 500; letter-spacing: -.01em; display: block; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .mega__link .d { font-size: 12px; color: var(--muted); line-height: 1.4; margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .mega__link--ind { padding: 10px 12px; font-family: var(--display); font-size: 14px; font-weight: 500; color: var(--ink); }
         .mega__foot { margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
         .mega__foot span { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }

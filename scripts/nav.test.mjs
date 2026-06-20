@@ -40,6 +40,15 @@ check('services panel STAYS open when moving into it',
 const box = await svcPanel.boundingBox();
 check('services panel within viewport', box && box.x >= -2 && (box.x + box.width) <= 1442);
 
+// no grid ITEM overflows the right edge (the bug from the screenshot:
+// the 3rd column spilled outside the card and was clipped at the viewport)
+const rights = await svcPanel.locator('a.mega__link').evaluateAll(
+  (els) => els.map((e) => Math.round(e.getBoundingClientRect().right))
+);
+const maxRight = Math.max(...rights);
+check(`no service item overflows viewport (max right=${maxRight} <= 1440)`, maxRight <= 1440);
+check('services grid shows all 12 items', rights.length === 12);
+
 // clicking a link navigates
 await firstLink.click();
 await page.waitForTimeout(900);
