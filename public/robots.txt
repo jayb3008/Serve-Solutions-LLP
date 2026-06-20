@@ -1,39 +1,29 @@
-# SATVIX TECH SOLUTION — robots.txt
+# SATVIX TECH SOLUTIONS — robots.txt
 # https://satvixtech.com
 
 User-agent: *
 Allow: /
+Allow: /manifest.json
 Disallow: /admin/
 Disallow: /api/
 Disallow: /*?*        # block query-string crawl traps
-Disallow: /*.json$    # block raw data files
 
-# Allow static assets crawlers need for rendering
-Allow: /favicon.svg
-Allow: /*.js$
-Allow: /*.css$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.svg$
-Allow: /*.webp$
-Allow: /*.woff2$
-
-# Slow down overly aggressive bots
-Crawl-delay: 2
-
-# Google — no restrictions
+# Search engines — full access
 User-agent: Googlebot
 Allow: /
-Disallow: /admin/
-Disallow: /api/
 
 User-agent: Googlebot-Image
 Allow: /
 
-# Bing
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 3
+
+# AI / answer-engine crawlers (allow so the brand is discoverable)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
 
 # Sitemap
 Sitemap: https://satvixtech.com/sitemap.xml

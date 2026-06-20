@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 
@@ -250,7 +250,6 @@ const projectsData: Record<string, Project> = {
 
 export default function ProjectDetail() {
     const { id } = useParams<{ id: string }>();
-    const navigate = useNavigate();
     const heroRef = useRef<HTMLDivElement>(null);
 
     const project = projectsData[id as string] ?? projectsData['lendingflow'];
@@ -261,7 +260,11 @@ export default function ProjectDetail() {
             <SEO
                 title={`${project.title} — ${project.subtitle}`}
                 description={project.overview}
+                keywords={`${project.title}, ${project.tags.join(', ')}, ${project.tech.join(', ')}, case study, Satvix Tech Solutions portfolio, ${project.category}`}
+                image={project.img}
                 url={`https://satvixtech.com/portfolio/${id}`}
+                type="article"
+                datePublished={`${project.year}-01-01`}
                 breadcrumb={[
                     { name: 'Home', item: 'https://satvixtech.com' },
                     { name: 'Portfolio', item: 'https://satvixtech.com/portfolio' },

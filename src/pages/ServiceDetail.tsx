@@ -13,7 +13,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Squares from '../components/ui/squares';
 import SEO from '../components/SEO';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 
 const ServiceDetail = () => {
     const { id } = useParams();
@@ -21,6 +21,25 @@ const ServiceDetail = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const service = servicesData[id as string] || servicesData['web-engineering'];
+
+    const faqs = [
+        {
+            question: `What does Satvix Tech Solutions' ${service.title} service include?`,
+            answer: `${service.overview} Core capabilities include ${service.capabilities.map((c: { title: string }) => c.title).join(', ')}.`,
+        },
+        {
+            question: `Which technologies does Satvix Tech Solutions use for ${service.title}?`,
+            answer: `Our ${service.title} stack typically includes ${service.tech.join(', ')} — selected per project for performance, scalability, and long-term maintainability.`,
+        },
+        {
+            question: `How does a ${service.title} project work at Satvix Tech Solutions?`,
+            answer: `We follow a proven, transparent pipeline: ${service.workflow.map((w: { title: string }) => w.title).join(' → ')}. Every stage is collaborative and milestone-driven, with clear communication throughout.`,
+        },
+        {
+            question: `Why choose Satvix Tech Solutions for ${service.title}?`,
+            answer: `Satvix Tech Solutions is an independent software studio in Anand, Gujarat, India with 120+ products shipped and a 98% client satisfaction rate. We serve clients across India, the US, UK, and Europe with senior engineers and a one-team, end-to-end approach.`,
+        },
+    ];
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -48,6 +67,12 @@ const ServiceDetail = () => {
                     { name: "Services", item: "https://satvixtech.com/services" },
                     { name: service.title, item: `https://satvixtech.com/services/${id}` }
                 ]}
+                service={{
+                    name: `${service.title} Services`,
+                    serviceType: service.title,
+                    description: service.overview,
+                }}
+                faq={faqs}
             />
             {/* Hero Section */}
             <section className="relative min-h-[60vh] flex items-center bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">
@@ -166,6 +191,24 @@ const ServiceDetail = () => {
                                         {item.desc}
                                     </p>
                                 </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ */}
+            <section className="py-24 border-b border-zinc-200 bg-white">
+                <div className="max-w-4xl mx-auto px-6">
+                    <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-16 flex items-center">
+                        <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
+                        04 Frequently Asked
+                    </h2>
+                    <div className="border-t border-zinc-200">
+                        {faqs.map((f, i) => (
+                            <div key={i} className="py-8 border-b border-zinc-200">
+                                <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight text-zinc-900">{f.question}</h3>
+                                <p className="text-zinc-600 leading-relaxed text-base md:text-lg">{f.answer}</p>
                             </div>
                         ))}
                     </div>

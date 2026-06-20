@@ -13,4 +13,10 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  // Bundle all deps into the SSR/prerender output so Node can load it as a
+  // self-contained ESM module (avoids CommonJS named-import interop errors,
+  // e.g. react-helmet-async). The SSR bundle is deleted after prerendering.
+  ssr: {
+    noExternal: true,
+  },
 });

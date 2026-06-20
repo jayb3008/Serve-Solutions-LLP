@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import { industriesData } from '../data/industries';
+
+const industryList = Object.entries(industriesData) as [string, { title: string }][];
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -210,6 +213,43 @@ export default function Home() {
                     <path d="M5 12h14m-6-6 6 6-6 6" />
                   </svg>
                 </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Industries ── */}
+      <section className="s" id="industries" style={{ borderTop: '1px solid var(--line)' }}>
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <div className="eyebrow reveal">Who we build for</div>
+              <h2 className="s-title reveal" data-d="1">
+                Deep expertise across <em>17 industries</em>.
+              </h2>
+            </div>
+            <p className="reveal" data-d="2" style={{ maxWidth: '34ch', color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.55, margin: 0 }}>
+              From fintech and healthcare to logistics, education and AI — we pair engineering with real domain knowledge, so software turns into measurable outcomes.
+            </p>
+          </div>
+
+          <div className="reveal" data-d="2" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 8 }}>
+            {industryList.map(([key, ind]) => (
+              <Link
+                key={key}
+                to={`/industries/${key}`}
+                data-hover
+                style={{
+                  fontFamily: 'var(--mono)', fontSize: 13, padding: '10px 18px',
+                  border: '1px solid var(--line)', borderRadius: 999,
+                  color: 'var(--ink-2)', textDecoration: 'none',
+                  transition: 'background .2s ease, color .2s ease, border-color .2s ease',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--ink)'; e.currentTarget.style.color = 'var(--bg)'; e.currentTarget.style.borderColor = 'var(--ink)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = ''; e.currentTarget.style.color = 'var(--ink-2)'; e.currentTarget.style.borderColor = 'var(--line)'; }}
+              >
+                {ind.title}
               </Link>
             ))}
           </div>

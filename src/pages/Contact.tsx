@@ -1,41 +1,10 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
-import * as THREE from 'three';
 import SEO from '../components/SEO';
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
-
-const ContactScene = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.1;
-      meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.15;
-    }
-  });
-  return (
-    <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 10]} intensity={1} />
-      <Float speed={3} rotationIntensity={0.5} floatIntensity={1}>
-        <Sphere ref={meshRef} args={[1, 100, 200]} scale={2.2}>
-          <MeshDistortMaterial
-            color="#e31e24"
-            attach="material"
-            distort={0.4}
-            speed={2}
-            roughness={0.1}
-            metalness={0.8}
-          />
-        </Sphere>
-      </Float>
-    </>
-  );
-};
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -133,22 +102,6 @@ const Contact = () => {
               We're ready to engineer your digital future. Our team is on standby to discuss your architectural needs, from initial concept to global scale.
             </p>
           </div>
-        </div>
-
-        {/* 3D Scene Background */}
-        <div style={{
-          position: 'absolute',
-          right: '-5%',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          width: '40%',
-          aspectRatio: '1',
-          zIndex: -1,
-          opacity: 0.8
-        }}>
-          {/* <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-            <ContactScene />
-          </Canvas> */}
         </div>
       </section>
 

@@ -11,7 +11,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SEO from '../components/SEO';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 
 const IndustryDetail = () => {
     const { id } = useParams();
@@ -19,6 +19,25 @@ const IndustryDetail = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const industry = industriesData[id as string] || industriesData['healthcare'];
+
+    const faqs = [
+        {
+            question: `How does Satvix Tech Solutions help ${industry.title} businesses?`,
+            answer: `${industry.overview} Our ${industry.title.toLowerCase()} expertise spans ${industry.capabilities.map((c: { title: string }) => c.title).join(', ')}.`,
+        },
+        {
+            question: `What kind of ${industry.title} solutions does Satvix Tech Solutions build?`,
+            answer: industry.capabilities.map((c: { title: string; desc: string }) => `${c.title} — ${c.desc}`).join(' '),
+        },
+        {
+            question: `Does Satvix Tech Solutions work with ${industry.title} clients outside India?`,
+            answer: `Yes. We are based in Anand, Gujarat, India and partner with ${industry.title.toLowerCase()} organisations across India, the United States, the United Kingdom, and Europe — fully remote or hybrid.`,
+        },
+        {
+            question: `Why choose Satvix Tech Solutions as a ${industry.title} technology partner?`,
+            answer: `With 120+ products shipped and a 98% client satisfaction rate, Satvix Tech Solutions pairs deep ${industry.title.toLowerCase()} domain knowledge with senior engineering, secure and compliant architecture, and an end-to-end team that owns strategy, design, and delivery.`,
+        },
+    ];
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -46,6 +65,7 @@ const IndustryDetail = () => {
                     { name: "Industries", item: "https://satvixtech.com/industries" },
                     { name: industry.title, item: `https://satvixtech.com/industries/${id}` }
                 ]}
+                faq={faqs}
             />
             {/* Hero Section */}
             <section className="relative min-h-[60vh] flex items-center bg-black text-white py-32 border-b border-zinc-800 overflow-hidden">
@@ -124,6 +144,24 @@ const IndustryDetail = () => {
                 <div className="relative z-10 text-center px-6">
                     <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-4">DRIVING INNOVATION IN {industry.title.toUpperCase()}</h3>
                     <div className="w-24 h-1 bg-white mx-auto" />
+                </div>
+            </section>
+
+            {/* FAQ */}
+            <section className="py-24 border-b border-zinc-200 bg-white">
+                <div className="max-w-4xl mx-auto px-6">
+                    <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-16 flex items-center">
+                        <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
+                        03 Common Questions
+                    </h2>
+                    <div className="border-t border-zinc-200">
+                        {faqs.map((f, i) => (
+                            <div key={i} className="py-8 border-b border-zinc-200">
+                                <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight text-zinc-900">{f.question}</h3>
+                                <p className="text-zinc-600 leading-relaxed text-base md:text-lg">{f.answer}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 

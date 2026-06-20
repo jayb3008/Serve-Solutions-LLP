@@ -5,6 +5,12 @@ interface FAQItem {
   answer: string;
 }
 
+interface ServiceInfo {
+  name: string;
+  description: string;
+  serviceType?: string;
+}
+
 interface SEOProps {
   title?: string;
   description?: string;
@@ -16,12 +22,13 @@ interface SEOProps {
   datePublished?: string;
   dateModified?: string;
   faq?: FAQItem[];
+  service?: ServiceInfo;
 }
 
 const BASE_URL = 'https://satvixtech.com';
-const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
+const DEFAULT_IMAGE = `${BASE_URL}/logo.png`;
 const COMPANY_NAME = 'SATVIX TECH SOLUTIONS';
-const TODAY = '2026-05-15';
+const TODAY = '2026-06-20';
 
 const SEO = ({
   title = 'Engineering Digital Excellence',
@@ -34,6 +41,7 @@ const SEO = ({
   datePublished = TODAY,
   dateModified = TODAY,
   faq,
+  service,
 }: SEOProps) => {
   const siteTitle =
     title === COMPANY_NAME || title.includes(COMPANY_NAME)
@@ -198,6 +206,47 @@ const SEO = ({
         }
       : null;
 
+  /* ── Service (service detail pages) ── */
+  const serviceSchema = service
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: service.name,
+        serviceType: service.serviceType || service.name,
+        description: service.description,
+        url,
+        provider: { '@id': `${BASE_URL}/#organization` },
+        areaServed: [
+          { '@type': 'Country', name: 'India' },
+          { '@type': 'Country', name: 'United States' },
+          { '@type': 'Country', name: 'United Kingdom' },
+        ],
+        availableChannel: {
+          '@type': 'ServiceChannel',
+          serviceUrl: url,
+          servicePhone: '+91-9904055986',
+        },
+      }
+    : null;
+
+  /* ── Article (portfolio case studies) ── */
+  const articleSchema =
+    type === 'article'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: siteTitle,
+          description,
+          image: [image],
+          url,
+          datePublished,
+          dateModified,
+          author: { '@id': `${BASE_URL}/#organization` },
+          publisher: { '@id': `${BASE_URL}/#organization` },
+          mainEntityOfPage: { '@type': 'WebPage', '@id': `${url}#webpage` },
+        }
+      : null;
+
   return (
     <Helmet>
       {/* ── Primary ── */}
@@ -225,8 +274,8 @@ const SEO = ({
       <meta property="og:title" content={siteTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property="og:image:width" content="1024" />
+      <meta property="og:image:height" content="512" />
       <meta property="og:image:alt" content={`${COMPANY_NAME} — ${title}`} />
       <meta property="og:site_name" content={COMPANY_NAME} />
       <meta property="og:locale" content="en_IN" />
@@ -253,6 +302,12 @@ const SEO = ({
       )}
       {faqSchema && (
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      )}
+      {serviceSchema && (
+        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+      )}
+      {articleSchema && (
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
       )}
     </Helmet>
   );

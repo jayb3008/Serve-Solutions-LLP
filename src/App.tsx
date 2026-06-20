@@ -133,8 +133,8 @@ function RevealObserver() {
   return null;
 }
 
-/* ── App shell ── */
-function AppShell() {
+/* ── App shell (router-agnostic: BrowserRouter on the client, StaticRouter on the server) ── */
+export function AppShell() {
   const [showLoader, setShowLoader] = useState(true);
 
   return (

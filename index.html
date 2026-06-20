@@ -4,51 +4,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-  <!-- Favicon -->
+  <!-- Favicon / PWA -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon.svg" sizes="any" />
   <link rel="apple-touch-icon" href="/favicon.svg" />
   <link rel="manifest" href="/manifest.json" />
 
-  <!-- Base SEO (overridden per page by react-helmet-async) -->
-  <title>SATVIX TECH SOLUTIONS | Engineering Digital Excellence</title>
-  <meta name="description" content="SATVIX TECH SOLUTIONS — Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and Digital Transformation from Anand, Gujarat." />
-  <meta name="keywords" content="SATVIX TECH SOLUTIONS, web development india, mobile app development, AI ML solutions, software engineering Gujarat, digital transformation" />
-  <meta name="author" content="SATVIX TECH SOLUTIONS" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://satvixtech.com" />
-
-  <!-- Theme -->
-  <meta name="theme-color" content="#121518" />
-  <meta name="color-scheme" content="light" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://satvixtech.com" />
-  <meta property="og:title" content="SATVIX TECH SOLUTIONS | Engineering Digital Excellence" />
-  <meta property="og:description" content="Transforming ideas into scalable digital realities. Web, Mobile, AI & Brand — all under one roof." />
-  <meta property="og:image" content="https://satvixtech.com/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="SATVIX TECH SOLUTIONS" />
-  <meta property="og:locale" content="en_IN" />
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@satvixtech" />
-  <meta name="twitter:title" content="SATVIX TECH SOLUTIONS | Engineering Digital Excellence" />
-  <meta name="twitter:description" content="Transforming ideas into scalable digital realities." />
-  <meta name="twitter:image" content="https://satvixtech.com/og-image.jpg" />
-
-  <!-- Google Fonts -->
+  <!-- Performance hints -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://images.pexels.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Fallback so scroll-reveal content stays visible if JS is disabled -->
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .loader { display: none !important; }
+    </style>
+  </noscript>
+
+  <!--
+    Per-page SEO (title, description, canonical, Open Graph, Twitter,
+    JSON-LD) is managed by react-helmet-async and baked into each route's
+    static HTML at build time by scripts/prerender.mjs.
+  -->
 </head>
 
 <body>
