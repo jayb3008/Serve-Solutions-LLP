@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollProgress from './components/ScrollProgress';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -189,6 +190,7 @@ export function AppShell() {
   return (
     <>
       <CursorTracker />
+      <ScrollProgress />
       {showLoader && <Loader onDone={() => setShowLoader(false)} />}
       <ScrollToTop />
       <RevealObserver />

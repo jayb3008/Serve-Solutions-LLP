@@ -41,6 +41,22 @@ const ServiceDetail = () => {
         },
     ];
 
+    const deliverables = [
+        { t: 'Discovery & audit', d: 'We map requirements, constraints and success metrics before a line of code is written.' },
+        { t: 'Architecture & roadmap', d: 'A scalable technical plan with clear milestones, estimates and trade-offs.' },
+        { t: 'Agile delivery', d: 'Weekly demos, continuous integration and full visibility into progress.' },
+        { t: 'QA & performance', d: 'Automated testing and performance tuning baked into every sprint.' },
+        { t: 'Launch & handover', d: 'Production deployment, documentation and a clean knowledge transfer.' },
+        { t: 'Ongoing partnership', d: 'Support, monitoring and iteration after launch — we stay invested.' },
+    ];
+
+    const stats = [
+        { n: '120+', l: 'Products shipped' },
+        { n: '98%', l: 'Client satisfaction' },
+        { n: '6+', l: 'Years building' },
+        { n: '40+', l: 'Engineers & designers' },
+    ];
+
     useEffect(() => {
         window.scrollTo(0, 0);
         const ctx = gsap.context(() => {
@@ -136,12 +152,31 @@ const ServiceDetail = () => {
                 </div>
             </section>
 
+            {/* What's included */}
+            <section className="py-24 border-b border-zinc-200 bg-white">
+                <div className="max-w-7xl mx-auto px-6">
+                    <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-20 flex items-center">
+                        <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
+                        02 What's Included
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-200 border border-zinc-200">
+                        {deliverables.map((d, i) => (
+                            <div key={i} className="bg-white p-10 group hover:bg-zinc-50 transition-colors">
+                                <div className="text-5xl font-bold text-zinc-100 mb-6 group-hover:text-zinc-200 transition-colors">{String(i + 1).padStart(2, '0')}</div>
+                                <h3 className="text-xl font-bold mb-3 tracking-tight">{d.t}</h3>
+                                <p className="text-zinc-500 text-sm leading-relaxed">{d.d}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Core Capabilities */}
             <section className="py-24 border-b border-zinc-200">
                 <div className="max-w-7xl mx-auto px-6">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-20 flex items-center">
                         <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
-                        02 Capabilities
+                        03 Capabilities
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-200 border border-zinc-200">
@@ -165,7 +200,7 @@ const ServiceDetail = () => {
                         <div>
                             <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-8 flex items-center">
                                 <span className="w-12 h-[1px] bg-zinc-800 mr-4" />
-                                03 Methodology
+                                04 Methodology
                             </h2>
                             <h3 className="text-4xl md:text-6xl font-bold tracking-tighter">OUR PROCESS<br />PIPELINE.</h3>
                         </div>
@@ -197,12 +232,26 @@ const ServiceDetail = () => {
                 </div>
             </section>
 
+            {/* Why Satvix — stats */}
+            <section className="py-20 border-b border-zinc-200 bg-[#F8F8F8]">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                        {stats.map((s) => (
+                            <div key={s.l}>
+                                <div className="text-5xl md:text-6xl font-bold tracking-tighter text-zinc-900">{s.n}</div>
+                                <div className="text-xs font-bold uppercase tracking-widest text-zinc-400 mt-3">{s.l}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* FAQ */}
             <section className="py-24 border-b border-zinc-200 bg-white">
                 <div className="max-w-4xl mx-auto px-6">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-16 flex items-center">
                         <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
-                        04 Frequently Asked
+                        05 Frequently Asked
                     </h2>
                     <div className="border-t border-zinc-200">
                         {faqs.map((f, i) => (

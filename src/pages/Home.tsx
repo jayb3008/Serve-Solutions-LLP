@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import AwardsSection from '../components/AwardsSection';
 import { industriesData } from '../data/industries';
 
 const industryList = Object.entries(industriesData) as [string, { title: string }][];
@@ -465,6 +466,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Awards & recognition ── */}
+      <AwardsSection />
 
       {/* ── CTA ── */}
       <section className="cta-section">

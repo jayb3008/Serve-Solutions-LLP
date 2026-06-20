@@ -10,11 +10,15 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    company: '',
     subject: '',
+    budget: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<null | 'success' | 'error'>(null);
+
+  const budgets = ['< ₹5L', '₹5L – ₹15L', '₹15L – ₹40L', '₹40L +', 'Not sure yet'];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +43,7 @@ const Contact = () => {
       });
 
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: '', email: '', company: '', subject: '', budget: '', message: '' });
     } catch (error) {
       console.error('Error!', error);
       setSubmitStatus('error');
@@ -236,31 +240,75 @@ const Contact = () => {
                     </div>
                   </div>
 
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div className="space-y-2">
+                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Company (optional)</label>
+                      <input
+                        type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        placeholder="Company / organisation"
+                        style={{
+                          width: '100%', background: 'transparent', border: 'none',
+                          borderBottom: '1px solid var(--line)', padding: '12px 0',
+                          fontSize: 16, color: 'var(--ink)', outline: 'none', transition: 'border-color .3s ease'
+                        }}
+                        onFocus={(e) => e.target.style.borderBottomColor = 'var(--accent)'}
+                        onBlur={(e) => e.target.style.borderBottomColor = 'var(--line)'}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>I'm interested in</label>
+                      <select
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
+                        style={{
+                          width: '100%', background: 'transparent', border: 'none',
+                          borderBottom: '1px solid var(--line)', padding: '12px 0',
+                          fontSize: 16, color: 'var(--ink)', outline: 'none', cursor: 'pointer'
+                        }}
+                      >
+                        <option value="">Select a service</option>
+                        <option value="web">Web Development</option>
+                        <option value="mobile">Mobile Apps</option>
+                        <option value="ai-ml">AI / ML</option>
+                        <option value="design">Product / UI-UX Design</option>
+                        <option value="brand">Brand & Strategy</option>
+                        <option value="hire">Hire a dedicated team</option>
+                        <option value="other">Something else</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Budget selector */}
                   <div className="space-y-2 mb-8">
-                    <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Protocol Inquiry</label>
-                    <select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      style={{
-                        width: '100%',
-                        background: 'transparent',
-                        border: 'none',
-                        borderBottom: '1px solid var(--line)',
-                        padding: '12px 0',
-                        fontSize: 16,
-                        color: 'var(--ink)',
-                        outline: 'none',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      <option value="">Select Protocol Inquiry</option>
-                      <option value="project">New Project Architecture</option>
-                      <option value="partnership">Strategic Partnership</option>
-                      <option value="careers">Join the Team</option>
-                      <option value="other">Other Inquiry</option>
-                    </select>
+                    <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Estimated budget</label>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, paddingTop: 6 }}>
+                      {budgets.map((b) => {
+                        const active = formData.budget === b;
+                        return (
+                          <button
+                            type="button"
+                            key={b}
+                            onClick={() => setFormData((f) => ({ ...f, budget: b }))}
+                            data-hover
+                            style={{
+                              fontFamily: 'var(--mono)', fontSize: 12, padding: '9px 16px',
+                              borderRadius: 999, cursor: 'pointer',
+                              border: `1px solid ${active ? 'var(--ink)' : 'var(--line)'}`,
+                              background: active ? 'var(--ink)' : 'transparent',
+                              color: active ? 'var(--bg)' : 'var(--ink-2)',
+                              transition: 'all .2s ease',
+                            }}
+                          >
+                            {b}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
 
                   <div className="space-y-2 mb-12">
