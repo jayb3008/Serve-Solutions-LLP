@@ -90,8 +90,8 @@ export default function Portfolio() {
     <div>
       <SEO
         title="Portfolio — Products built with great teams"
-        description="A curated selection of digital products built by Satvix Tech Solution — from fintech platforms to AI copilots and headless storefronts."
-        keywords="software portfolio India, digital product case studies, web app portfolio Gujarat, mobile app case studies India, fintech app development portfolio, SaaS case study India, AI product portfolio, headless commerce case study, startup product portfolio India, design engineering portfolio, software agency work India, tech company portfolio Gujarat, Satvix Tech Solution projects, best software portfolio India"
+        description="A curated selection of digital products built by Satvix Tech Solutions — from fintech platforms to AI copilots and headless storefronts."
+        keywords="software portfolio India, digital product case studies, web app portfolio Gujarat, mobile app case studies India, fintech app development portfolio, SaaS case study India, AI product portfolio, headless commerce case study, startup product portfolio India, design engineering portfolio, software agency work India, tech company portfolio Gujarat, Satvix Tech Solutions projects, best software portfolio India"
         url="https://satvixtech.com/portfolio"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },
@@ -121,7 +121,7 @@ export default function Portfolio() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solution &nbsp;/&nbsp; Work
+              Satvix Tech Solutions &nbsp;/&nbsp; Work
             </div>
             <p>
               From zero-to-launch fintech apps to AI copilots and heritage brand identities — a decade of work we're proud to put our name on.
@@ -196,7 +196,7 @@ export default function Portfolio() {
       {/* CTA */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Could your project sit here?
           </div>
           <h2 className="reveal" data-d="1">

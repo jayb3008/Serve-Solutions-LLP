@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -9,7 +10,9 @@ export default function Footer() {
         <div className="foot-grid">
           {/* Brand */}
           <div className="foot-brand">
-            <div className="foot-logo">Satvix<em> Tech Solution</em></div>
+            <div className="foot-logo" style={{ marginBottom: '20px' }}>
+              <Logo style={{ height: '48px' }} />
+            </div>
             <p>An independent digital product studio. We build software, brands, and experiences with founders and forward-thinking teams.</p>
           </div>
 
@@ -40,15 +43,15 @@ export default function Footer() {
             <ul>
               <li><a href="mailto:info@satvixtech.com">info@satvixtech.com</a></li>
               <li><a href="tel:+919904055986">+91-9904055986</a></li>
-              <li><span style={{ color: 'rgba(244,239,230,.6)' }}>Anand, Gujarat · India</span></li>
+              <li><span style={{ color: 'rgba(255,255,255,.6)' }}>Anand, Gujarat · India</span></li>
             </ul>
           </div>
         </div>
 
-        <div className="foot-mark">Satvix<em>·</em>Tech Solution<em>·</em>{year}</div>
+        <div className="foot-mark">Satvix<em>·</em>Tech Solutions<em>·</em>{year}</div>
 
         <div className="foot-bottom">
-          <div>© {year} Satvix Tech Solution · All rights reserved</div>
+          <div>© {year} Satvix Tech Solutions · All rights reserved</div>
           <div style={{ display: 'flex', gap: 24 }}>
             <a href="#">Privacy</a>
             <a href="#">Terms</a>

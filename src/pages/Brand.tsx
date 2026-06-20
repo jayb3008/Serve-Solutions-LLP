@@ -134,7 +134,7 @@ export default function Brand() {
     <div>
       <SEO
         title="Brand & Strategy — The first code you ship"
-        description="Satvix Tech Solution builds brand identity, positioning, and go-to-market strategy for founders who want to show up with confidence from day one."
+        description="Satvix Tech Solutions builds brand identity, positioning, and go-to-market strategy for founders who want to show up with confidence from day one."
         keywords="brand identity design India, brand strategy agency Gujarat, logo design company India, visual identity design, brand positioning India, startup branding agency, go to market strategy India, brand guidelines design, naming agency India, brand voice content strategy, digital brand design India, brand system development, creative agency Gujarat, marketing strategy India, brand consulting company India"
         url="https://satvixtech.com/services/brand"
         breadcrumb={[
@@ -166,7 +166,7 @@ export default function Brand() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solution &nbsp;/&nbsp; Services &nbsp;/&nbsp; Brand &amp; Strategy
+              Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Brand &amp; Strategy
             </div>
             <p>
               We help founders articulate their positioning, create visual identities, and build content engines that turn a strong brand into measurable growth.
@@ -259,8 +259,8 @@ export default function Brand() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
                 Use cases
               </div>
               <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
@@ -349,7 +349,7 @@ export default function Brand() {
       {/* CTA */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Let's build a brand worth remembering
           </div>
           <h2 className="reveal" data-d="1">

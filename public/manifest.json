@@ -1,6 +1,6 @@
 {
-    "short_name": "Satvix Tech Solution",
-    "name": "SATVIX TECH SOLUTION - Engineering Digital Excellence",
+    "short_name": "Satvix Tech Solutions",
+    "name": "SATVIX TECH SOLUTIONS - Engineering Digital Excellence",
     "icons": [
         {
             "src": "/favicon.svg",
@@ -11,6 +11,6 @@
     ],
     "start_url": "/",
     "display": "standalone",
-    "theme_color": "#15110d",
-    "background_color": "#f4efe6"
+    "theme_color": "#121518",
+    "background_color": "#ffffff"
 }

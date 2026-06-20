@@ -392,8 +392,8 @@ export default function ProjectDetail() {
                 <div className="wrap">
                     <div className="s-head" style={{ marginBottom: 60 }}>
                         <div>
-                            <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)' }}>
-                                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.3)', flexShrink: 0 }} />
+                            <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)' }}>
+                                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.3)', flexShrink: 0 }} />
                                 Problem &amp; approach
                             </div>
                             <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)', maxWidth: '14ch' }}>
@@ -402,29 +402,29 @@ export default function ProjectDetail() {
                         </div>
                     </div>
 
-                    <div style={{ borderTop: '1px solid rgba(244,239,230,.1)' }}>
+                    <div style={{ borderTop: '1px solid rgba(255, 255, 255,.1)' }}>
                         {/* Challenge */}
-                        <div className="tl-row reveal" style={{ borderBottom: '1px solid rgba(244,239,230,.1)', paddingTop: 48, paddingBottom: 48 }}>
-                            <div className="tl-year" style={{ fontFamily: 'var(--mono)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '.12em', color: 'rgba(244,239,230,.45)', fontWeight: 400 }}>
+                        <div className="tl-row reveal" style={{ borderBottom: '1px solid rgba(255, 255, 255,.1)', paddingTop: 48, paddingBottom: 48 }}>
+                            <div className="tl-year" style={{ fontFamily: 'var(--mono)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '.12em', color: 'rgba(255, 255, 255,.45)', fontWeight: 400 }}>
                                 Challenge
                             </div>
                             <div className="tl-title" style={{ color: 'var(--bg)', fontFamily: 'var(--display)', fontSize: 'clamp(20px,2vw,28px)', fontWeight: 500, letterSpacing: '-.015em' }}>
                                 The problem
                             </div>
-                            <div className="tl-body" style={{ color: 'rgba(244,239,230,.7)', lineHeight: 1.65, maxWidth: '54ch', fontSize: 17 }}>
+                            <div className="tl-body" style={{ color: 'rgba(255, 255, 255,.7)', lineHeight: 1.65, maxWidth: '54ch', fontSize: 17 }}>
                                 {project.challenge}
                             </div>
                         </div>
 
                         {/* Solution */}
                         <div className="tl-row reveal" data-d="1" style={{ paddingTop: 48, paddingBottom: 48 }}>
-                            <div className="tl-year" style={{ fontFamily: 'var(--mono)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '.12em', color: 'rgba(244,239,230,.45)', fontWeight: 400 }}>
+                            <div className="tl-year" style={{ fontFamily: 'var(--mono)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '.12em', color: 'rgba(255, 255, 255,.45)', fontWeight: 400 }}>
                                 Solution
                             </div>
                             <div className="tl-title" style={{ color: 'var(--bg)', fontFamily: 'var(--display)', fontSize: 'clamp(20px,2vw,28px)', fontWeight: 500, letterSpacing: '-.015em' }}>
                                 Our approach
                             </div>
-                            <div className="tl-body" style={{ color: 'rgba(244,239,230,.7)', lineHeight: 1.65, maxWidth: '54ch', fontSize: 17 }}>
+                            <div className="tl-body" style={{ color: 'rgba(255, 255, 255,.7)', lineHeight: 1.65, maxWidth: '54ch', fontSize: 17 }}>
                                 {project.solution}
                             </div>
                         </div>
@@ -450,13 +450,13 @@ export default function ProjectDetail() {
             {/* ── Next project ── */}
             <section className="cta-section" style={{ position: 'relative' }}>
                 <div className="wrap" style={{ position: 'relative' }}>
-                    <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.45)', justifyContent: 'center', marginBottom: 20 }}>
+                    <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.45)', justifyContent: 'center', marginBottom: 20 }}>
                         Next case study
                     </div>
                     {nextProject && (
                         <p className="reveal" data-d="0" style={{
                             fontFamily: 'var(--mono)', fontSize: 12, textTransform: 'uppercase',
-                            letterSpacing: '.14em', color: 'rgba(244,239,230,.5)',
+                            letterSpacing: '.14em', color: 'rgba(255, 255, 255,.5)',
                             marginBottom: 16,
                         }}>
                             {nextProject.category}

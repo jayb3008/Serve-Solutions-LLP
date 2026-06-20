@@ -20,13 +20,13 @@ interface SEOProps {
 
 const BASE_URL = 'https://satvixtech.com';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
-const COMPANY_NAME = 'SATVIX TECH SOLUTION';
+const COMPANY_NAME = 'SATVIX TECH SOLUTIONS';
 const TODAY = '2026-05-15';
 
 const SEO = ({
   title = 'Engineering Digital Excellence',
-  description = 'SATVIX TECH SOLUTION — Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and Digital Transformation from Anand, Gujarat.',
-  keywords = 'SATVIX TECH SOLUTION, Satvix Tech Solution, IT consultancy India, software engineering Anand Gujarat, web development india, mobile app development, artificial intelligence solutions, machine learning, DevOps services, digital transformation, custom software development india, best IT company Gujarat',
+  description = 'SATVIX TECH SOLUTIONS — Transforming ideas into scalable digital realities. Expert Web Development, Mobile Apps, AI/ML, and Digital Transformation from Anand, Gujarat.',
+  keywords = 'SATVIX TECH SOLUTIONS, Satvix Tech Solutions, IT consultancy India, software engineering Anand Gujarat, web development india, mobile app development, artificial intelligence solutions, machine learning, DevOps services, digital transformation, custom software development india, best IT company Gujarat',
   image = DEFAULT_IMAGE,
   url = BASE_URL,
   type = 'website',
@@ -46,7 +46,7 @@ const SEO = ({
     '@type': 'Organization',
     '@id': `${BASE_URL}/#organization`,
     name: COMPANY_NAME,
-    alternateName: 'Satvix Tech Solution',
+    alternateName: 'Satvix Tech Solutions',
     url: BASE_URL,
     logo: {
       '@type': 'ImageObject',
@@ -207,7 +207,7 @@ const SEO = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={COMPANY_NAME} />
-      <meta name="theme-color" content="#15110d" />
+      <meta name="theme-color" content="#121518" />
       <meta name="color-scheme" content="light" />
       <meta name="format-detection" content="telephone=no" />
 

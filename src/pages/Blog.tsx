@@ -107,8 +107,8 @@ export default function Blog() {
     <div>
       <SEO
         title="Journal — Thinking out loud"
-        description="Engineering deep dives, design decisions, AI lessons, and product thinking from the Satvix Tech Solution team."
-        keywords="software engineering blog India, product design articles, AI ML blog India, web development insights, tech blog Gujarat, startup engineering blog, React Next.js tutorials India, UX design blog, mobile development articles, digital product blog, software architecture India, AI product thinking, developer blog India, design engineering journal, Satvix Tech Solution blog"
+        description="Engineering deep dives, design decisions, AI lessons, and product thinking from the Satvix Tech Solutions team."
+        keywords="software engineering blog India, product design articles, AI ML blog India, web development insights, tech blog Gujarat, startup engineering blog, React Next.js tutorials India, UX design blog, mobile development articles, digital product blog, software architecture India, AI product thinking, developer blog India, design engineering journal, Satvix Tech Solutions blog"
         url="https://satvixtech.com/blog"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },
@@ -137,7 +137,7 @@ export default function Blog() {
             ))}
           </h1>
           <div className="page-hero__sub">
-            <div className="breadcrumb">Satvix Tech Solution &nbsp;/&nbsp; Journal</div>
+            <div className="breadcrumb">Satvix Tech Solutions &nbsp;/&nbsp; Journal</div>
             <p>
               Engineering deep dives, design decisions, AI lessons, and the occasional product opinion — written by the people actually shipping the work.
             </p>
@@ -257,11 +257,11 @@ export default function Blog() {
       </section>
 
       {/* Newsletter */}
-      <section style={{ background: 'var(--ink)', color: 'var(--bg)', padding: '100px 0', borderTop: '1px solid rgba(244,239,230,.08)' }}>
+      <section style={{ background: 'var(--ink)', color: 'var(--bg)', padding: '100px 0', borderTop: '1px solid rgba(255, 255, 255,.08)' }}>
         <div className="wrap">
           <div style={{ maxWidth: 680 }}>
-            <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)', marginBottom: 24 }}>
-              <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+            <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)', marginBottom: 24 }}>
+              <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
               Stay in the loop
             </div>
             <h2 className="reveal" data-d="1" style={{
@@ -271,7 +271,7 @@ export default function Blog() {
             }}>
               New articles, <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--accent)' }}>no noise.</em>
             </h2>
-            <p className="reveal" data-d="2" style={{ color: 'rgba(244,239,230,.65)', fontSize: 16, lineHeight: 1.55, marginBottom: 40, maxWidth: '50ch' }}>
+            <p className="reveal" data-d="2" style={{ color: 'rgba(255, 255, 255,.65)', fontSize: 16, lineHeight: 1.55, marginBottom: 40, maxWidth: '50ch' }}>
               We publish a few times a month. Engineering deep dives, design decisions, and the occasional hot take. No marketing emails.
             </p>
             <form
@@ -285,13 +285,13 @@ export default function Blog() {
                 placeholder="you@example.com"
                 required
                 style={{
-                  flex: 1, background: 'rgba(244,239,230,.07)', border: '1px solid rgba(244,239,230,.18)',
+                  flex: 1, background: 'rgba(255, 255, 255,.07)', border: '1px solid rgba(255, 255, 255,.18)',
                   borderRight: 'none', padding: '14px 20px', color: 'var(--bg)',
                   fontFamily: 'var(--sans)', fontSize: 15, outline: 'none',
                   borderRadius: '999px 0 0 999px',
                 }}
-                onFocus={e => (e.currentTarget.style.borderColor = 'rgba(244,239,230,.5)')}
-                onBlur={e => (e.currentTarget.style.borderColor = 'rgba(244,239,230,.18)')}
+                onFocus={e => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255,.5)')}
+                onBlur={e => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255,.18)')}
               />
               <button
                 type="submit"
@@ -312,7 +312,7 @@ export default function Blog() {
       {/* CTA */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Ready to work together?
           </div>
           <h2 className="reveal" data-d="1">

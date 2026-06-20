@@ -134,7 +134,7 @@ export default function WebEngineering() {
     <div>
       <SEO
         title="Web Engineering — Fast, accessible, rock-solid"
-        description="Satvix Tech Solution builds Next.js and React applications that are fast, accessible, and production-ready — from marketing sites to complex SaaS products."
+        description="Satvix Tech Solutions builds Next.js and React applications that are fast, accessible, and production-ready — from marketing sites to complex SaaS products."
         keywords="web development company India, Next.js development agency, React development India, SaaS development company Gujarat, headless CMS development, web application development India, full stack web development Gujarat, Shopify Plus development India, TypeScript development company, Node.js backend development, REST API development India, GraphQL development, web performance optimization, Core Web Vitals agency, WCAG accessibility India, custom web app development, enterprise web development India"
         url="https://satvixtech.com/services/web-engineering"
         breadcrumb={[
@@ -166,7 +166,7 @@ export default function WebEngineering() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solution &nbsp;/&nbsp; Services &nbsp;/&nbsp; Web Engineering
+              Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Web Engineering
             </div>
             <p>
               Fast, accessible, rock-solid web applications. From marketing sites to complex SaaS products — we own the build from architecture to launch.
@@ -259,8 +259,8 @@ export default function WebEngineering() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
                 Use cases
               </div>
               <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
@@ -349,7 +349,7 @@ export default function WebEngineering() {
       {/* CTA */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Let's build something lasting
           </div>
           <h2 className="reveal" data-d="1">

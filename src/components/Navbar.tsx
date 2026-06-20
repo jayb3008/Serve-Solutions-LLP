@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from './Logo';
 
 const navLinks = [
   { label: 'About',       path: '/about' },
@@ -33,9 +34,8 @@ export default function Navbar() {
       `}</style>
 
       <header id="nav" className={`site-nav${scrolled ? ' scrolled' : ''}`}>
-        <Link to="/" className="logo" data-hover>
-          <span className="logo__mark"><span>S</span></span>
-          Satvix Tech Solution
+        <Link to="/" className="logo" data-hover style={{ display: 'flex', alignItems: 'center' }}>
+          <Logo style={{ height: '42px' }} />
         </Link>
 
         <nav className="nav-links" aria-label="Main navigation">
@@ -90,7 +90,7 @@ export default function Navbar() {
                   fontFamily: 'var(--display)', fontWeight: 500,
                   fontSize: 'clamp(28px,8vw,56px)', letterSpacing: '-.02em',
                   lineHeight: 1.1, padding: '12px 0',
-                  borderBottom: '1px solid rgba(244,239,230,.08)',
+                  borderBottom: '1px solid rgba(255, 255, 255,.08)',
                   color: location.pathname === path ? 'var(--accent)' : 'var(--bg)',
                 }}
               >

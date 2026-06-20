@@ -134,7 +134,7 @@ export default function AiMl() {
     <div>
       <SEO
         title="AI & ML — Where intelligence meets engineering"
-        description="Satvix Tech Solution builds production AI products — LLM integrations, RAG pipelines, autonomous agents, and data systems that ship and scale."
+        description="Satvix Tech Solutions builds production AI products — LLM integrations, RAG pipelines, autonomous agents, and data systems that ship and scale."
         keywords="AI ML services India, artificial intelligence development company Gujarat, LLM integration services, RAG pipeline development, AI agents India, machine learning company India, OpenAI integration, Anthropic Claude API, LangChain development, vector database India, generative AI company, AI product development studio, custom AI solutions India, natural language processing NLP India, computer vision development, AI automation services Gujarat, production AI India, AI consulting India"
         url="https://satvixtech.com/services/ai-ml"
         breadcrumb={[
@@ -166,7 +166,7 @@ export default function AiMl() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solution &nbsp;/&nbsp; AI &amp; ML
+              Satvix Tech Solutions &nbsp;/&nbsp; AI &amp; ML
             </div>
             <p>
               We don't do AI demos. We build production AI features — LLM integrations, retrieval pipelines, autonomous agents — that your users depend on daily and your team can maintain.
@@ -259,8 +259,8 @@ export default function AiMl() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
                 Use cases
               </div>
               <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
@@ -349,7 +349,7 @@ export default function AiMl() {
       {/* CTA */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Let's build something intelligent
           </div>
           <h2 className="reveal" data-d="1">

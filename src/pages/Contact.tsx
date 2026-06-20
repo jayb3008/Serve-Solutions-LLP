@@ -24,7 +24,7 @@ const ContactScene = () => {
       <Float speed={3} rotationIntensity={0.5} floatIntensity={1}>
         <Sphere ref={meshRef} args={[1, 100, 200]} scale={2.2}>
           <MeshDistortMaterial
-            color="#ff5b2e"
+            color="#e31e24"
             attach="material"
             distort={0.4}
             speed={2}
@@ -89,17 +89,17 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <SEO
-        title="Contact — Start a conversation with Satvix Tech Solution"
-        description="Ready to build your next digital product? Get in touch with Satvix Tech Solution — an independent studio in Anand, Gujarat. We respond within one business day."
-        keywords="contact Satvix Tech Solution, hire software agency India, digital product studio Gujarat, get a quote web development, software development inquiry India"
+        title="Contact — Start a conversation with Satvix Tech Solutions"
+        description="Ready to build your next digital product? Get in touch with Satvix Tech Solutions — an independent studio in Anand, Gujarat. We respond within one business day."
+        keywords="contact Satvix Tech Solutions, hire software agency India, digital product studio Gujarat, get a quote web development, software development inquiry India"
         url="https://satvixtech.com/contact"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },
           { name: 'Contact', item: 'https://satvixtech.com/contact' },
         ]}
         faq={[
-          { question: 'How quickly does Satvix Tech Solution respond to enquiries?', answer: 'We respond to all project enquiries within one business day. For urgent matters, you can reach us directly at info@satvixtech.com or +91-9904055986.' },
-          { question: 'Where is Satvix Tech Solution located?', answer: 'Our studio is based in Anand, Gujarat, India. We work with clients globally across India, the US, UK, and Europe — fully remote or hybrid depending on your needs.' },
+          { question: 'How quickly does Satvix Tech Solutions respond to enquiries?', answer: 'We respond to all project enquiries within one business day. For urgent matters, you can reach us directly at info@satvixtech.com or +91-9904055986.' },
+          { question: 'Where is Satvix Tech Solutions located?', answer: 'Our studio is based in Anand, Gujarat, India. We work with clients globally across India, the US, UK, and Europe — fully remote or hybrid depending on your needs.' },
           { question: 'What information should I prepare before reaching out?', answer: 'The more context the better — a brief description of what you\'re building, your target users, your timeline, and a rough budget range will help us give you the most useful first response.' },
           { question: 'Do you sign NDAs?', answer: 'Yes, we\'re happy to sign a mutual NDA before any detailed project discussions. Just mention it in your initial message.' },
         ]}
@@ -127,7 +127,7 @@ const Contact = () => {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solution &nbsp;/&nbsp; Contact
+              Satvix Tech Solutions &nbsp;/&nbsp; Contact
             </div>
             <p>
               We're ready to engineer your digital future. Our team is on standby to discuss your architectural needs, from initial concept to global scale.

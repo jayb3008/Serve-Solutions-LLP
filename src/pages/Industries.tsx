@@ -92,7 +92,7 @@ export default function Industries() {
     <div>
       <SEO
         title="Industries — Seventeen verticals, deep expertise"
-        description="Satvix Tech Solution builds digital products across Fintech, Healthcare, SaaS, Commerce, Legal, Logistics, EdTech, OTT, and more — with deep domain expertise baked in from day one."
+        description="Satvix Tech Solutions builds digital products across Fintech, Healthcare, SaaS, Commerce, Legal, Logistics, EdTech, OTT, and more — with deep domain expertise baked in from day one."
         keywords="industry software development India, fintech software company India, healthcare tech India, edtech development company, logistics software India, legal tech company India, OTT platform development, insurtech India, travel tech development, manufacturing software India, retail tech company, telecom software India, construction tech India, marketplace development India, on demand app India, sports tech India, domain specific software development India, vertical SaaS India"
         url="https://satvixtech.com/industries"
         breadcrumb={[
@@ -123,7 +123,7 @@ export default function Industries() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solution &nbsp;/&nbsp; Industries
+              Satvix Tech Solutions &nbsp;/&nbsp; Industries
             </div>
             <p>
               Deep domain knowledge means fewer wrong turns. We've shipped products in ten verticals — so we know the compliance traps, the table-stakes features, and where the real opportunity hides.
@@ -167,8 +167,8 @@ export default function Industries() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
                 Why it matters
               </div>
               <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
@@ -176,13 +176,13 @@ export default function Industries() {
               </h2>
             </div>
           </div>
-          <div className="pgrid" style={{ borderTopColor: 'rgba(244,239,230,.1)' }}>
+          <div className="pgrid" style={{ borderTopColor: 'rgba(255, 255, 255,.1)' }}>
             {reasons.map(r => (
-              <div key={r.n} className="prin reveal" style={{ borderBottomColor: 'rgba(244,239,230,.1)', borderRightColor: 'rgba(244,239,230,.1)' }}>
+              <div key={r.n} className="prin reveal" style={{ borderBottomColor: 'rgba(255, 255, 255,.1)', borderRightColor: 'rgba(255, 255, 255,.1)' }}>
                 <div className="prin__n">{r.n}</div>
                 <div>
                   <h3 style={{ color: 'var(--bg)' }}>{r.title}</h3>
-                  <p style={{ color: 'rgba(244,239,230,.65)' }}>{r.body}</p>
+                  <p style={{ color: 'rgba(255, 255, 255,.65)' }}>{r.body}</p>
                 </div>
               </div>
             ))}
@@ -212,7 +212,7 @@ export default function Industries() {
       {/* CTA */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Your vertical, our expertise
           </div>
           <h2 className="reveal" data-d="1">

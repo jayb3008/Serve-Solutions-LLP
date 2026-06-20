@@ -133,7 +133,7 @@ export default function Services() {
     <div>
       <SEO
         title="What we do — Five practices, one team"
-        description="Satvix Tech Solution offers Product Design, Web Engineering, Mobile Apps, AI & Data, and Brand Strategy — all under one roof."
+        description="Satvix Tech Solutions offers Product Design, Web Engineering, Mobile Apps, AI & Data, and Brand Strategy — all under one roof."
         keywords="product design services india, web engineering company, mobile app development india, AI ML services Gujarat, brand strategy agency, full stack development, digital product studio"
         url="https://satvixtech.com/services"
         breadcrumb={[
@@ -141,10 +141,10 @@ export default function Services() {
           { name: 'Services', item: 'https://satvixtech.com/services' },
         ]}
         faq={[
-          { question: 'What services does Satvix Tech Solution offer?', answer: 'Satvix Tech Solution offers five core practices: Product Design (UX research, UI systems, prototyping), Web Engineering (Next.js, headless CMS, e-commerce), Mobile Apps (iOS, Android, React Native), AI & Data (LLM integration, RAG, agents), and Brand & Strategy (positioning, identity, content).' },
+          { question: 'What services does Satvix Tech Solutions offer?', answer: 'Satvix Tech Solutions offers five core practices: Product Design (UX research, UI systems, prototyping), Web Engineering (Next.js, headless CMS, e-commerce), Mobile Apps (iOS, Android, React Native), AI & Data (LLM integration, RAG, agents), and Brand & Strategy (positioning, identity, content).' },
           { question: 'Do you work with startups or enterprise clients?', answer: 'We work with both. From early-stage founders validating their first product to scale-ups modernising legacy systems, we adapt our process to the stage and size of the engagement.' },
-          { question: 'How does Satvix Tech Solution approach a new project?', answer: 'Every engagement starts with a discovery sprint — a structured deep-dive into users, market, and technical constraints. We come out with a prioritised roadmap before any production code is written.' },
-          { question: 'Can Satvix Tech Solution handle design and engineering in the same team?', answer: 'Yes. Strategy, design, and engineering sit at the same table for the entire build. We don\'t hand off between departments — one team owns the full product.' },
+          { question: 'How does Satvix Tech Solutions approach a new project?', answer: 'Every engagement starts with a discovery sprint — a structured deep-dive into users, market, and technical constraints. We come out with a prioritised roadmap before any production code is written.' },
+          { question: 'Can Satvix Tech Solutions handle design and engineering in the same team?', answer: 'Yes. Strategy, design, and engineering sit at the same table for the entire build. We don\'t hand off between departments — one team owns the full product.' },
           { question: 'What is the typical project timeline?', answer: 'A focused MVP typically takes 8–16 weeks from discovery to launch. Full-scale platforms with complex integrations can take 4–9 months. We\'ll give you a realistic estimate after the discovery sprint.' },
         ]}
       />
@@ -171,7 +171,7 @@ export default function Services() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solution &nbsp;/&nbsp; Services
+              Satvix Tech Solutions &nbsp;/&nbsp; Services
             </div>
             <p>
               Five practices. One team. No handoffs between strategy, design, and engineering — we own the whole thing, end to end.
@@ -222,8 +222,8 @@ export default function Services() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
                 What you get
               </div>
               <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
@@ -276,7 +276,7 @@ export default function Services() {
       {/* CTA */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Tell us what you're building
           </div>
           <h2 className="reveal" data-d="1">

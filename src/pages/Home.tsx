@@ -45,11 +45,46 @@ const services = [
 ];
 
 const workCards = [
-  { cls: 'wc-1 wide', ph: 'circle', year: '2025', tags: ['Fintech', 'Web + iOS'], title: 'LendingFlow — a card-issuing platform for the next million SMEs', href: '/portfolio' },
-  { cls: 'wc-2', ph: 'grid', year: '2025', tags: ['SaaS'], title: 'TailorPro — analytics and operations for boutique shops', href: '/portfolio' },
-  { cls: 'wc-3', ph: 'bars', year: '2024', tags: ['Commerce'], title: 'Stillwood Co. — headless storefront for a heritage outdoor brand', href: '/portfolio' },
-  { cls: 'wc-4', ph: 'poly', year: '2024', tags: ['AI'], title: 'Pelican — an agentic copilot for legal review', href: '/portfolio' },
-  { cls: 'wc-5', ph: 'wave', year: '2023', tags: ['Health'], title: 'Verbena Care — a calmer way to manage chronic conditions', href: '/portfolio' },
+  { 
+    cls: 'wc-1 wide', 
+    year: '2025', 
+    tags: ['Fintech', 'Web + iOS'], 
+    title: 'LendingFlow — a card-issuing platform for the next million SMEs', 
+    href: '/portfolio/lendingflow',
+    img: 'https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=1400'
+  },
+  { 
+    cls: 'wc-2', 
+    year: '2025', 
+    tags: ['SaaS'], 
+    title: 'TailorPro — analytics and operations for boutique shops', 
+    href: '/portfolio/tailorpro',
+    img: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+  { 
+    cls: 'wc-3', 
+    year: '2024', 
+    tags: ['Commerce'], 
+    title: 'Stillwood Co. — headless storefront for a heritage outdoor brand', 
+    href: '/portfolio/stillwood',
+    img: 'https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+  { 
+    cls: 'wc-4', 
+    year: '2024', 
+    tags: ['AI'], 
+    title: 'Pelican — an agentic copilot for legal review', 
+    href: '/portfolio/pelican',
+    img: 'https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+  { 
+    cls: 'wc-5', 
+    year: '2023', 
+    tags: ['Health'], 
+    title: 'Verbena Care — a calmer way to manage chronic conditions', 
+    href: '/portfolio/verbena',
+    img: 'https://images.pexels.com/photos/3985163/pexels-photo-3985163.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
 ];
 
 const bandStats = [
@@ -78,14 +113,14 @@ export default function Home() {
     <div>
       <SEO
         title="Engineering Digital Excellence"
-        description="Satvix Tech Solution is an independent digital studio in Anand, Gujarat. We design, engineer and launch web platforms, mobile apps, AI products, and brand systems for founders and forward-thinking teams."
-        keywords="SATVIX TECH SOLUTION, Satvix Tech Solution, digital product studio India, web development agency Gujarat, mobile app development Anand, AI ML solutions India, software engineering company Gujarat, independent digital studio, custom software India"
+        description="Satvix Tech Solutions is an independent digital studio in Anand, Gujarat. We design, engineer and launch web platforms, mobile apps, AI products, and brand systems for founders and forward-thinking teams."
+        keywords="SATVIX TECH SOLUTIONS, Satvix Tech Solutions, digital product studio India, web development agency Gujarat, mobile app development Anand, AI ML solutions India, software engineering company Gujarat, independent digital studio, custom software India"
         url="https://satvixtech.com"
         faq={[
-          { question: 'What does Satvix Tech Solution do?', answer: 'Satvix Tech Solution is an independent digital product studio based in Anand, Gujarat. We design, engineer, and launch web platforms, mobile apps, AI products, and brand systems — from zero to scale.' },
-          { question: 'Where is Satvix Tech Solution based?', answer: 'We are based in Anand, Gujarat, India, with clients across India, the US, UK, and Europe.' },
-          { question: 'How many projects has Satvix Tech Solution shipped?', answer: 'We have shipped over 120 web and mobile products across fintech, healthcare, SaaS, commerce, legal, and more — with a 98% client satisfaction rate.' },
-          { question: 'How do I start a project with Satvix Tech Solution?', answer: 'Email us at info@satvixtech.com or visit our Contact page. We respond within one business day and typically start with a free discovery call.' },
+          { question: 'What does Satvix Tech Solutions do?', answer: 'Satvix Tech Solutions is an independent digital product studio based in Anand, Gujarat. We design, engineer, and launch web platforms, mobile apps, AI products, and brand systems — from zero to scale.' },
+          { question: 'Where is Satvix Tech Solutions based?', answer: 'We are based in Anand, Gujarat, India, with clients across India, the US, UK, and Europe.' },
+          { question: 'How many projects has Satvix Tech Solutions shipped?', answer: 'We have shipped over 120 web and mobile products across fintech, healthcare, SaaS, commerce, legal, and more — with a 98% client satisfaction rate.' },
+          { question: 'How do I start a project with Satvix Tech Solutions?', answer: 'Email us at info@satvixtech.com or visit our Contact page. We respond within one business day and typically start with a free discovery call.' },
         ]}
       />
 
@@ -113,7 +148,7 @@ export default function Home() {
           </h1>
 
           <div className="hero__foot">
-            <p>Satvix Tech Solution partners with founders and forward-thinking teams to build software, brands, and experiences people love using — from zero to scale.</p>
+            <p>Satvix Tech Solutions partners with founders and forward-thinking teams to build software, brands, and experiences people love using — from zero to scale.</p>
             <Link to="/portfolio" className="cta-btn" data-hover>
               See selected work <span className="dot" />
             </Link>
@@ -186,8 +221,8 @@ export default function Home() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
                 Selected work
               </div>
               <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
@@ -208,13 +243,12 @@ export default function Home() {
           <div className="work-grid">
             {workCards.map(c => (
               <Link key={c.title} to={c.href} className={`work-card ${c.cls} reveal`} data-hover>
-                <div className="work-card__bg">
-                  {c.ph === 'circle' && <div className="ph circle" />}
-                  {c.ph === 'grid' && <div className="ph grid" />}
-                  {c.ph === 'bars' && <div className="ph bars"><i /><i /><i /><i /><i /></div>}
-                  {c.ph === 'poly' && <div className="ph poly" />}
-                  {c.ph === 'wave' && <div className="ph wave" />}
-                </div>
+                <div
+                  className="work-card__bg"
+                  style={{
+                    background: `linear-gradient(rgba(10, 8, 6, 0.48), rgba(10, 8, 6, 0.48)), url(${c.img}) center/cover no-repeat`,
+                  }}
+                />
                 <div className="work-card__inner">
                   <div className="work-card__meta">
                     <span>{c.year}</span>
@@ -248,7 +282,7 @@ export default function Home() {
       {/* ── CTA ── */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Let&apos;s build
           </div>
           <h2 className="reveal" data-d="1">

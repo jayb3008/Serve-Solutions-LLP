@@ -134,7 +134,7 @@ export default function MobileApps() {
     <div>
       <SEO
         title="Mobile Apps — iOS, Android & React Native"
-        description="Satvix Tech Solution builds native iOS, Android, and React Native apps — App Store ready, loved by users, and built to handle real scale."
+        description="Satvix Tech Solutions builds native iOS, Android, and React Native apps — App Store ready, loved by users, and built to handle real scale."
         keywords="mobile app development company India, iOS app development Gujarat, Android app development India, React Native development company, cross platform app development India, Flutter development agency, mobile app development Anand, iPhone app development India, Swift iOS development, Kotlin Android development, mobile app agency Gujarat, App Store optimization India, push notifications integration, offline first mobile app, in-app purchase development, mobile UX design India"
         url="https://satvixtech.com/services/mobile"
         breadcrumb={[
@@ -166,7 +166,7 @@ export default function MobileApps() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solution &nbsp;/&nbsp; Services &nbsp;/&nbsp; Mobile Apps
+              Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Mobile Apps
             </div>
             <p>
               Native experiences for iOS and Android, or cross-platform with React Native. Built for the App Store, loved by users, and handed over production-ready.
@@ -259,8 +259,8 @@ export default function MobileApps() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
                 Use cases
               </div>
               <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
@@ -349,7 +349,7 @@ export default function MobileApps() {
       {/* CTA */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Let's build your next mobile product
           </div>
           <h2 className="reveal" data-d="1">

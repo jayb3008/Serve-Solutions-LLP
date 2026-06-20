@@ -134,7 +134,7 @@ export default function ProductDesign() {
     <div>
       <SEO
         title="Product Design — Research-driven, pixel-perfect"
-        description="Satvix Tech Solution designs digital products people actually want to use. UX research, prototyping, UI design, and design systems — end to end."
+        description="Satvix Tech Solutions designs digital products people actually want to use. UX research, prototyping, UI design, and design systems — end to end."
         keywords="product design company India, UX design agency Gujarat, UI UX design India, user experience design company, Figma design agency India, design system development, prototyping agency India, user research company India, interaction design India, product design studio Gujarat, design ops India, accessibility design India, mobile UX design agency, SaaS product design India, digital product design company"
         url="https://satvixtech.com/services/product-design"
         breadcrumb={[
@@ -166,7 +166,7 @@ export default function ProductDesign() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solution &nbsp;/&nbsp; Services &nbsp;/&nbsp; Product Design
+              Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Product Design
             </div>
             <p>
               We start with user insight and end with interfaces people actually want to use. Research-driven, pixel-perfect, and handed off clean — every time.
@@ -259,8 +259,8 @@ export default function ProductDesign() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(244,239,230,.4)', flexShrink: 0 }} />
+              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
                 Use cases
               </div>
               <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
@@ -349,7 +349,7 @@ export default function ProductDesign() {
       {/* CTA */}
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(244,239,230,.55)', justifyContent: 'center', marginBottom: 24 }}>
+          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Let's design something worth using
           </div>
           <h2 className="reveal" data-d="1">
