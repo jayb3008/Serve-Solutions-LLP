@@ -2,97 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import { posts } from '../data/blog';
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
-
-type Post = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  author: string;
-  date: string;
-  read: string;
-  cat: string;
-  featured?: boolean;
-  bg?: string;
-};
-
-const posts: Post[] = [
-  {
-    slug: 'llm-production-checklist',
-    title: 'The LLM production checklist: 12 things we check before every AI launch',
-    excerpt: "Streaming, cost caps, fallback models, eval harnesses — what we've learned shipping AI features that actually hold up under real traffic.",
-    author: 'Jay Sarvaiya',
-    date: 'May 2025',
-    read: '9 min',
-    cat: 'AI',
-    featured: true,
-    bg: 'bg-violet',
-  },
-  {
-    slug: 'rag-architecture-patterns',
-    title: 'RAG architecture patterns: when to chunk, when to chunk differently',
-    excerpt: 'Document structure, token budgets, and re-ranking — the decisions that separate a janky chatbot from a reliable knowledge assistant.',
-    author: 'Rahul Patel',
-    date: 'Apr 2025',
-    read: '11 min',
-    cat: 'AI',
-  },
-  {
-    slug: 'design-system-at-scale',
-    title: 'Building a design system that survives a team of 40',
-    excerpt: 'Token architecture, decision logs, and the governance model that keeps 40 engineers from accidentally forking your UI.',
-    author: 'Priya Mehta',
-    date: 'Apr 2025',
-    read: '7 min',
-    cat: 'Design',
-  },
-  {
-    slug: 'nextjs-app-router-lessons',
-    title: "Six months with Next.js App Router: what we'd do differently",
-    excerpt: "Server components, caching gotchas, and the moment we realised our mental model was entirely wrong. Real project lessons.",
-    author: 'Rahul Patel',
-    date: 'Mar 2025',
-    read: '10 min',
-    cat: 'Engineering',
-  },
-  {
-    slug: 'react-native-new-arch',
-    title: 'Migrating a 150k-user app to the React Native new architecture',
-    excerpt: 'What broke, what got faster, and the one bridging bug that took three days to find.',
-    author: 'Karan Joshi',
-    date: 'Mar 2025',
-    read: '8 min',
-    cat: 'Mobile',
-  },
-  {
-    slug: 'discovery-sprint-template',
-    title: 'Our discovery sprint template: two weeks that save six months',
-    excerpt: "The exact artefacts, interviews, and decisions we make in week one before a single line of code gets written.",
-    author: 'Nisha Desai',
-    date: 'Feb 2025',
-    read: '6 min',
-    cat: 'Product',
-  },
-  {
-    slug: 'supabase-at-scale',
-    title: 'Supabase at scale: what no one tells you about row-level security',
-    excerpt: 'Performance traps, policy debugging, and the indexing strategy that dropped our p99 from 800ms to 40ms.',
-    author: 'Dev Agarwal',
-    date: 'Feb 2025',
-    read: '12 min',
-    cat: 'Engineering',
-  },
-  {
-    slug: 'brand-for-b2b',
-    title: 'Brand strategy for B2B SaaS: why boring loses deals',
-    excerpt: "Positioning, voice, and visual identity advice for founders who think branding is for consumer apps.",
-    author: 'Sneha Trivedi',
-    date: 'Jan 2025',
-    read: '5 min',
-    cat: 'Brand',
-  },
-];
 
 const cats = ['All', 'AI', 'Engineering', 'Design', 'Mobile', 'Product', 'Brand'];
 

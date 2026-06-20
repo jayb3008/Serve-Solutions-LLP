@@ -1,5 +1,6 @@
 import { servicesData } from './services';
 import { industriesData } from './industries';
+import { blogSlugs } from './blog';
 
 /**
  * Single source of truth for every crawlable URL on the site.
@@ -34,6 +35,8 @@ export const staticRoutes = [
   '/industries',
   '/portfolio',
   '/blog',
+  '/hire',
+  '/careers',
   '/contact',
 ];
 
@@ -45,6 +48,8 @@ export const routeMeta: Record<string, { changefreq: string; priority: number }>
   '/industries': { changefreq: 'monthly', priority: 0.9 },
   '/portfolio': { changefreq: 'monthly', priority: 0.85 },
   '/blog': { changefreq: 'weekly', priority: 0.7 },
+  '/hire': { changefreq: 'monthly', priority: 0.85 },
+  '/careers': { changefreq: 'weekly', priority: 0.7 },
   '/contact': { changefreq: 'monthly', priority: 0.8 },
 };
 
@@ -53,6 +58,7 @@ function metaFor(route: string): { changefreq: string; priority: number } {
   if (route.startsWith('/services/')) return { changefreq: 'monthly', priority: 0.8 };
   if (route.startsWith('/industries/')) return { changefreq: 'monthly', priority: 0.75 };
   if (route.startsWith('/portfolio/')) return { changefreq: 'yearly', priority: 0.7 };
+  if (route.startsWith('/blog/')) return { changefreq: 'monthly', priority: 0.65 };
   return { changefreq: 'monthly', priority: 0.7 };
 }
 
@@ -64,6 +70,7 @@ export const allRoutes: string[] = [
     ...Object.keys(servicesData).map((k) => `/services/${k}`),
     ...Object.keys(industriesData).map((k) => `/industries/${k}`),
     ...portfolioSlugs.map((s) => `/portfolio/${s}`),
+    ...blogSlugs.map((s) => `/blog/${s}`),
   ]),
 ];
 

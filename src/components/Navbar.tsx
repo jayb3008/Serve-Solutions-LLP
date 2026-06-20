@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'About',       path: '/about' },
   { label: 'What we do', path: '/services' },
   { label: 'Industries',  path: '/industries' },
-  { label: 'AI / ML',    path: '/services/ai-ml' },
+  { label: 'Hire',        path: '/hire' },
   { label: 'Portfolio',   path: '/portfolio' },
   { label: 'Blog',        path: '/blog' },
 ];

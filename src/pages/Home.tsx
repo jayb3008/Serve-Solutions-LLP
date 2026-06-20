@@ -97,6 +97,31 @@ const bandStats = [
   { n: 40, unit: '+', label: 'Expert engineers' },
 ];
 
+const clients = ['LendingFlow', 'TailorPro', 'Stillwood', 'Pelican AI', 'Verbena', 'Nordhavn', 'Aurum', 'Traxis'];
+
+const process = [
+  { n: '01', title: 'Discover', desc: 'We start by understanding the problem, the users and the business — before a single screen gets designed.' },
+  { n: '02', title: 'Design', desc: 'Flows, prototypes and a visual language, tested with real people so we build the right thing.' },
+  { n: '03', title: 'Build', desc: 'Senior engineers ship in agile sprints with continuous integration and weekly demos.' },
+  { n: '04', title: 'Launch', desc: 'Hardened, tested and observable — we ship to production with confidence, not crossed fingers.' },
+  { n: '05', title: 'Scale', desc: 'We stay on as partners: measuring, iterating and growing the product alongside your team.' },
+];
+
+const techStack = [
+  { cat: 'Frontend', tools: 'React · Next.js · TypeScript · Tailwind' },
+  { cat: 'Mobile', tools: 'React Native · Swift · Kotlin · Flutter' },
+  { cat: 'Backend', tools: 'Node.js · Python · PostgreSQL · GraphQL' },
+  { cat: 'AI / ML', tools: 'LLMs · RAG · PyTorch · LangChain' },
+  { cat: 'Cloud', tools: 'AWS · Vercel · Docker · Kubernetes' },
+  { cat: 'Data', tools: 'Snowflake · dbt · Airflow · Redis' },
+];
+
+const testimonials = [
+  { quote: "Satvix shipped our card-issuing platform from zero to 50,000 active cards. They treated regulatory complexity as a design problem, not an excuse.", name: 'Head of Product', org: 'LendingFlow' },
+  { quote: "The one team owned strategy, design and engineering end to end. We've worked with five agencies — none came close to this level of ownership.", name: 'Founder & CEO', org: 'TailorPro' },
+  { quote: "Our Lighthouse score went from 22 to 98 and conversions tripled. They reproduced our brand pixel-for-pixel while making everything faster.", name: 'Brand Director', org: 'Stillwood Co.' },
+];
+
 export default function Home() {
   const orbRef = useRef<HTMLDivElement>(null);
 
@@ -184,6 +209,31 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* ── Clients strip ── */}
+      <section style={{ borderBottom: '1px solid var(--line)', padding: '40px 0' }}>
+        <div className="wrap">
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.16em', color: 'var(--muted)', textAlign: 'center', marginBottom: 28 }}>
+            Trusted by teams shipping real products
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '24px 56px' }}>
+            {clients.map((c) => (
+              <span
+                key={c}
+                style={{
+                  fontFamily: 'var(--display)', fontSize: 'clamp(18px, 2.2vw, 28px)',
+                  fontWeight: 500, letterSpacing: '-.02em', color: 'var(--ink)',
+                  opacity: 0.32, transition: 'opacity .3s ease',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.32')}
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── Services ── */}
       <section className="s services" id="services" style={{ borderTop: '1px solid var(--line)' }}>
@@ -303,8 +353,105 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Process ── */}
+      <section className="s" style={{ borderTop: '1px solid var(--line)' }}>
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <div className="eyebrow reveal">How we work</div>
+              <h2 className="s-title reveal" data-d="1">
+                One team, <em>five stages</em>, zero handoffs.
+              </h2>
+            </div>
+            <p className="reveal" data-d="2" style={{ maxWidth: '32ch', color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.55, margin: 0 }}>
+              A clear, transparent process — from first conversation to a product that scales. You always know what's happening and why.
+            </p>
+          </div>
+          <div className="tl-rows">
+            {process.map((p, i) => (
+              <div key={p.n} className="tl-row reveal" data-d={String(i)}>
+                <div className="tl-year">{p.n}</div>
+                <div className="tl-title">{p.title}</div>
+                <div className="tl-body">{p.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Tech stack ── */}
+      <section className="s" style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <div className="eyebrow reveal">Our stack</div>
+              <h2 className="s-title reveal" data-d="1">
+                Modern tools, <em>chosen on merit.</em>
+              </h2>
+            </div>
+            <p className="reveal" data-d="2" style={{ maxWidth: '32ch', color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.55, margin: 0 }}>
+              We're not religious about frameworks. We pick the right tool for each job — and we keep up so you don't have to.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
+            {techStack.map((t, i) => (
+              <div
+                key={t.cat}
+                className="reveal"
+                data-d={String(i % 4)}
+                style={{ background: 'var(--bg)', border: '1px solid var(--line)', borderRadius: 14, padding: '24px 26px' }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)' }} />
+                  <span style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.14em', color: 'var(--muted)' }}>{t.cat}</span>
+                </div>
+                <div style={{ fontFamily: 'var(--display)', fontSize: 20, fontWeight: 500, letterSpacing: '-.01em', lineHeight: 1.35 }}>{t.tools}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials ── */}
+      <section className="s">
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <div className="eyebrow reveal">In their words</div>
+              <h2 className="s-title reveal" data-d="1">
+                Teams who <em>trusted us.</em>
+              </h2>
+            </div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
+            {testimonials.map((t, i) => (
+              <figure
+                key={t.org}
+                className="reveal"
+                data-d={String(i)}
+                style={{ margin: 0, background: 'var(--bg)', border: '1px solid var(--line)', borderRadius: 'var(--radius)', padding: 32, display: 'flex', flexDirection: 'column', gap: 24 }}
+              >
+                <div style={{ fontFamily: 'var(--display)', fontSize: 40, lineHeight: 0.6, color: 'var(--accent)' }}>&ldquo;</div>
+                <blockquote style={{ margin: 0, fontFamily: 'var(--display)', fontSize: 'clamp(18px, 1.8vw, 22px)', fontWeight: 400, lineHeight: 1.4, letterSpacing: '-.01em', color: 'var(--ink)' }}>
+                  {t.quote}
+                </blockquote>
+                <figcaption style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--ink)', color: 'var(--bg)', display: 'grid', placeItems: 'center', fontFamily: 'var(--display)', fontWeight: 600 }}>
+                    {t.org.charAt(0)}
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: 14 }}>{t.name}</div>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '.08em' }}>{t.org}</div>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Stats band ── */}
-      <section className="band">
+      <section className="band" style={{ borderTop: '1px solid var(--line)' }}>
         <div className="wrap">
           <div className="band-grid">
             {bandStats.map((s, i) => (
