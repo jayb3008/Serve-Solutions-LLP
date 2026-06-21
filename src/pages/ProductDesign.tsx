@@ -149,9 +149,9 @@ export default function ProductDesign() {
   return (
     <div>
       <SEO
-        title="Product Design — Research-driven, pixel-perfect"
-        description="Satvix Tech Solutions designs digital products people actually want to use. UX research, prototyping, UI design, and design systems — end to end."
-        keywords="product design company India, UX design agency Gujarat, UI UX design India, user experience design company, Figma design agency India, design system development, prototyping agency India, user research company India, interaction design India, product design studio Gujarat, design ops India, accessibility design India, mobile UX design agency, SaaS product design India, digital product design company"
+        title="Product design — Satvix Tech Solutions, Anand, Gujarat"
+        description="Product design at Satvix Tech Solutions: research, interaction design, UI, prototyping and design systems. We design products people reach for without thinking about it."
+        keywords="Satvix Tech Solutions design, product design company India, UX design agency Gujarat, UI UX design India, Figma design agency India, design system development India, prototyping agency India, user research company India, interaction design India, SaaS product design India, design studio Anand Gujarat"
         url="https://satvixtech.com/services/product-design"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },

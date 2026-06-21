@@ -132,9 +132,9 @@ export default function Services() {
   return (
     <div>
       <SEO
-        title="The work — five practices, one team"
-        description="Product design, web engineering, mobile, AI, brand and editorial. Five disciplines, one studio in Anand, no handoffs between them."
-        keywords="product design services india, web engineering company, mobile app development india, AI ML services Gujarat, brand strategy agency, full stack development, digital product studio"
+        title="Services — five practices, one team at Satvix Tech Solutions"
+        description="Satvix Tech Solutions offers product design, web engineering, mobile apps, AI/ML and brand — five practices from one team in Anand, Gujarat, with no handoffs."
+        keywords="Satvix Tech Solutions services, product design services India, web engineering company India, mobile app development India, AI ML services India, brand strategy agency India, full-stack development India, digital product studio Anand Gujarat"
         url="https://satvixtech.com/services"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },

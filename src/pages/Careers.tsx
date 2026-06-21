@@ -43,9 +43,9 @@ export default function Careers() {
   return (
     <div>
       <SEO
-        title="Careers — Come work at a small, careful studio"
-        description="A small senior team in Anand, hiring engineers, designers, AI and platform people. Real ownership, real craft, real leave policy."
-        keywords="careers Satvix Tech Solutions, IT jobs Anand Gujarat, software developer jobs India, react developer jobs Gujarat, remote developer jobs India, AI ML engineer jobs India, design jobs India, DevOps jobs India, tech jobs Anand, software company careers Gujarat"
+        title="Careers at Satvix Tech Solutions — Anand, Gujarat"
+        description="Careers at Satvix Tech Solutions: we are hiring React, React Native, AI/ML, design, DevOps and QA roles in Anand, Gujarat. Hybrid, senior-only, real ownership of the work."
+        keywords="careers Satvix Tech Solutions, Satvix Tech Solutions jobs, IT jobs Anand Gujarat, software developer jobs India, React developer jobs Gujarat, hybrid developer jobs India, AI ML engineer jobs India, product designer jobs India, DevOps jobs India, software company careers Gujarat"
         url="https://satvixtech.com/careers"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },

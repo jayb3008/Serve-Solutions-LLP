@@ -133,9 +133,9 @@ export default function AiMl() {
   return (
     <div>
       <SEO
-        title="AI & ML — Where intelligence meets engineering"
-        description="Satvix Tech Solutions builds production AI products — LLM integrations, RAG pipelines, autonomous agents, and data systems that ship and scale."
-        keywords="AI ML services India, artificial intelligence development company Gujarat, LLM integration services, RAG pipeline development, AI agents India, machine learning company India, OpenAI integration, Anthropic Claude API, LangChain development, vector database India, generative AI company, AI product development studio, custom AI solutions India, natural language processing NLP India, computer vision development, AI automation services Gujarat, production AI India, AI consulting India"
+        title="AI & ML services — Satvix Tech Solutions, Anand, Gujarat"
+        description="Satvix Tech Solutions ships production AI — LLM features, RAG pipelines, agents and the evaluation, cost caps and observability that turn a clever demo into a real product."
+        keywords="Satvix Tech Solutions AI, AI ML services India, LLM integration services India, RAG pipeline development India, AI agents development India, machine learning company India, OpenAI integration India, Anthropic Claude API India, LangChain development India, vector database India, generative AI company India, custom AI solutions India, AI consulting India"
         url="https://satvixtech.com/services/ai-ml"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },

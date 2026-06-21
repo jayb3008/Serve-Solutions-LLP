@@ -96,9 +96,9 @@ export default function Portfolio() {
   return (
     <div>
       <SEO
-        title="Work — a small archive, picked carefully"
-        description="A few of the products we have shipped since 2020 — fintech, AI copilots, headless commerce, health, education. The ones we still talk about."
-        keywords="software portfolio India, digital product case studies, web app portfolio Gujarat, mobile app case studies India, fintech app development portfolio, SaaS case study India, AI product portfolio, headless commerce case study, startup product portfolio India, design engineering portfolio, software agency work India, tech company portfolio Gujarat, Satvix Tech Solutions projects, best software portfolio India"
+        title="Work — case studies from Satvix Tech Solutions"
+        description="Selected case studies from Satvix Tech Solutions — fintech platforms, SaaS, headless commerce, AI copilots and more. A short archive of products we have shipped since 2020."
+        keywords="Satvix Tech Solutions portfolio, Satvix Tech Solutions case studies, software portfolio India, digital product case studies India, web app portfolio Gujarat, mobile app case studies India, fintech app development portfolio, SaaS case study India, AI product portfolio India, headless commerce case study India"
         url="https://satvixtech.com/portfolio"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },

@@ -91,8 +91,8 @@ export default function Industries() {
   return (
     <div>
       <SEO
-        title="Industries — Where we have already done the homework"
-        description="Fintech, health, SaaS, commerce, legal, logistics, EdTech, OTT, real estate, manufacturing. Ten verticals, six years, one studio."
+        title="Industries — verticals Satvix Tech Solutions has shipped in"
+        description="Satvix Tech Solutions builds software for fintech, health, SaaS, commerce, legal, logistics, EdTech, OTT, real estate and manufacturing. Ten verticals, six years, one studio in Anand."
         keywords="industry software development India, fintech software company India, healthcare tech India, edtech development company, logistics software India, legal tech company India, OTT platform development, insurtech India, travel tech development, manufacturing software India, retail tech company, telecom software India, construction tech India, marketplace development India, on demand app India, sports tech India, domain specific software development India, vertical SaaS India"
         url="https://satvixtech.com/industries"
         breadcrumb={[

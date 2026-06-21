@@ -95,9 +95,9 @@ export default function About() {
   return (
     <div>
       <SEO
-        title="About — Forty people, one studio in Anand"
-        description="A small digital studio in Anand, Gujarat, since 2020. We design, build and ship software for founders and operators who care about the craft."
-        keywords="about Satvix Tech Solutions, digital product studio India, software company Anand Gujarat, independent dev studio, who we are Satvix Tech Solutions, founders team India"
+        title="About Satvix Tech Solutions — forty people, one studio in Anand"
+        description="About Satvix Tech Solutions: a 40-person independent digital studio in Anand, Gujarat, shipping web, mobile and AI products with founders and enterprise teams since 2020."
+        keywords="about Satvix Tech Solutions, Satvix Tech Solutions team, digital product studio India, software company Anand Gujarat, independent dev studio India, Batukbhai Sarvaiya, who we are Satvix Tech Solutions, software studio Gujarat"
         url="https://satvixtech.com/about"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },

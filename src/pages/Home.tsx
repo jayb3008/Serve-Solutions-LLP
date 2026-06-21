@@ -261,9 +261,9 @@ export default function Home() {
   return (
     <div>
       <SEO
-        title="A studio for founders who ship software that lasts"
-        description="Satvix Tech Solutions is a small studio in Anand, Gujarat. We design, build, and ship web, mobile, and AI products with founders and operators who care about the work."
-        keywords="Satvix Tech Solutions, digital product studio India, web development agency Gujarat, mobile app development Anand, AI ML solutions India, software engineering company Gujarat, independent digital studio, custom software India"
+        title="Satvix Tech Solutions — a digital product studio in Anand, Gujarat"
+        description="Satvix Tech Solutions is a small, senior digital studio in Anand, Gujarat. Since 2020 we have shipped 120+ web, mobile and AI products with founders and operators who care about the craft."
+        keywords="Satvix Tech Solutions, satvixtech, satvix tech, digital product studio India, software development company Anand Gujarat, web development agency India, mobile app development India, AI ML services India, custom software development India, independent digital studio India, hire developers India, React Next.js development India"
         url="https://satvixtech.com"
         faq={[
           {

@@ -18,9 +18,9 @@ export default function Blog() {
   return (
     <div>
       <SEO
-        title="Journal — Notes from the studio"
-        description="Long-form writing from the team. Engineering decisions, design rationale, the parts of AI we are still figuring out — published when we have something worth saying."
-        keywords="software engineering blog India, product design articles, AI ML blog India, web development insights, tech blog Gujarat, startup engineering blog, React Next.js tutorials India, UX design blog, mobile development articles, digital product blog, software architecture India, AI product thinking, developer blog India, design engineering journal, Satvix Tech Solutions blog"
+        title="Journal — engineering and design notes from Satvix Tech Solutions"
+        description="The Satvix Tech Solutions journal: long-form notes on engineering, product design, AI in production and what we have learned shipping software since 2020."
+        keywords="Satvix Tech Solutions blog, Satvix Tech Solutions journal, software engineering blog India, product design articles India, AI ML blog India, web development insights India, React Next.js tutorials India, UX design blog India, developer blog Gujarat"
         url="https://satvixtech.com/blog"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },

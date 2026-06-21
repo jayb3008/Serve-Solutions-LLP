@@ -54,9 +54,9 @@ export default function Hire() {
   return (
     <div>
       <SEO
-        title="Hire — Borrow a small team from our studio"
-        description="Embed a senior engineer, lift an entire team from Anand, or hire a fixed-scope build. Real overlap with India, EU, UK, the Middle East, and the US."
-        keywords="hire dedicated developers India, hire react developers India, staff augmentation company India, hire remote developers Gujarat, dedicated development team India, hire node.js developers, hire react native developers India, hire AI ML engineers India, IT staff augmentation Anand, hire software developers India, offshore development team India, hire designers India"
+        title="Hire developers from Satvix Tech Solutions — Anand, Gujarat"
+        description="Hire vetted developers, designers and QA from Satvix Tech Solutions — embed a specialist, borrow a dedicated team, or commission a fixed-scope build. India, EU, UK, US time-zone overlap."
+        keywords="hire developers Satvix Tech Solutions, hire dedicated developers India, hire React developers India, hire React Native developers India, hire Node.js developers India, hire AI ML engineers India, staff augmentation company India, dedicated development team India, IT staff augmentation Anand Gujarat, offshore development team India, hire designers India"
         url="https://satvixtech.com/hire"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },

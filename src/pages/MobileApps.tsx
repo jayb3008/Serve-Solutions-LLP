@@ -133,9 +133,9 @@ export default function MobileApps() {
   return (
     <div>
       <SEO
-        title="Mobile Apps — iOS, Android & React Native"
-        description="Satvix Tech Solutions builds native iOS, Android, and React Native apps — App Store ready, loved by users, and built to handle real scale."
-        keywords="mobile app development company India, iOS app development Gujarat, Android app development India, React Native development company, cross platform app development India, Flutter development agency, mobile app development Anand, iPhone app development India, Swift iOS development, Kotlin Android development, mobile app agency Gujarat, App Store optimization India, push notifications integration, offline first mobile app, in-app purchase development, mobile UX design India"
+        title="Mobile app development — Satvix Tech Solutions, Anand"
+        description="Satvix Tech Solutions builds iOS, Android, React Native and Flutter apps — designed for the long tail of real devices, shipped to the App Store and Play Store with paperwork done."
+        keywords="Satvix Tech Solutions mobile, mobile app development company India, iOS app development Gujarat, Android app development India, React Native development company India, cross-platform app development India, Flutter development agency India, Swift iOS development India, Kotlin Android development India, mobile app agency Gujarat, mobile UX design India"
         url="https://satvixtech.com/services/mobile"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },

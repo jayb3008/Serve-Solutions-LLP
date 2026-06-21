@@ -133,9 +133,9 @@ export default function Brand() {
   return (
     <div>
       <SEO
-        title="Brand & Strategy — The first code you ship"
-        description="Satvix Tech Solutions builds brand identity, positioning, and go-to-market strategy for founders who want to show up with confidence from day one."
-        keywords="brand identity design India, brand strategy agency Gujarat, logo design company India, visual identity design, brand positioning India, startup branding agency, go to market strategy India, brand guidelines design, naming agency India, brand voice content strategy, digital brand design India, brand system development, creative agency Gujarat, marketing strategy India, brand consulting company India"
+        title="Brand & strategy — Satvix Tech Solutions, Anand, Gujarat"
+        description="Satvix Tech Solutions handles brand and editorial work for founders — positioning, naming, identity systems and the words on the homepage, shipped with the product on day one."
+        keywords="Satvix Tech Solutions brand, brand identity design India, brand strategy agency Gujarat, logo design company India, visual identity design India, brand positioning India, startup branding agency India, naming agency India, brand voice content strategy India, creative agency Gujarat, brand consulting company India"
         url="https://satvixtech.com/services/brand"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },

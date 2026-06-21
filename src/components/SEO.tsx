@@ -27,13 +27,14 @@ interface SEOProps {
 
 const BASE_URL = "https://satvixtech.com";
 const DEFAULT_IMAGE = `${BASE_URL}/logo.png`;
-const COMPANY_NAME = "SATVIX TECH SOLUTIONS";
+const COMPANY_NAME = "Satvix Tech Solutions";
+const COMPANY_LEGAL = "Satvix Tech Solutions LLP";
 const TODAY = "2026-06-20";
 
 const SEO = ({
   title = "A studio for founders who ship software that lasts",
-  description = "Satvix Tech Solutions is a small digital studio in Anand, Gujarat. We design, build and ship web, mobile and AI products with founders and operators who care about the work.",
-  keywords = "Satvix Tech Solutions, IT consultancy India, software engineering Anand Gujarat, web development india, mobile app development, AI ML solutions India, custom software development India, digital product studio Gujarat",
+  description = "Satvix Tech Solutions is a small, senior studio in Anand, Gujarat. Since 2020 we have designed, built and shipped web, mobile and AI products with founders and operators who care about the craft.",
+  keywords = "Satvix Tech Solutions, satvixtech, digital product studio India, software development company Anand Gujarat, web development agency India, mobile app development India, AI ML services India, custom software development India, independent digital studio India",
   image = DEFAULT_IMAGE,
   url = BASE_URL,
   type = "website",
@@ -43,10 +44,17 @@ const SEO = ({
   faq,
   service,
 }: SEOProps) => {
+  /**
+   * SERP title format: "Page title — Satvix Tech Solutions".
+   * Page-specific copy leads (it is what wins the click); brand sits at the
+   * tail so the brand keyword still surfaces and brand search resolves.
+   * If the title already contains the brand (e.g. the home-page default),
+   * we leave it alone.
+   */
   const siteTitle =
     title === COMPANY_NAME || title.includes(COMPANY_NAME)
       ? title
-      : `${COMPANY_NAME} | ${title}`;
+      : `${title} — ${COMPANY_NAME}`;
 
   /* ── Organisation ── */
   const orgSchema = {
@@ -54,7 +62,8 @@ const SEO = ({
     "@type": "Organization",
     "@id": `${BASE_URL}/#organization`,
     name: COMPANY_NAME,
-    alternateName: "Satvix Tech Solutions",
+    legalName: COMPANY_LEGAL,
+    alternateName: ["Satvix", "SatvixTech", "Satvix Tech"],
     url: BASE_URL,
     logo: {
       "@type": "ImageObject",
@@ -307,7 +316,7 @@ const SEO = ({
       <meta property="og:image" content={image} />
       <meta property="og:image:width" content="1024" />
       <meta property="og:image:height" content="512" />
-      <meta property="og:image:alt" content={`${COMPANY_NAME} — ${title}`} />
+      <meta property="og:image:alt" content={siteTitle} />
       <meta property="og:site_name" content={COMPANY_NAME} />
       <meta property="og:locale" content="en_IN" />
 
@@ -319,7 +328,7 @@ const SEO = ({
       <meta name="twitter:title" content={siteTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      <meta name="twitter:image:alt" content={`${COMPANY_NAME} — ${title}`} />
+      <meta name="twitter:image:alt" content={siteTitle} />
 
       {/* ── Structured data ── */}
       <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>

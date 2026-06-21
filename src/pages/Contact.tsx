@@ -62,9 +62,9 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <SEO
-        title="Contact — One inbox, one human, no funnel"
-        description="Tell us what you’re building. We read every message and reply within a working day, usually with questions, sometimes with an honest ‘not us’."
-        keywords="contact Satvix Tech Solutions, hire software agency India, digital product studio Gujarat, get a quote web development, software development inquiry India"
+        title="Contact Satvix Tech Solutions — one inbox, one human, no funnel"
+        description="Contact Satvix Tech Solutions in Anand, Gujarat. Write to info@satvixtech.com or call +91 9904 055 986 — a real person replies within one working day."
+        keywords="contact Satvix Tech Solutions, Satvix Tech Solutions email, satvixtech contact, hire software agency India, digital product studio Gujarat, software development inquiry India, web development quote India, Anand Gujarat software company"
         url="https://satvixtech.com/contact"
         breadcrumb={[
           { name: 'Home', item: 'https://satvixtech.com' },
