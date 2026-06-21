@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="foot-logo" style={{ marginBottom: '20px' }}>
               <Logo style={{ height: '48px' }} />
             </div>
-            <p>An independent digital product studio. We build software, brands, and experiences with founders and forward-thinking teams.</p>
+            <p>A small, independent digital studio in Anand, Gujarat. We design, build, and ship software with founders and operators who care about the work.</p>
           </div>
 
           {/* Studio */}

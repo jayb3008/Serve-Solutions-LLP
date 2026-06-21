@@ -22,20 +22,20 @@ const IndustryDetail = () => {
 
     const faqs = [
         {
-            question: `How does Satvix Tech Solutions help ${industry.title} businesses?`,
-            answer: `${industry.overview} Our ${industry.title.toLowerCase()} expertise spans ${industry.capabilities.map((c: { title: string }) => c.title).join(', ')}.`,
+            question: `How do you actually work with ${industry.title.toLowerCase()} teams?`,
+            answer: `${industry.overview} In day-to-day terms, that usually means ${industry.capabilities.map((c: { title: string }) => c.title).join(', ')}.`,
         },
         {
-            question: `What kind of ${industry.title} solutions does Satvix Tech Solutions build?`,
+            question: `What sort of ${industry.title.toLowerCase()} products have you built?`,
             answer: industry.capabilities.map((c: { title: string; desc: string }) => `${c.title} — ${c.desc}`).join(' '),
         },
         {
-            question: `Does Satvix Tech Solutions work with ${industry.title} clients outside India?`,
-            answer: `Yes. We are based in Anand, Gujarat, India and partner with ${industry.title.toLowerCase()} organisations across India, the United States, the United Kingdom, and Europe — fully remote or hybrid.`,
+            question: `Do you only work with Indian ${industry.title.toLowerCase()} clients?`,
+            answer: `No. We sit in Anand, but about half our ${industry.title.toLowerCase()} work is for teams in the US, UK or EU. Fully remote, hybrid, or with someone on the plane when it matters.`,
         },
         {
-            question: `Why choose Satvix Tech Solutions as a ${industry.title} technology partner?`,
-            answer: `With 120+ products shipped and a 98% client satisfaction rate, Satvix Tech Solutions pairs deep ${industry.title.toLowerCase()} domain knowledge with senior engineering, secure and compliant architecture, and an end-to-end team that owns strategy, design, and delivery.`,
+            question: `Why pick this studio for ${industry.title.toLowerCase()}?`,
+            answer: `We have shipped 120+ products since 2020, 98% of clients renew, and we have done enough ${industry.title.toLowerCase()} work to know the compliance traps before they bite. We are senior, small, and you can call us by name.`,
         },
     ];
 
@@ -79,7 +79,7 @@ const IndustryDetail = () => {
                             >
                                 <industry.icon className="w-5 h-5 text-zinc-500" />
                                 <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-500">
-                                    Industry Vertical
+                                    An industry we know
                                 </span>
                             </motion.div>
 
@@ -105,7 +105,7 @@ const IndustryDetail = () => {
                 <div className="max-w-7xl mx-auto px-6 py-24 lg:py-32">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-12 flex items-center">
                         <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
-                        01 Strategic Focus
+                        01 The angle we take
                     </h2>
                     <p className="text-3xl md:text-5xl font-medium tracking-tight text-zinc-800 leading-[1.1] max-w-5xl">
                         {industry.overview}
@@ -118,7 +118,7 @@ const IndustryDetail = () => {
                 <div className="max-w-7xl mx-auto px-6">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-20 flex items-center">
                         <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
-                        02 Domain Expertise
+                        02 What we have done before
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-200 border border-zinc-200">
@@ -142,7 +142,7 @@ const IndustryDetail = () => {
                     style={{ backgroundImage: `url(${industry.image})` }}
                 />
                 <div className="relative z-10 text-center px-6">
-                    <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-4">DRIVING INNOVATION IN {industry.title.toUpperCase()}</h3>
+                    <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-4">SOFTWARE THE {industry.title.toUpperCase()} TEAM CAN USE.</h3>
                     <div className="w-24 h-1 bg-white mx-auto" />
                 </div>
             </section>
@@ -152,7 +152,7 @@ const IndustryDetail = () => {
                 <div className="max-w-4xl mx-auto px-6">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-16 flex items-center">
                         <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
-                        03 Common Questions
+                        03 Things people often ask
                     </h2>
                     <div className="border-t border-zinc-200">
                         {faqs.map((f, i) => (
@@ -171,10 +171,10 @@ const IndustryDetail = () => {
                     <div className="bg-black text-white p-16 md:p-24 relative overflow-hidden group">
                         <div className="relative z-10 text-center max-w-3xl mx-auto">
                             <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 group-hover:scale-[1.02] transition-transform duration-700">
-                                PARTNER WITH<br />THE EXPERTS.
+                                BUILD THE NEXT<br />ONE WITH US.
                             </h2>
                             <p className="text-zinc-400 text-lg md:text-xl mb-12">
-                                Let's discuss how our technical expertise in {industry.title} can solve your unique business challenges.
+                                Tell us what you are trying to make in {industry.title.toLowerCase()}. We will reply within a working day — usually with two or three questions, sometimes with an honest ‘not us’.
                             </p>
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
@@ -182,7 +182,7 @@ const IndustryDetail = () => {
                                 onClick={() => navigate('/contact')}
                                 className="bg-white text-black px-12 py-6 text-sm font-bold uppercase tracking-widest hover:bg-zinc-200 transition-colors"
                             >
-                                Start Domain Consultation
+                                Send us a note
                             </motion.button>
                         </div>
                     </div>
@@ -190,14 +190,14 @@ const IndustryDetail = () => {
                     <div className="mt-20 flex flex-col md:flex-row justify-between items-center py-8 border-t border-zinc-100">
                         <Link to="/industries" className="flex items-center text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-all mb-6 md:mb-0 group">
                             <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
-                            All Industries
+                            Back to industries
                         </Link>
                         <div className="hidden md:flex items-center space-x-12">
                             <Link to="/portfolio" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors">
-                                View Portfolio
+                                See the work
                             </Link>
                             <Link to="/services" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors">
-                                Our Services
+                                What we do
                             </Link>
                         </div>
                     </div>

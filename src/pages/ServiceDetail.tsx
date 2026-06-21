@@ -24,37 +24,37 @@ const ServiceDetail = () => {
 
     const faqs = [
         {
-            question: `What does Satvix Tech Solutions' ${service.title} service include?`,
-            answer: `${service.overview} Core capabilities include ${service.capabilities.map((c: { title: string }) => c.title).join(', ')}.`,
+            question: `What does ${service.title} actually include?`,
+            answer: `${service.overview} Day-to-day, that means ${service.capabilities.map((c: { title: string }) => c.title).join(', ')}.`,
         },
         {
-            question: `Which technologies does Satvix Tech Solutions use for ${service.title}?`,
-            answer: `Our ${service.title} stack typically includes ${service.tech.join(', ')} — selected per project for performance, scalability, and long-term maintainability.`,
+            question: `What is the stack?`,
+            answer: `For ${service.title}, we usually reach for ${service.tech.join(', ')}. We will pick whatever your team can still maintain after we have left the room.`,
         },
         {
-            question: `How does a ${service.title} project work at Satvix Tech Solutions?`,
-            answer: `We follow a proven, transparent pipeline: ${service.workflow.map((w: { title: string }) => w.title).join(' → ')}. Every stage is collaborative and milestone-driven, with clear communication throughout.`,
+            question: `How does a ${service.title} project actually run?`,
+            answer: `Four short stages: ${service.workflow.map((w: { title: string }) => w.title).join(' → ')}. Friday demos, fortnightly invoices, a shared board you can open at any hour.`,
         },
         {
-            question: `Why choose Satvix Tech Solutions for ${service.title}?`,
-            answer: `Satvix Tech Solutions is an independent software studio in Anand, Gujarat, India with 120+ products shipped and a 98% client satisfaction rate. We serve clients across India, the US, UK, and Europe with senior engineers and a one-team, end-to-end approach.`,
+            question: `Why pick Satvix for this?`,
+            answer: `We have shipped 120+ products in six years out of a single studio in Anand. Around 98% of clients keep us on after launch — make of that what you will. The day-to-day team is senior, small, and reachable by name.`,
         },
     ];
 
     const deliverables = [
-        { t: 'Discovery & audit', d: 'We map requirements, constraints and success metrics before a line of code is written.' },
-        { t: 'Architecture & roadmap', d: 'A scalable technical plan with clear milestones, estimates and trade-offs.' },
-        { t: 'Agile delivery', d: 'Weekly demos, continuous integration and full visibility into progress.' },
-        { t: 'QA & performance', d: 'Automated testing and performance tuning baked into every sprint.' },
-        { t: 'Launch & handover', d: 'Production deployment, documentation and a clean knowledge transfer.' },
-        { t: 'Ongoing partnership', d: 'Support, monitoring and iteration after launch — we stay invested.' },
+        { t: 'Discovery and audit',     d: 'We map the real constraints, the success metric, and the bits already working — before any code gets written.' },
+        { t: 'Architecture and roadmap', d: 'A technical plan you can hand to your CTO. Milestones, estimates and the trade-offs we considered and rejected.' },
+        { t: 'Agile, but quieter',      d: 'Two-week sprints, a demo every Friday, a shared board you can open at any hour. No status decks.' },
+        { t: 'Tests and performance',   d: 'Automated where it counts, exploratory where it matters. Performance budgets baked in from week one.' },
+        { t: 'Launch and handover',     d: 'Production deploy on a Tuesday, with documentation a new joiner can actually read and a runbook for the worst day.' },
+        { t: 'Stay on, quietly',        d: 'Support, monitoring and the second draft. Most clients keep us on for at least a quarter after launch.' },
     ];
 
     const stats = [
-        { n: '120+', l: 'Products shipped' },
-        { n: '98%', l: 'Client satisfaction' },
-        { n: '6+', l: 'Years building' },
-        { n: '40+', l: 'Engineers & designers' },
+        { n: '120+', l: 'Products in the wild' },
+        { n: '98%',  l: 'Clients who renew' },
+        { n: '6',    l: 'Years in one studio' },
+        { n: '40',   l: 'People you can call by name' },
     ];
 
     useEffect(() => {
@@ -103,7 +103,7 @@ const ServiceDetail = () => {
                             >
                                 <service.icon className="w-5 h-5 text-zinc-500" />
                                 <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-500">
-                                    Service Excellence
+                                    A practice at the studio
                                 </span>
                             </motion.div>
 
@@ -131,7 +131,7 @@ const ServiceDetail = () => {
                         <div className="lg:col-span-7 p-12 lg:p-24 border-r border-zinc-200">
                             <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-12 flex items-center">
                                 <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
-                                01 Architecture
+                                01 How we think about it
                             </h2>
                             <p className="text-3xl md:text-4xl font-medium tracking-tight text-zinc-800 leading-[1.15]">
                                 {service.overview}
@@ -139,7 +139,7 @@ const ServiceDetail = () => {
                         </div>
 
                         <div className="lg:col-span-5 p-12 lg:p-24 flex flex-col justify-center">
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-8">Technical Stack</h3>
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-8">Tools we reach for first</h3>
                             <div className="flex flex-wrap gap-2">
                                 {service.tech.map((tool: string) => (
                                     <span key={tool} className="px-5 py-3 border border-zinc-100 bg-[#F8F8F8] text-xs font-mono font-bold uppercase tracking-wider hover:bg-black hover:text-white transition-colors cursor-default">
@@ -157,7 +157,7 @@ const ServiceDetail = () => {
                 <div className="max-w-7xl mx-auto px-6">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-20 flex items-center">
                         <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
-                        02 What's Included
+                        02 What you walk away with
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-200 border border-zinc-200">
                         {deliverables.map((d, i) => (
@@ -176,7 +176,7 @@ const ServiceDetail = () => {
                 <div className="max-w-7xl mx-auto px-6">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-20 flex items-center">
                         <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
-                        03 Capabilities
+                        03 What we are good at
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-200 border border-zinc-200">
@@ -200,13 +200,13 @@ const ServiceDetail = () => {
                         <div>
                             <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-8 flex items-center">
                                 <span className="w-12 h-[1px] bg-zinc-800 mr-4" />
-                                04 Methodology
+                                04 How a project goes
                             </h2>
-                            <h3 className="text-4xl md:text-6xl font-bold tracking-tighter">OUR PROCESS<br />PIPELINE.</h3>
+                            <h3 className="text-4xl md:text-6xl font-bold tracking-tighter">FOUR STAGES,<br />NO RELAY RACE.</h3>
                         </div>
                         <div className="lg:max-w-md">
                             <p className="text-zinc-500 leading-relaxed text-lg">
-                                We utilize a battle-tested agile framework designed for speed, transparency, and technical precision.
+                                Four short stages and a Friday demo in every week. No status decks, no surprise invoices, no silence.
                             </p>
                         </div>
                     </div>
@@ -251,7 +251,7 @@ const ServiceDetail = () => {
                 <div className="max-w-4xl mx-auto px-6">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-16 flex items-center">
                         <span className="w-12 h-[1px] bg-zinc-200 mr-4" />
-                        05 Frequently Asked
+                        05 Things people often ask
                     </h2>
                     <div className="border-t border-zinc-200">
                         {faqs.map((f, i) => (
@@ -274,10 +274,10 @@ const ServiceDetail = () => {
 
                         <div className="relative z-10 text-center max-w-3xl mx-auto">
                             <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 group-hover:scale-[1.02] transition-transform duration-700">
-                                READY TO<br />ENGINEER SUCCESS?
+                                SHALL WE<br />MAKE A START?
                             </h2>
                             <p className="text-zinc-400 text-lg md:text-xl mb-12">
-                                Let's discuss how our {service.title} expertise can accelerate your digital roadmap.
+                                Tell us, in two paragraphs, what you are building. We will tell you, honestly, whether {service.title} is the right place to start.
                             </p>
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
@@ -285,7 +285,7 @@ const ServiceDetail = () => {
                                 onClick={() => navigate('/contact')}
                                 className="bg-white text-black px-12 py-6 text-sm font-bold uppercase tracking-widest hover:bg-zinc-200 transition-colors"
                             >
-                                Start Technical Consultation
+                                Send us a note
                             </motion.button>
                         </div>
                     </div>
@@ -293,14 +293,14 @@ const ServiceDetail = () => {
                     <div className="mt-20 flex flex-col md:flex-row justify-between items-center py-8 border-t border-zinc-100">
                         <Link to="/services" className="flex items-center text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-all mb-6 md:mb-0 group">
                             <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
-                            All Capabilities
+                            Back to all practices
                         </Link>
                         <div className="hidden md:flex items-center space-x-12">
                             <Link to="/portfolio" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors">
-                                View Portfolio
+                                See the work
                             </Link>
                             <Link to="/about" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors">
-                                Our Ethos
+                                About the studio
                             </Link>
                         </div>
                     </div>

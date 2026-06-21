@@ -18,8 +18,8 @@ export default function Blog() {
   return (
     <div>
       <SEO
-        title="Journal — Thinking out loud"
-        description="Engineering deep dives, design decisions, AI lessons, and product thinking from the Satvix Tech Solutions team."
+        title="Journal — Notes from the studio"
+        description="Long-form writing from the team. Engineering decisions, design rationale, the parts of AI we are still figuring out — published when we have something worth saying."
         keywords="software engineering blog India, product design articles, AI ML blog India, web development insights, tech blog Gujarat, startup engineering blog, React Next.js tutorials India, UX design blog, mobile development articles, digital product blog, software architecture India, AI product thinking, developer blog India, design engineering journal, Satvix Tech Solutions blog"
         url="https://satvixtech.com/blog"
         breadcrumb={[
@@ -36,7 +36,7 @@ export default function Blog() {
             Journal
           </div>
           <h1>
-            {(['Thinking', 'out', '<em>loud.</em>'] as const).map((line, i) => (
+            {(['Notes', 'from', '<em>the studio.</em>'] as const).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
                   initial={{ y: '110%' }}
@@ -51,7 +51,7 @@ export default function Blog() {
           <div className="page-hero__sub">
             <div className="breadcrumb">Satvix Tech Solutions &nbsp;/&nbsp; Journal</div>
             <p>
-              Engineering deep dives, design decisions, AI lessons, and the occasional product opinion — written by the people actually shipping the work.
+              Long-form writing by the people who actually built the thing. Decisions we got right, ones we did not, and the slow parts of AI nobody wants to write about. We post when we have something to say — not on a schedule.
             </p>
           </div>
         </div>
@@ -181,10 +181,10 @@ export default function Blog() {
               fontWeight: 500, letterSpacing: '-.035em', lineHeight: 1,
               color: 'var(--bg)', margin: '0 0 32px',
             }}>
-              New articles, <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--accent)' }}>no noise.</em>
+              One letter, no <em style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--accent)' }}>noise.</em>
             </h2>
             <p className="reveal" data-d="2" style={{ color: 'rgba(255, 255, 255,.65)', fontSize: 16, lineHeight: 1.55, marginBottom: 40, maxWidth: '50ch' }}>
-              We publish a few times a month. Engineering deep dives, design decisions, and the occasional hot take. No marketing emails.
+              When we publish something, we send it to your inbox. Two or three issues a month at most. No marketing. No drip funnel.
             </p>
             <form
               className="reveal"
@@ -225,10 +225,10 @@ export default function Blog() {
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
           <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
-            Ready to work together?
+            Finished reading? Want to work together?
           </div>
           <h2 className="reveal" data-d="1">
-            Got a project worth <em>shipping?</em>
+            Got something worth <em>building?</em>
           </h2>
           <a
             href="mailto:info@satvixtech.com"

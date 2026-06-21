@@ -5,9 +5,9 @@ export default {
   theme: {
   	extend: {
   		fontFamily: {
-  			display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-  			sans:    ['"Geist"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-  			mono:    ['"Geist Mono"', 'ui-monospace', 'monospace'],
+  			display: ['"Instrument Serif"', 'ui-serif', 'Georgia', 'serif'],
+  			sans:    ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			mono:    ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

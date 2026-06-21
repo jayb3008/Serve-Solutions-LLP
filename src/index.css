@@ -13,9 +13,9 @@
   --accent: #e31e24;
   --radius: 18px;
   --max: 1360px;
-  --display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
-  --sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --mono: "Geist Mono", ui-monospace, monospace;
+  --display: "Instrument Serif", ui-serif, Georgia, serif;
+  --sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* shadcn compat (kept for any existing component usage) */
   --background: 0 0% 100%;
@@ -61,6 +61,47 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   cursor: none;
+  /* Instrument Serif ships Regular + Italic only — refuse fake bold. */
+  font-synthesis: none;
+}
+
+/* ── Editorial display tuning ──
+   Instrument Serif wants gentler tracking and a default weight of 400.
+   Emphasis comes from italics, not weight. */
+.hero__title,
+.s-title,
+.page-hero h1,
+.marquee__item,
+.stat__num,
+.b-stat__n,
+.work-card__title,
+.svc__name,
+section.cta-section h2,
+.manifesto p,
+.prin h3,
+.tm h4,
+.tl-year,
+.tl-title,
+.pract__num,
+.pract__head h2,
+.dlv h4,
+.stk h5,
+.arch__title,
+.stack-cat__tools li,
+.foot-mark,
+.foot-logo,
+.loader {
+  font-weight: 400 !important;
+  letter-spacing: -0.015em;
+}
+
+.hero__title em,
+.s-title em,
+.page-hero h1 em,
+section.cta-section h2 em,
+.manifesto p em {
+  font-style: italic;
+  font-weight: 400;
 }
 
 @media (pointer: coarse) {

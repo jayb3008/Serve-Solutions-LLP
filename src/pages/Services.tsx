@@ -10,18 +10,18 @@ const practices = [
     num: '01',
     pre: 'Product',
     em: 'design',
-    tags: ['UX research', 'Design systems', 'Prototyping'],
-    desc: 'We start with user insight and end with interfaces people actually want to use. Research-driven, pixel-perfect.',
-    list: ['User research & jobs-to-be-done', 'Wireframes & interactive prototypes', 'UI design & component libraries', 'Usability testing & iteration', 'Design ops & handoff', 'Accessibility audits'],
+    tags: ['Research', 'Design systems', 'Prototyping'],
+    desc: 'We start with the user’s actual problem and end with a thing they reach for without thinking. Researched, then drawn, then redrawn until it disappears.',
+    list: ['User research and jobs-to-be-done', 'Wireframes and clickable prototypes', 'UI design and component libraries', 'Usability testing and iteration', 'Design ops and handoff', 'Accessibility audits (WCAG 2.2)'],
     href: '/services/product-design',
   },
   {
     num: '02',
     pre: 'Web',
     em: 'engineering',
-    tags: ['Next.js', 'CMS', 'Performance'],
-    desc: 'Fast, accessible, rock-solid web applications. From marketing sites to complex SaaS products with millions of users.',
-    list: ['Next.js & React applications', 'Headless CMS integrations', 'E-commerce & Shopify Plus', 'Performance & Core Web Vitals', 'API design & integrations', 'Accessibility (WCAG 2.2)'],
+    tags: ['Next.js', 'Headless CMS', 'Performance'],
+    desc: 'Fast, quiet, hard-to-break websites and platforms. From a four-page launch site to a SaaS that sees a million weekly users — built so your team can keep it running.',
+    list: ['Next.js and React applications', 'Headless CMS integrations', 'Storefronts on Shopify and headless commerce', 'Core Web Vitals and performance audits', 'APIs and third-party integrations', 'Accessibility (WCAG 2.2)'],
     href: '/services/web-engineering',
   },
   {
@@ -29,26 +29,26 @@ const practices = [
     pre: 'Mobile',
     em: 'apps',
     tags: ['iOS', 'Android', 'React Native'],
-    desc: 'Native experiences for iOS and Android, or cross-platform with React Native and Flutter. Built for the App Store, loved by users.',
-    list: ['iOS (Swift / SwiftUI)', 'Android (Kotlin / Compose)', 'React Native cross-platform', 'Push notifications & offline', 'In-app purchases & subscriptions', 'App Store optimization'],
+    desc: 'Native when it matters, cross-platform when it doesn’t. We ship to the store, sit through the review, and watch the first day of analytics with you.',
+    list: ['iOS — Swift, SwiftUI', 'Android — Kotlin, Jetpack Compose', 'React Native and Flutter for cross-platform', 'Push, offline, background sync', 'In-app purchases and subscriptions', 'App Store / Play Store submissions'],
     href: '/services/mobile',
   },
   {
     num: '04',
     pre: 'AI &',
     em: 'data',
-    tags: ['LLM', 'RAG', 'Agents'],
-    desc: 'Practical AI that ships. We integrate large language models, build retrieval pipelines, and automate the workflows that slow your team down.',
-    list: ['LLM integration & prompt engineering', 'RAG & vector databases', 'Agentic workflow automation', 'Fine-tuning & model evaluation', 'Data pipelines & ETL', 'Analytics dashboards'],
+    tags: ['LLMs', 'RAG', 'Agents'],
+    desc: 'Useful AI, not a demo on stage. We embed LLM features into real products, build retrieval pipelines on your data, and automate the work nobody actually wants to do.',
+    list: ['LLM features and prompt engineering', 'Retrieval-augmented generation and vector stores', 'Agentic workflow automation', 'Fine-tuning, evals, guardrails', 'Data pipelines and ETL', 'Analytics dashboards'],
     href: '/services/ai-ml',
   },
   {
     num: '05',
     pre: 'Brand &',
-    em: 'strategy',
-    tags: ['Identity', 'Positioning', 'Content'],
-    desc: 'Brand is the first code you ship. We help founders articulate their positioning, create visual identities, and build content engines.',
-    list: ['Brand positioning & naming', 'Visual identity & logo systems', 'Brand guidelines & voice', 'Marketing site copy', 'Content strategy', 'Go-to-market planning'],
+    em: 'editorial',
+    tags: ['Positioning', 'Identity', 'Writing'],
+    desc: 'A brand is the first line of code a founder writes — usually in the wrong language. We rewrite it. Name, voice, marks, the words on the homepage.',
+    list: ['Positioning and naming', 'Visual identity and logo systems', 'Brand guidelines and tone of voice', 'Marketing site copy and editorial', 'Content strategy', 'Launch communications'],
     href: '/services/brand',
   },
 ];
@@ -56,42 +56,42 @@ const practices = [
 const deliverables = [
   {
     title: 'Discovery sprint',
-    desc: 'Two-week deep-dive into your users, market, and technical constraints. We come out with a prioritised roadmap.',
+    desc: 'Two weeks of interviews, audits and whiteboards. You leave with a prioritised roadmap — and the honest answer to whether you should even build this.',
     icon: (
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
     ),
   },
   {
     title: 'Design system',
-    desc: 'A tokenised component library that scales across products and teams. Figma + code in sync.',
+    desc: 'Tokens, components, documentation. Figma and the codebase stay in sync because they were built that way from day one.',
     icon: (
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></svg>
     ),
   },
   {
-    title: 'Full-stack application',
-    desc: 'From auth and API to front-end and deploy. We own the build and hand over a production-ready system.',
+    title: 'A full-stack product',
+    desc: 'Auth, APIs, frontend, infrastructure, the lot. We own the build and hand over a production system your team can run on Monday.',
     icon: (
       <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
     ),
   },
   {
-    title: 'Mobile app',
-    desc: 'App Store ready on iOS and/or Android. We handle submission, certificates, and first-launch support.',
+    title: 'Mobile app on the store',
+    desc: 'iOS, Android or both. We handle the build, the review, the certificates, and the first awkward week after launch.',
     icon: (
       <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
     ),
   },
   {
-    title: 'AI integration',
-    desc: 'LLM-powered features embedded in your product — copilots, classifiers, extraction pipelines, and agents.',
+    title: 'AI features that ship',
+    desc: 'Copilots, classifiers, extraction, agents — wired into your existing product, with evals so you know they actually got better.',
     icon: (
       <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
     ),
   },
   {
-    title: 'Brand identity',
-    desc: 'Logo, colour, type, motion, and copy — packaged in a brand book your whole team can use.',
+    title: 'Brand and editorial',
+    desc: 'Mark, type, colour, motion, voice. A brand book light enough to actually read, plus the words your homepage really needs.',
     icon: (
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" /></svg>
     ),
@@ -132,8 +132,8 @@ export default function Services() {
   return (
     <div>
       <SEO
-        title="What we do — Five practices, one team"
-        description="Satvix Tech Solutions offers Product Design, Web Engineering, Mobile Apps, AI & Data, and Brand Strategy — all under one roof."
+        title="The work — five practices, one team"
+        description="Product design, web engineering, mobile, AI, brand and editorial. Five disciplines, one studio in Anand, no handoffs between them."
         keywords="product design services india, web engineering company, mobile app development india, AI ML services Gujarat, brand strategy agency, full stack development, digital product studio"
         url="https://satvixtech.com/services"
         breadcrumb={[
@@ -141,11 +141,11 @@ export default function Services() {
           { name: 'Services', item: 'https://satvixtech.com/services' },
         ]}
         faq={[
-          { question: 'What services does Satvix Tech Solutions offer?', answer: 'Satvix Tech Solutions offers five core practices: Product Design (UX research, UI systems, prototyping), Web Engineering (Next.js, headless CMS, e-commerce), Mobile Apps (iOS, Android, React Native), AI & Data (LLM integration, RAG, agents), and Brand & Strategy (positioning, identity, content).' },
-          { question: 'Do you work with startups or enterprise clients?', answer: 'We work with both. From early-stage founders validating their first product to scale-ups modernising legacy systems, we adapt our process to the stage and size of the engagement.' },
-          { question: 'How does Satvix Tech Solutions approach a new project?', answer: 'Every engagement starts with a discovery sprint — a structured deep-dive into users, market, and technical constraints. We come out with a prioritised roadmap before any production code is written.' },
-          { question: 'Can Satvix Tech Solutions handle design and engineering in the same team?', answer: 'Yes. Strategy, design, and engineering sit at the same table for the entire build. We don\'t hand off between departments — one team owns the full product.' },
-          { question: 'What is the typical project timeline?', answer: 'A focused MVP typically takes 8–16 weeks from discovery to launch. Full-scale platforms with complex integrations can take 4–9 months. We\'ll give you a realistic estimate after the discovery sprint.' },
+          { question: 'What does the studio actually do?', answer: 'Five things, under one roof: product design, web engineering, mobile apps, AI features, and brand or editorial work. The same team can take a product from sketch to launch and stay for what comes after.' },
+          { question: 'Do you take on startups or enterprises?', answer: 'Both, plus a small handful of operators in between. We adapt the team size and rhythm to the stage — a two-person founder build looks nothing like an enterprise replatform, and we are honest about which we are doing.' },
+          { question: 'How does a project usually start?', answer: 'With a two-week discovery sprint. We sit with you, your team and your users, audit what exists, and leave you with a prioritised roadmap — and, often, an honest opinion about whether to do it at all.' },
+          { question: 'Can one team handle design and engineering together?', answer: 'It is how we have always worked. Strategy, design and engineering at one table for the whole build — the same people who scope the work also ship it.' },
+          { question: 'How long does a project take?', answer: 'A focused first release is usually eight to sixteen weeks. Larger platforms with integrations land in four to nine months. We will give you a real number — not a hopeful one — after discovery.' },
         ]}
       />
 
@@ -174,7 +174,7 @@ export default function Services() {
               Satvix Tech Solutions &nbsp;/&nbsp; Services
             </div>
             <p>
-              Five practices. One team. No handoffs between strategy, design, and engineering — we own the whole thing, end to end.
+              Five things we do. One team that does all of them. The same people who scope the work also draw it, write it, build it, and stay on after it ships.
             </p>
           </div>
         </div>
@@ -227,7 +227,7 @@ export default function Services() {
                 What you get
               </div>
               <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
-                Concrete outputs, <em>every time.</em>
+                Things we hand over <em>at the end.</em>
               </h2>
             </div>
           </div>
@@ -248,13 +248,13 @@ export default function Services() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">Technology</div>
+              <div className="eyebrow reveal">The stack</div>
               <h2 className="s-title reveal" data-d="1">
-                Our preferred <em>stack.</em>
+                The tools we reach for <em>first.</em>
               </h2>
             </div>
             <p className="reveal" data-d="2" style={{ maxWidth: '32ch', color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.55, margin: 0 }}>
-              We're technology-agnostic, but these are the tools we reach for first — because they're the best at what they do.
+              We are not married to any framework — but every project starts with a default. These are ours. They are boring, well-documented, and easy to hire for once we hand the keys back.
             </p>
           </div>
 
@@ -277,10 +277,10 @@ export default function Services() {
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
           <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
-            Tell us what you're building
+            Tell us what you’re trying to build
           </div>
           <h2 className="reveal" data-d="1">
-            Got a project in <em>mind?</em>
+            Something <em>specific</em> in mind?
           </h2>
           <a
             href="mailto:info@satvixtech.com"

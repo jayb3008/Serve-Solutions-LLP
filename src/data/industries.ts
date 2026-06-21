@@ -23,8 +23,8 @@ export const industriesData: Record<string, any> = {
     'healthcare': {
         title: "Healthcare",
         icon: HeartPulse,
-        tagline: "Precision engineering for life-critical systems.",
-        overview: "We develop secure, compliant healthcare platforms that prioritize patient data integrity and real-time clinical workflows.",
+        tagline: "Software clinicians do not have to fight on a tired Tuesday.",
+        overview: "We build telehealth platforms, patient records, and wellness apps with HIPAA, India’s DPDP and clinician workflow treated as design constraints — not as a final-week scramble.",
         keywords: "healthcare software development India, telemedicine app development India, EHR EMR system development India, HIPAA compliant software India, digital health platform India, health tech company Gujarat, patient management system India, hospital management software India, wearable health app India, telehealth platform development India, medical software company India, healthcare mobile app India, health analytics platform India, clinical workflow software India, healthcare IT company India",
         capabilities: [
             { title: "Telemedicine", desc: "Encrypted video consultation and remote monitoring." },
@@ -37,8 +37,8 @@ export const industriesData: Record<string, any> = {
     'legal': {
         title: "Legal",
         icon: Scale,
-        tagline: "Secure digital foundations for truth and justice.",
-        overview: "Modernizing legal frameworks with automated document processing and highly secure case management environments.",
+        tagline: "Document tooling for partners who forgive exactly one wrong answer.",
+        overview: "Case management, contract review, AI-assisted research, e-discovery. We design for the partner who will only forgive the system being right.",
         keywords: "legal tech company India, law firm software development India, case management system India, contract management software India, e-discovery platform India, legal document automation India, law firm digital transformation India, legal AI tools India, compliance management software India, legal research platform India, court management software India, legal SaaS development India, attorney software India, RegTech development India, legal workflow automation India",
         capabilities: [
             { title: "Case Management", desc: "End-to-end legal workflow optimization." },
@@ -51,8 +51,8 @@ export const industriesData: Record<string, any> = {
     'logistics': {
         title: "Logistics",
         icon: Truck,
-        tagline: "Intelligent systems for moving the world.",
-        overview: "Optimizing global supply chains through real-time visibility, automated routing, and data-driven fleet management.",
+        tagline: "Visibility software that survives a warehouse Wi-Fi outage.",
+        overview: "Fleet tracking, last-mile, warehouse operations and the dashboards a despatcher actually keeps open. Real-time where it counts, simple where it does not.",
         keywords: "logistics software development India, fleet management software India, route optimisation algorithm India, warehouse management system India, supply chain visibility platform India, last mile delivery software India, freight management system India, 3PL software development India, real time fleet tracking India, dispatch management software India, logistics tech company Gujarat, transport management system India, cold chain monitoring software India, reverse logistics platform India, delivery tracking app India",
         capabilities: [
             { title: "Fleet Tracking", desc: "Real-time GPS and sensor-based logistics." },
@@ -65,8 +65,8 @@ export const industriesData: Record<string, any> = {
     'finance': {
         title: "Finance",
         icon: Banknote,
-        tagline: "Building the next generation of digital wealth.",
-        overview: "Engineering robust fintech platforms that bridge traditional banking with modern, decentralized digital finance.",
+        tagline: "Card issuing, wallets and lending — built to pass the audit.",
+        overview: "Core banking, wallets, lending, wealth. Built with RBI, PCI-DSS and the small print in mind from week one — not retrofitted in the week before launch.",
         keywords: "fintech development company India, digital banking platform India, neobank development India, payment gateway integration India, wealthtech platform India, lending software development India, KYC AML compliance software India, fraud detection AI India, PCI DSS compliant fintech India, mobile banking app India, NBFC software India, UPI payment integration India, investment platform development India, digital wallet development India, fintech startup India Gujarat, card issuing platform India",
         capabilities: [
             { title: "Digital Banking", desc: "Core banking engines for the mobile era." },
@@ -79,8 +79,8 @@ export const industriesData: Record<string, any> = {
     'education': {
         title: "Education",
         icon: GraduationCap,
-        tagline: "Digital ecosystems that empower learning.",
-        overview: "Transforming the educational journey through immersive LMS platforms and data-driven student engagement tools.",
+        tagline: "Learning tools students actually open on day fourteen.",
+        overview: "Learning platforms, AI tutors, cohort tooling and the back-office a registrar uses. Built for the schools and EdTechs that have to earn the next click, every time.",
         keywords: "edtech development company India, learning management system India, LMS development Gujarat, virtual classroom software India, e-learning platform development India, edtech startup India, student information system India, online exam platform India, adaptive learning software India, AI tutoring platform India, SCORM compliant LMS India, school management software India, higher education software India, corporate LMS development India, ed-tech mobile app India",
         capabilities: [
             { title: "Immersive LMS", desc: "Dynamic content delivery and assessment." },

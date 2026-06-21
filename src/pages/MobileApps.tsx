@@ -152,7 +152,7 @@ export default function MobileApps() {
             Mobile Apps
           </div>
           <h1>
-            {(['Apps your users', 'will actually', '<em>keep.</em>'] as const).map((line, i) => (
+            {(['Apps people keep', 'on the home', '<em>screen.</em>'] as const).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
                   initial={{ y: '110%' }}
@@ -169,7 +169,7 @@ export default function MobileApps() {
               Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Mobile Apps
             </div>
             <p>
-              Native experiences for iOS and Android, or cross-platform with React Native. Built for the App Store, loved by users, and handed over production-ready.
+              We design and build mobile apps for the long tail of devices people actually own. Native where it matters, React Native where it does not, App Store and Play Store paperwork done by us — and the first awkward week after launch handled by humans, not bots.
             </p>
           </div>
         </div>

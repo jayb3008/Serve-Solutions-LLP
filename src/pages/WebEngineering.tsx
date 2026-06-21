@@ -152,7 +152,7 @@ export default function WebEngineering() {
             Web Engineering
           </div>
           <h1>
-            {(['Web apps built', 'to last — and', '<em>to scale.</em>'] as const).map((line, i) => (
+            {(['Web platforms that', 'are still readable', '<em>two years later.</em>'] as const).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
                   initial={{ y: '110%' }}
@@ -169,7 +169,7 @@ export default function WebEngineering() {
               Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Web Engineering
             </div>
             <p>
-              Fast, accessible, rock-solid web applications. From marketing sites to complex SaaS products — we own the build from architecture to launch.
+              From a four-page launch site to a SaaS used by a million people a week, we build with the same defaults: hard performance budgets, real accessibility, and a codebase your team can still understand after we have gone.
             </p>
           </div>
         </div>

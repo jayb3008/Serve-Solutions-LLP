@@ -169,7 +169,7 @@ export default function Brand() {
               Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Brand &amp; Strategy
             </div>
             <p>
-              We help founders articulate their positioning, create visual identities, and build content engines that turn a strong brand into measurable growth.
+              We rewrite the line founders use at parties. Positioning, naming, voice, and the visual identity that ships with the product on day one — not bolted on for the rebrand three years later.
             </p>
           </div>
         </div>

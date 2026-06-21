@@ -1,44 +1,92 @@
-import { useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import SEO from '../components/SEO';
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
 const principles = [
-  { n: '01', title: 'Craft over velocity', body: 'We ship fast, but never at the cost of quality. Every decision is deliberate, every pixel intentional.' },
-  { n: '02', title: 'Transparency always', body: 'Open communication at every stage — from first call to final deploy. No black boxes, no surprises.' },
-  { n: '03', title: 'Ownership mindset', body: 'We treat every product as if it were our own. That means caring about outcomes, not just deliverables.' },
-  { n: '04', title: 'Simple over clever', body: 'The best solutions are the ones users never notice. We strip complexity until only value remains.' },
-  { n: '05', title: 'Long-term thinking', body: 'We build for the next five years, not the next sprint. Architecture decisions should age well.' },
-  { n: '06', title: 'Rooted in Gujarat', body: 'Built in Anand, thinking globally. We bring global standards to every engagement, from wherever we are.' },
+  {
+    n: "01",
+    title: "Craft, then speed",
+    body: "Velocity without taste is just churn. We move quickly, but the second-last sentence of every meeting is still ‘is this actually good?’",
+  },
+  {
+    n: "02",
+    title: "Receipts, not promises",
+    body: "Weekly demos, a shared board, a phone you can call. The work is in the open from day one. No status decks, no smoke.",
+  },
+  {
+    n: "03",
+    title: "Co-owners, not vendors",
+    body: "We treat your product like ours — which sometimes means telling you a feature is a bad idea, even when it’s billable.",
+  },
+  {
+    n: "04",
+    title: "Quiet over clever",
+    body: "The best software disappears. We delete more than we ship; the surface that remains should feel inevitable.",
+  },
+  {
+    n: "05",
+    title: "Built to outlast us",
+    body: "We pick stacks your team can maintain after we leave. Boring tools used carefully, not the framework of the month.",
+  },
+  {
+    n: "06",
+    title: "Rooted, not regional",
+    body: "We’re in Anand. Half our work is in Bangalore, London and New York. The studio travels in suitcases, not satellites.",
+  },
 ];
 
 const team = [
-  { init: 'B', name: 'Batukbhai Sarvaiya', role: 'Founder & CEO' },
-  { init: 'R', name: 'Rahul Patel', role: 'Head of Engineering' },
-  { init: 'P', name: 'Priya Mehta', role: 'Design Lead' },
-  { init: 'A', name: 'Arjun Shah', role: 'AI / ML Lead' },
-  { init: 'N', name: 'Nisha Desai', role: 'Product Manager' },
-  { init: 'K', name: 'Karan Joshi', role: 'Mobile Lead' },
-  { init: 'S', name: 'Sneha Trivedi', role: 'Brand Strategy' },
-  { init: 'D', name: 'Dev Agarwal', role: 'Backend Engineer' },
+  { init: "B", name: "Batukbhai Sarvaiya", role: "Founder — keeps the lights on" },
+  { init: "R", name: "Rahul Patel", role: "Engineering — architecture & code review" },
+  { init: "P", name: "Priya Mehta", role: "Design — flows, systems, type" },
+  { init: "A", name: "Arjun Shah", role: "AI & data — LLM features, retrieval" },
+  { init: "N", name: "Nisha Desai", role: "Product — discovery & roadmap" },
+  { init: "K", name: "Karan Joshi", role: "Mobile — iOS, Android, RN" },
+  { init: "S", name: "Sneha Trivedi", role: "Brand — naming, narrative, editorial" },
+  { init: "D", name: "Dev Agarwal", role: "Backend — Postgres, Node, the boring bits" },
 ];
 
 const timeline = [
-  { year: '2020', title: 'Studio founded', body: 'Started as a two-person web shop in Anand, Gujarat. First client shipped in 30 days.' },
-  { year: '2021', title: 'First enterprise deal', body: 'Landed a fintech client with 200k users. Built the core team around that challenge.' },
-  { year: '2022', title: 'Mobile practice opens', body: 'Added iOS and Android to the offering. First React Native app at 100k downloads.' },
-  { year: '2023', title: 'Design & brand added', body: 'Hired design lead. Launched full-service branding — from naming to identity systems.' },
-  { year: '2024', title: 'AI / ML practice', body: 'Formed dedicated AI team. First LLM-powered product shipped to production.' },
-  { year: '2025', title: '120+ launches & 40+ team', body: 'Crossed the milestone. Began working with international clients across three continents.' },
+  {
+    year: "2020",
+    title: "Two people. One laptop.",
+    body: "Batukbhai signs the lease on a single-room office in Anand. The first client — a clinic in Vadodara — ships thirty days later.",
+  },
+  {
+    year: "2021",
+    title: "First fintech, first scare",
+    body: "A 200,000-user lender becomes our first regulated build. We learn the hard way that ‘compliance’ is just design with stricter constraints.",
+  },
+  {
+    year: "2022",
+    title: "Mobile gets its own room",
+    body: "iOS and Android join the studio properly. By December the first React Native app passes 100k downloads.",
+  },
+  {
+    year: "2023",
+    title: "Design moves upstream",
+    body: "Priya joins as design lead. We stop being ‘the engineering team that does design too’ and start naming companies, writing taglines, drawing logos.",
+  },
+  {
+    year: "2024",
+    title: "We become useful at AI",
+    body: "Arjun spins up the AI desk. The first LLM-powered product — a contract assistant — goes live with a real law firm in Mumbai.",
+  },
+  {
+    year: "2025",
+    title: "Forty heads, three continents",
+    body: "120 products shipped. Clients in Bangalore, London, New York, Berlin, Dubai. Still in the same building in Anand.",
+  },
 ];
 
 const bandStats = [
-  { n: '40+', label: 'Designers & engineers' },
-  { n: '120+', label: 'Products launched' },
-  { n: '98%', label: 'Client satisfaction rate' },
-  { n: '6+', label: 'Years of craft' },
+  { n: "40", label: "People you can call by name" },
+  { n: "120+", label: "Products quietly in the world" },
+  { n: "98%", label: "Clients who renew" },
+  { n: "6", label: "Years in one building in Anand" },
 ];
 
 export default function About() {
@@ -47,19 +95,35 @@ export default function About() {
   return (
     <div>
       <SEO
-        title="About — A studio of builders, makers & thinkers"
-        description="Satvix Tech Solutions is an independent digital studio based in Anand, Gujarat. Founded in 2020, we partner with founders and forward-thinking teams to build software, brands, and experiences people love."
+        title="About — Forty people, one studio in Anand"
+        description="A small digital studio in Anand, Gujarat, since 2020. We design, build and ship software for founders and operators who care about the craft."
         keywords="about Satvix Tech Solutions, digital product studio India, software company Anand Gujarat, independent dev studio, who we are Satvix Tech Solutions, founders team India"
         url="https://satvixtech.com/about"
         breadcrumb={[
-          { name: 'Home', item: 'https://satvixtech.com' },
-          { name: 'About', item: 'https://satvixtech.com/about' },
+          { name: "Home", item: "https://satvixtech.com" },
+          { name: "About", item: "https://satvixtech.com/about" },
         ]}
         faq={[
-          { question: 'When was Satvix Tech Solutions founded?', answer: 'Satvix Tech Solutions was founded in 2020 in Anand, Gujarat, India, starting as a two-person web studio and growing into a full-service digital product team.' },
-          { question: 'How big is the Satvix Tech Solutions team?', answer: 'We are a focused team of 40+ engineers, designers, and strategists. We keep the team small enough to care deeply about every project and large enough to cover the full stack.' },
-          { question: 'What makes Satvix Tech Solutions different from other agencies?', answer: 'We don\'t hand off between strategy, design, and engineering. One team owns the entire build. We also refuse to take on more projects than we can give our full attention — quality over volume.' },
-          { question: 'Does Satvix Tech Solutions only work with Indian clients?', answer: 'No. While we are based in Gujarat, India, we work with clients globally — including the US, UK, Europe, and the Middle East — fully remotely or in hybrid arrangements.' },
+          {
+            question: "When was the studio founded?",
+            answer:
+              "Batukbhai started Satvix in 2020 out of a one-room office in Anand. We have grown to a forty-person studio, still in Anand.",
+          },
+          {
+            question: "How big is the team?",
+            answer:
+              "Forty designers, engineers, product people and writers. Big enough to staff a full product team end-to-end; small enough that we still know everyone’s coffee order.",
+          },
+          {
+            question: "What makes you different from other agencies?",
+            answer:
+              "Two things, mostly. We don’t hand work over walls — the same team scopes the work, designs it, builds it and stays on after launch. And we take on fewer projects than we technically could.",
+          },
+          {
+            question: "Do you only work with Indian clients?",
+            answer:
+              "About half of our clients are in India; the rest are in the US, UK, EU and the Middle East. We work fully remote, hybrid, or — occasionally — by getting on a plane.",
+          },
         ]}
       />
 
@@ -71,13 +135,19 @@ export default function About() {
             About the studio
           </div>
           <h1>
-            {(['A studio of', 'builders, makers', '<em>&amp; thinkers.</em>'] as const).map((line, i) => (
+            {(
+              [
+                "Forty people,",
+                "one studio,",
+                "<em>still in Anand.</em>",
+              ] as const
+            ).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
-                  initial={{ y: '110%' }}
+                  initial={{ y: "110%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.9, ease, delay: 0.3 + i * 0.07 }}
-                  style={{ display: 'inline-block' }}
+                  style={{ display: "inline-block" }}
                   dangerouslySetInnerHTML={{ __html: line }}
                 />
               </span>
@@ -88,7 +158,10 @@ export default function About() {
               Satvix Tech Solutions &nbsp;/&nbsp; About
             </div>
             <p>
-              We're an independent digital studio headquartered in Anand, Gujarat. Since 2020 we've partnered with founders, operators, and enterprise teams to design, engineer, and launch digital products that last.
+              We have been a small, independent studio in Anand, Gujarat since 2020.
+              Six years in, we have shipped a hundred and twenty products with
+              founders, operators and a few patient enterprise teams. The studio
+              has grown; the front door has not moved.
             </p>
           </div>
         </div>
@@ -98,33 +171,40 @@ export default function About() {
       <section className="manifesto">
         <div className="wrap">
           <p className="reveal">
-            We believe the best software is <em>invisible</em> — it just works.
+            The best software is <em>invisible.</em> Nobody notices it; it just gets out of the way.
           </p>
           <p className="reveal" data-d="1">
-            We don't separate design from engineering. <span className="dim">We never have.</span>
+            We don’t separate design from engineering.{" "}
+            <span className="dim">We never figured out how, and it turned out to be a feature.</span>
           </p>
           <p className="reveal" data-d="2">
-            Great products are built by teams who <em>care deeply</em> and move with intention.
+            Good products are made by people who <em>care, then think, then ship</em> — in that order.
           </p>
           <p className="reveal" data-d="3">
-            That's the studio we built. <span className="dim">That's the studio you're partnering with.</span>
+            That’s the studio we built.{" "}
+            <span className="dim">
+              That’s the one you would be working with.
+            </span>
           </p>
         </div>
       </section>
 
       {/* Principles */}
-      <section className="s" style={{ borderTop: '1px solid var(--line)', paddingBottom: '120px' }}>
+      <section
+        className="s"
+        style={{ borderTop: "1px solid var(--line)", paddingBottom: "120px" }}
+      >
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">How we work</div>
+              <div className="eyebrow reveal">House rules</div>
               <h2 className="s-title reveal" data-d="1">
-                Six principles we <em>refuse to compromise.</em>
+                Six things we have <em>stopped arguing about.</em>
               </h2>
             </div>
           </div>
           <div className="pgrid">
-            {principles.map(p => (
+            {principles.map((p) => (
               <div key={p.n} className="prin reveal">
                 <div className="prin__n">{p.n}</div>
                 <div>
@@ -138,16 +218,38 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="s" style={{ background: 'var(--ink)', color: 'var(--bg)', paddingBottom: '120px' }}>
+      <section
+        className="s"
+        style={{
+          background: "var(--ink)",
+          color: "var(--bg)",
+          paddingBottom: "120px",
+        }}
+      >
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
+              <div
+                className="eyebrow reveal"
+                style={{ color: "rgba(255, 255, 255,.6)" }}
+              >
+                <span
+                  style={{
+                    display: "inline-block",
+                    width: 24,
+                    height: 1,
+                    background: "rgba(255, 255, 255,.4)",
+                    flexShrink: 0,
+                  }}
+                />
                 The people
               </div>
-              <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
-                Every product is <em>people-first.</em>
+              <h2
+                className="s-title reveal"
+                data-d="1"
+                style={{ color: "var(--bg)" }}
+              >
+                You will mostly be talking to <em>these eight.</em>
               </h2>
             </div>
           </div>
@@ -166,13 +268,13 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="s" style={{ paddingBottom: '120px' }}>
+      <section className="s" style={{ paddingBottom: "120px" }}>
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">Our journey</div>
+              <div className="eyebrow reveal">A short history</div>
               <h2 className="s-title reveal" data-d="1">
-                Five years of <em>shipping.</em>
+                Six years, told in <em>six paragraphs.</em>
               </h2>
             </div>
           </div>
@@ -204,21 +306,33 @@ export default function About() {
 
       {/* CTA */}
       <section className="cta-section">
-        <div className="wrap" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
-            Long-term partners, not vendors
+        <div className="wrap" style={{ position: "relative" }}>
+          <div
+            className="eyebrow reveal"
+            style={{
+              color: "rgba(255, 255, 255,.55)",
+              justifyContent: "center",
+              marginBottom: 24,
+            }}
+          >
+            Partners — not vendors, not retainers
           </div>
           <h2 className="reveal" data-d="1">
-            Ready to build <em>together?</em>
+            Want to <em>build the next one</em> with us?
           </h2>
           <Link
             to="/contact"
             className="cta-btn reveal"
             data-d="2"
             data-hover
-            style={{ background: 'var(--accent)', color: 'var(--ink)', marginTop: 40 }}
+            style={{
+              background: "var(--accent)",
+              color: "var(--ink)",
+              marginTop: 40,
+            }}
           >
-            Start a conversation <span className="dot" style={{ background: 'var(--ink)' }} />
+            Say hello{" "}
+            <span className="dot" style={{ background: "var(--ink)" }} />
           </Link>
         </div>
       </section>

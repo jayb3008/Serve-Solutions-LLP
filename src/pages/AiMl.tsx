@@ -152,7 +152,7 @@ export default function AiMl() {
             AI &amp; Machine Learning
           </div>
           <h1>
-            {(['Where intelligence', 'meets', '<em>engineering.</em>'] as const).map((line, i) => (
+            {(['Useful AI,', 'not a demo on', '<em>a stage.</em>'] as const).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
                   initial={{ y: '110%' }}
@@ -169,7 +169,7 @@ export default function AiMl() {
               Satvix Tech Solutions &nbsp;/&nbsp; AI &amp; ML
             </div>
             <p>
-              We don't do AI demos. We build production AI features — LLM integrations, retrieval pipelines, autonomous agents — that your users depend on daily and your team can maintain.
+              We embed LLMs and retrieval into products people already use. Cost caps, evaluation harnesses, fallback models, and the boring observability that turns a clever demo into something a regulated team can actually deploy.
             </p>
           </div>
         </div>

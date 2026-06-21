@@ -10,16 +10,14 @@ import { blogSlugs } from './blog';
 
 /* Portfolio case-study slugs (mirrors the keys in ProjectDetail.tsx) */
 export const portfolioSlugs = [
-  'lendingflow',
+  'nine-finance',
+  'glamour-jewelry',
+  'nivas-realty',
+  'tabletrack',
+  'sd-photography',
+  'clickly',
   'tailorpro',
-  'stillwood',
-  'pelican',
-  'verbena',
-  'nordhavn',
-  'aurum',
-  'traxis',
-  'lumio',
-  'vaulter',
+  'proposal-generator',
 ];
 
 /* Hand-authored, non-parameterised routes */

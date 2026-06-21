@@ -6,45 +6,45 @@ import SEO from '../components/SEO';
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
 const values = [
-  { n: '01', title: 'Ownership, not tickets', body: 'You own outcomes, not just tasks. Engineers here talk to users, shape the work, and ship things they are proud to put their name on.' },
-  { n: '02', title: 'Senior by default', body: 'Small team, high trust. No layers of approval to do good work. You will be given real responsibility from week one.' },
-  { n: '03', title: 'Learn on the job', body: 'New stacks, new domains, hard problems. We pair people deliberately and give time for deep work, not just delivery.' },
-  { n: '04', title: 'Remote-friendly, Anand-rooted', body: 'Work from our Anand studio or remotely. What matters is the craft and communication, not the chair you sit in.' },
+  { n: '01', title: 'You own the thing, not the ticket', body: 'Engineers here talk to users, argue about scope, choose the trade-offs. Tickets are a side effect of doing the work, not the work itself.' },
+  { n: '02', title: 'Senior by default',                 body: 'Small team, high trust. There is no approval queue between you and good work. Real responsibility from week one.' },
+  { n: '03', title: 'Time to learn things properly',     body: 'New stacks, new domains, hard problems. We pair people deliberately and protect deep-work time — even on the weeks the deadline is closing in.' },
+  { n: '04', title: 'Anand by default, remote by choice', body: 'Most of us are in the studio in Anand on Tuesdays and Thursdays. The rest of the week is up to you. What matters is the craft and the communication, not the chair.' },
 ];
 
 const perks = [
-  'Competitive salary + performance bonus',
-  'Flexible & remote-friendly hours',
-  'Annual learning & conference budget',
-  'Latest hardware of your choice',
-  'Health cover for you & family',
+  'Salary that is honest about the market',
+  'Hybrid by default — Anand on Tue + Thu',
+  'Annual learning and conference budget',
+  'Whatever laptop you actually want',
+  'Health cover for you and family',
   'Real ownership on real products',
-  'Generous leave & wellness days',
-  'A team that actually ships',
+  'A real leave policy people actually use',
+  'A team that ships every fortnight',
 ];
 
 const openings = [
-  { role: 'Senior React Engineer', team: 'Web', type: 'Full-time', loc: 'Anand / Remote' },
-  { role: 'React Native Developer', team: 'Mobile', type: 'Full-time', loc: 'Anand / Remote' },
-  { role: 'AI / ML Engineer', team: 'AI', type: 'Full-time', loc: 'Anand / Remote' },
-  { role: 'Product Designer', team: 'Design', type: 'Full-time', loc: 'Anand / Remote' },
-  { role: 'DevOps Engineer', team: 'Platform', type: 'Full-time', loc: 'Anand / Remote' },
-  { role: 'QA Automation Engineer', team: 'Quality', type: 'Full-time', loc: 'Anand / Remote' },
+  { role: 'Senior React engineer',    team: 'Web',      type: 'Full-time', loc: 'Anand / Hybrid' },
+  { role: 'React Native developer',   team: 'Mobile',   type: 'Full-time', loc: 'Anand / Hybrid' },
+  { role: 'AI / ML engineer',         team: 'AI',       type: 'Full-time', loc: 'Anand / Hybrid' },
+  { role: 'Product designer',         team: 'Design',   type: 'Full-time', loc: 'Anand / Hybrid' },
+  { role: 'DevOps engineer',          team: 'Platform', type: 'Full-time', loc: 'Anand / Hybrid' },
+  { role: 'QA automation engineer',   team: 'Quality',  type: 'Full-time', loc: 'Anand / Hybrid' },
 ];
 
 const hiring = [
-  { n: '01', title: 'Apply', desc: 'Send your CV and a line on what you have built. We read every application.' },
-  { n: '02', title: 'Intro call', desc: 'A relaxed 30-minute chat about you, us, and what you want next.' },
-  { n: '03', title: 'Craft round', desc: 'A practical exercise close to real work — no whiteboard trivia.' },
-  { n: '04', title: 'Offer', desc: 'Meet the team, get an offer, and pick your start date.' },
+  { n: '01', title: 'Send something', desc: 'A CV, a portfolio, a GitHub, or just a paragraph about what you have built. Every application is read by a person on the team you would join.' },
+  { n: '02', title: 'A real conversation', desc: 'Thirty minutes about you, us, and what good work looks like to you. No personality quizzes.' },
+  { n: '03', title: 'A piece of the work', desc: 'A short, paid exercise close to what the role actually does. No whiteboard trivia, no leetcode in a fluorescent room.' },
+  { n: '04', title: 'Meet the room',     desc: 'You meet the people you would sit next to. We meet the questions you still have. Then we make an offer and you pick the start date.' },
 ];
 
 export default function Careers() {
   return (
     <div>
       <SEO
-        title="Careers — Build your career at Satvix Tech Solutions"
-        description="Join Satvix Tech Solutions in Anand, Gujarat. We're hiring React, React Native, AI/ML, design, DevOps and QA talent. Remote-friendly roles, real ownership, and work you'll be proud of."
+        title="Careers — Come work at a small, careful studio"
+        description="A small senior team in Anand, hiring engineers, designers, AI and platform people. Real ownership, real craft, real leave policy."
         keywords="careers Satvix Tech Solutions, IT jobs Anand Gujarat, software developer jobs India, react developer jobs Gujarat, remote developer jobs India, AI ML engineer jobs India, design jobs India, DevOps jobs India, tech jobs Anand, software company careers Gujarat"
         url="https://satvixtech.com/careers"
         breadcrumb={[
@@ -58,10 +58,10 @@ export default function Careers() {
         <div className="wrap">
           <div className="page-hero__eyebrow">
             <span className="ping" />
-            Careers · we're hiring
+            Six rooms open · we read every application
           </div>
           <h1>
-            {(['Do the best', 'work of your <em>life.</em>'] as const).map((line, i) => (
+            {(['Come do the work', 'you’ll still be proud', '<em>of in ten years.</em>'] as const).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
                   initial={{ y: '110%' }}
@@ -76,7 +76,7 @@ export default function Careers() {
           <div className="page-hero__sub">
             <div className="breadcrumb">Satvix Tech Solutions &nbsp;/&nbsp; Careers</div>
             <p>
-              We're a small, senior team in Anand building products for founders around the world. If you care about craft, ownership and shipping things that matter, you'll feel at home here.
+              Forty people, one building in Anand, clients in seven countries. If you care about craft, the second draft, and shipping things you would still recommend to a friend two years later — you would probably like it here.
             </p>
           </div>
         </div>
@@ -87,8 +87,8 @@ export default function Careers() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">Why work here</div>
-              <h2 className="s-title reveal" data-d="1">A studio built for <em>makers.</em></h2>
+              <div className="eyebrow reveal">Why you might stay</div>
+              <h2 className="s-title reveal" data-d="1">A studio that is <em>built around the work.</em></h2>
             </div>
           </div>
           <div className="pgrid">
@@ -110,8 +110,8 @@ export default function Careers() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">The good stuff</div>
-              <h2 className="s-title reveal" data-d="1">Perks &amp; <em>benefits.</em></h2>
+              <div className="eyebrow reveal">The benefits we actually mean</div>
+              <h2 className="s-title reveal" data-d="1">Eight things, <em>no fine print.</em></h2>
             </div>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
@@ -140,8 +140,8 @@ export default function Careers() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">Open positions</div>
-              <h2 className="s-title reveal" data-d="1">Find your <em>seat.</em></h2>
+              <div className="eyebrow reveal">Open rooms</div>
+              <h2 className="s-title reveal" data-d="1">Six chairs <em>currently empty.</em></h2>
             </div>
           </div>
           <div style={{ borderTop: '1px solid var(--line)' }}>
@@ -166,11 +166,11 @@ export default function Careers() {
             ))}
           </div>
           <p style={{ marginTop: 28, color: 'var(--muted)', fontSize: 15 }}>
-            Don't see your role?{' '}
+            Your role not on the list?{' '}
             <Link to="/contact" style={{ color: 'var(--accent)', fontWeight: 500 }}>
-              Tell us why we should hire you
+              Write to us anyway.
             </Link>{' '}
-            — we always make room for exceptional people.
+            We have hired the wrong job description into the right person before.
           </p>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default function Careers() {
                 <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255,255,255,.4)', flexShrink: 0 }} />
                 How we hire
               </div>
-              <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>Simple &amp; <em>human.</em></h2>
+              <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>Four steps, no <em>vibes interviews.</em></h2>
             </div>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32 }}>
@@ -203,9 +203,9 @@ export default function Careers() {
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
           <div className="eyebrow reveal" style={{ color: 'rgba(255,255,255,.55)', justifyContent: 'center', marginBottom: 24 }}>
-            Your move
+            One inbox. A person reads it.
           </div>
-          <h2 className="reveal" data-d="1">Come build with <em>us.</em></h2>
+          <h2 className="reveal" data-d="1">Send something — even a <em>rough draft.</em></h2>
           <a href="mailto:careers@satvixtech.com" className="big-cta reveal" data-d="2" data-hover>
             careers@satvixtech.com
             <span className="arrow">

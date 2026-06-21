@@ -10,52 +10,52 @@ const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
 const models = [
   {
-    title: 'Dedicated team',
-    desc: 'A full squad — engineers, designer, QA and a delivery lead — working only on your product, as an extension of your team.',
-    points: ['Monthly rolling engagement', 'Scale up or down with notice', 'You own the roadmap'],
+    title: 'A team that becomes yours',
+    desc: 'Two to eight people from the studio — engineers, a designer, QA, a delivery lead — working only on your product, treating your standup as their own.',
+    points: ['Monthly, rolling', 'Scale up or down with a month’s notice', 'You set the roadmap, we set the standard'],
   },
   {
-    title: 'Staff augmentation',
-    desc: 'Plug senior specialists into your existing team to fill a skill gap or hit a deadline without long hiring cycles.',
-    points: ['Individual experts', 'Your tools & process', 'Time-zone overlap guaranteed'],
+    title: 'A specialist or two',
+    desc: 'You already have a team. You need one senior person who has done this before. We send them, in your tools, on your process.',
+    points: ['Individual experts, by the month', 'Your stack, your standards', 'Real overlap with your working day'],
   },
   {
-    title: 'Fixed-scope build',
-    desc: 'A defined deliverable, a fixed budget and a clear timeline — best for well-specified projects with a firm finish line.',
-    points: ['Milestone-based billing', 'Fixed cost & timeline', 'Full handover on completion'],
+    title: 'A fixed-scope build',
+    desc: 'You know what needs making and when. We agree the scope, the price and the date — and we sign for it.',
+    points: ['Milestone billing', 'Fixed cost, fixed timeline', 'Clean handover on day one of week N'],
   },
 ];
 
 const roles = [
-  { icon: Code2, title: 'Web Engineers', stack: 'React · Next.js · Node.js · TypeScript' },
-  { icon: Smartphone, title: 'Mobile Developers', stack: 'React Native · Swift · Kotlin · Flutter' },
-  { icon: Cpu, title: 'AI / ML Engineers', stack: 'Python · LLMs · RAG · PyTorch' },
-  { icon: Server, title: 'DevOps & Cloud', stack: 'AWS · Docker · Kubernetes · Terraform' },
-  { icon: Palette, title: 'Product Designers', stack: 'Figma · Design systems · UX research' },
-  { icon: ShieldCheck, title: 'QA Engineers', stack: 'Playwright · Cypress · Automation' },
+  { icon: Code2, title: 'Web engineers', stack: 'React · Next.js · Node.js · TypeScript' },
+  { icon: Smartphone, title: 'Mobile developers', stack: 'React Native · Swift · Kotlin · Flutter' },
+  { icon: Cpu, title: 'AI / ML engineers', stack: 'Python · LLMs · RAG · PyTorch' },
+  { icon: Server, title: 'DevOps & cloud', stack: 'AWS · Docker · Kubernetes · Terraform' },
+  { icon: Palette, title: 'Product designers', stack: 'Figma · Design systems · UX research' },
+  { icon: ShieldCheck, title: 'QA engineers', stack: 'Playwright · Cypress · Automation' },
 ];
 
 const steps = [
-  { n: '01', title: 'Tell us what you need', desc: 'Share the roles, skills and timeline. We respond within one business day.' },
-  { n: '02', title: 'Meet your shortlist', desc: 'We hand-pick candidates from our team and you interview them directly.' },
-  { n: '03', title: 'Start in days', desc: 'Onboard your team in days, not months. Begin with a no-risk trial period.' },
-  { n: '04', title: 'Scale as you grow', desc: 'Add or rotate talent as your roadmap evolves — with full continuity.' },
+  { n: '01', title: 'Tell us what you need', desc: 'Two paragraphs is plenty: the roles, the rough skills, the date. You will hear back from a real person, usually same day.' },
+  { n: '02', title: 'Meet a small shortlist', desc: 'Three people, not thirty. People we would put on our own projects. You interview them; you decide.' },
+  { n: '03', title: 'Start inside a fortnight', desc: 'Most engagements begin within five to ten working days, with a fortnight to confirm fit before anything is locked in.' },
+  { n: '04', title: 'Grow, shrink, rotate', desc: 'As the roadmap changes, the team changes with it — without losing the context the original team built up.' },
 ];
 
 const faqs = [
-  { question: 'How quickly can I hire developers from Satvix Tech Solutions?', answer: 'Most engagements start within 5–10 business days. Share your requirements and we share a hand-picked shortlist within 48 hours, then you interview and onboard.' },
-  { question: 'Do I interview the developers myself?', answer: 'Yes. You interview every candidate directly and choose who joins your team. We only put forward people we would happily staff on our own projects.' },
-  { question: 'What time zones do you cover?', answer: 'We are based in Anand, Gujarat, India and offer guaranteed daily overlap with India, Europe, the UK, the Middle East and US time zones, including the US morning.' },
-  { question: 'Is there a minimum commitment?', answer: 'Dedicated team and staff-augmentation engagements are monthly and rolling. You can scale up or down with reasonable notice; there is no multi-year lock-in.' },
-  { question: 'What if a developer is not the right fit?', answer: 'Every engagement starts with a trial period. If someone is not the right fit, we replace them quickly at no extra cost.' },
+  { question: 'How fast can someone start?', answer: 'Five to ten working days, usually. Send the brief, hear back within twenty-four hours, see a shortlist within forty-eight, interview, onboard.' },
+  { question: 'Do I interview the people you propose?', answer: 'Always. We only put forward people we would happily put on our own projects, and you decide whether they join yours.' },
+  { question: 'What time zones do you cover?', answer: 'We are in Anand, Gujarat — IST. We guarantee at least four hours of real overlap with India, Europe, the UK, the Middle East, and most US time zones (including the US east-coast morning).' },
+  { question: 'Is there a long contract?', answer: 'No. Dedicated and embedded engagements are month-by-month. You can scale up or down with reasonable notice; we have never asked for a multi-year lock-in.' },
+  { question: 'What if someone is the wrong fit?', answer: 'Two-week trial on every engagement. If it is not working, we swap people quickly, without charging you for the cross-over.' },
 ];
 
 export default function Hire() {
   return (
     <div>
       <SEO
-        title="Hire Dedicated Developers — Build your team with Satvix"
-        description="Hire dedicated developers and designers from Satvix Tech Solutions, Anand, Gujarat. React, Node.js, React Native, AI/ML, DevOps and QA experts — staff augmentation and dedicated teams for clients worldwide."
+        title="Hire — Borrow a small team from our studio"
+        description="Embed a senior engineer, lift an entire team from Anand, or hire a fixed-scope build. Real overlap with India, EU, UK, the Middle East, and the US."
         keywords="hire dedicated developers India, hire react developers India, staff augmentation company India, hire remote developers Gujarat, dedicated development team India, hire node.js developers, hire react native developers India, hire AI ML engineers India, IT staff augmentation Anand, hire software developers India, offshore development team India, hire designers India"
         url="https://satvixtech.com/hire"
         breadcrumb={[
@@ -70,10 +70,10 @@ export default function Hire() {
         <div className="wrap">
           <div className="page-hero__eyebrow">
             <span className="ping" />
-            Hire developers · staff augmentation
+            Borrow a team · senior people only
           </div>
           <h1>
-            {(['Build your team', 'with <em>senior</em> talent.'] as const).map((line, i) => (
+            {(['Borrow a small', 'team from <em>our studio.</em>'] as const).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
                   initial={{ y: '110%' }}
@@ -88,7 +88,7 @@ export default function Hire() {
           <div className="page-hero__sub">
             <div className="breadcrumb">Satvix Tech Solutions &nbsp;/&nbsp; Hire</div>
             <p>
-              Hire vetted engineers, designers and QA from our Anand studio — as a dedicated team, embedded specialists, or a fixed-scope build. Senior people, real time-zone overlap, no long hiring cycles.
+              Lift engineers, designers and QA out of our Anand studio and into your project — as a team, as a specialist, or as a fixed-scope build. Senior people, monthly billing, real overlap with your working day.
             </p>
           </div>
         </div>
@@ -99,8 +99,8 @@ export default function Hire() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">Engagement models</div>
-              <h2 className="s-title reveal" data-d="1">Hire the way that <em>fits.</em></h2>
+              <div className="eyebrow reveal">Three ways to work together</div>
+              <h2 className="s-title reveal" data-d="1">Pick the <em>shape</em> that fits.</h2>
             </div>
           </div>
           <div className="dlv-grid">
@@ -129,9 +129,9 @@ export default function Hire() {
             <div>
               <div className="eyebrow reveal" style={{ color: 'rgba(255,255,255,.6)' }}>
                 <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255,255,255,.4)', flexShrink: 0 }} />
-                Roles you can hire
+                Roles in the bullpen
               </div>
-              <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>Specialists, <em>not generalists.</em></h2>
+              <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>Specialists who have actually <em>shipped one of these.</em></h2>
             </div>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 1, background: 'rgba(255,255,255,.1)', border: '1px solid rgba(255,255,255,.1)' }}>
@@ -151,8 +151,8 @@ export default function Hire() {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">How it works</div>
-              <h2 className="s-title reveal" data-d="1">From brief to <em>building</em> in days.</h2>
+              <div className="eyebrow reveal">How it goes</div>
+              <h2 className="s-title reveal" data-d="1">Brief, shortlist, start, scale — in <em>that order.</em></h2>
             </div>
           </div>
           <div className="tl-rows">
@@ -172,8 +172,8 @@ export default function Hire() {
         <div className="wrap" style={{ maxWidth: 900 }}>
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">Questions</div>
-              <h2 className="s-title reveal" data-d="1">Hiring, <em>answered.</em></h2>
+              <div className="eyebrow reveal">Before you write</div>
+              <h2 className="s-title reveal" data-d="1">Five answers, <em>plainly.</em></h2>
             </div>
           </div>
           <div style={{ borderTop: '1px solid var(--line)' }}>
@@ -191,12 +191,12 @@ export default function Hire() {
       <section className="cta-section">
         <div className="wrap" style={{ position: 'relative' }}>
           <div className="eyebrow reveal" style={{ color: 'rgba(255,255,255,.55)', justifyContent: 'center', marginBottom: 24 }}>
-            Ready when you are
+            We will reply within a working day
           </div>
-          <h2 className="reveal" data-d="1">Let's build your <em>team.</em></h2>
+          <h2 className="reveal" data-d="1">Tell us what your <em>team is missing.</em></h2>
           <Magnetic>
             <Link to="/contact" className="big-cta reveal" data-d="2" data-hover>
-              Request talent
+              Send a brief
               <span className="arrow"><ArrowRight size={18} /></span>
             </Link>
           </Magnetic>

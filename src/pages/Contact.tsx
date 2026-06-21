@@ -62,8 +62,8 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <SEO
-        title="Contact — Start a conversation with Satvix Tech Solutions"
-        description="Ready to build your next digital product? Get in touch with Satvix Tech Solutions — an independent studio in Anand, Gujarat. We respond within one business day."
+        title="Contact — One inbox, one human, no funnel"
+        description="Tell us what you’re building. We read every message and reply within a working day, usually with questions, sometimes with an honest ‘not us’."
         keywords="contact Satvix Tech Solutions, hire software agency India, digital product studio Gujarat, get a quote web development, software development inquiry India"
         url="https://satvixtech.com/contact"
         breadcrumb={[
@@ -71,10 +71,10 @@ const Contact = () => {
           { name: 'Contact', item: 'https://satvixtech.com/contact' },
         ]}
         faq={[
-          { question: 'How quickly does Satvix Tech Solutions respond to enquiries?', answer: 'We respond to all project enquiries within one business day. For urgent matters, you can reach us directly at info@satvixtech.com or +91-9904055986.' },
-          { question: 'Where is Satvix Tech Solutions located?', answer: 'Our studio is based in Anand, Gujarat, India. We work with clients globally across India, the US, UK, and Europe — fully remote or hybrid depending on your needs.' },
-          { question: 'What information should I prepare before reaching out?', answer: 'The more context the better — a brief description of what you\'re building, your target users, your timeline, and a rough budget range will help us give you the most useful first response.' },
-          { question: 'Do you sign NDAs?', answer: 'Yes, we\'re happy to sign a mutual NDA before any detailed project discussions. Just mention it in your initial message.' },
+          { question: 'How quickly will I hear back?', answer: 'A real person reads everything that comes in and replies within one working day — usually same day. If something is on fire, write “urgent” in the subject and email info@satvixtech.com directly.' },
+          { question: 'Where are you?', answer: 'A single building in Anand, Gujarat. We work with teams in India, the US, the UK and the EU — fully remote, hybrid, or by getting on a plane when it matters.' },
+          { question: 'What should I send in the first message?', answer: 'In order of usefulness: what you are building and why, who it is for, the rough timeline, and a budget range. Even three sentences is enough to start a real conversation.' },
+          { question: 'Will you sign an NDA?', answer: 'Yes. Mention it in the first message and we will send a mutual NDA before anything sensitive is discussed.' },
         ]}
       />
 
@@ -83,10 +83,10 @@ const Contact = () => {
         <div className="wrap">
           <div className="page-hero__eyebrow">
             <span className="ping" />
-            Initiate Protocol
+            Inbox monitored by a real person
           </div>
           <h1>
-            {(['Ready to', 'build <em>together?</em>'] as const).map((line, i) => (
+            {(['Tell us what', 'you’re <em>building.</em>'] as const).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
                   initial={{ y: '110%' }}
@@ -103,7 +103,7 @@ const Contact = () => {
               Satvix Tech Solutions &nbsp;/&nbsp; Contact
             </div>
             <p>
-              We're ready to engineer your digital future. Our team is on standby to discuss your architectural needs, from initial concept to global scale.
+              Write a few sentences about the thing you want to make. We will read it, ask a couple of questions, and tell you — honestly — whether we are the right studio for it. No funnel, no sales call calendar.
             </p>
           </div>
         </div>
@@ -118,18 +118,18 @@ const Contact = () => {
             <div className="lg:col-span-5">
               <div className="s-head" style={{ marginBottom: 40 }}>
                 <div>
-                  <div className="eyebrow reveal">Channels</div>
+                  <div className="eyebrow reveal">Three ways in</div>
                   <h2 className="s-title reveal" data-d="1" style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}>
-                    Communication <em>relay.</em>
+                    Email, phone, <em>or a real door.</em>
                   </h2>
                 </div>
               </div>
 
               <div className="space-y-12">
                 {[
-                  { icon: Mail, label: "Email Relay", value: "info@satvixtech.com", href: "mailto:info@satvixtech.com" },
-                  { icon: Phone, label: "Direct Line", value: "+91-9904055986", href: "tel:+919904055986" },
-                  { icon: MapPin, label: "HQ Coordinates", value: "Anand, Gujarat, India", isAddress: true }
+                  { icon: Mail, label: "Write to us", value: "info@satvixtech.com", href: "mailto:info@satvixtech.com" },
+                  { icon: Phone, label: "Call the studio", value: "+91 9904 055 986", href: "tel:+919904055986" },
+                  { icon: MapPin, label: "Drop by", value: "Anand, Gujarat, India", isAddress: true }
                 ].map((item, i) => (
                   <div key={i} className="reveal" data-d={String(i)}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
@@ -191,14 +191,14 @@ const Contact = () => {
                 }}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div className="space-y-2">
-                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Identity</label>
+                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Your name</label>
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        placeholder="Full Name"
+                        placeholder="What should we call you?"
                         style={{
                           width: '100%',
                           background: 'transparent',
@@ -215,14 +215,14 @@ const Contact = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Communication</label>
+                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Where to reply</label>
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder="Email Address"
+                        placeholder="you@yourcompany.com"
                         style={{
                           width: '100%',
                           background: 'transparent',
@@ -242,13 +242,13 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div className="space-y-2">
-                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Company (optional)</label>
+                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Company (if any)</label>
                       <input
                         type="text"
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        placeholder="Company / organisation"
+                        placeholder="Company, side project, or ‘just me’"
                         style={{
                           width: '100%', background: 'transparent', border: 'none',
                           borderBottom: '1px solid var(--line)', padding: '12px 0',
@@ -259,7 +259,7 @@ const Contact = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>I'm interested in</label>
+                      <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>What kind of work</label>
                       <select
                         name="subject"
                         value={formData.subject}
@@ -271,21 +271,21 @@ const Contact = () => {
                           fontSize: 16, color: 'var(--ink)', outline: 'none', cursor: 'pointer'
                         }}
                       >
-                        <option value="">Select a service</option>
-                        <option value="web">Web Development</option>
-                        <option value="mobile">Mobile Apps</option>
-                        <option value="ai-ml">AI / ML</option>
-                        <option value="design">Product / UI-UX Design</option>
-                        <option value="brand">Brand & Strategy</option>
-                        <option value="hire">Hire a dedicated team</option>
-                        <option value="other">Something else</option>
+                        <option value="">Pick the closest one</option>
+                        <option value="web">A web platform</option>
+                        <option value="mobile">A mobile app</option>
+                        <option value="ai-ml">An AI feature or product</option>
+                        <option value="design">Product or UI/UX design</option>
+                        <option value="brand">Brand or editorial</option>
+                        <option value="hire">A dedicated team to embed</option>
+                        <option value="other">Something else entirely</option>
                       </select>
                     </div>
                   </div>
 
                   {/* Budget selector */}
                   <div className="space-y-2 mb-8">
-                    <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Estimated budget</label>
+                    <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Rough budget — best guess is fine</label>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, paddingTop: 6 }}>
                       {budgets.map((b) => {
                         const active = formData.budget === b;
@@ -312,14 +312,14 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2 mb-12">
-                    <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Transmission</label>
+                    <label style={{ fontFamily: 'var(--mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.12em', color: 'var(--muted)' }}>Tell us about it</label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
                       rows={5}
-                      placeholder="Project details, technical requirements, or general inquiries..."
+                      placeholder="What you’re making, who it’s for, what’s in your head. Three sentences is plenty."
                       style={{
                         width: '100%',
                         background: 'transparent',
@@ -352,7 +352,7 @@ const Contact = () => {
                       cursor: 'pointer'
                     }}
                   >
-                    <span>{isSubmitting ? 'Transmitting...' : 'Send Message'}</span>
+                    <span>{isSubmitting ? 'Sending…' : 'Send it over'}</span>
                     <ArrowRight size={18} />
                   </button>
 
@@ -372,7 +372,7 @@ const Contact = () => {
                           textAlign: 'center'
                         }}
                       >
-                        Transmission successful. We will respond shortly.
+                        Thanks — your note is in the inbox. A real person will reply within one working day.
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -388,19 +388,19 @@ const Contact = () => {
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">Knowledge Base</div>
+              <div className="eyebrow reveal">Before you write</div>
               <h2 className="s-title reveal" data-d="1">
-                Frequent <em>inquiries.</em>
+                Four answers, in <em>plain English.</em>
               </h2>
             </div>
           </div>
 
           <div className="pgrid">
             {[
-              { q: "Typical project timeline?", a: "Timelines vary by complexity. Standard web applications typically range from 4-12 weeks from architecture to deployment." },
-              { q: "Engagement models?", a: "We offer fixed-cost project based engagements and dedicated team augmentation models for long-term scalability." },
-              { q: "Post-launch support?", a: "Comprehensive maintenance packages are available, including server monitoring, security patches, and iterative updates." },
-              { q: "Technology stack?", a: "We specialize in the React ecosystem, Node.js backends, and high-performance cloud infrastructure." }
+              { q: "How long does a build take?", a: "Most web platforms take eight to fourteen weeks from kickoff to a live launch. Mobile apps usually add four. We will tell you what is realistic in the first call — not what sounds good." },
+              { q: "How do you bill?", a: "Two ways. Fixed scope for short, well-defined projects; a small embedded team on a monthly rate for longer work. Either way, invoices arrive every two weeks and nothing is hidden." },
+              { q: "What happens after launch?", a: "Most clients keep us on for at least a quarter. We monitor, patch, iterate, and help you hire the in-house team that takes over — when you want one." },
+              { q: "What stack do you use?", a: "Mostly React and Next.js on the front, Node and Postgres on the back, native or React Native on mobile. We pick the boring one when the boring one will outlast the project." }
             ].map((faq, i) => (
               <div key={i} className="prin reveal" data-d={String(i % 2)}>
                 <div className="prin__n">0{i + 1}</div>
