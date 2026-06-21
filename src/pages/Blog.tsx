@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import Squares from '../components/ui/squares';
+import Magnetic from '../components/Magnetic';
 import { posts } from '../data/blog';
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
@@ -29,8 +31,11 @@ export default function Blog() {
       />
 
       {/* Page hero */}
-      <section className="page-hero">
-        <div className="wrap">
+      <section className="page-hero relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
+          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+        </div>
+        <div className="wrap relative z-10">
           <div className="page-hero__eyebrow">
             <span className="ping" />
             Journal
@@ -63,13 +68,15 @@ export default function Blog() {
           <div className="filter-row">
             <div className="filter-chips">
               {cats.map(c => (
-                <button
-                  key={c}
-                  className={`chip${active === c ? ' active' : ''}`}
-                  onClick={() => setActive(c)}
-                >
-                  {c}
-                </button>
+                <Magnetic key={c}>
+                  <button
+                    className={`chip${active === c ? ' active' : ''}`}
+                    onClick={() => setActive(c)}
+                    style={{ display: 'inline-block' }}
+                  >
+                    {c}
+                  </button>
+                </Magnetic>
               ))}
             </div>
             <span className="filter-count">
@@ -205,44 +212,53 @@ export default function Blog() {
                 onFocus={e => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255,.5)')}
                 onBlur={e => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255,.18)')}
               />
-              <button
-                type="submit"
-                className="cta-btn"
-                style={{
-                  background: 'var(--accent)', color: 'var(--ink)',
-                  borderRadius: '0 999px 999px 0', whiteSpace: 'nowrap',
-                  border: 'none', cursor: 'pointer', flexShrink: 0,
-                }}
-              >
-                Subscribe <span className="dot" style={{ background: 'var(--ink)' }} />
-              </button>
+              <Magnetic>
+                <button
+                  type="submit"
+                  className="cta-btn"
+                  style={{
+                    background: 'var(--accent)', color: 'var(--ink)',
+                    borderRadius: '0 999px 999px 0', whiteSpace: 'nowrap',
+                    border: 'none', cursor: 'pointer', flexShrink: 0,
+                    display: 'inline-block'
+                  }}
+                >
+                  Subscribe <span className="dot" style={{ background: 'var(--ink)' }} />
+                </button>
+              </Magnetic>
             </form>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="cta-section">
-        <div className="wrap" style={{ position: 'relative' }}>
+      <section className="cta-section relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+        </div>
+        <div className="wrap relative z-10" style={{ position: 'relative' }}>
           <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Finished reading? Want to work together?
           </div>
           <h2 className="reveal" data-d="1">
             Got something worth <em>building?</em>
           </h2>
-          <a
-            href="mailto:info@satvixtech.com"
-            className="big-cta reveal"
-            data-d="2"
-            data-hover
-          >
-            info@satvixtech.com
-            <span className="arrow">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </span>
-          </a>
+          <Magnetic>
+            <a
+              href="mailto:info@satvixtech.com"
+              className="big-cta reveal"
+              data-d="2"
+              data-hover
+              style={{ display: 'inline-block' }}
+            >
+              info@satvixtech.com
+              <span className="arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          </Magnetic>
         </div>
       </section>
     </div>

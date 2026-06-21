@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import AwardsSection from "../components/AwardsSection";
 import { industriesData } from "../data/industries";
+import Squares from "../components/ui/squares";
+import Magnetic from "../components/Magnetic";
 
 const industryList = Object.entries(industriesData) as [
   string,
@@ -11,6 +13,43 @@ const industryList = Object.entries(industriesData) as [
 ][];
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
+
+/* ── Interactive Tilt Card Wrapper ── */
+function TiltCard({ children, className, to }: { children: React.ReactNode; className: string; to: string }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el || window.matchMedia('(pointer:coarse)').matches) return;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(1000px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) translateY(-4px)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (ref.current) {
+      ref.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    }
+  };
+
+  return (
+    <Link
+      ref={ref}
+      to={to}
+      className={className}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      data-hover
+      style={{
+        transition: 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
+        transformStyle: 'preserve-3d'
+      }}
+    >
+      {children}
+    </Link>
+  );
+}
 
 /* ── Animated counter ── */
 function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
@@ -290,9 +329,12 @@ export default function Home() {
       />
 
       {/* ── Hero ── */}
-      <section className="hero overflow-hidden">
+      <section className="hero overflow-hidden relative">
+        <div className="absolute inset-0 z-0 opacity-[0.10] pointer-events-none">
+          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+        </div>
         <div ref={orbRef} className="hero__orb" />
-        <div className="wrap" style={{ position: "relative" }}>
+        <div className="wrap relative z-10" style={{ position: "relative" }}>
           <div className="hero__eyebrow">
             <span className="ping" />A small studio in Anand, Gujarat — est.
             2020
@@ -324,9 +366,11 @@ export default function Home() {
               platforms, mobile apps and AI products for founders and operators
               who care about the work — and the bill.
             </p>
-            <Link to="/portfolio" className="cta-btn" data-hover>
-              See the work <span className="dot" />
-            </Link>
+            <Magnetic>
+              <Link to="/portfolio" className="cta-btn" data-hover>
+                See the work <span className="dot" />
+              </Link>
+            </Magnetic>
             <div className="stats">
               <div>
                 <div className="stat__num">
@@ -585,25 +629,26 @@ export default function Home() {
                 Built with teams who <em>actually ship.</em>
               </h2>
             </div>
-            <Link
-              to="/portfolio"
-              className="cta-btn reveal"
-              data-d="2"
-              data-hover
-              style={{ background: "var(--accent)", color: "var(--ink)" }}
-            >
-              Browse the archive{" "}
-              <span className="dot" style={{ background: "var(--ink)" }} />
-            </Link>
+            <Magnetic>
+              <Link
+                to="/portfolio"
+                className="cta-btn reveal"
+                data-d="2"
+                data-hover
+                style={{ background: "var(--accent)", color: "var(--ink)" }}
+              >
+                Browse the archive{" "}
+                <span className="dot" style={{ background: "var(--ink)" }} />
+              </Link>
+            </Magnetic>
           </div>
 
           <div className="work-grid">
             {workCards.map((c) => (
-              <Link
+              <TiltCard
                 key={c.title}
                 to={c.href}
                 className={`work-card ${c.cls} reveal`}
-                data-hover
               >
                 <div
                   className="work-card__bg"
@@ -611,7 +656,7 @@ export default function Home() {
                     background: `linear-gradient(rgba(10, 8, 6, 0.48), rgba(10, 8, 6, 0.48)), url(${c.img}) center/cover no-repeat`,
                   }}
                 />
-                <div className="work-card__inner">
+                <div className="work-card__inner" style={{ transform: "translateZ(30px)" }}>
                   <div className="work-card__meta">
                     <span>{c.year}</span>
                     {c.tags.map((t) => (
@@ -620,8 +665,8 @@ export default function Home() {
                   </div>
                   <div className="work-card__title">{c.title}</div>
                 </div>
-                <div className="work-card__cta">↗</div>
-              </Link>
+                <div className="work-card__cta" style={{ transform: "translateZ(45px)" }}>↗</div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -886,8 +931,11 @@ export default function Home() {
       <AwardsSection />
 
       {/* ── CTA ── */}
-      <section className="cta-section">
-        <div className="wrap" style={{ position: "relative" }}>
+      <section className="cta-section relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
+          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+        </div>
+        <div className="wrap relative z-10" style={{ position: "relative" }}>
           <div
             className="eyebrow reveal"
             style={{
@@ -901,26 +949,28 @@ export default function Home() {
           <h2 className="reveal" data-d="1">
             Got something worth <em>building?</em>
           </h2>
-          <a
-            href="mailto:info@satvixtech.com"
-            className="big-cta reveal"
-            data-d="2"
-            data-hover
-          >
-            info@satvixtech.com
-            <span className="arrow">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </span>
-          </a>
+          <Magnetic>
+            <a
+              href="mailto:info@satvixtech.com"
+              className="big-cta reveal"
+              data-d="2"
+              data-hover
+            >
+              info@satvixtech.com
+              <span className="arrow">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          </Magnetic>
         </div>
       </section>
     </div>

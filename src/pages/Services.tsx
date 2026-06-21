@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import Squares from '../components/ui/squares';
+import Magnetic from '../components/Magnetic';
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -150,8 +152,11 @@ export default function Services() {
       />
 
       {/* Page hero */}
-      <section className="page-hero" ref={heroRef}>
-        <div className="wrap">
+      <section className="page-hero relative overflow-hidden" ref={heroRef}>
+        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
+          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+        </div>
+        <div className="wrap relative z-10">
           <div className="page-hero__eyebrow">
             <span className="ping" />
             What we do
@@ -274,27 +279,32 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="cta-section">
-        <div className="wrap" style={{ position: 'relative' }}>
+      <section className="cta-section relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
+          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+        </div>
+        <div className="wrap relative z-10" style={{ position: 'relative' }}>
           <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Tell us what you’re trying to build
           </div>
           <h2 className="reveal" data-d="1">
             Something <em>specific</em> in mind?
           </h2>
-          <a
-            href="mailto:info@satvixtech.com"
-            className="big-cta reveal"
-            data-d="2"
-            data-hover
-          >
-            info@satvixtech.com
-            <span className="arrow">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </span>
-          </a>
+          <Magnetic>
+            <a
+              href="mailto:info@satvixtech.com"
+              className="big-cta reveal"
+              data-d="2"
+              data-hover
+            >
+              info@satvixtech.com
+              <span className="arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          </Magnetic>
         </div>
       </section>
     </div>

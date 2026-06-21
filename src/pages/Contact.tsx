@@ -1,8 +1,9 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/SEO';
+import Squares from '../components/ui/squares';
+import Magnetic from '../components/Magnetic';
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -79,8 +80,11 @@ const Contact = () => {
       />
 
       {/* Page Hero */}
-      <section className="page-hero" style={{ overflow: 'hidden' }}>
-        <div className="wrap">
+      <section className="page-hero relative overflow-hidden" style={{ overflow: 'hidden' }}>
+        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
+          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+        </div>
+        <div className="wrap relative z-10">
           <div className="page-hero__eyebrow">
             <span className="ping" />
             Inbox monitored by a real person
@@ -337,24 +341,26 @@ const Contact = () => {
                     ></textarea>
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="cta-btn"
-                    data-hover
-                    style={{
-                      width: '100%',
-                      justifyContent: 'space-between',
-                      background: 'var(--ink)',
-                      color: 'var(--bg)',
-                      padding: '20px 24px',
-                      border: 'none',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <span>{isSubmitting ? 'Sending…' : 'Send it over'}</span>
-                    <ArrowRight size={18} />
-                  </button>
+                  <Magnetic style={{ width: '100%' }}>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="cta-btn"
+                      data-hover
+                      style={{
+                        width: '100%',
+                        justifyContent: 'space-between',
+                        background: 'var(--ink)',
+                        color: 'var(--bg)',
+                        padding: '20px 24px',
+                        border: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      <span>{isSubmitting ? 'Sending…' : 'Send it over'}</span>
+                      <ArrowRight size={18} />
+                    </button>
+                  </Magnetic>
 
                   <AnimatePresence>
                     {submitStatus === 'success' && (

@@ -117,26 +117,6 @@ function Loader({ onDone }: { onDone: () => void }) {
   );
 }
 
-/* ── Scroll-reveal observer (re-runs on route change) ── */
-function RevealObserver() {
-  const location = useLocation();
-
-  useEffect(() => {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-
-    const timer = setTimeout(() => {
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    }, 80);
-
-    return () => { clearTimeout(timer); io.disconnect(); };
-  }, [location.pathname]);
-
-  return null;
-}
 
 /* ── Animated routes (fade transition between pages) ──
    `initial={false}` keeps the first paint (and the prerendered HTML) at full
@@ -189,11 +169,11 @@ export function AppShell() {
 
   return (
     <>
+      <div className="noise-overlay" />
       <CursorTracker />
       <ScrollProgress />
       {showLoader && <Loader onDone={() => setShowLoader(false)} />}
       <ScrollToTop />
-      <RevealObserver />
       <div style={{ minHeight: '100vh' }}>
         <Navbar />
         <main>

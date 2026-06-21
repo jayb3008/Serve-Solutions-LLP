@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import Squares from '../components/ui/squares';
+import Magnetic from '../components/Magnetic';
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -102,8 +104,11 @@ export default function Industries() {
       />
 
       {/* Page hero */}
-      <section className="page-hero" ref={heroRef}>
-        <div className="wrap">
+      <section className="page-hero relative overflow-hidden" ref={heroRef}>
+        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
+          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(227, 30, 36, 0.04)" fadeColor="var(--bg)" />
+        </div>
+        <div className="wrap relative z-10">
           <div className="page-hero__eyebrow">
             <span className="ping" />
             Industries
@@ -210,23 +215,28 @@ export default function Industries() {
       </section>
 
       {/* CTA */}
-      <section className="cta-section">
-        <div className="wrap" style={{ position: 'relative' }}>
+      <section className="cta-section relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" hoverFillColor="rgba(227, 30, 36, 0.08)" fadeColor="var(--ink)" />
+        </div>
+        <div className="wrap relative z-10" style={{ position: 'relative' }}>
           <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             Don’t see your industry? Tell us anyway.
           </div>
           <h2 className="reveal" data-d="1">
             Build the <em>eleventh</em> with us.
           </h2>
-          <Link
-            to="/contact"
-            className="cta-btn reveal"
-            data-d="2"
-            data-hover
-            style={{ background: 'var(--accent)', color: 'var(--ink)', marginTop: 40 }}
-          >
-            Say hello <span className="dot" style={{ background: 'var(--ink)' }} />
-          </Link>
+          <Magnetic>
+            <Link
+              to="/contact"
+              className="cta-btn reveal"
+              data-d="2"
+              data-hover
+              style={{ background: 'var(--accent)', color: 'var(--ink)', marginTop: 40, display: 'inline-flex' }}
+            >
+              Say hello <span className="dot" style={{ background: 'var(--ink)' }} />
+            </Link>
+          </Magnetic>
         </div>
       </section>
     </div>

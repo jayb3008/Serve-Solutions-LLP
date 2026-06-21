@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import Magnetic from '../components/Magnetic';
+import Squares from '../components/ui/squares';
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -66,8 +67,11 @@ export default function Hire() {
       />
 
       {/* Hero */}
-      <section className="page-hero">
-        <div className="wrap">
+      <section className="page-hero relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
+          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+        </div>
+        <div className="wrap relative z-10">
           <div className="page-hero__eyebrow">
             <span className="ping" />
             Borrow a team · senior people only
@@ -188,8 +192,11 @@ export default function Hire() {
       </section>
 
       {/* CTA */}
-      <section className="cta-section">
-        <div className="wrap" style={{ position: 'relative' }}>
+      <section className="cta-section relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
+          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+        </div>
+        <div className="wrap relative z-10" style={{ position: 'relative' }}>
           <div className="eyebrow reveal" style={{ color: 'rgba(255,255,255,.55)', justifyContent: 'center', marginBottom: 24 }}>
             We will reply within a working day
           </div>

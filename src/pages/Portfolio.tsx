@@ -1,9 +1,48 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import Squares from "../components/ui/squares";
+import Magnetic from "../components/Magnetic";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
+
+/* ── Interactive Tilt Card Wrapper ── */
+function TiltCard({ children, className, to }: { children: React.ReactNode; className: string; to: string }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el || window.matchMedia('(pointer:coarse)').matches) return;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(1000px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) translateY(-4px)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (ref.current) {
+      ref.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    }
+  };
+
+  return (
+    <Link
+      ref={ref}
+      to={to}
+      className={className}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      data-hover
+      style={{
+        transition: 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
+        transformStyle: 'preserve-3d'
+      }}
+    >
+      {children}
+    </Link>
+  );
+}
 
 type Card = {
   id: string;
@@ -107,8 +146,11 @@ export default function Portfolio() {
       />
 
       {/* Page hero */}
-      <section className="page-hero">
-        <div className="wrap">
+      <section className="page-hero relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
+          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+        </div>
+        <div className="wrap relative z-10">
           <div className="page-hero__eyebrow">
             <span className="ping" />
             Selected work
@@ -151,13 +193,14 @@ export default function Portfolio() {
           <div className="filter-row">
             <div className="filter-chips">
               {filters.map((f) => (
-                <button
-                  key={f}
-                  className={`chip${active === f ? " active" : ""}`}
-                  onClick={() => setActive(f)}
-                >
-                  {f}
-                </button>
+                <Magnetic key={f} strength={0.25}>
+                  <button
+                    className={`chip${active === f ? " active" : ""}`}
+                    onClick={() => setActive(f)}
+                  >
+                    {f}
+                  </button>
+                </Magnetic>
               ))}
             </div>
             <span className="filter-count">
@@ -172,12 +215,10 @@ export default function Portfolio() {
         <div className="wrap">
           <div className="arch-grid">
             {visible.map((c, i) => (
-              <Link
+              <TiltCard
                 key={c.id}
                 to={`/portfolio/${c.id}`}
                 className={`arch reveal${c.wide ? " wide" : ""}`}
-                data-hover
-                data-d={String(i % 3)}
               >
                 <div
                   className="arch__bg"
@@ -185,7 +226,7 @@ export default function Portfolio() {
                     background: `linear-gradient(rgba(10,8,6,0.48), rgba(10,8,6,0.48)), url(${c.img}) center/cover no-repeat`,
                   }}
                 />
-                <div className="arch__inner">
+                <div className="arch__inner" style={{ transform: "translateZ(30px)" }}>
                   <div className="arch__top">
                     <div className="arch__meta">
                       <span>{c.year}</span>
@@ -197,8 +238,8 @@ export default function Portfolio() {
                   </div>
                   <p className="arch__title">{c.title}</p>
                 </div>
-                <div className="arch__cta">↗</div>
-              </Link>
+                <div className="arch__cta" style={{ transform: "translateZ(45px)" }}>↗</div>
+              </TiltCard>
             ))}
           </div>
 
@@ -221,8 +262,11 @@ export default function Portfolio() {
       </section>
 
       {/* CTA */}
-      <section className="cta-section">
-        <div className="wrap" style={{ position: "relative" }}>
+      <section className="cta-section relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
+          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+        </div>
+        <div className="wrap relative z-10" style={{ position: "relative" }}>
           <div
             className="eyebrow reveal"
             style={{
@@ -236,26 +280,28 @@ export default function Portfolio() {
           <h2 className="reveal" data-d="1">
             Let’s make something <em>worth keeping.</em>
           </h2>
-          <a
-            href="mailto:info@satvixtech.com"
-            className="big-cta reveal"
-            data-d="2"
-            data-hover
-          >
-            info@satvixtech.com
-            <span className="arrow">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </span>
-          </a>
+          <Magnetic>
+            <a
+              href="mailto:info@satvixtech.com"
+              className="big-cta reveal"
+              data-d="2"
+              data-hover
+            >
+              info@satvixtech.com
+              <span className="arrow">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          </Magnetic>
         </div>
       </section>
     </div>

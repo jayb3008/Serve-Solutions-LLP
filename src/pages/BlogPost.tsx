@@ -1,6 +1,8 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import Squares from '../components/ui/squares';
+import Magnetic from '../components/Magnetic';
 import { posts, postBySlug } from '../data/blog';
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
@@ -40,8 +42,11 @@ export default function BlogPost() {
 
       {/* Hero */}
       <article>
-        <header className="page-hero" style={{ paddingBottom: 56 }}>
-          <div className="wrap" style={{ maxWidth: 900 }}>
+        <header className="page-hero relative overflow-hidden" style={{ paddingBottom: 56 }}>
+          <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
+            <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+          </div>
+          <div className="wrap relative z-10" style={{ maxWidth: 900 }}>
             <div className="page-hero__eyebrow">
               <span className="ping" />
               {post.cat} · {post.read} read
@@ -174,8 +179,11 @@ export default function BlogPost() {
         </div>
 
         {/* Next article */}
-        <section className="s" style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)', paddingTop: 80, paddingBottom: 80 }}>
-          <div className="wrap">
+        <section className="s relative overflow-hidden" style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)', paddingTop: 80, paddingBottom: 80 }}>
+          <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none">
+            <Squares squareSize={60} direction="up" speed={0.06} borderColor="rgba(18, 21, 24, 0.08)" />
+          </div>
+          <div className="wrap relative z-10">
             <div className="eyebrow reveal" style={{ marginBottom: 32 }}>Read next</div>
             <Link to={`/blog/${next.slug}`} className="svc reveal" data-hover>
               <div className="svc__num" style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--muted)' }}>
@@ -190,9 +198,11 @@ export default function BlogPost() {
               </div>
             </Link>
             <div style={{ marginTop: 40 }}>
-              <Link to="/blog" className="btn-ghost" data-hover>
-                All articles <span className="arr" />
-              </Link>
+              <Magnetic>
+                <Link to="/blog" className="btn-ghost" data-hover style={{ display: 'inline-block' }}>
+                  All articles <span className="arr" />
+                </Link>
+              </Magnetic>
             </div>
           </div>
         </section>
