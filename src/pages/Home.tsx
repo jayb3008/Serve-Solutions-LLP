@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import AwardsSection from "../components/AwardsSection";
+import { servicesData } from "../data/services";
 import { industriesData } from "../data/industries";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
@@ -15,12 +16,20 @@ const industryList = Object.entries(industriesData) as [
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
 /* ── Interactive Tilt Card Wrapper ── */
-function TiltCard({ children, className, to }: { children: React.ReactNode; className: string; to: string }) {
+function TiltCard({
+  children,
+  className,
+  to,
+}: {
+  children: React.ReactNode;
+  className: string;
+  to: string;
+}) {
   const ref = useRef<HTMLAnchorElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const el = ref.current;
-    if (!el || window.matchMedia('(pointer:coarse)').matches) return;
+    if (!el || window.matchMedia("(pointer:coarse)").matches) return;
     const r = el.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - 0.5;
     const y = (e.clientY - r.top) / r.height - 0.5;
@@ -29,7 +38,8 @@ function TiltCard({ children, className, to }: { children: React.ReactNode; clas
 
   const handleMouseLeave = () => {
     if (ref.current) {
-      ref.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      ref.current.style.transform =
+        "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
     }
   };
 
@@ -42,8 +52,8 @@ function TiltCard({ children, className, to }: { children: React.ReactNode; clas
       onMouseLeave={handleMouseLeave}
       data-hover
       style={{
-        transition: 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
-        transformStyle: 'preserve-3d'
+        transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)",
+        transformStyle: "preserve-3d",
       }}
     >
       {children}
@@ -331,14 +341,20 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="hero overflow-hidden relative">
         <div className="absolute inset-0 z-0 opacity-[0.10] pointer-events-none">
-          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+          <Squares
+            squareSize={65}
+            direction="diagonal"
+            speed={0.15}
+            borderColor="rgba(18, 21, 24, 0.08)"
+            hoverFillColor="rgba(18, 21, 24, 0.03)"
+          />
         </div>
         <div ref={orbRef} className="hero__orb" />
         <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div className="hero__eyebrow">
+          {/* <div className="hero__eyebrow">
             <span className="ping" />A small studio in Anand, Gujarat — est.
             2020
-          </div>
+          </div> */}
 
           <h1 className="hero__title">
             {(
@@ -403,9 +419,16 @@ export default function Home() {
         <div className="marquee__track">
           {[0, 1].map((i) => (
             <span key={i} className="marquee__item">
-              Web platforms <span className="star">✦</span> Mobile apps{" "}
-              <em>·</em> AI features <span className="star">✦</span> Brand
-              systems <em>·</em> Commerce <span className="star">✦</span>{" "}
+              {Object.values(servicesData).map((service, idx) => (
+                <span key={service.title}>
+                  {service.title}
+                  {idx % 2 === 0 ? (
+                    <span className="star">✦</span>
+                  ) : (
+                    <span className="star">✦</span>
+                  )}
+                </span>
+              ))}
             </span>
           ))}
         </div>
@@ -597,10 +620,10 @@ export default function Home() {
 
       {/* ── Work ── */}
       <section
+        className="s"
         style={{
           background: "var(--ink)",
           color: "var(--bg)",
-          padding: "140px 0",
         }}
       >
         <div className="wrap">
@@ -656,7 +679,10 @@ export default function Home() {
                     background: `linear-gradient(rgba(10, 8, 6, 0.48), rgba(10, 8, 6, 0.48)), url(${c.img}) center/cover no-repeat`,
                   }}
                 />
-                <div className="work-card__inner" style={{ transform: "translateZ(30px)" }}>
+                <div
+                  className="work-card__inner"
+                  style={{ transform: "translateZ(30px)" }}
+                >
                   <div className="work-card__meta">
                     <span>{c.year}</span>
                     {c.tags.map((t) => (
@@ -665,7 +691,12 @@ export default function Home() {
                   </div>
                   <div className="work-card__title">{c.title}</div>
                 </div>
-                <div className="work-card__cta" style={{ transform: "translateZ(45px)" }}>↗</div>
+                <div
+                  className="work-card__cta"
+                  style={{ transform: "translateZ(45px)" }}
+                >
+                  ↗
+                </div>
               </TiltCard>
             ))}
           </div>
@@ -933,7 +964,12 @@ export default function Home() {
       {/* ── CTA ── */}
       <section className="cta-section relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+          <Squares
+            squareSize={60}
+            direction="up"
+            speed={0.08}
+            borderColor="#ffffff"
+          />
         </div>
         <div className="wrap relative z-10" style={{ position: "relative" }}>
           <div

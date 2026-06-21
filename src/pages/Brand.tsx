@@ -1,132 +1,148 @@
-import { useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import SEO from '../components/SEO';
-import Squares from '../components/ui/squares';
-import Magnetic from '../components/Magnetic';
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import SEO from "../components/SEO";
+import Squares from "../components/ui/squares";
+import Magnetic from "../components/Magnetic";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
 const gallery = {
-  main: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  s1:   'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=700',
-  s2:   'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=700',
+  main: "https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  s1: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=700",
+  s2: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=700",
 };
 
 const capabilities = [
   {
-    num: '01',
-    pre: 'Brand',
-    em: 'positioning',
-    tags: ['Naming', 'Messaging', 'ICP'],
+    num: "01",
+    pre: "Brand",
+    em: "positioning",
+    tags: ["Naming", "Messaging", "ICP"],
     desc: "We help founders articulate exactly what they do, who it's for, and why anyone should care — before spending a rupee on design or ads.",
     list: [
-      'Competitive landscape analysis',
-      'Ideal customer profiling (ICP)',
-      'Positioning statement & narrative',
-      'Brand naming & tagline',
-      'Messaging hierarchy',
-      'Value proposition design',
+      "Competitive landscape analysis",
+      "Ideal customer profiling (ICP)",
+      "Positioning statement & narrative",
+      "Brand naming & tagline",
+      "Messaging hierarchy",
+      "Value proposition design",
     ],
   },
   {
-    num: '02',
-    pre: 'Visual',
-    em: 'identity',
-    tags: ['Logo', 'Colour', 'Typography'],
-    desc: 'A visual language that works everywhere — from a 16px favicon to a 6m conference banner. Built to last, not just to look good right now.',
+    num: "02",
+    pre: "Visual",
+    em: "identity",
+    tags: ["Logo", "Colour", "Typography"],
+    desc: "A visual language that works everywhere — from a 16px favicon to a 6m conference banner. Built to last, not just to look good right now.",
     list: [
-      'Logo design & variations',
-      'Colour system & tokens',
-      'Typography selection & pairing',
-      'Iconography & illustration style',
-      'Photography & art direction',
-      'Motion & animation language',
+      "Logo design & variations",
+      "Colour system & tokens",
+      "Typography selection & pairing",
+      "Iconography & illustration style",
+      "Photography & art direction",
+      "Motion & animation language",
     ],
   },
   {
-    num: '03',
-    pre: 'Brand',
-    em: 'guidelines',
-    tags: ['Voice', 'Motion', 'Brand book'],
+    num: "03",
+    pre: "Brand",
+    em: "guidelines",
+    tags: ["Voice", "Motion", "Brand book"],
     desc: "A brand book your whole team can actually use — clear enough for a new hire, detailed enough for an agency to execute without a briefing call.",
     list: [
-      'Brand guidelines document',
-      'Tone of voice & writing style',
+      "Brand guidelines document",
+      "Tone of voice & writing style",
       "Do / don't usage examples",
-      'Template library',
-      'Motion & animation spec',
-      'Social media guidelines',
+      "Template library",
+      "Motion & animation spec",
+      "Social media guidelines",
     ],
   },
   {
-    num: '04',
-    pre: 'Content &',
-    em: 'go-to-market',
-    tags: ['Copy', 'SEO', 'GTM strategy'],
+    num: "04",
+    pre: "Content &",
+    em: "go-to-market",
+    tags: ["Copy", "SEO", "GTM strategy"],
     desc: "Brand without distribution is just art. We build content engines and go-to-market plans that turn a strong brand into measurable growth.",
     list: [
-      'Marketing site copywriting',
-      'SEO-driven content strategy',
-      'Thought leadership framework',
-      'Launch campaign planning',
-      'Email & lifecycle copy',
-      'Go-to-market roadmap',
+      "Marketing site copywriting",
+      "SEO-driven content strategy",
+      "Thought leadership framework",
+      "Launch campaign planning",
+      "Email & lifecycle copy",
+      "Go-to-market roadmap",
     ],
   },
 ];
 
 const useCases = [
   {
-    title: 'Startup brand from zero',
-    desc: 'Name, logo, visual system, and messaging — everything a new company needs to show up with confidence.',
-    img: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: "Startup brand from zero",
+    desc: "Name, logo, visual system, and messaging — everything a new company needs to show up with confidence.",
+    img: "https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: 'Rebrand & identity refresh',
-    desc: 'Evolving an existing brand without losing equity — new identity, same soul.',
-    img: 'https://images.pexels.com/photos/3059654/pexels-photo-3059654.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: "Rebrand & identity refresh",
+    desc: "Evolving an existing brand without losing equity — new identity, same soul.",
+    img: "https://images.pexels.com/photos/3059654/pexels-photo-3059654.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: 'Go-to-market positioning',
-    desc: 'Messaging and strategy for a new product launch, market entry, or funding announcement.',
-    img: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: "Go-to-market positioning",
+    desc: "Messaging and strategy for a new product launch, market entry, or funding announcement.",
+    img: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: 'Marketing site copy',
-    desc: 'Homepage, product pages, and case studies written to convert — not just to explain.',
-    img: 'https://images.pexels.com/photos/261763/pexels-photo-261763.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: "Marketing site copy",
+    desc: "Homepage, product pages, and case studies written to convert — not just to explain.",
+    img: "https://images.pexels.com/photos/261763/pexels-photo-261763.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: 'Brand book & guidelines',
-    desc: 'A single source of truth for how your brand looks, sounds, and moves — forever.',
-    img: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: "Brand book & guidelines",
+    desc: "A single source of truth for how your brand looks, sounds, and moves — forever.",
+    img: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: 'Naming & messaging',
-    desc: 'Finding the words that make people stop scrolling — for companies, products, and campaigns.',
-    img: 'https://images.pexels.com/photos/3584994/pexels-photo-3584994.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: "Naming & messaging",
+    desc: "Finding the words that make people stop scrolling — for companies, products, and campaigns.",
+    img: "https://images.pexels.com/photos/3584994/pexels-photo-3584994.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
 ];
 
 const techStack = [
-  { name: 'Figma',        cat: 'Design' },
-  { name: 'Adobe CC',     cat: 'Design' },
-  { name: 'Framer',       cat: 'Web' },
-  { name: 'Webflow',      cat: 'Web' },
-  { name: 'Notion',       cat: 'Documentation' },
-  { name: 'Pitch',        cat: 'Presentations' },
-  { name: 'Lottie',       cat: 'Animation' },
-  { name: 'Canva Pro',    cat: 'Templates' },
-  { name: 'Semrush',      cat: 'SEO' },
-  { name: 'Loom',         cat: 'Handover' },
+  { name: "Figma", cat: "Design" },
+  { name: "Adobe CC", cat: "Design" },
+  { name: "Framer", cat: "Web" },
+  { name: "Webflow", cat: "Web" },
+  { name: "Notion", cat: "Documentation" },
+  { name: "Pitch", cat: "Presentations" },
+  { name: "Lottie", cat: "Animation" },
+  { name: "Canva Pro", cat: "Templates" },
+  { name: "Semrush", cat: "SEO" },
+  { name: "Loom", cat: "Handover" },
 ];
 
 const process = [
-  { n: '01', title: 'Research', body: "Market landscape, competitive audit, and ICP definition. We don't design in a vacuum — we design for a specific person in a specific context." },
-  { n: '02', title: 'Positioning', body: "Brand narrative, values, and messaging hierarchy. The strategy that guides every design decision — built before a logo is sketched." },
-  { n: '03', title: 'Design', body: "Logo system, visual identity, and motion language. Three directions presented, one evolved into a full brand system." },
-  { n: '04', title: 'Delivery', body: "Brand book, asset library, copy, and launch assets — packaged so your team can use the brand without calling us first." },
+  {
+    n: "01",
+    title: "Research",
+    body: "Market landscape, competitive audit, and ICP definition. We don't design in a vacuum — we design for a specific person in a specific context.",
+  },
+  {
+    n: "02",
+    title: "Positioning",
+    body: "Brand narrative, values, and messaging hierarchy. The strategy that guides every design decision — built before a logo is sketched.",
+  },
+  {
+    n: "03",
+    title: "Design",
+    body: "Logo system, visual identity, and motion language. Three directions presented, one evolved into a full brand system.",
+  },
+  {
+    n: "04",
+    title: "Delivery",
+    body: "Brand book, asset library, copy, and launch assets — packaged so your team can use the brand without calling us first.",
+  },
 ];
 
 export default function Brand() {
@@ -140,30 +156,41 @@ export default function Brand() {
         keywords="Satvix Tech Solutions brand, brand identity design India, brand strategy agency Gujarat, logo design company India, visual identity design India, brand positioning India, startup branding agency India, naming agency India, brand voice content strategy India, creative agency Gujarat, brand consulting company India"
         url="https://satvixtech.com/services/brand"
         breadcrumb={[
-          { name: 'Home', item: 'https://satvixtech.com' },
-          { name: 'Services', item: 'https://satvixtech.com/services' },
-          { name: 'Brand & Strategy', item: 'https://satvixtech.com/services/brand' },
+          { name: "Home", item: "https://satvixtech.com" },
+          { name: "Services", item: "https://satvixtech.com/services" },
+          {
+            name: "Brand & Strategy",
+            item: "https://satvixtech.com/services/brand",
+          },
         ]}
       />
 
       {/* Page hero */}
       <section className="page-hero relative overflow-hidden" ref={heroRef}>
         <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+          <Squares
+            squareSize={65}
+            direction="diagonal"
+            speed={0.15}
+            borderColor="rgba(18, 21, 24, 0.08)"
+            hoverFillColor="rgba(18, 21, 24, 0.03)"
+          />
         </div>
         <div className="wrap relative z-10">
-          <div className="page-hero__eyebrow">
+          {/* <div className="page-hero__eyebrow">
             <span className="ping" />
             Brand &amp; Strategy
-          </div>
+          </div> */}
           <h1>
-            {(['Brand is the', 'first code', '<em>you ship.</em>'] as const).map((line, i) => (
+            {(
+              ["Brand is the", "first code", "<em>you ship.</em>"] as const
+            ).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
-                  initial={{ y: '110%' }}
+                  initial={{ y: "110%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.9, ease, delay: 0.3 + i * 0.07 }}
-                  style={{ display: 'inline-block' }}
+                  style={{ display: "inline-block" }}
                   dangerouslySetInnerHTML={{ __html: line }}
                 />
               </span>
@@ -171,10 +198,13 @@ export default function Brand() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Brand &amp; Strategy
+              Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Brand
+              &amp; Strategy
             </div>
             <p>
-              We rewrite the line founders use at parties. Positioning, naming, voice, and the visual identity that ships with the product on day one — not bolted on for the rebrand three years later.
+              We rewrite the line founders use at parties. Positioning, naming,
+              voice, and the visual identity that ships with the product on day
+              one — not bolted on for the rebrand three years later.
             </p>
           </div>
         </div>
@@ -183,21 +213,22 @@ export default function Brand() {
       {/* Marquee */}
       <div className="marquee" aria-hidden="true">
         <div className="marquee__track">
-          {[0, 1].map(i => (
+          {[0, 1].map((i) => (
             <span key={i} className="marquee__item">
-              Brand positioning <span className="star">✦</span> Visual identity <em>·</em> Naming <span className="star">✦</span> Brand guidelines <em>·</em> Go-to-market <span className="star">✦</span>{' '}
+              Brand positioning <span className="star">✦</span> Visual identity{" "}
+              <em>·</em> Naming <span className="star">✦</span> Brand guidelines{" "}
+              <em>·</em> Go-to-market <span className="star">✦</span>{" "}
             </span>
           ))}
         </div>
       </div>
 
       {/* Gallery */}
-      <section style={{ padding: '80px 0', borderTop: '1px solid var(--line)' }}>
+      <section
+        style={{ padding: "80px 0", borderTop: "1px solid var(--line)" }}
+      >
         <div className="wrap">
-          <div
-            className="grid md:grid-cols-3 gap-3"
-            style={{ height: 480 }}
-          >
+          <div className="grid md:grid-cols-3 gap-3" style={{ height: 480 }}>
             <div className="md:col-span-2 rounded-[18px] overflow-hidden h-[260px] md:h-auto">
               <img
                 src={gallery.main}
@@ -229,7 +260,10 @@ export default function Brand() {
       </section>
 
       {/* Capabilities */}
-      <section className="s" style={{ borderTop: '1px solid var(--line)', paddingTop: 0 }}>
+      <section
+        className="s"
+        style={{ borderTop: "1px solid var(--line)", paddingTop: 0 }}
+      >
         <div className="wrap">
           <div className="s-head">
             <div>
@@ -239,19 +273,25 @@ export default function Brand() {
               </h2>
             </div>
           </div>
-          {capabilities.map(c => (
+          {capabilities.map((c) => (
             <div key={c.num} className="pract reveal">
               <div className="pract__num">{c.num}</div>
               <div className="pract__head">
-                <h2>{c.pre} <em>{c.em}</em></h2>
+                <h2>
+                  {c.pre} <em>{c.em}</em>
+                </h2>
                 <div className="meta">
-                  {c.tags.map(t => <span key={t}>{t}</span>)}
+                  {c.tags.map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
                 </div>
               </div>
               <div className="pract__body">
                 <p>{c.desc}</p>
                 <ul className="pract__list">
-                  {c.list.map(item => <li key={item}>{item}</li>)}
+                  {c.list.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -260,15 +300,37 @@ export default function Brand() {
       </section>
 
       {/* Use cases */}
-      <section className="s" style={{ background: 'var(--ink)', color: 'var(--bg)', padding: '120px 0' }}>
+      <section
+        className="s"
+        style={{
+          background: "var(--ink)",
+          color: "var(--bg)",
+          padding: "120px 0",
+        }}
+      >
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.6)' }}>
-                <span style={{ display: 'inline-block', width: 24, height: 1, background: 'rgba(255, 255, 255,.4)', flexShrink: 0 }} />
+              <div
+                className="eyebrow reveal"
+                style={{ color: "rgba(255, 255, 255,.6)" }}
+              >
+                <span
+                  style={{
+                    display: "inline-block",
+                    width: 24,
+                    height: 1,
+                    background: "rgba(255, 255, 255,.4)",
+                    flexShrink: 0,
+                  }}
+                />
                 Use cases
               </div>
-              <h2 className="s-title reveal" data-d="1" style={{ color: 'var(--bg)' }}>
+              <h2
+                className="s-title reveal"
+                data-d="1"
+                style={{ color: "var(--bg)" }}
+              >
                 Brand that <em>does real work.</em>
               </h2>
             </div>
@@ -279,7 +341,7 @@ export default function Brand() {
                 key={uc.title}
                 className="arch reveal"
                 data-d={String(i % 3)}
-                style={{ cursor: 'default' }}
+                style={{ cursor: "default" }}
               >
                 <div
                   className="arch__bg"
@@ -289,11 +351,23 @@ export default function Brand() {
                 />
                 <div className="arch__inner">
                   <div className="arch__top">
-                    <div className="arch__meta"><span>Use case</span></div>
+                    <div className="arch__meta">
+                      <span>Use case</span>
+                    </div>
                   </div>
                   <div>
                     <p className="arch__title">{uc.title}</p>
-                    <p style={{ fontSize: 14, lineHeight: 1.5, opacity: 0.75, marginTop: 8, maxWidth: '34ch' }}>{uc.desc}</p>
+                    <p
+                      style={{
+                        fontSize: 14,
+                        lineHeight: 1.5,
+                        opacity: 0.75,
+                        marginTop: 8,
+                        maxWidth: "34ch",
+                      }}
+                    >
+                      {uc.desc}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -303,7 +377,7 @@ export default function Brand() {
       </section>
 
       {/* Tech stack */}
-      <section className="s" style={{ padding: '120px 0' }}>
+      <section className="s" style={{ padding: "120px 0" }}>
         <div className="wrap">
           <div className="s-head">
             <div>
@@ -312,8 +386,19 @@ export default function Brand() {
                 Our brand <em>toolkit.</em>
               </h2>
             </div>
-            <p className="reveal" data-d="2" style={{ maxWidth: '32ch', color: 'var(--ink-2)', fontSize: 16, lineHeight: 1.55, margin: 0 }}>
-              Great brand work doesn't hide behind tools — but these are the ones we use to produce it consistently.
+            <p
+              className="reveal"
+              data-d="2"
+              style={{
+                maxWidth: "32ch",
+                color: "var(--ink-2)",
+                fontSize: 16,
+                lineHeight: 1.55,
+                margin: 0,
+              }}
+            >
+              Great brand work doesn't hide behind tools — but these are the
+              ones we use to produce it consistently.
             </p>
           </div>
           <div className="stack-grid">
@@ -329,7 +414,10 @@ export default function Brand() {
       </section>
 
       {/* Process */}
-      <section className="s" style={{ borderTop: '1px solid var(--line)', paddingBottom: '120px' }}>
+      <section
+        className="s"
+        style={{ borderTop: "1px solid var(--line)", paddingBottom: "120px" }}
+      >
         <div className="wrap">
           <div className="s-head">
             <div>
@@ -342,7 +430,18 @@ export default function Brand() {
           <div className="tl-rows">
             {process.map((p, i) => (
               <div key={p.n} className="tl-row reveal" data-d={String(i)}>
-                <div className="tl-year" style={{ fontSize: 20, letterSpacing: '.04em', fontFamily: 'var(--mono)', fontWeight: 400, color: 'var(--muted)' }}>{p.n}</div>
+                <div
+                  className="tl-year"
+                  style={{
+                    fontSize: 20,
+                    letterSpacing: ".04em",
+                    fontFamily: "var(--mono)",
+                    fontWeight: 400,
+                    color: "var(--muted)",
+                  }}
+                >
+                  {p.n}
+                </div>
                 <div className="tl-title">{p.title}</div>
                 <div className="tl-body">{p.body}</div>
               </div>
@@ -354,10 +453,22 @@ export default function Brand() {
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+          <Squares
+            squareSize={60}
+            direction="up"
+            speed={0.08}
+            borderColor="#ffffff"
+          />
         </div>
-        <div className="wrap relative z-10" style={{ position: 'relative' }}>
-          <div className="eyebrow reveal" style={{ color: 'rgba(255, 255, 255,.55)', justifyContent: 'center', marginBottom: 24 }}>
+        <div className="wrap relative z-10" style={{ position: "relative" }}>
+          <div
+            className="eyebrow reveal"
+            style={{
+              color: "rgba(255, 255, 255,.55)",
+              justifyContent: "center",
+              marginBottom: 24,
+            }}
+          >
             Let's build a brand worth remembering
           </div>
           <h2 className="reveal" data-d="1">
@@ -372,7 +483,14 @@ export default function Brand() {
             >
               info@satvixtech.com
               <span className="arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M5 12h14m-6-6 6 6-6 6" />
                 </svg>
               </span>
@@ -380,7 +498,16 @@ export default function Brand() {
           </Magnetic>
           <div style={{ marginTop: 48 }}>
             <Magnetic>
-              <Link to="/services" className="btn-ghost reveal" data-d="3" data-hover style={{ color: 'var(--bg)', borderColor: 'rgba(255, 255, 255, 0.25)' }}>
+              <Link
+                to="/services"
+                className="btn-ghost reveal"
+                data-d="3"
+                data-hover
+                style={{
+                  color: "var(--bg)",
+                  borderColor: "rgba(255, 255, 255, 0.25)",
+                }}
+              >
                 All services <span className="arr" />
               </Link>
             </Magnetic>

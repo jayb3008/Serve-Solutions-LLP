@@ -41,14 +41,34 @@ const principles = [
 ];
 
 const team = [
-  { init: "B", name: "Batukbhai Sarvaiya", role: "Founder — keeps the lights on" },
-  { init: "R", name: "Rahul Patel", role: "Engineering — architecture & code review" },
+  {
+    init: "B",
+    name: "Batukbhai Sarvaiya",
+    role: "Founder — keeps the lights on",
+  },
+  {
+    init: "R",
+    name: "Rahul Patel",
+    role: "Engineering — architecture & code review",
+  },
   { init: "P", name: "Priya Mehta", role: "Design — flows, systems, type" },
-  { init: "A", name: "Arjun Shah", role: "AI & data — LLM features, retrieval" },
+  {
+    init: "A",
+    name: "Arjun Shah",
+    role: "AI & data — LLM features, retrieval",
+  },
   { init: "N", name: "Nisha Desai", role: "Product — discovery & roadmap" },
   { init: "K", name: "Karan Joshi", role: "Mobile — iOS, Android, RN" },
-  { init: "S", name: "Sneha Trivedi", role: "Brand — naming, narrative, editorial" },
-  { init: "D", name: "Dev Agarwal", role: "Backend — Postgres, Node, the boring bits" },
+  {
+    init: "S",
+    name: "Sneha Trivedi",
+    role: "Brand — naming, narrative, editorial",
+  },
+  {
+    init: "D",
+    name: "Dev Agarwal",
+    role: "Backend — Postgres, Node, the boring bits",
+  },
 ];
 
 const timeline = [
@@ -132,13 +152,19 @@ export default function About() {
       {/* Page hero */}
       <section className="page-hero relative overflow-hidden" ref={heroRef}>
         <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+          <Squares
+            squareSize={65}
+            direction="diagonal"
+            speed={0.15}
+            borderColor="rgba(18, 21, 24, 0.08)"
+            hoverFillColor="rgba(18, 21, 24, 0.03)"
+          />
         </div>
         <div className="wrap relative z-10">
-          <div className="page-hero__eyebrow">
+          {/* <div className="page-hero__eyebrow">
             <span className="ping" />
             About the studio
-          </div>
+          </div> */}
           <h1>
             {(
               [
@@ -163,10 +189,10 @@ export default function About() {
               Satvix Tech Solutions &nbsp;/&nbsp; About
             </div>
             <p>
-              We have been a small, independent studio in Anand, Gujarat since 2020.
-              Six years in, we have shipped a hundred and twenty products with
-              founders, operators and a few patient enterprise teams. The studio
-              has grown; the front door has not moved.
+              We have been a small, independent studio in Anand, Gujarat since
+              2020. Six years in, we have shipped a hundred and twenty products
+              with founders, operators and a few patient enterprise teams. The
+              studio has grown; the front door has not moved.
             </p>
           </div>
         </div>
@@ -176,14 +202,18 @@ export default function About() {
       <section className="manifesto">
         <div className="wrap">
           <p className="reveal">
-            The best software is <em>invisible.</em> Nobody notices it; it just gets out of the way.
+            The best software is <em>invisible.</em> Nobody notices it; it just
+            gets out of the way.
           </p>
           <p className="reveal" data-d="1">
             We don’t separate design from engineering.{" "}
-            <span className="dim">We never figured out how, and it turned out to be a feature.</span>
+            <span className="dim">
+              We never figured out how, and it turned out to be a feature.
+            </span>
           </p>
           <p className="reveal" data-d="2">
-            Good products are made by people who <em>care, then think, then ship</em> — in that order.
+            Good products are made by people who{" "}
+            <em>care, then think, then ship</em> — in that order.
           </p>
           <p className="reveal" data-d="3">
             That’s the studio we built.{" "}
@@ -312,7 +342,12 @@ export default function About() {
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares squareSize={60} direction="down" speed={0.08} borderColor="#ffffff" />
+          <Squares
+            squareSize={60}
+            direction="down"
+            speed={0.08}
+            borderColor="#ffffff"
+          />
         </div>
         <div className="wrap relative z-10" style={{ position: "relative" }}>
           <div

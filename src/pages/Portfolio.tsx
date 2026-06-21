@@ -8,12 +8,20 @@ import Magnetic from "../components/Magnetic";
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
 /* ── Interactive Tilt Card Wrapper ── */
-function TiltCard({ children, className, to }: { children: React.ReactNode; className: string; to: string }) {
+function TiltCard({
+  children,
+  className,
+  to,
+}: {
+  children: React.ReactNode;
+  className: string;
+  to: string;
+}) {
   const ref = useRef<HTMLAnchorElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const el = ref.current;
-    if (!el || window.matchMedia('(pointer:coarse)').matches) return;
+    if (!el || window.matchMedia("(pointer:coarse)").matches) return;
     const r = el.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - 0.5;
     const y = (e.clientY - r.top) / r.height - 0.5;
@@ -22,7 +30,8 @@ function TiltCard({ children, className, to }: { children: React.ReactNode; clas
 
   const handleMouseLeave = () => {
     if (ref.current) {
-      ref.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      ref.current.style.transform =
+        "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
     }
   };
 
@@ -35,8 +44,8 @@ function TiltCard({ children, className, to }: { children: React.ReactNode; clas
       onMouseLeave={handleMouseLeave}
       data-hover
       style={{
-        transition: 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
-        transformStyle: 'preserve-3d'
+        transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)",
+        transformStyle: "preserve-3d",
       }}
     >
       {children}
@@ -148,13 +157,19 @@ export default function Portfolio() {
       {/* Page hero */}
       <section className="page-hero relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+          <Squares
+            squareSize={65}
+            direction="diagonal"
+            speed={0.15}
+            borderColor="rgba(18, 21, 24, 0.08)"
+            hoverFillColor="rgba(18, 21, 24, 0.03)"
+          />
         </div>
         <div className="wrap relative z-10">
-          <div className="page-hero__eyebrow">
+          {/* <div className="page-hero__eyebrow">
             <span className="ping" />
             Selected work
-          </div>
+          </div> */}
           <h1>
             {(
               [
@@ -226,7 +241,10 @@ export default function Portfolio() {
                     background: `linear-gradient(rgba(10,8,6,0.48), rgba(10,8,6,0.48)), url(${c.img}) center/cover no-repeat`,
                   }}
                 />
-                <div className="arch__inner" style={{ transform: "translateZ(30px)" }}>
+                <div
+                  className="arch__inner"
+                  style={{ transform: "translateZ(30px)" }}
+                >
                   <div className="arch__top">
                     <div className="arch__meta">
                       <span>{c.year}</span>
@@ -238,7 +256,12 @@ export default function Portfolio() {
                   </div>
                   <p className="arch__title">{c.title}</p>
                 </div>
-                <div className="arch__cta" style={{ transform: "translateZ(45px)" }}>↗</div>
+                <div
+                  className="arch__cta"
+                  style={{ transform: "translateZ(45px)" }}
+                >
+                  ↗
+                </div>
               </TiltCard>
             ))}
           </div>
@@ -264,7 +287,12 @@ export default function Portfolio() {
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+          <Squares
+            squareSize={60}
+            direction="up"
+            speed={0.08}
+            borderColor="#ffffff"
+          />
         </div>
         <div className="wrap relative z-10" style={{ position: "relative" }}>
           <div

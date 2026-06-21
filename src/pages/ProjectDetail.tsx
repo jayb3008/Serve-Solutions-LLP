@@ -267,13 +267,19 @@ export default function ProjectDetail() {
       {/* ── Page hero ── */}
       <section className="page-hero relative overflow-hidden" ref={heroRef}>
         <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+          <Squares
+            squareSize={65}
+            direction="diagonal"
+            speed={0.15}
+            borderColor="rgba(18, 21, 24, 0.08)"
+            hoverFillColor="rgba(18, 21, 24, 0.03)"
+          />
         </div>
         <div className="wrap relative z-10">
-          <div className="page-hero__eyebrow">
+          {/* <div className="page-hero__eyebrow">
             <span className="ping" />
             {project.category}
-          </div>
+          </div> */}
           <h1>
             {[project.title, `<em>${project.subtitle}</em>`].map((line, i) => (
               <span key={i} className="row">
@@ -292,7 +298,11 @@ export default function ProjectDetail() {
               <Magnetic>
                 <Link
                   to="/portfolio"
-                  style={{ color: "var(--accent)", textDecoration: "none", display: "inline-block" }}
+                  style={{
+                    color: "var(--accent)",
+                    textDecoration: "none",
+                    display: "inline-block",
+                  }}
                 >
                   ← Portfolio
                 </Link>
@@ -624,9 +634,17 @@ export default function ProjectDetail() {
       </section>
 
       {/* ── Next project ── */}
-      <section className="cta-section relative overflow-hidden" style={{ position: "relative" }}>
+      <section
+        className="cta-section relative overflow-hidden"
+        style={{ position: "relative" }}
+      >
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+          <Squares
+            squareSize={60}
+            direction="up"
+            speed={0.08}
+            borderColor="#ffffff"
+          />
         </div>
         <div className="wrap relative z-10" style={{ position: "relative" }}>
           <div
@@ -656,12 +674,22 @@ export default function ProjectDetail() {
             </p>
           )}
           {nextProject ? (
-            <Link to={`/portfolio/${project.next}`} style={{ textDecoration: 'none', color: 'inherit', display: 'inline-block' }}>
+            <Link
+              to={`/portfolio/${project.next}`}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                display: "inline-block",
+              }}
+            >
               <Magnetic>
                 <h2
                   className="reveal animate-pulse-subtle"
                   data-d="1"
-                  style={{ fontSize: "clamp(36px,6vw,96px)", cursor: "pointer" }}
+                  style={{
+                    fontSize: "clamp(36px,6vw,96px)",
+                    cursor: "pointer",
+                  }}
                 >
                   {nextProject.title} <em>→</em>
                 </h2>

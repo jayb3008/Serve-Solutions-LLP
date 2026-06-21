@@ -1,28 +1,33 @@
-import { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import ScrollProgress from './components/ScrollProgress';
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Portfolio from './pages/Portfolio';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import Contact from './pages/Contact';
-import Industries from './pages/Industries';
-import IndustryDetail from './pages/IndustryDetail';
-import ProjectDetail from './pages/ProjectDetail';
-import ServiceDetail from './pages/ServiceDetail';
-import AiMl from './pages/AiMl';
-import ProductDesign from './pages/ProductDesign';
-import WebEngineering from './pages/WebEngineering';
-import MobileApps from './pages/MobileApps';
-import Brand from './pages/Brand';
-import Hire from './pages/Hire';
-import Careers from './pages/Careers';
+import { useState, useEffect, useRef } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import ScrollProgress from "./components/ScrollProgress";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Portfolio from "./pages/Portfolio";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Contact from "./pages/Contact";
+import Industries from "./pages/Industries";
+import IndustryDetail from "./pages/IndustryDetail";
+import ProjectDetail from "./pages/ProjectDetail";
+import ServiceDetail from "./pages/ServiceDetail";
+import AiMl from "./pages/AiMl";
+import ProductDesign from "./pages/ProductDesign";
+import WebEngineering from "./pages/WebEngineering";
+import MobileApps from "./pages/MobileApps";
+import Brand from "./pages/Brand";
+import Hire from "./pages/Hire";
+import Careers from "./pages/Careers";
 
 /* ── Custom cursor ── */
 function CursorTracker() {
@@ -30,18 +35,21 @@ function CursorTracker() {
   const dotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia('(pointer:coarse)').matches) return;
+    if (window.matchMedia("(pointer:coarse)").matches) return;
 
-    let x = window.innerWidth / 2, y = window.innerHeight / 2;
-    let cx = x, cy = y;
+    let x = window.innerWidth / 2,
+      y = window.innerHeight / 2;
+    let cx = x,
+      cy = y;
     let rafId: number;
 
     const onMove = (e: MouseEvent) => {
-      x = e.clientX; y = e.clientY;
+      x = e.clientX;
+      y = e.clientY;
       if (dotRef.current)
         dotRef.current.style.transform = `translate(${x}px,${y}px) translate(-50%,-50%)`;
     };
-    window.addEventListener('mousemove', onMove);
+    window.addEventListener("mousemove", onMove);
 
     const loop = () => {
       cx += (x - cx) * 0.18;
@@ -53,21 +61,21 @@ function CursorTracker() {
     rafId = requestAnimationFrame(loop);
 
     const onEnter = (e: Event) => {
-      if ((e.target as Element).closest('[data-hover], a, button'))
-        cursorRef.current?.classList.add('hovering');
+      if ((e.target as Element).closest("[data-hover], a, button"))
+        cursorRef.current?.classList.add("hovering");
     };
     const onLeave = (e: Event) => {
-      if ((e.target as Element).closest('[data-hover], a, button'))
-        cursorRef.current?.classList.remove('hovering');
+      if ((e.target as Element).closest("[data-hover], a, button"))
+        cursorRef.current?.classList.remove("hovering");
     };
-    document.addEventListener('mouseenter', onEnter, true);
-    document.addEventListener('mouseleave', onLeave, true);
+    document.addEventListener("mouseenter", onEnter, true);
+    document.addEventListener("mouseleave", onLeave, true);
 
     return () => {
-      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(rafId);
-      document.removeEventListener('mouseenter', onEnter, true);
-      document.removeEventListener('mouseleave', onLeave, true);
+      document.removeEventListener("mouseenter", onEnter, true);
+      document.removeEventListener("mouseleave", onLeave, true);
     };
   }, []);
 
@@ -79,45 +87,6 @@ function CursorTracker() {
   );
 }
 
-/* ── Page loader ── */
-function Loader({ onDone }: { onDone: () => void }) {
-  const [count, setCount] = useState(0);
-  const [isDone, setIsDone] = useState(false);
-  const doneRef = useRef(false);
-
-  useEffect(() => {
-    let n = 0;
-    const id = setInterval(() => {
-      n += Math.max(1, Math.round((100 - n) / 10));
-      if (n >= 100) {
-        n = 100;
-        clearInterval(id);
-        setTimeout(() => {
-          if (doneRef.current) return;
-          doneRef.current = true;
-          setIsDone(true);
-          document.body.classList.add('ready');
-          setTimeout(onDone, 1100);
-        }, 250);
-      }
-      setCount(n);
-    }, 40);
-    return () => clearInterval(id);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  return (
-    <div className={`loader${isDone ? ' is-done' : ''}`} aria-hidden="true">
-      <span>
-        <span style={{ fontVariantNumeric: 'tabular-nums', display: 'inline-block', minWidth: '3.5ch', textAlign: 'right' }}>
-          {count}
-        </span>
-        <span className="loader__pct">%</span>
-      </span>
-    </div>
-  );
-}
-
-
 /* ── Animated routes (fade transition between pages) ──
    `initial={false}` keeps the first paint (and the prerendered HTML) at full
    opacity, so content is never hidden for crawlers; transitions only play on
@@ -127,7 +96,9 @@ function AnimatedRoutes() {
   // First paint (server + initial hydration) renders fully visible so content
   // is never hidden for crawlers; the fade-in only plays on later navigations.
   const firstRender = useRef(true);
-  useEffect(() => { firstRender.current = false; }, []);
+  useEffect(() => {
+    firstRender.current = false;
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
@@ -143,7 +114,10 @@ function AnimatedRoutes() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/product-design" element={<ProductDesign />} />
-          <Route path="/services/web-engineering" element={<WebEngineering />} />
+          <Route
+            path="/services/web-engineering"
+            element={<WebEngineering />}
+          />
           <Route path="/services/mobile" element={<MobileApps />} />
           <Route path="/services/ai-ml" element={<AiMl />} />
           <Route path="/services/brand" element={<Brand />} />
@@ -165,16 +139,13 @@ function AnimatedRoutes() {
 
 /* ── App shell (router-agnostic: BrowserRouter on the client, StaticRouter on the server) ── */
 export function AppShell() {
-  const [showLoader, setShowLoader] = useState(true);
-
   return (
     <>
       <div className="noise-overlay" />
       <CursorTracker />
       <ScrollProgress />
-      {showLoader && <Loader onDone={() => setShowLoader(false)} />}
       <ScrollToTop />
-      <div style={{ minHeight: '100vh' }}>
+      <div style={{ minHeight: "100vh" }}>
         <Navbar />
         <main>
           <AnimatedRoutes />

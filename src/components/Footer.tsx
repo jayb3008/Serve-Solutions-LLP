@@ -53,10 +53,10 @@ export default function Footer() {
 
         <div className="foot-bottom">
           <div>© {year} Satvix Tech Solutions · All rights reserved</div>
-          <div style={{ display: 'flex', gap: 24 }}>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Cookies</a>
+          <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+            <a href="#" style={{ padding: '12px 4px', display: 'inline-block' }}>Privacy</a>
+            <a href="#" style={{ padding: '12px 4px', display: 'inline-block' }}>Terms</a>
+            <a href="#" style={{ padding: '12px 4px', display: 'inline-block' }}>Cookies</a>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
-import { useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import SEO from '../components/SEO';
-import Squares from '../components/ui/squares';
-import Magnetic from '../components/Magnetic';
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import SEO from "../components/SEO";
+import Squares from "../components/ui/squares";
+import Magnetic from "../components/Magnetic";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -168,13 +168,19 @@ export default function ProductDesign() {
       {/* Page hero */}
       <section className="page-hero relative overflow-hidden" ref={heroRef}>
         <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares squareSize={65} direction="diagonal" speed={0.15} borderColor="rgba(18, 21, 24, 0.08)" hoverFillColor="rgba(18, 21, 24, 0.03)" />
+          <Squares
+            squareSize={65}
+            direction="diagonal"
+            speed={0.15}
+            borderColor="rgba(18, 21, 24, 0.08)"
+            hoverFillColor="rgba(18, 21, 24, 0.03)"
+          />
         </div>
         <div className="wrap relative z-10">
-          <div className="page-hero__eyebrow">
+          {/* <div className="page-hero__eyebrow">
             <span className="ping" />
             Product Design
-          </div>
+          </div> */}
           <h1>
             {(
               [
@@ -453,7 +459,12 @@ export default function ProductDesign() {
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares squareSize={60} direction="up" speed={0.08} borderColor="#ffffff" />
+          <Squares
+            squareSize={60}
+            direction="up"
+            speed={0.08}
+            borderColor="#ffffff"
+          />
         </div>
         <div className="wrap relative z-10" style={{ position: "relative" }}>
           <div
@@ -498,7 +509,10 @@ export default function ProductDesign() {
                 className="btn-ghost reveal"
                 data-d="3"
                 data-hover
-                style={{ color: "var(--bg)", borderColor: "rgba(255, 255, 255, 0.25)" }}
+                style={{
+                  color: "var(--bg)",
+                  borderColor: "rgba(255, 255, 255, 0.25)",
+                }}
               >
                 All services <span className="arr" />
               </Link>

@@ -90,29 +90,29 @@ const IndustryDetail = () => {
 
             {/* Strategic Overview */}
             <section className="bg-[var(--bg)] border-b border-[var(--line)]">
-                <div className="max-w-7xl mx-auto px-6 py-24 lg:py-32">
-                    <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-12 flex items-center">
+                <div className="max-w-7xl mx-auto px-5 sm:px-6 py-16 sm:py-24 lg:py-32">
+                    <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-8 sm:mb-12 flex items-center">
                         <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
                         01 The angle we take
                     </h2>
-                    <p className="text-3xl md:text-5xl font-medium tracking-tight text-[var(--ink)] leading-[1.1] max-w-5xl">
+                    <p className="text-2xl sm:text-3xl md:text-5xl font-medium tracking-tight text-[var(--ink)] leading-[1.15] sm:leading-[1.1] max-w-5xl">
                         {industry.overview}
                     </p>
                 </div>
             </section>
 
             {/* Industry Capabilities */}
-            <section className="py-24 border-b border-[var(--line)]">
-                <div className="max-w-7xl mx-auto px-6">
-                    <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-20 flex items-center">
+            <section className="py-16 sm:py-24 border-b border-[var(--line)]">
+                <div className="max-w-7xl mx-auto px-5 sm:px-6">
+                    <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-12 sm:mb-20 flex items-center">
                         <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
                         02 What we have done before
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line)] border border-[var(--line)]">
                         {industry.capabilities.map((cap: any, i: number) => (
-                            <div key={i} className="bg-[var(--bg)] p-12 group hover:bg-[var(--bg-2)] transition-colors">
-                                <div className="w-12 h-12 bg-[var(--ink)] text-[var(--bg)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                            <div key={i} className="bg-[var(--bg)] p-6 sm:p-10 lg:p-12 group hover:bg-[var(--bg-2)] transition-colors">
+                                <div className="w-12 h-12 bg-[var(--ink)] text-[var(--bg)] flex items-center justify-center mb-6 sm:mb-8 group-hover:scale-110 transition-transform">
                                     <ShieldCheck className="w-5 h-5" />
                                 </div>
                                 <h3 className="text-xl font-bold mb-4">{cap.title}</h3>
@@ -124,29 +124,29 @@ const IndustryDetail = () => {
             </section>
 
             {/* Visual Callout */}
-            <section className="relative h-[60vh] bg-[var(--ink)] overflow-hidden flex items-center justify-center">
+            <section className="relative h-[44vh] sm:h-[55vh] lg:h-[60vh] min-h-[280px] bg-[var(--ink)] overflow-hidden flex items-center justify-center">
                 <div
                     className="absolute inset-0 opacity-40 bg-cover bg-center"
                     style={{ backgroundImage: `url(${industry.image})` }}
                 />
-                <div className="relative z-10 text-center px-6">
-                    <h3 className="text-4xl md:text-6xl font-bold text-[var(--bg)] tracking-tighter mb-4">SOFTWARE THE {industry.title.toUpperCase()} TEAM CAN USE.</h3>
+                <div className="relative z-10 text-center px-5 sm:px-6">
+                    <h3 className="text-2xl sm:text-4xl md:text-6xl font-bold text-[var(--bg)] tracking-tighter mb-4 leading-tight">SOFTWARE THE {industry.title.toUpperCase()} TEAM CAN USE.</h3>
                     <div className="w-24 h-1 bg-[var(--bg)] mx-auto" />
                 </div>
             </section>
 
             {/* FAQ */}
-            <section className="py-24 border-b border-[var(--line)] bg-[var(--bg)]">
-                <div className="max-w-4xl mx-auto px-6">
-                    <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-16 flex items-center">
+            <section className="py-16 sm:py-24 border-b border-[var(--line)] bg-[var(--bg)]">
+                <div className="max-w-4xl mx-auto px-5 sm:px-6">
+                    <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-10 sm:mb-16 flex items-center">
                         <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
                         03 Things people often ask
                     </h2>
                     <div className="border-t border-[var(--line)]">
                         {faqs.map((f, i) => (
-                            <div key={i} className="py-8 border-b border-[var(--line)]">
-                                <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight text-[var(--ink)]">{f.question}</h3>
-                                <p className="text-[var(--ink-2)] leading-relaxed text-base md:text-lg">{f.answer}</p>
+                            <div key={i} className="py-6 sm:py-8 border-b border-[var(--line)]">
+                                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tight text-[var(--ink)]">{f.question}</h3>
+                                <p className="text-[var(--ink-2)] leading-relaxed text-sm sm:text-base md:text-lg">{f.answer}</p>
                             </div>
                         ))}
                     </div>
@@ -154,18 +154,18 @@ const IndustryDetail = () => {
             </section>
 
             {/* CTA Footer */}
-            <section className="py-24 border-t border-[var(--line)] bg-[var(--bg)]">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="bg-[var(--ink)] text-[var(--bg)] p-16 md:p-24 relative overflow-hidden group">
+            <section className="py-16 sm:py-24 border-t border-[var(--line)] bg-[var(--bg)]">
+                <div className="max-w-7xl mx-auto px-5 sm:px-6">
+                    <div className="bg-[var(--ink)] text-[var(--bg)] p-8 sm:p-12 md:p-16 lg:p-24 relative overflow-hidden group">
                         <div className="absolute inset-0 z-0 opacity-20">
                             <Squares squareSize={60} direction="up" speed={0.1} borderColor="#ffffff" hoverFillColor="rgba(227, 30, 36, 0.06)" fadeColor="var(--ink)" />
                         </div>
 
                         <div className="relative z-10 text-center max-w-3xl mx-auto">
-                            <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 group-hover:scale-[1.02] transition-transform duration-700">
+                            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 sm:mb-8 group-hover:scale-[1.02] transition-transform duration-700">
                                 BUILD THE <em>NEXT</em><br />ONE WITH US.
                             </h2>
-                            <p className="text-[var(--muted)] text-lg md:text-xl mb-12">
+                            <p className="text-[var(--muted)] text-base sm:text-lg md:text-xl mb-8 sm:mb-12">
                                 Tell us what you are trying to make in {industry.title.toLowerCase()}. We will reply within a working day — usually with two or three questions, sometimes with an honest ‘not us’.
                             </p>
                             <Magnetic>
@@ -173,7 +173,7 @@ const IndustryDetail = () => {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => navigate('/contact')}
-                                    className="bg-[var(--bg)] text-[var(--ink)] px-12 py-6 text-sm font-bold uppercase tracking-widest hover:bg-[var(--bg-2)] transition-colors"
+                                    className="bg-[var(--bg)] text-[var(--ink)] px-8 sm:px-12 py-5 sm:py-6 text-sm font-bold uppercase tracking-widest hover:bg-[var(--bg-2)] transition-colors"
                                 >
                                     Send us a note
                                 </motion.button>
@@ -181,21 +181,21 @@ const IndustryDetail = () => {
                         </div>
                     </div>
 
-                    <div className="mt-20 flex flex-col md:flex-row justify-between items-center py-8 border-t border-[var(--line)]">
+                    <div className="mt-12 sm:mt-20 flex flex-col md:flex-row justify-between items-center py-6 border-t border-[var(--line)] gap-2">
                         <Magnetic>
-                            <Link to="/industries" className="flex items-center text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-all mb-6 md:mb-0 group" style={{ display: 'inline-flex' }}>
+                            <Link to="/industries" className="flex items-center text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-all group py-3 px-1" style={{ display: 'inline-flex' }}>
                                 <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
                                 Back to industries
                             </Link>
                         </Magnetic>
-                        <div className="hidden md:flex items-center space-x-12">
+                        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
                             <Magnetic>
-                                <Link to="/portfolio" className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-colors" style={{ display: 'inline-block' }}>
+                                <Link to="/portfolio" className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-colors py-3 px-3" style={{ display: 'inline-block' }}>
                                     See the work
                                 </Link>
                             </Magnetic>
                             <Magnetic>
-                                <Link to="/services" className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-colors" style={{ display: 'inline-block' }}>
+                                <Link to="/services" className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-colors py-3 px-3" style={{ display: 'inline-block' }}>
                                     What we do
                                 </Link>
                             </Magnetic>

@@ -2446,3 +2446,322 @@ footer.site-footer {
   pointer-events: none;
 }
 
+/* ──────────────────────────────────────────────────────────
+   Mobile responsive refinements
+   Tightens spacing, prevents overflow, and ensures touch-
+   friendly targets on tablets (<=768) and phones (<=480).
+   ────────────────────────────────────────────────────────── */
+
+html,
+body {
+  max-width: 100vw;
+}
+
+/* Site nav — keep logo + hamburger comfortable on phones */
+@media (max-width: 640px) {
+  header.site-nav,
+  header.site-nav.scrolled {
+    padding-left: 18px;
+    padding-right: 12px;
+  }
+
+  .logo svg {
+    height: 34px !important;
+  }
+
+  .nav-hamburger {
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
+
+/* Section paddings — recover vertical space on small screens */
+@media (max-width: 768px) {
+  section.s {
+    padding: 80px 0;
+  }
+
+  .manifesto {
+    padding: 90px 0;
+  }
+
+  .pract {
+    padding: 56px 0;
+    gap: 28px;
+  }
+
+  .band {
+    padding: 56px 0;
+  }
+
+  .s-head {
+    margin-bottom: 40px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  section.s {
+    padding: 64px 0;
+  }
+
+  .manifesto {
+    padding: 72px 0;
+  }
+
+  .manifesto p {
+    margin-bottom: 40px;
+  }
+
+  .pract {
+    padding: 48px 0;
+    gap: 24px;
+  }
+
+  .band {
+    padding: 48px 0;
+  }
+
+  .s-head {
+    margin-bottom: 32px;
+  }
+}
+
+/* Page hero (inner pages) — was stuck at 160px/80px on phones */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 120px 0 56px;
+  }
+
+  .page-hero h1 {
+    margin: 0 0 24px;
+  }
+
+  .page-hero__sub {
+    gap: 24px;
+    padding-top: 24px;
+  }
+
+  .page-hero__sub p {
+    font-size: clamp(15px, 4vw, 18px);
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    padding: 108px 0 44px;
+  }
+
+  .page-hero__sub {
+    gap: 18px;
+    padding-top: 20px;
+  }
+}
+
+/* Hero (home) — trim wasted vertical space */
+@media (max-width: 640px) {
+  .hero__foot {
+    margin-top: 44px;
+    padding-top: 28px;
+    gap: 24px;
+  }
+
+  .hero__foot p {
+    font-size: 15px;
+    max-width: none;
+  }
+}
+
+/* Practice numerals (services page) — 84px is huge on phones */
+@media (max-width: 640px) {
+  .pract__num {
+    font-size: 56px;
+  }
+}
+
+/* Marquee — keep it from feeling cramped/over-wide on phones */
+@media (max-width: 640px) {
+  .marquee {
+    padding: 22px 0;
+  }
+
+  .marquee__track,
+  .marquee__item {
+    gap: 36px;
+  }
+}
+
+/* Services row — disable padding swap on hover for touch */
+@media (max-width: 860px) {
+  .svc {
+    padding: 28px 0;
+    gap: 16px;
+  }
+
+  .svc:hover {
+    padding: 28px 0;
+  }
+}
+
+/* Work-card inner — 32px padding eats most of a phone card */
+@media (max-width: 480px) {
+  .work-card__inner {
+    padding: 20px;
+  }
+
+  .work-card__title {
+    font-size: 20px;
+  }
+}
+
+/* Stack/deliverable grids — break to 2 cols at 880, 1 col at 520 */
+@media (max-width: 880px) {
+  .stack-cats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stack-cat {
+    padding: 22px 18px 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .stack-cats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Pract list (2-col bullet grid) — collapse on phones */
+@media (max-width: 640px) {
+  .pract__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Team grid — give cards air at 720px, not just 880 */
+@media (max-width: 720px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Timeline rows — tighter on phones */
+@media (max-width: 480px) {
+  .tl-row {
+    padding: 24px 0;
+    gap: 12px;
+  }
+
+  .tl-year {
+    font-size: 24px;
+  }
+
+  .tl-title {
+    font-size: 18px;
+  }
+
+  .tl-body {
+    font-size: 14px;
+  }
+}
+
+/* CTA section heading — was clamping to 48px floor on tiny screens */
+@media (max-width: 480px) {
+  section.cta-section h2 {
+    font-size: clamp(36px, 11vw, 56px);
+    margin: 16px 0 28px;
+  }
+}
+
+/* Stack squares (Services page tile grid) — square ratio gets tall */
+@media (max-width: 520px) {
+  .stk {
+    aspect-ratio: auto;
+    min-height: 120px;
+    padding: 14px;
+  }
+}
+
+/* Portfolio filter chips — scroll horizontally instead of wrapping */
+@media (max-width: 640px) {
+  .filter-row {
+    gap: 12px;
+  }
+
+  .filter-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .filter-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chip {
+    flex-shrink: 0;
+  }
+}
+
+/* Footer — long wordmark must wrap; logo shouldn't dominate */
+@media (max-width: 640px) {
+  footer.site-footer {
+    padding: 60px 0 28px;
+  }
+
+  .foot-mark {
+    white-space: normal;
+    overflow-wrap: break-word;
+    font-size: clamp(34px, 11vw, 60px);
+    line-height: 0.95;
+    margin-top: 40px;
+  }
+
+  .foot-bottom {
+    margin-top: 40px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 480px) {
+  .foot-brand .foot-logo svg {
+    height: 40px !important;
+  }
+}
+
+/* Big-CTA pill — already responsive; just prevent string overflow */
+.big-cta {
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* Forms (Contact) — proper touch heights and font sizes
+   (16px font on inputs prevents iOS zoom-on-focus) */
+@media (max-width: 640px) {
+  .contact-page input,
+  .contact-page select,
+  .contact-page textarea {
+    font-size: 16px !important;
+    min-height: 44px;
+  }
+
+  /* Default md:grid-cols-2 already stacks; tighten the gap on phones */
+  .contact-page form .grid {
+    gap: 24px !important;
+  }
+}
+
+/* ServiceDetail / IndustryDetail callout band — was 60vh fixed */
+@media (max-width: 640px) {
+  section[class*="h-[60vh]"] {
+    height: 40vh;
+    min-height: 280px;
+  }
+}
+
