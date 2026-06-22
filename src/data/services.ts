@@ -17,6 +17,7 @@ import {
 export const servicesData: Record<string, any> = {
     'web-development': {
         title: "Web Development",
+        seoPath: "/web-development",
         icon: Code2,
         tagline: "Sites and platforms that quietly hold up — even on a Diwali Saturday.",
         overview: "We build web platforms that age well. Strong defaults, real performance budgets, and the boring patterns that make a codebase still readable two years after we hand it over.",
@@ -38,6 +39,7 @@ export const servicesData: Record<string, any> = {
     },
     'mobile-apps': {
         title: "Mobile Apps",
+        seoPath: "/mobile-app-development",
         icon: Smartphone,
         tagline: "Apps that feel native on the phone people actually own.",
         overview: "We design and build mobile apps for the long tail of real Android devices and the people whose data plans are not unlimited. Native where it matters, React Native where it does not, App Store paperwork included.",
@@ -59,6 +61,7 @@ export const servicesData: Record<string, any> = {
     },
     'ai-ml': {
         title: "AI / ML",
+        seoPath: "/ai-development",
         icon: Cpu,
         tagline: "Useful AI — not a demo, not a pitch deck.",
         overview: "We embed LLMs and machine learning into products people already use. Retrieval that actually retrieves, evaluations that catch regressions, and guardrails for the day the model decides to be strange.",
@@ -80,6 +83,7 @@ export const servicesData: Record<string, any> = {
     },
     'ui-ux-consultancy': {
         title: "UI/UX Consultancy",
+        seoPath: "/ui-ux-design",
         icon: Palette,
         tagline: "Interfaces people reach for without thinking.",
         overview: "We design products one screen at a time, and design systems one decision at a time. Tokens, components, and a written rationale your engineers can still find next April.",
@@ -101,6 +105,7 @@ export const servicesData: Record<string, any> = {
     },
     'devops': {
         title: "DevOps",
+        seoPath: "/devops-services",
         icon: Infinity,
         tagline: "Pipelines, infrastructure and on-call runbooks — quietly automated.",
         overview: "We build the deploy pipeline you would have wanted on day one. Reproducible infra, sensible monitoring, and a 3am playbook that someone other than the original author can follow.",
@@ -122,6 +127,7 @@ export const servicesData: Record<string, any> = {
     },
     'qa': {
         title: "QA",
+        seoPath: "/qa-testing",
         icon: ShieldCheck,
         tagline: "Tests that catch the things a tired engineer would miss.",
         overview: "We treat QA as a design discipline. Automated suites for the journeys that matter, exploratory testing for everything else, and the kind of bug reports your engineers will actually want to read.",
@@ -143,6 +149,7 @@ export const servicesData: Record<string, any> = {
     },
     'iot': {
         title: "IoT",
+        seoPath: "/iot-development",
         icon: Wifi,
         tagline: "Devices, the cloud, and the wire between them.",
         overview: "We design embedded systems, real-time data pipelines, and the boring fleet-management tools you only notice when one of the devices stops behaving on a Sunday afternoon.",
@@ -164,6 +171,7 @@ export const servicesData: Record<string, any> = {
     },
     'marketing': {
         title: "Marketing",
+        seoPath: "/marketing-services",
         icon: TrendingUp,
         tagline: "Growth without the buzzwords (and without burning the budget).",
         overview: "Technical SEO, conversion work, and a careful experimentation habit. We treat marketing as engineering — measured, versioned, and honest about what actually moved the number.",
@@ -185,6 +193,7 @@ export const servicesData: Record<string, any> = {
     },
     'blockchain': {
         title: "Blockchain & Web3",
+        seoPath: "/blockchain-development",
         icon: Boxes,
         tagline: "Smart contracts and on-chain products, written like real software.",
         overview: "We design and ship Solidity and Rust smart contracts, dApps and tokenomics — with audits, tests and a rollback plan, because the chain has a long memory.",
@@ -206,6 +215,7 @@ export const servicesData: Record<string, any> = {
     },
     'cybersecurity': {
         title: "Cybersecurity",
+        seoPath: "/cybersecurity-services",
         icon: Shield,
         tagline: "Pen tests, audits, and the controls you should have written months ago.",
         overview: "We audit your stack, model the threats that actually apply to your business, and harden what we find — quietly, and with paperwork the auditor will accept.",
@@ -227,6 +237,7 @@ export const servicesData: Record<string, any> = {
     },
     'data-engineering': {
         title: "Data Engineering",
+        seoPath: "/data-engineering",
         icon: Database,
         tagline: "Pipelines you can trust, dashboards your CEO will actually read.",
         overview: "We build the data plumbing nobody sees and the dashboards everyone uses. Warehouses, ETL, dbt, observability — the unsexy backbone that turns log files into decisions.",
@@ -248,6 +259,7 @@ export const servicesData: Record<string, any> = {
     },
     'ecommerce': {
         title: "E-commerce",
+        seoPath: "/ecommerce-development",
         icon: ShoppingBag,
         tagline: "Storefronts built for the cart-add, not the case study.",
         overview: "Headless and Shopify, payments and checkout, search and stock. We build commerce sites that survive the campaign weekend and a finance team that can still read the books.",

@@ -7,12 +7,13 @@ import Squares from "../components/ui/squares";
 import SEO from "../components/SEO";
 import Magnetic from "../components/Magnetic";
 
-const ServiceDetail = () => {
+const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
   const { id } = useParams();
+  const activeId = serviceId || id;
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const service = servicesData[id as string] || servicesData["web-engineering"];
+  const service = servicesData[activeId as string] || servicesData["web-development"];
 
   const faqs = [
     {
@@ -80,13 +81,13 @@ const ServiceDetail = () => {
         title={service.title}
         description={service.tagline}
         keywords={service.keywords}
-        url={`https://satvixtech.com/services/${id}`}
+        url={`https://satvixtech.com${service.seoPath || `/services/${activeId}`}`}
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
           {
             name: service.title,
-            item: `https://satvixtech.com/services/${id}`,
+            item: `https://satvixtech.com${service.seoPath || `/services/${activeId}`}`,
           },
         ]}
         service={{

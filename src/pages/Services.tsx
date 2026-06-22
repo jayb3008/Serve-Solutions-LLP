@@ -22,7 +22,7 @@ const practices = [
       "Design ops and handoff",
       "Accessibility audits (WCAG 2.2)",
     ],
-    href: "/services/product-design",
+    href: "/ui-ux-design",
   },
   {
     num: "02",
@@ -38,7 +38,7 @@ const practices = [
       "APIs and third-party integrations",
       "Accessibility (WCAG 2.2)",
     ],
-    href: "/services/web-engineering",
+    href: "/web-development",
   },
   {
     num: "03",
@@ -54,7 +54,7 @@ const practices = [
       "In-app purchases and subscriptions",
       "App Store / Play Store submissions",
     ],
-    href: "/services/mobile",
+    href: "/mobile-app-development",
   },
   {
     num: "04",
@@ -70,7 +70,7 @@ const practices = [
       "Data pipelines and ETL",
       "Analytics dashboards",
     ],
-    href: "/services/ai-ml",
+    href: "/ai-development",
   },
   {
     num: "05",

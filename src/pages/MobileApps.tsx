@@ -451,6 +451,36 @@ export default function MobileApps() {
         </div>
       </section>
 
+      {/* Related Resources / Internal Linking */}
+      <section className="s" style={{ borderTop: "1px solid var(--line)", background: "var(--bg-2)" }}>
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48 }}>
+            <div className="reveal" data-d="0">
+              <div className="eyebrow" style={{ marginBottom: 20 }}>Related Case Study</div>
+              <h4 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>
+                <Link to="/portfolio/tailorpro" style={{ color: "inherit", textDecoration: "none" }} data-hover>
+                  TailorPro: Mobile business SaaS →
+                </Link>
+              </h4>
+              <p style={{ color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5 }}>
+                See how we built a mobile-first business utility tool for managing measurements, orders, and customer history.
+              </p>
+            </div>
+            <div className="reveal" data-d="1">
+              <div className="eyebrow" style={{ marginBottom: 20 }}>From the Journal</div>
+              <h4 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>
+                <Link to="/blog/react-native-new-arch" style={{ color: "inherit", textDecoration: "none" }} data-hover>
+                  Migrating to React Native New Architecture →
+                </Link>
+              </h4>
+              <p style={{ color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5 }}>
+                Read our technical walkthrough of migrating a 150k active user mobile app to the React Native JSI-enabled architecture.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">

@@ -8,7 +8,7 @@ import { industriesData } from '../data/industries';
 const serviceItems = Object.entries(servicesData).map(([k, v]) => ({
   label: (v as { title: string }).title,
   desc: (v as { tagline: string }).tagline,
-  path: `/services/${k}`,
+  path: (v as { seoPath?: string }).seoPath || `/services/${k}`,
 }));
 
 const industryItems = Object.entries(industriesData).map(([k, v]) => ({

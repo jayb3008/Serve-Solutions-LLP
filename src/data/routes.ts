@@ -36,6 +36,27 @@ export const staticRoutes = [
   '/hire',
   '/careers',
   '/contact',
+
+  // SEO Direct Service Paths
+  '/web-development',
+  '/mobile-app-development',
+  '/ai-development',
+  '/ui-ux-design',
+  '/devops-services',
+  '/cybersecurity-services',
+  '/data-engineering',
+  '/ecommerce-development',
+  '/iot-development',
+  '/qa-testing',
+  '/marketing-services',
+  '/blockchain-development',
+
+  // Location SEO Pages
+  '/software-development-company-anand',
+  '/it-company-anand',
+  '/mobile-app-development-gujarat',
+  '/web-development-company-ahmedabad',
+  '/ai-development-services-india',
 ];
 
 /* Per-route crawl hints for the sitemap */
@@ -53,6 +74,35 @@ export const routeMeta: Record<string, { changefreq: string; priority: number }>
 
 function metaFor(route: string): { changefreq: string; priority: number } {
   if (routeMeta[route]) return routeMeta[route];
+  if (
+    [
+      '/web-development',
+      '/mobile-app-development',
+      '/ai-development',
+      '/ui-ux-design',
+      '/devops-services',
+      '/cybersecurity-services',
+      '/data-engineering',
+      '/ecommerce-development',
+      '/iot-development',
+      '/qa-testing',
+      '/marketing-services',
+      '/blockchain-development'
+    ].includes(route)
+  ) {
+    return { changefreq: 'monthly', priority: 0.9 };
+  }
+  if (
+    [
+      '/software-development-company-anand',
+      '/it-company-anand',
+      '/mobile-app-development-gujarat',
+      '/web-development-company-ahmedabad',
+      '/ai-development-services-india'
+    ].includes(route)
+  ) {
+    return { changefreq: 'weekly', priority: 0.85 };
+  }
   if (route.startsWith('/services/')) return { changefreq: 'monthly', priority: 0.8 };
   if (route.startsWith('/industries/')) return { changefreq: 'monthly', priority: 0.75 };
   if (route.startsWith('/portfolio/')) return { changefreq: 'yearly', priority: 0.7 };

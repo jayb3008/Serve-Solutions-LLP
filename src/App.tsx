@@ -28,6 +28,7 @@ import MobileApps from "./pages/MobileApps";
 import Brand from "./pages/Brand";
 import Hire from "./pages/Hire";
 import Careers from "./pages/Careers";
+import LocationLanding from "./pages/LocationLanding";
 
 /* ── Custom cursor ── */
 function CursorTracker() {
@@ -122,6 +123,28 @@ function AnimatedRoutes() {
           <Route path="/services/ai-ml" element={<AiMl />} />
           <Route path="/services/brand" element={<Brand />} />
           <Route path="/services/:id" element={<ServiceDetail />} />
+
+          {/* SEO Direct Service Paths */}
+          <Route path="/web-development" element={<WebEngineering />} />
+          <Route path="/mobile-app-development" element={<MobileApps />} />
+          <Route path="/ai-development" element={<AiMl />} />
+          <Route path="/ui-ux-design" element={<ProductDesign />} />
+          <Route path="/devops-services" element={<ServiceDetail serviceId="devops" />} />
+          <Route path="/cybersecurity-services" element={<ServiceDetail serviceId="cybersecurity" />} />
+          <Route path="/data-engineering" element={<ServiceDetail serviceId="data-engineering" />} />
+          <Route path="/ecommerce-development" element={<ServiceDetail serviceId="ecommerce" />} />
+          <Route path="/iot-development" element={<ServiceDetail serviceId="iot" />} />
+          <Route path="/qa-testing" element={<ServiceDetail serviceId="qa" />} />
+          <Route path="/marketing-services" element={<ServiceDetail serviceId="marketing" />} />
+          <Route path="/blockchain-development" element={<ServiceDetail serviceId="blockchain" />} />
+
+          {/* Local / City SEO Pages */}
+          <Route path="/software-development-company-anand" element={<LocationLanding slug="software-development-company-anand" />} />
+          <Route path="/it-company-anand" element={<LocationLanding slug="it-company-anand" />} />
+          <Route path="/mobile-app-development-gujarat" element={<LocationLanding slug="mobile-app-development-gujarat" />} />
+          <Route path="/web-development-company-ahmedabad" element={<LocationLanding slug="web-development-company-ahmedabad" />} />
+          <Route path="/ai-development-services-india" element={<LocationLanding slug="ai-development-services-india" />} />
+
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:id" element={<IndustryDetail />} />
           <Route path="/portfolio" element={<Portfolio />} />

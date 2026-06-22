@@ -25,6 +25,7 @@ type Project = {
   img: string;
   prev: string;
   next: string;
+  faq?: { question: string; answer: string }[];
 };
 
 const projectsData: Record<string, Project> = {
@@ -52,6 +53,10 @@ const projectsData: Record<string, Project> = {
     img: "/images/projects/nine-finance.jpg",
     prev: "proposal-generator",
     next: "glamour-jewelry",
+    faq: [
+      { question: "What security measures are implemented in 9 Finance?", answer: "We implemented role-based access control, bank-grade encryption for transaction data, and secure third-party payment integrations." },
+      { question: "How long did it take to build the 9 Finance platform?", answer: "The initial platform was shipped in 18 weeks, followed by iterative feature rollouts for loan management and reports." }
+    ]
   },
 
   "glamour-jewelry": {
@@ -78,6 +83,10 @@ const projectsData: Record<string, Project> = {
     img: "/images/projects/glamour-jewelry.jpg",
     prev: "nine-finance",
     next: "nivas-realty",
+    faq: [
+      { question: "How did Next.js help Glamour Jewelry's SEO?", answer: "Next.js provided server-side rendering (SSR), fast static generation, and optimized image delivery, improving Core Web Vitals and organic search discoverability." },
+      { question: "Why was a WhatsApp-based inquiry system used?", answer: "WhatsApp-based ordering allows luxury buyers to establish a direct, personal contact channel with designers, leading to a 3x increase in lead conversion compared to a standard cart checkout." }
+    ]
   },
 
   "nivas-realty": {
@@ -104,6 +113,9 @@ const projectsData: Record<string, Project> = {
     img: "/images/projects/nivas.jpg",
     prev: "glamour-jewelry",
     next: "tabletrack",
+    faq: [
+      { question: "What is the lead generation process in Nivas Realty?", answer: "Users can submit inquiry forms directly on listing pages, which automatically route to registered brokers via our internal CRM panel." }
+    ]
   },
 
   tabletrack: {
@@ -130,6 +142,10 @@ const projectsData: Record<string, Project> = {
     img: "/images/projects/tabletrack.jpg",
     prev: "nivas-realty",
     next: "sd-photography",
+    faq: [
+      { question: "Does TableTrack POS work offline?", answer: "Yes, TableTrack is built with offline-first synchronization using local databases, syncing automatically to the cloud when internet connection is restored." },
+      { question: "How does the kitchen workflow update in real-time?", answer: "We used Socket.io for instantaneous real-time updates between the POS billing counter, servers' handheld devices, and the kitchen display monitor." }
+    ]
   },
 
   "sd-photography": {
@@ -156,6 +172,9 @@ const projectsData: Record<string, Project> = {
     img: "/images/projects/sd-photography.jpg",
     prev: "tabletrack",
     next: "clickly",
+    faq: [
+      { question: "How are photos optimized in SD Photography?", answer: "We integrated Cloudinary's dynamic CDN for auto-formatting, compression, and delivery of progressive images based on client network bandwidth." }
+    ]
   },
 
   clickly: {
@@ -182,6 +201,10 @@ const projectsData: Record<string, Project> = {
     img: "/images/projects/clickly.jpg",
     prev: "sd-photography",
     next: "tailorpro",
+    faq: [
+      { question: "How does Clickly handle custom domains?", answer: "We built a routing layer using proxy configurations that dynamically maps custom domains to multi-tenant portfolios hosted on Supabase." },
+      { question: "Is Clickly optimized for mobile photography?", answer: "Yes, the portfolio pages use dynamic image resizing and lazy-loading to ensure portfolio websites load instantly on any mobile device." }
+    ]
   },
 
   tailorpro: {
@@ -208,6 +231,9 @@ const projectsData: Record<string, Project> = {
     img: "/images/projects/tailorpro.jpg",
     prev: "clickly",
     next: "proposal-generator",
+    faq: [
+      { question: "Does TailorPro support custom measurements?", answer: "Yes, users can create tailored metric sheets for each customer containing custom fields for custom dress patterns." }
+    ]
   },
 
   "proposal-generator": {
@@ -234,6 +260,10 @@ const projectsData: Record<string, Project> = {
     img: "/images/projects/proposal-generator.jpg",
     prev: "tailorpro",
     next: "nine-finance",
+    faq: [
+      { question: "How are PDFs generated in Proposal Generator?", answer: "PDFs are generated on the server using headless browser rendering, ensuring consistent branding, font styles, and layout dimensions across all devices." },
+      { question: "Can we customize colors and typography?", answer: "Yes, users can store branding presets (colors, fonts, logo images) which are applied dynamically to every quotation or invoice generated." }
+    ]
   },
 };
 
@@ -254,6 +284,7 @@ export default function ProjectDetail() {
         url={`https://satvixtech.com/portfolio/${id}`}
         type="article"
         datePublished={`${project.year}-01-01`}
+        faq={project.faq}
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Portfolio", item: "https://satvixtech.com/portfolio" },

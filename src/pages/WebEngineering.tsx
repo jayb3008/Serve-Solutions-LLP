@@ -457,6 +457,36 @@ export default function WebEngineering() {
         </div>
       </section>
 
+      {/* Related Resources / Internal Linking */}
+      <section className="s" style={{ borderTop: "1px solid var(--line)", background: "var(--bg-2)" }}>
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48 }}>
+            <div className="reveal" data-d="0">
+              <div className="eyebrow" style={{ marginBottom: 20 }}>Related Case Study</div>
+              <h4 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>
+                <Link to="/portfolio/glamour-jewelry" style={{ color: "inherit", textDecoration: "none" }} data-hover>
+                  Glamour Jewelry: Luxury eCommerce →
+                </Link>
+              </h4>
+              <p style={{ color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5 }}>
+                See how we built a premium jewelry showcase and checkout workflow optimized for high Core Web Vitals and SEO.
+              </p>
+            </div>
+            <div className="reveal" data-d="1">
+              <div className="eyebrow" style={{ marginBottom: 20 }}>From the Journal</div>
+              <h4 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>
+                <Link to="/blog/nextjs-app-router-lessons" style={{ color: "inherit", textDecoration: "none" }} data-hover>
+                  Six Months with Next.js App Router: Lessons learned →
+                </Link>
+              </h4>
+              <p style={{ color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5 }}>
+                Read our engineering retrospective on server components, client islands, caching traps, and optimizations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">

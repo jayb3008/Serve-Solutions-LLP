@@ -449,6 +449,36 @@ export default function AiMl() {
         </div>
       </section>
 
+      {/* Related Resources / Internal Linking */}
+      <section className="s" style={{ borderTop: "1px solid var(--line)", background: "var(--bg-2)" }}>
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48 }}>
+            <div className="reveal" data-d="0">
+              <div className="eyebrow" style={{ marginBottom: 20 }}>Related Case Study</div>
+              <h4 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>
+                <Link to="/portfolio/clickly" style={{ color: "inherit", textDecoration: "none" }} data-hover>
+                  Clickly: AI-Powered Portfolio Builder →
+                </Link>
+              </h4>
+              <p style={{ color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5 }}>
+                See how we built a multi-tenant portfolio platform empowering photographers to deploy personalized portfolios using Supabase and AI integrations.
+              </p>
+            </div>
+            <div className="reveal" data-d="1">
+              <div className="eyebrow" style={{ marginBottom: 20 }}>From the Journal</div>
+              <h4 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>
+                <Link to="/blog/llm-production-checklist" style={{ color: "inherit", textDecoration: "none" }} data-hover>
+                  The LLM Production Checklist: 12 Things before Launch →
+                </Link>
+              </h4>
+              <p style={{ color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5 }}>
+                Read our engineering guidelines on streaming, cost caps, models, vector stores, and evaluation harnesses.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">

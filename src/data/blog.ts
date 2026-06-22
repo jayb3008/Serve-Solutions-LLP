@@ -231,6 +231,121 @@ export const posts: Post[] = [
       { type: 'p', text: 'Brand is not paint on top of the product. It is part of the product experience — and in B2B, it compounds.' },
     ],
   },
+  {
+    slug: 'react-vs-nextjs-2026',
+    title: 'React vs Next.js in 2026: choosing the right frontend architecture',
+    excerpt: 'A technical comparison of client-rendered single page applications and server-first routing setups for modern software builds.',
+    author: 'Rahul Patel',
+    role: 'Head of Engineering',
+    date: 'Jun 2026',
+    read: '8 min',
+    cat: 'Engineering',
+    bg: 'bg-violet',
+    content: [
+      { type: 'p', text: 'For years, React was a simple library you imported to render client-side interfaces. In 2026, the landscape has split. Selecting between a pure client-side single page app (SPA) and a server-rendered Next.js setup is no longer a minor preference; it dictates your hosting cost, crawl speed, and user experience.' },
+      { type: 'h2', text: 'When to choose Vanilla React SPAs' },
+      { type: 'p', text: 'If you are building an interactive dashboard behind a login page, where SEO is irrelevant and the bundle only needs to load once, vanilla React is often the cleanest choice. By keeping routing entirely client-side, you can host the app on static CDNs like Vercel or Netlify for pennies.' },
+      { type: 'h2', text: 'When Next.js is mandatory' },
+      { type: 'p', text: 'If your site relies on organic search traffic (e.g. ecommerce storefronts, public directories, marketing sites), Next.js is essential. Server-side rendering (SSR) ensures search engine crawlers receive fully structured HTML on the first paint. Core Web Vitals improve because client devices do not have to download and run megabytes of JS before showing content.' },
+      { type: 'quote', text: 'If search rankings win you leads, client-side rendering is a luxury you cannot afford.' }
+    ]
+  },
+  {
+    slug: 'cost-building-saas-products',
+    title: 'Cost of building SaaS products: a transparent guide for founders',
+    excerpt: 'Breaking down engineering salaries, design systems, server setups, and maintenance overhead for modern software platforms.',
+    author: 'Jay Sarvaiya',
+    role: 'Founder & CEO',
+    date: 'Jun 2026',
+    read: '10 min',
+    cat: 'Product',
+    bg: 'bg-indigo',
+    content: [
+      { type: 'p', text: 'Founders frequently ask us: How much does it cost to build a SaaS? The honest answer is that software builds are not priced by features, but by complexity, scale, and integration risk. We break down where the budget actually goes.' },
+      { type: 'h2', text: '1. Discovery and Design Systems' },
+      { type: 'p', text: 'Before writing code, budget for research. Building a solid UI/UX design system in Figma saves hundreds of hours of design-to-code translations later. Skimping on discovery leads to rebuilding features, which is the most expensive mistake in software development.' },
+      { type: 'h2', text: '2. Backend and Cloud Infrastructure' },
+      { type: 'p', text: 'For most SaaS builds, backend database modeling and API security consume 40% of the budget. Cloud setups (AWS, GCP, Supabase) must support environments for staging, local testing, and production, with autoscaling rules to manage API peaks.' },
+      { type: 'list', items: [
+        'High-fidelity mockups and clickable prototypes save weeks of coding revisions.',
+        'Choose serverless or managed DB backends to keep early hosting costs under control.',
+        'Hardcode cost limits on external APIs to avoid surprise billing.'
+      ] }
+    ]
+  },
+  {
+    slug: 'react-native-app-cost-india',
+    title: 'React Native app development cost in India: budgeting for success',
+    excerpt: 'Comparing cross-platform mobile app development budgets, timelines, and talent considerations for startups.',
+    author: 'Karan Joshi',
+    role: 'Mobile Lead',
+    date: 'May 2026',
+    read: '9 min',
+    cat: 'Mobile',
+    bg: 'bg-mint',
+    content: [
+      { type: 'p', text: 'India has become the global hub for React Native development. However, pricing differences between standard outsourcing agencies and premium digital product studios are often vast. Understanding how to budget ensures you build a native-feeling app without runaway costs.' },
+      { type: 'h2', text: 'Why React Native is the cost winner' },
+      { type: 'p', text: 'By sharing up to 90% of the codebase between iOS and Android, React Native halves your ongoing maintenance overhead. Instead of running separate Swift and Kotlin teams, a single engineering squad can coordinate releases simultaneously.' },
+      { type: 'h2', text: 'Critical factors in mobile budgeting' },
+      { type: 'p', text: 'Integration of real-time maps, native camera sensors, and background sync engines are what drive mobile costs. If your app only displays databases, it will be fast and cost-effective. If it requires custom device integration, budget for native bridge developers.' }
+    ]
+  },
+  {
+    slug: 'ai-agent-development-guide',
+    title: 'AI agent development guide: architecting autonomous workflows',
+    excerpt: 'How to build reliable autonomous agents using tool-calling, planning loops, and robust evaluation suites.',
+    author: 'Rahul Patel',
+    role: 'Head of Engineering',
+    date: 'May 2026',
+    read: '12 min',
+    cat: 'AI',
+    bg: 'bg-sky',
+    content: [
+      { type: 'p', text: 'AI agents are moving past simple chat interfaces. Today, they perform multi-step workflows like database migration, custom reports generation, and automatic email responses. But keeping an autonomous agent from entering a loop requires rigid engineering rules.' },
+      { type: 'h2', text: 'The anatomy of a reliable agent' },
+      { type: 'p', text: 'A durable agent needs a strict planning phase, a list of structured tools (defined via JSON schemas), and an execution loop that terminates if it reaches a budget ceiling. Giving an agent raw, unformatted API access is a recipe for system errors.' },
+      { type: 'h2', text: 'Evals: The only way to launch' },
+      { type: 'p', text: 'Never release an agent without running regression tests. You must set up an evaluation runner that inputs diverse test prompts and matches outputs against strict accuracy and latency targets.' }
+    ]
+  },
+  {
+    slug: 'rag-vs-fine-tuning',
+    title: 'RAG vs Fine-Tuning: how to choose the right AI strategy',
+    excerpt: 'A comparison of Retrieval-Augmented Generation (RAG) and model fine-tuning for custom enterprise AI applications.',
+    author: 'Jay Sarvaiya',
+    role: 'Founder & CEO',
+    date: 'Apr 2026',
+    read: '11 min',
+    cat: 'AI',
+    bg: 'bg-coffee',
+    content: [
+      { type: 'p', text: 'When companies integrate AI into their workflows, they face a critical architectural decision: Should we retrieve dynamic files using RAG, or train a custom model via fine-tuning? The answer depends entirely on your data latency and update frequency.' },
+      { type: 'h2', text: 'RAG is for dynamic, factual data' },
+      { type: 'p', text: 'If your model needs access to real-time stocks, private client databases, or constantly changing metrics, RAG is the default choice. By fetching updated data blocks from vector databases at runtime, RAG avoids hallucination and doesn\'t require constant retraining.' },
+      { type: 'h2', text: 'Fine-tuning is for tone, formatting, and logic' },
+      { type: 'p', text: 'If you need a model to follow strict industry syntax, output specialized code styles, or execute reasoning paths unique to your company, fine-tuning is required. Fine-tuning teaches the model *how* to speak, while RAG teaches it *what* to say.' },
+      { type: 'quote', text: 'Use RAG for knowledge. Use Fine-Tuning for style and formatting.' }
+    ]
+  },
+  {
+    slug: 'local-seo-gujarat-businesses',
+    title: 'Local SEO for Gujarat businesses: how to rank and generate local leads',
+    excerpt: 'A practical roadmap for IT companies, ecommerce brands, and agencies looking to capture regional organic traffic.',
+    author: 'Sneha Trivedi',
+    role: 'Brand Strategy',
+    date: 'Apr 2026',
+    read: '9 min',
+    cat: 'Brand',
+    bg: 'bg-sand',
+    content: [
+      { type: 'p', text: 'Many Gujarat-based IT companies optimize exclusively for international search traffic and miss local organic lead pools. Setting up targeted regional search strategies can bring highly profitable local enterprise clients directly to your inbox.' },
+      { type: 'h2', text: '1. Create dedicated city landing pages' },
+      { type: 'p', text: 'Instead of listing all offices in the website footer, create specific pages targeting local search terms (e.g. "Web Development Company in Ahmedabad" or "Software Development in Anand"). Each page should contain distinct local business schemas, contact details, and local customer stories.' },
+      { type: 'h2', text: '2. Optimize Google Business Profile' },
+      { type: 'p', text: 'A optimized Google Business Profile is critical for local Google Map packs. Ensure your business coordinates, local phone number, and operating hours are accurate, and encourage clients to publish detailed organic reviews.' }
+    ]
+  },
 ];
 
 export const postBySlug = (slug: string) => posts.find((p) => p.slug === slug);

@@ -127,7 +127,7 @@ const services = [
     pre: "AI &",
     em: "data",
     tags: ["LLM features", "RAG", "Agents", "Internal tools"],
-    href: "/services/ai-ml",
+    href: "/ai-development",
   },
   {
     num: "05",
@@ -310,9 +310,9 @@ export default function Home() {
   return (
     <div>
       <SEO
-        title="Satvix Tech Solutions — a digital product studio in Anand, Gujarat"
-        description="Satvix Tech Solutions is a small, senior digital studio in Anand, Gujarat. Since 2020 we have shipped 120+ web, mobile and AI products with founders and operators who care about the craft."
-        keywords="Satvix Tech Solutions, satvixtech, satvix tech, digital product studio India, software development company Anand Gujarat, web development agency India, mobile app development India, AI ML services India, custom software development India, independent digital studio India, hire developers India, React Next.js development India"
+        title="Software Development Company | Web, Mobile & AI Solutions | Satvix Tech"
+        description="Satvix Tech Solutions provides web development, mobile app development, AI solutions, UI/UX design, DevOps, and software consulting services for startups and enterprises."
+        keywords="Software Development Company, Web Development Company, Mobile App Development Company, AI Development Company, IT Company India, IT Company Gujarat, Satvix Tech Solutions, React Next.js development India, custom software development"
         url="https://satvixtech.com"
         faq={[
           {
@@ -359,9 +359,9 @@ export default function Home() {
           <h1 className="hero__title">
             {(
               [
-                "A studio for founders",
-                "who ship software",
-                "<em>that lasts.</em>",
+                "Software development company",
+                "in India for web, mobile",
+                "<em>& AI solutions.</em>",
               ] as const
             ).map((line, i) => (
               <span key={i} className="row">
