@@ -13,7 +13,8 @@
       "Bash(Select-Object -ExpandProperty FullName)",
       "Bash(Sort-Object)",
       "Bash(npx tsc *)",
-      "Bash(echo \"EXIT=$?\")"
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(dir D:\\\\Serve-Solutions-LLP\\\\public\\\\images *)"
     ]
   }
 }

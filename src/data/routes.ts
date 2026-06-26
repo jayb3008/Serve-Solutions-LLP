@@ -15,6 +15,7 @@ export const portfolioSlugs = [
   'nivas-realty',
   'tabletrack',
   'sd-photography',
+  'sk-consultant',
   'clickly',
   'tailorpro',
   'proposal-generator',

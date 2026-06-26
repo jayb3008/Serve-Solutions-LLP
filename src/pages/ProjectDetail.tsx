@@ -80,7 +80,7 @@ const projectsData: Record<string, Project> = {
       { n: "60%", label: "Mobile Traffic" },
       { n: "1s", label: "Load Time" },
     ],
-    img: "/images/projects/glamour-jewelry.jpg",
+    img: "/images/glamour-jewelry.png",
     prev: "nine-finance",
     next: "nivas-realty",
     faq: [
@@ -169,11 +169,41 @@ const projectsData: Record<string, Project> = {
       { n: "50+", label: "Albums Created" },
       { n: "100%", label: "Mobile Responsive" },
     ],
-    img: "/images/projects/sd-photography.jpg",
+    img: "/images/sd-photography.png",
     prev: "tabletrack",
-    next: "clickly",
+    next: "sk-consultant",
     faq: [
       { question: "How are photos optimized in SD Photography?", answer: "We integrated Cloudinary's dynamic CDN for auto-formatting, compression, and delivery of progressive images based on client network bandwidth." }
+    ]
+  },
+
+  "sk-consultant": {
+    title: "SK Consultant",
+    subtitle: "EPFO & HR compliance services platform",
+    category: "Government Services · Web",
+    year: "2026",
+    client: "SK Consultant",
+    role: "Web Development",
+    tags: ["EPFO", "HR Services", "Compliance", "Web App"],
+    overview:
+      "A fast and fully online platform providing EPFO, ESI, payroll, and HR compliance support — handled by professionals for businesses of all sizes.",
+    challenge:
+      "Making complex government compliance processes (EPF, ESIC, payroll) simple and accessible for small business owners who are not HR experts.",
+    solution:
+      "Built a clean, trust-focused website with service breakdowns, WhatsApp-based inquiry flows, and an SEO-optimised structure to capture local compliance search traffic.",
+    tech: ["React", "Node.js", "TailwindCSS", "SEO"],
+    outcomes: [
+      { n: "500+", label: "Happy Clients" },
+      { n: "100%", label: "Online Service" },
+      { n: "3x", label: "Lead Growth" },
+      { n: "Fast", label: "Processing" },
+    ],
+    img: "/images/sk-consultant.png",
+    prev: "sd-photography",
+    next: "clickly",
+    faq: [
+      { question: "What compliance services does SK Consultant cover?", answer: "SK Consultant handles EPF registration and filing, ESIC compliance, payroll processing, professional tax, and other statutory HR obligations for businesses." },
+      { question: "How were leads generated for SK Consultant?", answer: "We optimised the site for local government-service keywords, added WhatsApp CTAs on every service page, and structured the content to rank for queries like 'EPFO services near me'." }
     ]
   },
 
@@ -199,7 +229,7 @@ const projectsData: Record<string, Project> = {
       { n: "24/7", label: "Availability" },
     ],
     img: "/images/projects/clickly.jpg",
-    prev: "sd-photography",
+    prev: "sk-consultant",
     next: "tailorpro",
     faq: [
       { question: "How does Clickly handle custom domains?", answer: "We built a routing layer using proxy configurations that dynamically maps custom domains to multi-tenant portfolios hosted on Supabase." },
@@ -374,31 +404,90 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* ── Hero image ── */}
-      <div style={{ position: "relative", height: "72vh", overflow: "hidden" }}>
-        <motion.img
-          src={project.img}
-          alt={project.title}
-          initial={{ scale: 1.07, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.6, ease: [0.7, 0, 0.2, 1] }}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            display: "block",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to bottom, transparent 55%, rgba(21,17,13,0.45) 100%)",
-            pointerEvents: "none",
-          }}
-        />
-      </div>
+      {/* ── Browser mockup screenshot ── */}
+      <section
+        style={{
+          background: "var(--bg-2)",
+          borderBottom: "1px solid var(--line)",
+          padding: "72px 0 80px",
+        }}
+      >
+        <div className="wrap">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.7, 0, 0.2, 1], delay: 0.25 }}
+            style={{
+              borderRadius: 14,
+              overflow: "hidden",
+              border: "1px solid var(--line)",
+              boxShadow:
+                "0 48px 140px rgba(0,0,0,0.13), 0 12px 40px rgba(0,0,0,0.07)",
+            }}
+          >
+            {/* Browser chrome bar */}
+            <div
+              style={{
+                background: "var(--bg)",
+                borderBottom: "1px solid var(--line)",
+                padding: "11px 18px",
+                display: "flex",
+                alignItems: "center",
+                gap: 14,
+              }}
+            >
+              {/* Traffic-light dots */}
+              <div style={{ display: "flex", gap: 7, flexShrink: 0 }}>
+                {["#ff5f57", "#ffbd2e", "#28c940"].map((c) => (
+                  <span
+                    key={c}
+                    style={{
+                      width: 13,
+                      height: 13,
+                      borderRadius: "50%",
+                      background: c,
+                      display: "inline-block",
+                    }}
+                  />
+                ))}
+              </div>
+              {/* URL bar */}
+              <div
+                style={{
+                  flex: 1,
+                  background: "var(--bg-2)",
+                  border: "1px solid var(--line)",
+                  borderRadius: 6,
+                  padding: "5px 14px",
+                  fontFamily: "var(--mono)",
+                  fontSize: 12,
+                  color: "var(--muted)",
+                  textAlign: "center",
+                  letterSpacing: ".02em",
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                satvixtech.com · {project.client}
+              </div>
+            </div>
+
+            {/* Screenshot */}
+            <img
+              src={project.img}
+              alt={`${project.title} — live preview`}
+              style={{
+                width: "100%",
+                display: "block",
+                objectFit: "cover",
+                objectPosition: "top",
+                maxHeight: "68vh",
+              }}
+            />
+          </motion.div>
+        </div>
+      </section>
 
       {/* ── Tags strip ── */}
       <div style={{ borderBottom: "1px solid var(--line)", padding: "24px 0" }}>

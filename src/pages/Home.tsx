@@ -155,7 +155,7 @@ const workCards = [
     title:
       "Glamour Jewelry — a premium jewelry showcase platform with category management, WhatsApp inquiries, and SEO-driven product discovery.",
     href: "/portfolio/glamour-jewelry",
-    img: "https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?auto=compress&cs=tinysrgb&w=900",
+    img: "/images/glamour-jewelry.png",
   },
   {
     cls: "wc-3",
@@ -182,10 +182,19 @@ const workCards = [
     title:
       "SD Photography — a professional photography portfolio platform featuring client galleries, album management, and digital delivery.",
     href: "/portfolio/sd-photography",
-    img: "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=900",
+    img: "/images/sd-photography.png",
   },
   {
     cls: "wc-6",
+    year: "2026",
+    tags: ["EPFO", "HR Services", "Compliance"],
+    title:
+      "SK Consultant — a fast, fully online EPFO and HR compliance platform handling payroll, ESI, and statutory services for 500+ clients.",
+    href: "/portfolio/sk-consultant",
+    img: "/images/sk-consultant.png",
+  },
+  {
+    cls: "wc-7",
     year: "2025",
     tags: ["SaaS", "Photography", "Next.js"],
     title:
@@ -194,7 +203,7 @@ const workCards = [
     img: "https://images.pexels.com/photos/274973/pexels-photo-274973.jpeg?auto=compress&cs=tinysrgb&w=900",
   },
   {
-    cls: "wc-7",
+    cls: "wc-8",
     year: "2025",
     tags: ["Tailor Shop", "Management", "SaaS"],
     title:
@@ -203,7 +212,7 @@ const workCards = [
     img: "https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg?auto=compress&cs=tinysrgb&w=900",
   },
   {
-    cls: "wc-8",
+    cls: "wc-9",
     year: "2025",
     tags: ["Business Tools", "Automation", "SaaS"],
     title:

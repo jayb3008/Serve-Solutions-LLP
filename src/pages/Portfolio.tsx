@@ -81,7 +81,7 @@ const cards: Card[] = [
     year: "2026",
     tags: ["Jewelry", "Ecommerce", "Next.js", "SEO"],
     cat: "Commerce",
-    img: "https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?auto=compress&cs=tinysrgb&w=900",
+    img: "/images/glamour-jewelry.png",
   },
 
   {
@@ -111,7 +111,17 @@ const cards: Card[] = [
     year: "2025",
     tags: ["Photography", "Portfolio", "CMS"],
     cat: "Creative",
-    img: "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=900",
+    img: "/images/sd-photography.png",
+  },
+
+  {
+    id: "sk-consultant",
+    title:
+      "SK Consultant — a fast, fully online EPFO and HR compliance platform serving 500+ clients with payroll, ESI, and statutory services.",
+    year: "2026",
+    tags: ["EPFO", "HR Services", "Compliance", "Web App"],
+    cat: "SaaS",
+    img: "/images/sk-consultant.png",
   },
 
   {
