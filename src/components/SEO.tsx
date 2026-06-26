@@ -29,7 +29,7 @@ const BASE_URL = "https://satvixtech.com";
 const DEFAULT_IMAGE = `${BASE_URL}/logo.png`;
 const COMPANY_NAME = "Satvix Tech Solutions";
 const COMPANY_LEGAL = "Satvix Tech Solutions LLP";
-const TODAY = "2026-06-20";
+const TODAY = new Date().toISOString().slice(0, 10);
 
 const SEO = ({
   title = "A studio for founders who ship software that lasts",
@@ -73,7 +73,20 @@ const SEO = ({
     },
     description,
     foundingDate: "2020",
+    numberOfEmployees: { "@type": "QuantitativeValue", value: 40 },
     founders: [{ "@type": "Person", name: "Batukbhai Sarvaiya" }],
+    knowsAbout: [
+      "Web Development",
+      "Mobile App Development",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "UI/UX Design",
+      "DevOps",
+      "Cloud Architecture",
+      "React",
+      "Next.js",
+      "Node.js",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: "Anand",
@@ -82,14 +95,24 @@ const SEO = ({
       postalCode: "388001",
       addressCountry: "IN",
     },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+91-9904055986",
-      email: "info@satvixtech.com",
-      contactType: "customer service",
-      areaServed: "IN",
-      availableLanguage: ["en", "Hindi", "Gujarati"],
-    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+91-9904055986",
+        email: "info@satvixtech.com",
+        contactType: "customer service",
+        areaServed: "IN",
+        availableLanguage: ["en", "Hindi", "Gujarati"],
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: "+91-9904055986",
+        email: "info@satvixtech.com",
+        contactType: "sales",
+        areaServed: ["IN", "US", "GB"],
+        availableLanguage: "en",
+      },
+    ],
     sameAs: [
       "https://www.linkedin.com/company/satvix-tech-solution",
       "https://twitter.com/satvixtech",
