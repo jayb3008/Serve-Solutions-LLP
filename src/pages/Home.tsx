@@ -416,9 +416,9 @@ export default function Home() {
     <div>
       {/* Fixed scroll-drawn SVG path — hero to footer */}
       <SEO
-        title="Web Development Company in Ahmedabad | Mobile App Development | Satvix Tech Solutions"
+        title="Satvix | Web Development & Mobile App Company in Ahmedabad"
         description="Satvix Tech Solutions offers Web Development, Mobile App Development, UI/UX Design, SEO, Digital Marketing and Custom Software Development in Ahmedabad."
-        keywords="Web Development Company Ahmedabad, Software Development Company, Mobile App Development, React Native Development, Website Design Ahmedabad, SEO Company Ahmedabad, Digital Marketing Agency Ahmedabad, Satvix Tech Solutions, Satvix Tech Solutions website, Satvix Tech Solutions official website"
+        keywords="Satvix, Satvix Tech, Satvix Web, Satvix App, Web Development Company Ahmedabad, Software Development Company, Mobile App Development, React Native Development, Website Design Ahmedabad, SEO Company Ahmedabad, Digital Marketing Agency Ahmedabad, Satvix Tech Solutions website"
         url="https://satvixtech.com"
         faq={[
           {
@@ -439,7 +439,7 @@ export default function Home() {
           {
             question: "How do I start a project with Satvix Tech Solutions?",
             answer:
-              "Email info@satvixtech.com or use the Contact form. You will hear back from a human, usually same day. We start with a discovery call — no pitch deck required.",
+              "Email satvixtechsolutions@gmail.com or use the Contact form. You will hear back from a human, usually same day. We start with a discovery call — no pitch deck required.",
           },
         ]}
       />
@@ -1041,7 +1041,7 @@ export default function Home() {
           <div className="s-head">
             <AnimateIn direction="up">
               <div>
-                <div className="eyebrow reveal">How we work</div>
+                <div className="eyebrow reveal">The Satvix Process</div>
                 <h2 className="s-title" data-d="1">
                   Brief. Sketch. Build. Ship. <em>Stay.</em>
                 </h2>
@@ -1190,7 +1190,7 @@ export default function Home() {
           <div className="s-head">
             <AnimateIn direction="up">
               <div>
-                <div className="eyebrow reveal">In their words</div>
+                <div className="eyebrow reveal">Why clients choose Satvix</div>
                 <h2 className="s-title" data-d="1">
                   Three things our clients <em>actually said.</em>
                 </h2>
@@ -1226,7 +1226,7 @@ export default function Home() {
                     flexShrink: 0,
                   }}
                 />
-                The people
+                The Satvix Team
               </div>
               <h2
                 className="s-title reveal"
@@ -1313,12 +1313,12 @@ export default function Home() {
           </h2>
           <Magnetic>
             <a
-              href="mailto:info@satvixtech.com"
+              href="mailto:satvixtechsolutions@gmail.com"
               className="big-cta reveal"
               data-d="2"
               data-hover
             >
-              info@satvixtech.com
+              satvixtechsolutions@gmail.com
               <span className="arrow">
                 <svg
                   width="18"

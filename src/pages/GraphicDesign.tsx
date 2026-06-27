@@ -473,12 +473,12 @@ export default function GraphicDesign() {
           </h2>
           <Magnetic>
             <a
-              href="mailto:info@satvixtech.com"
+              href="mailto:satvixtechsolutions@gmail.com"
               className="big-cta reveal"
               data-d="2"
               data-hover
             >
-              info@satvixtech.com
+              satvixtechsolutions@gmail.com
               <span className="arrow">
                 <svg
                   width="18"

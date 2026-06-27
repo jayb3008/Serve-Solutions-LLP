@@ -43,7 +43,7 @@ export default function Footer() {
           <div>
             <h5>Contact</h5>
             <ul>
-              <li><a href="mailto:info@satvixtech.com">info@satvixtech.com</a></li>
+              <li><a href="mailto:satvixtechsolutions@gmail.com">satvixtechsolutions@gmail.com</a></li>
               <li><a href="tel:+919904055986">+91-9904055986</a></li>
               <li><span style={{ color: 'rgba(255,255,255,.6)' }}>Anand, Gujarat · India</span></li>
             </ul>

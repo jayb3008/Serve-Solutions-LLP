@@ -84,7 +84,7 @@ const Contact = () => {
     <div className="contact-page">
       <SEO
         title="Contact Satvix Tech Solutions — one inbox, one human, no funnel"
-        description="Contact Satvix Tech Solutions in Anand, Gujarat. Write to info@satvixtech.com or call +91 9904 055 986 — a real person replies within one working day."
+        description="Contact Satvix Tech Solutions in Anand, Gujarat. Write to satvixtechsolutions@gmail.com or call +91 9904 055 986 — a real person replies within one working day."
         keywords="contact Satvix Tech Solutions, Satvix Tech Solutions email, satvixtech contact, hire software agency India, digital product studio Gujarat, software development inquiry India, web development quote India, Anand Gujarat software company"
         url="https://satvixtech.com/contact"
         breadcrumb={[
@@ -95,7 +95,7 @@ const Contact = () => {
           {
             question: "How quickly will I hear back?",
             answer:
-              "A real person reads everything that comes in and replies within one working day — usually same day. If something is on fire, write “urgent” in the subject and email info@satvixtech.com directly.",
+              "A real person reads everything that comes in and replies within one working day — usually same day. If something is on fire, write “urgent” in the subject and email satvixtechsolutions@gmail.com directly.",
           },
           {
             question: "Where are you?",
@@ -187,8 +187,8 @@ const Contact = () => {
                   {
                     icon: Mail,
                     label: "Write to us",
-                    value: "info@satvixtech.com",
-                    href: "mailto:info@satvixtech.com",
+                    value: "satvixtechsolutions@gmail.com",
+                    href: "mailto:satvixtechsolutions@gmail.com",
                   },
                   {
                     icon: Phone,

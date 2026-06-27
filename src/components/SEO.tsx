@@ -102,7 +102,7 @@ const SEO = ({
       {
         "@type": "ContactPoint",
         telephone: "+91-9904055986",
-        email: "info@satvixtech.com",
+        email: "satvixtechsolutions@gmail.com",
         contactType: "customer service",
         areaServed: "IN",
         availableLanguage: ["en", "Hindi", "Gujarati"],
@@ -110,7 +110,7 @@ const SEO = ({
       {
         "@type": "ContactPoint",
         telephone: "+91-9904055986",
-        email: "info@satvixtech.com",
+        email: "satvixtechsolutions@gmail.com",
         contactType: "sales",
         areaServed: ["IN", "US", "GB"],
         availableLanguage: "en",
@@ -132,7 +132,7 @@ const SEO = ({
     image,
     url: BASE_URL,
     telephone: "+91-9904055986",
-    email: "info@satvixtech.com",
+    email: "satvixtechsolutions@gmail.com",
     priceRange: "₹₹₹",
     currenciesAccepted: "INR, USD",
     paymentAccepted: "Bank Transfer, UPI, PayPal",

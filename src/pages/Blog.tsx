@@ -444,13 +444,13 @@ export default function Blog() {
           </h2>
           <Magnetic>
             <a
-              href="mailto:info@satvixtech.com"
+              href="mailto:satvixtechsolutions@gmail.com"
               className="big-cta reveal"
               data-d="2"
               data-hover
               style={{ display: "inline-block" }}
             >
-              info@satvixtech.com
+              satvixtechsolutions@gmail.com
               <span className="arrow">
                 <svg
                   width="18"
