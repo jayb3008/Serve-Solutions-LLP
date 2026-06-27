@@ -154,13 +154,13 @@ export default function ProductDesign() {
         title="Product design — Satvix Tech Solutions, Anand, Gujarat"
         description="Product design at Satvix Tech Solutions: research, interaction design, UI, prototyping and design systems. We design products people reach for without thinking about it."
         keywords="Satvix Tech Solutions design, product design company India, UX design agency Gujarat, UI UX design India, Figma design agency India, design system development India, prototyping agency India, user research company India, interaction design India, SaaS product design India, design studio Anand Gujarat"
-        url="https://satvixtech.com/services/product-design"
+        url="https://satvixtech.com/ui-ux-design"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
           {
             name: "Product Design",
-            item: "https://satvixtech.com/services/product-design",
+            item: "https://satvixtech.com/ui-ux-design",
           },
         ]}
       />

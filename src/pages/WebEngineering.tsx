@@ -154,13 +154,13 @@ export default function WebEngineering() {
         title="Web engineering — Satvix Tech Solutions, Anand, Gujarat"
         description="Satvix Tech Solutions builds Next.js, React and Node.js web platforms — fast, accessible, observable, and built to outlast the project. From marketing sites to complex SaaS."
         keywords="Satvix Tech Solutions web development, web development company India, Next.js development agency India, React development India, SaaS development company Gujarat, headless CMS development India, full-stack web development Gujarat, Node.js backend development India, web performance optimisation India, Core Web Vitals India, custom web app development India"
-        url="https://satvixtech.com/services/web-engineering"
+        url="https://satvixtech.com/web-development"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
           {
             name: "Web Engineering",
-            item: "https://satvixtech.com/services/web-engineering",
+            item: "https://satvixtech.com/web-development",
           },
         ]}
       />

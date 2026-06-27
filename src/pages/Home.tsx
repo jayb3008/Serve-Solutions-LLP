@@ -3,10 +3,23 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import AwardsSection from "../components/AwardsSection";
+import HoverMembers, { HoverMember } from "../components/HoverMembers";
+import ImageCursorTrail from "../components/ImageCursorTrail";
+import SvgScrollPath from "../components/SvgScrollPath";
+import TextReveal from "../components/TextReveal";
+import RollingText from "../components/RollingText";
+import TestimonialSlider from "../components/TestimonialSlider";
+import GradientCard from "../components/GradientCard";
+import InfiniteMarquee from "../components/InfiniteMarquee";
 import { servicesData } from "../data/services";
 import { industriesData } from "../data/industries";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
+import AnimateIn from "../components/AnimateIn";
+import ScrollVelocityMarquee from "../components/ScrollVelocityMarquee";
+import FloatingShapes from "../components/FloatingShapes";
+
+const MotionLink = motion.create(Link);
 
 const industryList = Object.entries(industriesData) as [
   string,
@@ -100,7 +113,16 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
   );
 }
 
-const services = [
+type Service = {
+  num: string;
+  pre: string;
+  em: string;
+  tags: string[];
+  href: string;
+  isNew?: boolean;
+};
+
+const services: Service[] = [
   {
     num: "01",
     pre: "Product",
@@ -135,6 +157,14 @@ const services = [
     em: "strategy",
     tags: ["Positioning", "Identity", "Naming", "Editorial"],
     href: "/services",
+  },
+  {
+    num: "06",
+    pre: "Graphic design",
+    em: "& branding",
+    tags: ["New", "Logo", "Print", "Social kits", "Motion"],
+    href: "/graphic-design-branding",
+    isNew: true,
   },
 ];
 
@@ -219,6 +249,72 @@ const workCards = [
       "Proposal Generator — an automated platform for creating professional proposals, quotations, and invoices in minutes.",
     href: "/portfolio/proposal-generator",
     img: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=900",
+  },
+];
+
+const teamMembers: HoverMember[] = [
+  {
+    name: "Jay",
+    role: "Founder & CEO",
+    image:
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400",
+    href: "/about",
+  },
+  {
+    name: "Aarav",
+    role: "Lead Engineer",
+    image:
+      "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400",
+    href: "/about",
+  },
+  {
+    name: "Priya",
+    role: "Design Lead",
+    image:
+      "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400",
+    href: "/about",
+  },
+  {
+    name: "Rohan",
+    role: "AI Engineer",
+    image:
+      "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=400",
+    href: "/about",
+  },
+  {
+    name: "Diya",
+    role: "Mobile Dev",
+    image:
+      "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400",
+    href: "/about",
+  },
+  {
+    name: "Karan",
+    role: "DevOps Lead",
+    image:
+      "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400",
+    href: "/about",
+  },
+  {
+    name: "Sneha",
+    role: "QA Engineer",
+    image:
+      "https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg?auto=compress&cs=tinysrgb&w=400",
+    href: "/about",
+  },
+  {
+    name: "Arjun",
+    role: "Full-Stack Dev",
+    image:
+      "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400",
+    href: "/about",
+  },
+  {
+    name: "Neel",
+    role: "Growth Lead",
+    image:
+      "https://images.pexels.com/photos/2269872/pexels-photo-2269872.jpeg?auto=compress&cs=tinysrgb&w=400",
+    href: "/about",
   },
 ];
 
@@ -318,6 +414,7 @@ export default function Home() {
 
   return (
     <div>
+      {/* Fixed scroll-drawn SVG path — hero to footer */}
       <SEO
         title="Software Development Company | Web, Mobile & AI Solutions | Satvix Tech"
         description="Satvix Tech Solutions provides web development, mobile app development, AI solutions, UI/UX design, DevOps, and software consulting services for startups and enterprises."
@@ -359,11 +456,32 @@ export default function Home() {
           />
         </div>
         <div ref={orbRef} className="hero__orb" />
+        <div className="hero__orb-2" />
+        <FloatingShapes />
         <div className="wrap relative z-10" style={{ position: "relative" }}>
-          {/* <div className="hero__eyebrow">
-            <span className="ping" />A small studio in Anand, Gujarat — est.
-            2020
-          </div> */}
+          <div className="hero__eyebrow">
+            <span className="ping" />
+            We build{" "}
+            <RollingText
+              words={[
+                "web platforms",
+                "mobile apps",
+                "AI products",
+                "SaaS tools",
+                "design systems",
+              ]}
+              style={{
+                color: "var(--accent)",
+                fontStyle: "italic",
+                fontFamily: "var(--display)",
+                fontSize: "clamp(15px, 1.4vw, 18px)",
+                textTransform: "none",
+                letterSpacing: "-0.01em",
+                lineHeight: 1,
+              }}
+            />{" "}
+            that ship.
+          </div>
 
           <h1 className="hero__title">
             {(
@@ -385,38 +503,40 @@ export default function Home() {
             ))}
           </h1>
 
-          <div className="hero__foot">
-            <p>
-              We are forty people in one room. We design, build and ship web
-              platforms, mobile apps and AI products for founders and operators
-              who care about the work — and the bill.
-            </p>
-            <Magnetic>
-              <Link to="/portfolio" className="cta-btn" data-hover>
-                See the work <span className="dot" />
-              </Link>
-            </Magnetic>
-            <div className="stats">
-              <div>
-                <div className="stat__num">
-                  <CountUp to={120} />+
+          <AnimateIn direction="up" delay={0.8}>
+            <div className="hero__foot">
+              <p>
+                We are forty people in one room. We design, build and ship web
+                platforms, mobile apps and AI products for founders and operators
+                who care about the work — and the bill.
+              </p>
+              <Magnetic>
+                <Link to="/portfolio" className="cta-btn" data-hover>
+                  See the work <span className="dot" />
+                </Link>
+              </Magnetic>
+              <div className="stats">
+                <div>
+                  <div className="stat__num">
+                    <CountUp to={120} />+
+                  </div>
+                  <div className="stat__lbl">Products shipped</div>
                 </div>
-                <div className="stat__lbl">Products shipped</div>
-              </div>
-              <div>
-                <div className="stat__num">
-                  <CountUp to={98} />%
+                <div>
+                  <div className="stat__num">
+                    <CountUp to={98} />%
+                  </div>
+                  <div className="stat__lbl">Clients who renew</div>
                 </div>
-                <div className="stat__lbl">Clients who renew</div>
-              </div>
-              <div>
-                <div className="stat__num">
-                  <CountUp to={6} />
+                <div>
+                  <div className="stat__num">
+                    <CountUp to={6} />
+                  </div>
+                  <div className="stat__lbl">Years, one studio</div>
                 </div>
-                <div className="stat__lbl">Years, one studio</div>
               </div>
             </div>
-          </div>
+          </AnimateIn>
         </div>
         <div className="scroll-ind">
           Scroll <span className="line" />
@@ -443,8 +563,42 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ── Tech marquee (reversed) ── */}
+      <div style={{ background: "var(--ink)", overflow: "hidden" }}>
+        <InfiniteMarquee
+          items={[
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Node.js",
+            "Python",
+            "Flutter",
+            "AWS",
+            "PostgreSQL",
+            "Figma",
+            "Docker",
+            "GraphQL",
+            "TailwindCSS",
+          ]}
+          direction="right"
+          speed={28}
+          separator="·"
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            padding: "18px 0",
+            color: "rgba(255,255,255,0.55)",
+          }}
+        />
+      </div>
+
+      {/* ── Velocity marquee ── */}
+      <div style={{ overflow: "hidden", pointerEvents: "none" }}>
+        <ScrollVelocityMarquee text="Web · Mobile · AI · SaaS · Fintech · Healthcare · Design · Engineering · Craft" baseSpeed={1.2} />
+      </div>
+
       {/* ── Clients strip ── */}
-      <section
+      {/* <section
         style={{ borderBottom: "1px solid var(--line)", padding: "40px 0" }}
       >
         <div className="wrap">
@@ -490,7 +644,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Services ── */}
       <section
@@ -500,12 +654,14 @@ export default function Home() {
       >
         <div className="wrap">
           <div className="s-head">
-            <div>
-              <div className="eyebrow reveal">What we do</div>
-              <h2 className="s-title reveal" data-d="1">
-                One team. Five disciplines. <em>Zero handoffs.</em>
-              </h2>
-            </div>
+            <AnimateIn direction="up">
+              <div>
+                <div className="eyebrow reveal">What we do</div>
+                <h2 className="s-title" data-d="1">
+                  One team. Six disciplines. <em>Zero handoffs.</em>
+                </h2>
+              </div>
+            </AnimateIn>
             <p
               className="reveal"
               data-d="2"
@@ -523,12 +679,16 @@ export default function Home() {
           </div>
 
           <div style={{ borderTop: "1px solid var(--line)" }}>
-            {services.map((svc) => (
-              <Link
+            {services.map((svc, i) => (
+              <MotionLink
                 key={svc.num}
                 to={svc.href}
-                className="svc reveal"
+                className="svc"
                 data-hover
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: i * 0.07, duration: 0.55, ease: [0.25, 1, 0.5, 1] }}
               >
                 <div className="svc__num">{svc.num}</div>
                 <div className="svc__name">
@@ -536,7 +696,12 @@ export default function Home() {
                 </div>
                 <div className="svc__tags">
                   {svc.tags.map((t) => (
-                    <span key={t}>{t}</span>
+                    <span
+                      key={t}
+                      className={t === "New" ? "tag-new" : undefined}
+                    >
+                      {t}
+                    </span>
                   ))}
                 </div>
                 <div className="svc__arrow">
@@ -551,8 +716,138 @@ export default function Home() {
                     <path d="M5 12h14m-6-6 6 6-6 6" />
                   </svg>
                 </div>
-              </Link>
+              </MotionLink>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Design Spotlight ── */}
+      <section className="design-feat">
+        {/* Brand palette strip — communicates color range */}
+        <div className="palette-strip" aria-hidden="true">
+          {[
+            "#E31E24",
+            "#D4380D",
+            "#D46B08",
+            "#D4B106",
+            "#389E0D",
+            "#0958D9",
+            "#531DAB",
+            "#121518",
+          ].map((c) => (
+            <span key={c} style={{ background: c }} />
+          ))}
+        </div>
+        <div className="wrap">
+          <div className="design-feat__inner">
+            {/* Left: copy */}
+            <div>
+              <div
+                className="eyebrow reveal"
+                style={{ color: "rgba(255,255,255,.5)" }}
+              >
+                <span
+                  style={{
+                    display: "inline-block",
+                    width: 24,
+                    height: 1,
+                    background: "rgba(255,255,255,.3)",
+                    flexShrink: 0,
+                  }}
+                />
+                New service
+              </div>
+              <h2
+                className="s-title reveal"
+                data-d="1"
+                style={{ color: "var(--bg)", marginTop: 20, maxWidth: "14ch" }}
+              >
+                Design that earns <em>attention.</em>
+              </h2>
+              <p
+                className="reveal"
+                data-d="2"
+                style={{
+                  color: "rgba(255,255,255,.6)",
+                  fontSize: 17,
+                  lineHeight: 1.6,
+                  maxWidth: "38ch",
+                  marginTop: 28,
+                  marginBottom: 0,
+                }}
+              >
+                Logo systems, print collateral, social media kits, packaging,
+                and motion graphics — everything a brand needs to look
+                intentional at every size and on every surface.
+              </p>
+              <div style={{ marginTop: 40 }}>
+                <Magnetic>
+                  <Link
+                    to="/graphic-design-branding"
+                    className="cta-btn reveal"
+                    data-d="3"
+                    data-hover
+                    style={{ background: "var(--accent)", color: "var(--ink)" }}
+                  >
+                    Explore the service{" "}
+                    <span
+                      className="dot"
+                      style={{ background: "var(--ink)" }}
+                    />
+                  </Link>
+                </Magnetic>
+              </div>
+            </div>
+            {/* Right: 2×2 discipline cards */}
+            <div className="design-feat-cards">
+              {[
+                {
+                  num: "01",
+                  title: "Brand identity",
+                  tags: ["Logo", "Colour", "Type"],
+                  bg: "linear-gradient(145deg, #1f0808, #121518)",
+                },
+                {
+                  num: "02",
+                  title: "Print & collateral",
+                  tags: ["Packaging", "Stationery", "Brochures"],
+                  bg: "linear-gradient(145deg, #0f1a0a, #121518)",
+                },
+                {
+                  num: "03",
+                  title: "Digital & social",
+                  tags: ["Templates", "Ad creatives", "Banners"],
+                  bg: "linear-gradient(145deg, #080f1f, #121518)",
+                },
+                {
+                  num: "04",
+                  title: "Motion & video",
+                  tags: ["Animation", "Reels", "Lottie"],
+                  bg: "linear-gradient(145deg, #110818, #121518)",
+                },
+              ].map((c, i) => (
+                <motion.div
+                  key={c.num}
+                  className="design-feat-card"
+                  initial={{ opacity: 0, scale: 0.92, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+                  style={{ background: c.bg }}
+                >
+                  <div className="design-feat-card__num">{c.num}</div>
+                  <div className="design-feat-card__body">
+                    <div className="design-feat-card__title">{c.title}</div>
+                    <div className="design-feat-card__tags">
+                      {c.tags.map((t) => (
+                        <span key={t}>{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -565,12 +860,14 @@ export default function Home() {
       >
         <div className="wrap">
           <div className="s-head">
-            <div>
-              <div className="eyebrow reveal">Who we build for</div>
-              <h2 className="s-title reveal" data-d="1">
-                Seventeen industries. <em>One studio.</em>
-              </h2>
-            </div>
+            <AnimateIn direction="up">
+              <div>
+                <div className="eyebrow reveal">Who we build for</div>
+                <h2 className="s-title" data-d="1">
+                  Seventeen industries. <em>One studio.</em>
+                </h2>
+              </div>
+            </AnimateIn>
             <p
               className="reveal"
               data-d="2"
@@ -588,47 +885,51 @@ export default function Home() {
             </p>
           </div>
 
-          <div
-            className="reveal"
-            data-d="2"
-            style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 8 }}
-          >
-            {industryList.map(([key, ind]) => (
-              <Link
-                key={key}
-                to={`/industries/${key}`}
-                data-hover
-                style={{
-                  fontFamily: "var(--mono)",
-                  fontSize: 13,
-                  padding: "10px 18px",
-                  border: "1px solid var(--line)",
-                  borderRadius: 999,
-                  color: "var(--ink-2)",
-                  textDecoration: "none",
-                  transition:
-                    "background .2s ease, color .2s ease, border-color .2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "var(--ink)";
-                  e.currentTarget.style.color = "var(--bg)";
-                  e.currentTarget.style.borderColor = "var(--ink)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "";
-                  e.currentTarget.style.color = "var(--ink-2)";
-                  e.currentTarget.style.borderColor = "var(--line)";
-                }}
-              >
-                {ind.title}
-              </Link>
-            ))}
-          </div>
+          <AnimateIn direction="up" delay={0.2}>
+            <div
+              style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 8 }}
+            >
+              {industryList.map(([key, ind], index) => (
+                <MotionLink
+                  key={key}
+                  to={`/industries/${key}`}
+                  data-hover
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ delay: index * 0.04, duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
+                  style={{
+                    fontFamily: "var(--mono)",
+                    fontSize: 13,
+                    padding: "10px 18px",
+                    border: "1px solid var(--line)",
+                    borderRadius: 999,
+                    color: "var(--ink-2)",
+                    textDecoration: "none",
+                    transition:
+                      "background .2s ease, color .2s ease, border-color .2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "var(--ink)";
+                    e.currentTarget.style.color = "var(--bg)";
+                    e.currentTarget.style.borderColor = "var(--ink)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "";
+                    e.currentTarget.style.color = "var(--ink-2)";
+                    e.currentTarget.style.borderColor = "var(--line)";
+                  }}
+                >
+                  {ind.title}
+                </MotionLink>
+              ))}
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
       {/* ── Work ── */}
-      <section
+      <ImageCursorTrail
         className="s"
         style={{
           background: "var(--ink)",
@@ -676,9 +977,15 @@ export default function Home() {
           </div>
 
           <div className="work-grid">
-            {workCards.map((c) => (
-              <TiltCard
+            {workCards.map((c, i) => (
+              <motion.div
                 key={c.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ delay: i * 0.06, duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+              >
+              <TiltCard
                 to={c.href}
                 className={`work-card ${c.cls} reveal`}
               >
@@ -707,8 +1014,22 @@ export default function Home() {
                   ↗
                 </div>
               </TiltCard>
+              </motion.div>
             ))}
           </div>
+        </div>
+      </ImageCursorTrail>
+
+      {/* ── Statement reveal ── */}
+      <section
+        className="s"
+        style={{
+          borderTop: "1px solid var(--line)",
+          background: "var(--bg-2)",
+        }}
+      >
+        <div className="wrap">
+          <TextReveal text="We believe great software is not about technology. It is about helping real people accomplish something they could not do before." />
         </div>
       </section>
 
@@ -716,12 +1037,14 @@ export default function Home() {
       <section className="s" style={{ borderTop: "1px solid var(--line)" }}>
         <div className="wrap">
           <div className="s-head">
-            <div>
-              <div className="eyebrow reveal">How we work</div>
-              <h2 className="s-title reveal" data-d="1">
-                Brief. Sketch. Build. Ship. <em>Stay.</em>
-              </h2>
-            </div>
+            <AnimateIn direction="up">
+              <div>
+                <div className="eyebrow reveal">How we work</div>
+                <h2 className="s-title" data-d="1">
+                  Brief. Sketch. Build. Ship. <em>Stay.</em>
+                </h2>
+              </div>
+            </AnimateIn>
             <p
               className="reveal"
               data-d="2"
@@ -739,11 +1062,18 @@ export default function Home() {
           </div>
           <div className="tl-rows">
             {process.map((p, i) => (
-              <div key={p.n} className="tl-row reveal" data-d={String(i)}>
+              <motion.div
+                key={p.n}
+                className="tl-row"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: i * 0.1, duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+              >
                 <div className="tl-year">{p.n}</div>
                 <div className="tl-title">{p.title}</div>
                 <div className="tl-body">{p.desc}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -760,12 +1090,14 @@ export default function Home() {
       >
         <div className="wrap">
           <div className="s-head">
-            <div>
-              <div className="eyebrow reveal">The stack</div>
-              <h2 className="s-title reveal" data-d="1">
-                Boring tools, used <em>well.</em>
-              </h2>
-            </div>
+            <AnimateIn direction="up">
+              <div>
+                <div className="eyebrow reveal">The stack</div>
+                <h2 className="s-title" data-d="1">
+                  Boring tools, used <em>well.</em>
+                </h2>
+              </div>
+            </AnimateIn>
             <p
               className="reveal"
               data-d="2"
@@ -790,7 +1122,7 @@ export default function Home() {
             }}
           >
             {techStack.map((t, i) => (
-              <div
+              <GradientCard
                 key={t.cat}
                 className="reveal"
                 data-d={String(i % 4)}
@@ -807,6 +1139,8 @@ export default function Home() {
                     alignItems: "center",
                     gap: 10,
                     marginBottom: 12,
+                    position: "relative",
+                    zIndex: 1,
                   }}
                 >
                   <span
@@ -836,11 +1170,13 @@ export default function Home() {
                     fontWeight: 500,
                     letterSpacing: "-.01em",
                     lineHeight: 1.35,
+                    position: "relative",
+                    zIndex: 1,
                   }}
                 >
                   {t.tools}
                 </div>
-              </div>
+              </GradientCard>
             ))}
           </div>
         </div>
@@ -850,103 +1186,76 @@ export default function Home() {
       <section className="s">
         <div className="wrap">
           <div className="s-head">
+            <AnimateIn direction="up">
+              <div>
+                <div className="eyebrow reveal">In their words</div>
+                <h2 className="s-title" data-d="1">
+                  Three things our clients <em>actually said.</em>
+                </h2>
+              </div>
+            </AnimateIn>
+          </div>
+          <TestimonialSlider items={testimonials} />
+        </div>
+      </section>
+
+      {/* ── Team: Hover Members ── */}
+      <section
+        style={{
+          background: "var(--ink)",
+          color: "var(--bg)",
+          padding: "120px 0",
+          borderTop: "1px solid rgba(255,255,255,.06)",
+        }}
+      >
+        <div className="wrap">
+          <div className="s-head" style={{ marginBottom: 56 }}>
             <div>
-              <div className="eyebrow reveal">In their words</div>
-              <h2 className="s-title reveal" data-d="1">
-                Three things our clients <em>actually said.</em>
+              <div
+                className="eyebrow reveal"
+                style={{ color: "rgba(255,255,255,.5)" }}
+              >
+                <span
+                  style={{
+                    display: "inline-block",
+                    width: 24,
+                    height: 1,
+                    background: "rgba(255,255,255,.3)",
+                    flexShrink: 0,
+                  }}
+                />
+                The people
+              </div>
+              <h2
+                className="s-title reveal"
+                data-d="1"
+                style={{ color: "var(--bg)" }}
+              >
+                Forty people. <em>One room.</em>
               </h2>
             </div>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: 24,
-            }}
-          >
-            {testimonials.map((t, i) => (
-              <figure
-                key={t.org}
-                className="reveal"
-                data-d={String(i)}
+            <Magnetic>
+              <Link
+                to="/about"
+                className="btn-ghost reveal"
+                data-d="2"
+                data-hover
                 style={{
-                  margin: 0,
-                  background: "var(--bg)",
-                  border: "1px solid var(--line)",
-                  borderRadius: "var(--radius)",
-                  padding: 32,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 24,
+                  color: "var(--bg)",
+                  borderColor: "rgba(255,255,255,.25)",
                 }}
               >
-                <div
-                  style={{
-                    fontFamily: "var(--display)",
-                    fontSize: 64,
-                    lineHeight: 0.5,
-                    color: "var(--accent)",
-                    fontStyle: "italic",
-                  }}
-                >
-                  &ldquo;
-                </div>
-                <blockquote
-                  style={{
-                    margin: 0,
-                    fontFamily: "var(--display)",
-                    fontSize: "clamp(20px, 1.9vw, 24px)",
-                    fontWeight: 400,
-                    lineHeight: 1.4,
-                    letterSpacing: "-.01em",
-                    color: "var(--ink)",
-                  }}
-                >
-                  {t.quote}
-                </blockquote>
-                <figcaption
-                  style={{
-                    marginTop: "auto",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 12,
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: "50%",
-                      background: "var(--ink)",
-                      color: "var(--bg)",
-                      display: "grid",
-                      placeItems: "center",
-                      fontFamily: "var(--display)",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    {t.org.charAt(0)}
-                  </div>
-                  <div>
-                    <div style={{ fontWeight: 500, fontSize: 14 }}>
-                      {t.name}
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: 11,
-                        color: "var(--muted)",
-                        textTransform: "uppercase",
-                        letterSpacing: ".08em",
-                      }}
-                    >
-                      {t.role} · {t.org}
-                    </div>
-                  </div>
-                </figcaption>
-              </figure>
-            ))}
+                About us <span className="arr" />
+              </Link>
+            </Magnetic>
           </div>
+          <AnimateIn direction="up" delay={0.3}>
+            <HoverMembers
+              members={teamMembers}
+              defaultText="OUR STUDIO"
+              globalHref="/about"
+            />
+          </AnimateIn>
         </div>
       </section>
 
@@ -955,13 +1264,19 @@ export default function Home() {
         <div className="wrap">
           <div className="band-grid">
             {bandStats.map((s, i) => (
-              <div key={i} className="reveal" data-d={String(i)}>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: i * 0.1, type: "spring", stiffness: 200, damping: 18 }}
+              >
                 <div className="b-stat__n">
                   <CountUp to={s.n} />
                   <span className="unit">{s.unit}</span>
                 </div>
                 <div className="b-stat__l">{s.label}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

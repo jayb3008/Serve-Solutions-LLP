@@ -11,7 +11,8 @@ import {
     Database,
     Shield,
     ShoppingBag,
-    Boxes
+    Boxes,
+    Brush
 } from 'lucide-react';
 
 export const servicesData: Record<string, any> = {
@@ -256,6 +257,28 @@ export const servicesData: Record<string, any> = {
         ],
         tech: ["Python", "SQL", "Snowflake", "dbt", "Airflow", "Looker"],
         image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    },
+    'graphic-design': {
+        title: "Graphic Design & Branding",
+        seoPath: "/graphic-design-branding",
+        icon: Brush,
+        tagline: "Design that holds up in print and pixels.",
+        overview: "We build complete visual identities and produce every asset a brand needs to look intentional at every size — logo systems, print collateral, social media kits, packaging, and motion graphics, delivered with the files and documentation to actually use them.",
+        keywords: "graphic design company India, branding agency Gujarat, logo design services India, brand identity design India, print design company Gujarat, social media design India, packaging design India, motion graphics company India, creative agency Anand Gujarat, visual identity design India, corporate branding India, advertising creative agency India, brand collateral design India, infographic design India, digital ad creative India",
+        capabilities: [
+            { title: "Brand Identity", desc: "Logo systems, colour, type and iconography built to scale." },
+            { title: "Print & Collateral", desc: "Business cards, packaging, brochures and event materials." },
+            { title: "Digital & Social", desc: "Social kits, ad creatives, banners and editable templates." },
+            { title: "Motion & Video", desc: "Logo animation, reels, explainers and Lottie assets." }
+        ],
+        workflow: [
+            { step: "01", title: "Brief", desc: "Audience, competitors and design intent before anything is drawn." },
+            { step: "02", title: "Concept", desc: "Two or three focused directions, each with clear rationale." },
+            { step: "03", title: "Design", desc: "The chosen direction developed into a complete, tested system." },
+            { step: "04", title: "Delivery", desc: "Print-ready files, screen assets, and a handover document." }
+        ],
+        tech: ["Adobe Illustrator", "Photoshop", "InDesign", "After Effects", "Figma", "Lottie"],
+        image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'ecommerce': {
         title: "E-commerce",

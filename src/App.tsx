@@ -26,6 +26,7 @@ import ProductDesign from "./pages/ProductDesign";
 import WebEngineering from "./pages/WebEngineering";
 import MobileApps from "./pages/MobileApps";
 import Brand from "./pages/Brand";
+import GraphicDesign from "./pages/GraphicDesign";
 import Hire from "./pages/Hire";
 import Careers from "./pages/Careers";
 import LocationLanding from "./pages/LocationLanding";
@@ -62,11 +63,13 @@ function CursorTracker() {
     rafId = requestAnimationFrame(loop);
 
     const onEnter = (e: Event) => {
-      if ((e.target as Element).closest("[data-hover], a, button"))
+      if (!(e.target instanceof Element)) return;
+      if (e.target.closest("[data-hover], a, button"))
         cursorRef.current?.classList.add("hovering");
     };
     const onLeave = (e: Event) => {
-      if ((e.target as Element).closest("[data-hover], a, button"))
+      if (!(e.target instanceof Element)) return;
+      if (e.target.closest("[data-hover], a, button"))
         cursorRef.current?.classList.remove("hovering");
     };
     document.addEventListener("mouseenter", onEnter, true);
@@ -122,6 +125,7 @@ function AnimatedRoutes() {
           <Route path="/services/mobile" element={<MobileApps />} />
           <Route path="/services/ai-ml" element={<AiMl />} />
           <Route path="/services/brand" element={<Brand />} />
+          <Route path="/services/graphic-design" element={<GraphicDesign />} />
           <Route path="/services/:id" element={<ServiceDetail />} />
 
           {/* SEO Direct Service Paths */}
@@ -137,6 +141,7 @@ function AnimatedRoutes() {
           <Route path="/qa-testing" element={<ServiceDetail serviceId="qa" />} />
           <Route path="/marketing-services" element={<ServiceDetail serviceId="marketing" />} />
           <Route path="/blockchain-development" element={<ServiceDetail serviceId="blockchain" />} />
+          <Route path="/graphic-design-branding" element={<GraphicDesign />} />
 
           {/* Local / City SEO Pages */}
           <Route path="/software-development-company-anand" element={<LocationLanding slug="software-development-company-anand" />} />

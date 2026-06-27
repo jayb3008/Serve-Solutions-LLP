@@ -14,7 +14,28 @@
       "Bash(Sort-Object)",
       "Bash(npx tsc *)",
       "Bash(echo \"EXIT=$?\")",
-      "Bash(dir D:\\\\Serve-Solutions-LLP\\\\public\\\\images *)"
+      "Bash(dir D:\\\\Serve-Solutions-LLP\\\\public\\\\images *)",
+      "Bash(python skills/ui-ux-pro-max/scripts/search.py \"graphic design branding creative agency services dark minimal\" --design-system -f markdown)",
+      "Bash(python \"C:\\\\Users\\\\jayde\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"graphic design branding creative agency services dark minimal\" --design-system -f markdown)",
+      "Bash(python \"C:\\\\Users\\\\jayde\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"editorial minimal agency homepage visual identity branding showcase dark ink\" --design-system -f markdown)",
+      "WebFetch(domain:skiper-ui.com)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_hover",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "Bash(Start-Sleep -Seconds 4)",
+      "Bash(start npm *)",
+      "Bash(npx vite *)",
+      "Bash(Start-Process -FilePath \"npx\" -ArgumentList \"vite\",\"--port\",\"5174\" -NoNewWindow -PassThru)",
+      "Bash(Out-Null)",
+      "Bash(Write-Host \"Server started\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174/)",
+      "Bash(node -e \"const fm = require\\('./node_modules/framer-motion/dist/cjs/index.js'\\); console.log\\(typeof fm.motion.create\\)\")",
+      "Bash(ScrollVelocity)",
+      "Bash(FloatingShapes\")",
+      "Bash(git -C \"D:\\\\Serve-Solutions-LLP\" show worktree-agent-a2128000a49867b06:src/components/AnimateIn.tsx)",
+      "Bash(del fix-*.png after-*.png final-*.png review-*.png)"
     ]
   }
 }

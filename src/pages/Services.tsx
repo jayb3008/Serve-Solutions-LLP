@@ -88,6 +88,22 @@ const practices = [
     ],
     href: "/services/brand",
   },
+  {
+    num: "06",
+    pre: "Graphic design",
+    em: "& branding",
+    tags: ["Logo", "Print", "Motion"],
+    desc: "Identity systems, print collateral, social media kits, packaging, and motion graphics — everything a brand needs to look intentional at every size and on every surface.",
+    list: [
+      "Logo design & identity systems",
+      "Business cards, stationery & packaging",
+      "Social media kits & ad creatives",
+      "Brochures, banners & event materials",
+      "Motion graphics & logo animation",
+      "Editable Figma / Canva template libraries",
+    ],
+    href: "/graphic-design-branding",
+  },
 ];
 
 const deliverables = [
@@ -154,12 +170,24 @@ const deliverables = [
       </svg>
     ),
   },
+  {
+    title: "Graphic design & collateral",
+    desc: "Logo systems, social kits, print collateral, packaging, and motion assets — delivered with the files and documentation to actually use them.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 19l7-7 3 3-7 7-3-3z" />
+        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+        <path d="M2 2l7.586 7.586" />
+        <circle cx="11" cy="11" r="2" />
+      </svg>
+    ),
+  },
 ];
 
 const stackGroups = [
   {
     cat: "Design",
-    tools: ["Figma", "Framer", "Adobe CC"],
+    tools: ["Figma", "Framer", "Adobe CC", "Lottie", "Canva Pro"],
   },
   {
     cat: "Frontend",
@@ -207,8 +235,8 @@ export default function Services() {
   return (
     <div>
       <SEO
-        title="Services — five practices, one team at Satvix Tech Solutions"
-        description="Satvix Tech Solutions offers product design, web engineering, mobile apps, AI/ML and brand — five practices from one team in Anand, Gujarat, with no handoffs."
+        title="Services — six practices, one team at Satvix Tech Solutions"
+        description="Satvix Tech Solutions offers product design, web engineering, mobile apps, AI/ML, brand strategy, and graphic design — six practices from one team in Anand, Gujarat, with no handoffs."
         keywords="Satvix Tech Solutions services, product design services India, web engineering company India, mobile app development India, AI ML services India, brand strategy agency India, full-stack development India, digital product studio Anand Gujarat"
         url="https://satvixtech.com/services"
         breadcrumb={[
@@ -261,7 +289,7 @@ export default function Services() {
             What we do
           </div> */}
           <h1>
-            {(["The work,", "in plain", "<em>english.</em>"] as const).map(
+            {(["Six things we do,", "one team that", "<em>does all of them.</em>"] as const).map(
               (line, i) => (
                 <span key={i} className="row">
                   <motion.span
@@ -280,9 +308,9 @@ export default function Services() {
               Satvix Tech Solutions &nbsp;/&nbsp; Services
             </div>
             <p>
-              Five things we do. One team that does all of them. The same people
-              who scope the work also draw it, write it, build it, and stay on
-              after it ships.
+              Six things we do. One team that does all of them. The same people
+              who scope the work also draw it, brand it, write it, build it, and
+              stay on after it ships.
             </p>
           </div>
         </div>
@@ -295,8 +323,8 @@ export default function Services() {
             <span key={i} className="marquee__item">
               Product design <span className="star">✦</span> Web engineering{" "}
               <em>·</em> Mobile apps <span className="star">✦</span> AI &amp;
-              data <em>·</em> Brand strategy{" "}
-              <span className="star">✦</span>{" "}
+              data <em>·</em> Brand strategy <span className="star">✦</span>{" "}
+              Graphic design &amp; branding <em>·</em>{" "}
             </span>
           ))}
         </div>

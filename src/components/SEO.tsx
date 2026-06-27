@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 interface FAQItem {
   question: string;
@@ -36,7 +37,7 @@ const SEO = ({
   description = "Satvix Tech Solutions is a small, senior studio in Anand, Gujarat. Since 2020 we have designed, built and shipped web, mobile and AI products with founders and operators who care about the craft.",
   keywords = "Satvix Tech Solutions, satvixtech, digital product studio India, software development company Anand Gujarat, web development agency India, mobile app development India, AI ML services India, custom software development India, independent digital studio India",
   image = DEFAULT_IMAGE,
-  url = BASE_URL,
+  url,
   type = "website",
   breadcrumb,
   datePublished = TODAY,
@@ -44,6 +45,8 @@ const SEO = ({
   faq,
   service,
 }: SEOProps) => {
+  const location = useLocation();
+  const currentUrl = url || `${BASE_URL}${location.pathname === "/" ? "" : location.pathname}`;
   /**
    * SERP title format: "Page title — Satvix Tech Solutions".
    * Page-specific copy leads (it is what wins the click); brand sits at the
@@ -197,8 +200,8 @@ const SEO = ({
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${url}#webpage`,
-    url,
+    "@id": `${currentUrl}#webpage`,
+    url: currentUrl,
     name: siteTitle,
     description,
     isPartOf: { "@id": `${BASE_URL}/#website` },
@@ -208,13 +211,13 @@ const SEO = ({
     inLanguage: "en-IN",
     potentialAction: {
       "@type": "ReadAction",
-      target: [url],
+      target: [currentUrl],
     },
   };
 
   /* ── WebSite (home only) ── */
   const webSiteSchema =
-    type === "website" && url === BASE_URL
+    type === "website" && currentUrl === BASE_URL
       ? {
           "@context": "https://schema.org",
           "@type": "WebSite",
@@ -271,7 +274,7 @@ const SEO = ({
         name: service.name,
         serviceType: service.serviceType || service.name,
         description: service.description,
-        url,
+        url: currentUrl,
         provider: { "@id": `${BASE_URL}/#organization` },
         areaServed: [
           { "@type": "Country", name: "India" },
@@ -280,7 +283,7 @@ const SEO = ({
         ],
         availableChannel: {
           "@type": "ServiceChannel",
-          serviceUrl: url,
+          serviceUrl: currentUrl,
           servicePhone: "+91-9904055986",
         },
       }
@@ -295,12 +298,12 @@ const SEO = ({
           headline: siteTitle,
           description,
           image: [image],
-          url,
+          url: currentUrl,
           datePublished,
           dateModified,
           author: { "@id": `${BASE_URL}/#organization` },
           publisher: { "@id": `${BASE_URL}/#organization` },
-          mainEntityOfPage: { "@type": "WebPage", "@id": `${url}#webpage` },
+          mainEntityOfPage: { "@type": "WebPage", "@id": `${currentUrl}#webpage` },
         }
       : null;
 
@@ -329,11 +332,11 @@ const SEO = ({
       <meta name="bingbot" content="index, follow" />
 
       {/* ── Canonical ── */}
-      <link rel="canonical" href={url} />
+      <link rel="canonical" href={currentUrl} />
 
       {/* ── Open Graph ── */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={currentUrl} />
       <meta property="og:title" content={siteTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
@@ -347,7 +350,7 @@ const SEO = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@satvixtech" />
       <meta name="twitter:creator" content="@satvixtech" />
-      <meta name="twitter:url" content={url} />
+      <meta name="twitter:url" content={currentUrl} />
       <meta name="twitter:title" content={siteTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />

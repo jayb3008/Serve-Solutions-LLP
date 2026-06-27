@@ -8,159 +8,159 @@ import Magnetic from "../components/Magnetic";
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
 const gallery = {
-  main: "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  s1: "https://images.pexels.com/photos/147413/twitter-facebook-together-sharing-147413.jpeg?auto=compress&cs=tinysrgb&w=700",
-  s2: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=700",
+  main: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  s1: "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&w=700",
+  s2: "https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg?auto=compress&cs=tinysrgb&w=700",
 };
 
 const capabilities = [
   {
     num: "01",
-    pre: "iOS",
-    em: "development",
-    tags: ["Swift", "SwiftUI", "Xcode"],
-    desc: "Native iOS apps that feel like they were made by Apple. Fluid animations, proper haptics, and platform conventions that users expect.",
+    pre: "Brand",
+    em: "identity",
+    tags: ["Logo", "Colour", "Typography"],
+    desc: "A mark that works at 16px and 6 metres. We build complete identity systems — logo, colour, type, iconography — that stay coherent across every surface your brand touches.",
     list: [
-      "Swift & SwiftUI",
-      "UIKit for complex layouts",
-      "Core Data & CloudKit",
-      "HealthKit & CoreLocation",
-      "ARKit & Vision",
-      "TestFlight & App Store submission",
+      "Logo design & variation set",
+      "Colour system with accessible tokens",
+      "Typography selection & pairing",
+      "Iconography & illustration style",
+      "Photography & art direction",
+      "Brand identity guidelines",
     ],
   },
   {
     num: "02",
-    pre: "Android",
-    em: "development",
-    tags: ["Kotlin", "Jetpack Compose", "Material 3"],
-    desc: "Modern Android apps built with Kotlin and Jetpack Compose — Material 3 design, adaptive layouts, and the full Google ecosystem.",
+    pre: "Print &",
+    em: "collateral",
+    tags: ["Stationery", "Packaging", "Brochures"],
+    desc: "Tangible brand moments — the business card someone keeps, the packaging that gets photographed, the brochure that closes a deal in a meeting room.",
     list: [
-      "Kotlin & Jetpack Compose",
-      "Room & DataStore",
-      "Google Maps & Location",
-      "Firebase & Play Services",
-      "Adaptive layouts & foldables",
-      "Play Store submission & ASO",
+      "Business cards & stationery",
+      "Product packaging & labels",
+      "Brochures, leaflets & catalogues",
+      "Signage & wayfinding",
+      "Event & exhibition materials",
+      "Annual reports & pitch decks",
     ],
   },
   {
     num: "03",
-    pre: "React Native",
-    em: "cross-platform",
-    tags: ["Expo", "New Architecture", "OTA updates"],
-    desc: "One codebase for iOS and Android without sacrificing native feel. Over-the-air updates mean you ship fixes without App Store review.",
+    pre: "Digital &",
+    em: "social",
+    tags: ["Social kit", "Banners", "Templates"],
+    desc: "Assets built for the pixel grid — social media kits, ad creatives, and template systems your team can deploy without breaking the brand.",
     list: [
-      "Expo & bare workflow",
-      "React Navigation",
-      "Native modules & bridges",
-      "OTA updates via EAS",
-      "Offline-first with MMKV",
-      "Reanimated & Gesture Handler",
+      "Social media templates & kits",
+      "Display & digital ad creatives",
+      "Email header & newsletter design",
+      "Web banners & hero graphics",
+      "Infographics & data visualisation",
+      "Editable Canva / Figma template libraries",
     ],
   },
   {
     num: "04",
-    pre: "App Store &",
-    em: "growth",
-    tags: ["ASO", "Subscriptions", "Push"],
-    desc: "Getting your app built is half the battle. We handle submission, App Store optimisation, and the revenue mechanics that make apps sustainable.",
+    pre: "Motion &",
+    em: "video",
+    tags: ["Animation", "Reels", "Logo motion"],
+    desc: "Brand in motion — logo animations, social reels, explainer sequences, and the kind of motion language that makes still assets look planned, not accidental.",
     list: [
-      "App Store & Play Store submission",
-      "App Store optimisation (ASO)",
-      "In-app purchases & subscriptions",
-      "Push notification infrastructure",
-      "A/B testing & store listing",
-      "RevenueCat integration",
+      "Animated logo & brand reveal",
+      "Social reels & stories (15–60s)",
+      "Motion graphics & kinetic type",
+      "Explainer & product videos",
+      "Lottie / web animation assets",
+      "Presentation & slide templates",
     ],
   },
 ];
 
 const useCases = [
   {
-    title: "Consumer lifestyle apps",
-    desc: "Habit trackers, fitness apps, and daily-use tools that earn a permanent spot on the home screen.",
-    img: "https://images.pexels.com/photos/3987207/pexels-photo-3987207.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Complete brand identity",
+    desc: "Logo, colour, type, and every asset your brand needs to show up consistently from day one.",
+    img: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: "Fintech & payments",
-    desc: "Secure, regulated mobile banking, wallets, and payment apps with biometric auth and fraud protection.",
-    img: "https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Product packaging",
+    desc: "Packaging that communicates quality at a glance — shelf-ready files with print specs included.",
+    img: "https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: "Health & fitness",
-    desc: "HealthKit and Fit integration, wearable support, and clinical-grade data handling.",
-    img: "https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Social media system",
+    desc: "A template kit your marketing team can run every week without calling a designer.",
+    img: "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: "Social & community",
-    desc: "Real-time feeds, messaging, and social graphs — designed for engagement and retention.",
-    img: "https://images.pexels.com/photos/147413/twitter-facebook-together-sharing-147413.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Trade show & events",
+    desc: "Banners, booths, name badges, and stage design that land at the right scale and resolution.",
+    img: "https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: "Offline-first field tools",
-    desc: "Apps for field workers that function without connectivity and sync reliably when back online.",
-    img: "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Campaign creative",
+    desc: "Ad sets, landing page art, and OOH assets for a product launch or seasonal push.",
+    img: "https://images.pexels.com/photos/6177645/pexels-photo-6177645.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: "In-app subscriptions",
-    desc: "Revenue mechanics — free trials, paywalls, and subscription management — done right.",
-    img: "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Animated brand kit",
+    desc: "Logo motion, intro sequences, and Lottie assets so the brand looks alive — not static.",
+    img: "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
 ];
 
-const techStack = [
-  { name: "React Native", cat: "Cross-platform" },
-  { name: "Expo", cat: "Toolchain" },
-  { name: "Swift", cat: "iOS" },
-  { name: "Kotlin", cat: "Android" },
-  { name: "Firebase", cat: "Backend" },
-  { name: "Supabase", cat: "Backend" },
-  { name: "RevenueCat", cat: "Subscriptions" },
-  { name: "Fastlane", cat: "CI/CD" },
-  { name: "Reanimated", cat: "Animation" },
-  { name: "MMKV", cat: "Storage" },
+const toolStack = [
+  { name: "Adobe Illustrator", cat: "Vector" },
+  { name: "Adobe Photoshop", cat: "Raster" },
+  { name: "Adobe InDesign", cat: "Layout" },
+  { name: "Adobe After Effects", cat: "Motion" },
+  { name: "Figma", cat: "UI & Screens" },
+  { name: "Canva Pro", cat: "Templates" },
+  { name: "Framer", cat: "Interactive" },
+  { name: "Lottie", cat: "Web Animation" },
+  { name: "Premiere Pro", cat: "Video" },
+  { name: "Notion", cat: "Handover" },
 ];
 
 const process = [
   {
     n: "01",
-    title: "UX discovery",
-    body: "We map mobile-first user journeys and platform conventions before touching code. iOS and Android users have different expectations — we design for both.",
+    title: "Brief",
+    body: "We sit with you, your audience, and your competitors. A design brief that captures what needs to be said — and what needs to be felt — before a single mark is drawn.",
   },
   {
     n: "02",
-    title: "Prototype",
-    body: "Interactive, testable mockup for stakeholder sign-off. We validate flows with real users before committing to a native build.",
+    title: "Concept",
+    body: "Two or three directions, each grounded in the brief. Not infinite options — focused choices with a clear rationale so you can make a decision, not a committee.",
   },
   {
     n: "03",
-    title: "Native build",
-    body: "Hardware integrations, permission flows, offline sync, and native animations — all the things that make a great mobile experience.",
+    title: "Design",
+    body: "The chosen direction developed into a full system. Every variation, every size, every surface. Tested in context before anything is signed off.",
   },
   {
     n: "04",
-    title: "App Store ops",
-    body: "CI/CD via Fastlane and EAS, beta distribution via TestFlight and Play Store, and full submission support for the first release.",
+    title: "Delivery",
+    body: "Print-ready files, screen assets, animation exports, and a handover document your team can use without calling us. Organised, labelled, and exportable from day one.",
   },
 ];
 
-export default function MobileApps() {
+export default function GraphicDesign() {
   const heroRef = useRef<HTMLDivElement>(null);
 
   return (
     <div>
       <SEO
-        title="Mobile app development — Satvix Tech Solutions, Anand"
-        description="Satvix Tech Solutions builds iOS, Android, React Native and Flutter apps — designed for the long tail of real devices, shipped to the App Store and Play Store with paperwork done."
-        keywords="Satvix Tech Solutions mobile, mobile app development company India, iOS app development Gujarat, Android app development India, React Native development company India, cross-platform app development India, Flutter development agency India, Swift iOS development India, Kotlin Android development India, mobile app agency Gujarat, mobile UX design India"
-        url="https://satvixtech.com/mobile-app-development"
+        title="Graphic Design & Branding — Satvix Tech Solutions, Anand, Gujarat"
+        description="Satvix Tech Solutions delivers graphic design and branding — identity systems, print collateral, social media kits, packaging, and motion graphics — built to last, not just to launch."
+        keywords="graphic design company India, branding agency Gujarat, logo design services India, brand identity design Gujarat, print design agency India, social media design India, packaging design company Gujarat, motion graphics India, creative agency Anand Gujarat, visual identity design India, corporate branding India, advertising design agency Gujarat"
+        url="https://satvixtech.com/graphic-design-branding"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
           {
-            name: "Mobile Apps",
-            item: "https://satvixtech.com/mobile-app-development",
+            name: "Graphic Design & Branding",
+            item: "https://satvixtech.com/graphic-design-branding",
           },
         ]}
       />
@@ -177,13 +177,9 @@ export default function MobileApps() {
           />
         </div>
         <div className="wrap relative z-10">
-          {/* <div className="page-hero__eyebrow">
-            <span className="ping" />
-            Mobile Apps
-          </div> */}
           <h1>
             {(
-              ["Apps people keep", "on the home", "<em>screen.</em>"] as const
+              ["Design that", "holds up in", "<em>print and pixels.</em>"] as const
             ).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
@@ -198,14 +194,13 @@ export default function MobileApps() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Mobile
-              Apps
+              Satvix Tech Solutions &nbsp;/&nbsp; Services &nbsp;/&nbsp; Graphic
+              Design &amp; Branding
             </div>
             <p>
-              We design and build mobile apps for the long tail of devices
-              people actually own. Native where it matters, React Native where
-              it does not, App Store and Play Store paperwork done by us — and
-              the first awkward week after launch handled by humans, not bots.
+              Identity systems, print collateral, social media kits, packaging,
+              and motion graphics — everything a brand needs to look intentional
+              at every size and on every surface.
             </p>
           </div>
         </div>
@@ -216,9 +211,10 @@ export default function MobileApps() {
         <div className="marquee__track">
           {[0, 1].map((i) => (
             <span key={i} className="marquee__item">
-              iOS <span className="star">✦</span> Android <em>·</em> React
-              Native <span className="star">✦</span> Expo <em>·</em> App Store{" "}
-              <span className="star">✦</span> In-app purchases <em>·</em>{" "}
+              Brand identity <span className="star">✦</span> Print design{" "}
+              <em>·</em> Social media kits <span className="star">✦</span>{" "}
+              Packaging <em>·</em> Motion graphics <span className="star">✦</span>{" "}
+              Logo systems <em>·</em>
             </span>
           ))}
         </div>
@@ -233,7 +229,7 @@ export default function MobileApps() {
             <div className="md:col-span-2 rounded-[18px] overflow-hidden h-[260px] md:h-auto">
               <img
                 src={gallery.main}
-                alt="Mobile app interface on smartphone screen"
+                alt="Graphic design workspace with brand materials"
                 loading="lazy"
                 className="w-full h-full object-cover"
               />
@@ -242,7 +238,7 @@ export default function MobileApps() {
               <div className="flex-1 rounded-[18px] overflow-hidden">
                 <img
                   src={gallery.s1}
-                  alt="Multiple mobile devices showing app"
+                  alt="Brand collateral and print design"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
@@ -250,7 +246,7 @@ export default function MobileApps() {
               <div className="flex-1 rounded-[18px] overflow-hidden">
                 <img
                   src={gallery.s2}
-                  alt="Person using mobile application"
+                  alt="Product packaging and visual identity"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
@@ -270,7 +266,7 @@ export default function MobileApps() {
             <div>
               <div className="eyebrow reveal">Capabilities</div>
               <h2 className="s-title reveal" data-d="1">
-                Four practices, <em>one mobile team.</em>
+                Four disciplines, <em>one design team.</em>
               </h2>
             </div>
           </div>
@@ -332,7 +328,7 @@ export default function MobileApps() {
                 data-d="1"
                 style={{ color: "var(--bg)" }}
               >
-                Apps that <em>earn their spot.</em>
+                Design that <em>earns attention.</em>
               </h2>
             </div>
           </div>
@@ -377,14 +373,14 @@ export default function MobileApps() {
         </div>
       </section>
 
-      {/* Tech stack */}
+      {/* Tool stack */}
       <section className="s" style={{ padding: "120px 0" }}>
         <div className="wrap">
           <div className="s-head">
             <div>
-              <div className="eyebrow reveal">Technology</div>
+              <div className="eyebrow reveal">Tools</div>
               <h2 className="s-title reveal" data-d="1">
-                Our mobile <em>stack.</em>
+                Our design <em>toolkit.</em>
               </h2>
             </div>
             <p
@@ -398,12 +394,12 @@ export default function MobileApps() {
                 margin: 0,
               }}
             >
-              We pick native or cross-platform based on your use case — not our
-              convenience.
+              Industry-standard tools chosen for quality and compatibility —
+              files you can open, edit, and hand to any printer or developer.
             </p>
           </div>
           <div className="stack-grid">
-            {techStack.map((t, i) => (
+            {toolStack.map((t, i) => (
               <div key={t.name} className="stk reveal" data-d={String(i % 5)}>
                 <div className="stk__dot" />
                 <h5>{t.name}</h5>
@@ -424,7 +420,7 @@ export default function MobileApps() {
             <div>
               <div className="eyebrow reveal">How we work</div>
               <h2 className="s-title reveal" data-d="1">
-                From idea to <em>App Store.</em>
+                From brief to <em>print-ready.</em>
               </h2>
             </div>
           </div>
@@ -451,36 +447,6 @@ export default function MobileApps() {
         </div>
       </section>
 
-      {/* Related Resources / Internal Linking */}
-      <section className="s" style={{ borderTop: "1px solid var(--line)", background: "var(--bg-2)" }}>
-        <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48 }}>
-            <div className="reveal" data-d="0">
-              <div className="eyebrow" style={{ marginBottom: 20 }}>Related Case Study</div>
-              <h4 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>
-                <Link to="/portfolio/tailorpro" style={{ color: "inherit", textDecoration: "none" }} data-hover>
-                  TailorPro: Mobile business SaaS →
-                </Link>
-              </h4>
-              <p style={{ color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5 }}>
-                See how we built a mobile-first business utility tool for managing measurements, orders, and customer history.
-              </p>
-            </div>
-            <div className="reveal" data-d="1">
-              <div className="eyebrow" style={{ marginBottom: 20 }}>From the Journal</div>
-              <h4 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>
-                <Link to="/blog/react-native-new-arch" style={{ color: "inherit", textDecoration: "none" }} data-hover>
-                  Migrating to React Native New Architecture →
-                </Link>
-              </h4>
-              <p style={{ color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5 }}>
-                Read our technical walkthrough of migrating a 150k active user mobile app to the React Native JSI-enabled architecture.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
@@ -500,10 +466,10 @@ export default function MobileApps() {
               marginBottom: 24,
             }}
           >
-            Let's build your next mobile product
+            Let's make something worth looking at
           </div>
           <h2 className="reveal" data-d="1">
-            Got an app worth <em>shipping?</em>
+            Ready to look the <em>part?</em>
           </h2>
           <Magnetic>
             <a

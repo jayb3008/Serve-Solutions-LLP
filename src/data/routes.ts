@@ -51,6 +51,7 @@ export const staticRoutes = [
   '/qa-testing',
   '/marketing-services',
   '/blockchain-development',
+  '/graphic-design-branding',
 
   // Location SEO Pages
   '/software-development-company-anand',
@@ -88,7 +89,8 @@ function metaFor(route: string): { changefreq: string; priority: number } {
       '/iot-development',
       '/qa-testing',
       '/marketing-services',
-      '/blockchain-development'
+      '/blockchain-development',
+      '/graphic-design-branding'
     ].includes(route)
   ) {
     return { changefreq: 'monthly', priority: 0.9 };
@@ -125,5 +127,23 @@ export const allRoutes: string[] = [
 
 /* Build the sitemap entries (route + crawl hints) */
 export function sitemapEntries(): { loc: string; changefreq: string; priority: number }[] {
-  return allRoutes.map((route) => ({ loc: route, ...metaFor(route) }));
+  // Exclude legacy/duplicate service paths from the sitemap to prevent crawl budget waste
+  // and duplicate content flags. Prerendering still builds them for backward compatibility.
+  const duplicatesToExclude = [
+    '/services/web-engineering',
+    '/services/mobile',
+    '/services/ai-ml',
+    '/services/product-design',
+    '/services/graphic-design',
+    ...Object.keys(servicesData)
+      .map((k) => {
+        const s = servicesData[k];
+        return s && s.seoPath ? `/services/${k}` : null;
+      })
+      .filter(Boolean) as string[]
+  ];
+
+  return allRoutes
+    .filter((route) => !duplicatesToExclude.includes(route))
+    .map((route) => ({ loc: route, ...metaFor(route) }));
 }
