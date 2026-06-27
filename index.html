@@ -1,55 +1,64 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <!-- Search Engine Verification -->
+    <meta
+      name="google-site-verification"
+      content="ZQ6b64UkrFSQSZoeb3N0sQ5dR0X2BlLDc9fp2"
+    />
+    <meta
+      name="msvalidate.01"
+      content="ZQ6b64UkrFSQSZoeb3N0sQ5dR0X2BlLDc9fp2"
+    />
 
-  <!-- Search Engine Verification -->
-  <meta name="google-site-verification" content="%VITE_GOOGLE_VERIFICATION_KEY%" />
-  <meta name="msvalidate.01" content="%VITE_BING_VERIFICATION_KEY%" />
+    <!-- Local / Geo SEO -->
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Anand, Gujarat, India" />
+    <meta name="geo.position" content="22.5645;72.9289" />
+    <meta name="ICBM" content="22.5645, 72.9289" />
 
-  <!-- Local / Geo SEO -->
-  <meta name="geo.region" content="IN-GJ" />
-  <meta name="geo.placename" content="Anand, Gujarat, India" />
-  <meta name="geo.position" content="22.5645;72.9289" />
-  <meta name="ICBM" content="22.5645, 72.9289" />
+    <!-- Favicon / PWA -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.svg" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
 
-  <!-- Favicon / PWA -->
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon.svg" sizes="any" />
-  <link rel="apple-touch-icon" href="/favicon.svg" />
-  <link rel="manifest" href="/manifest.json" />
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://images.pexels.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Performance hints -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-  <link rel="dns-prefetch" href="https://images.pexels.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet" />
+    <!-- Fallback so scroll-reveal content stays visible if JS is disabled -->
+    <noscript>
+      <style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .loader {
+          display: none !important;
+        }
+      </style>
+    </noscript>
 
-  <!-- Fallback so scroll-reveal content stays visible if JS is disabled -->
-  <noscript>
-    <style>
-      .reveal { opacity: 1 !important; transform: none !important; }
-      .loader { display: none !important; }
-    </style>
-  </noscript>
-
-  <!--
+    <!--
     Per-page SEO (title, description, canonical, Open Graph, Twitter,
     JSON-LD) is managed by react-helmet-async and baked into each route's
     static HTML at build time by scripts/prerender.mjs.
-  -->
-</head>
+  --></head>
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
-
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
