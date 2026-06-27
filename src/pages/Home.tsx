@@ -416,9 +416,9 @@ export default function Home() {
     <div>
       {/* Fixed scroll-drawn SVG path — hero to footer */}
       <SEO
-        title="Software Development Company | Web, Mobile & AI Solutions | Satvix Tech"
-        description="Satvix Tech Solutions provides web development, mobile app development, AI solutions, UI/UX design, DevOps, and software consulting services for startups and enterprises."
-        keywords="Software Development Company, Web Development Company, Mobile App Development Company, AI Development Company, IT Company India, IT Company Gujarat, Satvix Tech Solutions, React Next.js development India, custom software development"
+        title="Web Development Company in Ahmedabad | Mobile App Development | Satvix Tech Solutions"
+        description="Satvix Tech Solutions offers Web Development, Mobile App Development, UI/UX Design, SEO, Digital Marketing and Custom Software Development in Ahmedabad."
+        keywords="Web Development Company Ahmedabad, Software Development Company, Mobile App Development, React Native Development, Website Design Ahmedabad, SEO Company Ahmedabad, Digital Marketing Agency Ahmedabad, Satvix Tech Solutions, Satvix Tech Solutions website, Satvix Tech Solutions official website"
         url="https://satvixtech.com"
         faq={[
           {
@@ -486,9 +486,9 @@ export default function Home() {
           <h1 className="hero__title">
             {(
               [
-                "Software development company",
-                "in India for web, mobile",
-                "<em>& AI solutions.</em>",
+                "Custom software &",
+                "mobile app development",
+                "<em>company in India.</em>",
               ] as const
             ).map((line, i) => (
               <span key={i} className="row">
@@ -506,7 +506,7 @@ export default function Home() {
           <AnimateIn direction="up" delay={0.8}>
             <div className="hero__foot">
               <p>
-                We are forty people in one room. We design, build and ship web
+                We are forty people in one room at Satvix Tech Solutions. We design, build and ship web
                 platforms, mobile apps and AI products for founders and operators
                 who care about the work — and the bill.
               </p>
@@ -991,6 +991,8 @@ export default function Home() {
               >
                 <div
                   className="work-card__bg"
+                  role="img"
+                  aria-label={`Showcase screenshot of ${c.title}`}
                   style={{
                     background: `linear-gradient(rgba(10, 8, 6, 0.48), rgba(10, 8, 6, 0.48)), url(${c.img}) center/cover no-repeat`,
                   }}

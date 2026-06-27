@@ -10,9 +10,9 @@ export default function Footer() {
         <div className="foot-grid">
           {/* Brand */}
           <div className="foot-brand">
-            <div className="foot-logo" style={{ marginBottom: '20px' }}>
+            <Link to="/" className="foot-logo" style={{ marginBottom: '20px', display: 'block' }} aria-label="Satvix Tech Solutions Home">
               <Logo style={{ height: '48px' }} />
-            </div>
+            </Link>
             <p>A small, independent digital studio in Anand, Gujarat. We design, build, and ship software with founders and operators who care about the work.</p>
           </div>
 
