@@ -150,6 +150,15 @@ function AnimatedRoutes() {
           <Route path="/web-development-company-ahmedabad" element={<LocationLanding slug="web-development-company-ahmedabad" />} />
           <Route path="/ai-development-services-india" element={<LocationLanding slug="ai-development-services-india" />} />
 
+          {/* SEO Direct Industry Paths */}
+          <Route path="/healthcare-software-development" element={<IndustryDetail industryId="healthcare" />} />
+          <Route path="/fintech-software-development" element={<IndustryDetail industryId="finance" />} />
+          <Route path="/education-software-development" element={<IndustryDetail industryId="education" />} />
+          <Route path="/real-estate-software-development" element={<IndustryDetail industryId="real-estate" />} />
+          <Route path="/logistics-software-development" element={<IndustryDetail industryId="logistics" />} />
+          <Route path="/restaurant-pos-development" element={<IndustryDetail industryId="on-demand" />} />
+          <Route path="/jewelry-ecommerce-development" element={<IndustryDetail industryId="retail" />} />
+
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:id" element={<IndustryDetail />} />
           <Route path="/portfolio" element={<Portfolio />} />

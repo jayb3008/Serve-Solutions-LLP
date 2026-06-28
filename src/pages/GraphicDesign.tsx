@@ -145,6 +145,41 @@ const process = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Do you offer social media post templates?",
+    answer: "Yes, we design editable brand templates in Figma or Canva so your marketing team can produce social graphics quickly while maintaining typography, colors, and layout layouts."
+  },
+  {
+    question: "Can you animate our logo?",
+    answer: "Yes, we build custom motion assets. We deliver animated logos, loading micro-animations, explainer video assets, and interactive Lottie exports for immediate integration on web and mobile screens."
+  },
+  {
+    question: "What source vector files do you deliver?",
+    answer: "We deliver full, clean industry-standard files: Adobe Illustrator (.AI), vector SVGs, editable PDFs, and high-resolution PNGs and JPGs, all logically named and organized in a shared drive."
+  },
+  {
+    question: "Do you handle print-ready packaging designs?",
+    answer: "Yes, we design print collateral, product boxes, labels, and mailers. We deliver them in print-ready formats with crop marks, bleed margins, and color targets (Pantone/CMYK) matching your manufacturer's specs."
+  },
+  {
+    question: "How long does a brand collateral design sprint take?",
+    answer: "Collateral design runs in 2 to 4-week sprints. This includes designing business cards, slide templates, social templates, and marketing banners once the core brand identity is signed off."
+  },
+  {
+    question: "What is the difference between CMYK and RGB?",
+    answer: "RGB (Red, Green, Blue) is the color model used for digital screens. CMYK (Cyan, Magenta, Yellow, Black) is the color model used for physical ink printing. We optimize and export assets in both color profiles."
+  },
+  {
+    question: "Do you assist with selecting brand fonts and typography?",
+    answer: "Yes, we select font pairings that represent your brand personality. We source fonts that have clear licensing terms (Google Fonts, Adobe Fonts, or custom foundries) and perform well on both web pages and physical print layouts."
+  },
+  {
+    question: "Can we hire you for one-off design tasks?",
+    answer: "While we prioritize end-to-end branding and launch support, we collaborate on custom visual projects (such as pitch presentations, reports, and event booths) for partners who care about clean craft."
+  }
+];
+
 export default function GraphicDesign() {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -155,6 +190,7 @@ export default function GraphicDesign() {
         description="Satvix Tech Solutions delivers graphic design and branding — identity systems, print collateral, social media kits, packaging, and motion graphics — built to last, not just to launch."
         keywords="graphic design company India, branding agency Gujarat, logo design services India, brand identity design Gujarat, print design agency India, social media design India, packaging design company Gujarat, motion graphics India, creative agency Anand Gujarat, visual identity design India, corporate branding India, advertising design agency Gujarat"
         url="https://satvixtech.com/graphic-design-branding"
+        faq={faqs}
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
@@ -441,6 +477,31 @@ export default function GraphicDesign() {
                 </div>
                 <div className="tl-title">{p.title}</div>
                 <div className="tl-body">{p.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 sm:py-24 border-b border-[var(--line)] bg-[var(--bg)]">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-10 sm:mb-16 flex items-center">
+            <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
+            05 Things people often ask
+          </h2>
+          <div className="border-t border-[var(--line)]">
+            {faqs.map((f, i) => (
+              <div
+                key={i}
+                className="py-6 sm:py-8 border-b border-[var(--line)]"
+              >
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tight text-[var(--ink)]">
+                  {f.question}
+                </h3>
+                <p className="text-[var(--ink-2)] leading-relaxed text-sm sm:text-base md:text-lg">
+                  {f.answer}
+                </p>
               </div>
             ))}
           </div>

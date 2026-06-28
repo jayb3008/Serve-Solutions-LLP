@@ -397,6 +397,49 @@ const testimonials = [
   },
 ];
 
+const homepageFaqs = [
+  {
+    question: "What IT services does Satvix Tech Solutions provide in India?",
+    answer: "As an independent software development company India, we provide full-cycle custom software development, high-performance web development, mobile app development (iOS, Android, React Native), AI and machine learning integrations, UI/UX design system development, and technical SEO growth consulting."
+  },
+  {
+    question: "Why choose a custom software development company instead of templates?",
+    answer: "Custom software development ensures your application matches your exact business logic without the slow overhead and security risks of general templates. We build custom React, Next.js, and Node.js solutions optimized for speed, scalability, and security."
+  },
+  {
+    question: "What makes Satvix a top web development company in Gujarat?",
+    answer: "Unlike agencies that build slow, template-driven sites, we operate as a dedicated web development company building fast headless architectures. Our products achieve sub-second load times, score 95+ on Google Lighthouse, and are structured to rank on search engines."
+  },
+  {
+    question: "Do you build mobile apps using native code or cross-platform systems?",
+    answer: "Our mobile app development company builds both native (Swift for iOS, Kotlin for Android) and cross-platform apps using React Native and Flutter. React Native development is our default choice for business apps because it reduces development costs by up to 50% through code sharing."
+  },
+  {
+    question: "Why is Next.js recommended for SaaS and corporate platforms?",
+    answer: "As a Next.js development company, we default to Next.js because it provides Server-Side Rendering (SSR) and Static Site Generation (SSG). This combination delivers incredibly fast load times, meets Core Web Vitals standards, and ensures search engine crawlers receive fully structured HTML on the first paint."
+  },
+  {
+    question: "How does your AI development company integrate machine learning?",
+    answer: "As an AI development company, we integrate Large Language Models (LLMs like GPT-4, Claude) into existing database systems. We set up Retrieval-Augmented Generation (RAG) pipelines, build autonomous agents for task automation, and implement evaluation harnesses to monitor token usage and guardrails."
+  },
+  {
+    question: "What deliverables do we receive from your UI UX design agency?",
+    answer: "Our UI UX design agency delivers user flow wireframes, clickable high-fidelity prototypes, customer research summaries, and structured design systems in Figma. We export brand elements as code tokens so engineers can build pixel-perfect interfaces quickly."
+  },
+  {
+    question: "How does your digital marketing company and SEO agency India drive leads?",
+    answer: "We treat marketing as engineering. Our digital marketing company and SEO agency India teams set up Google Analytics 4 (GA4), implement JSON-LD Schema markup hierarchies, design optimized landing pages, and optimize Core Web Vitals, which increases organic search rankings and conversion rates."
+  },
+  {
+    question: "How much does custom software development cost?",
+    answer: "Our custom software development contracts typically range from ₹3,00,000 ($3,500 USD) for MVPs to ₹15,00,000+ ($18,000 USD) for large-scale enterprise portals. We provide transparent billing, scoping documentation, and deliver working demos every Friday."
+  },
+  {
+    question: "Where is Satvix Tech Solutions located and how do we begin?",
+    answer: "Our engineering studio is located in Anand, Gujarat, India. Around half of our clients are startups and enterprises in the US, UK, and Europe, while the rest are based in India. To begin, send us an email at satvixtechsolutions@gmail.com, and we will schedule a technical discovery call."
+  }
+];
+
 export default function Home() {
   const orbRef = useRef<HTMLDivElement>(null);
 
@@ -416,32 +459,11 @@ export default function Home() {
     <div>
       {/* Fixed scroll-drawn SVG path — hero to footer */}
       <SEO
-        title="Satvix | Web Development & Mobile App Company in Ahmedabad"
-        description="Satvix Tech Solutions offers Web Development, Mobile App Development, UI/UX Design, SEO, Digital Marketing and Custom Software Development in Ahmedabad."
-        keywords="Satvix, Satvix Tech, Satvix Web, Satvix App, Web Development Company Ahmedabad, Software Development Company, Mobile App Development, React Native Development, Website Design Ahmedabad, SEO Company Ahmedabad, Digital Marketing Agency Ahmedabad, Satvix Tech Solutions website"
+        title="Satvix Tech Solutions — Software Development Company in India"
+        description="Satvix Tech Solutions is a custom software development company in India specializing in web engineering, mobile apps, AI solutions, and UI/UX design."
+        keywords="Software Development Company India, Web Development Company, Mobile App Development Company, React Native Development, Next.js Development Company, AI Development Company, Custom Software Development, UI UX Design Agency, Digital Marketing Company, SEO Agency India, Satvix Tech Solutions"
         url="https://satvixtech.com"
-        faq={[
-          {
-            question: "What does Satvix Tech Solutions do?",
-            answer:
-              "We are a small digital product studio in Anand, Gujarat. We design, build, and ship web platforms, mobile apps, AI products, and brand systems — usually from zero to a public launch.",
-          },
-          {
-            question: "Where is Satvix Tech Solutions based?",
-            answer:
-              "We sit in Anand, Gujarat. Around half our work is for teams in the US, UK, and EU; the rest are Indian founders and operators.",
-          },
-          {
-            question: "How many projects has Satvix Tech Solutions shipped?",
-            answer:
-              "About 120 web and mobile products since 2020, across fintech, health, SaaS, commerce, and legal. Roughly 98% of clients keep us on after launch.",
-          },
-          {
-            question: "How do I start a project with Satvix Tech Solutions?",
-            answer:
-              "Email satvixtechsolutions@gmail.com or use the Contact form. You will hear back from a human, usually same day. We start with a discovery call — no pitch deck required.",
-          },
-        ]}
+        faq={homepageFaqs}
       />
 
       {/* ── Hero ── */}
@@ -718,6 +740,64 @@ export default function Home() {
                 </div>
               </MotionLink>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Expanded SEO Keywords & Competencies ── */}
+      <section className="py-20 border-b border-[var(--line)] bg-[var(--bg-2)]">
+        <div className="wrap">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            <div className="lg:col-span-5">
+              <span className="eyebrow">Enterprise Delivery</span>
+              <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-[var(--ink)] leading-none mt-6">
+                Custom software &amp; digital products built <em>to last.</em>
+              </h2>
+              <p className="text-[var(--ink-2)] text-base sm:text-lg leading-relaxed mt-8">
+                As a leading <strong>software development company in India</strong>, Satvix Tech Solutions designs, builds, and maintains custom software applications for startups, operators, and enterprises worldwide. We align modern systems engineering with clean visual craft.
+              </p>
+              <p className="text-[var(--ink-2)] text-base leading-relaxed mt-6">
+                Whether you need a dedicated <strong>Next.js development company</strong> to deliver high-performance web storefronts, or a premier <strong>mobile app development company</strong> to launch cross-platform applications, our senior squad is built to execute.
+              </p>
+            </div>
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
+              <div>
+                <h3 className="text-lg font-bold text-[var(--ink)]">Web Engineering &amp; Next.js</h3>
+                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
+                  We operate as a high-fidelity <strong>web development company</strong> focusing on custom web portals, headless e-commerce, and SaaS dashboards. We build lightweight interfaces that pass Core Web Vitals audits.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[var(--ink)]">Mobile App Development</h3>
+                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
+                  Our team specializes in native iOS, Android, and cross-platform <strong>React Native development</strong>. We integrate local SQLite storage, background location sensors, and push channels for real-world reliability.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[var(--ink)]">AI &amp; Machine Learning</h3>
+                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
+                  As an independent <strong>AI development company</strong>, we construct custom LLM integrations, Retrieval-Augmented Generation (RAG) databases, and autonomous task agents with strict token budgets and evaluation harnesses.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[var(--ink)]">UI/UX Design Studio</h3>
+                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
+                  Our <strong>UI UX design agency</strong> creates documented design systems and interactive prototypes. We write design tokens in Figma and hand them off in JSON format directly to our frontend engineers.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[var(--ink)]">Digital Growth &amp; SEO</h3>
+                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
+                  We combine engineering with marketing. Our <strong>digital marketing company</strong> and <strong>SEO agency India</strong> practices implement technical site speed optimization, schema hierarchies, and dynamic lead funnels.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[var(--ink)]">Custom Software Consulting</h3>
+                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
+                  We draft technical specifications, API structures, database schemas, and cloud architectures (AWS / Docker) in our initial discovery sprints, eliminating downstream engineering risk.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1286,6 +1366,33 @@ export default function Home() {
 
       {/* ── Awards & recognition ── */}
       <AwardsSection />
+
+      {/* ── FAQ Section ── */}
+      <section className="py-20 sm:py-32 border-b border-[var(--line)] bg-[var(--bg)]">
+        <div className="wrap">
+          <div className="max-w-4xl mx-auto">
+            <span className="eyebrow mb-12 flex items-center justify-center">
+              <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
+              Frequently Asked Questions
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-[var(--ink)] text-center mb-16 font-sans">
+              Things people often <em>ask us.</em>
+            </h2>
+            <div className="border-t border-[var(--line)]">
+              {homepageFaqs.map((f, i) => (
+                <div key={i} className="py-8 border-b border-[var(--line)]">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 tracking-tight text-[var(--ink)]">
+                    {f.question}
+                  </h3>
+                  <p className="text-[var(--ink-2)] leading-relaxed text-base sm:text-lg">
+                    {f.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── CTA ── */}
       <section className="cta-section relative overflow-hidden">

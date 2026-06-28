@@ -145,6 +145,41 @@ const process = [
   },
 ];
 
+const faqs = [
+  {
+    question: "What is B2B SaaS positioning?",
+    answer: "B2B SaaS positioning is the strategic statement that explains what your software does, who it is built for, and why it is legibly different from your competitors. We work with founders to refine their positioning so they can win sales without relying on discounted prices."
+  },
+  {
+    question: "What deliverables are included in a branding package?",
+    answer: "A standard branding package includes logo systems (primary, secondary, favicon), customized typography styling guides, a palette system, social media kit templates, corporate business card layouts, and a comprehensive digital brand guidelines book."
+  },
+  {
+    question: "How long does a brand identity design take?",
+    answer: "Our branding process takes between 4 and 6 weeks. This includes stakeholder research, market positioning mapping, brand concept development, vector production, guidelines writing, and template packaging."
+  },
+  {
+    question: "Do you also write copy for the website?",
+    answer: "Yes. We write brand copy for marketing websites, landing pages, and pitch materials. We translate complex software configurations into clean, human copy that explains your product's value in seconds."
+  },
+  {
+    question: "How do you ensure brand consistency across web and mobile?",
+    answer: "We build unified design tokens (JSON data storing visual properties like colors, fonts, margins) that can be consumed directly by React, Next.js, and React Native apps, ensuring pixel-for-pixel accuracy on all screens."
+  },
+  {
+    question: "Can you help us rename our company?",
+    answer: "Yes, we offer strategic naming sprints. We research available domains, run trademark availability audits, and brainstorm names that are memorable, fit your brand voice, and stand out in search engines."
+  },
+  {
+    question: "What is the difference between a logo and a brand identity?",
+    answer: "A logo is a single graphic mark that identifies a company. A brand identity is the complete visual system—the choice of typography, color ranges, imagery guidelines, messaging tone, and layout grids that work together to establish trust."
+  },
+  {
+    question: "How do we collaborate on the branding concepts?",
+    answer: "We present two or three distinct visual directions during our mid-project review. Each concept is presented with a real-world layout mockup (e.g. homepage, packaging, ads) so you can see how it performs in practice."
+  }
+];
+
 export default function Brand() {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -155,6 +190,7 @@ export default function Brand() {
         description="Satvix Tech Solutions handles brand and editorial work for founders — positioning, naming, identity systems and the words on the homepage, shipped with the product on day one."
         keywords="Satvix Tech Solutions brand, brand identity design India, brand strategy agency Gujarat, logo design company India, visual identity design India, brand positioning India, startup branding agency India, naming agency India, brand voice content strategy India, creative agency Gujarat, brand consulting company India"
         url="https://satvixtech.com/services/brand"
+        faq={faqs}
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
@@ -444,6 +480,31 @@ export default function Brand() {
                 </div>
                 <div className="tl-title">{p.title}</div>
                 <div className="tl-body">{p.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 sm:py-24 border-b border-[var(--line)] bg-[var(--bg)]">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-10 sm:mb-16 flex items-center">
+            <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
+            05 Things people often ask
+          </h2>
+          <div className="border-t border-[var(--line)]">
+            {faqs.map((f, i) => (
+              <div
+                key={i}
+                className="py-6 sm:py-8 border-b border-[var(--line)]"
+              >
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tight text-[var(--ink)]">
+                  {f.question}
+                </h3>
+                <p className="text-[var(--ink-2)] leading-relaxed text-sm sm:text-base md:text-lg">
+                  {f.answer}
+                </p>
               </div>
             ))}
           </div>

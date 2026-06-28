@@ -145,6 +145,41 @@ const process = [
   },
 ];
 
+const faqs = [
+  {
+    question: "What is Retrieval-Augmented Generation (RAG)?",
+    answer: "RAG is an architecture that fetches relevant document context from a vector database and includes it in the prompt before generating an answer with a Large Language Model (LLM). This ensures the AI model provides accurate, factual, and up-to-date answers based on private data without hallucinating."
+  },
+  {
+    question: "How do you control and cap API/token costs?",
+    answer: "We establish strict, multi-tiered safeguards: per-request token ceiling rules, daily user budgets, caching of frequent prompts (using Redis or semantic cache layers), and a global circuit breaker that blocks requests if cumulative token expenses cross set thresholds."
+  },
+  {
+    question: "Do you fine-tune open-source models like Llama or Mistral?",
+    answer: "Yes. While we reach for APIs like OpenAI or Claude for quick prototyping, we build custom fine-tuned open-source models (Llama, Mistral, Qwen) for production environments where data privacy, model ownership, or long-term operational costs are primary constraints."
+  },
+  {
+    question: "Why build AI agents instead of simple chatbots?",
+    answer: "Simple chatbots are reactive—they reply to prompts. Autonomous AI agents can perform multi-step workflows by planning, calling structured APIs (e.g. databases, email clients), checking their own outputs, and iterating until a goal is achieved without human intervention."
+  },
+  {
+    question: "How do you evaluate and test AI outputs for quality?",
+    answer: "We design quantitative evaluation harnesses before launching. We run batches of test prompts against new prompts or models, scoring completions on accuracy, tone compliance, toxicity, and speed using automated LLM-as-a-judge patterns and regression benchmarks."
+  },
+  {
+    question: "What databases do you use for vector search?",
+    answer: "We use pgvector (on PostgreSQL / Supabase) for integrated systems, Pinecone or Qdrant for dedicated vector scaling, and Redis for high-speed semantic search caching."
+  },
+  {
+    question: "How do you handle user privacy and PII in AI applications?",
+    answer: "We implement preprocessing pipelines that redact Personally Identifiable Information (PII) like names, email addresses, and phone numbers before data is sent to external API providers. We also default to GDPR-compliant hosting rules."
+  },
+  {
+    question: "How long does it take to deploy a custom AI solution?",
+    answer: "A basic API integration takes 3 to 6 weeks. A production-grade RAG pipeline or multi-agent orchestration workflow with proper evaluation suites and cost guardrails typically takes 10 to 16 weeks."
+  }
+];
+
 export default function AiMl() {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -155,6 +190,7 @@ export default function AiMl() {
         description="Satvix Tech Solutions ships production AI — LLM features, RAG pipelines, agents and the evaluation, cost caps and observability that turn a clever demo into a real product."
         keywords="Satvix Tech Solutions AI, AI ML services India, LLM integration services India, RAG pipeline development India, AI agents development India, machine learning company India, OpenAI integration India, Anthropic Claude API India, LangChain development India, vector database India, generative AI company India, custom AI solutions India, AI consulting India"
         url="https://satvixtech.com/ai-development"
+        faq={faqs}
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
@@ -443,6 +479,31 @@ export default function AiMl() {
                 </div>
                 <div className="tl-title">{p.title}</div>
                 <div className="tl-body">{p.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 sm:py-24 border-b border-[var(--line)] bg-[var(--bg)]">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-10 sm:mb-16 flex items-center">
+            <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
+            05 Things people often ask
+          </h2>
+          <div className="border-t border-[var(--line)]">
+            {faqs.map((f, i) => (
+              <div
+                key={i}
+                className="py-6 sm:py-8 border-b border-[var(--line)]"
+              >
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tight text-[var(--ink)]">
+                  {f.question}
+                </h3>
+                <p className="text-[var(--ink-2)] leading-relaxed text-sm sm:text-base md:text-lg">
+                  {f.answer}
+                </p>
               </div>
             ))}
           </div>

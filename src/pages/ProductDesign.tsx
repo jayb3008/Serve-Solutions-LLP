@@ -145,6 +145,41 @@ const process = [
   },
 ];
 
+const faqs = [
+  {
+    question: "What does a UI/UX audit entail?",
+    answer: "A UI/UX audit analyzes your existing software application's user flows, accessibility standards, core conversions, and visual consistency. We run interactive tests and output a set of actionable layout recommendations to remove customer friction."
+  },
+  {
+    question: "Do you design using Figma?",
+    answer: "Yes, Figma is our primary design workspace. We build component libraries with robust auto-layout properties, responsive variants, and clean typography token systems that match modern coding libraries."
+  },
+  {
+    question: "How do you coordinate handoff between design and engineering?",
+    answer: "We avoid dry developer hands-offs by sitting designers and engineers at the same table from week one. We deliver Figma files annotated with exact spacing tokens, responsive constraints, and dynamic animation properties, and run visual audits on the built frontend."
+  },
+  {
+    question: "What is a design system and when do I need one?",
+    answer: "A design system is a central library of reusable UI components (buttons, inputs, cards) governed by design tokens (colors, font weights, spacing). You need one if your platform is scaling, or if you have multiple developers building interfaces simultaneously, to avoid visual fragmentation."
+  },
+  {
+    question: "How long does a product design sprint take?",
+    answer: "A two-week design sprint shapes a core problem and outputs a clickable high-fidelity prototype. Designing a complete, developer-ready multi-page dashboard or SaaS platform usually takes 6 to 10 weeks."
+  },
+  {
+    question: "Do you run user research and usability testing?",
+    answer: "Yes. We conduct remote and in-person interviews with your target users, perform competitive analyses, and run usability testing sessions with interactive clickable prototypes to validate layout decisions before writing code."
+  },
+  {
+    question: "Do you follow web accessibility (WCAG) guidelines?",
+    answer: "Absolutely. We design for accessibility (WCAG 2.2 AA standards) by default, ensuring proper color contrast ratios, logical keyboard navigation flows, clear focus states, and screen-reader compatibility."
+  },
+  {
+    question: "Can you redesign our existing mobile or web app?",
+    answer: "Yes, database migrations and interface redesigns are our specialties. We extract your actual usage analytics, map structural flaws in your current app, and design a modern, refreshed experience that increases retention."
+  }
+];
+
 export default function ProductDesign() {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -155,6 +190,7 @@ export default function ProductDesign() {
         description="Product design at Satvix Tech Solutions: research, interaction design, UI, prototyping and design systems. We design products people reach for without thinking about it."
         keywords="Satvix Tech Solutions design, product design company India, UX design agency Gujarat, UI UX design India, Figma design agency India, design system development India, prototyping agency India, user research company India, interaction design India, SaaS product design India, design studio Anand Gujarat"
         url="https://satvixtech.com/ui-ux-design"
+        faq={faqs}
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
@@ -450,6 +486,31 @@ export default function ProductDesign() {
                 </div>
                 <div className="tl-title">{p.title}</div>
                 <div className="tl-body">{p.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 sm:py-24 border-b border-[var(--line)] bg-[var(--bg)]">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-10 sm:mb-16 flex items-center">
+            <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
+            05 Things people often ask
+          </h2>
+          <div className="border-t border-[var(--line)]">
+            {faqs.map((f, i) => (
+              <div
+                key={i}
+                className="py-6 sm:py-8 border-b border-[var(--line)]"
+              >
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tight text-[var(--ink)]">
+                  {f.question}
+                </h3>
+                <p className="text-[var(--ink-2)] leading-relaxed text-sm sm:text-base md:text-lg">
+                  {f.answer}
+                </p>
               </div>
             ))}
           </div>

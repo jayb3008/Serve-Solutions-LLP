@@ -145,6 +145,41 @@ const process = [
   },
 ];
 
+const faqs = [
+  {
+    question: "How much does it cost to build a mobile application?",
+    answer: "A custom mobile application build generally starts at ₹3,50,000 ($4,000 USD) for a single-platform app, or ₹4,50,000 ($5,500 USD) for cross-platform React Native. Pricing is determined by hardware integrations, backend infrastructure, offline syncing needs, and third-party APIs."
+  },
+  {
+    question: "How long does mobile app development take?",
+    answer: "An MVP takes between 8 and 12 weeks. Large-scale enterprise mobile applications with complex multi-role workflows, offline storage databases, and real-time synchronization pipelines can take 16 to 24 weeks."
+  },
+  {
+    question: "Should I choose native (Swift/Kotlin) or cross-platform (React Native/Flutter)?",
+    answer: "We recommend cross-platform (React Native) for 90% of business applications, because sharing a single codebase between iOS and Android halves development and maintenance overhead. However, we recommend native Swift/Kotlin if your app requires heavy hardware processing, low-level Bluetooth/IoT syncing, or GPU-heavy animations."
+  },
+  {
+    question: "Do you handle App Store and Google Play Store submissions?",
+    answer: "Yes, store submission is included in our mobile services. We manage the provisioning profiles, build certificates, coordinate internal TestFlight or Google Play Console beta tracks, and complete the store questionnaire audits to get your app approved."
+  },
+  {
+    question: "How do you handle offline connectivity in mobile apps?",
+    answer: "We implement local data persistence databases (SQLite, WatermelonDB, or MMKV). The app reads and writes instantly to the local cache, then syncs dynamically with the backend API servers once connectivity is restored, ensuring a smooth experience even on poor mobile connections."
+  },
+  {
+    question: "What is your approach to mobile app UI/UX?",
+    answer: "We design with target mobile systems in mind (Apple Human Interface Guidelines and Google Material Design). We prioritize thumb-reachable controls, interactive micro-animations, fast visual feedback, and clear font hierarchies designed specifically for small touch screens."
+  },
+  {
+    question: "How do you manage mobile app testing?",
+    answer: "We test against multiple target physical devices and screen sizes in our Anand studio. We write automated unit tests, integration tests for API channels, and run regression suites before releasing new build bundles."
+  },
+  {
+    question: "Will you maintain the app after release?",
+    answer: "Yes. iOS and Android update their core operating systems yearly, which introduces breaking changes. Under our mobile support retainers, we proactively test and update libraries to keep your app compatible with the latest OS versions."
+  }
+];
+
 export default function MobileApps() {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -155,6 +190,7 @@ export default function MobileApps() {
         description="Satvix Tech Solutions builds iOS, Android, React Native and Flutter apps — designed for the long tail of real devices, shipped to the App Store and Play Store with paperwork done."
         keywords="Satvix Tech Solutions mobile, mobile app development company India, iOS app development Gujarat, Android app development India, React Native development company India, cross-platform app development India, Flutter development agency India, Swift iOS development India, Kotlin Android development India, mobile app agency Gujarat, mobile UX design India"
         url="https://satvixtech.com/mobile-app-development"
+        faq={faqs}
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
@@ -445,6 +481,31 @@ export default function MobileApps() {
                 </div>
                 <div className="tl-title">{p.title}</div>
                 <div className="tl-body">{p.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 sm:py-24 border-b border-[var(--line)] bg-[var(--bg)]">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-10 sm:mb-16 flex items-center">
+            <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
+            05 Things people often ask
+          </h2>
+          <div className="border-t border-[var(--line)]">
+            {faqs.map((f, i) => (
+              <div
+                key={i}
+                className="py-6 sm:py-8 border-b border-[var(--line)]"
+              >
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tight text-[var(--ink)]">
+                  {f.question}
+                </h3>
+                <p className="text-[var(--ink-2)] leading-relaxed text-sm sm:text-base md:text-lg">
+                  {f.answer}
+                </p>
               </div>
             ))}
           </div>

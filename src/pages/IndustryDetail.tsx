@@ -10,12 +10,26 @@ import SEO from '../components/SEO';
 import Squares from '../components/ui/squares';
 import Magnetic from '../components/Magnetic';
 
-const IndustryDetail = () => {
+const IndustryDetail = ({ industryId }: { industryId?: string } = {}) => {
     const { id } = useParams();
+    const activeId = industryId || id;
     const navigate = useNavigate();
     const containerRef = useRef<HTMLDivElement>(null);
 
-    const industry = industriesData[id as string] || industriesData['healthcare'];
+    const industry = industriesData[activeId as string] || industriesData['healthcare'];
+
+    const getSeoPath = (indId: string) => {
+        const paths: Record<string, string> = {
+            healthcare: "/healthcare-software-development",
+            finance: "/fintech-software-development",
+            education: "/education-software-development",
+            "real-estate": "/real-estate-software-development",
+            logistics: "/logistics-software-development",
+            "on-demand": "/restaurant-pos-development",
+            retail: "/jewelry-ecommerce-development"
+        };
+        return paths[indId] || `/industries/${indId}`;
+    };
 
     const faqs = [
         {
@@ -38,7 +52,7 @@ const IndustryDetail = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [activeId]);
 
     return (
         <div ref={containerRef} className="bg-[var(--bg-2)] min-h-screen text-[var(--ink)] font-sans pt-20 overflow-x-hidden">
@@ -46,11 +60,11 @@ const IndustryDetail = () => {
                 title={industry.title}
                 description={industry.tagline}
                 keywords={industry.keywords}
-                url={`https://satvixtech.com/industries/${id}`}
+                url={`https://satvixtech.com${getSeoPath(activeId as string)}`}
                 breadcrumb={[
                     { name: "Home", item: "https://satvixtech.com" },
                     { name: "Industries", item: "https://satvixtech.com/industries" },
-                    { name: industry.title, item: `https://satvixtech.com/industries/${id}` }
+                    { name: industry.title, item: `https://satvixtech.com${getSeoPath(activeId as string)}` }
                 ]}
                 faq={faqs}
             />

@@ -145,6 +145,41 @@ const process = [
   },
 ];
 
+const faqs = [
+  {
+    question: "How much does custom website development cost?",
+    answer: "Our web projects typically start from ₹2,50,000 ($3,000 USD). The final cost depends entirely on technical complexity, integrations, data models, and required pages. We outline complete transparent pricing in our initial discovery proposal."
+  },
+  {
+    question: "Why does Satvix choose Next.js and React as defaults?",
+    answer: "Next.js combines React's excellent component model with server-side rendering (SSR) and static generation (SSG). This ensures lightning-fast loading speeds (excellent for Core Web Vitals) and makes the website fully indexable and SEO-friendly for Google crawlers."
+  },
+  {
+    question: "Which Headless CMS do you recommend?",
+    answer: "We recommend Sanity or Strapi. They offer highly customizable editing dashboards, structured content models, dynamic draft previews, and API-driven distribution, giving content editors flexibility without slowing down production code."
+  },
+  {
+    question: "How long does it take to build a custom web application?",
+    answer: "A standard marketing or headless commerce site takes 4 to 8 weeks, while complex multi-tenant SaaS dashboards or custom enterprise platforms require 12 to 20 weeks from spec sign-off to launch."
+  },
+  {
+    question: "Do you build custom ecommerce platforms or use templates?",
+    answer: "We build custom, headless commerce experiences on top of Shopify Plus, Commerce.js, or Stripe billing APIs. We avoid sluggish WordPress templates to keep your load time under one second, which directly increases conversions."
+  },
+  {
+    question: "How do you ensure web application security?",
+    answer: "We implement secure coding standards (OWASP Top 10), enforce HTTPS/SSL, set up strict CORS headers, use secure JWT or sessions for authentication, and run automated vulnerability checks in our CI/CD pipelines before deployment."
+  },
+  {
+    question: "Do you provide post-launch maintenance and support?",
+    answer: "Yes, we offer ongoing SRE, cloud server monitoring, security updates, and performance optimizations under monthly support retainers so your site remains fast and secure."
+  },
+  {
+    question: "Can you help migrate our legacy codebase to Next.js?",
+    answer: "Absolutely. We specialize in codebase migrations. We audit your existing database and APIs, design a parallel deployment plan, and migrate you step-by-step with zero customer downtime."
+  }
+];
+
 export default function WebEngineering() {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -155,6 +190,7 @@ export default function WebEngineering() {
         description="Satvix Tech Solutions builds Next.js, React and Node.js web platforms — fast, accessible, observable, and built to outlast the project. From marketing sites to complex SaaS."
         keywords="Satvix Tech Solutions web development, web development company India, Next.js development agency India, React development India, SaaS development company Gujarat, headless CMS development India, full-stack web development Gujarat, Node.js backend development India, web performance optimisation India, Core Web Vitals India, custom web app development India"
         url="https://satvixtech.com/web-development"
+        faq={faqs}
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
@@ -451,6 +487,31 @@ export default function WebEngineering() {
                 </div>
                 <div className="tl-title">{p.title}</div>
                 <div className="tl-body">{p.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 sm:py-24 border-b border-[var(--line)] bg-[var(--bg)]">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-10 sm:mb-16 flex items-center">
+            <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
+            05 Things people often ask
+          </h2>
+          <div className="border-t border-[var(--line)]">
+            {faqs.map((f, i) => (
+              <div
+                key={i}
+                className="py-6 sm:py-8 border-b border-[var(--line)]"
+              >
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tight text-[var(--ink)]">
+                  {f.question}
+                </h3>
+                <p className="text-[var(--ink-2)] leading-relaxed text-sm sm:text-base md:text-lg">
+                  {f.answer}
+                </p>
               </div>
             ))}
           </div>
