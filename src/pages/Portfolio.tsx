@@ -66,85 +66,34 @@ const cards: Card[] = [
   {
     id: "nine-finance",
     title:
-      "9 Finance — a complete lending and financial services platform helping customers manage loans, investments, and financial planning digitally.",
-    year: "2026",
-    tags: ["Fintech", "React", "Node.js", "Web App"],
+      "Nine Finance — a lending platform where borrowers and field agents run structured daily EMI collections through a mobile app. React Native + Node.js. Shipped in two weeks; live and managing real loan portfolios.",
+    year: "2 weeks",
+    tags: ["Fintech", "React Native", "Node.js", "Live"],
     cat: "Fintech",
-    img: "https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg?auto=compress&cs=tinysrgb&w=1400",
-    wide: true,
+    img: "/images/satvix_fintech_showcase.png",
   },
 
   {
     id: "glamour-jewelry",
     title:
-      "Glamour Jewelry — a premium jewelry eCommerce website showcasing collections, inquiry management, and WhatsApp-based customer engagement.",
-    year: "2026",
-    tags: ["Jewelry", "Ecommerce", "Next.js", "SEO"],
+      "Glamour Jewelry — a full jewelry e-commerce platform: product catalog, orders, inventory, admin. React + Node + MongoDB, shipped in four weeks, live and processing orders.",
+    year: "4 weeks",
+    tags: ["Ecommerce", "React", "Node", "MongoDB"],
     cat: "Commerce",
     img: "/images/glamour-jewelry.png",
   },
 
   {
-    id: "nivas-realty",
+    id: "charotar-soap",
     title:
-      "Nivas Realty — a modern real estate platform featuring property listings, lead generation, virtual tours, and inquiry management.",
-    year: "2025",
-    tags: ["Real Estate", "CRM", "Lead Generation"],
-    cat: "Real Estate",
-    img: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=900",
-  },
-
-  {
-    id: "tabletrack",
-    title:
-      "TableTrack — restaurant management and POS software handling orders, billing, table reservations, kitchen operations, and analytics.",
-    year: "2025",
-    tags: ["SaaS", "POS", "Restaurant", "React"],
+      "Charotar Soap Factory — inventory, production tracking and sales orders for soap manufacturers. React + Next.js + Node.js. Designed as a reusable white-label product for other manufacturers.",
+    year: "2 months",
+    tags: ["SaaS", "Next.js", "Node.js", "White-label"],
     cat: "SaaS",
-    img: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=900",
-  },
-
-  {
-    id: "sd-photography",
-    title:
-      "SD Photography — portfolio management platform allowing photographers to showcase albums, manage clients, and share private galleries.",
-    year: "2025",
-    tags: ["Photography", "Portfolio", "CMS"],
-    cat: "Creative",
-    img: "/images/sd-photography.png",
-  },
-
-  {
-    id: "sk-consultant",
-    title:
-      "SK Consultant — a fast, fully online EPFO and HR compliance platform serving 500+ clients with payroll, ESI, and statutory services.",
-    year: "2026",
-    tags: ["EPFO", "HR Services", "Compliance", "Web App"],
-    cat: "SaaS",
-    img: "/images/sk-consultant.png",
-  },
-
-  {
-    id: "clickly",
-    title:
-      "Clickly — an all-in-one photography website builder enabling photographers to launch professional portfolios with custom domains.",
-    year: "2025",
-    tags: ["SaaS", "Photography", "Next.js"],
-    cat: "SaaS",
-    img: "https://images.pexels.com/photos/274973/pexels-photo-274973.jpeg?auto=compress&cs=tinysrgb&w=900",
-  },
-
-  {
-    id: "proposal-generator",
-    title:
-      "Proposal Generator — SaaS platform for generating professional proposals, quotations, and invoices with automated workflows.",
-    year: "2025",
-    tags: ["SaaS", "Business Tools", "Automation"],
-    cat: "SaaS",
-    img: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=900",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23121518'/><stop offset='1' stop-color='%230a0e12'/></linearGradient></defs><rect width='800' height='500' fill='url(%23g)'/><text x='50%25' y='50%25' fill='%23e6c667' font-family='monospace' font-size='22' text-anchor='middle' letter-spacing='4'>DEMO ON REQUEST</text></svg>",
   },
 ];
-const filters = ["All", "Fintech", "SaaS", "Commerce", "AI", "Health"];
+const filters = ["All", "Fintech", "SaaS", "Commerce"];
 
 export default function Portfolio() {
   const [active, setActive] = useState("All");
@@ -154,9 +103,9 @@ export default function Portfolio() {
   return (
     <div>
       <SEO
-        title="Work — case studies from Satvix Tech Solutions"
-        description="Selected case studies from Satvix Tech Solutions — fintech platforms, SaaS, headless commerce, AI copilots and more. A short archive of products we have shipped since 2020."
-        keywords="Satvix Tech Solutions portfolio, Satvix Tech Solutions case studies, software portfolio India, digital product case studies India, web app portfolio Gujarat, mobile app case studies India, fintech app development portfolio, SaaS case study India, AI product portfolio India, headless commerce case study India"
+        title="Case studies — three shipped products from Satvix Tech Solutions"
+        description="Three shipped products you can verify: Nine Finance (fintech, React Native + Node.js, 2 weeks), Glamour Jewelry (e-commerce, React + Node + MongoDB, 4 weeks), Charotar Soap Factory (white-label manufacturing SaaS, Next.js + Node.js)."
+        keywords="Satvix Tech Solutions case studies, fintech case study React Native Node.js, jewelry e-commerce case study, white-label manufacturing SaaS, shipped in two weeks fintech"
         url="https://satvixtech.com/portfolio"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
@@ -183,9 +132,9 @@ export default function Portfolio() {
           <h1>
             {(
               [
-                "A short archive",
-                "of things we",
-                "<em>still talk about.</em>",
+                "Three shipped products.",
+                "Real timelines.",
+                "<em>Verify anything.</em>",
               ] as const
             ).map((line, i) => (
               <span key={i} className="row">
@@ -201,12 +150,13 @@ export default function Portfolio() {
           </h1>
           <div className="page-hero__sub">
             <div className="breadcrumb">
-              Satvix Tech Solutions &nbsp;/&nbsp; Work
+              Satvix Tech Solutions &nbsp;/&nbsp; Case studies
             </div>
             <p>
-              Ten projects — the ones we are still proud of two years later.
-              Fintech, AI, commerce, health, education. NDAs cover most of the
-              rest.
+              Fintech in two weeks. E-commerce in four. A reusable
+              manufacturing SaaS built as a white-label product. Every claim
+              here is one you can verify — ask for a live demo or a reference
+              call.
             </p>
           </div>
         </div>
@@ -320,12 +270,12 @@ export default function Portfolio() {
           </h2>
           <Magnetic>
             <a
-              href="mailto:satvixtechsolutions@gmail.com"
+              href="mailto:hello@satvixtech.com"
               className="big-cta reveal"
               data-d="2"
               data-hover
             >
-              satvixtechsolutions@gmail.com
+              hello@satvixtech.com
               <span className="arrow">
                 <svg
                   width="18"

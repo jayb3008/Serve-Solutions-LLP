@@ -42,11 +42,11 @@ const IndustryDetail = ({ industryId }: { industryId?: string } = {}) => {
         },
         {
             question: `Do you only work with Indian ${industry.title.toLowerCase()} clients?`,
-            answer: `No. We sit in Anand, but about half our ${industry.title.toLowerCase()} work is for teams in the US, UK or EU. Fully remote, hybrid, or with someone on the plane when it matters.`,
+            answer: `No. Based in Anand, working with founders and agencies in the US, UK, EU and Australia. Four-plus hours overlap with US East Coast and full working-day overlap with the UK.`,
         },
         {
             question: `Why pick this studio for ${industry.title.toLowerCase()}?`,
-            answer: `We have shipped 120+ products since 2020, 98% of clients renew, and we have done enough ${industry.title.toLowerCase()} work to know the compliance traps before they bite. We are senior, small, and you can call us by name.`,
+            answer: `Founder-led, AI-augmented delivery. You talk directly to a senior engineer — no account managers, no juniors on your budget. We shipped a fintech lending platform in two weeks and an e-commerce build in four. Reference calls and demos on request.`,
         },
     ];
 

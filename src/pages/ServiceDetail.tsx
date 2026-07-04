@@ -30,7 +30,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
     },
     {
       question: `Why pick Satvix for this?`,
-      answer: `We have shipped 120+ products in six years out of a single studio in Anand. Around 98% of clients keep us on after launch — make of that what you will. The day-to-day team is senior, small, and reachable by name.`,
+      answer: `Founder-led studio with AI-augmented delivery. You talk directly to a senior engineer — no account managers, no juniors on your budget. We shipped a fintech lending platform in two weeks and an e-commerce build in four. Reference calls and demos on request.`,
     },
   ];
 
@@ -62,10 +62,10 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
   ];
 
   const stats = [
-    { n: "120+", l: "Products in the wild" },
-    { n: "98%", l: "Clients who renew" },
-    { n: "6", l: "Years in one studio" },
-    { n: "40", l: "People you can call by name" },
+    { n: "3", l: "Shipped products, verifiable" },
+    { n: "2 wks", l: "Fastest delivery — fintech" },
+    { n: "7+ yrs", l: "Senior MERN, founder-led" },
+    { n: "4+ hrs", l: "Overlap with US East Coast" },
   ];
 
   useEffect(() => {

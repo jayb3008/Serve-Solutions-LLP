@@ -157,9 +157,10 @@ export default function Careers() {
               Satvix Tech Solutions &nbsp;/&nbsp; Careers
             </div>
             <p>
-              Forty people, one building in Anand, clients in seven countries.
-              If you care about craft, the second draft, and shipping things you
-              would still recommend to a friend two years later — you would
+              A founder-led, AI-augmented engineering studio in Anand,
+              working with founders across three continents. If you're senior,
+              care about craft, and would rather ship a fintech MVP in two
+              weeks than sit through a two-quarter planning cycle — you'd
               probably like it here.
             </p>
           </div>

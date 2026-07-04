@@ -36,79 +36,61 @@ const principles = [
   {
     n: "06",
     title: "Rooted, not regional",
-    body: "We’re in Anand. Half our work is in Bangalore, London and New York. The studio travels in suitcases, not satellites.",
+    body: "Based in Anand, Gujarat. Working with founders and agencies in the US, UK, EU and Australia — four-plus hours of US East overlap, full UK overlap.",
   },
 ];
 
 const team = [
   {
-    init: "B",
-    name: "Batukbhai Sarvaiya",
-    role: "Founder — keeps the lights on",
+    init: "J",
+    name: "Jay Sarvaiya",
+    role: "Founder — 7+ years MERN, architecture, code review, delivery",
   },
   {
-    init: "R",
-    name: "Rahul Patel",
-    role: "Engineering — architecture & code review",
-  },
-  { init: "P", name: "Priya Mehta", role: "Design — flows, systems, type" },
-  {
-    init: "A",
-    name: "Arjun Shah",
-    role: "AI & data — LLM features, retrieval",
-  },
-  { init: "N", name: "Nisha Desai", role: "Product — discovery & roadmap" },
-  { init: "K", name: "Karan Joshi", role: "Mobile — iOS, Android, RN" },
-  {
-    init: "S",
-    name: "Sneha Trivedi",
-    role: "Brand — naming, narrative, editorial",
-  },
-  {
-    init: "D",
-    name: "Dev Agarwal",
-    role: "Backend — Postgres, Node, the boring bits",
+    init: "+",
+    name: "The team",
+    role: "A small senior team of engineers, designers and product folks in Anand — growing carefully",
   },
 ];
 
 const timeline = [
   {
     year: "2020",
-    title: "Two people. One laptop.",
-    body: "Batukbhai signs the lease on a single-room office in Anand. The first client — a clinic in Vadodara — ships thirty days later.",
-  },
-  {
-    year: "2021",
-    title: "First fintech, first scare",
-    body: "A 200,000-user lender becomes our first regulated build. We learn the hard way that ‘compliance’ is just design with stricter constraints.",
-  },
-  {
-    year: "2022",
-    title: "Mobile gets its own room",
-    body: "iOS and Android join the studio properly. By December the first React Native app passes 100k downloads.",
-  },
-  {
-    year: "2023",
-    title: "Design moves upstream",
-    body: "Priya joins as design lead. We stop being ‘the engineering team that does design too’ and start naming companies, writing taglines, drawing logos.",
+    title: "Studio founded in Anand",
+    body: "Jay starts Satvix as a founder-led studio in Anand, Gujarat. Focus from day one: senior-only builds for founders who need to ship fast.",
   },
   {
     year: "2024",
-    title: "We become useful at AI",
-    body: "Arjun spins up the AI desk. The first LLM-powered product — a contract assistant — goes live with a real law firm in Mumbai.",
+    title: "AI-augmented delivery becomes the default",
+    body: "Claude Code, Cursor and agentic workflows fold into the daily rhythm. Every AI-generated diff still goes through senior code review before it lands.",
   },
   {
     year: "2025",
-    title: "Forty heads, three continents",
-    body: "120 products shipped. Clients in Bangalore, London, New York, Berlin, Dubai. Still in the same building in Anand.",
+    title: "Nine Finance — two-week fintech build",
+    body: "A React Native + Node.js lending platform for borrowers and field agents, live and running structured daily EMI collections. Shipped in two weeks.",
+  },
+  {
+    year: "2025",
+    title: "Glamour Jewelry — four-week e-commerce build",
+    body: "A full jewelry e-commerce platform on React + Node + MongoDB — catalog, orders, inventory, admin. Live and processing real orders in four weeks.",
+  },
+  {
+    year: "2025",
+    title: "Charotar Soap Factory — reusable white-label SaaS",
+    body: "Inventory, production tracking and sales orders for soap manufacturers. Built on React + Next.js + Node as a proprietary product available for white-label licensing.",
+  },
+  {
+    year: "2026",
+    title: "Working with founders across three continents",
+    body: "Engagements with founders and agencies in the US, UK, EU and Australia. Four-plus hours US East overlap, full UK overlap, based out of Anand.",
   },
 ];
 
 const bandStats = [
-  { n: "40", label: "People you can call by name" },
-  { n: "120+", label: "Products quietly in the world" },
-  { n: "98%", label: "Clients who renew" },
-  { n: "6", label: "Years in one building in Anand" },
+  { n: "3", label: "Shipped products you can verify" },
+  { n: "2 wks", label: "Fastest delivery — Nine Finance" },
+  { n: "7+ yrs", label: "Founder MERN experience" },
+  { n: "4+ hrs", label: "Overlap with US East Coast" },
 ];
 
 export default function About() {
@@ -117,9 +99,9 @@ export default function About() {
   return (
     <div>
       <SEO
-        title="About Satvix Tech Solutions — forty people, one studio in Anand"
-        description="About Satvix Tech Solutions: a 40-person independent digital studio in Anand, Gujarat, shipping web, mobile and AI products with founders and enterprise teams since 2020."
-        keywords="about Satvix Tech Solutions, Satvix Tech Solutions team, digital product studio India, software company Anand Gujarat, independent dev studio India, Batukbhai Sarvaiya, who we are Satvix Tech Solutions, software studio Gujarat"
+        title="About Satvix Tech Solutions — a founder-led, AI-augmented studio in Anand"
+        description="Satvix Tech Solutions is a founder-led, AI-augmented engineering studio in Anand, Gujarat. A small senior team led by Jay Sarvaiya — you talk directly to the engineer writing your code."
+        keywords="about Satvix Tech Solutions, Jay Sarvaiya, founder-led studio India, AI-augmented software studio, senior MERN engineers, offshore engineering for US UK founders, software studio Anand Gujarat"
         url="https://satvixtech.com/about"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
@@ -127,24 +109,24 @@ export default function About() {
         ]}
         faq={[
           {
-            question: "When was the studio founded?",
+            question: "Who runs the studio?",
             answer:
-              "Batukbhai started Satvix in 2020 out of a one-room office in Anand. We have grown to a forty-person studio, still in Anand.",
+              "Jay Sarvaiya. Seven-plus years of full-stack MERN (MongoDB, Express, React, Node). Every engagement — scope, architecture, code review, delivery — runs through Jay.",
           },
           {
             question: "How big is the team?",
             answer:
-              "Forty designers, engineers, product people and writers. Big enough to staff a full product team end-to-end; small enough that we still know everyone’s coffee order.",
+              "A small senior team in Anand — engineers, designers and product folks led by Jay Sarvaiya. Senior-only: no juniors on your budget, no account managers between you and the person writing your code. Growing carefully — see the careers page for the roles currently open.",
           },
           {
             question: "What makes you different from other agencies?",
             answer:
-              "Two things, mostly. We don’t hand work over walls — the same team scopes the work, designs it, builds it and stays on after launch. And we take on fewer projects than we technically could.",
+              "No account managers between you and the engineer. No juniors learning on your budget. AI-augmented delivery lets us ship fintech in two weeks and e-commerce in four — but every AI-generated line is reviewed by a senior engineer before it lands.",
           },
           {
-            question: "Do you only work with Indian clients?",
+            question: "Do you work with foreign clients?",
             answer:
-              "About half of our clients are in India; the rest are in the US, UK, EU and the Middle East. We work fully remote, hybrid, or — occasionally — by getting on a plane.",
+              "Yes. Founders and agencies in the US, UK, EU and Australia. Four-plus hours overlap with US East Coast, full working-day overlap with the UK. We invoice in USD, GBP or INR and sign standard SaaS/dev contracts and NDAs.",
           },
         ]}
       />
@@ -168,9 +150,9 @@ export default function About() {
           <h1>
             {(
               [
-                "Forty people,",
-                "one studio,",
-                "<em>still in Anand.</em>",
+                "Founder-led.",
+                "AI-augmented.",
+                "<em>Senior by design.</em>",
               ] as const
             ).map((line, i) => (
               <span key={i} className="row">
@@ -189,10 +171,12 @@ export default function About() {
               Satvix Tech Solutions &nbsp;/&nbsp; About
             </div>
             <p>
-              We have been a small, independent studio in Anand, Gujarat since
-              2020. Six years in, we have shipped a hundred and twenty products
-              with founders, operators and a few patient enterprise teams. The
-              studio has grown; the front door has not moved.
+              Satvix is a small, senior engineering studio in Anand, Gujarat.
+              Founder-led by Jay Sarvaiya, with a small team of senior
+              engineers, designers and product folks. You talk directly to the
+              engineer writing your code — no account managers, no juniors,
+              no timezone black holes. Three shipped products so far; every
+              claim on this site is one you can verify.
             </p>
           </div>
         </div>
@@ -284,7 +268,7 @@ export default function About() {
                 data-d="1"
                 style={{ color: "var(--bg)" }}
               >
-                You will mostly be talking to <em>these eight.</em>
+                You will be talking to <em>the founder.</em>
               </h2>
             </div>
           </div>
@@ -309,7 +293,7 @@ export default function About() {
             <div>
               <div className="eyebrow reveal">A short history</div>
               <h2 className="s-title reveal" data-d="1">
-                Six years, told in <em>six paragraphs.</em>
+                A short, honest <em>timeline.</em>
               </h2>
             </div>
           </div>

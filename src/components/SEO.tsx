@@ -33,9 +33,9 @@ const COMPANY_LEGAL = "Satvix Tech Solutions LLP";
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const SEO = ({
-  title = "A studio for founders who ship software that lasts",
-  description = "Satvix Tech Solutions is a small, senior studio in Anand, Gujarat. Since 2020 we have designed, built and shipped web, mobile and AI products with founders and operators who care about the craft.",
-  keywords = "Satvix Tech Solutions, satvixtech, digital product studio India, software development company Anand Gujarat, web development agency India, mobile app development India, AI ML services India, custom software development India, independent digital studio India",
+  title = "A small, senior, AI-augmented studio for founders who ship",
+  description = "Satvix Tech Solutions is a small, senior, AI-augmented engineering studio in Anand, Gujarat. You talk directly to the engineers who build your product — no account managers, no juniors learning on your budget.",
+  keywords = "Satvix Tech Solutions, satvixtech, AI augmented development, founder-led software studio India, senior engineers React Native Next.js, MERN development studio Anand Gujarat, offshore engineering for US UK startups, custom software development India",
   image = DEFAULT_IMAGE,
   url,
   type = "website",
@@ -76,8 +76,12 @@ const SEO = ({
     },
     description,
     foundingDate: "2020",
-    numberOfEmployees: { "@type": "QuantitativeValue", value: 40 },
-    founders: [{ "@type": "Person", name: "Batukbhai Sarvaiya" }],
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      minValue: 1,
+      maxValue: 10,
+    },
+    founders: [{ "@type": "Person", name: "Jay Sarvaiya" }],
     knowsAbout: [
       "Web Development",
       "Mobile App Development",
@@ -101,16 +105,16 @@ const SEO = ({
     contactPoint: [
       {
         "@type": "ContactPoint",
-        telephone: "+91-9904055986",
-        email: "satvixtechsolutions@gmail.com",
+        telephone: "+91-7016427729",
+        email: "hello@satvixtech.com",
         contactType: "customer service",
         areaServed: "IN",
         availableLanguage: ["en", "Hindi", "Gujarati"],
       },
       {
         "@type": "ContactPoint",
-        telephone: "+91-9904055986",
-        email: "satvixtechsolutions@gmail.com",
+        telephone: "+91-7016427729",
+        email: "hello@satvixtech.com",
         contactType: "sales",
         areaServed: ["IN", "US", "GB"],
         availableLanguage: "en",
@@ -131,8 +135,8 @@ const SEO = ({
     name: COMPANY_NAME,
     image,
     url: BASE_URL,
-    telephone: "+91-9904055986",
-    email: "satvixtechsolutions@gmail.com",
+    telephone: "+91-7016427729",
+    email: "hello@satvixtech.com",
     priceRange: "₹₹₹",
     currenciesAccepted: "INR, USD",
     paymentAccepted: "Bank Transfer, UPI, PayPal",
@@ -284,7 +288,7 @@ const SEO = ({
         availableChannel: {
           "@type": "ServiceChannel",
           serviceUrl: currentUrl,
-          servicePhone: "+91-9904055986",
+          servicePhone: "+91-7016427729",
         },
       }
     : null;

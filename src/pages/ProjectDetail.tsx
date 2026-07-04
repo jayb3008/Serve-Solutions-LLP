@@ -30,270 +30,117 @@ type Project = {
 
 const projectsData: Record<string, Project> = {
   "nine-finance": {
-    title: "9 Finance",
-    subtitle: "Digital lending and financial services platform",
-    category: "Fintech · Web Platform",
-    year: "2026",
-    client: "9 Finance",
-    role: "Full Stack Development",
-    tags: ["Fintech", "React", "Node.js", "Finance"],
+    title: "Nine Finance",
+    subtitle: "Fintech lending platform, shipped in two weeks",
+    category: "Fintech · Mobile-first",
+    year: "2 weeks",
+    client: "Nine Finance (confidential)",
+    role: "Full-stack build — founder-led",
+    tags: ["Fintech", "React Native", "Node.js", "Live"],
     overview:
-      "A complete financial services platform helping users manage loans, investments, and financial planning through a modern digital experience.",
+      "A lending platform where borrowers and field agents run structured daily EMI collections through a mobile app. Live and managing real loan portfolios.",
     challenge:
-      "Building secure financial workflows, managing customer onboarding, and creating a scalable architecture for financial transactions.",
+      "Ship a mobile-first, multi-tenant lending workflow — borrowers on one side, collection agents on the other — with EMI schedules and reconciliation, on a two-week timeline.",
     solution:
-      "Developed a robust web platform with role-based access, customer management, reporting dashboards, and secure APIs.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "AWS"],
+      "React Native for both borrower and agent apps sharing a single codebase. Node.js backend handling EMI calculations, collections, reconciliation and role-based access. AI-augmented delivery on scaffolding and tests, senior review on every diff.",
+    tech: ["React Native", "Node.js", "Express", "MongoDB"],
     outcomes: [
-      { n: "10k+", label: "Users Managed" },
-      { n: "99.9%", label: "Platform Uptime" },
-      { n: "40%", label: "Process Automation" },
-      { n: "24/7", label: "Availability" },
+      { n: "2 wks", label: "Kickoff to live" },
+      { n: "Live", label: "Managing real portfolios" },
+      { n: "2", label: "User types shipped (borrower + agent)" },
+      { n: "1x", label: "Codebase, both apps" },
     ],
-    img: "/images/projects/nine-finance.jpg",
-    prev: "proposal-generator",
+    img: "/images/satvix_fintech_showcase.png",
+    prev: "charotar-soap",
     next: "glamour-jewelry",
     faq: [
-      { question: "What security measures are implemented in 9 Finance?", answer: "We implemented role-based access control, bank-grade encryption for transaction data, and secure third-party payment integrations." },
-      { question: "How long did it take to build the 9 Finance platform?", answer: "The initial platform was shipped in 18 weeks, followed by iterative feature rollouts for loan management and reports." }
-    ]
+      {
+        question: "How did you ship a fintech app in two weeks?",
+        answer:
+          "AI-augmented scaffolding on the boilerplate (auth, screens, forms, migrations), founder-led decisions on every architecture and data model choice, and senior review on every diff before it lands. No junior developers, no handoffs.",
+      },
+      {
+        question: "Can we see it live or talk to the client?",
+        answer:
+          "The product is live and confidential. We can show screenshots on a call and, with client permission, arrange a reference conversation.",
+      },
+    ],
   },
 
   "glamour-jewelry": {
     title: "Glamour Jewelry",
-    subtitle: "Luxury jewelry eCommerce experience",
-    category: "Ecommerce · Jewelry",
-    year: "2026",
+    subtitle: "Full jewelry e-commerce platform in four weeks",
+    category: "E-commerce · Full-stack",
+    year: "4 weeks",
     client: "Glamour Jewelry",
-    role: "Web Development & SEO",
-    tags: ["Next.js", "Jewelry", "SEO", "Ecommerce"],
+    role: "Full-stack build — founder-led",
+    tags: ["Ecommerce", "React", "Node", "MongoDB"],
     overview:
-      "Premium jewelry showcase website focused on product discovery and WhatsApp-based inquiries.",
+      "A complete jewelry e-commerce platform: product catalog, order flow, inventory, and an admin dashboard. Live and processing real orders.",
     challenge:
-      "Creating a luxury brand experience while maintaining fast loading speeds and SEO performance.",
+      "Ship a real transaction-heavy storefront — with catalog, orders, inventory and back-office admin — on a four-week timeline, without cutting corners on payment reliability or admin usability.",
     solution:
-      "Built a responsive Next.js website with category management, product galleries, and lead generation flows.",
-    tech: ["Next.js", "TypeScript", "TailwindCSS", "SEO"],
+      "React frontend, Node.js + Express API, MongoDB for products, orders and inventory. One coherent codebase from customer-facing store through admin dashboard. Shipped, hardened, live.",
+    tech: ["React", "Node.js", "Express", "MongoDB"],
     outcomes: [
-      { n: "95+", label: "Lighthouse Score" },
-      { n: "3x", label: "Lead Growth" },
-      { n: "60%", label: "Mobile Traffic" },
-      { n: "1s", label: "Load Time" },
+      { n: "4 wks", label: "Kickoff to live" },
+      { n: "Live", label: "Processing real orders" },
+      { n: "1", label: "Admin dashboard + storefront, unified" },
+      { n: "E2E", label: "Catalog → order → inventory" },
     ],
     img: "/images/glamour-jewelry.png",
     prev: "nine-finance",
-    next: "nivas-realty",
+    next: "charotar-soap",
     faq: [
-      { question: "How did Next.js help Glamour Jewelry's SEO?", answer: "Next.js provided server-side rendering (SSR), fast static generation, and optimized image delivery, improving Core Web Vitals and organic search discoverability." },
-      { question: "Why was a WhatsApp-based inquiry system used?", answer: "WhatsApp-based ordering allows luxury buyers to establish a direct, personal contact channel with designers, leading to a 3x increase in lead conversion compared to a standard cart checkout." }
-    ]
+      {
+        question: "Is the site live?",
+        answer:
+          "Yes — live and processing real orders. We can share a link on a call or point you at it directly.",
+      },
+      {
+        question: "Why React + Node + MongoDB rather than a pre-built platform?",
+        answer:
+          "The client needed custom catalog, order and inventory logic that Shopify-style platforms don't fit cleanly. A tight React + Node + MongoDB build gave us full control on schema and behavior, and shipped inside four weeks.",
+      },
+    ],
   },
 
-  "nivas-realty": {
-    title: "Nivas Realty",
-    subtitle: "Property listing and lead generation platform",
-    category: "Real Estate",
-    year: "2025",
-    client: "Nivas Realty",
-    role: "Full Stack Development",
-    tags: ["Real Estate", "CRM", "Property Management"],
+  "charotar-soap": {
+    title: "Charotar Soap Factory",
+    subtitle: "White-label manufacturing SaaS — reusable, licensable",
+    category: "SaaS · White-label · B2B",
+    year: "2 months",
+    client: "Proprietary product (Satvix)",
+    role: "Product design + full-stack build",
+    tags: ["SaaS", "Next.js", "Node.js", "White-label"],
     overview:
-      "A real estate platform allowing users to browse properties, submit inquiries, and connect with agents.",
+      "Inventory, production tracking and sales order management built specifically for soap manufacturers — architected from day one as a reusable, white-label product for other manufacturers and distributors.",
     challenge:
-      "Managing large property inventories while ensuring excellent search and filtering performance.",
+      "Small manufacturers had no affordable, focused tooling for production tracking, inventory and sales orders. Bigger ERP systems were overkill and expensive; spreadsheets couldn't handle real production runs.",
     solution:
-      "Developed advanced search filters, inquiry workflows, and admin management tools.",
-    tech: ["React", "Node.js", "MongoDB"],
+      "React + Next.js frontend, Node.js backend. Modular, multi-tenant architecture so the same product can be deployed for any manufacturer we sign. Domain modeled around production batches, inventory movements and sales orders.",
+    tech: ["React", "Next.js", "Node.js", "TypeScript"],
     outcomes: [
-      { n: "1000+", label: "Properties Listed" },
-      { n: "500+", label: "Monthly Leads" },
-      { n: "80%", label: "Mobile Users" },
-      { n: "99%", label: "Uptime" },
+      { n: "1", label: "Reusable product, many manufacturers" },
+      { n: "2 mo", label: "Initial build" },
+      { n: "B2B", label: "White-label licensing available" },
+      { n: "Demo", label: "On request" },
     ],
-    img: "/images/projects/nivas.jpg",
+    img: "https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=1400",
     prev: "glamour-jewelry",
-    next: "tabletrack",
-    faq: [
-      { question: "What is the lead generation process in Nivas Realty?", answer: "Users can submit inquiry forms directly on listing pages, which automatically route to registered brokers via our internal CRM panel." }
-    ]
-  },
-
-  tabletrack: {
-    title: "TableTrack",
-    subtitle: "Restaurant POS & management software",
-    category: "SaaS · Restaurant",
-    year: "2025",
-    client: "TableTrack",
-    role: "Product Design & Development",
-    tags: ["POS", "Restaurant", "SaaS"],
-    overview:
-      "Restaurant management software handling orders, billing, inventory, table reservations, and kitchen operations.",
-    challenge:
-      "Creating a system that works efficiently for restaurant owners, managers, and kitchen staff.",
-    solution:
-      "Developed a complete restaurant ecosystem with real-time order management and reporting.",
-    tech: ["React", "Node.js", "Socket.io", "MongoDB"],
-    outcomes: [
-      { n: "500+", label: "Orders Daily" },
-      { n: "50%", label: "Faster Billing" },
-      { n: "20+", label: "Restaurants" },
-      { n: "99.9%", label: "Reliability" },
-    ],
-    img: "/images/projects/tabletrack.jpg",
-    prev: "nivas-realty",
-    next: "sd-photography",
-    faq: [
-      { question: "Does TableTrack POS work offline?", answer: "Yes, TableTrack is built with offline-first synchronization using local databases, syncing automatically to the cloud when internet connection is restored." },
-      { question: "How does the kitchen workflow update in real-time?", answer: "We used Socket.io for instantaneous real-time updates between the POS billing counter, servers' handheld devices, and the kitchen display monitor." }
-    ]
-  },
-
-  "sd-photography": {
-    title: "SD Photography",
-    subtitle: "Photography portfolio & client gallery platform",
-    category: "Creative · Photography",
-    year: "2025",
-    client: "SD Photography",
-    role: "Web Development",
-    tags: ["Photography", "Portfolio", "Gallery"],
-    overview:
-      "Professional photography showcase platform with album management and client galleries.",
-    challenge:
-      "Delivering high-quality image experiences while maintaining performance.",
-    solution:
-      "Created a responsive gallery system with private album sharing and portfolio management.",
-    tech: ["Next.js", "Cloudinary", "TypeScript"],
-    outcomes: [
-      { n: "1000+", label: "Photos Managed" },
-      { n: "95+", label: "Performance Score" },
-      { n: "50+", label: "Albums Created" },
-      { n: "100%", label: "Mobile Responsive" },
-    ],
-    img: "/images/sd-photography.png",
-    prev: "tabletrack",
-    next: "sk-consultant",
-    faq: [
-      { question: "How are photos optimized in SD Photography?", answer: "We integrated Cloudinary's dynamic CDN for auto-formatting, compression, and delivery of progressive images based on client network bandwidth." }
-    ]
-  },
-
-  "sk-consultant": {
-    title: "SK Consultant",
-    subtitle: "EPFO & HR compliance services platform",
-    category: "Government Services · Web",
-    year: "2026",
-    client: "SK Consultant",
-    role: "Web Development",
-    tags: ["EPFO", "HR Services", "Compliance", "Web App"],
-    overview:
-      "A fast and fully online platform providing EPFO, ESI, payroll, and HR compliance support — handled by professionals for businesses of all sizes.",
-    challenge:
-      "Making complex government compliance processes (EPF, ESIC, payroll) simple and accessible for small business owners who are not HR experts.",
-    solution:
-      "Built a clean, trust-focused website with service breakdowns, WhatsApp-based inquiry flows, and an SEO-optimised structure to capture local compliance search traffic.",
-    tech: ["React", "Node.js", "TailwindCSS", "SEO"],
-    outcomes: [
-      { n: "500+", label: "Happy Clients" },
-      { n: "100%", label: "Online Service" },
-      { n: "3x", label: "Lead Growth" },
-      { n: "Fast", label: "Processing" },
-    ],
-    img: "/images/sk-consultant.png",
-    prev: "sd-photography",
-    next: "clickly",
-    faq: [
-      { question: "What compliance services does SK Consultant cover?", answer: "SK Consultant handles EPF registration and filing, ESIC compliance, payroll processing, professional tax, and other statutory HR obligations for businesses." },
-      { question: "How were leads generated for SK Consultant?", answer: "We optimised the site for local government-service keywords, added WhatsApp CTAs on every service page, and structured the content to rank for queries like 'EPFO services near me'." }
-    ]
-  },
-
-  clickly: {
-    title: "Clickly",
-    subtitle: "Photography website builder platform",
-    category: "SaaS · Photography",
-    year: "2025",
-    client: "Clickly",
-    role: "Founder & Developer",
-    tags: ["SaaS", "Photography", "Website Builder"],
-    overview:
-      "A platform that allows photographers to create portfolio websites without coding.",
-    challenge:
-      "Making website creation simple while offering customization and scalability.",
-    solution:
-      "Built a multi-tenant SaaS architecture with templates, galleries, and custom domains.",
-    tech: ["Next.js", "Node.js", "Supabase", "Cloudinary"],
-    outcomes: [
-      { n: "100+", label: "Sites Created" },
-      { n: "10+", label: "Templates" },
-      { n: "95%", label: "User Satisfaction" },
-      { n: "24/7", label: "Availability" },
-    ],
-    img: "/images/projects/clickly.jpg",
-    prev: "sk-consultant",
-    next: "tailorpro",
-    faq: [
-      { question: "How does Clickly handle custom domains?", answer: "We built a routing layer using proxy configurations that dynamically maps custom domains to multi-tenant portfolios hosted on Supabase." },
-      { question: "Is Clickly optimized for mobile photography?", answer: "Yes, the portfolio pages use dynamic image resizing and lazy-loading to ensure portfolio websites load instantly on any mobile device." }
-    ]
-  },
-
-  tailorpro: {
-    title: "TailorPro",
-    subtitle: "Tailoring business management system",
-    category: "SaaS",
-    year: "2025",
-    client: "TailorPro",
-    role: "Full Stack Development",
-    tags: ["Tailor Shop", "SaaS", "Management"],
-    overview:
-      "Complete tailoring management platform for orders, measurements, billing, and customer management.",
-    challenge:
-      "Digitizing traditional tailoring workflows without making the software complex.",
-    solution:
-      "Created easy-to-use dashboards with order tracking and customer history.",
-    tech: ["React", "Node.js", "MongoDB"],
-    outcomes: [
-      { n: "500+", label: "Orders Managed" },
-      { n: "40%", label: "Time Saved" },
-      { n: "100+", label: "Customers" },
-      { n: "99%", label: "Reliability" },
-    ],
-    img: "/images/projects/tailorpro.jpg",
-    prev: "clickly",
-    next: "proposal-generator",
-    faq: [
-      { question: "Does TailorPro support custom measurements?", answer: "Yes, users can create tailored metric sheets for each customer containing custom fields for custom dress patterns." }
-    ]
-  },
-
-  "proposal-generator": {
-    title: "Proposal Generator",
-    subtitle: "Business proposal automation platform",
-    category: "SaaS · Automation",
-    year: "2025",
-    client: "Serve Solutions",
-    role: "Founder & Developer",
-    tags: ["SaaS", "Automation", "Business"],
-    overview:
-      "Generate proposals, quotations, and invoices in minutes using predefined templates.",
-    challenge:
-      "Reducing manual document creation time for agencies and freelancers.",
-    solution:
-      "Built a dynamic template engine with PDF generation and branding customization.",
-    tech: ["Next.js", "Node.js", "PostgreSQL"],
-    outcomes: [
-      { n: "80%", label: "Time Saved" },
-      { n: "1000+", label: "Documents Generated" },
-      { n: "10x", label: "Faster Workflow" },
-      { n: "99.9%", label: "Uptime" },
-    ],
-    img: "/images/projects/proposal-generator.jpg",
-    prev: "tailorpro",
     next: "nine-finance",
     faq: [
-      { question: "How are PDFs generated in Proposal Generator?", answer: "PDFs are generated on the server using headless browser rendering, ensuring consistent branding, font styles, and layout dimensions across all devices." },
-      { question: "Can we customize colors and typography?", answer: "Yes, users can store branding presets (colors, fonts, logo images) which are applied dynamically to every quotation or invoice generated." }
-    ]
+      {
+        question: "Is Charotar Soap Factory available to license?",
+        answer:
+          "Yes. It was built as a white-label product from day one. If you run a manufacturing operation and want inventory / production / sales order tracking, we can deploy a branded instance for you. Ask for a demo.",
+      },
+      {
+        question: "Why build a proprietary product rather than a one-off?",
+        answer:
+          "Recurring-revenue economics and better software. A product used by multiple manufacturers gets stress-tested harder and matures faster than a bespoke build used by one client.",
+      },
+    ],
   },
 };
 

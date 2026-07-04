@@ -12,13 +12,7 @@ import { blogSlugs } from './blog';
 export const portfolioSlugs = [
   'nine-finance',
   'glamour-jewelry',
-  'nivas-realty',
-  'tabletrack',
-  'sd-photography',
-  'sk-consultant',
-  'clickly',
-  'tailorpro',
-  'proposal-generator',
+  'charotar-soap',
 ];
 
 /* Hand-authored, non-parameterised routes */

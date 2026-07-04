@@ -2,13 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
-import AwardsSection from "../components/AwardsSection";
-import HoverMembers, { HoverMember } from "../components/HoverMembers";
 import ImageCursorTrail from "../components/ImageCursorTrail";
-import SvgScrollPath from "../components/SvgScrollPath";
 import TextReveal from "../components/TextReveal";
 import RollingText from "../components/RollingText";
-import TestimonialSlider from "../components/TestimonialSlider";
 import GradientCard from "../components/GradientCard";
 import InfiniteMarquee from "../components/InfiniteMarquee";
 import { servicesData } from "../data/services";
@@ -170,170 +166,39 @@ const services: Service[] = [
 
 const workCards = [
   {
-    cls: "wc-1 wide",
-    year: "2026",
-    tags: ["Fintech", "React", "Node.js", "Web App"],
+    cls: "wc-1",
+    year: "2 weeks",
+    tags: ["Fintech", "React Native", "Node.js", "Live"],
     title:
-      "9 Finance — a modern financial services platform simplifying loans, investments, and digital wealth management for growing businesses.",
+      "Nine Finance — a lending platform where borrowers and field agents run structured daily EMI collections through a mobile app. Shipped in two weeks; live and managing real loan portfolios.",
     href: "/portfolio/nine-finance",
-    img: "https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    img: "/images/satvix_fintech_showcase.png",
   },
   {
     cls: "wc-2",
-    year: "2026",
-    tags: ["Jewelry", "Ecommerce", "Next.js"],
+    year: "4 weeks",
+    tags: ["Ecommerce", "React", "Node", "MongoDB"],
     title:
-      "Glamour Jewelry — a premium jewelry showcase platform with category management, WhatsApp inquiries, and SEO-driven product discovery.",
+      "Glamour Jewelry — a full jewelry e-commerce platform: product catalog, orders, inventory, admin dashboard. React + Node + MongoDB, shipped in four weeks, live and processing orders.",
     href: "/portfolio/glamour-jewelry",
     img: "/images/glamour-jewelry.png",
   },
   {
     cls: "wc-3",
-    year: "2025",
-    tags: ["Real Estate", "CRM", "Lead Generation"],
+    year: "2 months",
+    tags: ["SaaS", "Next.js", "White-label"],
     title:
-      "Nivas Realty — a property management and lead generation platform helping buyers discover and connect with verified listings.",
-    href: "/portfolio/nivas-realty",
-    img: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=900",
-  },
-  {
-    cls: "wc-4",
-    year: "2025",
-    tags: ["Restaurant", "POS", "SaaS"],
-    title:
-      "TableTrack — an all-in-one restaurant management system handling orders, billing, reservations, kitchen workflows, and analytics.",
-    href: "/portfolio/tabletrack",
-    img: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=900",
-  },
-  {
-    cls: "wc-5",
-    year: "2025",
-    tags: ["Photography", "Portfolio", "CMS"],
-    title:
-      "SD Photography — a professional photography portfolio platform featuring client galleries, album management, and digital delivery.",
-    href: "/portfolio/sd-photography",
-    img: "/images/sd-photography.png",
-  },
-  {
-    cls: "wc-6",
-    year: "2026",
-    tags: ["EPFO", "HR Services", "Compliance"],
-    title:
-      "SK Consultant — a fast, fully online EPFO and HR compliance platform handling payroll, ESI, and statutory services for 500+ clients.",
-    href: "/portfolio/sk-consultant",
-    img: "/images/sk-consultant.png",
-  },
-  {
-    cls: "wc-7",
-    year: "2025",
-    tags: ["SaaS", "Photography", "Next.js"],
-    title:
-      "Clickly — a website builder empowering photographers to launch branded portfolio websites with custom domains and galleries.",
-    href: "/portfolio/clickly",
-    img: "https://images.pexels.com/photos/274973/pexels-photo-274973.jpeg?auto=compress&cs=tinysrgb&w=900",
-  },
-  {
-    cls: "wc-8",
-    year: "2025",
-    tags: ["Tailor Shop", "Management", "SaaS"],
-    title:
-      "TailorPro — a complete tailoring business management solution for measurements, orders, billing, customer history, and delivery tracking.",
-    href: "/portfolio/tailorpro",
-    img: "https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg?auto=compress&cs=tinysrgb&w=900",
-  },
-  {
-    cls: "wc-9",
-    year: "2025",
-    tags: ["Business Tools", "Automation", "SaaS"],
-    title:
-      "Proposal Generator — an automated platform for creating professional proposals, quotations, and invoices in minutes.",
-    href: "/portfolio/proposal-generator",
-    img: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=900",
-  },
-];
-
-const teamMembers: HoverMember[] = [
-  {
-    name: "Jay",
-    role: "Founder & CEO",
-    image:
-      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400",
-    href: "/about",
-  },
-  {
-    name: "Aarav",
-    role: "Lead Engineer",
-    image:
-      "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400",
-    href: "/about",
-  },
-  {
-    name: "Priya",
-    role: "Design Lead",
-    image:
-      "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400",
-    href: "/about",
-  },
-  {
-    name: "Rohan",
-    role: "AI Engineer",
-    image:
-      "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=400",
-    href: "/about",
-  },
-  {
-    name: "Diya",
-    role: "Mobile Dev",
-    image:
-      "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400",
-    href: "/about",
-  },
-  {
-    name: "Karan",
-    role: "DevOps Lead",
-    image:
-      "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400",
-    href: "/about",
-  },
-  {
-    name: "Sneha",
-    role: "QA Engineer",
-    image:
-      "https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg?auto=compress&cs=tinysrgb&w=400",
-    href: "/about",
-  },
-  {
-    name: "Arjun",
-    role: "Full-Stack Dev",
-    image:
-      "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400",
-    href: "/about",
-  },
-  {
-    name: "Neel",
-    role: "Growth Lead",
-    image:
-      "https://images.pexels.com/photos/2269872/pexels-photo-2269872.jpeg?auto=compress&cs=tinysrgb&w=400",
-    href: "/about",
+      "Charotar Soap Factory — inventory, production tracking and sales orders for soap manufacturers. Designed as a reusable product we can white-label to other manufacturers. Demo on request.",
+    href: "/portfolio/charotar-soap",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23121518'/><stop offset='1' stop-color='%230a0e12'/></linearGradient></defs><rect width='800' height='500' fill='url(%23g)'/><text x='50%25' y='50%25' fill='%23e6c667' font-family='monospace' font-size='22' text-anchor='middle' letter-spacing='4'>DEMO ON REQUEST</text></svg>",
   },
 ];
 
 const bandStats = [
-  { n: 6, unit: "yrs", label: "Quietly shipping since 2020" },
-  { n: 120, unit: "+", label: "Products in the wild" },
-  { n: 98, unit: "%", label: "Clients who come back" },
-  { n: 40, unit: "", label: "Engineers, designers, makers" },
-];
-
-const clients = [
-  "LendingFlow",
-  "TailorPro",
-  "Stillwood",
-  "Pelican AI",
-  "Verbena",
-  "Nordhavn",
-  "Aurum",
-  "Traxis",
+  { n: 3, unit: "", label: "Shipped products you can verify" },
+  { n: 2, unit: " wks", label: "Fastest delivery — Nine Finance (fintech)" },
+  { n: 7, unit: "+ yrs", label: "Senior MERN experience — founder-led" },
+  { n: 1, unit: "", label: "Working demo, every Friday" },
 ];
 
 const process = [
@@ -373,71 +238,91 @@ const techStack = [
   { cat: "Data", tools: "Snowflake · dbt · Airflow · Redis" },
 ];
 
-const testimonials = [
+const caseStudies = [
   {
-    quote:
-      "Satvix shipped our card-issuing platform from zero to 50,000 active cards in eighteen months. They treated RBI compliance as a design problem, not as a reason to slow down.",
-    name: "Aanya Krishnan",
-    role: "Head of Product",
-    org: "LendingFlow, Mumbai",
+    n: "01",
+    tag: "Fintech · React Native + Node.js · 2 weeks",
+    title: "Nine Finance — a lending platform, shipped in two weeks.",
+    problem:
+      "A lender needed a mobile app for borrowers and field agents to run structured daily EMI collections and reconciliation.",
+    approach:
+      "React Native for both borrower and agent apps; Node.js backend handling EMI schedules, reconciliation and role-based access. Founder-led, senior-only build.",
+    outcome:
+      "Live in two weeks, currently managing active loan portfolios in production. Demonstrates our ability to move fast on regulated, mission-critical systems.",
+    href: "/portfolio/nine-finance",
   },
   {
-    quote:
-      "We had worked with five agencies before this one. Satvix is the first team that did not hand work between strategy, design and engineering — they just owned the whole thing, end to end.",
-    name: "Rohan Mehta",
-    role: "Founder & CEO",
-    org: "TailorPro",
+    n: "02",
+    tag: "E-commerce · React + Node + MongoDB · 4 weeks",
+    title: "Glamour Jewelry — a full e-commerce platform in four weeks.",
+    problem:
+      "A jewelry retailer needed an end-to-end online storefront: product catalog, orders, inventory and an admin dashboard.",
+    approach:
+      "React frontend, Node.js + Express API, MongoDB. Payments, order lifecycle, inventory, and back-office admin — all shipped as one coherent system.",
+    outcome:
+      "Live and processing real orders. Proves we can ship polished, transaction-heavy systems on a compressed timeline.",
+    href: "/portfolio/glamour-jewelry",
   },
   {
-    quote:
-      "Our Lighthouse score went from 22 to 98 and conversions roughly tripled. They reproduced sixty years of brand pixel-for-pixel — somehow while also making the site twice as fast.",
-    name: "Maeve Donovan",
-    role: "Brand Director",
-    org: "Stillwood Co.",
+    n: "03",
+    tag: "SaaS · Next.js + Node.js · 2 months · White-label",
+    title: "Charotar Soap Factory — a white-label manufacturing SaaS.",
+    problem:
+      "Small soap manufacturers had no affordable, focused system for production tracking, inventory and sales orders.",
+    approach:
+      "React + Next.js frontend, Node.js backend. Built as a reusable product from day one — modular, multi-tenant, ready to white-label.",
+    outcome:
+      "Proprietary product available for licensing or resale to other manufacturers and distributors. Demo on request.",
+    href: "/portfolio/charotar-soap",
   },
 ];
 
 const homepageFaqs = [
   {
-    question: "What IT services does Satvix Tech Solutions provide in India?",
-    answer: "As an independent software development company India, we provide full-cycle custom software development, high-performance web development, mobile app development (iOS, Android, React Native), AI and machine learning integrations, UI/UX design system development, and technical SEO growth consulting."
+    question: "Who actually writes the code — a senior engineer, or a junior?",
+    answer:
+      "You talk directly to the senior engineers who write your code. There are no account managers, no juniors learning on your budget, no handoffs between strategy, design and engineering. Every line of AI-generated code is reviewed by a senior engineer before it reaches your repo.",
   },
   {
-    question: "Why choose a custom software development company instead of templates?",
-    answer: "Custom software development ensures your application matches your exact business logic without the slow overhead and security risks of general templates. We build custom React, Next.js, and Node.js solutions optimized for speed, scalability, and security."
+    question: "What's the timezone overlap with US and UK teams?",
+    answer:
+      "Four-plus hours of overlap with US East Coast, full working-day overlap with the UK and EU. We run daily async updates on Slack or email so no one is stuck waiting, and Friday demos happen at a time that suits your team.",
   },
   {
-    question: "What makes Satvix a top web development company in Gujarat?",
-    answer: "Unlike agencies that build slow, template-driven sites, we operate as a dedicated web development company building fast headless architectures. Our products achieve sub-second load times, score 95+ on Google Lighthouse, and are structured to rank on search engines."
+    question: "Who owns the code and the IP?",
+    answer:
+      "You do — 100%, from day one. Full repository access, no escrow, no vendor lock-in. On handover we include documentation, recorded walkthroughs and transition support so your team (or a future team) can run it without us.",
   },
   {
-    question: "Do you build mobile apps using native code or cross-platform systems?",
-    answer: "Our mobile app development company builds both native (Swift for iOS, Kotlin for Android) and cross-platform apps using React Native and Flutter. React Native development is our default choice for business apps because it reduces development costs by up to 50% through code sharing."
+    question: "What proof do you have — real case studies, not stock work?",
+    answer:
+      "Three shipped products we can show: a fintech lending platform (React Native + Node.js, two weeks, live and managing real EMI collections), a jewelry e-commerce platform (React + Node + MongoDB, four weeks, live and processing orders), and a manufacturing inventory system (React + Next.js + Node, built as a white-label product). Ask for a demo or a reference call.",
   },
   {
-    question: "Why is Next.js recommended for SaaS and corporate platforms?",
-    answer: "As a Next.js development company, we default to Next.js because it provides Server-Side Rendering (SSR) and Static Site Generation (SSG). This combination delivers incredibly fast load times, meets Core Web Vitals standards, and ensures search engine crawlers receive fully structured HTML on the first paint."
+    question: "How do you handle contracts and invoicing with foreign clients?",
+    answer:
+      "We invoice in USD, GBP or INR. Standard SaaS/dev contracts, NDA-friendly, wire or Wise for payment. Engagements come in three shapes: fixed-scope for defined MVPs, monthly retainer for ongoing product work, or staff augmentation where we embed with your team.",
   },
   {
-    question: "How does your AI development company integrate machine learning?",
-    answer: "As an AI development company, we integrate Large Language Models (LLMs like GPT-4, Claude) into existing database systems. We set up Retrieval-Augmented Generation (RAG) pipelines, build autonomous agents for task automation, and implement evaluation harnesses to monitor token usage and guardrails."
+    question: "How does AI-augmented delivery help — and where is the ceiling?",
+    answer:
+      "We use Claude Code, Cursor and agentic workflows to move faster on scaffolding, tests, migrations and repetitive plumbing. That translates into lower cost and shorter timelines (a fintech MVP in two weeks, an e-commerce build in four). The ceiling: every AI-generated change is reviewed by a senior engineer before it touches your repo.",
   },
   {
-    question: "What deliverables do we receive from your UI UX design agency?",
-    answer: "Our UI UX design agency delivers user flow wireframes, clickable high-fidelity prototypes, customer research summaries, and structured design systems in Figma. We export brand elements as code tokens so engineers can build pixel-perfect interfaces quickly."
+    question: "What's the communication cadence?",
+    answer:
+      "Direct Slack or WhatsApp access to the engineer writing your code. Daily async updates instead of a daily standup tax. A shared project board (Linear or Jira). Staging environment from week one. A working demo every Friday.",
   },
   {
-    question: "How does your digital marketing company and SEO agency India drive leads?",
-    answer: "We treat marketing as engineering. Our digital marketing company and SEO agency India teams set up Google Analytics 4 (GA4), implement JSON-LD Schema markup hierarchies, design optimized landing pages, and optimize Core Web Vitals, which increases organic search rankings and conversion rates."
+    question: "What does a project cost?",
+    answer:
+      "Small MVPs and fixed-scope builds typically fall between USD 3,000 and USD 12,000. Ongoing product work is billed monthly on a retainer sized to how deeply we're embedded. Scoping, timeline and pricing are in writing before you commit — no surprise invoices.",
   },
   {
-    question: "How much does custom software development cost?",
-    answer: "Our custom software development contracts typically range from ₹3,00,000 ($3,500 USD) for MVPs to ₹15,00,000+ ($18,000 USD) for large-scale enterprise portals. We provide transparent billing, scoping documentation, and deliver working demos every Friday."
+    question: "Where are you based, and how do we start?",
+    answer:
+      "Anand, Gujarat, India. A small senior team, led by Jay Sarvaiya. To start, email hello@satvixtech.com with a few sentences on what you're building and why — a real person replies within one business day.",
   },
-  {
-    question: "Where is Satvix Tech Solutions located and how do we begin?",
-    answer: "Our engineering studio is located in Anand, Gujarat, India. Around half of our clients are startups and enterprises in the US, UK, and Europe, while the rest are based in India. To begin, send us an email at satvixtechsolutions@gmail.com, and we will schedule a technical discovery call."
-  }
 ];
 
 export default function Home() {
@@ -459,9 +344,9 @@ export default function Home() {
     <div>
       {/* Fixed scroll-drawn SVG path — hero to footer */}
       <SEO
-        title="Satvix Tech Solutions — Software Development Company in India"
-        description="Satvix Tech Solutions is a custom software development company in India specializing in web engineering, mobile apps, AI solutions, and UI/UX design."
-        keywords="Software Development Company India, Web Development Company, Mobile App Development Company, React Native Development, Next.js Development Company, AI Development Company, Custom Software Development, UI UX Design Agency, Digital Marketing Company, SEO Agency India, Satvix Tech Solutions"
+        title="Satvix Tech Solutions — small, senior, AI-augmented studio for founders who ship"
+        description="Satvix Tech Solutions is a small, senior, AI-augmented engineering studio in Anand, Gujarat. Talk directly to the engineers who build your product. Fintech in two weeks, e-commerce in four."
+        keywords="Satvix Tech Solutions, AI augmented development studio, founder-led software studio India, senior engineers React Native Node.js, MERN development studio, offshore engineering US UK startups, Gujarat software company, custom software India, hire senior engineers India"
         url="https://satvixtech.com"
         faq={homepageFaqs}
       />
@@ -508,9 +393,9 @@ export default function Home() {
           <h1 className="hero__title">
             {(
               [
-                "Custom software &",
-                "mobile app development",
-                "<em>company in India.</em>",
+                "Senior engineers.",
+                "AI-augmented delivery.",
+                "<em>Ship in weeks, not quarters.</em>",
               ] as const
             ).map((line, i) => (
               <span key={i} className="row">
@@ -528,33 +413,37 @@ export default function Home() {
           <AnimateIn direction="up" delay={0.8}>
             <div className="hero__foot">
               <p>
-                We are forty people in one room at Satvix Tech Solutions. We design, build and ship web
-                platforms, mobile apps and AI products for founders and operators
-                who care about the work — and the bill.
+                A small, senior, AI-augmented engineering studio in Anand, Gujarat. You
+                talk directly to the engineers who write your code — no account
+                managers, no juniors learning on your budget, no timezone black
+                holes. We shipped a fintech lending platform in two weeks. Ask
+                for a demo.
               </p>
               <Magnetic>
                 <Link to="/portfolio" className="cta-btn" data-hover>
-                  See the work <span className="dot" />
+                  See the case studies <span className="dot" />
                 </Link>
               </Magnetic>
               <div className="stats">
                 <div>
                   <div className="stat__num">
-                    <CountUp to={120} />+
+                    <CountUp to={2} />
+                    <span style={{ fontSize: "0.55em", marginLeft: 4 }}>wks</span>
                   </div>
-                  <div className="stat__lbl">Products shipped</div>
+                  <div className="stat__lbl">Fastest delivery — Nine Finance</div>
                 </div>
                 <div>
                   <div className="stat__num">
-                    <CountUp to={98} />%
+                    <CountUp to={3} />
                   </div>
-                  <div className="stat__lbl">Clients who renew</div>
+                  <div className="stat__lbl">Shipped products, verifiable</div>
                 </div>
                 <div>
                   <div className="stat__num">
-                    <CountUp to={6} />
+                    <CountUp to={7} />
+                    <span style={{ fontSize: "0.55em", marginLeft: 4 }}>+ yrs</span>
                   </div>
-                  <div className="stat__lbl">Years, one studio</div>
+                  <div className="stat__lbl">Senior MERN, founder-led</div>
                 </div>
               </div>
             </div>
@@ -618,55 +507,6 @@ export default function Home() {
       <div style={{ overflow: "hidden", pointerEvents: "none" }}>
         <ScrollVelocityMarquee text="Web · Mobile · AI · SaaS · Fintech · Healthcare · Design · Engineering · Craft" baseSpeed={1.2} />
       </div>
-
-      {/* ── Clients strip ── */}
-      {/* <section
-        style={{ borderBottom: "1px solid var(--line)", padding: "40px 0" }}
-      >
-        <div className="wrap">
-          <div
-            style={{
-              fontFamily: "var(--mono)",
-              fontSize: 11,
-              textTransform: "uppercase",
-              letterSpacing: ".16em",
-              color: "var(--muted)",
-              textAlign: "center",
-              marginBottom: 28,
-            }}
-          >
-            A few of the teams we’ve built for
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "24px 56px",
-            }}
-          >
-            {clients.map((c) => (
-              <span
-                key={c}
-                style={{
-                  fontFamily: "var(--display)",
-                  fontSize: "clamp(18px, 2.2vw, 28px)",
-                  fontWeight: 500,
-                  letterSpacing: "-.02em",
-                  color: "var(--ink)",
-                  opacity: 0.32,
-                  transition: "opacity .3s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.32")}
-              >
-                {c}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* ── Services ── */}
       <section
@@ -754,10 +594,10 @@ export default function Home() {
                 Custom software &amp; digital products built <em>to last.</em>
               </h2>
               <p className="text-[var(--ink-2)] text-base sm:text-lg leading-relaxed mt-8">
-                As a leading <strong>software development company in India</strong>, Satvix Tech Solutions designs, builds, and maintains custom software applications for startups, operators, and enterprises worldwide. We align modern systems engineering with clean visual craft.
+                Satvix Tech Solutions is a small, senior, <strong>AI-augmented engineering studio</strong> in Anand, Gujarat. Founder-led by Jay Sarvaiya, with a small team of senior engineers, designers and product folks. You talk directly to the engineer writing your code — never to an account manager, never to a junior learning on your budget.
               </p>
               <p className="text-[var(--ink-2)] text-base leading-relaxed mt-6">
-                Whether you need a dedicated <strong>Next.js development company</strong> to deliver high-performance web storefronts, or a premier <strong>mobile app development company</strong> to launch cross-platform applications, our senior squad is built to execute.
+                We build for founders and agencies in the US, UK, EU and Australia. Four-plus hours overlap with US East, full working-day overlap with the UK. Full repo access from day one, USD/GBP/INR invoicing, NDA-friendly contracts.
               </p>
             </div>
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
@@ -1264,24 +1104,259 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
-      <section className="s">
+      {/* ── Case studies (Problem / Approach / Outcome) ── */}
+      <section className="s" style={{ borderTop: "1px solid var(--line)" }}>
         <div className="wrap">
           <div className="s-head">
             <AnimateIn direction="up">
               <div>
-                <div className="eyebrow reveal">Why clients choose Satvix</div>
+                <div className="eyebrow reveal">Case studies</div>
                 <h2 className="s-title" data-d="1">
-                  Three things our clients <em>actually said.</em>
+                  Three shipped products. <em>All verifiable.</em>
                 </h2>
               </div>
             </AnimateIn>
+            <p
+              className="reveal"
+              data-d="2"
+              style={{
+                maxWidth: "34ch",
+                color: "var(--ink-2)",
+                fontSize: 16,
+                lineHeight: 1.55,
+                margin: 0,
+              }}
+            >
+              Problem, approach, outcome. Real timelines, real stacks, real
+              users. Ask for a demo or a reference call — we encourage it.
+            </p>
           </div>
-          <TestimonialSlider items={testimonials} />
+          <div style={{ display: "grid", gap: 20 }}>
+            {caseStudies.map((c, i) => (
+              <motion.div
+                key={c.n}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: i * 0.08, duration: 0.55, ease: [0.25, 1, 0.5, 1] }}
+                style={{
+                  border: "1px solid var(--line)",
+                  borderRadius: 14,
+                  padding: "36px clamp(24px,3vw,44px)",
+                  background: "var(--bg)",
+                  display: "grid",
+                  gap: 20,
+                  gridTemplateColumns: "minmax(0, 1fr)",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 16,
+                    justifyContent: "space-between",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                    <span
+                      style={{
+                        fontFamily: "var(--mono)",
+                        fontSize: 12,
+                        color: "var(--muted)",
+                        letterSpacing: ".14em",
+                      }}
+                    >
+                      {c.n}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--mono)",
+                        fontSize: 11,
+                        textTransform: "uppercase",
+                        letterSpacing: ".12em",
+                        color: "var(--ink-2)",
+                      }}
+                    >
+                      {c.tag}
+                    </span>
+                  </div>
+                  <Link
+                    to={c.href}
+                    data-hover
+                    style={{
+                      fontFamily: "var(--mono)",
+                      fontSize: 12,
+                      textTransform: "uppercase",
+                      letterSpacing: ".12em",
+                      color: "var(--ink)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Read case study →
+                  </Link>
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "var(--display)",
+                    fontSize: "clamp(22px, 2.4vw, 32px)",
+                    fontWeight: 500,
+                    letterSpacing: "-.02em",
+                    lineHeight: 1.25,
+                    margin: 0,
+                    color: "var(--ink)",
+                  }}
+                >
+                  {c.title}
+                </h3>
+                <div
+                  style={{
+                    display: "grid",
+                    gap: 20,
+                    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+                    borderTop: "1px solid var(--line)",
+                    paddingTop: 24,
+                  }}
+                >
+                  {[
+                    { k: "Problem", v: c.problem },
+                    { k: "Approach", v: c.approach },
+                    { k: "Outcome", v: c.outcome },
+                  ].map((r) => (
+                    <div key={r.k}>
+                      <div
+                        style={{
+                          fontFamily: "var(--mono)",
+                          fontSize: 11,
+                          textTransform: "uppercase",
+                          letterSpacing: ".14em",
+                          color: "var(--muted)",
+                          marginBottom: 10,
+                        }}
+                      >
+                        {r.k}
+                      </div>
+                      <p
+                        style={{
+                          margin: 0,
+                          color: "var(--ink-2)",
+                          fontSize: 15,
+                          lineHeight: 1.55,
+                        }}
+                      >
+                        {r.v}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── Team: Hover Members ── */}
+      {/* ── AI-augmented positioning ── */}
+      <section
+        className="s"
+        style={{
+          background: "var(--bg-2)",
+          borderTop: "1px solid var(--line)",
+          borderBottom: "1px solid var(--line)",
+        }}
+      >
+        <div className="wrap">
+          <div className="s-head">
+            <AnimateIn direction="up">
+              <div>
+                <div className="eyebrow reveal">How we deliver in weeks</div>
+                <h2 className="s-title" data-d="1">
+                  AI-augmented, senior-reviewed. <em>Both, not either.</em>
+                </h2>
+              </div>
+            </AnimateIn>
+            <p
+              className="reveal"
+              data-d="2"
+              style={{
+                maxWidth: "34ch",
+                color: "var(--ink-2)",
+                fontSize: 16,
+                lineHeight: 1.55,
+                margin: 0,
+              }}
+            >
+              We use Claude Code, Cursor and agentic workflows to move faster on
+              scaffolding, tests, migrations and plumbing. Every AI-generated
+              change is reviewed by a senior engineer before it reaches your
+              repo. That is how we ship fintech in two weeks without cutting
+              corners.
+            </p>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gap: 12,
+              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            }}
+          >
+            {[
+              {
+                k: "Faster delivery",
+                v: "MVPs in two to four weeks, not two to four quarters.",
+              },
+              {
+                k: "Lower cost",
+                v: "Less time on repetitive plumbing means smaller invoices for the same outcome.",
+              },
+              {
+                k: "Senior review, always",
+                v: "No unreviewed AI output lands in your codebase. A human reads every diff.",
+              },
+              {
+                k: "Direct access",
+                v: "Slack or WhatsApp with the engineer writing your code. No relay.",
+              },
+            ].map((r) => (
+              <div
+                key={r.k}
+                style={{
+                  border: "1px solid var(--line)",
+                  borderRadius: 14,
+                  padding: "22px 24px",
+                  background: "var(--bg)",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--mono)",
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: ".14em",
+                    color: "var(--muted)",
+                    marginBottom: 10,
+                  }}
+                >
+                  {r.k}
+                </div>
+                <p
+                  style={{
+                    margin: 0,
+                    fontFamily: "var(--display)",
+                    fontSize: 18,
+                    letterSpacing: "-.01em",
+                    lineHeight: 1.4,
+                    color: "var(--ink)",
+                  }}
+                >
+                  {r.v}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Team: founder-led ── */}
       <section
         style={{
           background: "var(--ink)",
@@ -1291,7 +1366,7 @@ export default function Home() {
         }}
       >
         <div className="wrap">
-          <div className="s-head" style={{ marginBottom: 56 }}>
+          <div className="s-head" style={{ marginBottom: 40 }}>
             <div>
               <div
                 className="eyebrow reveal"
@@ -1306,14 +1381,14 @@ export default function Home() {
                     flexShrink: 0,
                   }}
                 />
-                The Satvix Team
+                Who you're working with
               </div>
               <h2
                 className="s-title reveal"
                 data-d="1"
                 style={{ color: "var(--bg)" }}
               >
-                Forty people. <em>One room.</em>
+                Founder-led. <em>Senior by design.</em>
               </h2>
             </div>
             <Magnetic>
@@ -1327,17 +1402,104 @@ export default function Home() {
                   borderColor: "rgba(255,255,255,.25)",
                 }}
               >
-                About us <span className="arr" />
+                More about the studio <span className="arr" />
               </Link>
             </Magnetic>
           </div>
-          <AnimateIn direction="up" delay={0.3}>
-            <HoverMembers
-              members={teamMembers}
-              defaultText="OUR STUDIO"
-              globalHref="/about"
-            />
-          </AnimateIn>
+          <div
+            style={{
+              display: "grid",
+              gap: 24,
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              maxWidth: 1100,
+            }}
+          >
+            {[
+              {
+                k: "Founder",
+                title: "Jay Sarvaiya",
+                body:
+                  "Seven-plus years of full-stack MERN — MongoDB, Express, React, Node. Every project runs through Jay: scope, architecture, code review, delivery.",
+              },
+              {
+                k: "The team",
+                title: "A small senior team in Anand",
+                body:
+                  "Engineers, designers and product folks — all senior, all in Anand, all working together on the build. No offshored juniors, no rotating cast of contractors. See open roles on the careers page.",
+              },
+              {
+                k: "What you get",
+                title: "No account managers, no juniors on your budget",
+                body:
+                  "Direct access to the engineer writing your code. Daily async updates, Friday demos, full repo access from day one. You own the code, the IP, the momentum.",
+              },
+            ].map((r, i) => (
+              <motion.div
+                key={r.k}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                style={{
+                  border: "1px solid rgba(255,255,255,.1)",
+                  borderRadius: 14,
+                  padding: "28px 26px",
+                  background: "rgba(255,255,255,.02)",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--mono)",
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: ".14em",
+                    color: "rgba(255,255,255,.5)",
+                    marginBottom: 14,
+                  }}
+                >
+                  {r.k}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "var(--display)",
+                    fontSize: 22,
+                    fontWeight: 500,
+                    letterSpacing: "-.01em",
+                    lineHeight: 1.25,
+                    marginBottom: 12,
+                    color: "var(--bg)",
+                  }}
+                >
+                  {r.title}
+                </div>
+                <p
+                  style={{
+                    margin: 0,
+                    color: "rgba(255,255,255,.65)",
+                    fontSize: 15,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {r.body}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+          <p
+            className="reveal"
+            style={{
+              marginTop: 40,
+              fontFamily: "var(--mono)",
+              fontSize: 13,
+              color: "rgba(255,255,255,.55)",
+              letterSpacing: ".02em",
+              maxWidth: "60ch",
+            }}
+          >
+            Based in Anand, Gujarat. Working with founders and agencies in the
+            US, UK, EU and Australia. Four-plus hours overlap with US East;
+            full working-day overlap with the UK.
+          </p>
         </div>
       </section>
 
@@ -1363,9 +1525,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ── Awards & recognition ── */}
-      <AwardsSection />
 
       {/* ── FAQ Section ── */}
       <section className="py-20 sm:py-32 border-b border-[var(--line)] bg-[var(--bg)]">
@@ -1420,12 +1579,12 @@ export default function Home() {
           </h2>
           <Magnetic>
             <a
-              href="mailto:satvixtechsolutions@gmail.com"
+              href="mailto:hello@satvixtech.com"
               className="big-cta reveal"
               data-d="2"
               data-hover
             >
-              satvixtechsolutions@gmail.com
+              hello@satvixtech.com
               <span className="arrow">
                 <svg
                   width="18"

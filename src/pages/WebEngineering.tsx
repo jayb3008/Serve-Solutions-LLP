@@ -576,12 +576,12 @@ export default function WebEngineering() {
           </h2>
           <Magnetic>
             <a
-              href="mailto:satvixtechsolutions@gmail.com"
+              href="mailto:hello@satvixtech.com"
               className="big-cta reveal"
               data-d="2"
               data-hover
             >
-              satvixtechsolutions@gmail.com
+              hello@satvixtech.com
               <span className="arrow">
                 <svg
                   width="18"

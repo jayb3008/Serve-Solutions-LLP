@@ -221,7 +221,7 @@ export default function LocationLanding({ slug }: { slug: string }) {
                 WITH US <em>TODAY.</em>
               </h2>
               <p className="text-[var(--muted)] text-base sm:text-lg mb-8 sm:mb-12">
-                We're forty designers and engineers working together to build software that lasts. Let us know what you want to construct, and we'll tell you how we can help.
+                A founder-led, AI-augmented studio built to ship fast without cutting corners. Tell us what you're making — a real person replies within one business day.
               </p>
               <Magnetic>
                 <motion.button

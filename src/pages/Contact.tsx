@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Linkedin, Instagram, Github, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../components/SEO";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
+import { social } from "../data/social";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -22,10 +23,10 @@ const Contact = () => {
   );
 
   const budgets = [
-    "< ₹5L",
-    "₹5L – ₹15L",
-    "₹15L – ₹40L",
-    "₹40L +",
+    "< $3k",
+    "$3k – $12k",
+    "$12k – $30k",
+    "$30k +",
     "Not sure yet",
   ];
 
@@ -83,9 +84,9 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <SEO
-        title="Contact Satvix Tech Solutions — one inbox, one human, no funnel"
-        description="Contact Satvix Tech Solutions in Anand, Gujarat. Write to satvixtechsolutions@gmail.com or call +91 9904 055 986 — a real person replies within one working day."
-        keywords="contact Satvix Tech Solutions, Satvix Tech Solutions email, satvixtech contact, hire software agency India, digital product studio Gujarat, software development inquiry India, web development quote India, Anand Gujarat software company"
+        title="Contact Satvix Tech Solutions — talk to the engineer, not an account manager"
+        description="Contact Satvix Tech Solutions. Write to hello@satvixtech.com and a senior engineer replies within one business day. Based in Anand, Gujarat; working with founders in the US, UK, EU and Australia."
+        keywords="contact Satvix Tech Solutions, hire founder-led software studio, senior engineer for hire India, offshore React Native Node.js team, hello@satvixtech.com, MERN engineer for US UK startups"
         url="https://satvixtech.com/contact"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
@@ -95,22 +96,22 @@ const Contact = () => {
           {
             question: "How quickly will I hear back?",
             answer:
-              "A real person reads everything that comes in and replies within one working day — usually same day. If something is on fire, write “urgent” in the subject and email satvixtechsolutions@gmail.com directly.",
+              "A senior engineer reads every message and replies within one business day — often same day. If it is urgent, write \"urgent\" in the subject and email hello@satvixtech.com directly.",
           },
           {
-            question: "Where are you?",
+            question: "What's the timezone overlap?",
             answer:
-              "A single building in Anand, Gujarat. We work with teams in India, the US, the UK and the EU — fully remote, hybrid, or by getting on a plane when it matters.",
+              "Four-plus hours overlap with US East Coast, full working-day overlap with the UK and EU. Daily async updates on Slack or email, so nothing waits for a call.",
           },
           {
-            question: "What should I send in the first message?",
+            question: "Who owns the code?",
             answer:
-              "In order of usefulness: what you are building and why, who it is for, the rough timeline, and a budget range. Even three sentences is enough to start a real conversation.",
+              "You do — 100%, from day one. Full repository access, no escrow, no vendor lock-in. Handover includes documentation, recorded walkthroughs and transition support.",
           },
           {
-            question: "Will you sign an NDA?",
+            question: "How do you handle contracts and invoicing?",
             answer:
-              "Yes. Mention it in the first message and we will send a mutual NDA before anything sensitive is discussed.",
+              "We invoice in USD, GBP or INR. Standard SaaS/dev contracts, NDA-friendly, wire or Wise for payment. Fixed-scope for defined MVPs, monthly retainer for ongoing product work, or staff augmentation for embedded engineering.",
           },
         ]}
       />
@@ -154,10 +155,10 @@ const Contact = () => {
               Satvix Tech Solutions &nbsp;/&nbsp; Contact
             </div>
             <p>
-              Write a few sentences about the thing you want to make. We will
-              read it, ask a couple of questions, and tell you — honestly —
-              whether we are the right studio for it. No funnel, no sales call
-              calendar.
+              Write a few sentences about what you're making. A senior
+              engineer reads every message and replies within one business
+              day — no funnel, no sales-call calendar, no account manager
+              between you and the person writing your code.
             </p>
           </div>
         </div>
@@ -187,14 +188,14 @@ const Contact = () => {
                   {
                     icon: Mail,
                     label: "Write to us",
-                    value: "satvixtechsolutions@gmail.com",
-                    href: "mailto:satvixtechsolutions@gmail.com",
+                    value: "hello@satvixtech.com",
+                    href: "mailto:hello@satvixtech.com",
                   },
                   {
                     icon: Phone,
                     label: "Call the studio",
-                    value: "+91 9904 055 986",
-                    href: "tel:+919904055986",
+                    value: "+91 70164 27729",
+                    href: "tel:+917016427729",
                   },
                   {
                     icon: MapPin,
@@ -271,6 +272,57 @@ const Contact = () => {
                   </div>
                 ))}
               </div>
+
+              {(social.linkedin || social.instagram || social.github || social.calendly) && (
+                <div className="reveal" data-d="3" style={{ marginTop: 48, paddingTop: 32, borderTop: "1px solid var(--line)" }}>
+                  <div
+                    style={{
+                      fontFamily: "var(--mono)",
+                      fontSize: 11,
+                      textTransform: "uppercase",
+                      letterSpacing: ".12em",
+                      color: "var(--muted)",
+                      marginBottom: 16,
+                    }}
+                  >
+                    Or reach out directly
+                  </div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                    {[
+                      { url: social.calendly, Icon: Calendar, label: "Book a 30-min call" },
+                      { url: social.linkedin, Icon: Linkedin, label: "LinkedIn" },
+                      { url: social.instagram, Icon: Instagram, label: "Instagram" },
+                      { url: social.github, Icon: Github, label: "GitHub" },
+                    ]
+                      .filter((s) => s.url)
+                      .map(({ url, Icon, label }) => (
+                        <a
+                          key={label}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-hover
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 10,
+                            padding: "12px 18px",
+                            border: "1px solid var(--line)",
+                            borderRadius: 999,
+                            fontFamily: "var(--mono)",
+                            fontSize: 13,
+                            color: "var(--ink)",
+                            textDecoration: "none",
+                            background: "var(--bg)",
+                          }}
+                        >
+                          <Icon size={16} />
+                          {label}
+                        </a>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Form */}
@@ -604,19 +656,19 @@ const Contact = () => {
             {[
               {
                 q: "How long does a build take?",
-                a: "Most web platforms take eight to fourteen weeks from kickoff to a live launch. Mobile apps usually add four. We will tell you what is realistic in the first call — not what sounds good.",
+                a: "Depends on the scope. A tightly-scoped MVP can ship in two to four weeks (Nine Finance was two, Glamour was four). A larger multi-tenant SaaS is closer to two months. We tell you what is realistic before you commit — not what sounds good.",
               },
               {
                 q: "How do you bill?",
-                a: "Two ways. Fixed scope for short, well-defined projects; a small embedded team on a monthly rate for longer work. Either way, invoices arrive every two weeks and nothing is hidden.",
+                a: "Fixed scope for defined MVPs, monthly retainer for ongoing product work, or staff augmentation where we embed with your team. Invoices in USD, GBP or INR — every two weeks, nothing hidden.",
               },
               {
                 q: "What happens after launch?",
-                a: "Most clients keep us on for at least a quarter. We monitor, patch, iterate, and help you hire the in-house team that takes over — when you want one.",
+                a: "You own the code from day one — full repo access, no lock-in. Most clients keep us on for a quarter or more to iterate. When you want an in-house team we help you hand it over cleanly.",
               },
               {
                 q: "What stack do you use?",
-                a: "Mostly React and Next.js on the front, Node and Postgres on the back, native or React Native on mobile. We pick the boring one when the boring one will outlast the project.",
+                a: "React and Next.js on the front, Node.js on the back, MongoDB or Postgres, React Native on mobile. We use Claude Code and Cursor to move fast — with senior review on every diff before it lands.",
               },
             ].map((faq, i) => (
               <div key={i} className="prin reveal" data-d={String(i % 2)}>

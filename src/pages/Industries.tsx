@@ -282,10 +282,10 @@ export default function Industries() {
         <div className="wrap">
           <div className="band-grid">
             {[
-              { n: "10", l: "Verticals we have shipped in" },
-              { n: "120+", l: "Products in the wild" },
-              { n: "6", l: "Years in one studio" },
-              { n: "98%", l: "Clients who renew" },
+              { n: "3", l: "Shipped products, verifiable" },
+              { n: "2 wks", l: "Fastest delivery — fintech" },
+              { n: "7+ yrs", l: "Senior MERN, founder-led" },
+              { n: "1", l: "Working demo, every Friday" },
             ].map((s, i) => (
               <div key={i} className="reveal" data-d={String(i)}>
                 <div className="b-stat__n">{s.n}</div>
