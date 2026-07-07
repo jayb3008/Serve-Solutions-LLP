@@ -2,11 +2,35 @@ import React, { useState } from "react";
 import { Mail, Phone, MapPin, ArrowRight, Linkedin, Instagram, Github, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../components/SEO";
+import Faq from "../components/Faq";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 import { social } from "../data/social";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
+
+const contactFaqs = [
+  {
+    question: "How long does a build take?",
+    answer:
+      "Depends on the scope. A tightly-scoped MVP can ship in two to four weeks (Nine Finance was two, Glamour was four). A larger multi-tenant SaaS is closer to two months. We tell you what is realistic before you commit — not what sounds good.",
+  },
+  {
+    question: "How do you bill?",
+    answer:
+      "Fixed scope for defined MVPs, monthly retainer for ongoing product work, or staff augmentation where we embed with your team. Invoices in USD, GBP or INR — every two weeks, nothing hidden.",
+  },
+  {
+    question: "What happens after launch?",
+    answer:
+      "You own the code from day one — full repo access, no lock-in. Most clients keep us on for a quarter or more to iterate. When you want an in-house team we help you hand it over cleanly.",
+  },
+  {
+    question: "What stack do you use?",
+    answer:
+      "React and Next.js on the front, Node.js on the back, MongoDB or Postgres, React Native on mobile. We use Claude Code and Cursor to move fast — with senior review on every diff before it lands.",
+  },
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -635,53 +659,16 @@ const Contact = () => {
       </section>
 
       {/* FAQ / Inquiries */}
-      <section
-        className="s"
-        style={{
-          borderTop: "1px solid var(--line)",
-          background: "var(--bg-2)",
-        }}
-      >
-        <div className="wrap">
-          <div className="s-head">
-            <div>
-              <div className="eyebrow reveal">Before you write</div>
-              <h2 className="s-title reveal" data-d="1">
-                Four answers, in <em>plain English.</em>
-              </h2>
-            </div>
-          </div>
-
-          <div className="pgrid">
-            {[
-              {
-                q: "How long does a build take?",
-                a: "Depends on the scope. A tightly-scoped MVP can ship in two to four weeks (Nine Finance was two, Glamour was four). A larger multi-tenant SaaS is closer to two months. We tell you what is realistic before you commit — not what sounds good.",
-              },
-              {
-                q: "How do you bill?",
-                a: "Fixed scope for defined MVPs, monthly retainer for ongoing product work, or staff augmentation where we embed with your team. Invoices in USD, GBP or INR — every two weeks, nothing hidden.",
-              },
-              {
-                q: "What happens after launch?",
-                a: "You own the code from day one — full repo access, no lock-in. Most clients keep us on for a quarter or more to iterate. When you want an in-house team we help you hand it over cleanly.",
-              },
-              {
-                q: "What stack do you use?",
-                a: "React and Next.js on the front, Node.js on the back, MongoDB or Postgres, React Native on mobile. We use Claude Code and Cursor to move fast — with senior review on every diff before it lands.",
-              },
-            ].map((faq, i) => (
-              <div key={i} className="prin reveal" data-d={String(i % 2)}>
-                <div className="prin__n">0{i + 1}</div>
-                <div>
-                  <h3>{faq.q}</h3>
-                  <p>{faq.a}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Faq
+        faqs={contactFaqs}
+        eyebrow="Before you write"
+        title={
+          <>
+            Four answers, in <em>plain English.</em>
+          </>
+        }
+        sectionStyle={{ background: "var(--bg-2)" }}
+      />
     </div>
   );
 };

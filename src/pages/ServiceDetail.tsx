@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ShieldCheck } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Squares from "../components/ui/squares";
 import SEO from "../components/SEO";
+import Faq from "../components/Faq";
 import Magnetic from "../components/Magnetic";
 
 const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
@@ -290,29 +291,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 sm:py-24 border-b border-[var(--line)] bg-[var(--bg)]">
-        <div className="max-w-4xl mx-auto px-5 sm:px-6">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-10 sm:mb-16 flex items-center">
-            <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
-            05 Things people often ask
-          </h2>
-          <div className="border-t border-[var(--line)]">
-            {faqs.map((f, i) => (
-              <div
-                key={i}
-                className="py-6 sm:py-8 border-b border-[var(--line)]"
-              >
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tight text-[var(--ink)]">
-                  {f.question}
-                </h3>
-                <p className="text-[var(--ink-2)] leading-relaxed text-sm sm:text-base md:text-lg">
-                  {f.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Faq faqs={faqs} eyebrow="05 Things people often ask" />
 
       {/* CTA Footer */}
       <section className="py-16 sm:py-24 border-t border-[var(--line)] bg-[var(--bg)]">

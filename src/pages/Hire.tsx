@@ -10,6 +10,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import SEO from "../components/SEO";
+import Faq from "../components/Faq";
 import Magnetic from "../components/Magnetic";
 import Squares from "../components/ui/squares";
 
@@ -364,58 +365,16 @@ export default function Hire() {
       </section>
 
       {/* FAQ */}
-      <section
-        className="s"
-        style={{
-          background: "var(--bg-2)",
-          borderTop: "1px solid var(--line)",
-        }}
-      >
-        <div className="wrap" style={{ maxWidth: 900 }}>
-          <div className="s-head">
-            <div>
-              <div className="eyebrow reveal">Before you write</div>
-              <h2 className="s-title reveal" data-d="1">
-                Five answers, <em>plainly.</em>
-              </h2>
-            </div>
-          </div>
-          <div style={{ borderTop: "1px solid var(--line)" }}>
-            {faqs.map((f, i) => (
-              <div
-                key={i}
-                className="reveal"
-                style={{
-                  padding: "28px 0",
-                  borderBottom: "1px solid var(--line)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontFamily: "var(--display)",
-                    fontSize: "clamp(20px,2.2vw,26px)",
-                    fontWeight: 500,
-                    letterSpacing: "-.015em",
-                    margin: "0 0 10px",
-                  }}
-                >
-                  {f.question}
-                </h3>
-                <p
-                  style={{
-                    margin: 0,
-                    color: "var(--ink-2)",
-                    fontSize: 16,
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {f.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Faq
+        faqs={faqs}
+        eyebrow="Before you write"
+        title={
+          <>
+            Five answers, <em>plainly.</em>
+          </>
+        }
+        sectionStyle={{ background: "var(--bg-2)", borderBottom: "none" }}
+      />
 
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">

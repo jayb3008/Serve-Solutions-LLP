@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import Faq from "../components/Faq";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 
@@ -86,6 +87,29 @@ const timeline = [
   },
 ];
 
+const aboutFaqs = [
+  {
+    question: "Who runs the studio?",
+    answer:
+      "Jay Sarvaiya. Seven-plus years of full-stack MERN (MongoDB, Express, React, Node). Every engagement — scope, architecture, code review, delivery — runs through Jay.",
+  },
+  {
+    question: "How big is the team?",
+    answer:
+      "A small senior team in Anand — engineers, designers and product folks led by Jay Sarvaiya. Senior-only: no juniors on your budget, no account managers between you and the person writing your code. Growing carefully — see the careers page for the roles currently open.",
+  },
+  {
+    question: "What makes you different from other agencies?",
+    answer:
+      "No account managers between you and the engineer. No juniors learning on your budget. AI-augmented delivery lets us ship fintech in two weeks and e-commerce in four — but every AI-generated line is reviewed by a senior engineer before it lands.",
+  },
+  {
+    question: "Do you work with foreign clients?",
+    answer:
+      "Yes. Founders and agencies in the US, UK, EU and Australia. Four-plus hours overlap with US East Coast, full working-day overlap with the UK. We invoice in USD, GBP or INR and sign standard SaaS/dev contracts and NDAs.",
+  },
+];
+
 const bandStats = [
   { n: "3", label: "Shipped products you can verify" },
   { n: "2 wks", label: "Fastest delivery — Nine Finance" },
@@ -107,28 +131,7 @@ export default function About() {
           { name: "Home", item: "https://satvixtech.com" },
           { name: "About", item: "https://satvixtech.com/about" },
         ]}
-        faq={[
-          {
-            question: "Who runs the studio?",
-            answer:
-              "Jay Sarvaiya. Seven-plus years of full-stack MERN (MongoDB, Express, React, Node). Every engagement — scope, architecture, code review, delivery — runs through Jay.",
-          },
-          {
-            question: "How big is the team?",
-            answer:
-              "A small senior team in Anand — engineers, designers and product folks led by Jay Sarvaiya. Senior-only: no juniors on your budget, no account managers between you and the person writing your code. Growing carefully — see the careers page for the roles currently open.",
-          },
-          {
-            question: "What makes you different from other agencies?",
-            answer:
-              "No account managers between you and the engineer. No juniors learning on your budget. AI-augmented delivery lets us ship fintech in two weeks and e-commerce in four — but every AI-generated line is reviewed by a senior engineer before it lands.",
-          },
-          {
-            question: "Do you work with foreign clients?",
-            answer:
-              "Yes. Founders and agencies in the US, UK, EU and Australia. Four-plus hours overlap with US East Coast, full working-day overlap with the UK. We invoice in USD, GBP or INR and sign standard SaaS/dev contracts and NDAs.",
-          },
-        ]}
+        faq={aboutFaqs}
       />
 
       {/* Page hero */}
@@ -322,6 +325,9 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <Faq faqs={aboutFaqs} eyebrow="05 Things people often ask" />
 
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">

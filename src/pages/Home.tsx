@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import Faq from "../components/Faq";
 import ImageCursorTrail from "../components/ImageCursorTrail";
 import TextReveal from "../components/TextReveal";
 import RollingText from "../components/RollingText";
@@ -1527,31 +1528,10 @@ export default function Home() {
       </section>
 
       {/* ── FAQ Section ── */}
-      <section className="py-20 sm:py-32 border-b border-[var(--line)] bg-[var(--bg)]">
-        <div className="wrap">
-          <div className="max-w-4xl mx-auto">
-            <span className="eyebrow mb-12 flex items-center justify-center">
-              <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
-              Frequently Asked Questions
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-[var(--ink)] text-center mb-16 font-sans">
-              Things people often <em>ask us.</em>
-            </h2>
-            <div className="border-t border-[var(--line)]">
-              {homepageFaqs.map((f, i) => (
-                <div key={i} className="py-8 border-b border-[var(--line)]">
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4 tracking-tight text-[var(--ink)]">
-                    {f.question}
-                  </h3>
-                  <p className="text-[var(--ink-2)] leading-relaxed text-base sm:text-lg">
-                    {f.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <Faq
+        faqs={homepageFaqs}
+        sub="The questions foreign founders ask before writing a first email. If yours is not here, write anyway — hello@satvixtech.com, one senior engineer, one business day."
+      />
 
       {/* ── CTA ── */}
       <section className="cta-section relative overflow-hidden">

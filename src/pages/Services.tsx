@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import Faq from "../components/Faq";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 
@@ -229,6 +230,34 @@ const stackGroups = [
   },
 ];
 
+const servicesFaqs = [
+  {
+    question: "What does the studio actually do?",
+    answer:
+      "Five things, under one roof: product design, web engineering, mobile apps, AI features, and brand or editorial work. The same team can take a product from sketch to launch and stay for what comes after.",
+  },
+  {
+    question: "Do you take on startups or enterprises?",
+    answer:
+      "Both, plus a small handful of operators in between. We adapt the team size and rhythm to the stage — a two-person founder build looks nothing like an enterprise replatform, and we are honest about which we are doing.",
+  },
+  {
+    question: "How does a project usually start?",
+    answer:
+      "With a two-week discovery sprint. We sit with you, your team and your users, audit what exists, and leave you with a prioritised roadmap — and, often, an honest opinion about whether to do it at all.",
+  },
+  {
+    question: "Can one team handle design and engineering together?",
+    answer:
+      "It is how we have always worked. Strategy, design and engineering at one table for the whole build — the same people who scope the work also ship it.",
+  },
+  {
+    question: "How long does a project take?",
+    answer:
+      "A focused first release is usually eight to sixteen weeks. Larger platforms with integrations land in four to nine months. We will give you a real number — not a hopeful one — after discovery.",
+  },
+];
+
 export default function Services() {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -243,33 +272,7 @@ export default function Services() {
           { name: "Home", item: "https://satvixtech.com" },
           { name: "Services", item: "https://satvixtech.com/services" },
         ]}
-        faq={[
-          {
-            question: "What does the studio actually do?",
-            answer:
-              "Five things, under one roof: product design, web engineering, mobile apps, AI features, and brand or editorial work. The same team can take a product from sketch to launch and stay for what comes after.",
-          },
-          {
-            question: "Do you take on startups or enterprises?",
-            answer:
-              "Both, plus a small handful of operators in between. We adapt the team size and rhythm to the stage — a two-person founder build looks nothing like an enterprise replatform, and we are honest about which we are doing.",
-          },
-          {
-            question: "How does a project usually start?",
-            answer:
-              "With a two-week discovery sprint. We sit with you, your team and your users, audit what exists, and leave you with a prioritised roadmap — and, often, an honest opinion about whether to do it at all.",
-          },
-          {
-            question: "Can one team handle design and engineering together?",
-            answer:
-              "It is how we have always worked. Strategy, design and engineering at one table for the whole build — the same people who scope the work also ship it.",
-          },
-          {
-            question: "How long does a project take?",
-            answer:
-              "A focused first release is usually eight to sixteen weeks. Larger platforms with integrations land in four to nine months. We will give you a real number — not a hopeful one — after discovery.",
-          },
-        ]}
+        faq={servicesFaqs}
       />
 
       {/* Page hero */}
@@ -456,6 +459,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <Faq faqs={servicesFaqs} eyebrow="05 Things people often ask" />
 
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">
