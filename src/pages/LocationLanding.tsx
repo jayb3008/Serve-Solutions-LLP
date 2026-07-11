@@ -203,7 +203,7 @@ export default function LocationLanding({ slug }: { slug: string }) {
                 WITH US <em>TODAY.</em>
               </h2>
               <p className="text-[var(--muted)] text-base sm:text-lg mb-8 sm:mb-12">
-                A founder-led, AI-augmented studio built to ship fast without cutting corners. Tell us what you're making — a real person replies within one business day.
+                A premium software development agency built to ship high-performance digital products. Tell us what you're making — a representative replies within one business day.
               </p>
               <Magnetic>
                 <motion.button

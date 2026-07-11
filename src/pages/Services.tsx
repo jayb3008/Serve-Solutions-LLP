@@ -232,9 +232,9 @@ const stackGroups = [
 
 const servicesFaqs = [
   {
-    question: "What does the studio actually do?",
+    question: "What does the agency actually do?",
     answer:
-      "Five things, under one roof: product design, web engineering, mobile apps, AI features, and brand or editorial work. The same team can take a product from sketch to launch and stay for what comes after.",
+      "Five core services under one roof: product design, web engineering, mobile apps, custom AI integration, and brand strategy. We provide comprehensive, end-to-end product development teams to handle everything from initial roadmap to production support.",
   },
   {
     question: "Do you take on startups or enterprises?",
@@ -266,7 +266,7 @@ export default function Services() {
       <SEO
         title="Services — six practices, one team at Satvix Tech Solutions"
         description="Satvix Tech Solutions offers product design, web engineering, mobile apps, AI/ML, brand strategy, and graphic design — six practices from one team in Anand, Gujarat, with no handoffs."
-        keywords="Satvix Tech Solutions services, product design services India, web engineering company India, mobile app development India, AI ML services India, brand strategy agency India, full-stack development India, digital product studio Anand Gujarat"
+        keywords="Satvix Tech Solutions services, product design services India, web engineering company India, mobile app development India, AI ML services India, brand strategy agency India, full-stack development India, digital product agency Anand Gujarat"
         url="https://satvixtech.com/services"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
@@ -292,7 +292,7 @@ export default function Services() {
             What we do
           </div> */}
           <h1>
-            {(["Six things we do,", "one team that", "<em>does all of them.</em>"] as const).map(
+            {(["Six practices.", "One team.", "<em>No handoffs.</em>"] as const).map(
               (line, i) => (
                 <span key={i} className="row">
                   <motion.span
@@ -311,9 +311,9 @@ export default function Services() {
               Satvix Tech Solutions &nbsp;/&nbsp; Services
             </div>
             <p>
-              Six things we do. One team that does all of them. The same people
-              who scope the work also draw it, brand it, write it, build it, and
-              stay on after it ships.
+              The same people who scope the work also draw it, brand it, build
+              it, and stay after it ships. No relay race, no thrown-over-the-wall
+              briefs.
             </p>
           </div>
         </div>

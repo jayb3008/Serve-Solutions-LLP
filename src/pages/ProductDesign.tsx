@@ -189,7 +189,7 @@ export default function ProductDesign() {
       <SEO
         title="Product design — Satvix Tech Solutions, Anand, Gujarat"
         description="Product design at Satvix Tech Solutions: research, interaction design, UI, prototyping and design systems. We design products people reach for without thinking about it."
-        keywords="Satvix Tech Solutions design, product design company India, UX design agency Gujarat, UI UX design India, Figma design agency India, design system development India, prototyping agency India, user research company India, interaction design India, SaaS product design India, design studio Anand Gujarat"
+        keywords="Satvix Tech Solutions design, product design company India, UX design agency Gujarat, UI UX design India, Figma design agency India, design system development India, prototyping agency India, user research company India, interaction design India, SaaS product design India, design agency Anand Gujarat"
         url="https://satvixtech.com/ui-ux-design"
         faq={faqs}
         breadcrumb={[
@@ -221,9 +221,9 @@ export default function ProductDesign() {
           <h1>
             {(
               [
-                "Interfaces people",
-                "reach for without",
-                "<em>thinking about it.</em>",
+                "Interfaces you",
+                "don't have to",
+                "<em>think about.</em>",
               ] as const
             ).map((line, i) => (
               <span key={i} className="row">
@@ -243,10 +243,9 @@ export default function ProductDesign() {
               Design
             </div>
             <p>
-              We start with the user’s actual problem and end with the screen
-              they do not need to think about. Research, prototypes, design
-              systems, and the careful documentation that keeps the work
-              consistent after we have left the room.
+              Start with the user’s actual problem. End with the screen they
+              never notice. Research, prototypes, systems, and the
+              documentation that keeps it consistent after we leave.
             </p>
           </div>
         </div>

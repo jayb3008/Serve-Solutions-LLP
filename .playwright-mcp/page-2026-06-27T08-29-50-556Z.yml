@@ -1,0 +1,667 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link [ref=e5] [cursor=pointer]:
+      - /url: /
+      - img [ref=e6]:
+        - generic [ref=e15]: TECH SOLUTIONS
+    - navigation "Main navigation" [ref=e16]:
+      - link "What we do" [ref=e18] [cursor=pointer]:
+        - /url: /services
+        - text: What we do
+        - img [ref=e19]
+      - link "Industries" [ref=e22] [cursor=pointer]:
+        - /url: /industries
+        - text: Industries
+        - img [ref=e23]
+      - link "Hire" [ref=e25] [cursor=pointer]:
+        - /url: /hire
+      - link "Work" [ref=e26] [cursor=pointer]:
+        - /url: /portfolio
+      - link "Company" [ref=e28] [cursor=pointer]:
+        - /url: /about
+        - text: Company
+        - img [ref=e29]
+    - link "Start a project" [ref=e31] [cursor=pointer]:
+      - /url: /contact
+      - text: Start a project
+  - main [ref=e33]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - heading "Software development company in India for web, mobile & AI solutions." [level=1] [ref=e38]:
+            - generic [ref=e40]: Software development company
+            - generic [ref=e42]: in India for web, mobile
+            - emphasis [ref=e45]: "& AI solutions."
+          - generic [ref=e46]:
+            - paragraph [ref=e47]: We are forty people in one room. We design, build and ship web platforms, mobile apps and AI products for founders and operators who care about the work — and the bill.
+            - link "See the work" [ref=e49] [cursor=pointer]:
+              - /url: /portfolio
+              - text: See the work
+            - generic [ref=e51]:
+              - generic [ref=e52]:
+                - generic [ref=e53]: 0+
+                - generic [ref=e54]: Products shipped
+              - generic [ref=e55]:
+                - generic [ref=e56]: 0%
+                - generic [ref=e57]: Clients who renew
+              - generic [ref=e58]:
+                - generic [ref=e59]: "0"
+                - generic [ref=e60]: Years, one studio
+        - generic [ref=e61]: Scroll
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - text: Web Development
+            - generic [ref=e67]: ✦
+          - generic [ref=e68]:
+            - text: Mobile Apps
+            - generic [ref=e69]: ✦
+          - generic [ref=e70]:
+            - text: AI / ML
+            - generic [ref=e71]: ✦
+          - generic [ref=e72]:
+            - text: UI/UX Consultancy
+            - generic [ref=e73]: ✦
+          - generic [ref=e74]:
+            - text: DevOps
+            - generic [ref=e75]: ✦
+          - generic [ref=e76]:
+            - text: QA
+            - generic [ref=e77]: ✦
+          - generic [ref=e78]:
+            - text: IoT
+            - generic [ref=e79]: ✦
+          - generic [ref=e80]:
+            - text: Marketing
+            - generic [ref=e81]: ✦
+          - generic [ref=e82]:
+            - text: Blockchain & Web3
+            - generic [ref=e83]: ✦
+          - generic [ref=e84]:
+            - text: Cybersecurity
+            - generic [ref=e85]: ✦
+          - generic [ref=e86]:
+            - text: Data Engineering
+            - generic [ref=e87]: ✦
+          - generic [ref=e88]:
+            - text: Graphic Design & Branding
+            - generic [ref=e89]: ✦
+          - generic [ref=e90]:
+            - text: E-commerce
+            - generic [ref=e91]: ✦
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - text: Web Development
+            - generic [ref=e94]: ✦
+          - generic [ref=e95]:
+            - text: Mobile Apps
+            - generic [ref=e96]: ✦
+          - generic [ref=e97]:
+            - text: AI / ML
+            - generic [ref=e98]: ✦
+          - generic [ref=e99]:
+            - text: UI/UX Consultancy
+            - generic [ref=e100]: ✦
+          - generic [ref=e101]:
+            - text: DevOps
+            - generic [ref=e102]: ✦
+          - generic [ref=e103]:
+            - text: QA
+            - generic [ref=e104]: ✦
+          - generic [ref=e105]:
+            - text: IoT
+            - generic [ref=e106]: ✦
+          - generic [ref=e107]:
+            - text: Marketing
+            - generic [ref=e108]: ✦
+          - generic [ref=e109]:
+            - text: Blockchain & Web3
+            - generic [ref=e110]: ✦
+          - generic [ref=e111]:
+            - text: Cybersecurity
+            - generic [ref=e112]: ✦
+          - generic [ref=e113]:
+            - text: Data Engineering
+            - generic [ref=e114]: ✦
+          - generic [ref=e115]:
+            - text: Graphic Design & Branding
+            - generic [ref=e116]: ✦
+          - generic [ref=e117]:
+            - text: E-commerce
+            - generic [ref=e118]: ✦
+      - generic [ref=e120]:
+        - generic [ref=e121]: A few of the teams we’ve built for
+        - generic [ref=e122]:
+          - generic [ref=e123]: LendingFlow
+          - generic [ref=e124]: TailorPro
+          - generic [ref=e125]: Stillwood
+          - generic [ref=e126]: Pelican AI
+          - generic [ref=e127]: Verbena
+          - generic [ref=e128]: Nordhavn
+          - generic [ref=e129]: Aurum
+          - generic [ref=e130]: Traxis
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - generic [ref=e134]:
+            - generic [ref=e135]: What we do
+            - heading "One team. Six disciplines. Zero handoffs." [level=2] [ref=e136]:
+              - text: One team. Six disciplines.
+              - emphasis [ref=e137]: Zero handoffs.
+          - paragraph [ref=e138]: Strategy, design and engineering at one table, for the whole build. No briefs thrown over walls. No agency relay race.
+        - generic [ref=e139]:
+          - link "01 Product design Research Interaction Design systems Prototyping" [ref=e140] [cursor=pointer]:
+            - /url: /services
+            - generic [ref=e141]: "01"
+            - generic [ref=e142]:
+              - text: Product
+              - emphasis [ref=e143]: design
+            - generic [ref=e144]:
+              - generic [ref=e145]: Research
+              - generic [ref=e146]: Interaction
+              - generic [ref=e147]: Design systems
+              - generic [ref=e148]: Prototyping
+            - img [ref=e150]
+          - link "02 Web engineering React & Next.js Headless commerce CMS Performance work" [ref=e152] [cursor=pointer]:
+            - /url: /services
+            - generic [ref=e153]: "02"
+            - generic [ref=e154]:
+              - text: Web
+              - emphasis [ref=e155]: engineering
+            - generic [ref=e156]:
+              - generic [ref=e157]: React & Next.js
+              - generic [ref=e158]: Headless commerce
+              - generic [ref=e159]: CMS
+              - generic [ref=e160]: Performance work
+            - img [ref=e162]
+          - link "03 Mobile apps iOS Android React Native Flutter" [ref=e164] [cursor=pointer]:
+            - /url: /services
+            - generic [ref=e165]: "03"
+            - generic [ref=e166]:
+              - text: Mobile
+              - emphasis [ref=e167]: apps
+            - generic [ref=e168]:
+              - generic [ref=e169]: iOS
+              - generic [ref=e170]: Android
+              - generic [ref=e171]: React Native
+              - generic [ref=e172]: Flutter
+            - img [ref=e174]
+          - link "04 AI & data LLM features RAG Agents Internal tools" [ref=e176] [cursor=pointer]:
+            - /url: /ai-development
+            - generic [ref=e177]: "04"
+            - generic [ref=e178]:
+              - text: AI &
+              - emphasis [ref=e179]: data
+            - generic [ref=e180]:
+              - generic [ref=e181]: LLM features
+              - generic [ref=e182]: RAG
+              - generic [ref=e183]: Agents
+              - generic [ref=e184]: Internal tools
+            - img [ref=e186]
+          - link "05 Brand & strategy Positioning Identity Naming Editorial" [ref=e188] [cursor=pointer]:
+            - /url: /services
+            - generic [ref=e189]: "05"
+            - generic [ref=e190]:
+              - text: Brand &
+              - emphasis [ref=e191]: strategy
+            - generic [ref=e192]:
+              - generic [ref=e193]: Positioning
+              - generic [ref=e194]: Identity
+              - generic [ref=e195]: Naming
+              - generic [ref=e196]: Editorial
+            - img [ref=e198]
+          - link "06 Graphic design & branding New Logo Print Social kits Motion" [ref=e200] [cursor=pointer]:
+            - /url: /graphic-design-branding
+            - generic [ref=e201]: "06"
+            - generic [ref=e202]:
+              - text: Graphic design
+              - emphasis [ref=e203]: "& branding"
+            - generic [ref=e204]:
+              - generic [ref=e205]: New
+              - generic [ref=e206]: Logo
+              - generic [ref=e207]: Print
+              - generic [ref=e208]: Social kits
+              - generic [ref=e209]: Motion
+            - img [ref=e211]
+      - generic [ref=e224]:
+        - generic [ref=e225]:
+          - generic [ref=e226]: New service
+          - heading "Design that earns attention." [level=2] [ref=e228]:
+            - text: Design that earns
+            - emphasis [ref=e229]: attention.
+          - paragraph [ref=e230]: Logo systems, print collateral, social media kits, packaging, and motion graphics — everything a brand needs to look intentional at every size and on every surface.
+          - link "Explore the service" [ref=e233] [cursor=pointer]:
+            - /url: /graphic-design-branding
+            - text: Explore the service
+        - generic [ref=e235]:
+          - generic [ref=e236]:
+            - generic [ref=e237]: "01"
+            - generic [ref=e238]:
+              - generic [ref=e239]: Brand identity
+              - generic [ref=e240]:
+                - generic [ref=e241]: Logo
+                - generic [ref=e242]: Colour
+                - generic [ref=e243]: Type
+          - generic [ref=e244]:
+            - generic [ref=e245]: "02"
+            - generic [ref=e246]:
+              - generic [ref=e247]: Print & collateral
+              - generic [ref=e248]:
+                - generic [ref=e249]: Packaging
+                - generic [ref=e250]: Stationery
+                - generic [ref=e251]: Brochures
+          - generic [ref=e252]:
+            - generic [ref=e253]: "03"
+            - generic [ref=e254]:
+              - generic [ref=e255]: Digital & social
+              - generic [ref=e256]:
+                - generic [ref=e257]: Templates
+                - generic [ref=e258]: Ad creatives
+                - generic [ref=e259]: Banners
+          - generic [ref=e260]:
+            - generic [ref=e261]: "04"
+            - generic [ref=e262]:
+              - generic [ref=e263]: Motion & video
+              - generic [ref=e264]:
+                - generic [ref=e265]: Animation
+                - generic [ref=e266]: Reels
+                - generic [ref=e267]: Lottie
+      - generic [ref=e269]:
+        - generic [ref=e270]:
+          - generic [ref=e271]:
+            - generic [ref=e272]: Who we build for
+            - heading "Seventeen industries. One studio." [level=2] [ref=e273]:
+              - text: Seventeen industries.
+              - emphasis [ref=e274]: One studio.
+          - paragraph [ref=e275]: Fintech, health, logistics, education, AI. We pair engineering with people who have actually worked inside the domain — so the software does something measurable, not something photogenic.
+        - generic [ref=e276]:
+          - link "Healthcare" [ref=e277] [cursor=pointer]:
+            - /url: /industries/healthcare
+          - link "Legal" [ref=e278] [cursor=pointer]:
+            - /url: /industries/legal
+          - link "Logistics" [ref=e279] [cursor=pointer]:
+            - /url: /industries/logistics
+          - link "Finance" [ref=e280] [cursor=pointer]:
+            - /url: /industries/finance
+          - link "Education" [ref=e281] [cursor=pointer]:
+            - /url: /industries/education
+          - link "Social Media" [ref=e282] [cursor=pointer]:
+            - /url: /industries/social-media
+          - link "Media & OTT" [ref=e283] [cursor=pointer]:
+            - /url: /industries/media-ott
+          - link "Insurance" [ref=e284] [cursor=pointer]:
+            - /url: /industries/insurance
+          - link "Travel" [ref=e285] [cursor=pointer]:
+            - /url: /industries/travel
+          - link "Manufacturing" [ref=e286] [cursor=pointer]:
+            - /url: /industries/manufacturing
+          - link "Retail" [ref=e287] [cursor=pointer]:
+            - /url: /industries/retail
+          - link "IT & Telecom" [ref=e288] [cursor=pointer]:
+            - /url: /industries/it-telecom
+          - link "Construction" [ref=e289] [cursor=pointer]:
+            - /url: /industries/construction
+          - link "Beauty & Lifestyle" [ref=e290] [cursor=pointer]:
+            - /url: /industries/beauty-lifestyle
+          - link "Sports" [ref=e291] [cursor=pointer]:
+            - /url: /industries/sports
+          - link "On Demand" [ref=e292] [cursor=pointer]:
+            - /url: /industries/on-demand
+          - link "Marketplace" [ref=e293] [cursor=pointer]:
+            - /url: /industries/marketplace
+      - generic [ref=e296]:
+        - generic [ref=e297]:
+          - generic [ref=e298]:
+            - generic [ref=e299]: Selected work
+            - heading "Built with teams who actually ship." [level=2] [ref=e301]:
+              - text: Built with teams who
+              - emphasis [ref=e302]: actually ship.
+          - link "Browse the archive" [ref=e304] [cursor=pointer]:
+            - /url: /portfolio
+            - text: Browse the archive
+        - generic [ref=e306]:
+          - link "2026 Fintech React Node.js Web App 9 Finance — a modern financial services platform simplifying loans, investments, and digital wealth management for growing businesses. ↗" [ref=e307] [cursor=pointer]:
+            - /url: /portfolio/nine-finance
+            - generic [ref=e309]:
+              - generic [ref=e310]:
+                - generic [ref=e311]: "2026"
+                - generic [ref=e312]: Fintech
+                - generic [ref=e313]: React
+                - generic [ref=e314]: Node.js
+                - generic [ref=e315]: Web App
+              - generic [ref=e316]: 9 Finance — a modern financial services platform simplifying loans, investments, and digital wealth management for growing businesses.
+            - generic [ref=e317]: ↗
+          - link "2026 Jewelry Ecommerce Next.js Glamour Jewelry — a premium jewelry showcase platform with category management, WhatsApp inquiries, and SEO-driven product discovery. ↗" [ref=e318] [cursor=pointer]:
+            - /url: /portfolio/glamour-jewelry
+            - generic [ref=e320]:
+              - generic [ref=e321]:
+                - generic [ref=e322]: "2026"
+                - generic [ref=e323]: Jewelry
+                - generic [ref=e324]: Ecommerce
+                - generic [ref=e325]: Next.js
+              - generic [ref=e326]: Glamour Jewelry — a premium jewelry showcase platform with category management, WhatsApp inquiries, and SEO-driven product discovery.
+            - generic [ref=e327]: ↗
+          - link "2025 Real Estate CRM Lead Generation Nivas Realty — a property management and lead generation platform helping buyers discover and connect with verified listings. ↗" [ref=e328] [cursor=pointer]:
+            - /url: /portfolio/nivas-realty
+            - generic [ref=e330]:
+              - generic [ref=e331]:
+                - generic [ref=e332]: "2025"
+                - generic [ref=e333]: Real Estate
+                - generic [ref=e334]: CRM
+                - generic [ref=e335]: Lead Generation
+              - generic [ref=e336]: Nivas Realty — a property management and lead generation platform helping buyers discover and connect with verified listings.
+            - generic [ref=e337]: ↗
+          - link "2025 Restaurant POS SaaS TableTrack — an all-in-one restaurant management system handling orders, billing, reservations, kitchen workflows, and analytics. ↗" [ref=e338] [cursor=pointer]:
+            - /url: /portfolio/tabletrack
+            - generic [ref=e340]:
+              - generic [ref=e341]:
+                - generic [ref=e342]: "2025"
+                - generic [ref=e343]: Restaurant
+                - generic [ref=e344]: POS
+                - generic [ref=e345]: SaaS
+              - generic [ref=e346]: TableTrack — an all-in-one restaurant management system handling orders, billing, reservations, kitchen workflows, and analytics.
+            - generic [ref=e347]: ↗
+          - link "2025 Photography Portfolio CMS SD Photography — a professional photography portfolio platform featuring client galleries, album management, and digital delivery. ↗" [ref=e348] [cursor=pointer]:
+            - /url: /portfolio/sd-photography
+            - generic [ref=e350]:
+              - generic [ref=e351]:
+                - generic [ref=e352]: "2025"
+                - generic [ref=e353]: Photography
+                - generic [ref=e354]: Portfolio
+                - generic [ref=e355]: CMS
+              - generic [ref=e356]: SD Photography — a professional photography portfolio platform featuring client galleries, album management, and digital delivery.
+            - generic [ref=e357]: ↗
+          - link "2026 EPFO HR Services Compliance SK Consultant — a fast, fully online EPFO and HR compliance platform handling payroll, ESI, and statutory services for 500+ clients. ↗" [ref=e358] [cursor=pointer]:
+            - /url: /portfolio/sk-consultant
+            - generic [ref=e360]:
+              - generic [ref=e361]:
+                - generic [ref=e362]: "2026"
+                - generic [ref=e363]: EPFO
+                - generic [ref=e364]: HR Services
+                - generic [ref=e365]: Compliance
+              - generic [ref=e366]: SK Consultant — a fast, fully online EPFO and HR compliance platform handling payroll, ESI, and statutory services for 500+ clients.
+            - generic [ref=e367]: ↗
+          - link "2025 SaaS Photography Next.js Clickly — a website builder empowering photographers to launch branded portfolio websites with custom domains and galleries. ↗" [ref=e368] [cursor=pointer]:
+            - /url: /portfolio/clickly
+            - generic [ref=e370]:
+              - generic [ref=e371]:
+                - generic [ref=e372]: "2025"
+                - generic [ref=e373]: SaaS
+                - generic [ref=e374]: Photography
+                - generic [ref=e375]: Next.js
+              - generic [ref=e376]: Clickly — a website builder empowering photographers to launch branded portfolio websites with custom domains and galleries.
+            - generic [ref=e377]: ↗
+          - link "2025 Tailor Shop Management SaaS TailorPro — a complete tailoring business management solution for measurements, orders, billing, customer history, and delivery tracking. ↗" [ref=e378] [cursor=pointer]:
+            - /url: /portfolio/tailorpro
+            - generic [ref=e380]:
+              - generic [ref=e381]:
+                - generic [ref=e382]: "2025"
+                - generic [ref=e383]: Tailor Shop
+                - generic [ref=e384]: Management
+                - generic [ref=e385]: SaaS
+              - generic [ref=e386]: TailorPro — a complete tailoring business management solution for measurements, orders, billing, customer history, and delivery tracking.
+            - generic [ref=e387]: ↗
+          - link "2025 Business Tools Automation SaaS Proposal Generator — an automated platform for creating professional proposals, quotations, and invoices in minutes. ↗" [ref=e388] [cursor=pointer]:
+            - /url: /portfolio/proposal-generator
+            - generic [ref=e390]:
+              - generic [ref=e391]:
+                - generic [ref=e392]: "2025"
+                - generic [ref=e393]: Business Tools
+                - generic [ref=e394]: Automation
+                - generic [ref=e395]: SaaS
+              - generic [ref=e396]: Proposal Generator — an automated platform for creating professional proposals, quotations, and invoices in minutes.
+            - generic [ref=e397]: ↗
+      - generic [ref=e399]:
+        - generic [ref=e400]:
+          - generic [ref=e401]:
+            - generic [ref=e402]: How we work
+            - heading "Brief. Sketch. Build. Ship. Stay." [level=2] [ref=e403]:
+              - text: Brief. Sketch. Build. Ship.
+              - emphasis [ref=e404]: Stay.
+          - paragraph [ref=e405]: Five stages. No surprise invoices, no dark Slack channels. You see the demo every Friday, and the bill every two weeks.
+        - generic [ref=e406]:
+          - generic [ref=e407]:
+            - generic [ref=e408]: "01"
+            - generic [ref=e409]: Brief
+            - generic [ref=e410]: Two weeks of listening. We sit with you, your team, your users — until we can sketch the problem on a napkin.
+          - generic [ref=e411]:
+            - generic [ref=e412]: "02"
+            - generic [ref=e413]: Sketch
+            - generic [ref=e414]: Flows, prototypes, and a visual language. We put them in front of real people before a line of production code is written.
+          - generic [ref=e415]:
+            - generic [ref=e416]: "03"
+            - generic [ref=e417]: Build
+            - generic [ref=e418]: Senior engineers, two-week sprints, a demo every Friday. You always know exactly where we are.
+          - generic [ref=e419]:
+            - generic [ref=e420]: "04"
+            - generic [ref=e421]: Ship
+            - generic [ref=e422]: Tested, observable, hardened. We push to production on Tuesdays — quietly, with a runbook, not crossed fingers.
+          - generic [ref=e423]:
+            - generic [ref=e424]: "05"
+            - generic [ref=e425]: Stay
+            - generic [ref=e426]: Most clients keep us on for years. We measure what shipped, fix what didn’t, and keep raising the floor.
+      - generic [ref=e427]:
+        - generic:
+          - img
+        - generic [ref=e429]:
+          - generic [ref=e430]: Every line counts
+          - heading "From first idea to final pixel." [level=2] [ref=e431]:
+            - text: From first idea to
+            - emphasis [ref=e432]: final pixel.
+          - paragraph [ref=e433]: Scroll to see the path. We trace every step alongside you — from brief to launch.
+      - generic [ref=e435]:
+        - generic [ref=e436]:
+          - generic [ref=e437]:
+            - generic [ref=e438]: The stack
+            - heading "Boring tools, used well." [level=2] [ref=e439]:
+              - text: Boring tools, used
+              - emphasis [ref=e440]: well.
+          - paragraph [ref=e441]: No framework religion here. We pick whatever the team can still maintain after we’ve gone home, and we keep up with the field so you don’t have to.
+        - generic [ref=e442]:
+          - generic [ref=e443]:
+            - generic [ref=e446]: Frontend
+            - generic [ref=e447]: React · Next.js · TypeScript · Tailwind
+          - generic [ref=e448]:
+            - generic [ref=e451]: Mobile
+            - generic [ref=e452]: React Native · Swift · Kotlin · Flutter
+          - generic [ref=e453]:
+            - generic [ref=e456]: Backend
+            - generic [ref=e457]: Node.js · Python · PostgreSQL · GraphQL
+          - generic [ref=e458]:
+            - generic [ref=e461]: AI / ML
+            - generic [ref=e462]: LLMs · RAG · PyTorch · LangChain
+          - generic [ref=e463]:
+            - generic [ref=e466]: Cloud
+            - generic [ref=e467]: AWS · Vercel · Docker · Kubernetes
+          - generic [ref=e468]:
+            - generic [ref=e471]: Data
+            - generic [ref=e472]: Snowflake · dbt · Airflow · Redis
+      - generic [ref=e474]:
+        - generic [ref=e476]:
+          - generic [ref=e477]: In their words
+          - heading "Three things our clients actually said." [level=2] [ref=e478]:
+            - text: Three things our clients
+            - emphasis [ref=e479]: actually said.
+        - generic [ref=e480]:
+          - figure "L Aanya Krishnan Head of Product · LendingFlow, Mumbai" [ref=e481]:
+            - generic [ref=e482]: “
+            - blockquote [ref=e483]: Satvix shipped our card-issuing platform from zero to 50,000 active cards in eighteen months. They treated RBI compliance as a design problem, not as a reason to slow down.
+            - generic [ref=e484]:
+              - generic [ref=e485]: L
+              - generic [ref=e486]:
+                - generic [ref=e487]: Aanya Krishnan
+                - generic [ref=e488]: Head of Product · LendingFlow, Mumbai
+          - figure "T Rohan Mehta Founder & CEO · TailorPro" [ref=e489]:
+            - generic [ref=e490]: “
+            - blockquote [ref=e491]: We had worked with five agencies before this one. Satvix is the first team that did not hand work between strategy, design and engineering — they just owned the whole thing, end to end.
+            - generic [ref=e492]:
+              - generic [ref=e493]: T
+              - generic [ref=e494]:
+                - generic [ref=e495]: Rohan Mehta
+                - generic [ref=e496]: Founder & CEO · TailorPro
+          - figure "S Maeve Donovan Brand Director · Stillwood Co." [ref=e497]:
+            - generic [ref=e498]: “
+            - blockquote [ref=e499]: Our Lighthouse score went from 22 to 98 and conversions roughly tripled. They reproduced sixty years of brand pixel-for-pixel — somehow while also making the site twice as fast.
+            - generic [ref=e500]:
+              - generic [ref=e501]: S
+              - generic [ref=e502]:
+                - generic [ref=e503]: Maeve Donovan
+                - generic [ref=e504]: Brand Director · Stillwood Co.
+      - generic [ref=e506]:
+        - generic [ref=e507]:
+          - generic [ref=e508]:
+            - generic [ref=e509]: The people
+            - heading "Forty people. One room." [level=2] [ref=e511]:
+              - text: Forty people.
+              - emphasis [ref=e512]: One room.
+          - link "About us" [ref=e514] [cursor=pointer]:
+            - /url: /about
+            - text: About us
+        - generic [ref=e516]:
+          - generic [ref=e517]:
+            - generic:
+              - generic:
+                - img "Jay"
+            - generic:
+              - generic:
+                - img "Aarav"
+            - generic:
+              - generic:
+                - img "Priya"
+            - generic:
+              - generic:
+                - img "Rohan"
+            - generic:
+              - generic:
+                - img "Diya"
+            - generic:
+              - generic:
+                - img "Karan"
+            - generic:
+              - generic:
+                - img "Sneha"
+            - generic:
+              - generic:
+                - img "Arjun"
+            - generic:
+              - generic:
+                - img "Neel"
+          - paragraph [ref=e519]: OUR STUDIO
+      - generic [ref=e523]:
+        - generic [ref=e524]:
+          - generic [ref=e525]: 0yrs
+          - generic [ref=e526]: Quietly shipping since 2020
+        - generic [ref=e527]:
+          - generic [ref=e528]: 0+
+          - generic [ref=e529]: Products in the wild
+        - generic [ref=e530]:
+          - generic [ref=e531]: 0%
+          - generic [ref=e532]: Clients who come back
+        - generic [ref=e533]:
+          - generic [ref=e534]: "0"
+          - generic [ref=e535]: Engineers, designers, makers
+      - generic [ref=e537]:
+        - generic [ref=e538]:
+          - generic [ref=e539]:
+            - generic [ref=e540]: Recognition
+            - heading "Award-winning work." [level=2] [ref=e541]:
+              - text: Award-winning
+              - emphasis [ref=e542]: work.
+          - paragraph [ref=e543]: Recognised for craft, reliability and results by clients and the wider industry.
+        - generic [ref=e544]:
+          - generic [ref=e545]:
+            - img [ref=e546]
+            - generic [ref=e552]: Top Development Studio
+            - generic [ref=e553]: Excellence in engineering · 2025
+          - generic [ref=e554]:
+            - img [ref=e555]
+            - generic [ref=e558]: Design Award
+            - generic [ref=e559]: Product & brand design · 2024
+          - generic [ref=e560]:
+            - img [ref=e561]
+            - generic [ref=e564]: Verified Partner
+            - generic [ref=e565]: Vetted technology partner
+          - generic [ref=e566]:
+            - img [ref=e567]
+            - generic [ref=e569]: Top Rated
+            - generic [ref=e570]: 4.9 / 5 average client rating
+        - generic [ref=e571]:
+          - img [ref=e572]
+          - img [ref=e574]
+          - img [ref=e576]
+          - img [ref=e578]
+          - img [ref=e580]
+          - generic [ref=e582]: 4.9 / 5 from 120+ projects delivered worldwide
+      - generic [ref=e584]:
+        - generic [ref=e585]: One inbox, one human, no funnel
+        - heading "Got something worth building?" [level=2] [ref=e586]:
+          - text: Got something worth
+          - emphasis [ref=e587]: building?
+        - link "info@satvixtech.com" [ref=e589] [cursor=pointer]:
+          - /url: mailto:info@satvixtech.com
+          - text: info@satvixtech.com
+          - img [ref=e591]
+  - contentinfo [ref=e593]:
+    - generic [ref=e594]:
+      - generic [ref=e595]:
+        - generic [ref=e596]:
+          - img [ref=e598]:
+            - generic [ref=e607]: TECH SOLUTIONS
+          - paragraph [ref=e608]: A small, independent digital studio in Anand, Gujarat. We design, build, and ship software with founders and operators who care about the work.
+        - generic [ref=e609]:
+          - heading "Studio" [level=5] [ref=e610]
+          - list [ref=e611]:
+            - listitem [ref=e612]:
+              - link "About" [ref=e613] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e614]:
+              - link "Work" [ref=e615] [cursor=pointer]:
+                - /url: /portfolio
+            - listitem [ref=e616]:
+              - link "Blog" [ref=e617] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e618]:
+              - link "Careers" [ref=e619] [cursor=pointer]:
+                - /url: /careers
+        - generic [ref=e620]:
+          - heading "Services" [level=5] [ref=e621]
+          - list [ref=e622]:
+            - listitem [ref=e623]:
+              - link "What we do" [ref=e624] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e625]:
+              - link "AI & ML" [ref=e626] [cursor=pointer]:
+                - /url: /ai-development
+            - listitem [ref=e627]:
+              - link "Graphic Design" [ref=e628] [cursor=pointer]:
+                - /url: /graphic-design-branding
+            - listitem [ref=e629]:
+              - link "Brand & Strategy" [ref=e630] [cursor=pointer]:
+                - /url: /services/brand
+            - listitem [ref=e631]:
+              - link "Hire developers" [ref=e632] [cursor=pointer]:
+                - /url: /hire
+        - generic [ref=e633]:
+          - heading "Contact" [level=5] [ref=e634]
+          - list [ref=e635]:
+            - listitem [ref=e636]:
+              - link "info@satvixtech.com" [ref=e637] [cursor=pointer]:
+                - /url: mailto:info@satvixtech.com
+            - listitem [ref=e638]:
+              - link "+91-9904055986" [ref=e639] [cursor=pointer]:
+                - /url: tel:+919904055986
+            - listitem [ref=e640]: Anand, Gujarat · India
+      - generic [ref=e641]:
+        - text: Satvix
+        - emphasis [ref=e642]: ·
+        - text: Tech Solutions
+        - emphasis [ref=e643]: ·
+        - text: "2026"
+      - generic [ref=e644]:
+        - generic [ref=e645]: © 2026 Satvix Tech Solutions · All rights reserved
+        - generic [ref=e646]:
+          - link "Privacy" [ref=e647] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms" [ref=e648] [cursor=pointer]:
+            - /url: "#"
+          - link "Cookies" [ref=e649] [cursor=pointer]:
+            - /url: "#"

@@ -218,7 +218,7 @@ export default function AiMl() {
           </div> */}
           <h1>
             {(
-              ["Useful AI,", "not a demo on", "<em>a stage.</em>"] as const
+              ["Useful AI.", "Not a demo", "<em>on a stage.</em>"] as const
             ).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
@@ -236,10 +236,9 @@ export default function AiMl() {
               Satvix Tech Solutions &nbsp;/&nbsp; AI &amp; ML
             </div>
             <p>
-              We embed LLMs and retrieval into products people already use. Cost
-              caps, evaluation harnesses, fallback models, and the boring
-              observability that turns a clever demo into something a regulated
-              team can actually deploy.
+              LLMs and retrieval embedded in products people already use. Cost
+              caps, evals, fallback models, and the boring observability that
+              turns a clever demo into something a regulated team can deploy.
             </p>
           </div>
         </div>

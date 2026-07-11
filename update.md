@@ -20,7 +20,7 @@ This positioning is a _strength_ for foreign startups. Do not apologize for bein
 
 ### Ground-truth facts (verified)
 
-- Founder: Jay Sarvaiya, 7+ years full-stack experience (MERN: MongoDB, Express, React, Node)
+- Founder: 7+ years full-stack experience (MERN: MongoDB, Express, React, Node)
 - Team structure: founder-led studio with a network of vetted senior collaborators (fill in: actual current team size)
 - Location: Anand, Gujarat, India
 - Working hours overlap offered: 4+ hours overlap with US East Coast / full UK overlap

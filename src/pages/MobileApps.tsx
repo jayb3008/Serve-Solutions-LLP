@@ -173,7 +173,7 @@ const faqs = [
   },
   {
     question: "How do you manage mobile app testing?",
-    answer: "We test against multiple target physical devices and screen sizes in our Anand studio. We write automated unit tests, integration tests for API channels, and run regression suites before releasing new build bundles."
+    answer: "We test against multiple target physical devices and screen sizes in our Anand office. We write automated unit tests, integration tests for API channels, and run regression suites before releasing new build bundles."
   },
   {
     question: "Will you maintain the app after release?",
@@ -220,7 +220,7 @@ export default function MobileApps() {
           </div> */}
           <h1>
             {(
-              ["Apps people keep", "on the home", "<em>screen.</em>"] as const
+              ["Apps that earn", "the home", "<em>screen.</em>"] as const
             ).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
@@ -239,10 +239,9 @@ export default function MobileApps() {
               Apps
             </div>
             <p>
-              We design and build mobile apps for the long tail of devices
-              people actually own. Native where it matters, React Native where
-              it does not, App Store and Play Store paperwork done by us — and
-              the first awkward week after launch handled by humans, not bots.
+              Native where it matters, React Native where it doesn't. Built for
+              the devices people actually own. Store paperwork ours. The
+              awkward first week after launch handled by humans, not bots.
             </p>
           </div>
         </div>

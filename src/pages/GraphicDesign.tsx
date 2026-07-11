@@ -216,7 +216,7 @@ export default function GraphicDesign() {
         <div className="wrap relative z-10">
           <h1>
             {(
-              ["Design that", "holds up in", "<em>print and pixels.</em>"] as const
+              ["Design that holds", "up at", "<em>every size.</em>"] as const
             ).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
@@ -235,9 +235,8 @@ export default function GraphicDesign() {
               Design &amp; Branding
             </div>
             <p>
-              Identity systems, print collateral, social media kits, packaging,
-              and motion graphics — everything a brand needs to look intentional
-              at every size and on every surface.
+              Identity, print, social kits, packaging, motion — everything a
+              brand needs to look intentional on every surface.
             </p>
           </div>
         </div>

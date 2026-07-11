@@ -33,9 +33,9 @@ const COMPANY_LEGAL = "Satvix Tech Solutions LLP";
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const SEO = ({
-  title = "A small, senior, AI-augmented studio for founders who ship",
-  description = "Satvix Tech Solutions is a small, senior, AI-augmented engineering studio in Anand, Gujarat. You talk directly to the engineers who build your product — no account managers, no juniors learning on your budget.",
-  keywords = "Satvix Tech Solutions, satvixtech, AI augmented development, founder-led software studio India, senior engineers React Native Next.js, MERN development studio Anand Gujarat, offshore engineering for US UK startups, custom software development India",
+  title = "Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency",
+  description = "Satvix Tech Solutions is a premium digital product and software engineering agency in Anand, Gujarat. We build robust web platforms, mobile apps, and custom AI systems with dedicated product teams.",
+  keywords = "Satvix Tech Solutions, satvixtech, software engineering agency, digital product agency India, senior React Native Next.js developers, custom software development company, offshore engineering services US UK startups",
   image = DEFAULT_IMAGE,
   url,
   type = "website",
@@ -81,7 +81,7 @@ const SEO = ({
       minValue: 1,
       maxValue: 10,
     },
-    founders: [{ "@type": "Person", name: "Jay Sarvaiya" }],
+    founders: [{ "@type": "Person", name: "Founder" }],
     knowsAbout: [
       "Web Development",
       "Mobile App Development",

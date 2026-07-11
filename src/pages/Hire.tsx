@@ -19,7 +19,7 @@ const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 const models = [
   {
     title: "A team that becomes yours",
-    desc: "Two to eight people from the studio — engineers, a designer, QA, a delivery lead — working only on your product, treating your standup as their own.",
+    desc: "Two to eight people from the agency — engineers, a designer, QA, a delivery lead — working only on your product, treating your standup as their own.",
     points: [
       "Monthly, rolling",
       "Scale up or down with a month’s notice",
@@ -163,7 +163,7 @@ export default function Hire() {
           </div> */}
           <h1>
             {(
-              ["Borrow a small", "team from <em>our studio.</em>"] as const
+              ["Borrow a senior team.", "<em>By the month.</em>"] as const
             ).map((line, i) => (
               <span key={i} className="row">
                 <motion.span
@@ -181,10 +181,9 @@ export default function Hire() {
               Satvix Tech Solutions &nbsp;/&nbsp; Hire
             </div>
             <p>
-              Lift engineers, designers and QA out of our Anand studio and into
-              your project — as a team, as a specialist, or as a fixed-scope
-              build. Senior people, monthly billing, real overlap with your
-              working day.
+              Lift engineers, designers and QA out of Anand and into your
+              project. As a team, a specialist, or a fixed-scope build. Real
+              overlap with your working day.
             </p>
           </div>
         </div>

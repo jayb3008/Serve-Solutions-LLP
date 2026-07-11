@@ -41,24 +41,12 @@ const principles = [
   },
 ];
 
-const team = [
-  {
-    init: "J",
-    name: "Jay Sarvaiya",
-    role: "Founder — 7+ years MERN, architecture, code review, delivery",
-  },
-  {
-    init: "+",
-    name: "The team",
-    role: "A small senior team of engineers, designers and product folks in Anand — growing carefully",
-  },
-];
 
 const timeline = [
   {
     year: "2020",
-    title: "Studio founded in Anand",
-    body: "Jay starts Satvix as a founder-led studio in Anand, Gujarat. Focus from day one: senior-only builds for founders who need to ship fast.",
+    title: "Agency founded in Anand",
+    body: "Satvix was started as a founder-led studio in Anand, Gujarat. Focus from day one: senior-only builds for founders who need to ship fast.",
   },
   {
     year: "2024",
@@ -89,24 +77,24 @@ const timeline = [
 
 const aboutFaqs = [
   {
-    question: "Who runs the studio?",
+    question: "Who runs the agency?",
     answer:
-      "Jay Sarvaiya. Seven-plus years of full-stack MERN (MongoDB, Express, React, Node). Every engagement — scope, architecture, code review, delivery — runs through Jay.",
+      "Satvix is led by an experienced team of engineering and design leads. We manage all projects internally, assigning dedicated technical architects, product designers, and project managers to each engagement.",
   },
   {
     question: "How big is the team?",
     answer:
-      "A small senior team in Anand — engineers, designers and product folks led by Jay Sarvaiya. Senior-only: no juniors on your budget, no account managers between you and the person writing your code. Growing carefully — see the careers page for the roles currently open.",
+      "We are a growing team of engineers, designers, QA specialists, and product managers based in Anand, Gujarat. Our structure ensures we can scale resource allocation dynamically to match your project's roadmap and complexity.",
   },
   {
-    question: "What makes you different from other agencies?",
+    question: "What makes you different from standard outsourcing agencies?",
     answer:
-      "No account managers between you and the engineer. No juniors learning on your budget. AI-augmented delivery lets us ship fintech in two weeks and e-commerce in four — but every AI-generated line is reviewed by a senior engineer before it lands.",
+      "We don't just supply developers; we provide end-to-end delivery teams. We combine agile project management with senior technical oversight. There are no communication gaps, no black-box development, and every line of code undergoes rigorous QA and senior peer review before deployment.",
   },
   {
     question: "Do you work with foreign clients?",
     answer:
-      "Yes. Founders and agencies in the US, UK, EU and Australia. Four-plus hours overlap with US East Coast, full working-day overlap with the UK. We invoice in USD, GBP or INR and sign standard SaaS/dev contracts and NDAs.",
+      "Yes. Over half of our client base consists of startups and enterprises in the US, UK, EU, and Australia. We support timezone overlap, invoice in major global currencies (USD, GBP, EUR, INR), and sign comprehensive SaaS development contracts, SLAs, and NDAs.",
   },
 ];
 
@@ -123,9 +111,9 @@ export default function About() {
   return (
     <div>
       <SEO
-        title="About Satvix Tech Solutions — a founder-led, AI-augmented studio in Anand"
-        description="Satvix Tech Solutions is a founder-led, AI-augmented engineering studio in Anand, Gujarat. A small senior team led by Jay Sarvaiya — you talk directly to the engineer writing your code."
-        keywords="about Satvix Tech Solutions, Jay Sarvaiya, founder-led studio India, AI-augmented software studio, senior MERN engineers, offshore engineering for US UK founders, software studio Anand Gujarat"
+        title="About Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency"
+        description="Satvix Tech Solutions is a premium digital product and software engineering agency in Anand, Gujarat. We build robust web platforms, mobile apps, and custom AI systems."
+        keywords="about Satvix Tech Solutions, software development company Anand, digital product agency India, custom software solutions Gujarat, offshore engineering services, software engineering agency"
         url="https://satvixtech.com/about"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
@@ -153,9 +141,9 @@ export default function About() {
           <h1>
             {(
               [
-                "Founder-led.",
-                "AI-augmented.",
-                "<em>Senior by design.</em>",
+                "Full-service agency.",
+                "Delivery-focused.",
+                "<em>Built to outlast us.</em>",
               ] as const
             ).map((line, i) => (
               <span key={i} className="row">
@@ -174,12 +162,9 @@ export default function About() {
               Satvix Tech Solutions &nbsp;/&nbsp; About
             </div>
             <p>
-              Satvix is a small, senior engineering studio in Anand, Gujarat.
-              Founder-led by Jay Sarvaiya, with a small team of senior
-              engineers, designers and product folks. You talk directly to the
-              engineer writing your code — no account managers, no juniors,
-              no timezone black holes. Three shipped products so far; every
-              claim on this site is one you can verify.
+              A full-service digital product agency in Anand. We combine product design, 
+              software engineering, QA, and project management to build high-performance 
+              platforms. Transparent processes, dedicated teams, and clear communication.
             </p>
           </div>
         </div>
@@ -203,9 +188,9 @@ export default function About() {
             <em>care, then think, then ship</em> — in that order.
           </p>
           <p className="reveal" data-d="3">
-            That’s the studio we built.{" "}
+            That’s the agency we built.{" "}
             <span className="dim">
-              That’s the one you would be working with.
+              That’s the team you would be working with.
             </span>
           </p>
         </div>
@@ -239,55 +224,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team */}
-      <section
-        className="s"
-        style={{
-          background: "var(--ink)",
-          color: "var(--bg)",
-          paddingBottom: "120px",
-        }}
-      >
-        <div className="wrap">
-          <div className="s-head">
-            <div>
-              <div
-                className="eyebrow reveal"
-                style={{ color: "rgba(255, 255, 255,.6)" }}
-              >
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: 24,
-                    height: 1,
-                    background: "rgba(255, 255, 255,.4)",
-                    flexShrink: 0,
-                  }}
-                />
-                The people
-              </div>
-              <h2
-                className="s-title reveal"
-                data-d="1"
-                style={{ color: "var(--bg)" }}
-              >
-                You will be talking to <em>the founder.</em>
-              </h2>
-            </div>
-          </div>
-          <div className="team-grid">
-            {team.map((m, i) => (
-              <div key={m.name} className={`tm reveal`} data-d={String(i % 4)}>
-                <div className="tm__ph">
-                  <div className="pmark">{m.init}</div>
-                </div>
-                <h4>{m.name}</h4>
-                <p>{m.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Timeline */}
       <section className="s" style={{ paddingBottom: "120px" }}>

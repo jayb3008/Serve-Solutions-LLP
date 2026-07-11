@@ -46,8 +46,8 @@ const IndustryDetail = ({ industryId }: { industryId?: string } = {}) => {
             answer: `No. Based in Anand, working with founders and agencies in the US, UK, EU and Australia. Four-plus hours overlap with US East Coast and full working-day overlap with the UK.`,
         },
         {
-            question: `Why pick this studio for ${industry.title.toLowerCase()}?`,
-            answer: `Founder-led, AI-augmented delivery. You talk directly to a senior engineer — no account managers, no juniors on your budget. We shipped a fintech lending platform in two weeks and an e-commerce build in four. Reference calls and demos on request.`,
+            question: `Why pick Satvix for ${industry.title.toLowerCase()}?`,
+            answer: `We are a premium digital product and software engineering agency. We combine senior developers, UI/UX designers, and dedicated QA with structured project delivery. We shipped a fintech lending platform in two weeks and an e-commerce build in four. Reference calls and demos on request.`,
         },
     ];
 

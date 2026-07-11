@@ -322,7 +322,7 @@ const homepageFaqs = [
   {
     question: "Where are you based, and how do we start?",
     answer:
-      "Anand, Gujarat, India. A small senior team, led by Jay Sarvaiya. To start, email hello@satvixtech.com with a few sentences on what you're building and why — a real person replies within one business day.",
+      "Anand, Gujarat, India. A small senior team. To start, email hello@satvixtech.com with a few sentences on what you're building and why — a real person replies within one business day.",
   },
 ];
 
@@ -345,9 +345,9 @@ export default function Home() {
     <div>
       {/* Fixed scroll-drawn SVG path — hero to footer */}
       <SEO
-        title="Satvix Tech Solutions — small, senior, AI-augmented studio for founders who ship"
-        description="Satvix Tech Solutions is a small, senior, AI-augmented engineering studio in Anand, Gujarat. Talk directly to the engineers who build your product. Fintech in two weeks, e-commerce in four."
-        keywords="Satvix Tech Solutions, AI augmented development studio, founder-led software studio India, senior engineers React Native Node.js, MERN development studio, offshore engineering US UK startups, Gujarat software company, custom software India, hire senior engineers India"
+        title="Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency"
+        description="Satvix Tech Solutions is a premium digital product and software engineering agency in Anand, Gujarat. We build robust web platforms, mobile apps, and custom AI systems with dedicated teams."
+        keywords="Satvix Tech Solutions, AI augmented development agency, software engineering agency India, senior engineers React Native Node.js, MERN development agency, offshore engineering US UK startups, Gujarat software company, custom software India, hire senior engineers India"
         url="https://satvixtech.com"
         faq={homepageFaqs}
       />
@@ -394,9 +394,9 @@ export default function Home() {
           <h1 className="hero__title">
             {(
               [
-                "Senior engineers.",
-                "AI-augmented delivery.",
-                "<em>Ship in weeks, not quarters.</em>",
+                "Digital product agency.",
+                "Engineering-grade.",
+                "<em>Built to scale.</em>",
               ] as const
             ).map((line, i) => (
               <span key={i} className="row">
@@ -414,11 +414,9 @@ export default function Home() {
           <AnimateIn direction="up" delay={0.8}>
             <div className="hero__foot">
               <p>
-                A small, senior, AI-augmented engineering studio in Anand, Gujarat. You
-                talk directly to the engineers who write your code — no account
-                managers, no juniors learning on your budget, no timezone black
-                holes. We shipped a fintech lending platform in two weeks. Ask
-                for a demo.
+                A premium digital product and software engineering agency in Anand. 
+                We combine senior developers, UI/UX designers, and QA with dedicated 
+                project management. Fintech shipped in two weeks. Ask for a demo.
               </p>
               <Magnetic>
                 <Link to="/portfolio" className="cta-btn" data-hover>
@@ -595,7 +593,7 @@ export default function Home() {
                 Custom software &amp; digital products built <em>to last.</em>
               </h2>
               <p className="text-[var(--ink-2)] text-base sm:text-lg leading-relaxed mt-8">
-                Satvix Tech Solutions is a small, senior, <strong>AI-augmented engineering studio</strong> in Anand, Gujarat. Founder-led by Jay Sarvaiya, with a small team of senior engineers, designers and product folks. You talk directly to the engineer writing your code — never to an account manager, never to a junior learning on your budget.
+                Satvix Tech Solutions is a premium <strong>digital product and software engineering agency</strong> in Anand, Gujarat. We integrate expert UI/UX design, senior software development, and structured QA with dedicated project managers to ensure seamless end-to-end product delivery.
               </p>
               <p className="text-[var(--ink-2)] text-base leading-relaxed mt-6">
                 We build for founders and agencies in the US, UK, EU and Australia. Four-plus hours overlap with US East, full working-day overlap with the UK. Full repo access from day one, USD/GBP/INR invoicing, NDA-friendly contracts.
@@ -621,7 +619,7 @@ export default function Home() {
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">UI/UX Design Studio</h3>
+                <h3 className="text-lg font-bold text-[var(--ink)]">UI/UX Design &amp; Strategy</h3>
                 <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
                   Our <strong>UI UX design agency</strong> creates documented design systems and interactive prototypes. We write design tokens in Figma and hand them off in JSON format directly to our frontend engineers.
                 </p>
@@ -785,7 +783,7 @@ export default function Home() {
               <div>
                 <div className="eyebrow reveal">Who we build for</div>
                 <h2 className="s-title" data-d="1">
-                  Seventeen industries. <em>One studio.</em>
+                  Seventeen industries. <em>One agency.</em>
                 </h2>
               </div>
             </AnimateIn>
@@ -1389,7 +1387,7 @@ export default function Home() {
                 data-d="1"
                 style={{ color: "var(--bg)" }}
               >
-                Founder-led. <em>Senior by design.</em>
+                Digital product agency. <em>Senior by design.</em>
               </h2>
             </div>
             <Magnetic>
@@ -1403,7 +1401,7 @@ export default function Home() {
                   borderColor: "rgba(255,255,255,.25)",
                 }}
               >
-                More about the studio <span className="arr" />
+                More about the agency <span className="arr" />
               </Link>
             </Magnetic>
           </div>
@@ -1417,22 +1415,22 @@ export default function Home() {
           >
             {[
               {
-                k: "Founder",
-                title: "Jay Sarvaiya",
+                k: "Expertise",
+                title: "Senior Engineering",
                 body:
-                  "Seven-plus years of full-stack MERN — MongoDB, Express, React, Node. Every project runs through Jay: scope, architecture, code review, delivery.",
+                  "Our team brings deep enterprise MERN stack expertise — MongoDB, Express, React, Node. Every engagement benefits from robust architecture design and thorough code reviews.",
               },
               {
-                k: "The team",
-                title: "A small senior team in Anand",
+                k: "The Team",
+                title: "Full-Service Delivery",
                 body:
-                  "Engineers, designers and product folks — all senior, all in Anand, all working together on the build. No offshored juniors, no rotating cast of contractors. See open roles on the careers page.",
+                  "Engineers, designers, QA, and project managers — all working together in-house. No rotating cast of freelancers. We scale resources dynamically to fit your roadmap.",
               },
               {
-                k: "What you get",
-                title: "No account managers, no juniors on your budget",
+                k: "Our Process",
+                title: "Structured Project Management",
                 body:
-                  "Direct access to the engineer writing your code. Daily async updates, Friday demos, full repo access from day one. You own the code, the IP, the momentum.",
+                  "Dedicated delivery management, daily async progress updates, weekly demos, and transparent communication. Full code repository access from day one.",
               },
             ].map((r, i) => (
               <motion.div

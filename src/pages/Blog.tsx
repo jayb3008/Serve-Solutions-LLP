@@ -57,7 +57,7 @@ export default function Blog() {
             Journal
           </div> */}
           <h1>
-            {(["Notes", "from", "<em>the studio.</em>"] as const).map(
+            {(["Notes", "from", "<em>the agency.</em>"] as const).map(
               (line, i) => (
                 <span key={i} className="row">
                   <motion.span
@@ -76,10 +76,10 @@ export default function Blog() {
               Satvix Tech Solutions &nbsp;/&nbsp; Journal
             </div>
             <p>
-              Long-form writing by the people who actually built the thing.
-              Decisions we got right, ones we did not, and the slow parts of AI
-              nobody wants to write about. We post when we have something to say
-              — not on a schedule.
+              Writing by the people who built the thing. Decisions we got
+              right, ones we didn't, and the slow parts of AI nobody wants to
+              write about. Posted when we have something to say — not on a
+              schedule.
             </p>
           </div>
         </div>

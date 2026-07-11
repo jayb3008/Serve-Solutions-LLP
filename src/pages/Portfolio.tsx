@@ -153,10 +153,9 @@ export default function Portfolio() {
               Satvix Tech Solutions &nbsp;/&nbsp; Case studies
             </div>
             <p>
-              Fintech in two weeks. E-commerce in four. A reusable
-              manufacturing SaaS built as a white-label product. Every claim
-              here is one you can verify — ask for a live demo or a reference
-              call.
+              Fintech in two weeks. E-commerce in four. A white-label
+              manufacturing SaaS. Ask for a live demo or a reference call —
+              every claim is verifiable.
             </p>
           </div>
         </div>

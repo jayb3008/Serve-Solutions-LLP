@@ -17,7 +17,7 @@ export const locationsData: Record<string, LocationData> = {
     description: "Looking for a software development company in Anand, Gujarat? Satvix Tech Solutions designs and builds high-quality web, mobile, and AI applications for startups and enterprises.",
     keywords: "software development company in Anand, software developers Anand, IT services Anand Gujarat, web development Anand, custom software Anand",
     city: "Anand, Gujarat",
-    overview: "Satvix Tech Solutions is an independent digital product studio based in Anand, Gujarat. Since 2020, we have designed, built, and shipped over 120 web platforms, mobile apps, and AI/ML integrations for clients globally. We combine local accessibility with global development standards to deliver clean, scalable, and premium software.",
+    overview: "Satvix Tech Solutions is an independent digital product and software engineering agency based in Anand, Gujarat. Since 2020, we have designed, built, and shipped over 120 web platforms, mobile apps, and AI/ML integrations for clients globally. We combine local accessibility with global development standards to deliver clean, scalable, and premium software.",
     faqs: [
       {
         question: "Why choose a software development company in Anand like Satvix?",
@@ -29,7 +29,7 @@ export const locationsData: Record<string, LocationData> = {
       },
       {
         question: "Can I meet the developers in person at Anand?",
-        answer: "Yes, our primary engineering studio is located in Anand, Gujarat. Clients and partners are welcome to schedule a discovery meeting at our office to discuss project roadmaps."
+        answer: "Yes, our primary office is located in Anand, Gujarat. Clients and partners are welcome to schedule a discovery meeting at our office to discuss project roadmaps."
       }
     ]
   },

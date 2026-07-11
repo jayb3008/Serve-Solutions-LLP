@@ -239,9 +239,8 @@ export default function Brand() {
               &amp; Strategy
             </div>
             <p>
-              We rewrite the line founders use at parties. Positioning, naming,
-              voice, and the visual identity that ships with the product on day
-              one — not bolted on for the rebrand three years later.
+              Positioning, naming, voice, identity — shipped with the product
+              on day one. Not bolted on for the rebrand three years later.
             </p>
           </div>
         </div>

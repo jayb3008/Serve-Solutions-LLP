@@ -31,7 +31,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
     },
     {
       question: `Why pick Satvix for this?`,
-      answer: `Founder-led studio with AI-augmented delivery. You talk directly to a senior engineer — no account managers, no juniors on your budget. We shipped a fintech lending platform in two weeks and an e-commerce build in four. Reference calls and demos on request.`,
+      answer: `Premium digital product agency. We combine expert UI/UX design, senior software engineering, and structured QA with dedicated project managers. We shipped a fintech lending platform in two weeks and an e-commerce build in four. Reference calls and demos on request.`,
     },
   ];
 
@@ -114,7 +114,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
           {/* <div className="page-hero__eyebrow">
                         <span className="ping" />
                         <service.icon className="w-4 h-4 text-[var(--muted)] inline-block mr-2 align-text-bottom" />
-                        A practice at the studio
+                        A practice at the agency
                     </div> */}
           <h1>
             <span className="row">
@@ -351,7 +351,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
                 to="/about"
                 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-colors py-3 px-3"
               >
-                About the studio
+                About the agency
               </Link>
             </div>
           </div>

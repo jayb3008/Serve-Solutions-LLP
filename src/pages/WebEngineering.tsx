@@ -222,8 +222,8 @@ export default function WebEngineering() {
           <h1>
             {(
               [
-                "Web platforms that",
-                "are still readable",
+                "Web platforms.",
+                "Still readable",
                 "<em>two years later.</em>",
               ] as const
             ).map((line, i) => (
@@ -244,10 +244,9 @@ export default function WebEngineering() {
               Engineering
             </div>
             <p>
-              From a four-page launch site to a SaaS used by a million people a
-              week, we build with the same defaults: hard performance budgets,
-              real accessibility, and a codebase your team can still understand
-              after we have gone.
+              Landing sites to million-user SaaS. Same defaults every time:
+              hard performance budgets, real accessibility, and a codebase your
+              team can still run after we've gone.
             </p>
           </div>
         </div>

@@ -110,7 +110,7 @@ export default function Industries() {
     <div>
       <SEO
         title="Industries — verticals Satvix Tech Solutions has shipped in"
-        description="Satvix Tech Solutions builds software for fintech, health, SaaS, commerce, legal, logistics, EdTech, OTT, real estate and manufacturing. Ten verticals, six years, one studio in Anand."
+        description="Satvix Tech Solutions builds software for fintech, health, SaaS, commerce, legal, logistics, EdTech, OTT, real estate and manufacturing. Ten verticals, six years, one agency in Anand."
         keywords="industry software development India, fintech software company India, healthcare tech India, edtech development company, logistics software India, legal tech company India, OTT platform development, insurtech India, travel tech development, manufacturing software India, retail tech company, telecom software India, construction tech India, marketplace development India, on demand app India, sports tech India, domain specific software development India, vertical SaaS India"
         url="https://satvixtech.com/industries"
         breadcrumb={[
@@ -139,8 +139,8 @@ export default function Industries() {
           <h1>
             {(
               [
-                "Ten verticals",
-                "we have already",
+                "Ten verticals.",
+                "Already",
                 "<em>shipped in.</em>",
               ] as const
             ).map((line, i) => (
@@ -160,10 +160,9 @@ export default function Industries() {
               Satvix Tech Solutions &nbsp;/&nbsp; Industries
             </div>
             <p>
-              Domain knowledge saves quarters. The studio has shipped products
-              in ten verticals — we know which features are table stakes, which
-              audits are real, and where the opportunity nobody else has noticed
-              actually lives.
+              Domain knowledge saves quarters. We know which features are
+              table stakes, which audits are real, and where the opportunity
+              nobody else noticed actually lives.
             </p>
           </div>
         </div>

@@ -26,7 +26,7 @@ const values = [
   {
     n: "04",
     title: "Anand by default, remote by choice",
-    body: "Most of us are in the studio in Anand on Tuesdays and Thursdays. The rest of the week is up to you. What matters is the craft and the communication, not the chair.",
+    body: "Most of us are in the agency office in Anand on Tuesdays and Thursdays. The rest of the week is up to you. What matters is the craft and the communication, not the chair.",
   },
 ];
 
@@ -157,11 +157,10 @@ export default function Careers() {
               Satvix Tech Solutions &nbsp;/&nbsp; Careers
             </div>
             <p>
-              A founder-led, AI-augmented engineering studio in Anand,
-              working with founders across three continents. If you're senior,
-              care about craft, and would rather ship a fintech MVP in two
-              weeks than sit through a two-quarter planning cycle — you'd
-              probably like it here.
+              Founder-led, AI-augmented, based in Anand, working across three
+              continents. If you're senior, care about craft, and would rather
+              ship a fintech MVP in two weeks than sit through a two-quarter
+              planning cycle — you'd like it here.
             </p>
           </div>
         </div>
@@ -174,7 +173,7 @@ export default function Careers() {
             <div>
               <div className="eyebrow reveal">Why you might stay</div>
               <h2 className="s-title reveal" data-d="1">
-                A studio that is <em>built around the work.</em>
+                An agency that is <em>built around the work.</em>
               </h2>
             </div>
           </div>

@@ -21,12 +21,12 @@ export default function Footer() {
             <Link to="/" className="foot-logo" style={{ marginBottom: '20px', display: 'block' }} aria-label="Satvix Tech Solutions Home">
               <Logo style={{ height: '48px' }} />
             </Link>
-            <p>Founder-led, AI-augmented engineering studio in Anand, Gujarat. Working with founders and agencies in the US, UK, EU and Australia. A real person replies within one business day.</p>
+            <p>Premium digital product and software engineering agency in Anand, Gujarat. Partnering with startups, agencies, and enterprises in the US, UK, EU, and Australia.</p>
           </div>
 
-          {/* Studio */}
+          {/* Agency */}
           <div>
-            <h5>Studio</h5>
+            <h5>Agency</h5>
             <ul>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/portfolio">Work</Link></li>

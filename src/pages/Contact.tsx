@@ -108,9 +108,9 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <SEO
-        title="Contact Satvix Tech Solutions — talk to the engineer, not an account manager"
-        description="Contact Satvix Tech Solutions. Write to hello@satvixtech.com and a senior engineer replies within one business day. Based in Anand, Gujarat; working with founders in the US, UK, EU and Australia."
-        keywords="contact Satvix Tech Solutions, hire founder-led software studio, senior engineer for hire India, offshore React Native Node.js team, hello@satvixtech.com, MERN engineer for US UK startups"
+        title="Contact Satvix Tech Solutions — Get in Touch with Our Team"
+        description="Contact Satvix Tech Solutions. Write to hello@satvixtech.com and our team will reply within one business day. Based in Anand, Gujarat; working with clients in the US, UK, EU and Australia."
+        keywords="contact Satvix Tech Solutions, hire software development agency, senior engineer for hire India, offshore React Native Node.js team, hello@satvixtech.com, MERN engineer for US UK startups"
         url="https://satvixtech.com/contact"
         breadcrumb={[
           { name: "Home", item: "https://satvixtech.com" },
@@ -179,10 +179,9 @@ const Contact = () => {
               Satvix Tech Solutions &nbsp;/&nbsp; Contact
             </div>
             <p>
-              Write a few sentences about what you're making. A senior
-              engineer reads every message and replies within one business
-              day — no funnel, no sales-call calendar, no account manager
-              between you and the person writing your code.
+              A few sentences is enough. A senior engineer reads every message
+              and replies within one business day. No funnel, no calendar
+              link, no account manager in between.
             </p>
           </div>
         </div>
@@ -217,7 +216,7 @@ const Contact = () => {
                   },
                   {
                     icon: Phone,
-                    label: "Call the studio",
+                    label: "Call the agency",
                     value: "+91 70164 27729",
                     href: "tel:+917016427729",
                   },
