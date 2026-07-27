@@ -18,8 +18,9 @@ import {
     Zap,
     Store
 } from 'lucide-react';
+import type { Industry } from './types';
 
-export const industriesData: Record<string, any> = {
+export const industriesData: Record<string, Industry> = {
     'healthcare': {
         title: "Healthcare",
         icon: HeartPulse,

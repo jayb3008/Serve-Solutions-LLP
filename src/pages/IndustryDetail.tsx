@@ -118,7 +118,7 @@ const IndustryDetail = ({ industryId }: { industryId?: string } = {}) => {
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line)] border border-[var(--line)]">
-                        {industry.capabilities.map((cap: any, i: number) => (
+                        {industry.capabilities.map((cap, i) => (
                             <div key={i} className="bg-[var(--bg)] p-6 sm:p-10 lg:p-12 group hover:bg-[var(--bg-2)] transition-colors">
                                 <div className="w-12 h-12 bg-[var(--ink)] text-[var(--bg)] flex items-center justify-center mb-6 sm:mb-8 group-hover:scale-110 transition-transform">
                                     <ShieldCheck className="w-5 h-5" />

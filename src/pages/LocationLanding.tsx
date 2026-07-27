@@ -6,8 +6,7 @@ import Faq from "../components/Faq";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 import { locationsData } from "../data/locations";
-import { servicesData } from "../data/services";
-import { ShieldCheck, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 

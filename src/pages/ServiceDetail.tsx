@@ -211,7 +211,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line)] border border-[var(--line)]">
-            {service.capabilities.map((cap: any, i: number) => (
+            {service.capabilities.map((cap, i) => (
               <div
                 key={i}
                 className="bg-[var(--bg)] p-6 sm:p-10 lg:p-12 group hover:bg-[var(--bg-2)] transition-colors"
@@ -253,7 +253,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
-            {service.workflow.map((item: any, i: number) => (
+            {service.workflow.map((item, i) => (
               <div key={i} className="relative">
                 <span className="text-6xl font-bold text-[var(--bg)]/10 absolute -top-10 -left-4 pointer-events-none">
                   {item.step}

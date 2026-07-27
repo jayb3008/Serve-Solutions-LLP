@@ -188,7 +188,7 @@ export default function Portfolio() {
       <section className="s" style={{ padding: "80px 0 120px" }}>
         <div className="wrap">
           <div className="arch-grid">
-            {visible.map((c, i) => (
+            {visible.map((c) => (
               <TiltCard
                 key={c.id}
                 to={`/portfolio/${c.id}`}

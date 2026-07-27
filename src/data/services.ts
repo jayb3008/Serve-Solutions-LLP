@@ -14,8 +14,9 @@ import {
     Boxes,
     Brush
 } from 'lucide-react';
+import type { Service } from './types';
 
-export const servicesData: Record<string, any> = {
+export const servicesData: Record<string, Service> = {
     'web-development': {
         title: "Web Development",
         seoPath: "/web-development",
