@@ -97,6 +97,11 @@
       "source": "/industries/marketplace",
       "destination": "/industries",
       "permanent": true
+    },
+    {
+      "source": "/web-development-company-ahmedabad",
+      "destination": "/web-development",
+      "permanent": true
     }
   ]
 }

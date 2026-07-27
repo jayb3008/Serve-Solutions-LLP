@@ -51,7 +51,6 @@ export const staticRoutes = [
   '/software-development-company-anand',
   '/it-company-anand',
   '/mobile-app-development-gujarat',
-  '/web-development-company-ahmedabad',
   '/ai-development-services-india',
 
   // SEO Direct Industry Paths — these mirror routes declared in App.tsx.
@@ -104,7 +103,6 @@ function metaFor(route: string): { changefreq: string; priority: number } {
       '/software-development-company-anand',
       '/it-company-anand',
       '/mobile-app-development-gujarat',
-      '/web-development-company-ahmedabad',
       '/ai-development-services-india'
     ].includes(route)
   ) {
@@ -160,6 +158,28 @@ export const retiredIndustries = [
   'marketplace',
 ];
 
+/* Geo landing pages withdrawn from the site, mapped to where their traffic
+   should go instead.
+
+   The five geo pages shared 61% of their body text after boilerplate was
+   subtracted — 38.9% unique against a 60-70% gate. The swap test was decisive:
+   neutralise the city names between two of them and only 5 of 31 sentences
+   still differed, which is the doorway pattern the March 2024 core update
+   targeted.
+
+   Ahmedabad was the weakest of the five and the one that could not be fixed by
+   writing: there is no office there, no case study, and no citation, so there
+   was no local proof to write with. The other four are anchored in Anand or
+   describe a genuine service area. `/web-development` is the honest
+   destination — same service, no geography we cannot evidence.
+
+   Kept as a redirect rather than a 404 because the URL is live and indexed.
+   The copy stays in locations.ts, matching the retiredIndustries convention:
+   reinstating a page is then a data change, not a rewrite. */
+export const retiredLocations: Record<string, string> = {
+  '/web-development-company-ahmedabad': '/web-development',
+};
+
 /* Industry keys the site still routes to and links from. */
 export const activeIndustryKeys = (): string[] =>
   Object.keys(industriesData).filter((k) => !retiredIndustries.includes(k));
@@ -185,9 +205,11 @@ export const allRoutes: string[] = [
   ]),
 ];
 
-/* Redirects for consolidated / duplicated industry URLs, consumed by
-   scripts/prerender.mjs to keep vercel.json in sync with the data. */
-export const industryRedirects = (): { source: string; destination: string }[] => [
+/* Redirects for consolidated industry URLs and withdrawn geo pages, consumed
+   by scripts/prerender.mjs to keep vercel.json in sync with the data. Because
+   these are generated from the same source as allRoutes, a URL can never be
+   both redirected and prerendered. */
+export const generatedRedirects = (): { source: string; destination: string }[] => [
   ...Object.entries(industrySeoPaths).map(([k, dest]) => ({
     source: `/industries/${k}`,
     destination: dest,
@@ -195,6 +217,10 @@ export const industryRedirects = (): { source: string; destination: string }[] =
   ...retiredIndustries.map((k) => ({
     source: `/industries/${k}`,
     destination: '/industries',
+  })),
+  ...Object.entries(retiredLocations).map(([source, destination]) => ({
+    source,
+    destination,
   })),
 ];
 

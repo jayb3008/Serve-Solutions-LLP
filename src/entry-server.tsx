@@ -27,5 +27,5 @@ export function render(url: string): RenderResult {
   return { html, helmet: helmetContext.helmet };
 }
 
-export { allRoutes, sitemapEntries, industryRedirects } from './data/routes';
+export { allRoutes, sitemapEntries, generatedRedirects } from './data/routes';
 export { posts } from './data/blog';

@@ -147,7 +147,6 @@ function AnimatedRoutes() {
           <Route path="/software-development-company-anand" element={<LocationLanding slug="software-development-company-anand" />} />
           <Route path="/it-company-anand" element={<LocationLanding slug="it-company-anand" />} />
           <Route path="/mobile-app-development-gujarat" element={<LocationLanding slug="mobile-app-development-gujarat" />} />
-          <Route path="/web-development-company-ahmedabad" element={<LocationLanding slug="web-development-company-ahmedabad" />} />
           <Route path="/ai-development-services-india" element={<LocationLanding slug="ai-development-services-india" />} />
 
           {/* SEO Direct Industry Paths */}

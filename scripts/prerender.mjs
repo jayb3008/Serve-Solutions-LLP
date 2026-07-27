@@ -19,7 +19,7 @@ const serverEntry = pathToFileURL(path.join(distDir, 'server', 'entry-server.js'
 // The www host is canonical; the apex 308-redirects to it.
 const BASE_URL = 'https://www.satvixtech.com';
 
-const { render, allRoutes, sitemapEntries, industryRedirects, posts } =
+const { render, allRoutes, sitemapEntries, generatedRedirects, posts } =
   await import(serverEntry);
 
 let template = await fs.readFile(path.join(distDir, 'index.html'), 'utf-8');
@@ -107,26 +107,30 @@ await fs.writeFile(path.join(distDir, 'sitemap.xml'), sitemap, 'utf-8');
 const ogCount = await generateOgImages(posts);
 console.log(`✓ Generated ${ogCount} article OG cards → dist/images/og/`);
 
-// ── Sync consolidated-industry redirects into vercel.json ──
-// Generated from the same data that drives the prerender list, so a vertical
-// can never be both redirected and rendered. Hand edits to this block are
+// ── Sync generated redirects into vercel.json ──
+// Generated from the same data that drives the prerender list, so a URL can
+// never be both redirected and rendered. Hand edits to these entries are
 // overwritten on the next build; change src/data/routes.ts instead.
 const vercelPath = path.join(root, 'vercel.json');
 const vercelConfig = JSON.parse(await fs.readFile(vercelPath, 'utf-8'));
-const generated = industryRedirects().map(({ source, destination }) => ({
+const generated = generatedRedirects().map(({ source, destination }) => ({
   source,
   destination,
   permanent: true,
 }));
+// Match on the generated sources themselves rather than a path prefix —
+// retired geo pages live at the site root, so a prefix rule would have let a
+// stale copy of one survive alongside the regenerated entry.
+const generatedSources = new Set(generated.map((r) => r.source));
 const handWritten = (vercelConfig.redirects ?? []).filter(
-  (r) => !r.source.startsWith('/industries/'),
+  (r) => !generatedSources.has(r.source),
 );
 const nextRedirects = [...handWritten, ...generated];
 
 if (JSON.stringify(vercelConfig.redirects ?? []) !== JSON.stringify(nextRedirects)) {
   vercelConfig.redirects = nextRedirects;
   await fs.writeFile(vercelPath, `${JSON.stringify(vercelConfig, null, 2)}\n`, 'utf-8');
-  console.log(`✓ Synced ${generated.length} industry redirects → vercel.json`);
+  console.log(`✓ Synced ${generated.length} generated redirects → vercel.json`);
 } else {
   console.log(`✓ vercel.json redirects already in sync (${generated.length})`);
 }

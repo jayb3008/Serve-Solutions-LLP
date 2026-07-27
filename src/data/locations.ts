@@ -71,6 +71,12 @@ export const locationsData: Record<string, LocationData> = {
       }
     ]
   },
+  /* RETIRED — see `retiredLocations` in src/data/routes.ts.
+     Not routed, not prerendered, not in the sitemap; the URL 301s to
+     /web-development. The copy is kept so reinstating the page is a data
+     change rather than a rewrite, but do not re-add the route until there is
+     an Ahmedabad office, client or case study to write from — without local
+     proof it just rebuilds the doorway page that got it withdrawn. */
   "web-development-company-ahmedabad": {
     slug: "web-development-company-ahmedabad",
     title: "Web Development Company in Ahmedabad | Next.js & React | Satvix Tech",

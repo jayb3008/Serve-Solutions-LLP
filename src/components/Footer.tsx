@@ -56,7 +56,6 @@ export default function Footer() {
               <li><Link to="/software-development-company-anand">Software development in Anand</Link></li>
               <li><Link to="/it-company-anand">IT company in Anand</Link></li>
               <li><Link to="/mobile-app-development-gujarat">Mobile app development in Gujarat</Link></li>
-              <li><Link to="/web-development-company-ahmedabad">Web development in Ahmedabad</Link></li>
               <li><Link to="/ai-development-services-india">AI development services in India</Link></li>
             </ul>
           </div>

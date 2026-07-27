@@ -60,7 +60,6 @@ const LOCATION_ROUTES = new Set([
   '/software-development-company-anand',
   '/it-company-anand',
   '/mobile-app-development-gujarat',
-  '/web-development-company-ahmedabad',
   '/ai-development-services-india',
 ]);
 
