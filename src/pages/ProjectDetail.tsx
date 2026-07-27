@@ -14,7 +14,9 @@ type Project = {
   title: string;
   subtitle: string;
   category: string;
-  year: string;
+  /** Build duration, e.g. "2 weeks". Not a calendar year — do not derive
+      a date from it. */
+  timeline: string;
   client: string;
   role: string;
   tags: string[];
@@ -38,7 +40,7 @@ const projectsData: Record<string, Project> = {
     title: "Nine Finance",
     subtitle: "Fintech lending platform, shipped in two weeks",
     category: "Fintech · Mobile-first",
-    year: "2 weeks",
+    timeline: "2 weeks",
     client: "Nine Finance (confidential)",
     role: "Full-stack build — founder-led",
     tags: ["Fintech", "React Native", "Node.js", "Live"],
@@ -77,7 +79,7 @@ const projectsData: Record<string, Project> = {
     title: "Glamour Jewelry",
     subtitle: "Full jewelry e-commerce platform in four weeks",
     category: "E-commerce · Full-stack",
-    year: "4 weeks",
+    timeline: "4 weeks",
     client: "Glamour Jewelry",
     role: "Full-stack build — founder-led",
     tags: ["Ecommerce", "React", "Node", "MongoDB"],
@@ -116,7 +118,7 @@ const projectsData: Record<string, Project> = {
     title: "Charotar Soap Factory",
     subtitle: "White-label manufacturing SaaS — reusable, licensable",
     category: "SaaS · White-label · B2B",
-    year: "2 months",
+    timeline: "2 months",
     client: "Proprietary product (Satvix)",
     role: "Product design + full-stack build",
     tags: ["SaaS", "Next.js", "Node.js", "White-label"],
@@ -158,6 +160,12 @@ export default function ProjectDetail() {
   const project = projectsData[id as string] ?? projectsData["nine-finance"];
   const nextProject = project ? projectsData[project.next] : undefined;
 
+  /* No datePublished is passed below: `timeline` holds a build duration
+     ("2 weeks"), not a year, so the field was emitting the literal string "2 weeks-01-01"
+     into the Article schema on all three case studies. An invalid date is worse
+     than an absent one — Google can reject the whole item over it. Restoring the
+     field needs a real publication date per case study, which is not in the
+     data. */
   return (
     <div>
       <SEO
@@ -167,7 +175,6 @@ export default function ProjectDetail() {
         image={project.ogImg ?? undefined}
         url={`https://www.satvixtech.com/portfolio/${id}`}
         type="article"
-        datePublished={`${project.year}-01-01`}
         faq={project.faq}
         breadcrumb={[
           { name: "Home", item: "https://www.satvixtech.com" },
@@ -234,7 +241,7 @@ export default function ProjectDetail() {
             >
               {[
                 { label: "Client", value: project.client },
-                { label: "Year", value: project.year },
+                { label: "Timeline", value: project.timeline },
                 { label: "Role", value: project.role },
               ].map((m) => (
                 <div key={m.label}>

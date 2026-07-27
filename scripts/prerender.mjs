@@ -7,6 +7,7 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { generateOgImages } from './og-images.mjs';
+import { createLastmodResolver } from './lastmod.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -17,7 +18,6 @@ const serverEntry = pathToFileURL(path.join(distDir, 'server', 'entry-server.js'
 // the sitemap <loc> values, that one builds canonical/og/JSON-LD URLs.
 // The www host is canonical; the apex 308-redirects to it.
 const BASE_URL = 'https://www.satvixtech.com';
-const TODAY = new Date().toISOString().slice(0, 10);
 
 const { render, allRoutes, sitemapEntries, industryRedirects, posts } =
   await import(serverEntry);
@@ -80,15 +80,20 @@ for (const route of allRoutes) {
 }
 
 // ── Regenerate sitemap.xml so it always matches the rendered routes ──
+const lastmodFor = createLastmodResolver(posts);
+let datedUrls = 0;
+
 const urls = sitemapEntries()
-  .map(
-    ({ loc, changefreq, priority }) => `  <url>
+  .map(({ loc, changefreq, priority }) => {
+    // Omitted rather than faked when there is no real date behind the route.
+    const lastmod = lastmodFor(loc);
+    if (lastmod) datedUrls++;
+    return `  <url>
     <loc>${BASE_URL}${loc === '/' ? '/' : loc}</loc>
-    <lastmod>${TODAY}</lastmod>
-    <changefreq>${changefreq}</changefreq>
+${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ''}    <changefreq>${changefreq}</changefreq>
     <priority>${priority.toFixed(2)}</priority>
-  </url>`
-  )
+  </url>`;
+  })
   .join('\n');
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -130,4 +135,10 @@ if (JSON.stringify(vercelConfig.redirects ?? []) !== JSON.stringify(nextRedirect
 await fs.rm(path.join(distDir, 'server'), { recursive: true, force: true });
 
 console.log(`✓ Prerendered ${count} routes → static HTML`);
-console.log(`✓ Generated sitemap.xml with ${sitemapEntries().length} URLs`);
+console.log(
+  `✓ Generated sitemap.xml with ${sitemapEntries().length} URLs ` +
+    `(${datedUrls} with lastmod)`,
+);
+if (datedUrls === 0) {
+  console.warn('! No lastmod dates resolved — is git history available here?');
+}

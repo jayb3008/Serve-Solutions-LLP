@@ -16,7 +16,11 @@ export type Post = {
   excerpt: string;
   author: string;
   role: string;
+  /** Publication date, "Mon YYYY". Drives datePublished and sitemap lastmod. */
   date: string;
+  /** Set only when the post has been materially revised — not on typo fixes.
+      Drives dateModified, which otherwise falls back to `date`. */
+  updated?: string;
   read: string;
   cat: string;
   featured?: boolean;
@@ -33,6 +37,7 @@ export const posts: Post[] = [
     author: 'Founder',
     role: 'Founder & CEO',
     date: 'May 2025',
+    updated: 'Jul 2026',
     read: '9 min',
     cat: 'AI',
     featured: true,
@@ -70,6 +75,7 @@ export const posts: Post[] = [
     author: 'Rahul Patel',
     role: 'Head of Engineering',
     date: 'Apr 2025',
+    updated: 'Jul 2026',
     read: '11 min',
     cat: 'AI',
     bg: 'bg-indigo',
@@ -101,6 +107,7 @@ export const posts: Post[] = [
     author: 'Priya Mehta',
     role: 'Design Lead',
     date: 'Apr 2025',
+    updated: 'Jul 2026',
     read: '7 min',
     cat: 'Design',
     bg: 'bg-mint',
@@ -124,6 +131,7 @@ export const posts: Post[] = [
     author: 'Rahul Patel',
     role: 'Head of Engineering',
     date: 'Mar 2025',
+    updated: 'Jul 2026',
     read: '10 min',
     cat: 'Engineering',
     bg: 'bg-sky',
@@ -147,6 +155,7 @@ export const posts: Post[] = [
     author: 'Karan Joshi',
     role: 'Mobile Lead',
     date: 'Mar 2025',
+    updated: 'Jul 2026',
     read: '8 min',
     cat: 'Mobile',
     bg: 'bg-coffee',
@@ -170,6 +179,7 @@ export const posts: Post[] = [
     author: 'Nisha Desai',
     role: 'Product Manager',
     date: 'Feb 2025',
+    updated: 'Jul 2026',
     read: '6 min',
     cat: 'Product',
     bg: 'bg-sand',
@@ -199,6 +209,7 @@ export const posts: Post[] = [
     author: 'Dev Agarwal',
     role: 'Backend Engineer',
     date: 'Feb 2025',
+    updated: 'Jul 2026',
     read: '12 min',
     cat: 'Engineering',
     bg: 'bg-deep-green',
@@ -244,6 +255,7 @@ export const posts: Post[] = [
     author: 'Rahul Patel',
     role: 'Head of Engineering',
     date: 'Jun 2026',
+    updated: 'Jul 2026',
     read: '8 min',
     cat: 'Engineering',
     bg: 'bg-violet',
@@ -263,6 +275,7 @@ export const posts: Post[] = [
     author: 'Founder',
     role: 'Founder & CEO',
     date: 'Jun 2026',
+    updated: 'Jul 2026',
     read: '10 min',
     cat: 'Product',
     bg: 'bg-indigo',
@@ -286,6 +299,7 @@ export const posts: Post[] = [
     author: 'Karan Joshi',
     role: 'Mobile Lead',
     date: 'May 2026',
+    updated: 'Jul 2026',
     read: '9 min',
     cat: 'Mobile',
     bg: 'bg-mint',
@@ -304,6 +318,7 @@ export const posts: Post[] = [
     author: 'Rahul Patel',
     role: 'Head of Engineering',
     date: 'May 2026',
+    updated: 'Jul 2026',
     read: '12 min',
     cat: 'AI',
     bg: 'bg-sky',
@@ -322,6 +337,7 @@ export const posts: Post[] = [
     author: 'Founder',
     role: 'Founder & CEO',
     date: 'Apr 2026',
+    updated: 'Jul 2026',
     read: '11 min',
     cat: 'AI',
     bg: 'bg-coffee',
@@ -341,6 +357,7 @@ export const posts: Post[] = [
     author: 'Sneha Trivedi',
     role: 'Brand Strategy',
     date: 'Apr 2026',
+    updated: 'Jul 2026',
     read: '9 min',
     cat: 'Brand',
     bg: 'bg-sand',

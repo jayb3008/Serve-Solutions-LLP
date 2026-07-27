@@ -48,6 +48,7 @@ export default function BlogPost() {
         url={`https://www.satvixtech.com/blog/${post.slug}`}
         type="article"
         datePublished={toISO(post.date)}
+        dateModified={toISO(post.updated ?? post.date)}
         breadcrumb={[
           { name: "Home", item: "https://www.satvixtech.com" },
           { name: "Blog", item: "https://www.satvixtech.com/blog" },

@@ -37,7 +37,6 @@ const OG_IMAGE_WIDTH = "1200";
 const OG_IMAGE_HEIGHT = "630";
 const COMPANY_NAME = "Satvix Tech Solutions";
 const COMPANY_LEGAL = "Satvix Tech Solutions LLP";
-const TODAY = new Date().toISOString().slice(0, 10);
 
 const SEO = ({
   title = "Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency",
@@ -47,8 +46,8 @@ const SEO = ({
   url,
   type = "website",
   breadcrumb,
-  datePublished = TODAY,
-  dateModified = TODAY,
+  datePublished,
+  dateModified,
   faq,
   service,
 }: SEOProps) => {
@@ -213,6 +212,19 @@ const SEO = ({
     },
   };
 
+  /* Dates are emitted only when the page can supply a real one. These used to
+     default to the build date, which stamped "published and modified today" on
+     all 70 routes on every deploy — a freshness claim that was false the moment
+     it shipped, and one Google discounts once it notices. A page with no
+     content date is better off saying nothing. `dateModified` falls back to
+     `datePublished`, which is true for anything never revised. */
+  const dates = {
+    ...(datePublished ? { datePublished } : {}),
+    ...(dateModified ?? datePublished
+      ? { dateModified: dateModified ?? datePublished }
+      : {}),
+  };
+
   /* ── WebPage ── */
   const webPageSchema = {
     "@context": "https://schema.org",
@@ -223,8 +235,7 @@ const SEO = ({
     description,
     isPartOf: { "@id": `${BASE_URL}/#website` },
     about: { "@id": `${BASE_URL}/#organization` },
-    datePublished,
-    dateModified,
+    ...dates,
     inLanguage: "en-IN",
     potentialAction: {
       "@type": "ReadAction",
@@ -316,8 +327,7 @@ const SEO = ({
           description,
           image: [imageUrl],
           url: currentUrl,
-          datePublished,
-          dateModified,
+          ...dates,
           author: { "@id": `${BASE_URL}/#organization` },
           publisher: { "@id": `${BASE_URL}/#organization` },
           mainEntityOfPage: { "@type": "WebPage", "@id": `${currentUrl}#webpage` },
