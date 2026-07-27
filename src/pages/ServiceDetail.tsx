@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { servicesData } from "../data/services";
+import { buildDescription } from "../lib/meta";
 import { ArrowLeft, ArrowRight, ShieldCheck } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Squares from "../components/ui/squares";
@@ -80,7 +81,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
     >
       <SEO
         title={service.title}
-        description={service.tagline}
+        description={buildDescription(service.tagline, service.overview)}
         keywords={service.keywords}
         url={`https://www.satvixtech.com${service.seoPath || `/services/${activeId}`}`}
         breadcrumb={[

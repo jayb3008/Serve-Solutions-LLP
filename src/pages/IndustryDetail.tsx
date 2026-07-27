@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { industriesData } from '../data/industries';
+import { buildDescription } from '../lib/meta';
 import {
     ArrowLeft,
     ShieldCheck
@@ -58,7 +59,7 @@ const IndustryDetail = ({ industryId }: { industryId?: string } = {}) => {
         <div ref={containerRef} className="bg-[var(--bg-2)] min-h-screen text-[var(--ink)] font-sans pt-20 overflow-x-hidden">
             <SEO
                 title={industry.title}
-                description={industry.tagline}
+                description={buildDescription(industry.tagline, industry.overview)}
                 keywords={industry.keywords}
                 url={`https://www.satvixtech.com${getSeoPath(activeId as string)}`}
                 breadcrumb={[

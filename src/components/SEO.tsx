@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
+import { clampDescription } from "../lib/meta";
 
 interface FAQItem {
   question: string;
@@ -57,6 +58,10 @@ const SEO = ({
      (e.g. "/images/foo.jpg") previously emitted it verbatim, which every
      link-preview crawler failed to resolve. */
   const imageUrl = /^https?:\/\//.test(image) ? image : `${BASE_URL}${image}`;
+  /* Single clamp point so no page can ship a description Google will cut
+     mid-word. Long copy is trimmed on a sentence or word boundary here rather
+     than being hand-trimmed in 20 page components. */
+  const metaDescription = clampDescription(description);
   /**
    * SERP title format: "Page title — Satvix Tech Solutions".
    * Page-specific copy leads (it is what wins the click); brand sits at the
@@ -325,7 +330,7 @@ const SEO = ({
       <html lang="en" />
       <title>{siteTitle}</title>
       <meta name="title" content={siteTitle} />
-      <meta name="description" content={description} />
+      <meta name="description" content={metaDescription} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={COMPANY_NAME} />
       <meta name="theme-color" content="#121518" />
@@ -350,7 +355,7 @@ const SEO = ({
       <meta property="og:type" content={type} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:title" content={siteTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:width" content={OG_IMAGE_WIDTH} />
       <meta property="og:image:height" content={OG_IMAGE_HEIGHT} />
@@ -364,7 +369,7 @@ const SEO = ({
       <meta name="twitter:creator" content="@satvixtech" />
       <meta name="twitter:url" content={currentUrl} />
       <meta name="twitter:title" content={siteTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={siteTitle} />
 
