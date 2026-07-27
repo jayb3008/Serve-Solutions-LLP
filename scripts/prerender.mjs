@@ -18,7 +18,7 @@ const serverEntry = pathToFileURL(path.join(distDir, 'server', 'entry-server.js'
 const BASE_URL = 'https://www.satvixtech.com';
 const TODAY = new Date().toISOString().slice(0, 10);
 
-const { render, allRoutes, sitemapEntries } = await import(serverEntry);
+const { render, allRoutes, sitemapEntries, industryRedirects } = await import(serverEntry);
 
 let template = await fs.readFile(path.join(distDir, 'index.html'), 'utf-8');
 
@@ -95,6 +95,30 @@ ${urls}
 </urlset>
 `;
 await fs.writeFile(path.join(distDir, 'sitemap.xml'), sitemap, 'utf-8');
+
+// ── Sync consolidated-industry redirects into vercel.json ──
+// Generated from the same data that drives the prerender list, so a vertical
+// can never be both redirected and rendered. Hand edits to this block are
+// overwritten on the next build; change src/data/routes.ts instead.
+const vercelPath = path.join(root, 'vercel.json');
+const vercelConfig = JSON.parse(await fs.readFile(vercelPath, 'utf-8'));
+const generated = industryRedirects().map(({ source, destination }) => ({
+  source,
+  destination,
+  permanent: true,
+}));
+const handWritten = (vercelConfig.redirects ?? []).filter(
+  (r) => !r.source.startsWith('/industries/'),
+);
+const nextRedirects = [...handWritten, ...generated];
+
+if (JSON.stringify(vercelConfig.redirects ?? []) !== JSON.stringify(nextRedirects)) {
+  vercelConfig.redirects = nextRedirects;
+  await fs.writeFile(vercelPath, `${JSON.stringify(vercelConfig, null, 2)}\n`, 'utf-8');
+  console.log(`✓ Synced ${generated.length} industry redirects → vercel.json`);
+} else {
+  console.log(`✓ vercel.json redirects already in sync (${generated.length})`);
+}
 
 // ── Clean up the intermediate SSR bundle (not needed in the deploy) ──
 await fs.rm(path.join(distDir, 'server'), { recursive: true, force: true });

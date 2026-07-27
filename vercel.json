@@ -4,9 +4,18 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
         {
           "key": "Permissions-Policy",
           "value": "camera=(), microphone=(), geolocation=()"
@@ -16,6 +25,78 @@
           "value": "max-age=63072000; includeSubDomains; preload"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/industries/healthcare",
+      "destination": "/healthcare-software-development",
+      "permanent": true
+    },
+    {
+      "source": "/industries/finance",
+      "destination": "/fintech-software-development",
+      "permanent": true
+    },
+    {
+      "source": "/industries/education",
+      "destination": "/education-software-development",
+      "permanent": true
+    },
+    {
+      "source": "/industries/logistics",
+      "destination": "/logistics-software-development",
+      "permanent": true
+    },
+    {
+      "source": "/industries/on-demand",
+      "destination": "/restaurant-pos-development",
+      "permanent": true
+    },
+    {
+      "source": "/industries/retail",
+      "destination": "/jewelry-ecommerce-development",
+      "permanent": true
+    },
+    {
+      "source": "/industries/social-media",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/industries/insurance",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/industries/travel",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/industries/it-telecom",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/industries/construction",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/industries/beauty-lifestyle",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/industries/sports",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/industries/marketplace",
+      "destination": "/industries",
+      "permanent": true
     }
   ]
 }

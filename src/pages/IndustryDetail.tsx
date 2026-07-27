@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { industriesData } from '../data/industries';
 import { buildDescription } from '../lib/meta';
+import { industryPath } from '../data/routes';
 import {
     ArrowLeft,
     ShieldCheck
@@ -20,17 +21,9 @@ const IndustryDetail = ({ industryId }: { industryId?: string } = {}) => {
 
     const industry = industriesData[activeId as string] || industriesData['healthcare'];
 
-    const getSeoPath = (indId: string) => {
-        const paths: Record<string, string> = {
-            healthcare: "/healthcare-software-development",
-            finance: "/fintech-software-development",
-            education: "/education-software-development",
-            logistics: "/logistics-software-development",
-            "on-demand": "/restaurant-pos-development",
-            retail: "/jewelry-ecommerce-development"
-        };
-        return paths[indId] || `/industries/${indId}`;
-    };
+    // Canonical URL for the vertical. Shared with routes.ts so the prerender
+    // list, the redirects and this canonical can never disagree.
+    const getSeoPath = industryPath;
 
     const faqs = [
         {

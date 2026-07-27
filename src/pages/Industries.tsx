@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import { industryPath } from "../data/routes";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 
@@ -161,7 +162,7 @@ export default function Industries() {
             {industries.map((ind) => (
               <Link
                 key={ind.slug}
-                to={`/industries/${ind.slug}`}
+                to={industryPath(ind.slug)}
                 className="svc reveal"
                 data-hover
               >

@@ -4,6 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import Logo from './Logo';
 import { servicesData } from '../data/services';
 import { industriesData } from '../data/industries';
+import { activeIndustryKeys, industryPath } from '../data/routes';
 
 const serviceItems = Object.entries(servicesData).map(([k, v]) => ({
   label: (v as { title: string }).title,
@@ -11,9 +12,12 @@ const serviceItems = Object.entries(servicesData).map(([k, v]) => ({
   path: (v as { seoPath?: string }).seoPath || `/services/${k}`,
 }));
 
-const industryItems = Object.entries(industriesData).map(([k, v]) => ({
-  label: (v as { title: string }).title,
-  path: `/industries/${k}`,
+// Only active verticals, each at its canonical URL — linking to a retired key
+// or to `/industries/<key>` where an SEO landing path exists would point the
+// whole nav at a redirect.
+const industryItems = activeIndustryKeys().map((k) => ({
+  label: (industriesData[k] as { title: string }).title,
+  path: industryPath(k),
 }));
 
 const companyItems = [

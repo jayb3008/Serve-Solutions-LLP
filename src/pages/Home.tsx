@@ -10,6 +10,7 @@ import GradientCard from "../components/GradientCard";
 import InfiniteMarquee from "../components/InfiniteMarquee";
 import { servicesData } from "../data/services";
 import { industriesData } from "../data/industries";
+import { activeIndustryKeys, industryPath } from "../data/routes";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 import AnimateIn from "../components/AnimateIn";
@@ -18,10 +19,10 @@ import FloatingShapes from "../components/FloatingShapes";
 
 const MotionLink = motion.create(Link);
 
-const industryList = Object.entries(industriesData) as [
-  string,
-  { title: string },
-][];
+// Active verticals only, each at its canonical URL (see data/routes.ts).
+const industryList = activeIndustryKeys().map(
+  (k) => [k, industriesData[k] as { title: string }] as const,
+);
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -811,7 +812,7 @@ export default function Home() {
               {industryList.map(([key, ind], index) => (
                 <MotionLink
                   key={key}
-                  to={`/industries/${key}`}
+                  to={industryPath(key)}
                   data-hover
                   initial={{ opacity: 0, scale: 0.85 }}
                   whileInView={{ opacity: 1, scale: 1 }}

@@ -129,21 +129,8 @@ function metaFor(route: string): { changefreq: string; priority: number } {
   return { changefreq: 'monthly', priority: 0.7 };
 }
 
-/* The full list of routes to statically render (deduped — some service
-   keys, e.g. "ai-ml", also have a hand-built landing page route) */
-export const allRoutes: string[] = [
-  ...new Set([
-    ...staticRoutes,
-    ...Object.keys(servicesData).map((k) => `/services/${k}`),
-    ...Object.keys(industriesData).map((k) => `/industries/${k}`),
-    ...portfolioSlugs.map((s) => `/portfolio/${s}`),
-    ...blogSlugs.map((s) => `/blog/${s}`),
-  ]),
-];
-
-/* Industry keys that also have a direct SEO landing path. IndustryDetail
-   canonicalises `/industries/<key>` to the SEO path, so only the SEO path
-   belongs in the sitemap — mirror of the `seoPath` handling for services.
+/* Industry keys that also have a direct SEO landing path. That path is the
+   canonical home for the vertical; `/industries/<key>` 301s to it.
    Must stay in sync with getSeoPath() in src/pages/IndustryDetail.tsx. */
 export const industrySeoPaths: Record<string, string> = {
   healthcare: '/healthcare-software-development',
@@ -154,17 +141,75 @@ export const industrySeoPaths: Record<string, string> = {
   retail: '/jewelry-ecommerce-development',
 };
 
+/* Verticals consolidated away from the site.
+   The 17-page industry cluster averaged 58% pairwise text duplication and
+   ~200 unique words per page — it read as one template filled 17 times and
+   failed the content-uniqueness gate. These nine carried no case study and no
+   SEO landing path, so they 301 to /industries rather than competing with the
+   verticals we can actually evidence.
+   Their entries stay in industriesData: nothing references them now, but
+   keeping the copy makes reinstating one a data change rather than a rewrite. */
+export const retiredIndustries = [
+  'social-media',
+  'insurance',
+  'travel',
+  'it-telecom',
+  'construction',
+  'beauty-lifestyle',
+  'sports',
+  'marketplace',
+];
+
+/* Industry keys the site still routes to and links from. */
+export const activeIndustryKeys = (): string[] =>
+  Object.keys(industriesData).filter((k) => !retiredIndustries.includes(k));
+
+/* The one canonical URL for a vertical. Nav and hub links must use this, or
+   they point at a URL that immediately redirects. */
+export const industryPath = (key: string): string =>
+  industrySeoPaths[key] ?? `/industries/${key}`;
+
+/* The full list of routes to statically render (deduped — some service
+   keys, e.g. "ai-ml", also have a hand-built landing page route).
+   `/industries/<key>` is rendered only when the vertical is active and has no
+   SEO landing path of its own; everything else is served by a redirect. */
+export const allRoutes: string[] = [
+  ...new Set([
+    ...staticRoutes,
+    ...Object.keys(servicesData).map((k) => `/services/${k}`),
+    ...activeIndustryKeys()
+      .filter((k) => !industrySeoPaths[k])
+      .map((k) => `/industries/${k}`),
+    ...portfolioSlugs.map((s) => `/portfolio/${s}`),
+    ...blogSlugs.map((s) => `/blog/${s}`),
+  ]),
+];
+
+/* Redirects for consolidated / duplicated industry URLs, consumed by
+   scripts/prerender.mjs to keep vercel.json in sync with the data. */
+export const industryRedirects = (): { source: string; destination: string }[] => [
+  ...Object.entries(industrySeoPaths).map(([k, dest]) => ({
+    source: `/industries/${k}`,
+    destination: dest,
+  })),
+  ...retiredIndustries.map((k) => ({
+    source: `/industries/${k}`,
+    destination: '/industries',
+  })),
+];
+
 /* Build the sitemap entries (route + crawl hints) */
 export function sitemapEntries(): { loc: string; changefreq: string; priority: number }[] {
   // Exclude legacy/duplicate service paths from the sitemap to prevent crawl budget waste
   // and duplicate content flags. Prerendering still builds them for backward compatibility.
+  // (Duplicate industry paths need no entry here — allRoutes already omits them,
+  // and they are served as redirects rather than pages.)
   const duplicatesToExclude = [
     '/services/web-engineering',
     '/services/mobile',
     '/services/ai-ml',
     '/services/product-design',
     '/services/graphic-design',
-    ...Object.keys(industrySeoPaths).map((k) => `/industries/${k}`),
     ...Object.keys(servicesData)
       .map((k) => {
         const s = servicesData[k];
