@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { clampDescription } from "../lib/meta";
+import { social } from "../data/social";
 
 interface FAQItem {
   question: string;
@@ -37,6 +38,12 @@ const OG_IMAGE_WIDTH = "1200";
 const OG_IMAGE_HEIGHT = "630";
 const COMPANY_NAME = "Satvix Tech Solutions";
 const COMPANY_LEGAL = "Satvix Tech Solutions LLP";
+
+/* Profiles the company actually has. `social` uses "" to mean "not set yet",
+   which must not reach sameAs as an empty string. */
+const SAME_AS = [social.linkedin, social.instagram, social.github].filter(
+  (url): url is string => Boolean(url),
+);
 
 const SEO = ({
   title = "Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency",
@@ -132,11 +139,15 @@ const SEO = ({
         availableLanguage: "en",
       },
     ],
-    sameAs: [
-      "https://www.linkedin.com/company/satvix-tech-solution",
-      "https://twitter.com/satvixtech",
-      "https://www.instagram.com/satvixtech",
-    ],
+    /* Derived from src/data/social.ts rather than hardcoded, because the two
+       had drifted: this list pointed at
+       linkedin.com/company/satvix-tech-solution (404 — the real slug is plural)
+       and twitter.com/satvixtech (404 — the account does not exist), while the
+       footer linked the correct URLs. sameAs is how a search engine reconciles
+       the site with the company's other profiles, so dead entries actively
+       undermine entity verification. Empty entries are dropped, so adding a
+       GitHub or Calendly URL in social.ts lights it up here too. */
+    sameAs: SAME_AS,
   };
 
   /* ── Local business ── */
