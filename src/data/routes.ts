@@ -53,6 +53,16 @@ export const staticRoutes = [
   '/mobile-app-development-gujarat',
   '/web-development-company-ahmedabad',
   '/ai-development-services-india',
+
+  // SEO Direct Industry Paths — these mirror routes declared in App.tsx.
+  // They must be listed here or they never get prerendered, and the SPA
+  // fallback serves them the homepage HTML instead.
+  '/healthcare-software-development',
+  '/fintech-software-development',
+  '/education-software-development',
+  '/logistics-software-development',
+  '/restaurant-pos-development',
+  '/jewelry-ecommerce-development',
 ];
 
 /* Per-route crawl hints for the sitemap */
@@ -100,6 +110,18 @@ function metaFor(route: string): { changefreq: string; priority: number } {
   ) {
     return { changefreq: 'weekly', priority: 0.85 };
   }
+  if (
+    [
+      '/healthcare-software-development',
+      '/fintech-software-development',
+      '/education-software-development',
+      '/logistics-software-development',
+      '/restaurant-pos-development',
+      '/jewelry-ecommerce-development'
+    ].includes(route)
+  ) {
+    return { changefreq: 'monthly', priority: 0.85 };
+  }
   if (route.startsWith('/services/')) return { changefreq: 'monthly', priority: 0.8 };
   if (route.startsWith('/industries/')) return { changefreq: 'monthly', priority: 0.75 };
   if (route.startsWith('/portfolio/')) return { changefreq: 'yearly', priority: 0.7 };
@@ -119,6 +141,19 @@ export const allRoutes: string[] = [
   ]),
 ];
 
+/* Industry keys that also have a direct SEO landing path. IndustryDetail
+   canonicalises `/industries/<key>` to the SEO path, so only the SEO path
+   belongs in the sitemap — mirror of the `seoPath` handling for services.
+   Must stay in sync with getSeoPath() in src/pages/IndustryDetail.tsx. */
+export const industrySeoPaths: Record<string, string> = {
+  healthcare: '/healthcare-software-development',
+  finance: '/fintech-software-development',
+  education: '/education-software-development',
+  logistics: '/logistics-software-development',
+  'on-demand': '/restaurant-pos-development',
+  retail: '/jewelry-ecommerce-development',
+};
+
 /* Build the sitemap entries (route + crawl hints) */
 export function sitemapEntries(): { loc: string; changefreq: string; priority: number }[] {
   // Exclude legacy/duplicate service paths from the sitemap to prevent crawl budget waste
@@ -129,6 +164,7 @@ export function sitemapEntries(): { loc: string; changefreq: string; priority: n
     '/services/ai-ml',
     '/services/product-design',
     '/services/graphic-design',
+    ...Object.keys(industrySeoPaths).map((k) => `/industries/${k}`),
     ...Object.keys(servicesData)
       .map((k) => {
         const s = servicesData[k];

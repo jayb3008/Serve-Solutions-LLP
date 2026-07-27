@@ -82,13 +82,13 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
         title={service.title}
         description={service.tagline}
         keywords={service.keywords}
-        url={`https://satvixtech.com${service.seoPath || `/services/${activeId}`}`}
+        url={`https://www.satvixtech.com${service.seoPath || `/services/${activeId}`}`}
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Services", item: "https://satvixtech.com/services" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Services", item: "https://www.satvixtech.com/services" },
           {
             name: service.title,
-            item: `https://satvixtech.com${service.seoPath || `/services/${activeId}`}`,
+            item: `https://www.satvixtech.com${service.seoPath || `/services/${activeId}`}`,
           },
         ]}
         service={{

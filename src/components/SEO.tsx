@@ -26,7 +26,7 @@ interface SEOProps {
   service?: ServiceInfo;
 }
 
-const BASE_URL = "https://satvixtech.com";
+const BASE_URL = "https://www.satvixtech.com";
 const DEFAULT_IMAGE = `${BASE_URL}/logo.png`;
 const COMPANY_NAME = "Satvix Tech Solutions";
 const COMPANY_LEGAL = "Satvix Tech Solutions LLP";
@@ -46,18 +46,16 @@ const SEO = ({
   service,
 }: SEOProps) => {
   const location = useLocation();
-  const currentUrl = url || `${BASE_URL}${location.pathname === "/" ? "" : location.pathname}`;
+  const currentUrl = url || `${BASE_URL}${location.pathname === "/" ? "/" : location.pathname}`;
   /**
    * SERP title format: "Page title — Satvix Tech Solutions".
    * Page-specific copy leads (it is what wins the click); brand sits at the
    * tail so the brand keyword still surfaces and brand search resolves.
-   * If the title already contains the brand (e.g. the home-page default),
-   * we leave it alone.
+   * If the title already carries the brand in any form — the full name, or the
+   * short "Satvix Tech" that several landing-page titles use — we leave it
+   * alone. Matching only the full name double-branded those titles.
    */
-  const siteTitle =
-    title === COMPANY_NAME || title.includes(COMPANY_NAME)
-      ? title
-      : `${title} — ${COMPANY_NAME}`;
+  const siteTitle = /satvix/i.test(title) ? title : `${title} — ${COMPANY_NAME}`;
 
   /* ── Organisation ── */
   const orgSchema = {

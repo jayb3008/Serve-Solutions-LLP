@@ -24,7 +24,6 @@ const IndustryDetail = ({ industryId }: { industryId?: string } = {}) => {
             healthcare: "/healthcare-software-development",
             finance: "/fintech-software-development",
             education: "/education-software-development",
-            "real-estate": "/real-estate-software-development",
             logistics: "/logistics-software-development",
             "on-demand": "/restaurant-pos-development",
             retail: "/jewelry-ecommerce-development"
@@ -61,11 +60,11 @@ const IndustryDetail = ({ industryId }: { industryId?: string } = {}) => {
                 title={industry.title}
                 description={industry.tagline}
                 keywords={industry.keywords}
-                url={`https://satvixtech.com${getSeoPath(activeId as string)}`}
+                url={`https://www.satvixtech.com${getSeoPath(activeId as string)}`}
                 breadcrumb={[
-                    { name: "Home", item: "https://satvixtech.com" },
-                    { name: "Industries", item: "https://satvixtech.com/industries" },
-                    { name: industry.title, item: `https://satvixtech.com${getSeoPath(activeId as string)}` }
+                    { name: "Home", item: "https://www.satvixtech.com" },
+                    { name: "Industries", item: "https://www.satvixtech.com/industries" },
+                    { name: industry.title, item: `https://www.satvixtech.com${getSeoPath(activeId as string)}` }
                 ]}
                 faq={faqs}
             />

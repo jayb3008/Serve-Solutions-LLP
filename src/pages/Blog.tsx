@@ -33,10 +33,10 @@ export default function Blog() {
         title="Journal — engineering and design notes from Satvix Tech Solutions"
         description="The Satvix Tech Solutions journal: long-form notes on engineering, product design, AI in production and what we have learned shipping software since 2020."
         keywords="Satvix Tech Solutions blog, Satvix Tech Solutions journal, software engineering blog India, product design articles India, AI ML blog India, web development insights India, React Next.js tutorials India, UX design blog India, developer blog Gujarat"
-        url="https://satvixtech.com/blog"
+        url="https://www.satvixtech.com/blog"
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Blog", item: "https://satvixtech.com/blog" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Blog", item: "https://www.satvixtech.com/blog" },
         ]}
       />
 

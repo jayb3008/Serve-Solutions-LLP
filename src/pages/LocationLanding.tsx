@@ -49,10 +49,10 @@ export default function LocationLanding({ slug }: { slug: string }) {
         title={data.title}
         description={data.description}
         keywords={data.keywords}
-        url={`https://satvixtech.com/${data.slug}`}
+        url={`https://www.satvixtech.com/${data.slug}`}
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: data.h1, item: `https://satvixtech.com/${data.slug}` }
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: data.h1, item: `https://www.satvixtech.com/${data.slug}` }
         ]}
         faq={data.faqs}
       />

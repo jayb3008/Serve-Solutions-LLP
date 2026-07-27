@@ -9,71 +9,57 @@ const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
 const industries = [
   {
-    slug: "fintech",
+    slug: "finance",
     num: "01",
     name: "Fintech & banking",
     desc: "Card-issuing platforms, wallets, lending, payments. Built to clear an RBI audit the week you launch — not the quarter after.",
     tags: ["Payments", "Lending", "PCI-DSS", "KYC"],
   },
   {
-    slug: "saas",
-    num: "02",
-    name: "SaaS & B2B software",
-    desc: "Multi-tenant architectures, usage-based billing, onboarding that does not need a sales-led trial. The unsexy parts that keep churn under five percent.",
-    tags: ["Multi-tenant", "Billing", "Analytics", "Onboarding"],
-  },
-  {
     slug: "healthcare",
-    num: "03",
+    num: "02",
     name: "Healthcare & wellness",
     desc: "Telehealth, patient records, wellness apps. We treat HIPAA and India’s DPDP as design constraints, not as a final pass before launch.",
     tags: ["Telehealth", "EHR", "HIPAA", "Wellness"],
   },
   {
-    slug: "ecommerce",
-    num: "04",
+    slug: "retail",
+    num: "03",
     name: "Commerce & retail",
     desc: "Headless storefronts, marketplaces, loyalty, POS. Stacks that survive a Diwali Saturday — and the analytics to tell you what really moved.",
     tags: ["Headless", "Shopify", "Marketplace", "Loyalty"],
   },
   {
     slug: "legal",
-    num: "05",
+    num: "04",
     name: "Legal & regtech",
     desc: "Document automation, contract review, AI-assisted research. Designed for partners who will only forgive one wrong answer.",
     tags: ["AI review", "Contracts", "Compliance", "Audit"],
   },
   {
     slug: "logistics",
-    num: "06",
+    num: "05",
     name: "Logistics & supply chain",
     desc: "Fleet tracking, last-mile optimisation, warehouse ops. Real-time visibility that survives the warehouse Wi-Fi, not just the demo.",
     tags: ["Tracking", "Fleet", "Warehouse", "Last-mile"],
   },
   {
-    slug: "edtech",
-    num: "07",
+    slug: "education",
+    num: "06",
     name: "EdTech & training",
     desc: "Learning platforms, AI tutors, cohorts, certificates. Tools learners actually open on day fourteen — not just day one.",
     tags: ["LMS", "AI tutor", "Cohorts", "Certificates"],
   },
   {
-    slug: "media",
-    num: "08",
+    slug: "media-ott",
+    num: "07",
     name: "Media & entertainment",
     desc: "OTT, creator tools, audience analytics. Latency budgets and caching tables we sweat over so the play button just works.",
     tags: ["OTT", "CDN", "Creator tools", "Analytics"],
   },
   {
-    slug: "real-estate",
-    num: "09",
-    name: "Real estate & PropTech",
-    desc: "Listings, virtual tours, lease management, investment dashboards. Built for the WhatsApp-and-Excel reality of the Indian market.",
-    tags: ["Listings", "Virtual tours", "Leases", "Investment"],
-  },
-  {
     slug: "manufacturing",
-    num: "10",
+    num: "08",
     name: "Manufacturing & IoT",
     desc: "Factory dashboards, sensor pipelines, predictive maintenance, inventory. Software that talks to the PLC and to the boardroom in the same week.",
     tags: ["IoT", "Predictive", "SCADA", "Inventory"],
@@ -84,7 +70,7 @@ const reasons = [
   {
     n: "01",
     title: "We have done this before",
-    body: "Ten verticals, six years of receipts. We know the compliance traps, the table-stakes features and the gap your competitor has not noticed yet.",
+    body: "Eight verticals, six years of receipts. We know the compliance traps, the table-stakes features and the gap your competitor has not noticed yet.",
   },
   {
     n: "02",
@@ -110,12 +96,12 @@ export default function Industries() {
     <div>
       <SEO
         title="Industries — verticals Satvix Tech Solutions has shipped in"
-        description="Satvix Tech Solutions builds software for fintech, health, SaaS, commerce, legal, logistics, EdTech, OTT, real estate and manufacturing. Ten verticals, six years, one agency in Anand."
+        description="Satvix Tech Solutions builds software for fintech, healthcare, commerce, legal, logistics, EdTech, OTT and manufacturing. Eight verticals, six years, one agency in Anand."
         keywords="industry software development India, fintech software company India, healthcare tech India, edtech development company, logistics software India, legal tech company India, OTT platform development, insurtech India, travel tech development, manufacturing software India, retail tech company, telecom software India, construction tech India, marketplace development India, on demand app India, sports tech India, domain specific software development India, vertical SaaS India"
-        url="https://satvixtech.com/industries"
+        url="https://www.satvixtech.com/industries"
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Industries", item: "https://satvixtech.com/industries" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Industries", item: "https://www.satvixtech.com/industries" },
         ]}
       />
 
@@ -139,7 +125,7 @@ export default function Industries() {
           <h1>
             {(
               [
-                "Ten verticals.",
+                "Eight verticals.",
                 "Already",
                 "<em>shipped in.</em>",
               ] as const

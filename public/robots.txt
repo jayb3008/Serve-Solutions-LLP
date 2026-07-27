@@ -1,5 +1,5 @@
 # SATVIX TECH SOLUTIONS — robots.txt
-# https://satvixtech.com
+# https://www.satvixtech.com
 
 User-agent: *
 Allow: /
@@ -26,4 +26,4 @@ User-agent: PerplexityBot
 Allow: /
 
 # Sitemap
-Sitemap: https://satvixtech.com/sitemap.xml
+Sitemap: https://www.satvixtech.com/sitemap.xml

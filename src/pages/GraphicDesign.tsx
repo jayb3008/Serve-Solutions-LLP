@@ -190,14 +190,14 @@ export default function GraphicDesign() {
         title="Graphic Design & Branding — Satvix Tech Solutions, Anand, Gujarat"
         description="Satvix Tech Solutions delivers graphic design and branding — identity systems, print collateral, social media kits, packaging, and motion graphics — built to last, not just to launch."
         keywords="graphic design company India, branding agency Gujarat, logo design services India, brand identity design Gujarat, print design agency India, social media design India, packaging design company Gujarat, motion graphics India, creative agency Anand Gujarat, visual identity design India, corporate branding India, advertising design agency Gujarat"
-        url="https://satvixtech.com/graphic-design-branding"
+        url="https://www.satvixtech.com/graphic-design-branding"
         faq={faqs}
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Services", item: "https://satvixtech.com/services" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Services", item: "https://www.satvixtech.com/services" },
           {
             name: "Graphic Design & Branding",
-            item: "https://satvixtech.com/graphic-design-branding",
+            item: "https://www.satvixtech.com/graphic-design-branding",
           },
         ]}
       />

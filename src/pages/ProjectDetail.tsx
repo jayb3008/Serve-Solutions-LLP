@@ -159,16 +159,16 @@ export default function ProjectDetail() {
         description={project.overview}
         keywords={`${project.title}, ${project.tags.join(", ")}, ${project.tech.join(", ")}, case study, Satvix Tech Solutions portfolio, ${project.category}`}
         image={project.img}
-        url={`https://satvixtech.com/portfolio/${id}`}
+        url={`https://www.satvixtech.com/portfolio/${id}`}
         type="article"
         datePublished={`${project.year}-01-01`}
         faq={project.faq}
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Portfolio", item: "https://satvixtech.com/portfolio" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Portfolio", item: "https://www.satvixtech.com/portfolio" },
           {
             name: project.title,
-            item: `https://satvixtech.com/portfolio/${id}`,
+            item: `https://www.satvixtech.com/portfolio/${id}`,
           },
         ]}
       />

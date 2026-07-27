@@ -114,10 +114,10 @@ export default function About() {
         title="About Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency"
         description="Satvix Tech Solutions is a premium digital product and software engineering agency in Anand, Gujarat. We build robust web platforms, mobile apps, and custom AI systems."
         keywords="about Satvix Tech Solutions, software development company Anand, digital product agency India, custom software solutions Gujarat, offshore engineering services, software engineering agency"
-        url="https://satvixtech.com/about"
+        url="https://www.satvixtech.com/about"
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "About", item: "https://satvixtech.com/about" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "About", item: "https://www.satvixtech.com/about" },
         ]}
         faq={aboutFaqs}
       />

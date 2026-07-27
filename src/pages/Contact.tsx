@@ -111,10 +111,10 @@ const Contact = () => {
         title="Contact Satvix Tech Solutions — Get in Touch with Our Team"
         description="Contact Satvix Tech Solutions. Write to hello@satvixtech.com and our team will reply within one business day. Based in Anand, Gujarat; working with clients in the US, UK, EU and Australia."
         keywords="contact Satvix Tech Solutions, hire software development agency, senior engineer for hire India, offshore React Native Node.js team, hello@satvixtech.com, MERN engineer for US UK startups"
-        url="https://satvixtech.com/contact"
+        url="https://www.satvixtech.com/contact"
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Contact", item: "https://satvixtech.com/contact" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Contact", item: "https://www.satvixtech.com/contact" },
         ]}
         faq={[
           {

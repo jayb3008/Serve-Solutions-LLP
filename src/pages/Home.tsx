@@ -348,7 +348,7 @@ export default function Home() {
         title="Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency"
         description="Satvix Tech Solutions is a premium digital product and software engineering agency in Anand, Gujarat. We build robust web platforms, mobile apps, and custom AI systems with dedicated teams."
         keywords="Satvix Tech Solutions, AI augmented development agency, software engineering agency India, senior engineers React Native Node.js, MERN development agency, offshore engineering US UK startups, Gujarat software company, custom software India, hire senior engineers India"
-        url="https://satvixtech.com"
+        url="https://www.satvixtech.com/"
         faq={homepageFaqs}
       />
 

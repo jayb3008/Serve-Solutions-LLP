@@ -190,12 +190,12 @@ export default function AiMl() {
         title="AI & ML services — Satvix Tech Solutions, Anand, Gujarat"
         description="Satvix Tech Solutions ships production AI — LLM features, RAG pipelines, agents and the evaluation, cost caps and observability that turn a clever demo into a real product."
         keywords="Satvix Tech Solutions AI, AI ML services India, LLM integration services India, RAG pipeline development India, AI agents development India, machine learning company India, OpenAI integration India, Anthropic Claude API India, LangChain development India, vector database India, generative AI company India, custom AI solutions India, AI consulting India"
-        url="https://satvixtech.com/ai-development"
+        url="https://www.satvixtech.com/ai-development"
         faq={faqs}
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Services", item: "https://satvixtech.com/services" },
-          { name: "AI & ML", item: "https://satvixtech.com/ai-development" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Services", item: "https://www.satvixtech.com/services" },
+          { name: "AI & ML", item: "https://www.satvixtech.com/ai-development" },
         ]}
       />
 

@@ -137,10 +137,10 @@ export default function Hire() {
         title="Hire developers from Satvix Tech Solutions — Anand, Gujarat"
         description="Hire vetted developers, designers and QA from Satvix Tech Solutions — embed a specialist, borrow a dedicated team, or commission a fixed-scope build. India, EU, UK, US time-zone overlap."
         keywords="hire developers Satvix Tech Solutions, hire dedicated developers India, hire React developers India, hire React Native developers India, hire Node.js developers India, hire AI ML engineers India, staff augmentation company India, dedicated development team India, IT staff augmentation Anand Gujarat, offshore development team India, hire designers India"
-        url="https://satvixtech.com/hire"
+        url="https://www.satvixtech.com/hire"
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Hire Developers", item: "https://satvixtech.com/hire" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Hire Developers", item: "https://www.satvixtech.com/hire" },
         ]}
         faq={faqs}
       />

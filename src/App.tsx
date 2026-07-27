@@ -154,7 +154,6 @@ function AnimatedRoutes() {
           <Route path="/healthcare-software-development" element={<IndustryDetail industryId="healthcare" />} />
           <Route path="/fintech-software-development" element={<IndustryDetail industryId="finance" />} />
           <Route path="/education-software-development" element={<IndustryDetail industryId="education" />} />
-          <Route path="/real-estate-software-development" element={<IndustryDetail industryId="real-estate" />} />
           <Route path="/logistics-software-development" element={<IndustryDetail industryId="logistics" />} />
           <Route path="/restaurant-pos-development" element={<IndustryDetail industryId="on-demand" />} />
           <Route path="/jewelry-ecommerce-development" element={<IndustryDetail industryId="retail" />} />

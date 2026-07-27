@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Page not found — Satvix Tech Solutions</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --ink: #121518;
+        --ink-2: #3d454e;
+        --line: rgba(18, 21, 24, 0.08);
+        --accent: #e31e24;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap { max-width: 560px; width: 100%; }
+      .code {
+        font-family: "Instrument Serif", Georgia, serif;
+        font-size: clamp(64px, 14vw, 112px);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        margin: 0 0 8px;
+      }
+      .code em { color: var(--accent); font-style: italic; }
+      h1 {
+        font-family: "Instrument Serif", Georgia, serif;
+        font-size: clamp(24px, 5vw, 34px);
+        font-weight: 400;
+        line-height: 1.2;
+        margin: 0 0 14px;
+      }
+      p {
+        color: var(--ink-2);
+        font-size: 15.5px;
+        line-height: 1.6;
+        margin: 0 0 28px;
+      }
+      .links { display: flex; flex-wrap: wrap; gap: 10px; }
+      a.btn {
+        display: inline-block;
+        padding: 11px 18px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 14px;
+        transition: border-color 0.2s ease, color 0.2s ease;
+      }
+      a.btn:hover { border-color: var(--ink); }
+      a.btn.primary {
+        background: var(--ink);
+        color: #fff;
+        border-color: var(--ink);
+      }
+      a.btn.primary:hover { background: var(--accent); border-color: var(--accent); }
+      .rule { height: 1px; background: var(--line); margin: 32px 0 20px; }
+      .meta { font-size: 13px; color: var(--ink-2); }
+      .meta a { color: var(--ink); }
+      @media (prefers-color-scheme: dark) {
+        :root { --bg: #121518; --ink: #f4f5f6; --ink-2: #a3abb4; --line: rgba(244, 245, 246, 0.12); }
+        a.btn.primary { background: #f4f5f6; color: #121518; border-color: #f4f5f6; }
+        a.btn.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="code">4<em>0</em>4</div>
+      <h1>That page does not exist.</h1>
+      <p>
+        The link may be out of date, or the address mistyped. Nothing is broken
+        on your end — the page simply is not here.
+      </p>
+      <div class="links">
+        <a class="btn primary" href="/">Home</a>
+        <a class="btn" href="/services">Services</a>
+        <a class="btn" href="/portfolio">Work</a>
+        <a class="btn" href="/blog">Writing</a>
+        <a class="btn" href="/contact">Contact</a>
+      </div>
+      <div class="rule"></div>
+      <p class="meta">
+        Looking for something specific? Email
+        <a href="mailto:hello@satvixtech.com">hello@satvixtech.com</a> — a real
+        person replies within one business day.
+      </p>
+    </main>
+  </body>
+</html>

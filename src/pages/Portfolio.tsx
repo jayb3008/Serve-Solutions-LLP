@@ -106,10 +106,10 @@ export default function Portfolio() {
         title="Case studies — three shipped products from Satvix Tech Solutions"
         description="Three shipped products you can verify: Nine Finance (fintech, React Native + Node.js, 2 weeks), Glamour Jewelry (e-commerce, React + Node + MongoDB, 4 weeks), Charotar Soap Factory (white-label manufacturing SaaS, Next.js + Node.js)."
         keywords="Satvix Tech Solutions case studies, fintech case study React Native Node.js, jewelry e-commerce case study, white-label manufacturing SaaS, shipped in two weeks fintech"
-        url="https://satvixtech.com/portfolio"
+        url="https://www.satvixtech.com/portfolio"
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Portfolio", item: "https://satvixtech.com/portfolio" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Portfolio", item: "https://www.satvixtech.com/portfolio" },
         ]}
       />
 

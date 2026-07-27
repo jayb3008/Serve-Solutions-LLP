@@ -110,10 +110,10 @@ export default function Careers() {
         title="Careers at Satvix Tech Solutions — Anand, Gujarat"
         description="Careers at Satvix Tech Solutions: we are hiring React, React Native, AI/ML, design, DevOps and QA roles in Anand, Gujarat. Hybrid, senior-only, real ownership of the work."
         keywords="careers Satvix Tech Solutions, Satvix Tech Solutions jobs, IT jobs Anand Gujarat, software developer jobs India, React developer jobs Gujarat, hybrid developer jobs India, AI ML engineer jobs India, product designer jobs India, DevOps jobs India, software company careers Gujarat"
-        url="https://satvixtech.com/careers"
+        url="https://www.satvixtech.com/careers"
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Careers", item: "https://satvixtech.com/careers" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Careers", item: "https://www.satvixtech.com/careers" },
         ]}
       />
 

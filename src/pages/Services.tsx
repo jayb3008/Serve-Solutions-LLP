@@ -267,10 +267,10 @@ export default function Services() {
         title="Services — six practices, one team at Satvix Tech Solutions"
         description="Satvix Tech Solutions offers product design, web engineering, mobile apps, AI/ML, brand strategy, and graphic design — six practices from one team in Anand, Gujarat, with no handoffs."
         keywords="Satvix Tech Solutions services, product design services India, web engineering company India, mobile app development India, AI ML services India, brand strategy agency India, full-stack development India, digital product agency Anand Gujarat"
-        url="https://satvixtech.com/services"
+        url="https://www.satvixtech.com/services"
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Services", item: "https://satvixtech.com/services" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Services", item: "https://www.satvixtech.com/services" },
         ]}
         faq={servicesFaqs}
       />

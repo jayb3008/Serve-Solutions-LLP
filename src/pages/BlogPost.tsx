@@ -40,15 +40,15 @@ export default function BlogPost() {
         title={post.title}
         description={post.excerpt}
         keywords={`${post.title}, ${post.cat}, Satvix Tech Solutions blog, software engineering India, ${post.cat.toLowerCase()} insights`}
-        url={`https://satvixtech.com/blog/${post.slug}`}
+        url={`https://www.satvixtech.com/blog/${post.slug}`}
         type="article"
         datePublished={toISO(post.date)}
         breadcrumb={[
-          { name: "Home", item: "https://satvixtech.com" },
-          { name: "Blog", item: "https://satvixtech.com/blog" },
+          { name: "Home", item: "https://www.satvixtech.com" },
+          { name: "Blog", item: "https://www.satvixtech.com/blog" },
           {
             name: post.title,
-            item: `https://satvixtech.com/blog/${post.slug}`,
+            item: `https://www.satvixtech.com/blog/${post.slug}`,
           },
         ]}
       />
