@@ -1,3 +1,18 @@
+/* ── Self-hosted fonts ──
+   Previously loaded from fonts.googleapis.com, where the stylesheet was
+   render-blocking (~960 ms) and the swap-in reflowed text. Bundling them
+   removes a third-party round trip from the critical path and lets Vite
+   fingerprint the woff2 files for immutable caching.
+   Weights here must match those referenced in the --display/--sans/--mono
+   token stacks below; adding a weight to the CSS means adding it here. */
+/* Inter and JetBrains Mono use variable fonts: one file spans every weight
+   the CSS asks for (300-700), instead of one file per weight. Instrument
+   Serif has no variable release and ships regular + italic only. */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,8 +29,11 @@
   --radius: 18px;
   --max: 1360px;
   --display: "Instrument Serif", ui-serif, Georgia, serif;
-  --sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, monospace;
+  /* "… Variable" is the family name @fontsource-variable registers; the
+     static name is kept as a fallback so the stack still resolves if the
+     variable file fails to load. */
+  --sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
 
   /* shadcn compat (kept for any existing component usage) */
   --background: 0 0% 100%;
@@ -1205,8 +1223,18 @@ footer.site-footer {
 
 .foot-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  /* Brand, Agency, Services, Where we work, Contact.
+     "Where we work" gets extra room — its anchors are descriptive city
+     phrases rather than one-word labels. */
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr 1fr;
   gap: 40px;
+}
+
+@media (max-width: 1180px) {
+  .foot-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px 40px;
+  }
 }
 
 @media (max-width: 880px) {

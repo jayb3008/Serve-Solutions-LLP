@@ -27,16 +27,11 @@
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Performance hints -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <!-- Performance hints.
+         Fonts are self-hosted via @fontsource (see src/index.css) and are
+         bundled with the app CSS, so no font-host preconnect is needed. -->
     <link rel="dns-prefetch" href="https://images.pexels.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://images.pexels.com" />
 
     <!-- Fallback so scroll-reveal content stays visible if JS is disabled -->
     <noscript>

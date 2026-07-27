@@ -20,7 +20,28 @@ const TODAY = new Date().toISOString().slice(0, 10);
 
 const { render, allRoutes, sitemapEntries } = await import(serverEntry);
 
-const template = await fs.readFile(path.join(distDir, 'index.html'), 'utf-8');
+let template = await fs.readFile(path.join(distDir, 'index.html'), 'utf-8');
+
+// ── Preload the above-the-fold font faces ──
+// The font CSS is bundled, so the browser only discovers the woff2 files after
+// parsing it — late enough that text renders in the fallback first and then
+// reflows, which showed up as ~0.10 CLS. Preloading collapses that window.
+// Vite fingerprints the filenames, so resolve them from the built assets
+// rather than hardcoding. Only the faces used above the fold are worth
+// preloading; preloading everything competes for the same bandwidth.
+const CRITICAL_FONTS = [/^inter-latin-wght-normal-/, /^instrument-serif-latin-400-normal-/];
+const assetFiles = await fs.readdir(path.join(distDir, 'assets'));
+const preloadTags = assetFiles
+  .filter((f) => f.endsWith('.woff2') && CRITICAL_FONTS.some((re) => re.test(f)))
+  .map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`)
+  .join('\n    ');
+
+if (preloadTags) {
+  template = template.replace('</head>', `  ${preloadTags}\n  </head>`);
+  console.log(`✓ Preloading ${preloadTags.split('\n').length} critical font file(s)`);
+} else {
+  console.warn('! No critical font files matched — check CRITICAL_FONTS patterns');
+}
 
 function headFromHelmet(helmet) {
   if (!helmet) return '';

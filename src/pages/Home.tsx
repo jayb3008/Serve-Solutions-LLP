@@ -173,7 +173,7 @@ const workCards = [
     title:
       "Nine Finance — a lending platform where borrowers and field agents run structured daily EMI collections through a mobile app. Shipped in two weeks; live and managing real loan portfolios.",
     href: "/portfolio/nine-finance",
-    img: "/images/satvix_fintech_showcase.png",
+    img: "/images/satvix_fintech_showcase.webp",
   },
   {
     cls: "wc-2",
@@ -182,7 +182,7 @@ const workCards = [
     title:
       "Glamour Jewelry — a full jewelry e-commerce platform: product catalog, orders, inventory, admin dashboard. React + Node + MongoDB, shipped in four weeks, live and processing orders.",
     href: "/portfolio/glamour-jewelry",
-    img: "/images/glamour-jewelry.png",
+    img: "/images/glamour-jewelry.webp",
   },
   {
     cls: "wc-3",

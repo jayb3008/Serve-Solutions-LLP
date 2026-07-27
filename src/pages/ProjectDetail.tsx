@@ -24,6 +24,10 @@ type Project = {
   tech: string[];
   outcomes: Outcome[];
   img: string;
+  /* Social preview. `img` is a WebP sized for the page; link-preview crawlers
+     want a 1200x630 JPEG, so case studies with real artwork supply one here.
+     Falls back to the site default when absent. */
+  ogImg?: string;
   prev: string;
   next: string;
   faq?: { question: string; answer: string }[];
@@ -51,7 +55,8 @@ const projectsData: Record<string, Project> = {
       { n: "2", label: "User types shipped (borrower + agent)" },
       { n: "1x", label: "Codebase, both apps" },
     ],
-    img: "/images/satvix_fintech_showcase.png",
+    img: "/images/satvix_fintech_showcase.webp",
+    ogImg: "/images/satvix_fintech_showcase-og.jpg",
     prev: "charotar-soap",
     next: "glamour-jewelry",
     faq: [
@@ -89,7 +94,8 @@ const projectsData: Record<string, Project> = {
       { n: "1", label: "Admin dashboard + storefront, unified" },
       { n: "E2E", label: "Catalog → order → inventory" },
     ],
-    img: "/images/glamour-jewelry.png",
+    img: "/images/glamour-jewelry.webp",
+    ogImg: "/images/glamour-jewelry-og.jpg",
     prev: "nine-finance",
     next: "charotar-soap",
     faq: [
@@ -158,7 +164,7 @@ export default function ProjectDetail() {
         title={`${project.title} — ${project.subtitle}`}
         description={project.overview}
         keywords={`${project.title}, ${project.tags.join(", ")}, ${project.tech.join(", ")}, case study, Satvix Tech Solutions portfolio, ${project.category}`}
-        image={project.img}
+        image={project.ogImg ?? undefined}
         url={`https://www.satvixtech.com/portfolio/${id}`}
         type="article"
         datePublished={`${project.year}-01-01`}

@@ -27,7 +27,13 @@ interface SEOProps {
 }
 
 const BASE_URL = "https://www.satvixtech.com";
-const DEFAULT_IMAGE = `${BASE_URL}/logo.png`;
+/* Social preview default. 1200x630 is the ratio Facebook, LinkedIn, X and
+   WhatsApp all crop to; the 1024x512 logo was letterboxed by most of them.
+   JPEG rather than WebP because link-preview crawlers remain inconsistent
+   about WebP support. */
+const DEFAULT_IMAGE = `${BASE_URL}/images/satvix-og-default.jpg`;
+const OG_IMAGE_WIDTH = "1200";
+const OG_IMAGE_HEIGHT = "630";
 const COMPANY_NAME = "Satvix Tech Solutions";
 const COMPANY_LEGAL = "Satvix Tech Solutions LLP";
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -47,6 +53,10 @@ const SEO = ({
 }: SEOProps) => {
   const location = useLocation();
   const currentUrl = url || `${BASE_URL}${location.pathname === "/" ? "/" : location.pathname}`;
+  /* Open Graph requires absolute URLs. Pages that pass a root-relative path
+     (e.g. "/images/foo.jpg") previously emitted it verbatim, which every
+     link-preview crawler failed to resolve. */
+  const imageUrl = /^https?:\/\//.test(image) ? image : `${BASE_URL}${image}`;
   /**
    * SERP title format: "Page title — Satvix Tech Solutions".
    * Page-specific copy leads (it is what wins the click); brand sits at the
@@ -69,7 +79,7 @@ const SEO = ({
     logo: {
       "@type": "ImageObject",
       url: `${BASE_URL}/logo.png`,
-      width: 512,
+      width: 1024,
       height: 512,
     },
     description,
@@ -131,7 +141,7 @@ const SEO = ({
     "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${BASE_URL}/#localbusiness`,
     name: COMPANY_NAME,
-    image,
+    image: imageUrl,
     url: BASE_URL,
     telephone: "+91-7016427729",
     email: "hello@satvixtech.com",
@@ -218,8 +228,12 @@ const SEO = ({
   };
 
   /* ── WebSite (home only) ── */
+  /* Compare with the trailing slash normalised away — the home page's
+     canonical is `${BASE_URL}/` while BASE_URL itself has no trailing slash,
+     and a strict equality check silently dropped WebSite from every page. */
+  const isHomePage = currentUrl.replace(/\/$/, "") === BASE_URL.replace(/\/$/, "");
   const webSiteSchema =
-    type === "website" && currentUrl === BASE_URL
+    type === "website" && isHomePage
       ? {
           "@context": "https://schema.org",
           "@type": "WebSite",
@@ -228,14 +242,10 @@ const SEO = ({
           name: COMPANY_NAME,
           description,
           publisher: { "@id": `${BASE_URL}/#organization` },
-          potentialAction: {
-            "@type": "SearchAction",
-            target: {
-              "@type": "EntryPoint",
-              urlTemplate: `${BASE_URL}/search?q={search_term_string}`,
-            },
-            "query-input": "required name=search_term_string",
-          },
+          /* No SearchAction: the site has no /search route, and robots.txt
+             disallows /*?* so the URL pattern could not be crawled anyway.
+             Declaring a Sitelinks Searchbox the site cannot service is a
+             validation error against ourselves. */
           inLanguage: "en-IN",
         }
       : null;
@@ -299,7 +309,7 @@ const SEO = ({
           "@type": "Article",
           headline: siteTitle,
           description,
-          image: [image],
+          image: [imageUrl],
           url: currentUrl,
           datePublished,
           dateModified,
@@ -341,9 +351,9 @@ const SEO = ({
       <meta property="og:url" content={currentUrl} />
       <meta property="og:title" content={siteTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="1024" />
-      <meta property="og:image:height" content="512" />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:width" content={OG_IMAGE_WIDTH} />
+      <meta property="og:image:height" content={OG_IMAGE_HEIGHT} />
       <meta property="og:image:alt" content={siteTitle} />
       <meta property="og:site_name" content={COMPANY_NAME} />
       <meta property="og:locale" content="en_IN" />
@@ -355,7 +365,7 @@ const SEO = ({
       <meta name="twitter:url" content={currentUrl} />
       <meta name="twitter:title" content={siteTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={siteTitle} />
 
       {/* ── Structured data ── */}

@@ -70,7 +70,7 @@ const cards: Card[] = [
     year: "2 weeks",
     tags: ["Fintech", "React Native", "Node.js", "Live"],
     cat: "Fintech",
-    img: "/images/satvix_fintech_showcase.png",
+    img: "/images/satvix_fintech_showcase.webp",
   },
 
   {
@@ -80,7 +80,7 @@ const cards: Card[] = [
     year: "4 weeks",
     tags: ["Ecommerce", "React", "Node", "MongoDB"],
     cat: "Commerce",
-    img: "/images/glamour-jewelry.png",
+    img: "/images/glamour-jewelry.webp",
   },
 
   {

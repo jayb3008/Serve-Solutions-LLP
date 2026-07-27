@@ -47,6 +47,20 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Where we work — these city/region landing pages had no inbound
+              internal links at all, so they received no internal PageRank and
+              were reachable only via the sitemap. Descriptive anchors. */}
+          <div>
+            <h5>Where we work</h5>
+            <ul>
+              <li><Link to="/software-development-company-anand">Software development in Anand</Link></li>
+              <li><Link to="/it-company-anand">IT company in Anand</Link></li>
+              <li><Link to="/mobile-app-development-gujarat">Mobile app development in Gujarat</Link></li>
+              <li><Link to="/web-development-company-ahmedabad">Web development in Ahmedabad</Link></li>
+              <li><Link to="/ai-development-services-india">AI development services in India</Link></li>
+            </ul>
+          </div>
+
           {/* Contact */}
           <div>
             <h5>Contact</h5>
