@@ -4,6 +4,7 @@ import SEO from "../components/SEO";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 import { posts, postBySlug } from "../data/blog";
+import { renderInline } from "../lib/prose";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -226,7 +227,7 @@ export default function BlogPost() {
                             flexShrink: 0,
                           }}
                         />
-                        {it}
+                        {renderInline(it)}
                       </li>
                     ))}
                   </ul>
@@ -242,7 +243,7 @@ export default function BlogPost() {
                     margin: "0 0 24px",
                   }}
                 >
-                  {block.text}
+                  {renderInline(block.text)}
                 </p>
               );
             })}

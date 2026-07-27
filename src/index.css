@@ -140,6 +140,22 @@ a {
   text-decoration: none;
 }
 
+/* Outbound citations in article body copy. The rule above strips underlines
+   so nav items and cards read as blocks; inside prose a link has to look like
+   one, so this puts the decoration back on an accent-coloured rule. */
+.prose-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.prose-link:hover {
+  color: var(--accent);
+}
+
 img {
   max-width: 100%;
   display: block;
