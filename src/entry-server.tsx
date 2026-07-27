@@ -28,3 +28,4 @@ export function render(url: string): RenderResult {
 }
 
 export { allRoutes, sitemapEntries, industryRedirects } from './data/routes';
+export { posts } from './data/blog';

@@ -40,6 +40,10 @@ export default function BlogPost() {
         title={post.title}
         description={post.excerpt}
         keywords={`${post.title}, ${post.cat}, Satvix Tech Solutions blog, software engineering India, ${post.cat.toLowerCase()} insights`}
+        /* 1200x630 card generated per post at build time by
+           scripts/og-images.mjs. The logo this replaced was 1024x512, below
+           Google's 1200px minimum for Article images. */
+        image={`/images/og/${post.slug}.png`}
         url={`https://www.satvixtech.com/blog/${post.slug}`}
         type="article"
         datePublished={toISO(post.date)}

@@ -6,6 +6,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { generateOgImages } from './og-images.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -18,7 +19,8 @@ const serverEntry = pathToFileURL(path.join(distDir, 'server', 'entry-server.js'
 const BASE_URL = 'https://www.satvixtech.com';
 const TODAY = new Date().toISOString().slice(0, 10);
 
-const { render, allRoutes, sitemapEntries, industryRedirects } = await import(serverEntry);
+const { render, allRoutes, sitemapEntries, industryRedirects, posts } =
+  await import(serverEntry);
 
 let template = await fs.readFile(path.join(distDir, 'index.html'), 'utf-8');
 
@@ -95,6 +97,10 @@ ${urls}
 </urlset>
 `;
 await fs.writeFile(path.join(distDir, 'sitemap.xml'), sitemap, 'utf-8');
+
+// ── Per-post Open Graph cards ──
+const ogCount = await generateOgImages(posts);
+console.log(`✓ Generated ${ogCount} article OG cards → dist/images/og/`);
 
 // ── Sync consolidated-industry redirects into vercel.json ──
 // Generated from the same data that drives the prerender list, so a vertical
