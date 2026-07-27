@@ -35,6 +35,12 @@ type Project = {
      want a 1200x630 JPEG, so case studies with real artwork supply one here.
      Falls back to the site default when absent. */
   ogImg?: string;
+  /* Product screenshots, shown after the outcomes band. Curate rather than
+     dump: near-identical screens add page weight and tell a reader nothing
+     new. Every entry needs alt text describing what is actually on the
+     screen — these carry the proof, so they have to be legible to someone who
+     cannot see them. */
+  gallery?: { src: string; alt: string }[];
   prev: string;
   next: string;
   faq?: { question: string; answer: string }[];
@@ -64,7 +70,7 @@ const projectsData: Record<string, Project> = {
     ],
     img: "/images/satvix_fintech_showcase.webp",
     ogImg: "/images/satvix_fintech_showcase-og.jpg",
-    prev: "charotar-soap",
+    prev: "shreeji-hrms",
     next: "glamour-jewelry",
     faq: [
       {
@@ -145,7 +151,7 @@ const projectsData: Record<string, Project> = {
       "The Charotar Soap Factory ERP dashboard: sales, stock value, open orders and outstanding payments across the top, a six-month revenue chart and customer-type split below, with recent orders and low-stock alerts.",
     ogImg: "/images/charotar-soap-og.jpg",
     prev: "glamour-jewelry",
-    next: "nine-finance",
+    next: "shreeji-hrms",
     faq: [
       {
         question: "Is Charotar Soap Factory available to license?",
@@ -156,6 +162,87 @@ const projectsData: Record<string, Project> = {
         question: "Why build a proprietary product rather than a one-off?",
         answer:
           "Recurring-revenue economics and better software. A product used by multiple manufacturers gets stress-tested harder and matures faster than a bespoke build used by one client.",
+      },
+    ],
+  },
+
+  "shreeji-hrms": {
+    title: "Shreeji HRMS",
+    subtitle: "Bilingual HR, attendance, salary & ledger app for small business",
+    category: "SaaS · Mobile App · Operations",
+    timeline: "3 weeks",
+    client: "Shreeji Traders",
+    role: "Full-stack build — founder-led",
+    tags: ["SaaS", "React Native", "Node.js", "Bilingual"],
+    overview:
+      "A bilingual (Gujarati / Hindi / English) React Native app that runs a small business end to end — employee & daily-wage attendance, salary calculations, advances, customer ledger (khatu), and income-expense accounting.",
+    challenge:
+      "Small business owners relied on paper registers for daily-wage workers, struggled with manual salary calculations (half-days, advance deductions), uncollected customer receivables (udhaar), and unorganised income-expense bookkeeping.",
+    solution:
+      "React Native mobile app with tailored dual sign-in roles (Owner Cockpit & Employee View). Features one-tap attendance marking, automated daily-wage payroll (payable days x daily rate), customer credit ledger with direct call actions, and complete monthly transaction tracking.",
+    tech: ["React Native", "Node.js", "Express", "MongoDB", "TypeScript"],
+    outcomes: [
+      { n: "1 App", label: "Dual sign-in (Owner + Employee)" },
+      { n: "E2E", label: "Staff, payroll & accounting" },
+      { n: "3 wks", label: "Kickoff to live" },
+      { n: "3", label: "Languages (Gujarati, Hindi, Eng)" },
+    ],
+    img: "/images/shreeji-hrms.webp",
+    imgAlt:
+      "Shreeji HRMS mobile application showing Owner Cockpit, daily-wage attendance calendar, customer credit ledger (khatu), and employee profile screens.",
+    ogImg: "/images/shreeji-hrms-og.jpg",
+    /* Owner-side screens first, then the same days seen from the worker's
+       phone — the split the app is actually built around. */
+    gallery: [
+      {
+        src: "/images/hrms/hrms-owner-dashboard.webp",
+        alt: "Owner dashboard in Gujarati: headcount, how many staff are marked present today, cash in and out for the day, and a ₹6,79,000 outstanding-collection card above a row of quick actions.",
+      },
+      {
+        src: "/images/hrms/hrms-owner-menu.webp",
+        alt: "Owner navigation drawer listing dashboard, employees, attendance and attendance calendar, reports, salary, advances, leave requests with two pending, customers, receipts, outstanding balances and the ledger.",
+      },
+      {
+        src: "/images/hrms/hrms-employee-list.webp",
+        alt: "Employee list showing seven staff — helper, loader, driver, accountant, supervisor and field sales — each with their daily wage and whether they are marked present today.",
+      },
+      {
+        src: "/images/hrms/hrms-attendance-calendar.webp",
+        alt: "Monthly attendance calendar for July 2026, each day dotted by status, with a button to close out the current day's attendance.",
+      },
+      {
+        src: "/images/hrms/hrms-customer-accounts.webp",
+        alt: "Customer accounts screen totalling ₹6,79,000 outstanding across wholesalers, agencies, supermarkets and kirana stores, each row with a one-tap call button.",
+      },
+      {
+        src: "/images/hrms/hrms-daybook.webp",
+        alt: "Daybook for July 2026 listing money out for salary alongside customer collections in, each entry tagged with the counterparty and date.",
+      },
+      {
+        src: "/images/hrms/hrms-employee-home.webp",
+        alt: "Employee home screen prompting the worker to mark today's attendance, with their advance balance, working days so far and daily wage summarised underneath.",
+      },
+      {
+        src: "/images/hrms/hrms-employee-attendance.webp",
+        alt: "The worker's own attendance calendar for July 2026, present days in green and absent in red, with a month summary of days worked and days off.",
+      },
+      {
+        src: "/images/hrms/hrms-employee-salary.webp",
+        alt: "Employee salary screen showing ₹16,150 earned this month at ₹850 a day across 19 days, with paid history for June and May including an advance deduction.",
+      },
+    ],
+    prev: "charotar-soap",
+    next: "nine-finance",
+    faq: [
+      {
+        question: "What makes Shreeji HRMS unique for local Indian businesses?",
+        answer:
+          "It is Gujarati-first and designed around how small trade and manufacturing businesses operate — supporting daily-wage models (half-days counted as 0.5), advance salary tracking, and an integrated customer credit ledger (khatu) alongside income-expense bookkeeping.",
+      },
+      {
+        question: "How does the dual sign-in model work?",
+        answer:
+          "Owners log in with email and password to access the full cockpit (staff management, receivables, expense logs, payroll). Employees sign in with a simple 4-digit PIN to mark attendance and view their personal earnings and advance history.",
       },
     ],
   },
@@ -621,6 +708,52 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+
+      {/* ── Screenshot gallery ── */}
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="s" style={{ padding: "100px 0" }}>
+          <div className="wrap">
+            <div className="eyebrow reveal" style={{ marginBottom: 56 }}>
+              Inside the product
+            </div>
+            <div
+              style={{
+                display: "grid",
+                /* auto-fit rather than a fixed column count: these are tall
+                   phone screens, so the row rewraps instead of shrinking them
+                   past legibility on narrow viewports. */
+                gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+                gap: 20,
+              }}
+            >
+              {project.gallery.map((shot, i) => (
+                <img
+                  key={shot.src}
+                  src={shot.src}
+                  alt={shot.alt}
+                  width={674}
+                  height={1420}
+                  /* Below the fold on every viewport, and there are nine of
+                     them — deferring keeps them out of the LCP path. The
+                     intrinsic size above reserves the box so they cost no CLS
+                     when they do arrive. */
+                  loading="lazy"
+                  decoding="async"
+                  className="reveal"
+                  data-d={String(i)}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "var(--radius)",
+                    border: "1px solid var(--line)",
+                    background: "var(--bg-2)",
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── FAQ ── */}
       {project.faq && project.faq.length > 0 && (

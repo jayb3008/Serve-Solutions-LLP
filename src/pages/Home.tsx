@@ -192,12 +192,21 @@ const workCards = [
     title:
       "Charotar Soap Factory — inventory, production tracking and sales orders for soap manufacturers. Designed as a reusable product we can white-label to other manufacturers. Demo on request.",
     href: "/portfolio/charotar-soap",
-    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23121518'/><stop offset='1' stop-color='%230a0e12'/></linearGradient></defs><rect width='800' height='500' fill='url(%23g)'/><text x='50%25' y='50%25' fill='%23e6c667' font-family='monospace' font-size='22' text-anchor='middle' letter-spacing='4'>DEMO ON REQUEST</text></svg>",
+    img: "/images/charotar-soap.webp",
+  },
+  {
+    cls: "wc-4",
+    year: "3 weeks",
+    tags: ["SaaS", "React Native", "Node.js"],
+    title:
+      "Shreeji HRMS — bilingual daily-wage attendance, salary payroll, customer credit ledger & income-expense accounting app for small businesses.",
+    href: "/portfolio/shreeji-hrms",
+    img: "/images/shreeji-hrms.webp",
   },
 ];
 
 const bandStats = [
-  { n: 3, unit: "", label: "Shipped products you can verify" },
+  { n: 4, unit: "", label: "Shipped products you can verify" },
   { n: 2, unit: " wks", label: "Fastest delivery — Nine Finance (fintech)" },
   { n: 7, unit: "+ yrs", label: "Senior MERN experience — founder-led" },
   { n: 1, unit: "", label: "Working demo, every Friday" },
@@ -415,9 +424,10 @@ export default function Home() {
           <AnimateIn direction="up" delay={0.8}>
             <div className="hero__foot">
               <p>
-                A premium digital product and software engineering agency in Anand. 
-                We combine senior developers, UI/UX designers, and QA with dedicated 
-                project management. Fintech shipped in two weeks. Ask for a demo.
+                A premium digital product and software engineering agency in
+                Anand. We combine senior developers, UI/UX designers, and QA
+                with dedicated project management. Fintech shipped in two weeks.
+                Ask for a demo.
               </p>
               <Magnetic>
                 <Link to="/portfolio" className="cta-btn" data-hover>
@@ -428,9 +438,13 @@ export default function Home() {
                 <div>
                   <div className="stat__num">
                     <CountUp to={2} />
-                    <span style={{ fontSize: "0.55em", marginLeft: 4 }}>wks</span>
+                    <span style={{ fontSize: "0.55em", marginLeft: 4 }}>
+                      wks
+                    </span>
                   </div>
-                  <div className="stat__lbl">Fastest delivery — Nine Finance</div>
+                  <div className="stat__lbl">
+                    Fastest delivery — Nine Finance
+                  </div>
                 </div>
                 <div>
                   <div className="stat__num">
@@ -441,7 +455,9 @@ export default function Home() {
                 <div>
                   <div className="stat__num">
                     <CountUp to={7} />
-                    <span style={{ fontSize: "0.55em", marginLeft: 4 }}>+ yrs</span>
+                    <span style={{ fontSize: "0.55em", marginLeft: 4 }}>
+                      + yrs
+                    </span>
                   </div>
                   <div className="stat__lbl">Senior MERN, founder-led</div>
                 </div>
@@ -505,7 +521,10 @@ export default function Home() {
 
       {/* ── Velocity marquee ── */}
       <div style={{ overflow: "hidden", pointerEvents: "none" }}>
-        <ScrollVelocityMarquee text="Web · Mobile · AI · SaaS · Fintech · Healthcare · Design · Engineering · Craft" baseSpeed={1.2} />
+        <ScrollVelocityMarquee
+          text="Web · Mobile · AI · SaaS · Fintech · Healthcare · Design · Engineering · Craft"
+          baseSpeed={1.2}
+        />
       </div>
 
       {/* ── Services ── */}
@@ -550,7 +569,11 @@ export default function Home() {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ delay: i * 0.07, duration: 0.55, ease: [0.25, 1, 0.5, 1] }}
+                transition={{
+                  delay: i * 0.07,
+                  duration: 0.55,
+                  ease: [0.25, 1, 0.5, 1],
+                }}
               >
                 <div className="svc__num">{svc.num}</div>
                 <div className="svc__name">
@@ -594,47 +617,84 @@ export default function Home() {
                 Custom software &amp; digital products built <em>to last.</em>
               </h2>
               <p className="text-[var(--ink-2)] text-base sm:text-lg leading-relaxed mt-8">
-                Satvix Tech Solutions is a premium <strong>digital product and software engineering agency</strong> in Anand, Gujarat. We integrate expert UI/UX design, senior software development, and structured QA with dedicated project managers to ensure seamless end-to-end product delivery.
+                Satvix Tech Solutions is a premium{" "}
+                <strong>digital product and software engineering agency</strong>{" "}
+                in Anand, Gujarat. We integrate expert UI/UX design, senior
+                software development, and structured QA with dedicated project
+                managers to ensure seamless end-to-end product delivery.
               </p>
               <p className="text-[var(--ink-2)] text-base leading-relaxed mt-6">
-                We build for founders and agencies in the US, UK, EU and Australia. Four-plus hours overlap with US East, full working-day overlap with the UK. Full repo access from day one, USD/GBP/INR invoicing, NDA-friendly contracts.
+                We build for founders and agencies in the US, UK, EU and
+                Australia. Four-plus hours overlap with US East, full
+                working-day overlap with the UK. Full repo access from day one,
+                USD/GBP/INR invoicing, NDA-friendly contracts.
               </p>
             </div>
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
               <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">Web Engineering &amp; Next.js</h3>
+                <h3 className="text-lg font-bold text-[var(--ink)]">
+                  Web Engineering &amp; Next.js
+                </h3>
                 <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  We operate as a high-fidelity <strong>web development company</strong> focusing on custom web portals, headless e-commerce, and SaaS dashboards. We build lightweight interfaces that pass Core Web Vitals audits.
+                  We operate as a high-fidelity{" "}
+                  <strong>web development company</strong> focusing on custom
+                  web portals, headless e-commerce, and SaaS dashboards. We
+                  build lightweight interfaces that pass Core Web Vitals audits.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">Mobile App Development</h3>
+                <h3 className="text-lg font-bold text-[var(--ink)]">
+                  Mobile App Development
+                </h3>
                 <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  Our team specializes in native iOS, Android, and cross-platform <strong>React Native development</strong>. We integrate local SQLite storage, background location sensors, and push channels for real-world reliability.
+                  Our team specializes in native iOS, Android, and
+                  cross-platform <strong>React Native development</strong>. We
+                  integrate local SQLite storage, background location sensors,
+                  and push channels for real-world reliability.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">AI &amp; Machine Learning</h3>
+                <h3 className="text-lg font-bold text-[var(--ink)]">
+                  AI &amp; Machine Learning
+                </h3>
                 <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  As an independent <strong>AI development company</strong>, we construct custom LLM integrations, Retrieval-Augmented Generation (RAG) databases, and autonomous task agents with strict token budgets and evaluation harnesses.
+                  As an independent <strong>AI development company</strong>, we
+                  construct custom LLM integrations, Retrieval-Augmented
+                  Generation (RAG) databases, and autonomous task agents with
+                  strict token budgets and evaluation harnesses.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">UI/UX Design &amp; Strategy</h3>
+                <h3 className="text-lg font-bold text-[var(--ink)]">
+                  UI/UX Design &amp; Strategy
+                </h3>
                 <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  Our <strong>UI UX design agency</strong> creates documented design systems and interactive prototypes. We write design tokens in Figma and hand them off in JSON format directly to our frontend engineers.
+                  Our <strong>UI UX design agency</strong> creates documented
+                  design systems and interactive prototypes. We write design
+                  tokens in Figma and hand them off in JSON format directly to
+                  our frontend engineers.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">Digital Growth &amp; SEO</h3>
+                <h3 className="text-lg font-bold text-[var(--ink)]">
+                  Digital Growth &amp; SEO
+                </h3>
                 <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  We combine engineering with marketing. Our <strong>digital marketing company</strong> and <strong>SEO agency India</strong> practices implement technical site speed optimization, schema hierarchies, and dynamic lead funnels.
+                  We combine engineering with marketing. Our{" "}
+                  <strong>digital marketing company</strong> and{" "}
+                  <strong>SEO agency India</strong> practices implement
+                  technical site speed optimization, schema hierarchies, and
+                  dynamic lead funnels.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">Custom Software Consulting</h3>
+                <h3 className="text-lg font-bold text-[var(--ink)]">
+                  Custom Software Consulting
+                </h3>
                 <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  We draft technical specifications, API structures, database schemas, and cloud architectures (AWS / Docker) in our initial discovery sprints, eliminating downstream engineering risk.
+                  We draft technical specifications, API structures, database
+                  schemas, and cloud architectures (AWS / Docker) in our initial
+                  discovery sprints, eliminating downstream engineering risk.
                 </p>
               </div>
             </div>
@@ -753,7 +813,11 @@ export default function Home() {
                   initial={{ opacity: 0, scale: 0.92, y: 20 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+                  transition={{
+                    delay: i * 0.1,
+                    duration: 0.5,
+                    ease: [0.25, 1, 0.5, 1],
+                  }}
                   style={{ background: c.bg }}
                 >
                   <div className="design-feat-card__num">{c.num}</div>
@@ -807,7 +871,12 @@ export default function Home() {
 
           <AnimateIn direction="up" delay={0.2}>
             <div
-              style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 8 }}
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 10,
+                marginTop: 8,
+              }}
             >
               {industryList.map(([key, ind], index) => (
                 <MotionLink
@@ -817,7 +886,11 @@ export default function Home() {
                   initial={{ opacity: 0, scale: 0.85 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.1 }}
-                  transition={{ delay: index * 0.04, duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
+                  transition={{
+                    delay: index * 0.04,
+                    duration: 0.4,
+                    ease: [0.25, 1, 0.5, 1],
+                  }}
                   style={{
                     fontFamily: "var(--mono)",
                     fontSize: 13,
@@ -903,39 +976,40 @@ export default function Home() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ delay: i * 0.06, duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                transition={{
+                  delay: i * 0.06,
+                  duration: 0.6,
+                  ease: [0.25, 1, 0.5, 1],
+                }}
               >
-              <TiltCard
-                to={c.href}
-                className={`work-card ${c.cls} reveal`}
-              >
-                <div
-                  className="work-card__bg"
-                  role="img"
-                  aria-label={`Showcase screenshot of ${c.title}`}
-                  style={{
-                    background: `linear-gradient(rgba(10, 8, 6, 0.48), rgba(10, 8, 6, 0.48)), url(${c.img}) center/cover no-repeat`,
-                  }}
-                />
-                <div
-                  className="work-card__inner"
-                  style={{ transform: "translateZ(30px)" }}
-                >
-                  <div className="work-card__meta">
-                    <span>{c.year}</span>
-                    {c.tags.map((t) => (
-                      <span key={t}>{t}</span>
-                    ))}
+                <TiltCard to={c.href} className={`work-card ${c.cls} reveal`}>
+                  <div
+                    className="work-card__bg"
+                    role="img"
+                    aria-label={`Showcase screenshot of ${c.title}`}
+                    style={{
+                      background: `linear-gradient(rgba(10, 8, 6, 0.48), rgba(10, 8, 6, 0.48)), url(${c.img}) center/cover no-repeat`,
+                    }}
+                  />
+                  <div
+                    className="work-card__inner"
+                    style={{ transform: "translateZ(30px)" }}
+                  >
+                    <div className="work-card__meta">
+                      <span>{c.year}</span>
+                      {c.tags.map((t) => (
+                        <span key={t}>{t}</span>
+                      ))}
+                    </div>
+                    <div className="work-card__title">{c.title}</div>
                   </div>
-                  <div className="work-card__title">{c.title}</div>
-                </div>
-                <div
-                  className="work-card__cta"
-                  style={{ transform: "translateZ(45px)" }}
-                >
-                  ↗
-                </div>
-              </TiltCard>
+                  <div
+                    className="work-card__cta"
+                    style={{ transform: "translateZ(45px)" }}
+                  >
+                    ↗
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
@@ -990,7 +1064,11 @@ export default function Home() {
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
-                transition={{ delay: i * 0.1, duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                transition={{
+                  delay: i * 0.1,
+                  duration: 0.6,
+                  ease: [0.25, 1, 0.5, 1],
+                }}
               >
                 <div className="tl-year">{p.n}</div>
                 <div className="tl-title">{p.title}</div>
@@ -1138,7 +1216,11 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: i * 0.08, duration: 0.55, ease: [0.25, 1, 0.5, 1] }}
+                transition={{
+                  delay: i * 0.08,
+                  duration: 0.55,
+                  ease: [0.25, 1, 0.5, 1],
+                }}
                 style={{
                   border: "1px solid var(--line)",
                   borderRadius: 14,
@@ -1158,7 +1240,9 @@ export default function Home() {
                     flexWrap: "wrap",
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                  <div
+                    style={{ display: "flex", alignItems: "center", gap: 16 }}
+                  >
                     <span
                       style={{
                         fontFamily: "var(--mono)",
@@ -1418,20 +1502,17 @@ export default function Home() {
               {
                 k: "Expertise",
                 title: "Senior Engineering",
-                body:
-                  "Our team brings deep enterprise MERN stack expertise — MongoDB, Express, React, Node. Every engagement benefits from robust architecture design and thorough code reviews.",
+                body: "Our team brings deep enterprise MERN stack expertise — MongoDB, Express, React, Node. Every engagement benefits from robust architecture design and thorough code reviews.",
               },
               {
                 k: "The Team",
                 title: "Full-Service Delivery",
-                body:
-                  "Engineers, designers, QA, and project managers — all working together in-house. No rotating cast of freelancers. We scale resources dynamically to fit your roadmap.",
+                body: "Engineers, designers, QA, and project managers — all working together in-house. No rotating cast of freelancers. We scale resources dynamically to fit your roadmap.",
               },
               {
                 k: "Our Process",
                 title: "Structured Project Management",
-                body:
-                  "Dedicated delivery management, daily async progress updates, weekly demos, and transparent communication. Full code repository access from day one.",
+                body: "Dedicated delivery management, daily async progress updates, weekly demos, and transparent communication. Full code repository access from day one.",
               },
             ].map((r, i) => (
               <motion.div
@@ -1497,8 +1578,8 @@ export default function Home() {
             }}
           >
             Based in Anand, Gujarat. Working with founders and agencies in the
-            US, UK, EU and Australia. Four-plus hours overlap with US East;
-            full working-day overlap with the UK.
+            US, UK, EU and Australia. Four-plus hours overlap with US East; full
+            working-day overlap with the UK.
           </p>
         </div>
       </section>
@@ -1513,7 +1594,12 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.4 }}
-                transition={{ delay: i * 0.1, type: "spring", stiffness: 200, damping: 18 }}
+                transition={{
+                  delay: i * 0.1,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 18,
+                }}
               >
                 <div className="b-stat__n">
                   <CountUp to={s.n} />

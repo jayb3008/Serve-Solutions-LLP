@@ -13,6 +13,7 @@ export const portfolioSlugs = [
   'nine-finance',
   'glamour-jewelry',
   'charotar-soap',
+  'shreeji-hrms',
 ];
 
 /* Hand-authored, non-parameterised routes */

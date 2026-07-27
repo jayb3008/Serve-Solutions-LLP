@@ -90,7 +90,17 @@ const cards: Card[] = [
     year: "2 months",
     tags: ["SaaS", "Next.js", "Node.js", "White-label"],
     cat: "SaaS",
-    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23121518'/><stop offset='1' stop-color='%230a0e12'/></linearGradient></defs><rect width='800' height='500' fill='url(%23g)'/><text x='50%25' y='50%25' fill='%23e6c667' font-family='monospace' font-size='22' text-anchor='middle' letter-spacing='4'>DEMO ON REQUEST</text></svg>",
+    img: "/images/charotar-soap.webp",
+  },
+
+  {
+    id: "shreeji-hrms",
+    title:
+      "Shreeji HRMS — bilingual daily-wage attendance, salary payroll, customer credit ledger & income-expense accounting app for small businesses. React Native + Node.js.",
+    year: "3 weeks",
+    tags: ["SaaS", "React Native", "Node.js", "Bilingual"],
+    cat: "SaaS",
+    img: "/images/shreeji-hrms.webp",
   },
 ];
 const filters = ["All", "Fintech", "SaaS", "Commerce"];
@@ -103,9 +113,9 @@ export default function Portfolio() {
   return (
     <div>
       <SEO
-        title="Case studies — three shipped products from Satvix Tech Solutions"
-        description="Three shipped products you can verify: Nine Finance (fintech, React Native + Node.js, 2 weeks), Glamour Jewelry (e-commerce, React + Node + MongoDB, 4 weeks), Charotar Soap Factory (white-label manufacturing SaaS, Next.js + Node.js)."
-        keywords="Satvix Tech Solutions case studies, fintech case study React Native Node.js, jewelry e-commerce case study, white-label manufacturing SaaS, shipped in two weeks fintech"
+        title="Case studies — shipped products from Satvix Tech Solutions"
+        description="Shipped products you can verify: Nine Finance (fintech), Glamour Jewelry (e-commerce), Charotar Soap Factory (manufacturing SaaS), Shreeji HRMS (bilingual HR & ledger app)."
+        keywords="Satvix Tech Solutions case studies, fintech case study React Native Node.js, jewelry e-commerce case study, white-label manufacturing SaaS, Shreeji HRMS attendance app"
         url="https://www.satvixtech.com/portfolio"
         breadcrumb={[
           { name: "Home", item: "https://www.satvixtech.com" },
@@ -132,7 +142,7 @@ export default function Portfolio() {
           <h1>
             {(
               [
-                "Three shipped products.",
+                "Shipped products.",
                 "Real timelines.",
                 "<em>Verify anything.</em>",
               ] as const
@@ -153,8 +163,8 @@ export default function Portfolio() {
               Satvix Tech Solutions &nbsp;/&nbsp; Case studies
             </div>
             <p>
-              Fintech in two weeks. E-commerce in four. A white-label
-              manufacturing SaaS. Ask for a live demo or a reference call —
+              Fintech in two weeks. E-commerce in four. Manufacturing & HRMS
+              SaaS solutions. Ask for a live demo or a reference call —
               every claim is verifiable.
             </p>
           </div>
