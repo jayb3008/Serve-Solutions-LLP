@@ -57,7 +57,14 @@ export default function Navbar() {
 
   return (
     <>
-      <style>{`
+      {/* Emitted via dangerouslySetInnerHTML, not as a text child: React escapes
+          text children, so `content:""` below was serialised into the
+          prerendered HTML as `content:&quot;&quot;`. <style> is a raw-text
+          element, so the browser does not decode that back — the rule was dead
+          on arrival, and the text differed from what the client rendered, which
+          tripped a hydration mismatch and made React throw away the
+          prerendered DOM for the whole page on every route. */}
+      <style dangerouslySetInnerHTML={{ __html: `
         .meganav { position: relative; }
         .navdrop { position: relative; display: inline-flex; }
         .nav-item { position: relative; display: inline-flex; align-items: center; gap: 5px; padding: 8px 0; font-size: 14px; font-weight: 500; cursor: pointer; background: none; border: none; color: inherit; font-family: inherit; }
@@ -92,7 +99,7 @@ export default function Navbar() {
         .m-sub { display:flex; flex-direction:column; gap:2px; padding: 4px 0 14px; }
         .m-sub a { color: rgba(255,255,255,.7); font-size: 16px; padding: 7px 0; font-family: var(--sans); }
         .m-sub a:hover { color: var(--accent); }
-      `}</style>
+      ` }} />
 
       <header id="nav" className={`site-nav meganav${scrolled ? ' scrolled' : ''}`}>
         <Link to="/" className="logo" data-hover style={{ display: 'flex', alignItems: 'center' }} aria-label="Satvix Tech Solutions Home">
