@@ -26,6 +26,11 @@ type Project = {
   tech: string[];
   outcomes: Outcome[];
   img: string;
+  /* What the screenshot actually shows. The generic fallback below describes
+     every case study identically, which tells a screen-reader user and an
+     image crawler nothing. Worth writing wherever the image has real content
+     to describe. */
+  imgAlt?: string;
   /* Social preview. `img` is a WebP sized for the page; link-preview crawlers
      want a 1200x630 JPEG, so case studies with real artwork supply one here.
      Falls back to the site default when absent. */
@@ -135,7 +140,10 @@ const projectsData: Record<string, Project> = {
       { n: "B2B", label: "White-label licensing available" },
       { n: "Demo", label: "On request" },
     ],
-    img: "https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    img: "/images/charotar-soap.webp",
+    imgAlt:
+      "The Charotar Soap Factory ERP dashboard: sales, stock value, open orders and outstanding payments across the top, a six-month revenue chart and customer-type split below, with recent orders and low-stock alerts.",
+    ogImg: "/images/charotar-soap-og.jpg",
     prev: "glamour-jewelry",
     next: "nine-finance",
     faq: [
@@ -337,7 +345,7 @@ export default function ProjectDetail() {
             {/* Screenshot */}
             <img
               src={project.img}
-              alt={`${project.title} — live preview`}
+              alt={project.imgAlt ?? `${project.title} — live preview`}
               style={{
                 width: "100%",
                 display: "block",
