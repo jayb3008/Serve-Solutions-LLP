@@ -24,6 +24,11 @@ type Project = {
   challenge: string;
   solution: string;
   tech: string[];
+  /* Capabilities the product actually ships, rendered under the tech stack.
+     Each entry has to be traceable to the challenge/solution copy or to a
+     screenshot in the gallery — this block sits next to verifiable claims, so
+     an aspirational feature here reads as a lie about a live product. */
+  features: string[];
   outcomes: Outcome[];
   img: string;
   /* What the screenshot actually shows. The generic fallback below describes
@@ -40,7 +45,20 @@ type Project = {
      new. Every entry needs alt text describing what is actually on the
      screen — these carry the proof, so they have to be legible to someone who
      cannot see them. */
-  gallery?: { src: string; alt: string }[];
+  gallery?: {
+    src: string;
+    alt: string;
+    /* Intrinsic pixel size, used to reserve the box before a lazy image
+       arrives. Defaults to the 674x1420 phone capture the HRMS shots use, so
+       a desktop screenshot MUST pass its own — inheriting the phone aspect
+       reserves a tall narrow hole and the image jumps the page when it loads. */
+    w?: number;
+    h?: number;
+  }[];
+  /* How to tile the gallery. Phone screenshots are tall and narrow and read
+     fine several to a row; desktop screenshots need most of the column width
+     before their text goes unreadable. Defaults to "phone". */
+  galleryLayout?: "phone" | "desktop";
   prev: string;
   next: string;
   faq?: { question: string; answer: string }[];
@@ -62,6 +80,13 @@ const projectsData: Record<string, Project> = {
     solution:
       "React Native for both borrower and agent apps sharing a single codebase. Node.js backend handling EMI calculations, collections, reconciliation and role-based access. AI-augmented delivery on scaffolding and tests, senior review on every diff.",
     tech: ["React Native", "Node.js", "Express", "MongoDB"],
+    features: [
+      "Borrower and field-agent apps from one React Native codebase",
+      "Structured daily EMI collection schedules",
+      "Collection recording with reconciliation",
+      "Role-based access separating borrower from agent",
+      "Multi-tenant lending workflow",
+    ],
     outcomes: [
       { n: "2 wks", label: "Kickoff to live" },
       { n: "Live", label: "Managing real portfolios" },
@@ -101,6 +126,13 @@ const projectsData: Record<string, Project> = {
     solution:
       "React frontend, Node.js + Express API, MongoDB for products, orders and inventory. One coherent codebase from customer-facing store through admin dashboard. Shipped, hardened, live.",
     tech: ["React", "Node.js", "Express", "MongoDB"],
+    features: [
+      "Product catalog with custom attribute handling",
+      "Customer-facing storefront and order flow",
+      "Inventory tracking tied to orders",
+      "Admin dashboard sharing the storefront codebase",
+      "Bespoke catalog, order and inventory logic",
+    ],
     outcomes: [
       { n: "4 wks", label: "Kickoff to live" },
       { n: "Live", label: "Processing real orders" },
@@ -140,6 +172,14 @@ const projectsData: Record<string, Project> = {
     solution:
       "React + Next.js frontend, Node.js backend. Modular, multi-tenant architecture so the same product can be deployed for any manufacturer we sign. Domain modeled around production batches, inventory movements and sales orders.",
     tech: ["React", "Next.js", "Node.js", "TypeScript"],
+    features: [
+      "Production batch tracking",
+      "Stock ledger with per-SKU movements and low-stock alerts",
+      "Sales orders through to dispatch",
+      "Invoices, payments in/out and a customer ledger",
+      "Price lists per customer type",
+      "Multi-tenant — deployable white-label per manufacturer",
+    ],
     outcomes: [
       { n: "1", label: "Reusable product, many manufacturers" },
       { n: "2 mo", label: "Initial build" },
@@ -181,6 +221,16 @@ const projectsData: Record<string, Project> = {
     solution:
       "React Native mobile app with tailored dual sign-in roles (Owner Cockpit & Employee View). Features one-tap attendance marking, automated daily-wage payroll (payable days x daily rate), customer credit ledger with direct call actions, and complete monthly transaction tracking.",
     tech: ["React Native", "Node.js", "Express", "MongoDB", "TypeScript"],
+    features: [
+      "Dual sign-in — owner cockpit and employee view",
+      "One-tap attendance for daily-wage staff",
+      "Payroll from payable days x daily rate, half-days at 0.5",
+      "Advance tracking, deducted at payout",
+      "Leave requests routed to the owner for approval",
+      "Customer credit ledger (khatu) with one-tap call",
+      "Income-expense daybook with monthly totals",
+      "Gujarati, Hindi and English throughout",
+    ],
     outcomes: [
       { n: "1 App", label: "Dual sign-in (Owner + Employee)" },
       { n: "E2E", label: "Staff, payroll & accounting" },
@@ -223,12 +273,20 @@ const projectsData: Record<string, Project> = {
         alt: "Employee home screen prompting the worker to mark today's attendance, with their advance balance, working days so far and daily wage summarised underneath.",
       },
       {
+        src: "/images/hrms/hrms-employee-menu.webp",
+        alt: "The worker's own navigation drawer, headed Ramesh Solanki, Supervisor on ₹850 a day, listing home, my attendance, my day, my month and my leave, then my salary and my advances, today's collections, and my profile above a sign-out link.",
+      },
+      {
         src: "/images/hrms/hrms-employee-attendance.webp",
         alt: "The worker's own attendance calendar for July 2026, present days in green and absent in red, with a month summary of days worked and days off.",
       },
       {
         src: "/images/hrms/hrms-employee-salary.webp",
         alt: "Employee salary screen showing ₹16,150 earned this month at ₹850 a day across 19 days, with paid history for June and May including an advance deduction.",
+      },
+      {
+        src: "/images/hrms/hrms-employee-profile.webp",
+        alt: "Employee profile for Ramesh Solanki, Supervisor: daily wage ₹850, joined 11 March 2024, marked active, based in Katargam, Surat, with an advances card reading nothing outstanding, employer details for Shreeji Traders, and a language selector.",
       },
     ],
     prev: "charotar-soap",
@@ -547,6 +605,46 @@ export default function ProjectDetail() {
                   </span>
                 ))}
               </div>
+
+              <div className="eyebrow" style={{ marginBottom: 32 }}>
+                What it does
+              </div>
+              <ul
+                style={{
+                  listStyle: "none",
+                  margin: 0,
+                  padding: 0,
+                  display: "grid",
+                  gap: 14,
+                }}
+              >
+                {project.features.map((f) => (
+                  <li
+                    key={f}
+                    style={{
+                      display: "flex",
+                      gap: 14,
+                      alignItems: "baseline",
+                      color: "var(--ink-2)",
+                      fontSize: 16,
+                      lineHeight: 1.55,
+                    }}
+                  >
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        flexShrink: 0,
+                        width: 6,
+                        height: 6,
+                        borderRadius: "50%",
+                        background: "var(--accent)",
+                        transform: "translateY(-2px)",
+                      }}
+                    />
+                    {f}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -719,10 +817,15 @@ export default function ProjectDetail() {
             <div
               style={{
                 display: "grid",
-                /* auto-fit rather than a fixed column count: these are tall
-                   phone screens, so the row rewraps instead of shrinking them
-                   past legibility on narrow viewports. */
-                gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+                /* auto-fit rather than a fixed column count, so the row rewraps
+                   instead of shrinking shots past legibility. The track floor
+                   depends on orientation — a desktop dashboard needs far more
+                   width than a phone screen before its text stops being
+                   readable. min(..., 100%) keeps the track from overflowing a
+                   viewport narrower than the floor itself. */
+                gridTemplateColumns: `repeat(auto-fit, minmax(min(${
+                  project.galleryLayout === "desktop" ? 420 : 190
+                }px, 100%), 1fr))`,
                 gap: 20,
               }}
             >
@@ -731,9 +834,9 @@ export default function ProjectDetail() {
                   key={shot.src}
                   src={shot.src}
                   alt={shot.alt}
-                  width={674}
-                  height={1420}
-                  /* Below the fold on every viewport, and there are nine of
+                  width={shot.w ?? 674}
+                  height={shot.h ?? 1420}
+                  /* Below the fold on every viewport, and there are a dozen of
                      them — deferring keeps them out of the LCP path. The
                      intrinsic size above reserves the box so they cost no CLS
                      when they do arrive. */
