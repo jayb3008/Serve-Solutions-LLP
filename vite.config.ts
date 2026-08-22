@@ -1,6 +1,7 @@
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
+import type { ServerResponse } from 'http';
 import path from 'path';
 
 /**
@@ -19,7 +20,8 @@ import path from 'path';
  * checking the prerender pipeline, the one load-bearing thing it exists to
  * check here. A broken pipeline and a healthy one looked identical locally.
  *
- * Resolve directory indexes like Vercel, and 404 on anything not prerendered
+ * So: resolve directory indexes like Vercel, 308 trailing slashes to match
+ * `trailingSlash: false`, and 404 on anything not in dist — route or asset —
  * instead of quietly serving the SPA shell with a 200.
  */
 function servePrerendered(): Plugin {
@@ -30,26 +32,68 @@ function servePrerendered(): Plugin {
     configurePreviewServer(server) {
       const outDir = path.resolve(server.config.root, server.config.build.outDir);
 
+      /* Resolve a URL path against dist and confirm the result stayed there.
+         path.resolve() normalises `..` away, so without the containment check
+         a request can walk out of the output dir — `GET /..` used to answer
+         with the repo's own index.html, the unbuilt SPA shell, which is
+         exactly the confusion this middleware exists to remove. Decode for the
+         lookup, since Vercel matches routes on the decoded path. */
+      const inOutDir = (pathname: string) => {
+        let decoded: string;
+        try {
+          decoded = decodeURIComponent(pathname);
+        } catch {
+          decoded = pathname;
+        }
+        const target = path.resolve(outDir, `.${decoded}`);
+        return target === outDir || target.startsWith(outDir + path.sep)
+          ? target
+          : null;
+      };
+
+      const send404 = (res: ServerResponse, next: () => void) => {
+        const notFound = path.join(outDir, '404.html');
+        if (!fs.existsSync(notFound)) return next();
+        res.statusCode = 404;
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        return res.end(fs.readFileSync(notFound));
+      };
+
       server.middlewares.use((req, res, next) => {
         const url = req.url ?? '/';
         const pathname = url.split('?')[0];
+        const query = url.slice(pathname.length);
 
-        // Assets carry an extension and are already handled correctly.
-        if (path.extname(pathname)) return next();
+        /* Anything with an extension is a file request. Hand the real ones to
+           Vite's static middleware, but answer the misses here: left alone,
+           they fall through to the history fallback and a mistyped image path
+           comes back as the home page with a 200 — the same local-looks-fine,
+           production-404s lie this plugin exists to stop. */
+        if (path.extname(pathname)) {
+          const asset = inOutDir(pathname);
+          return asset && fs.existsSync(asset) ? next() : send404(res, next);
+        }
 
         const clean = pathname.replace(/\/+$/, '');
-        if (fs.existsSync(path.join(outDir, clean, 'index.html'))) {
-          req.url = `${clean}/index.html${url.slice(pathname.length)}`;
+
+        // vercel.json sets `trailingSlash: false`, so production 308s /about/
+        // to /about. Do the same here rather than answering both with a 200 —
+        // preview exists to show what production will do.
+        if (clean !== pathname && clean !== '') {
+          res.statusCode = 308;
+          res.setHeader('Location', `${clean}${query}`);
+          return res.end();
+        }
+
+        /* Rewrite with the raw path, not the decoded one, so whatever escaping
+           the client sent survives to the static handler. */
+        const dir = inOutDir(clean);
+        if (dir && fs.existsSync(path.join(dir, 'index.html'))) {
+          req.url = `${clean}/index.html${query}`;
           return next();
         }
 
-        const notFound = path.join(outDir, '404.html');
-        if (fs.existsSync(notFound)) {
-          res.statusCode = 404;
-          res.setHeader('Content-Type', 'text/html; charset=utf-8');
-          return res.end(fs.readFileSync(notFound));
-        }
-        return next();
+        return send404(res, next);
       });
     },
   };

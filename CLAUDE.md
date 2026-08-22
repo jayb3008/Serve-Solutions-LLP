@@ -13,7 +13,7 @@ Marketing site for **Satvix Tech Solutions** (satvixtech.com) — an independent
 | `npm run dev` | Vite dev server (CSR, no prerender). |
 | `npm run build` | Full production build: client bundle → SSR bundle → prerender every route → sitemap. |
 | `npm run build:spa` | Client-only build; skips SSR + prerender (fast sanity check, not deployable). |
-| `npm run preview` | Serve `dist/` locally. |
+| `npm run preview` | Serve `dist/` locally the way Vercel does (per-route index, real 404s) — see Hydration behavior. |
 | `npm run lint` | ESLint. |
 | `BASE=http://localhost:4173 node scripts/nav.test.mjs` | Manual navbar smoke test. Requires `npm i -D playwright && npx playwright install chromium` and a `preview` server already running. |
 
@@ -38,7 +38,9 @@ Miss any of these and the route either won't prerender, won't hydrate, or won't 
 
 ### Hydration behavior
 
-`src/main.tsx` chooses between `hydrateRoot` (when `#root` has children — prerendered route) and `createRoot` (empty `#root` — unknown/SPA-fallback route). This is why Vercel's SPA rewrite in `vercel.json` is safe: unknown URLs load `index.html` and the client mounts fresh.
+`src/main.tsx` chooses between `hydrateRoot` (when `#root` has children — prerendered route) and `createRoot` (empty `#root`). Every deployed URL takes the first branch: `vercel.json` declares **no `rewrites`**, so `/about` resolves to `dist/about/index.html` and anything not prerendered gets the static `public/404.html` — there is no SPA fallback in production, and `createRoot` is effectively a dev-only path.
+
+`npm run preview` reproduces that: the `servePrerendered` plugin in `vite.config.ts` sits ahead of Vite's static and history-fallback middlewares, resolves directory indexes, 308s trailing slashes (matching `trailingSlash: false`), and 404s on anything not prerendered. Without it, preview answered every route with the prerendered *home* page and hydration threw React #418/#423 on every navigation — a broken prerender pipeline and a healthy one looked identical locally. If you change how routes are emitted, check them under `preview`, not just `dev`.
 
 `AnimatedRoutes` in `App.tsx` uses `initial={false}` on the first render (tracked via `firstRender` ref) so the prerendered HTML stays at full opacity for crawlers — the framer-motion fade only plays on subsequent client-side navigations. Don't change this.
 

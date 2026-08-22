@@ -44,21 +44,11 @@ type Project = {
      dump: near-identical screens add page weight and tell a reader nothing
      new. Every entry needs alt text describing what is actually on the
      screen — these carry the proof, so they have to be legible to someone who
-     cannot see them. */
-  gallery?: {
-    src: string;
-    alt: string;
-    /* Intrinsic pixel size, used to reserve the box before a lazy image
-       arrives. Defaults to the 674x1420 phone capture the HRMS shots use, so
-       a desktop screenshot MUST pass its own — inheriting the phone aspect
-       reserves a tall narrow hole and the image jumps the page when it loads. */
-    w?: number;
-    h?: number;
-  }[];
-  /* How to tile the gallery. Phone screenshots are tall and narrow and read
-     fine several to a row; desktop screenshots need most of the column width
-     before their text goes unreadable. Defaults to "phone". */
-  galleryLayout?: "phone" | "desktop";
+     cannot see them. Every gallery so far is 674x1420 phone captures, and the
+     grid below hard-codes that aspect to reserve the box — a desktop
+     screenshot needs an intrinsic-size field and a wider track floor before it
+     can go in here, or it lands in a tall narrow hole and jumps the page. */
+  gallery?: { src: string; alt: string }[];
   prev: string;
   next: string;
   faq?: { question: string; answer: string }[];
@@ -610,6 +600,9 @@ export default function ProjectDetail() {
                 What it does
               </div>
               <ul
+                /* listStyle:none drops the list role in Safari/VoiceOver, so
+                   the count stops being announced — put it back explicitly. */
+                role="list"
                 style={{
                   listStyle: "none",
                   margin: 0,
@@ -818,14 +811,11 @@ export default function ProjectDetail() {
               style={{
                 display: "grid",
                 /* auto-fit rather than a fixed column count, so the row rewraps
-                   instead of shrinking shots past legibility. The track floor
-                   depends on orientation — a desktop dashboard needs far more
-                   width than a phone screen before its text stops being
-                   readable. min(..., 100%) keeps the track from overflowing a
-                   viewport narrower than the floor itself. */
-                gridTemplateColumns: `repeat(auto-fit, minmax(min(${
-                  project.galleryLayout === "desktop" ? 420 : 190
-                }px, 100%), 1fr))`,
+                   instead of shrinking these tall phone screens past
+                   legibility. min(..., 100%) keeps the track from overflowing a
+                   viewport narrower than the 190px floor itself. */
+                gridTemplateColumns:
+                  "repeat(auto-fit, minmax(min(190px, 100%), 1fr))",
                 gap: 20,
               }}
             >
@@ -834,8 +824,8 @@ export default function ProjectDetail() {
                   key={shot.src}
                   src={shot.src}
                   alt={shot.alt}
-                  width={shot.w ?? 674}
-                  height={shot.h ?? 1420}
+                  width={674}
+                  height={1420}
                   /* Below the fold on every viewport, and there are a dozen of
                      them — deferring keeps them out of the LCP path. The
                      intrinsic size above reserves the box so they cost no CLS
