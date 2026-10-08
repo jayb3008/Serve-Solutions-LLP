@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import Faq from "../components/Faq";
 import { industryPath } from "../data/routes";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
@@ -90,6 +91,32 @@ const reasons = [
   },
 ];
 
+/* FAQPage schema plus a real block on the page. This index had neither, which
+   left the "which vertical are you actually good at" question — the one every
+   buyer arrives with — unanswered. */
+const industriesFaqs = [
+  {
+    question: "Which industries have you actually shipped in?",
+    answer:
+      "Fintech (Nine Finance — a live lending platform), commerce (Glamour Jewelry — a live storefront), manufacturing (Charotar Soap Factory — production and stock), and retail operations (Shreeji HRMS — attendance, payroll and customer ledgers). The other verticals here are ones our stack fits; we will tell you plainly which is which.",
+  },
+  {
+    question: "Do you understand our compliance requirements?",
+    answer:
+      "We treat them as design constraints rather than a final-week scramble — HIPAA and India's DPDP on healthcare work, RBI and PCI-DSS on payments and lending. Where a rule is specific to your business, we bring in your compliance people during the discovery sprint, not after the build.",
+  },
+  {
+    question: "Do you need domain experience to build our product?",
+    answer:
+      "We need access to someone who has it. The best builds we have shipped came from sitting with the people who do the work daily — the field agent collecting EMIs, the owner marking attendance in Gujarati. We bring the engineering; you bring the domain, and we ask a lot of questions.",
+  },
+  {
+    question: "Can you white-label a product for our industry?",
+    answer:
+      "Yes — Charotar Soap Factory was built that way from day one: multi-tenant, deployable per manufacturer. If your industry has the same shape (many similar businesses, same core workflow), that is the model we would propose.",
+  },
+];
+
 export default function Industries() {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -99,6 +126,7 @@ export default function Industries() {
         title="Industries — verticals Satvix Tech Solutions has shipped in"
         description="Satvix Tech Solutions builds software for fintech, healthcare, commerce, legal, logistics, EdTech, OTT and manufacturing. Eight verticals, six years, one agency in Anand."
         keywords="industry software development India, fintech software company India, healthcare tech India, edtech development company, logistics software India, legal tech company India, OTT platform development, insurtech India, travel tech development, manufacturing software India, retail tech company, telecom software India, construction tech India, marketplace development India, on demand app India, sports tech India, domain specific software development India, vertical SaaS India"
+        faq={industriesFaqs}
         url="https://www.satvixtech.com/industries"
         breadcrumb={[
           { name: "Home", item: "https://www.satvixtech.com" },
@@ -281,6 +309,8 @@ export default function Industries() {
           </div>
         </div>
       </section>
+
+      <Faq faqs={industriesFaqs} eyebrow="Questions before you pick a vertical" />
 
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">

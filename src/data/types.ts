@@ -31,6 +31,11 @@ export type Service = {
   icon: LucideIcon;
   tagline: string;
   overview: string;
+  /* Overrides the tagline+overview pair for the meta description. Set it where
+     that pair runs past 158 characters, which clampDescription() then cuts
+     mid-phrase — a description ending "…with HIPAA, India's DPDP" reads as
+     broken in the result page. */
+  metaDescription?: string;
   keywords: string;
   capabilities: Capability[];
   workflow: WorkflowStep[];
@@ -43,6 +48,11 @@ export type Industry = {
   icon: LucideIcon;
   tagline: string;
   overview: string;
+  /* Overrides the tagline+overview pair for the meta description. Set it where
+     that pair runs past 158 characters, which clampDescription() then cuts
+     mid-phrase — a description ending "…with HIPAA, India's DPDP" reads as
+     broken in the result page. */
+  metaDescription?: string;
   keywords: string;
   capabilities: Capability[];
   image: string;

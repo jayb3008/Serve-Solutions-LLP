@@ -22,6 +22,7 @@ import type { Industry } from './types';
 
 export const industriesData: Record<string, Industry> = {
     'healthcare': {
+        metaDescription: "Telehealth platforms, patient records and wellness apps built with HIPAA, India's DPDP and clinician workflow treated as design constraints.",
         title: "Healthcare",
         icon: HeartPulse,
         tagline: "Software clinicians do not have to fight on a tired Tuesday.",
@@ -50,6 +51,7 @@ export const industriesData: Record<string, Industry> = {
         image: "https://images.pexels.com/photos/6069550/pexels-photo-6069550.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'logistics': {
+        metaDescription: "Fleet, freight and last-mile software: route plans, proof of delivery, exception handling and the dashboards a despatcher actually keeps open.",
         title: "Logistics",
         icon: Truck,
         tagline: "Visibility software that survives a warehouse Wi-Fi outage.",
@@ -64,6 +66,7 @@ export const industriesData: Record<string, Industry> = {
         image: "https://images.pexels.com/photos/6169055/pexels-photo-6169055.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'finance': {
+        metaDescription: "Lending, payments and ledger systems built with RBI and PCI-DSS in the design, not bolted on — including a fintech platform live in two weeks.",
         title: "Finance",
         icon: Banknote,
         tagline: "Card issuing, wallets and lending — built to pass the audit.",
@@ -159,7 +162,7 @@ export const industriesData: Record<string, Industry> = {
             { title: "Quality Control", desc: "Automated visual inspection systems." },
             { title: "Predictive Maint", desc: "Forecasting downtime before it happens." }
         ],
-        image: "https://images.pexels.com/photos/190441/pexels-photo-190441.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        image: "https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'retail': {
         title: "Retail",
@@ -201,7 +204,7 @@ export const industriesData: Record<string, Industry> = {
             { title: "Asset Asset Mgmt", desc: "GPS tracking for heavy equipment." },
             { title: "Safety Tech", desc: "Real-time site incident reporting." }
         ],
-        image: "https://images.pexels.com/photos/159306/construction-site-build-construction-structure-159306.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'beauty-lifestyle': {
         title: "Beauty & Lifestyle",
@@ -229,7 +232,7 @@ export const industriesData: Record<string, Industry> = {
             { title: "Ticketing", desc: "Scalable high-demand event transaction hubs." },
             { title: "Athlete Mgmt", desc: "Biometric and training history analysis." }
         ],
-        image: "https://images.pexels.com/photos/163444/race-bike-cycling-marathon-163444.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        image: "https://images.pexels.com/photos/358042/pexels-photo-358042.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'on-demand': {
         title: "On Demand",

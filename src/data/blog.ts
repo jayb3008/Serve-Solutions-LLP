@@ -13,6 +13,10 @@ export type Block =
 export type Post = {
   slug: string;
   title: string;
+  /* Short title for the <title> tag. The on-page headline can run long; the
+     SERP one cannot — with the full brand tail these were hitting 95
+     characters against Google's ~60. Falls back to `title` when absent. */
+  seoTitle?: string;
   excerpt: string;
   author: string;
   role: string;
@@ -32,6 +36,7 @@ export const posts: Post[] = [
   {
     slug: 'llm-production-checklist',
     title: 'The LLM production checklist: 12 things we check before every AI launch',
+    seoTitle: 'The LLM production checklist: 12 pre-launch checks',
     excerpt:
       "Streaming, cost caps, fallback models, eval harnesses — what we've learned shipping AI features that actually hold up under real traffic.",
     author: 'Founder',
@@ -70,6 +75,7 @@ export const posts: Post[] = [
   {
     slug: 'rag-architecture-patterns',
     title: 'RAG architecture patterns: when to chunk, when to chunk differently',
+    seoTitle: 'RAG architecture patterns: how to chunk',
     excerpt:
       'Document structure, token budgets, and re-ranking — the decisions that separate a janky chatbot from a reliable knowledge assistant.',
     author: 'Rahul Patel',
@@ -102,6 +108,7 @@ export const posts: Post[] = [
   {
     slug: 'design-system-at-scale',
     title: 'Building a design system that survives a team of 40',
+    seoTitle: 'A design system for a team of 40',
     excerpt:
       'Token architecture, decision logs, and the governance model that keeps 40 engineers from accidentally forking your UI.',
     author: 'Priya Mehta',
@@ -126,6 +133,7 @@ export const posts: Post[] = [
   {
     slug: 'nextjs-app-router-lessons',
     title: "Six months with Next.js App Router: what we'd do differently",
+    seoTitle: 'Six months with the Next.js App Router',
     excerpt:
       'Server components, caching gotchas, and the moment we realised our mental model was entirely wrong. Real project lessons.',
     author: 'Rahul Patel',
@@ -150,6 +158,7 @@ export const posts: Post[] = [
   {
     slug: 'react-native-new-arch',
     title: 'Migrating a 150k-user app to the React Native new architecture',
+    seoTitle: 'React Native new architecture migration',
     excerpt:
       'What broke, what got faster, and the one bridging bug that took three days to find.',
     author: 'Karan Joshi',
@@ -174,6 +183,7 @@ export const posts: Post[] = [
   {
     slug: 'discovery-sprint-template',
     title: 'Our discovery sprint template: two weeks that save six months',
+    seoTitle: 'Our two-week discovery sprint template',
     excerpt:
       'The exact artefacts, interviews, and decisions we make in week one before a single line of code gets written.',
     author: 'Nisha Desai',
@@ -204,6 +214,7 @@ export const posts: Post[] = [
   {
     slug: 'supabase-at-scale',
     title: 'Supabase at scale: what no one tells you about row-level security',
+    seoTitle: 'Supabase at scale: row-level security',
     excerpt:
       'Performance traps, policy debugging, and the indexing strategy that dropped our p99 from 800ms to 40ms.',
     author: 'Dev Agarwal',
@@ -228,6 +239,7 @@ export const posts: Post[] = [
   {
     slug: 'brand-for-b2b',
     title: 'Brand strategy for B2B SaaS: why boring loses deals',
+    seoTitle: 'Brand strategy for B2B SaaS',
     excerpt:
       'Positioning, voice, and visual identity advice for founders who think branding is for consumer apps.',
     author: 'Sneha Trivedi',
@@ -251,6 +263,7 @@ export const posts: Post[] = [
   {
     slug: 'react-vs-nextjs-2026',
     title: 'React vs Next.js in 2026: choosing the right frontend architecture',
+    seoTitle: 'React vs Next.js in 2026',
     excerpt: 'A technical comparison of client-rendered single page applications and server-first routing setups for modern software builds.',
     author: 'Rahul Patel',
     role: 'Head of Engineering',
@@ -271,6 +284,7 @@ export const posts: Post[] = [
   {
     slug: 'cost-building-saas-products',
     title: 'Cost of building SaaS products: a transparent guide for founders',
+    seoTitle: 'What it costs to build a SaaS product',
     excerpt: 'Breaking down engineering salaries, design systems, server setups, and maintenance overhead for modern software platforms.',
     author: 'Founder',
     role: 'Founder & CEO',
@@ -295,6 +309,7 @@ export const posts: Post[] = [
   {
     slug: 'react-native-app-cost-india',
     title: 'React Native app development cost in India: budgeting for success',
+    seoTitle: 'React Native app cost in India',
     excerpt: 'Comparing cross-platform mobile app development budgets, timelines, and talent considerations for startups.',
     author: 'Karan Joshi',
     role: 'Mobile Lead',
@@ -314,6 +329,7 @@ export const posts: Post[] = [
   {
     slug: 'ai-agent-development-guide',
     title: 'AI agent development guide: architecting autonomous workflows',
+    seoTitle: 'AI agent development: a practical guide',
     excerpt: 'How to build reliable autonomous agents using tool-calling, planning loops, and robust evaluation suites.',
     author: 'Rahul Patel',
     role: 'Head of Engineering',
@@ -333,6 +349,7 @@ export const posts: Post[] = [
   {
     slug: 'rag-vs-fine-tuning',
     title: 'RAG vs Fine-Tuning: how to choose the right AI strategy',
+    seoTitle: 'RAG vs fine-tuning: how to choose',
     excerpt: 'A comparison of Retrieval-Augmented Generation (RAG) and model fine-tuning for custom enterprise AI applications.',
     author: 'Founder',
     role: 'Founder & CEO',
@@ -353,6 +370,7 @@ export const posts: Post[] = [
   {
     slug: 'local-seo-gujarat-businesses',
     title: 'Local SEO for Gujarat businesses: how to rank and generate local leads',
+    seoTitle: 'Local SEO for Gujarat businesses',
     excerpt: 'A practical roadmap for IT companies, ecommerce brands, and agencies looking to capture regional organic traffic.',
     author: 'Sneha Trivedi',
     role: 'Brand Strategy',

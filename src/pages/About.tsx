@@ -111,8 +111,8 @@ export default function About() {
   return (
     <div>
       <SEO
-        title="About Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency"
-        description="Satvix Tech Solutions is a premium digital product and software engineering agency in Anand, Gujarat. We build robust web platforms, mobile apps, and custom AI systems."
+        title="About Satvix Tech Solutions — an Anand product studio"
+        description="A digital product and software engineering studio in Anand, Gujarat. Senior MERN teams building web platforms, mobile apps and AI systems that ship."
         keywords="about Satvix Tech Solutions, software development company Anand, digital product agency India, custom software solutions Gujarat, offshore engineering services, software engineering agency"
         url="https://www.satvixtech.com/about"
         breadcrumb={[

@@ -35,11 +35,13 @@ export default function LocationLanding({ slug }: { slug: string }) {
     { key: "ai-ml", label: "AI & Data Solutions", path: "/ai-development", desc: "Production-grade LLM integrations, RAG pipelines, and automated agents." }
   ];
 
-  // Selected case studies to display
+  /* Real, shipped, and reachable — every entry here has a case study page and a
+     client who will take a reference call. TableTrack and Proposal Generator
+     used to sit in this list; neither was ever built, and both linked to a 404. */
   const localProjects = [
-    { title: "Glamour Jewelry", tags: ["Next.js", "SEO", "Ecommerce"], desc: "A premium luxury jewelry platform with localized discovery.", path: "/portfolio/glamour-jewelry" },
-    { title: "TableTrack", tags: ["SaaS", "POS", "Real-time"], desc: "All-in-one restaurant workflow and billing POS platform.", path: "/portfolio/tabletrack" },
-    { title: "Proposal Generator", tags: ["SaaS", "Automation", "Tooling"], desc: "Automated B2B document generation and client signing pipelines.", path: "/portfolio/proposal-generator" }
+    { title: "Glamour Jewelry", tags: ["React", "Node.js", "Ecommerce"], desc: "Storefront, orders and inventory for a jewellery retailer — live and processing orders.", path: "/portfolio/glamour-jewelry" },
+    { title: "Shreeji HRMS", tags: ["React Native", "Node.js", "Bilingual"], desc: "Attendance, daily-wage payroll and customer ledgers for a Gujarat trading business.", path: "/portfolio/shreeji-hrms" },
+    { title: "Charotar Soap Factory", tags: ["Next.js", "Node.js", "White-label"], desc: "Production batches, stock ledger and sales orders for a soap manufacturer.", path: "/portfolio/charotar-soap" }
   ];
 
   return (
@@ -167,13 +169,20 @@ export default function LocationLanding({ slug }: { slug: string }) {
         <div className="max-w-4xl mx-auto px-5 sm:px-6 text-center">
           <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-12 flex items-center justify-center">
             <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
-            03 Trusted Globally, Delivered Locally
+            03 Proof, Not Promises
           </h2>
+          {/* No testimonial here until a client gives us one on the record. This
+              block used to carry a quote signed "Rohan Mehta — Founder & CEO,
+              TailorPro": neither the person nor the company exists, on a site
+              whose whole argument is that our work is verifiable. */}
           <blockquote className="text-2xl sm:text-3xl font-light italic leading-relaxed text-[var(--ink)] mb-8">
-            "Satvix is the first team that did not hand work between strategy, design, and engineering — they just owned the whole thing, end to end. Having them based in Anand made real-time collaboration seamless."
+            Four products, shipped and live: a lending platform running real EMI
+            collections, a jewellery store processing real orders, a manufacturing
+            SaaS, and a bilingual HR app a Gujarat trading business uses daily.
+            Ask us for a demo of any of them — or for the client's number.
           </blockquote>
           <cite className="block text-sm font-bold uppercase tracking-widest text-[var(--muted)] not-italic">
-            Rohan Mehta — Founder & CEO, TailorPro
+            <Link to="/portfolio" className="hover:text-[var(--accent)]">See the case studies →</Link>
           </cite>
         </div>
       </section>

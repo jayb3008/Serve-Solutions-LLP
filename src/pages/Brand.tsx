@@ -188,7 +188,7 @@ export default function Brand() {
     <div>
       <SEO
         title="Brand & strategy — Satvix Tech Solutions, Anand, Gujarat"
-        description="Satvix Tech Solutions handles brand and editorial work for founders — positioning, naming, identity systems and the words on the homepage, shipped with the product on day one."
+        description="Brand and editorial work for founders: positioning, naming, identity systems and the words on the homepage — shipped with the product, not after it."
         keywords="Satvix Tech Solutions brand, brand identity design India, brand strategy agency Gujarat, logo design company India, visual identity design India, brand positioning India, startup branding agency India, naming agency India, brand voice content strategy India, creative agency Gujarat, brand consulting company India"
         url="https://www.satvixtech.com/services/brand"
         faq={faqs}

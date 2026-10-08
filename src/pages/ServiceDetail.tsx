@@ -81,7 +81,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
     >
       <SEO
         title={service.title}
-        description={buildDescription(service.tagline, service.overview)}
+        description={service.metaDescription ?? buildDescription(service.tagline, service.overview)}
         keywords={service.keywords}
         url={`https://www.satvixtech.com${service.seoPath || `/services/${activeId}`}`}
         breadcrumb={[

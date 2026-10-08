@@ -34,3 +34,6 @@ image.png
 
 # Playwright MCP scratch output
 .playwright-mcp/
+
+# Competitor research dumps (crawled third-party pages, not ours)
+research/

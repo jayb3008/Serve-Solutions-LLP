@@ -265,7 +265,7 @@ export default function Services() {
     <div>
       <SEO
         title="Services — six practices, one team at Satvix Tech Solutions"
-        description="Satvix Tech Solutions offers product design, web engineering, mobile apps, AI/ML, brand strategy, and graphic design — six practices from one team in Anand, Gujarat, with no handoffs."
+        description="Product design, web engineering, mobile apps, AI/ML, brand and graphic design — six practices, one team in Anand, no handoffs between them."
         keywords="Satvix Tech Solutions services, product design services India, web engineering company India, mobile app development India, AI ML services India, brand strategy agency India, full-stack development India, digital product agency Anand Gujarat"
         url="https://www.satvixtech.com/services"
         breadcrumb={[

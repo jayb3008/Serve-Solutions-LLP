@@ -12,6 +12,12 @@ type Outcome = { n: string; label: string };
 
 type Project = {
   title: string;
+  /* Short title for the <title> tag only. `title — subtitle` reads well on the
+     page but ran to 103 characters in search results; Google shows ~60. */
+  seoTitle: string;
+  /* Meta description. `overview` is written for the page and runs past the 158
+     characters Google shows; these stop on their own full stop. */
+  seoDescription: string;
   subtitle: string;
   category: string;
   /** Build duration, e.g. "2 weeks". Not a calendar year — do not derive
@@ -57,6 +63,8 @@ type Project = {
 const projectsData: Record<string, Project> = {
   "nine-finance": {
     title: "Nine Finance",
+    seoTitle: "Nine Finance — fintech lending in two weeks",
+    seoDescription: "A lending platform where borrowers and field agents run daily EMI collections from one React Native codebase. Shipped in two weeks, live on real portfolios.",
     subtitle: "Fintech lending platform, shipped in two weeks",
     category: "Fintech · Mobile-first",
     timeline: "2 weeks",
@@ -103,6 +111,8 @@ const projectsData: Record<string, Project> = {
 
   "glamour-jewelry": {
     title: "Glamour Jewelry",
+    seoTitle: "Glamour Jewelry — e-commerce in four weeks",
+    seoDescription: "A jewellery e-commerce platform — catalog, orders, inventory and admin — built on React, Node and MongoDB in four weeks. Live and processing real orders.",
     subtitle: "Full jewelry e-commerce platform in four weeks",
     category: "E-commerce · Full-stack",
     timeline: "4 weeks",
@@ -149,6 +159,8 @@ const projectsData: Record<string, Project> = {
 
   "charotar-soap": {
     title: "Charotar Soap Factory",
+    seoTitle: "Charotar Soap — white-label manufacturing SaaS",
+    seoDescription: "Production batches, stock ledger, sales orders and invoicing for soap manufacturers, architected from day one as a reusable white-label product.",
     subtitle: "White-label manufacturing SaaS — reusable, licensable",
     category: "SaaS · White-label · B2B",
     timeline: "2 months",
@@ -198,6 +210,8 @@ const projectsData: Record<string, Project> = {
 
   "shreeji-hrms": {
     title: "Shreeji HRMS",
+    seoTitle: "Shreeji HRMS — bilingual HR & payroll app",
+    seoDescription: "A bilingual React Native app running attendance, daily-wage payroll, advances, customer credit ledgers and a daybook for a Gujarat trading business.",
     subtitle: "Bilingual HR, attendance, salary & ledger app for small business",
     category: "SaaS · Mobile App · Operations",
     timeline: "3 weeks",
@@ -312,8 +326,9 @@ export default function ProjectDetail() {
   return (
     <div>
       <SEO
-        title={`${project.title} — ${project.subtitle}`}
-        description={project.overview}
+        title={project.seoTitle}
+        brand="short"
+        description={project.seoDescription}
         keywords={`${project.title}, ${project.tags.join(", ")}, ${project.tech.join(", ")}, case study, Satvix Tech Solutions portfolio, ${project.category}`}
         image={project.ogImg ?? undefined}
         url={`https://www.satvixtech.com/portfolio/${id}`}

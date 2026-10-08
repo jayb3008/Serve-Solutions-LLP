@@ -1,12 +1,16 @@
 import { useRef, useEffect } from "react";
 
+/* Our own screens, not stock photography. This trail runs over the selected
+   work section on a page that argues, in its own FAQ, "real case studies, not
+   stock work" — six pexels.com office photos undercut that, and pulled six
+   third-party requests on top of it. Everything here ships from /public. */
 const IMAGES = [
-  "https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg?auto=compress&cs=tinysrgb&w=300",
-  "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=300",
-  "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=300",
-  "https://images.pexels.com/photos/274973/pexels-photo-274973.jpeg?auto=compress&cs=tinysrgb&w=300",
-  "https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg?auto=compress&cs=tinysrgb&w=300",
-  "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=300",
+  "/images/satvix_fintech_showcase.webp",
+  "/images/glamour-jewelry.webp",
+  "/images/charotar-soap.webp",
+  "/images/hrms/hrms-owner-dashboard.webp",
+  "/images/hrms/hrms-daybook.webp",
+  "/images/hrms/hrms-employee-salary.webp",
 ];
 
 const TRAIL_DELAY = 80;

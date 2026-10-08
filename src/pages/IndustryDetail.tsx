@@ -52,7 +52,7 @@ const IndustryDetail = ({ industryId }: { industryId?: string } = {}) => {
         <div ref={containerRef} className="bg-[var(--bg-2)] min-h-screen text-[var(--ink)] font-sans pt-20 overflow-x-hidden">
             <SEO
                 title={industry.title}
-                description={buildDescription(industry.tagline, industry.overview)}
+                description={industry.metaDescription ?? buildDescription(industry.tagline, industry.overview)}
                 keywords={industry.keywords}
                 url={`https://www.satvixtech.com${getSeoPath(activeId as string)}`}
                 breadcrumb={[

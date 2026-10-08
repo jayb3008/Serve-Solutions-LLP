@@ -12,9 +12,9 @@ export interface LocationData {
 export const locationsData: Record<string, LocationData> = {
   "software-development-company-anand": {
     slug: "software-development-company-anand",
-    title: "Software Development Company in Anand | Satvix Tech Solutions",
+    title: "Software development company in Anand | Satvix",
     h1: "Software Development Company in Anand",
-    description: "Looking for a software development company in Anand, Gujarat? Satvix Tech Solutions designs and builds high-quality web, mobile, and AI applications for startups and enterprises.",
+    description: "A software development company in Anand, Gujarat, building web platforms, mobile apps and AI systems for startups and established businesses.",
     keywords: "software development company in Anand, software developers Anand, IT services Anand Gujarat, web development Anand, custom software Anand",
     city: "Anand, Gujarat",
     overview: "Satvix Tech Solutions is an independent digital product and software engineering agency based in Anand, Gujarat. Since 2020, we have designed, built, and shipped over 120 web platforms, mobile apps, and AI/ML integrations for clients globally. We combine local accessibility with global development standards to deliver clean, scalable, and premium software.",
@@ -35,7 +35,7 @@ export const locationsData: Record<string, LocationData> = {
   },
   "it-company-anand": {
     slug: "it-company-anand",
-    title: "IT Company in Anand | Custom Software & AI Solutions | Satvix Tech",
+    title: "IT company in Anand — software & AI | Satvix Tech",
     h1: "IT Company in Anand",
     description: "Satvix Tech Solutions is a leading IT company in Anand, Gujarat, providing custom software development, mobile apps, DevOps, and AI/ML integrations.",
     keywords: "it company in anand, IT company Anand Gujarat, software agency Anand, tech company Anand, IT outsourcing Anand",
@@ -54,7 +54,7 @@ export const locationsData: Record<string, LocationData> = {
   },
   "mobile-app-development-gujarat": {
     slug: "mobile-app-development-gujarat",
-    title: "Mobile App Development Company in Gujarat | iOS & Android | Satvix Tech",
+    title: "Mobile app development in Gujarat | Satvix Tech",
     h1: "Mobile App Development Company in Gujarat",
     description: "Premium mobile app development company in Gujarat. We design and build native iOS, Android, and cross-platform React Native / Flutter apps.",
     keywords: "mobile app development company in Gujarat, app developers Gujarat, React Native app development India, Android app developer Gujarat, iOS developer Anand Ahmedabad",
@@ -79,7 +79,7 @@ export const locationsData: Record<string, LocationData> = {
      proof it just rebuilds the doorway page that got it withdrawn. */
   "web-development-company-ahmedabad": {
     slug: "web-development-company-ahmedabad",
-    title: "Web Development Company in Ahmedabad | Next.js & React | Satvix Tech",
+    title: "Web development in Ahmedabad | Satvix Tech",
     h1: "Web Development Company in Ahmedabad",
     description: "Looking for a top web development company in Ahmedabad? We build fast, scalable, and custom web platforms using React, Next.js, and Node.js.",
     keywords: "web development company in ahmedabad, web developers Ahmedabad, Next.js developers Gujarat, website development Ahmedabad, ecommerce web development Ahmedabad",
@@ -98,7 +98,7 @@ export const locationsData: Record<string, LocationData> = {
   },
   "ai-development-services-india": {
     slug: "ai-development-services-india",
-    title: "AI Development Services India | LLMs, RAG & Agents | Satvix Tech",
+    title: "AI development services India | Satvix Tech",
     h1: "AI Development Services in India",
     description: "Empower your business with premium AI development services in India. We design and build custom LLM applications, RAG pipelines, and AI agents.",
     keywords: "ai development services india, AI agent development company India, RAG integration services India, machine learning company India, OpenAI developers India",

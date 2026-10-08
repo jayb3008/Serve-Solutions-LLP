@@ -30,7 +30,7 @@ export default function Blog() {
   return (
     <div>
       <SEO
-        title="Journal — engineering and design notes from Satvix Tech Solutions"
+        title="Journal — engineering notes from Satvix"
         description="The Satvix Tech Solutions journal: long-form notes on engineering, product design, AI in production and what we have learned shipping software since 2020."
         keywords="Satvix Tech Solutions blog, Satvix Tech Solutions journal, software engineering blog India, product design articles India, AI ML blog India, web development insights India, React Next.js tutorials India, UX design blog India, developer blog Gujarat"
         url="https://www.satvixtech.com/blog"

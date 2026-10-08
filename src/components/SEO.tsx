@@ -16,6 +16,8 @@ interface ServiceInfo {
 
 interface SEOProps {
   title?: string;
+  /** Brand tail in the <title>. "short" keeps long-form titles under 60 chars. */
+  brand?: "full" | "short";
   description?: string;
   keywords?: string;
   image?: string;
@@ -37,6 +39,7 @@ const DEFAULT_IMAGE = `${BASE_URL}/images/satvix-og-default.jpg`;
 const OG_IMAGE_WIDTH = "1200";
 const OG_IMAGE_HEIGHT = "630";
 const COMPANY_NAME = "Satvix Tech Solutions";
+const SHORT_NAME = "Satvix";
 const COMPANY_LEGAL = "Satvix Tech Solutions LLP";
 
 /* Profiles the company actually has. `social` uses "" to mean "not set yet",
@@ -47,6 +50,7 @@ const SAME_AS = [social.linkedin, social.instagram, social.github].filter(
 
 const SEO = ({
   title = "Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency",
+  brand = "full",
   description = "Satvix Tech Solutions is a premium digital product and software engineering agency in Anand, Gujarat. We build robust web platforms, mobile apps, and custom AI systems with dedicated product teams.",
   keywords = "Satvix Tech Solutions, satvixtech, software engineering agency, digital product agency India, senior React Native Next.js developers, custom software development company, offshore engineering services US UK startups",
   image = DEFAULT_IMAGE,
@@ -75,8 +79,15 @@ const SEO = ({
    * If the title already carries the brand in any form — the full name, or the
    * short "Satvix Tech" that several landing-page titles use — we leave it
    * alone. Matching only the full name double-branded those titles.
+   *
+   * Long-form pages (case studies, articles) pass brand="short". Google renders
+   * about 60 characters; the full 24-character brand tail left no room for the
+   * headline that actually earns the click, and every article title was being
+   * truncated mid-phrase.
    */
-  const siteTitle = /satvix/i.test(title) ? title : `${title} — ${COMPANY_NAME}`;
+  const siteTitle = /satvix/i.test(title)
+    ? title
+    : `${title} — ${brand === "short" ? SHORT_NAME : COMPANY_NAME}`;
 
   /* ── Organisation ── */
   const orgSchema = {

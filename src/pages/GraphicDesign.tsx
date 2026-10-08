@@ -187,8 +187,8 @@ export default function GraphicDesign() {
   return (
     <div>
       <SEO
-        title="Graphic Design & Branding — Satvix Tech Solutions, Anand, Gujarat"
-        description="Satvix Tech Solutions delivers graphic design and branding — identity systems, print collateral, social media kits, packaging, and motion graphics — built to last, not just to launch."
+        title="Graphic design & branding — Satvix Tech, Anand"
+        description="Graphic design and branding: identity systems, print collateral, social kits, packaging and motion graphics — built to last, not just to launch."
         keywords="graphic design company India, branding agency Gujarat, logo design services India, brand identity design Gujarat, print design agency India, social media design India, packaging design company Gujarat, motion graphics India, creative agency Anand Gujarat, visual identity design India, corporate branding India, advertising design agency Gujarat"
         url="https://www.satvixtech.com/graphic-design-branding"
         faq={faqs}

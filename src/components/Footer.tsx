@@ -97,12 +97,13 @@ export default function Footer() {
 
         <div className="foot-mark">Satvix<em>·</em>Tech Solutions<em>·</em>{year}</div>
 
+        {/* Privacy / Terms / Cookies used to sit here pointing at href="#".
+            Three dead links on every page of the site read worse than none,
+            so they are out until the pages behind them exist. */}
         <div className="foot-bottom">
           <div>© {year} Satvix Tech Solutions · All rights reserved</div>
-          <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
-            <a href="#" style={{ padding: '12px 4px', display: 'inline-block' }}>Privacy</a>
-            <a href="#" style={{ padding: '12px 4px', display: 'inline-block' }}>Terms</a>
-            <a href="#" style={{ padding: '12px 4px', display: 'inline-block' }}>Cookies</a>
+          <div>
+            <a href="mailto:hello@satvixtech.com">hello@satvixtech.com</a>
           </div>
         </div>
       </div>

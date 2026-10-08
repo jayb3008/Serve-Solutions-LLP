@@ -10,7 +10,7 @@ const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
 const gallery = {
   main: "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  s1: "https://images.pexels.com/photos/147413/twitter-facebook-together-sharing-147413.jpeg?auto=compress&cs=tinysrgb&w=700",
+  s1: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=700",
   s2: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=700",
 };
 
@@ -81,7 +81,7 @@ const useCases = [
   {
     title: "Consumer lifestyle apps",
     desc: "Habit trackers, fitness apps, and daily-use tools that earn a permanent spot on the home screen.",
-    img: "https://images.pexels.com/photos/3987207/pexels-photo-3987207.jpeg?auto=compress&cs=tinysrgb&w=800",
+    img: "https://images.pexels.com/photos/5926382/pexels-photo-5926382.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     title: "Fintech & payments",
@@ -96,7 +96,7 @@ const useCases = [
   {
     title: "Social & community",
     desc: "Real-time feeds, messaging, and social graphs — designed for engagement and retention.",
-    img: "https://images.pexels.com/photos/147413/twitter-facebook-together-sharing-147413.jpeg?auto=compress&cs=tinysrgb&w=800",
+    img: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     title: "Offline-first field tools",
@@ -188,7 +188,7 @@ export default function MobileApps() {
     <div>
       <SEO
         title="Mobile app development — Satvix Tech Solutions, Anand"
-        description="Satvix Tech Solutions builds iOS, Android, React Native and Flutter apps — designed for the long tail of real devices, shipped to the App Store and Play Store with paperwork done."
+        description="iOS, Android, React Native and Flutter apps built for the long tail of real devices — shipped to the App Store and Play Store, paperwork included."
         keywords="Satvix Tech Solutions mobile, mobile app development company India, iOS app development Gujarat, Android app development India, React Native development company India, cross-platform app development India, Flutter development agency India, Swift iOS development India, Kotlin Android development India, mobile app agency Gujarat, mobile UX design India"
         url="https://www.satvixtech.com/mobile-app-development"
         faq={faqs}
@@ -497,12 +497,12 @@ export default function MobileApps() {
             <div className="reveal" data-d="0">
               <div className="eyebrow" style={{ marginBottom: 20 }}>Related Case Study</div>
               <h4 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>
-                <Link to="/portfolio/tailorpro" style={{ color: "inherit", textDecoration: "none" }} data-hover>
-                  TailorPro: Mobile business SaaS →
+                <Link to="/portfolio/shreeji-hrms" style={{ color: "inherit", textDecoration: "none" }} data-hover>
+                  Shreeji HRMS: bilingual business app →
                 </Link>
               </h4>
               <p style={{ color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5 }}>
-                See how we built a mobile-first business utility tool for managing measurements, orders, and customer history.
+                A React Native app running attendance, daily-wage payroll, customer credit ledgers and an income-expense daybook — in Gujarati, Hindi and English. Shipped in three weeks, in daily use.
               </p>
             </div>
             <div className="reveal" data-d="1">

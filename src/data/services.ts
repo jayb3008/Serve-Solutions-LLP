@@ -59,7 +59,7 @@ export const servicesData: Record<string, Service> = {
             { step: "04", title: "App Store Ops", desc: "CI/CD for seamless deployments." }
         ],
         tech: ["React Native", "Swift", "Kotlin", "Firebase", "SQLite"],
-        image: "https://images.pexels.com/photos/147413/twitter-facebook-together-sharing-147413.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        image: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'ai-ml': {
         title: "AI / ML",
@@ -128,6 +128,7 @@ export const servicesData: Record<string, Service> = {
         image: "https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'qa': {
+        metaDescription: "QA that holds a release to account: automated suites for the journeys that matter, exploratory passes, and a bug bar agreed before we start.",
         title: "QA",
         seoPath: "/qa-testing",
         icon: ShieldCheck,
@@ -150,6 +151,7 @@ export const servicesData: Record<string, Service> = {
         image: "https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'iot': {
+        metaDescription: "IoT products end to end: firmware, gateways, cloud ingestion and the fleet-management dashboards you only notice when they are missing.",
         title: "IoT",
         seoPath: "/iot-development",
         icon: Wifi,
@@ -194,6 +196,7 @@ export const servicesData: Record<string, Service> = {
         image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200"
     },
     'blockchain': {
+        metaDescription: "Blockchain work with the boring parts done properly: smart contracts, dApps and tokenomics, with audits and key management taken seriously.",
         title: "Blockchain & Web3",
         seoPath: "/blockchain-development",
         icon: Boxes,

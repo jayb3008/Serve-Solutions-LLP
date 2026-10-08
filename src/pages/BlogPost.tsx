@@ -38,7 +38,8 @@ export default function BlogPost() {
   return (
     <div>
       <SEO
-        title={post.title}
+        title={post.seoTitle ?? post.title}
+        brand="short"
         description={post.excerpt}
         keywords={`${post.title}, ${post.cat}, Satvix Tech Solutions blog, software engineering India, ${post.cat.toLowerCase()} insights`}
         /* 1200x630 card generated per post at build time by

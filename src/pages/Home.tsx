@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
@@ -73,14 +73,26 @@ function TiltCard({
 }
 
 /* ── Animated counter ── */
+/* These are the page's proof numbers, so the prerendered HTML has to carry
+   them: starting the state at 0 shipped `<span>0</span>` to every crawler and
+   to anyone with JS off — "0 shipped products" under a heading arguing the
+   opposite. State starts at the real value (SSR and hydration agree), and the
+   client resets to 0 in a layout effect, before paint, so the count-up still
+   plays with no flash of the final number. */
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
-  const [val, setVal] = useState(0);
+  const [val, setVal] = useState(to);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Reduced motion: leave the number where the server put it.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setVal(0);
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
@@ -172,7 +184,7 @@ const workCards = [
     year: "2 weeks",
     tags: ["Fintech", "React Native", "Node.js", "Live"],
     title:
-      "Nine Finance — a lending platform where borrowers and field agents run structured daily EMI collections through a mobile app. Shipped in two weeks; live and managing real loan portfolios.",
+      "Nine Finance — daily EMI collections, borrower and agent apps.",
     href: "/portfolio/nine-finance",
     img: "/images/satvix_fintech_showcase.webp",
   },
@@ -181,7 +193,7 @@ const workCards = [
     year: "4 weeks",
     tags: ["Ecommerce", "React", "Node", "MongoDB"],
     title:
-      "Glamour Jewelry — a full jewelry e-commerce platform: product catalog, orders, inventory, admin dashboard. React + Node + MongoDB, shipped in four weeks, live and processing orders.",
+      "Glamour Jewelry — storefront, orders and inventory in one.",
     href: "/portfolio/glamour-jewelry",
     img: "/images/glamour-jewelry.webp",
   },
@@ -190,7 +202,7 @@ const workCards = [
     year: "2 months",
     tags: ["SaaS", "Next.js", "White-label"],
     title:
-      "Charotar Soap Factory — inventory, production tracking and sales orders for soap manufacturers. Designed as a reusable product we can white-label to other manufacturers. Demo on request.",
+      "Charotar Soap Factory — white-label manufacturing SaaS.",
     href: "/portfolio/charotar-soap",
     img: "/images/charotar-soap.webp",
   },
@@ -199,7 +211,7 @@ const workCards = [
     year: "3 weeks",
     tags: ["SaaS", "React Native", "Node.js"],
     title:
-      "Shreeji HRMS — bilingual daily-wage attendance, salary payroll, customer credit ledger & income-expense accounting app for small businesses.",
+      "Shreeji HRMS — attendance, payroll and ledgers, in Gujarati.",
     href: "/portfolio/shreeji-hrms",
     img: "/images/shreeji-hrms.webp",
   },
@@ -286,6 +298,18 @@ const caseStudies = [
       "Proprietary product available for licensing or resale to other manufacturers and distributors. Demo on request.",
     href: "/portfolio/charotar-soap",
   },
+  {
+    n: "04",
+    tag: "SaaS · React Native + Node.js · 3 weeks",
+    title: "Shreeji HRMS — HR, payroll and ledgers for a daily-wage business.",
+    problem:
+      "A small trading business ran attendance, daily-wage salary, staff advances and customer credit on paper — in Gujarati, across three notebooks that never agreed with each other.",
+    approach:
+      "React Native app with two sign-ins: an owner cockpit and an employee view. One-tap attendance, payroll from payable days x daily rate, advances deducted at payout, customer credit ledger and an income-expense daybook — in Gujarati, Hindi and English.",
+    outcome:
+      "Live and running the business end to end: staff, payroll and accounting in one app the owner and the workers both use in their own language.",
+    href: "/portfolio/shreeji-hrms",
+  },
 ];
 
 const homepageFaqs = [
@@ -307,7 +331,7 @@ const homepageFaqs = [
   {
     question: "What proof do you have — real case studies, not stock work?",
     answer:
-      "Three shipped products we can show: a fintech lending platform (React Native + Node.js, two weeks, live and managing real EMI collections), a jewelry e-commerce platform (React + Node + MongoDB, four weeks, live and processing orders), and a manufacturing inventory system (React + Next.js + Node, built as a white-label product). Ask for a demo or a reference call.",
+      "Four shipped products we can show: a fintech lending platform (React Native + Node.js, two weeks, live and managing real EMI collections), a jewelry e-commerce platform (React + Node + MongoDB, four weeks, live and processing orders), a manufacturing inventory system (React + Next.js + Node, built as a white-label product), and a bilingual HRMS app for small businesses (React Native + Node.js, three weeks, running attendance, payroll and ledgers). Ask for a demo or a reference call.",
   },
   {
     question: "How do you handle contracts and invoicing with foreign clients?",
@@ -354,9 +378,12 @@ export default function Home() {
   return (
     <div>
       {/* Fixed scroll-drawn SVG path — hero to footer */}
+      {/* Title stays under ~60 characters so Google renders all of it, and the
+          description under 158 so clampDescription() never has to cut it
+          mid-phrase ("...mobile apps, and custom…"). */}
       <SEO
-        title="Satvix Tech Solutions — Premium Software Engineering & Digital Product Agency"
-        description="Satvix Tech Solutions is a premium digital product and software engineering agency in Anand, Gujarat. We build robust web platforms, mobile apps, and custom AI systems with dedicated teams."
+        title="Satvix Tech Solutions — Digital Product & Software Agency"
+        description="Digital product and software engineering agency in Anand, Gujarat. Senior MERN teams building web platforms, mobile apps and AI systems that ship."
         keywords="Satvix Tech Solutions, AI augmented development agency, software engineering agency India, senior engineers React Native Node.js, MERN development agency, offshore engineering US UK startups, Gujarat software company, custom software India, hire senior engineers India"
         url="https://www.satvixtech.com/"
         faq={homepageFaqs}
@@ -448,7 +475,11 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="stat__num">
-                    <CountUp to={3} />
+                    {/* Keep in step with `stats` below and with the case
+                        studies — the whole section is an argument about being
+                        verifiable, so two different counts on one page is the
+                        one thing it cannot afford. */}
+                    <CountUp to={4} />
                   </div>
                   <div className="stat__lbl">Shipped products, verifiable</div>
                 </div>
@@ -988,7 +1019,15 @@ export default function Home() {
                     role="img"
                     aria-label={`Showcase screenshot of ${c.title}`}
                     style={{
-                      background: `linear-gradient(rgba(10, 8, 6, 0.48), rgba(10, 8, 6, 0.48)), url(${c.img}) center/cover no-repeat`,
+                      /* A flat scrim was not enough: these are screenshots of
+                         real products, so they carry their own headlines and
+                         their own light backgrounds — the white meta line
+                         landed on the store's own heading, and the title
+                         vanished into a photo of jewellery on white. The text
+                         now sits in the bottom band, so that is where the
+                         scrim does its work — the top stays light enough that
+                         the product is still the thing you see. */
+                      background: `linear-gradient(180deg, rgba(10, 8, 6, 0.5) 0%, rgba(10, 8, 6, 0.32) 28%, rgba(10, 8, 6, 0.5) 48%, rgba(10, 8, 6, 0.88) 70%, rgba(10, 8, 6, 0.96) 100%), url(${c.img}) center/cover no-repeat`,
                     }}
                   />
                   <div
@@ -1190,7 +1229,7 @@ export default function Home() {
               <div>
                 <div className="eyebrow reveal">Case studies</div>
                 <h2 className="s-title" data-d="1">
-                  Three shipped products. <em>All verifiable.</em>
+                  Four shipped products. <em>All verifiable.</em>
                 </h2>
               </div>
             </AnimateIn>

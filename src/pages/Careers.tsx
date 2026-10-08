@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Clock, ArrowUpRight } from "lucide-react";
 import SEO from "../components/SEO";
+import Faq from "../components/Faq";
 import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 
@@ -103,6 +104,31 @@ const hiring = [
   },
 ];
 
+/* Candidates ask these before they apply, and the answers are also what a
+   search result should show. Neither existed on the page. */
+const careersFaqs = [
+  {
+    question: "Where is the role based?",
+    answer:
+      "Anand, Gujarat, hybrid. We work in the same room often enough to design together, and we do not count hours in a chair.",
+  },
+  {
+    question: "What is the interview process?",
+    answer:
+      "A conversation about work you have shipped, a practical exercise close to real work (paid if it takes real time), and a session with the founder. No whiteboard puzzles, no unpaid take-homes that run for days.",
+  },
+  {
+    question: "Do you hire juniors?",
+    answer:
+      "We hire people who can own work end to end, which usually means some real experience — but we care more about how you think than years on a CV. If you can show us something you built and explain the decisions in it, apply.",
+  },
+  {
+    question: "What will I actually work on?",
+    answer:
+      "Client products that ship — React, React Native, Node, and AI-augmented delivery on real codebases. Small teams, direct client contact, and your name on the work rather than three layers of account management between you and the person using it.",
+  },
+];
+
 export default function Careers() {
   return (
     <div>
@@ -110,6 +136,7 @@ export default function Careers() {
         title="Careers at Satvix Tech Solutions — Anand, Gujarat"
         description="Careers at Satvix Tech Solutions: we are hiring React, React Native, AI/ML, design, DevOps and QA roles in Anand, Gujarat. Hybrid, senior-only, real ownership of the work."
         keywords="careers Satvix Tech Solutions, Satvix Tech Solutions jobs, IT jobs Anand Gujarat, software developer jobs India, React developer jobs Gujarat, hybrid developer jobs India, AI ML engineer jobs India, product designer jobs India, DevOps jobs India, software company careers Gujarat"
+        faq={careersFaqs}
         url="https://www.satvixtech.com/careers"
         breadcrumb={[
           { name: "Home", item: "https://www.satvixtech.com" },
@@ -409,6 +436,8 @@ export default function Careers() {
           </div>
         </div>
       </section>
+
+      <Faq faqs={careersFaqs} eyebrow="What candidates ask us" />
 
       {/* CTA */}
       <section className="cta-section relative overflow-hidden">

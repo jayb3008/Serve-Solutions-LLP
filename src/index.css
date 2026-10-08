@@ -559,7 +559,11 @@ header.site-nav.scrolled {
 h1.hero__title {
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(48px, 11.5vw, 188px);
+  /* Capped against viewport height as well as width: at 11.5vw alone, three
+     lines of this filled a 1440x900 laptop on their own and pushed the CTA and
+     the proof stats below the fold — the two things the hero exists to hand
+     over. Width still wins on tall screens, and phones keep the 48px floor. */
+  font-size: clamp(48px, min(11.5vw, 13.5vh), 188px);
   line-height: 0.92;
   letter-spacing: -0.045em;
   margin: 0 0 48px;
@@ -993,18 +997,27 @@ section.s {
   padding: 32px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* Both text blocks live in the bottom band, where the scrim is heaviest.
+     Pinned apart (meta at the top, title at the bottom) the meta line landed
+     across the screenshot's own headline — two texts fighting in the one part
+     of the card that has none of the scrim. */
+  justify-content: flex-end;
+  gap: 14px;
   color: var(--bg);
 }
 
 .work-card__meta {
   display: flex;
-  gap: 14px;
+  flex-wrap: wrap;
+  gap: 6px 14px;
   font-family: var(--mono);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  opacity: 0.85;
+  opacity: 0.9;
+  /* Sits on top of a product screenshot that has text of its own. The shadow
+     is what keeps the two layers apart where they collide. */
+  text-shadow: 0 1px 6px rgba(10, 8, 6, 0.9);
 }
 
 .work-card__title {
@@ -1015,9 +1028,12 @@ section.s {
   line-height: 1.12;
   max-width: 20ch;
   display: -webkit-box;
+  /* The titles are a name plus one short descriptor, so two lines is the real
+     ceiling — the clamp is a guard, not the layout. */
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-shadow: 0 2px 12px rgba(10, 8, 6, 0.85);
 }
 
 .work-card__cta {
@@ -1337,6 +1353,10 @@ footer.site-footer {
 .foot-bottom {
   margin-top: 60px;
   padding-top: 24px;
+  /* The scroll-to-top button is fixed at right:40px and is 52px wide, so it
+     lands on top of whatever sits at the right edge down here. Reserve its
+     lane. */
+  padding-right: 104px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   justify-content: space-between;
@@ -2123,7 +2143,11 @@ footer.site-footer {
   color: var(--bg);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* Pinned apart, the meta line landed across the screenshot's own headline —
+     two texts fighting in the part of the card the scrim barely covers. Both
+     blocks now sit in the weighted bottom band, same as .work-card. */
+  justify-content: flex-end;
+  gap: 14px;
 }
 
 .arch__top {
@@ -2135,15 +2159,18 @@ footer.site-footer {
 
 .arch__meta {
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 6px 12px;
   font-family: var(--mono);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  opacity: 0.85;
+  opacity: 0.9;
+  text-shadow: 0 1px 6px rgba(10, 8, 6, 0.9);
 }
 
 .arch__cat {
+  align-self: flex-start;
   font-family: var(--mono);
   font-size: 11px;
   text-transform: uppercase;
@@ -2162,6 +2189,7 @@ footer.site-footer {
   line-height: 1.05;
   max-width: 20ch;
   margin: 0;
+  text-shadow: 0 2px 12px rgba(10, 8, 6, 0.85);
 }
 
 .arch__cta {
@@ -3011,6 +3039,10 @@ body {
     margin-top: 40px;
     font-size: 11px;
     letter-spacing: 0.08em;
+    /* Too narrow to give the button its own lane — the row wraps, so clear it
+       below instead. */
+    padding-right: 0;
+    padding-bottom: 72px;
   }
 }
 
