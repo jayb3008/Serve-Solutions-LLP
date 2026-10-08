@@ -1,21 +1,40 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BrainCircuit,
+  ClipboardCheck,
+  Code2,
+  Compass,
+  Gauge,
+  Layers,
+  MessagesSquare,
+  Palette,
+  PenTool,
+  Rocket,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+  TrendingUp,
+  Users,
+  Workflow,
+  Zap,
+} from "lucide-react";
 import SEO from "../components/SEO";
+import RevealText from "../components/ui/reveal-text";
 import Faq from "../components/Faq";
-import ImageCursorTrail from "../components/ImageCursorTrail";
-import TextReveal from "../components/TextReveal";
 import RollingText from "../components/RollingText";
-import GradientCard from "../components/GradientCard";
 import InfiniteMarquee from "../components/InfiniteMarquee";
-import { servicesData } from "../data/services";
+import Spotlight from "../components/ui/spotlight";
+import MarqueeCta from "../components/ui/marquee-cta";
+import StackingCards from "../components/ui/stacking-cards";
+import ParallaxShots from "../components/ui/parallax-shots";
+import SectionHead from "../components/ui/section-head";
+import { ease, rise } from "../lib/motion";
 import { industriesData } from "../data/industries";
 import { activeIndustryKeys, industryPath } from "../data/routes";
-import Squares from "../components/ui/squares";
-import Magnetic from "../components/Magnetic";
-import AnimateIn from "../components/AnimateIn";
-import ScrollVelocityMarquee from "../components/ScrollVelocityMarquee";
-import FloatingShapes from "../components/FloatingShapes";
 
 const MotionLink = motion.create(Link);
 
@@ -23,54 +42,6 @@ const MotionLink = motion.create(Link);
 const industryList = activeIndustryKeys().map(
   (k) => [k, industriesData[k] as { title: string }] as const,
 );
-
-const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
-
-/* ── Interactive Tilt Card Wrapper ── */
-function TiltCard({
-  children,
-  className,
-  to,
-}: {
-  children: React.ReactNode;
-  className: string;
-  to: string;
-}) {
-  const ref = useRef<HTMLAnchorElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const el = ref.current;
-    if (!el || window.matchMedia("(pointer:coarse)").matches) return;
-    const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    el.style.transform = `perspective(1000px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) translateY(-4px)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (ref.current) {
-      ref.current.style.transform =
-        "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
-    }
-  };
-
-  return (
-    <Link
-      ref={ref}
-      to={to}
-      className={className}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      data-hover
-      style={{
-        transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)",
-        transformStyle: "preserve-3d",
-      }}
-    >
-      {children}
-    </Link>
-  );
-}
 
 /* ── Animated counter ── */
 /* These are the page's proof numbers, so the prerendered HTML has to carry
@@ -123,97 +94,83 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
   );
 }
 
-type Service = {
-  num: string;
-  pre: string;
-  em: string;
-  tags: string[];
-  href: string;
-  isNew?: boolean;
-};
+const heroStats = [
+  { n: 4, unit: "", label: "shipped products" },
+  { n: 2, unit: " wks", label: "fintech MVP" },
+  { n: 7, unit: "+ yrs", label: "senior MERN" },
+];
 
-const services: Service[] = [
+const heroShots = [
   {
-    num: "01",
-    pre: "Product",
-    em: "design",
-    tags: ["Research", "Interaction", "Design systems", "Prototyping"],
-    href: "/services",
+    img: "/images/glamour-jewelry.webp",
+    alt: "Glamour Jewelry storefront",
+    href: "/portfolio/glamour-jewelry",
   },
   {
-    num: "02",
-    pre: "Web",
-    em: "engineering",
-    tags: ["React & Next.js", "Headless commerce", "CMS", "Performance work"],
-    href: "/services",
+    img: "/images/satvix_fintech_showcase.webp",
+    alt: "Nine Finance borrower and agent apps",
+    href: "/portfolio/nine-finance",
   },
   {
-    num: "03",
-    pre: "Mobile",
-    em: "apps",
-    tags: ["iOS", "Android", "React Native", "Flutter"],
-    href: "/services",
+    img: "/images/charotar-soap.webp",
+    alt: "Charotar Soap Factory manufacturing SaaS",
+    href: "/portfolio/charotar-soap",
   },
-  {
-    num: "04",
-    pre: "AI &",
-    em: "data",
-    tags: ["LLM features", "RAG", "Agents", "Internal tools"],
-    href: "/ai-development",
-  },
-  {
-    num: "05",
-    pre: "Brand &",
-    em: "strategy",
-    tags: ["Positioning", "Identity", "Naming", "Editorial"],
-    href: "/services",
-  },
-  {
-    num: "06",
-    pre: "Graphic design",
-    em: "& branding",
-    tags: ["New", "Logo", "Print", "Social kits", "Motion"],
-    href: "/graphic-design-branding",
-    isNew: true,
-  },
+];
+
+const techMarquee = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Node.js",
+  "React Native",
+  "Python",
+  "Flutter",
+  "AWS",
+  "PostgreSQL",
+  "MongoDB",
+  "Figma",
+  "Docker",
+  "GraphQL",
+  "Tailwind CSS",
 ];
 
 const workCards = [
   {
-    cls: "wc-1",
     year: "2 weeks",
     tags: ["Fintech", "React Native", "Node.js", "Live"],
-    title:
-      "Nine Finance — daily EMI collections, borrower and agent apps.",
+    title: "Nine Finance",
+    desc: "Daily EMI collections, borrower and agent apps.",
     href: "/portfolio/nine-finance",
     img: "/images/satvix_fintech_showcase.webp",
+    tint: "from-[#2a0a0b]",
   },
   {
-    cls: "wc-2",
     year: "4 weeks",
     tags: ["Ecommerce", "React", "Node", "MongoDB"],
-    title:
-      "Glamour Jewelry — storefront, orders and inventory in one.",
+    title: "Glamour Jewelry",
+    desc: "Storefront, orders and inventory in one.",
     href: "/portfolio/glamour-jewelry",
     img: "/images/glamour-jewelry.webp",
+    tint: "from-[#221a10]",
   },
   {
-    cls: "wc-3",
     year: "2 months",
     tags: ["SaaS", "Next.js", "White-label"],
-    title:
-      "Charotar Soap Factory — white-label manufacturing SaaS.",
+    title: "Charotar Soap Factory",
+    desc: "White-label manufacturing SaaS.",
     href: "/portfolio/charotar-soap",
     img: "/images/charotar-soap.webp",
+    tint: "from-[#0c1a24]",
   },
   {
-    cls: "wc-4",
     year: "3 weeks",
     tags: ["SaaS", "React Native", "Node.js"],
-    title:
-      "Shreeji HRMS — attendance, payroll and ledgers, in Gujarati.",
+    title: "Shreeji HRMS",
+    desc: "Attendance, payroll and ledgers, in Gujarati.",
     href: "/portfolio/shreeji-hrms",
     img: "/images/shreeji-hrms.webp",
+    tint: "from-[#141022]",
   },
 ];
 
@@ -253,12 +210,85 @@ const process = [
 ];
 
 const techStack = [
-  { cat: "Frontend", tools: "React · Next.js · TypeScript · Tailwind" },
-  { cat: "Mobile", tools: "React Native · Swift · Kotlin · Flutter" },
-  { cat: "Backend", tools: "Node.js · Python · PostgreSQL · GraphQL" },
-  { cat: "AI / ML", tools: "LLMs · RAG · PyTorch · LangChain" },
-  { cat: "Cloud", tools: "AWS · Vercel · Docker · Kubernetes" },
-  { cat: "Data", tools: "Snowflake · dbt · Airflow · Redis" },
+  { Icon: Code2, cat: "Frontend", tools: "React · Next.js · TypeScript · Tailwind" },
+  { Icon: Smartphone, cat: "Mobile", tools: "React Native · Swift · Kotlin · Flutter" },
+  { Icon: Workflow, cat: "Backend", tools: "Node.js · Python · PostgreSQL · GraphQL" },
+  { Icon: BrainCircuit, cat: "AI / ML", tools: "LLMs · RAG · PyTorch · LangChain" },
+  { Icon: Zap, cat: "Cloud", tools: "AWS · Vercel · Docker · Kubernetes" },
+  { Icon: Layers, cat: "Data", tools: "Snowflake · dbt · Airflow · Redis" },
+];
+
+const capabilities = [
+  {
+    Icon: Code2,
+    title: "Web Engineering & Next.js",
+    body: (
+      <>
+        We operate as a high-fidelity <strong>web development company</strong>{" "}
+        focusing on custom web portals, headless e-commerce, and SaaS
+        dashboards. We build lightweight interfaces that pass Core Web Vitals
+        audits.
+      </>
+    ),
+  },
+  {
+    Icon: Smartphone,
+    title: "Mobile App Development",
+    body: (
+      <>
+        Our team specializes in native iOS, Android, and cross-platform{" "}
+        <strong>React Native development</strong>. We integrate local SQLite
+        storage, background location sensors, and push channels for real-world
+        reliability.
+      </>
+    ),
+  },
+  {
+    Icon: BrainCircuit,
+    title: "AI & Machine Learning",
+    body: (
+      <>
+        As an independent <strong>AI development company</strong>, we construct
+        custom LLM integrations, Retrieval-Augmented Generation (RAG) databases,
+        and autonomous task agents with strict token budgets and evaluation
+        harnesses.
+      </>
+    ),
+  },
+  {
+    Icon: PenTool,
+    title: "UI/UX Design & Strategy",
+    body: (
+      <>
+        Our <strong>UI UX design agency</strong> creates documented design
+        systems and interactive prototypes. We write design tokens in Figma and
+        hand them off in JSON format directly to our frontend engineers.
+      </>
+    ),
+  },
+  {
+    Icon: TrendingUp,
+    title: "Digital Growth & SEO",
+    body: (
+      <>
+        We combine engineering with marketing. Our{" "}
+        <strong>digital marketing company</strong> and{" "}
+        <strong>SEO agency India</strong> practices implement technical site
+        speed optimization, schema hierarchies, and dynamic lead funnels.
+      </>
+    ),
+  },
+  {
+    Icon: Compass,
+    title: "Custom Software Consulting",
+    body: (
+      <>
+        We draft technical specifications, API structures, database schemas,
+        and cloud architectures (AWS / Docker) in our initial discovery sprints,
+        eliminating downstream engineering risk.
+      </>
+    ),
+  },
 ];
 
 const caseStudies = [
@@ -312,6 +342,50 @@ const caseStudies = [
   },
 ];
 
+const aiPoints = [
+  {
+    Icon: Rocket,
+    k: "Faster delivery",
+    v: "MVPs in two to four weeks, not two to four quarters.",
+  },
+  {
+    Icon: Gauge,
+    k: "Lower cost",
+    v: "Less time on repetitive plumbing means smaller invoices for the same outcome.",
+  },
+  {
+    Icon: ShieldCheck,
+    k: "Senior review, always",
+    v: "No unreviewed AI output lands in your codebase. A human reads every diff.",
+  },
+  {
+    Icon: MessagesSquare,
+    k: "Direct access",
+    v: "Slack or WhatsApp with the engineer writing your code. No relay.",
+  },
+];
+
+const team = [
+  {
+    Icon: Code2,
+    k: "Expertise",
+    title: "Senior Engineering",
+    body: "Our team brings deep enterprise MERN stack expertise — MongoDB, Express, React, Node. Every engagement benefits from robust architecture design and thorough code reviews.",
+  },
+  {
+    Icon: Users,
+    k: "The Team",
+    title: "Full-Service Delivery",
+    body: "Engineers, designers, QA, and project managers — all working together in-house. No rotating cast of freelancers. We scale resources dynamically to fit your roadmap.",
+  },
+  {
+    Icon: ClipboardCheck,
+    k: "Our Process",
+    title: "Structured Project Management",
+    body: "Dedicated delivery management, daily async progress updates, weekly demos, and transparent communication. Full code repository access from day one.",
+  },
+];
+
 const homepageFaqs = [
   {
     question: "Who actually writes the code — a senior engineer, or a junior?",
@@ -360,24 +434,47 @@ const homepageFaqs = [
   },
 ];
 
+/* Bento tile chrome shared by the services grid. */
+const tile =
+  "group relative flex min-h-[260px] flex-col overflow-hidden rounded-[24px] border p-7 transition-[transform,box-shadow] duration-300 hover:-translate-y-1";
+const tileLight =
+  "border-[var(--line)] bg-white hover:shadow-[0_24px_60px_-30px_rgba(10,10,12,0.35)]";
+const tileDark = "border-white/10 bg-[var(--dark)] text-white";
+
+function TileArrow({ light }: { light?: boolean }) {
+  return (
+    <span
+      className={`absolute right-6 top-6 grid h-10 w-10 place-items-center rounded-full border transition-all duration-300 group-hover:rotate-45 ${
+        light
+          ? "border-white/15 bg-white/5 text-white group-hover:bg-white group-hover:text-[var(--ink)]"
+          : "border-[var(--line)] text-[var(--ink)] group-hover:border-[var(--ink)] group-hover:bg-[var(--ink)] group-hover:text-white"
+      }`}
+    >
+      <ArrowUpRight size={18} />
+    </span>
+  );
+}
+
+function Tags({ items, light }: { items: string[]; light?: boolean }) {
+  return (
+    <div className="mt-4 flex flex-wrap gap-1.5">
+      {items.map((t) => (
+        <span
+          key={t}
+          className={`rounded-full px-2.5 py-1 text-[12px] font-medium ${
+            light ? "bg-white/10 text-white/80" : "bg-[var(--bg-2)] text-[var(--ink-2)]"
+          }`}
+        >
+          {t}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
-  const orbRef = useRef<HTMLDivElement>(null);
-
-  /* Orb parallax */
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      if (!orbRef.current) return;
-      const x = (e.clientX / window.innerWidth - 0.5) * 30;
-      const y = (e.clientY / window.innerHeight - 0.5) * 30;
-      orbRef.current.style.translate = `${x}px ${y}px`;
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
-
   return (
     <div>
-      {/* Fixed scroll-drawn SVG path — hero to footer */}
       {/* Title stays under ~60 characters so Google renders all of it, and the
           description under 158 so clampDescription() never has to cut it
           mid-phrase ("...mobile apps, and custom…"). */}
@@ -389,23 +486,52 @@ export default function Home() {
         faq={homepageFaqs}
       />
 
-      {/* ── Hero ── */}
-      <section className="hero overflow-hidden relative">
-        <div className="absolute inset-0 z-0 opacity-[0.10] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(18, 21, 24, 0.03)"
-          />
-        </div>
-        <div ref={orbRef} className="hero__orb" />
-        <div className="hero__orb-2" />
-        <FloatingShapes />
-        <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div className="hero__eyebrow">
-            <span className="ping" />
+      {/* ── Hero (light) ── */}
+      <Spotlight className="home-hero">
+        <div className="wrap relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease }}
+            className="stat-pill beam"
+          >
+            {heroStats.map((s) => (
+              <span key={s.label}>
+                <strong>
+                  <CountUp to={s.n} />
+                  {s.unit}
+                </strong>{" "}
+                {s.label}
+              </span>
+            ))}
+            <span className="max-sm:hidden">
+              <strong>Fri</strong> demos
+            </span>
+          </motion.div>
+
+          <h1 className="home-hero__title">
+            <span className="block">Digital product agency.</span>
+            <span className="block">
+              Engineering‑grade. <em>Built to scale.</em>
+            </span>
+          </h1>
+
+          <p className="home-hero__sub">
+            A premium digital product and software engineering agency in Anand.
+            We combine senior developers, UI/UX designers, and QA with dedicated
+            project management. Fintech shipped in two weeks. Ask for a demo.
+          </p>
+
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+            <Link to="/contact" className="cta-btn !px-6 !py-3.5" data-hover>
+              Start a project <span className="dot" />
+            </Link>
+            <Link to="/portfolio" className="btn-outline" data-hover>
+              See the case studies <ArrowUpRight size={16} />
+            </Link>
+          </div>
+
+          <div className="home-hero__rolling">
             We build{" "}
             <RollingText
               words={[
@@ -415,222 +541,294 @@ export default function Home() {
                 "SaaS tools",
                 "design systems",
               ]}
-              style={{
-                color: "var(--accent)",
-                fontStyle: "italic",
-                fontFamily: "var(--display)",
-                fontSize: "clamp(15px, 1.4vw, 18px)",
-                textTransform: "none",
-                letterSpacing: "-0.01em",
-                lineHeight: 1,
-              }}
+              style={{ color: "var(--accent)", fontWeight: 600 }}
             />{" "}
             that ship.
           </div>
 
-          <h1 className="hero__title">
-            {(
-              [
-                "Digital product agency.",
-                "Engineering-grade.",
-                "<em>Built to scale.</em>",
-              ] as const
-            ).map((line, i) => (
-              <span key={i} className="row">
-                <motion.span
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 1, ease, delay: 0.4 + i * 0.08 }}
-                  style={{ display: "inline-block" }}
-                  dangerouslySetInnerHTML={{ __html: line }}
-                />
-              </span>
-            ))}
-          </h1>
+          {/* Fanned product shots — real screenshots, linked to their case
+              studies, so the first screen shows work, not decoration. */}
+          <ParallaxShots shots={heroShots} />
+        </div>
+      </Spotlight>
 
-          <AnimateIn direction="up" delay={0.8}>
-            <div className="hero__foot">
-              <p>
-                A premium digital product and software engineering agency in
-                Anand. We combine senior developers, UI/UX designers, and QA
-                with dedicated project management. Fintech shipped in two weeks.
-                Ask for a demo.
-              </p>
-              <Magnetic>
-                <Link to="/portfolio" className="cta-btn" data-hover>
-                  See the case studies <span className="dot" />
-                </Link>
-              </Magnetic>
-              <div className="stats">
+      {/* ── Stack marquee ── */}
+      <div className="logo-strip">
+        <p>Production stack we ship with</p>
+        <InfiniteMarquee
+          items={techMarquee}
+          speed={40}
+          separator="•"
+          className="logo-strip__marquee"
+        />
+      </div>
+
+      {/* ── Services bento (light) ── */}
+      <section className="s" id="services">
+        <div className="wrap">
+          <SectionHead
+            eyebrow="What we do"
+            title={
+              <>
+                One team. Six disciplines. <em>Zero handoffs.</em>
+              </>
+            }
+            note="Strategy, design and engineering at one table, for the whole build. No briefs thrown over walls. No agency relay race."
+          />
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {/* Web — wide dark tile with a code window */}
+            <MotionLink
+              {...rise(0)}
+              to="/web-development"
+              className={`${tile} ${tileDark} beam beam--dark lg:col-span-2`}
+              data-hover
+            >
+              <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[var(--accent)] opacity-25 blur-[90px]" />
+              <TileArrow light />
+              <span className="tile-num text-white/40">02</span>
+              <div className="relative z-10 mt-auto grid items-end gap-8 lg:grid-cols-[1fr_1.1fr]">
                 <div>
-                  <div className="stat__num">
-                    <CountUp to={2} />
-                    <span style={{ fontSize: "0.55em", marginLeft: 4 }}>
-                      wks
-                    </span>
-                  </div>
-                  <div className="stat__lbl">
-                    Fastest delivery — Nine Finance
-                  </div>
+                  <h3 className="tile-title">
+                    Web <span className="text-[var(--accent)]">engineering</span>
+                  </h3>
+                  <p className="mt-3 max-w-[38ch] text-[15px] leading-relaxed text-white/60">
+                    Custom portals, headless commerce and SaaS dashboards that
+                    pass Core Web Vitals.
+                  </p>
+                  <Tags
+                    light
+                    items={["React & Next.js", "Headless commerce", "CMS", "Performance"]}
+                  />
                 </div>
-                <div>
-                  <div className="stat__num">
-                    {/* Keep in step with `stats` below and with the case
-                        studies — the whole section is an argument about being
-                        verifiable, so two different counts on one page is the
-                        one thing it cannot afford. */}
-                    <CountUp to={4} />
+                <div className="code-win max-lg:hidden" aria-hidden="true">
+                  <div className="code-win__bar">
+                    <i />
+                    <i />
+                    <i />
                   </div>
-                  <div className="stat__lbl">Shipped products, verifiable</div>
-                </div>
-                <div>
-                  <div className="stat__num">
-                    <CountUp to={7} />
-                    <span style={{ fontSize: "0.55em", marginLeft: 4 }}>
-                      + yrs
-                    </span>
-                  </div>
-                  <div className="stat__lbl">Senior MERN, founder-led</div>
+                  <pre>
+                    <span className="c-k">export default</span>{" "}
+                    <span className="c-f">async function</span> Page() {"{"}
+                    {"\n"}
+                    {"  "}
+                    <span className="c-k">const</span> data ={" "}
+                    <span className="c-k">await</span> getOrders();
+                    {"\n"}
+                    {"  "}
+                    <span className="c-k">return</span> {"<"}
+                    <span className="c-f">Dashboard</span> data={"{"}data{"}"} /{">"};
+                    {"\n"}
+                    {"}"}
+                    {"\n"}
+                    <span className="c-c">{"// LCP 0.9s · CLS 0 · INP 48ms"}</span>
+                  </pre>
                 </div>
               </div>
-            </div>
-          </AnimateIn>
-        </div>
-        <div className="scroll-ind">
-          Scroll <span className="line" />
+            </MotionLink>
+
+            {/* Mobile — red tile */}
+            <MotionLink
+              {...rise(1)}
+              to="/mobile-app-development"
+              className={`${tile} border-transparent bg-gradient-to-br from-[#ff3b3f] to-[#b3121a] text-white`}
+              data-hover
+            >
+              <TileArrow light />
+              <Smartphone size={28} strokeWidth={1.6} className="opacity-90" />
+              <div className="mt-auto">
+                <h3 className="tile-title">Mobile apps</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-white/80">
+                  Native and cross-platform apps built for real-world
+                  reliability.
+                </p>
+                <Tags light items={["iOS", "Android", "React Native", "Flutter"]} />
+              </div>
+            </MotionLink>
+
+            {/* Product design */}
+            <MotionLink
+              {...rise(2)}
+              to="/ui-ux-design"
+              className={`${tile} ${tileLight}`}
+              data-hover
+            >
+              <TileArrow />
+              <span className="tile-icon">
+                <PenTool size={20} />
+              </span>
+              <div className="mt-auto">
+                <h3 className="tile-title">Product design</h3>
+                <Tags items={["Research", "Interaction", "Design systems", "Prototyping"]} />
+              </div>
+            </MotionLink>
+
+            {/* AI & data — dark with glow */}
+            <MotionLink
+              {...rise(3)}
+              to="/ai-development"
+              className={`${tile} ${tileDark}`}
+              data-hover
+            >
+              <div className="pointer-events-none absolute inset-x-0 -bottom-28 mx-auto h-56 w-56 rounded-full bg-[var(--accent)] opacity-30 blur-[80px]" />
+              <TileArrow light />
+              <span className="tile-icon tile-icon--dark">
+                <BrainCircuit size={20} />
+              </span>
+              <div className="relative mt-auto">
+                <h3 className="tile-title">
+                  AI <span className="text-[var(--accent)]">&amp;</span> data
+                </h3>
+                <Tags light items={["LLM features", "RAG", "Agents", "Internal tools"]} />
+              </div>
+            </MotionLink>
+
+            {/* Brand & strategy */}
+            <MotionLink
+              {...rise(4)}
+              to="/services/brand"
+              className={`${tile} ${tileLight}`}
+              data-hover
+            >
+              <TileArrow />
+              <span className="tile-icon">
+                <Sparkles size={20} />
+              </span>
+              <div className="mt-auto">
+                <h3 className="tile-title">Brand &amp; strategy</h3>
+                <Tags items={["Positioning", "Identity", "Naming", "Editorial"]} />
+              </div>
+            </MotionLink>
+
+            {/* Graphic design — wide, with palette strip */}
+            <MotionLink
+              {...rise(5)}
+              to="/graphic-design-branding"
+              className={`${tile} ${tileLight} lg:col-span-2`}
+              data-hover
+            >
+              <TileArrow />
+              <div className="flex items-center gap-3">
+                <span className="tile-icon">
+                  <Palette size={20} />
+                </span>
+                <span className="rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[12px] font-semibold text-[var(--accent)]">
+                  New service
+                </span>
+              </div>
+              <div className="mt-auto grid items-end gap-6 md:grid-cols-[1fr_auto]">
+                <div>
+                  <h3 className="tile-title">Graphic design &amp; branding</h3>
+                  <p className="mt-3 max-w-[46ch] text-[15px] leading-relaxed text-[var(--ink-2)]">
+                    Logo systems, print collateral, social kits, packaging and
+                    motion — everything a brand needs to look intentional on
+                    every surface.
+                  </p>
+                  <Tags items={["Logo", "Print", "Social kits", "Motion"]} />
+                </div>
+                <div className="flex gap-1.5" aria-hidden="true">
+                  {["#E31E24", "#D46B08", "#D4B106", "#389E0D", "#0958D9", "#531DAB", "#0a0a0c"].map(
+                    (c, i) => (
+                      <span
+                        key={c}
+                        className="block w-6 rounded-full transition-all duration-500 group-hover:-translate-y-2"
+                        style={{
+                          background: c,
+                          height: 56 + (i % 3) * 18,
+                          transitionDelay: `${i * 40}ms`,
+                        }}
+                      />
+                    ),
+                  )}
+                </div>
+              </div>
+            </MotionLink>
+
+            {/* Summary tile */}
+            <motion.div
+              {...rise(6)}
+              className={`${tile} border-[var(--line)] bg-[var(--bg-2)] hover:translate-y-0`}
+            >
+              <Layers size={22} className="text-[var(--accent)]" />
+              <div className="mt-auto">
+                <div className="text-[56px] font-semibold leading-none tracking-[-0.05em]">
+                  6<span className="text-[var(--accent)]">+</span>
+                </div>
+                <p className="mt-2 text-[15px] text-[var(--ink-2)]">
+                  disciplines, one senior team.
+                </p>
+                <Link
+                  to="/services"
+                  className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-[var(--ink)] hover:text-[var(--accent)]"
+                  data-hover
+                >
+                  All services <ArrowRight size={16} />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ── Marquee ── */}
-      <div className="marquee" aria-hidden="true">
-        <div className="marquee__track">
-          {[0, 1].map((i) => (
-            <span key={i} className="marquee__item">
-              {Object.values(servicesData).map((service, idx) => (
-                <span key={service.title}>
-                  {service.title}
-                  {idx % 2 === 0 ? (
-                    <span className="star">✦</span>
-                  ) : (
-                    <span className="star">✦</span>
-                  )}
-                </span>
-              ))}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Tech marquee (reversed) ── */}
-      <div style={{ background: "var(--ink)", overflow: "hidden" }}>
-        <InfiniteMarquee
-          items={[
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "Python",
-            "Flutter",
-            "AWS",
-            "PostgreSQL",
-            "Figma",
-            "Docker",
-            "GraphQL",
-            "TailwindCSS",
-          ]}
-          direction="right"
-          speed={28}
-          separator="·"
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.06)",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
-            padding: "18px 0",
-            color: "rgba(255,255,255,0.55)",
-          }}
-        />
-      </div>
-
-      {/* ── Velocity marquee ── */}
-      <div style={{ overflow: "hidden", pointerEvents: "none" }}>
-        <ScrollVelocityMarquee
-          text="Web · Mobile · AI · SaaS · Fintech · Healthcare · Design · Engineering · Craft"
-          baseSpeed={1.2}
-        />
-      </div>
-
-      {/* ── Services ── */}
-      <section
-        className="s services"
-        id="services"
-        style={{ borderTop: "1px solid var(--line)" }}
-      >
+      {/* ── Selected work (dark) ── */}
+      <section className="s dark band-dark" id="work">
         <div className="wrap">
-          <div className="s-head">
-            <AnimateIn direction="up">
-              <div>
-                <div className="eyebrow reveal">What we do</div>
-                <h2 className="s-title" data-d="1">
-                  One team. Six disciplines. <em>Zero handoffs.</em>
-                </h2>
-              </div>
-            </AnimateIn>
-            <p
-              className="reveal"
-              data-d="2"
-              style={{
-                maxWidth: "32ch",
-                color: "var(--ink-2)",
-                fontSize: 16,
-                lineHeight: 1.55,
-                margin: 0,
-              }}
-            >
-              Strategy, design and engineering at one table, for the whole
-              build. No briefs thrown over walls. No agency relay race.
-            </p>
-          </div>
+          <SectionHead
+            eyebrow="Selected work"
+            title={
+              <>
+                Built with teams who <em>actually ship.</em>
+              </>
+            }
+            action={
+              <Link to="/portfolio" className="btn-outline btn-outline--dark" data-hover>
+                Browse the archive <ArrowUpRight size={16} />
+              </Link>
+            }
+          />
 
-          <div style={{ borderTop: "1px solid var(--line)" }}>
-            {services.map((svc, i) => (
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {workCards.map((c, i) => (
               <MotionLink
-                key={svc.num}
-                to={svc.href}
-                className="svc"
+                key={c.href}
+                {...rise(i)}
+                to={c.href}
+                className={`work-tile group ${i === 0 || i === 3 ? "md:min-h-[520px]" : ""}`}
                 data-hover
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{
-                  delay: i * 0.07,
-                  duration: 0.55,
-                  ease: [0.25, 1, 0.5, 1],
-                }}
               >
-                <div className="svc__num">{svc.num}</div>
-                <div className="svc__name">
-                  {svc.pre} <em>{svc.em}</em>
+                <div className={`absolute inset-0 bg-gradient-to-b ${c.tint} to-[var(--dark-2)]`} />
+                <div className="relative z-10 flex items-start justify-between gap-4 p-8">
+                  <div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="rounded-full bg-[var(--accent)] px-2.5 py-1 text-[12px] font-semibold text-white">
+                        {c.year}
+                      </span>
+                      {c.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full bg-white/10 px-2.5 py-1 text-[12px] font-medium text-white/75"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="mt-5 text-[clamp(26px,2.6vw,36px)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+                      {c.title}
+                    </h3>
+                    <p className="mt-2 text-[15px] text-white/60">{c.desc}</p>
+                  </div>
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white text-[var(--ink)] transition-transform duration-300 group-hover:rotate-45">
+                    <ArrowUpRight size={18} />
+                  </span>
                 </div>
-                <div className="svc__tags">
-                  {svc.tags.map((t) => (
-                    <span
-                      key={t}
-                      className={t === "New" ? "tag-new" : undefined}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="svc__arrow">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M5 12h14m-6-6 6 6-6 6" />
-                  </svg>
+                <div className="work-tile__shot">
+                  <img
+                    src={c.img}
+                    alt={`Screenshot of ${c.title}`}
+                    loading="lazy"
+                    width={1200}
+                    height={750}
+                  />
                 </div>
               </MotionLink>
             ))}
@@ -638,228 +836,94 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Expanded SEO Keywords & Competencies ── */}
-      <section className="py-20 border-b border-[var(--line)] bg-[var(--bg-2)]">
+      {/* ── Industries (light) ── */}
+      <section className="s" id="industries">
         <div className="wrap">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-            <div className="lg:col-span-5">
+          <SectionHead
+            center
+            eyebrow="Who we build for"
+            title={
+              <>
+                Seventeen industries. <em>One agency.</em>
+              </>
+            }
+            note="Fintech, health, logistics, education, AI. We pair engineering with people who have actually worked inside the domain — so the software does something measurable, not something photogenic."
+          />
+          <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-2.5">
+            {industryList.map(([key, ind], index) => (
+              <MotionLink
+                key={key}
+                to={industryPath(key)}
+                data-hover
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ delay: index * 0.03, duration: 0.4, ease }}
+                className="ind-chip"
+              >
+                {ind.title}
+                <ArrowUpRight size={14} />
+              </MotionLink>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Process (dark) ── */}
+      <section className="s dark band-dark band-dark--grid">
+        <div className="wrap">
+          <SectionHead
+            eyebrow="The Satvix Process"
+            title={
+              <>
+                Brief. Sketch. Build. Ship. <em>Stay.</em>
+              </>
+            }
+            note="Five stages. No surprise invoices, no dark Slack channels. You see the demo every Friday, and the bill every two weeks."
+          />
+          <ol className="process-rail">
+            {process.map((p, i) => (
+              <motion.li key={p.n} {...rise(i)}>
+                <span className="process-rail__n">{p.n}</span>
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+              </motion.li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ── Capabilities / SEO copy (light) ── */}
+      <section className="s">
+        <div className="wrap">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+            <motion.div {...rise()} className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
               <span className="eyebrow">Enterprise Delivery</span>
-              <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-[var(--ink)] leading-none mt-6">
-                Custom software &amp; digital products built <em>to last.</em>
+              <h2 className="s-title">
+                <RevealText>Custom software &amp; digital products built <em>to last.</em></RevealText>
               </h2>
-              <p className="text-[var(--ink-2)] text-base sm:text-lg leading-relaxed mt-8">
+              <p className="mt-7 text-[17px] leading-relaxed text-[var(--ink-2)]">
                 Satvix Tech Solutions is a premium{" "}
                 <strong>digital product and software engineering agency</strong>{" "}
                 in Anand, Gujarat. We integrate expert UI/UX design, senior
                 software development, and structured QA with dedicated project
                 managers to ensure seamless end-to-end product delivery.
               </p>
-              <p className="text-[var(--ink-2)] text-base leading-relaxed mt-6">
+              <p className="mt-5 text-[15px] leading-relaxed text-[var(--ink-2)]">
                 We build for founders and agencies in the US, UK, EU and
                 Australia. Four-plus hours overlap with US East, full
                 working-day overlap with the UK. Full repo access from day one,
                 USD/GBP/INR invoicing, NDA-friendly contracts.
               </p>
-            </div>
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
-              <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">
-                  Web Engineering &amp; Next.js
-                </h3>
-                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  We operate as a high-fidelity{" "}
-                  <strong>web development company</strong> focusing on custom
-                  web portals, headless e-commerce, and SaaS dashboards. We
-                  build lightweight interfaces that pass Core Web Vitals audits.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">
-                  Mobile App Development
-                </h3>
-                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  Our team specializes in native iOS, Android, and
-                  cross-platform <strong>React Native development</strong>. We
-                  integrate local SQLite storage, background location sensors,
-                  and push channels for real-world reliability.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">
-                  AI &amp; Machine Learning
-                </h3>
-                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  As an independent <strong>AI development company</strong>, we
-                  construct custom LLM integrations, Retrieval-Augmented
-                  Generation (RAG) databases, and autonomous task agents with
-                  strict token budgets and evaluation harnesses.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">
-                  UI/UX Design &amp; Strategy
-                </h3>
-                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  Our <strong>UI UX design agency</strong> creates documented
-                  design systems and interactive prototypes. We write design
-                  tokens in Figma and hand them off in JSON format directly to
-                  our frontend engineers.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">
-                  Digital Growth &amp; SEO
-                </h3>
-                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  We combine engineering with marketing. Our{" "}
-                  <strong>digital marketing company</strong> and{" "}
-                  <strong>SEO agency India</strong> practices implement
-                  technical site speed optimization, schema hierarchies, and
-                  dynamic lead funnels.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[var(--ink)]">
-                  Custom Software Consulting
-                </h3>
-                <p className="text-[var(--ink-2)] text-sm leading-relaxed mt-3">
-                  We draft technical specifications, API structures, database
-                  schemas, and cloud architectures (AWS / Docker) in our initial
-                  discovery sprints, eliminating downstream engineering risk.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Design Spotlight ── */}
-      <section className="design-feat">
-        {/* Brand palette strip — communicates color range */}
-        <div className="palette-strip" aria-hidden="true">
-          {[
-            "#E31E24",
-            "#D4380D",
-            "#D46B08",
-            "#D4B106",
-            "#389E0D",
-            "#0958D9",
-            "#531DAB",
-            "#121518",
-          ].map((c) => (
-            <span key={c} style={{ background: c }} />
-          ))}
-        </div>
-        <div className="wrap">
-          <div className="design-feat__inner">
-            {/* Left: copy */}
-            <div>
-              <div
-                className="eyebrow reveal"
-                style={{ color: "rgba(255,255,255,.5)" }}
-              >
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: 24,
-                    height: 1,
-                    background: "rgba(255,255,255,.3)",
-                    flexShrink: 0,
-                  }}
-                />
-                New service
-              </div>
-              <h2
-                className="s-title reveal"
-                data-d="1"
-                style={{ color: "var(--bg)", marginTop: 20, maxWidth: "14ch" }}
-              >
-                Design that earns <em>attention.</em>
-              </h2>
-              <p
-                className="reveal"
-                data-d="2"
-                style={{
-                  color: "rgba(255,255,255,.6)",
-                  fontSize: 17,
-                  lineHeight: 1.6,
-                  maxWidth: "38ch",
-                  marginTop: 28,
-                  marginBottom: 0,
-                }}
-              >
-                Logo systems, print collateral, social media kits, packaging,
-                and motion graphics — everything a brand needs to look
-                intentional at every size and on every surface.
-              </p>
-              <div style={{ marginTop: 40 }}>
-                <Magnetic>
-                  <Link
-                    to="/graphic-design-branding"
-                    className="cta-btn reveal"
-                    data-d="3"
-                    data-hover
-                    style={{ background: "var(--accent)", color: "var(--ink)" }}
-                  >
-                    Explore the service{" "}
-                    <span
-                      className="dot"
-                      style={{ background: "var(--ink)" }}
-                    />
-                  </Link>
-                </Magnetic>
-              </div>
-            </div>
-            {/* Right: 2×2 discipline cards */}
-            <div className="design-feat-cards">
-              {[
-                {
-                  num: "01",
-                  title: "Brand identity",
-                  tags: ["Logo", "Colour", "Type"],
-                  bg: "linear-gradient(145deg, #1f0808, #121518)",
-                },
-                {
-                  num: "02",
-                  title: "Print & collateral",
-                  tags: ["Packaging", "Stationery", "Brochures"],
-                  bg: "linear-gradient(145deg, #0f1a0a, #121518)",
-                },
-                {
-                  num: "03",
-                  title: "Digital & social",
-                  tags: ["Templates", "Ad creatives", "Banners"],
-                  bg: "linear-gradient(145deg, #080f1f, #121518)",
-                },
-                {
-                  num: "04",
-                  title: "Motion & video",
-                  tags: ["Animation", "Reels", "Lottie"],
-                  bg: "linear-gradient(145deg, #110818, #121518)",
-                },
-              ].map((c, i) => (
-                <motion.div
-                  key={c.num}
-                  className="design-feat-card"
-                  initial={{ opacity: 0, scale: 0.92, y: 20 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: i * 0.1,
-                    duration: 0.5,
-                    ease: [0.25, 1, 0.5, 1],
-                  }}
-                  style={{ background: c.bg }}
-                >
-                  <div className="design-feat-card__num">{c.num}</div>
-                  <div className="design-feat-card__body">
-                    <div className="design-feat-card__title">{c.title}</div>
-                    <div className="design-feat-card__tags">
-                      {c.tags.map((t) => (
-                        <span key={t}>{t}</span>
-                      ))}
-                    </div>
-                  </div>
+            </motion.div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-7">
+              {capabilities.map(({ Icon, title, body }, i) => (
+                <motion.div key={title} {...rise(i)} className="cap-card">
+                  <span className="tile-icon">
+                    <Icon size={20} />
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
                 </motion.div>
               ))}
             </div>
@@ -867,779 +931,149 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Industries ── */}
-      <section
-        className="s"
-        id="industries"
-        style={{ borderTop: "1px solid var(--line)" }}
-      >
+      {/* ── Case studies (light, tinted) ── */}
+      <section className="s bg-[var(--bg-2)]">
         <div className="wrap">
-          <div className="s-head">
-            <AnimateIn direction="up">
-              <div>
-                <div className="eyebrow reveal">Who we build for</div>
-                <h2 className="s-title" data-d="1">
-                  Seventeen industries. <em>One agency.</em>
-                </h2>
-              </div>
-            </AnimateIn>
-            <p
-              className="reveal"
-              data-d="2"
-              style={{
-                maxWidth: "34ch",
-                color: "var(--ink-2)",
-                fontSize: 16,
-                lineHeight: 1.55,
-                margin: 0,
-              }}
-            >
-              Fintech, health, logistics, education, AI. We pair engineering
-              with people who have actually worked inside the domain — so the
-              software does something measurable, not something photogenic.
-            </p>
-          </div>
-
-          <AnimateIn direction="up" delay={0.2}>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 10,
-                marginTop: 8,
-              }}
-            >
-              {industryList.map(([key, ind], index) => (
-                <MotionLink
-                  key={key}
-                  to={industryPath(key)}
-                  data-hover
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, amount: 0.1 }}
-                  transition={{
-                    delay: index * 0.04,
-                    duration: 0.4,
-                    ease: [0.25, 1, 0.5, 1],
-                  }}
-                  style={{
-                    fontFamily: "var(--mono)",
-                    fontSize: 13,
-                    padding: "10px 18px",
-                    border: "1px solid var(--line)",
-                    borderRadius: 999,
-                    color: "var(--ink-2)",
-                    textDecoration: "none",
-                    transition:
-                      "background .2s ease, color .2s ease, border-color .2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "var(--ink)";
-                    e.currentTarget.style.color = "var(--bg)";
-                    e.currentTarget.style.borderColor = "var(--ink)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "";
-                    e.currentTarget.style.color = "var(--ink-2)";
-                    e.currentTarget.style.borderColor = "var(--line)";
-                  }}
-                >
-                  {ind.title}
-                </MotionLink>
-              ))}
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* ── Work ── */}
-      <ImageCursorTrail
-        className="s"
-        style={{
-          background: "var(--ink)",
-          color: "var(--bg)",
-        }}
-      >
-        <div className="wrap">
-          <div className="s-head">
-            <div>
-              <div
-                className="eyebrow reveal"
-                style={{ color: "rgba(255, 255, 255,.6)" }}
-              >
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: 24,
-                    height: 1,
-                    background: "rgba(255, 255, 255,.4)",
-                    flexShrink: 0,
-                  }}
-                />
-                Selected work
-              </div>
-              <h2
-                className="s-title reveal"
-                data-d="1"
-                style={{ color: "var(--bg)" }}
-              >
-                Built with teams who <em>actually ship.</em>
-              </h2>
-            </div>
-            <Magnetic>
-              <Link
-                to="/portfolio"
-                className="cta-btn reveal"
-                data-d="2"
-                data-hover
-                style={{ background: "var(--accent)", color: "var(--ink)" }}
-              >
-                Browse the archive{" "}
-                <span className="dot" style={{ background: "var(--ink)" }} />
-              </Link>
-            </Magnetic>
-          </div>
-
-          <div className="work-grid">
-            {workCards.map((c, i) => (
-              <motion.div
-                key={c.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{
-                  delay: i * 0.06,
-                  duration: 0.6,
-                  ease: [0.25, 1, 0.5, 1],
-                }}
-              >
-                <TiltCard to={c.href} className={`work-card ${c.cls} reveal`}>
-                  <div
-                    className="work-card__bg"
-                    role="img"
-                    aria-label={`Showcase screenshot of ${c.title}`}
-                    style={{
-                      /* A flat scrim was not enough: these are screenshots of
-                         real products, so they carry their own headlines and
-                         their own light backgrounds — the white meta line
-                         landed on the store's own heading, and the title
-                         vanished into a photo of jewellery on white. The text
-                         now sits in the bottom band, so that is where the
-                         scrim does its work — the top stays light enough that
-                         the product is still the thing you see. */
-                      background: `linear-gradient(180deg, rgba(10, 8, 6, 0.5) 0%, rgba(10, 8, 6, 0.32) 28%, rgba(10, 8, 6, 0.5) 48%, rgba(10, 8, 6, 0.88) 70%, rgba(10, 8, 6, 0.96) 100%), url(${c.img}) center/cover no-repeat`,
-                    }}
-                  />
-                  <div
-                    className="work-card__inner"
-                    style={{ transform: "translateZ(30px)" }}
-                  >
-                    <div className="work-card__meta">
-                      <span>{c.year}</span>
-                      {c.tags.map((t) => (
-                        <span key={t}>{t}</span>
-                      ))}
-                    </div>
-                    <div className="work-card__title">{c.title}</div>
-                  </div>
-                  <div
-                    className="work-card__cta"
-                    style={{ transform: "translateZ(45px)" }}
-                  >
-                    ↗
-                  </div>
-                </TiltCard>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </ImageCursorTrail>
-
-      {/* ── Statement reveal ── */}
-      <section
-        className="s"
-        style={{
-          borderTop: "1px solid var(--line)",
-          background: "var(--bg-2)",
-        }}
-      >
-        <div className="wrap">
-          <TextReveal text="We believe great software is not about technology. It is about helping real people accomplish something they could not do before." />
-        </div>
-      </section>
-
-      {/* ── Process ── */}
-      <section className="s" style={{ borderTop: "1px solid var(--line)" }}>
-        <div className="wrap">
-          <div className="s-head">
-            <AnimateIn direction="up">
-              <div>
-                <div className="eyebrow reveal">The Satvix Process</div>
-                <h2 className="s-title" data-d="1">
-                  Brief. Sketch. Build. Ship. <em>Stay.</em>
-                </h2>
-              </div>
-            </AnimateIn>
-            <p
-              className="reveal"
-              data-d="2"
-              style={{
-                maxWidth: "32ch",
-                color: "var(--ink-2)",
-                fontSize: 16,
-                lineHeight: 1.55,
-                margin: 0,
-              }}
-            >
-              Five stages. No surprise invoices, no dark Slack channels. You see
-              the demo every Friday, and the bill every two weeks.
-            </p>
-          </div>
-          <div className="tl-rows">
-            {process.map((p, i) => (
-              <motion.div
-                key={p.n}
-                className="tl-row"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{
-                  delay: i * 0.1,
-                  duration: 0.6,
-                  ease: [0.25, 1, 0.5, 1],
-                }}
-              >
-                <div className="tl-year">{p.n}</div>
-                <div className="tl-title">{p.title}</div>
-                <div className="tl-body">{p.desc}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Tech stack ── */}
-      <section
-        className="s"
-        style={{
-          background: "var(--bg-2)",
-          borderTop: "1px solid var(--line)",
-          borderBottom: "1px solid var(--line)",
-        }}
-      >
-        <div className="wrap">
-          <div className="s-head">
-            <AnimateIn direction="up">
-              <div>
-                <div className="eyebrow reveal">The stack</div>
-                <h2 className="s-title" data-d="1">
-                  Boring tools, used <em>well.</em>
-                </h2>
-              </div>
-            </AnimateIn>
-            <p
-              className="reveal"
-              data-d="2"
-              style={{
-                maxWidth: "32ch",
-                color: "var(--ink-2)",
-                fontSize: 16,
-                lineHeight: 1.55,
-                margin: 0,
-              }}
-            >
-              No framework religion here. We pick whatever the team can still
-              maintain after we’ve gone home, and we keep up with the field so
-              you don’t have to.
-            </p>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: 12,
-            }}
-          >
-            {techStack.map((t, i) => (
-              <GradientCard
-                key={t.cat}
-                className="reveal"
-                data-d={String(i % 4)}
-                style={{
-                  background: "var(--bg)",
-                  border: "1px solid var(--line)",
-                  borderRadius: 14,
-                  padding: "24px 26px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 10,
-                    marginBottom: 12,
-                    position: "relative",
-                    zIndex: 1,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 8,
-                      height: 8,
-                      borderRadius: "50%",
-                      background: "var(--accent)",
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: 11,
-                      textTransform: "uppercase",
-                      letterSpacing: ".14em",
-                      color: "var(--muted)",
-                    }}
-                  >
-                    {t.cat}
-                  </span>
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--display)",
-                    fontSize: 20,
-                    fontWeight: 500,
-                    letterSpacing: "-.01em",
-                    lineHeight: 1.35,
-                    position: "relative",
-                    zIndex: 1,
-                  }}
-                >
-                  {t.tools}
-                </div>
-              </GradientCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Case studies (Problem / Approach / Outcome) ── */}
-      <section className="s" style={{ borderTop: "1px solid var(--line)" }}>
-        <div className="wrap">
-          <div className="s-head">
-            <AnimateIn direction="up">
-              <div>
-                <div className="eyebrow reveal">Case studies</div>
-                <h2 className="s-title" data-d="1">
-                  Four shipped products. <em>All verifiable.</em>
-                </h2>
-              </div>
-            </AnimateIn>
-            <p
-              className="reveal"
-              data-d="2"
-              style={{
-                maxWidth: "34ch",
-                color: "var(--ink-2)",
-                fontSize: 16,
-                lineHeight: 1.55,
-                margin: 0,
-              }}
-            >
-              Problem, approach, outcome. Real timelines, real stacks, real
-              users. Ask for a demo or a reference call — we encourage it.
-            </p>
-          </div>
-          <div style={{ display: "grid", gap: 20 }}>
-            {caseStudies.map((c, i) => (
-              <motion.div
-                key={c.n}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  delay: i * 0.08,
-                  duration: 0.55,
-                  ease: [0.25, 1, 0.5, 1],
-                }}
-                style={{
-                  border: "1px solid var(--line)",
-                  borderRadius: 14,
-                  padding: "36px clamp(24px,3vw,44px)",
-                  background: "var(--bg)",
-                  display: "grid",
-                  gap: 20,
-                  gridTemplateColumns: "minmax(0, 1fr)",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 16,
-                    justifyContent: "space-between",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  <div
-                    style={{ display: "flex", alignItems: "center", gap: 16 }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: 12,
-                        color: "var(--muted)",
-                        letterSpacing: ".14em",
-                      }}
-                    >
-                      {c.n}
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: 11,
-                        textTransform: "uppercase",
-                        letterSpacing: ".12em",
-                        color: "var(--ink-2)",
-                      }}
-                    >
+          <SectionHead
+            eyebrow="Case studies"
+            title={
+              <>
+                Four shipped products. <em>All verifiable.</em>
+              </>
+            }
+            note="Problem, approach, outcome. Real timelines, real stacks, real users. Ask for a demo or a reference call — we encourage it."
+          />
+          <StackingCards
+            items={caseStudies.map((c) => (
+              <article key={c.n} className="case-card">
+                <div className="case-card__head">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="case-card__n">{c.n}</span>
+                    <span className="text-[13px] font-medium text-[var(--muted)]">
                       {c.tag}
                     </span>
                   </div>
-                  <Link
-                    to={c.href}
-                    data-hover
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: 12,
-                      textTransform: "uppercase",
-                      letterSpacing: ".12em",
-                      color: "var(--ink)",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Read case study →
+                  <Link to={c.href} className="case-card__link" data-hover>
+                    Read case study <ArrowRight size={15} />
                   </Link>
                 </div>
-                <h3
-                  style={{
-                    fontFamily: "var(--display)",
-                    fontSize: "clamp(22px, 2.4vw, 32px)",
-                    fontWeight: 500,
-                    letterSpacing: "-.02em",
-                    lineHeight: 1.25,
-                    margin: 0,
-                    color: "var(--ink)",
-                  }}
-                >
-                  {c.title}
-                </h3>
-                <div
-                  style={{
-                    display: "grid",
-                    gap: 20,
-                    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-                    borderTop: "1px solid var(--line)",
-                    paddingTop: 24,
-                  }}
-                >
+                <h3 className="case-card__title">{c.title}</h3>
+                <div className="case-card__grid">
                   {[
                     { k: "Problem", v: c.problem },
                     { k: "Approach", v: c.approach },
                     { k: "Outcome", v: c.outcome },
                   ].map((r) => (
                     <div key={r.k}>
-                      <div
-                        style={{
-                          fontFamily: "var(--mono)",
-                          fontSize: 11,
-                          textTransform: "uppercase",
-                          letterSpacing: ".14em",
-                          color: "var(--muted)",
-                          marginBottom: 10,
-                        }}
-                      >
-                        {r.k}
-                      </div>
-                      <p
-                        style={{
-                          margin: 0,
-                          color: "var(--ink-2)",
-                          fontSize: 15,
-                          lineHeight: 1.55,
-                        }}
-                      >
-                        {r.v}
-                      </p>
+                      <div className="case-card__k">{r.k}</div>
+                      <p>{r.v}</p>
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </article>
             ))}
-          </div>
+          />
         </div>
       </section>
 
-      {/* ── AI-augmented positioning ── */}
-      <section
-        className="s"
-        style={{
-          background: "var(--bg-2)",
-          borderTop: "1px solid var(--line)",
-          borderBottom: "1px solid var(--line)",
-        }}
-      >
-        <div className="wrap">
-          <div className="s-head">
-            <AnimateIn direction="up">
-              <div>
-                <div className="eyebrow reveal">How we deliver in weeks</div>
-                <h2 className="s-title" data-d="1">
-                  AI-augmented, senior-reviewed. <em>Both, not either.</em>
-                </h2>
-              </div>
-            </AnimateIn>
-            <p
-              className="reveal"
-              data-d="2"
-              style={{
-                maxWidth: "34ch",
-                color: "var(--ink-2)",
-                fontSize: 16,
-                lineHeight: 1.55,
-                margin: 0,
-              }}
-            >
-              We use Claude Code, Cursor and agentic workflows to move faster on
-              scaffolding, tests, migrations and plumbing. Every AI-generated
-              change is reviewed by a senior engineer before it reaches your
-              repo. That is how we ship fintech in two weeks without cutting
-              corners.
+      {/* ── AI-augmented + team (dark) ── */}
+      <section className="s dark band-dark">
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[var(--accent)] opacity-[0.12] blur-[120px]" />
+        <div className="wrap relative">
+          <SectionHead
+            eyebrow="How we deliver in weeks"
+            title={
+              <>
+                AI-augmented, senior-reviewed. <em>Both, not either.</em>
+              </>
+            }
+            note="We use Claude Code, Cursor and agentic workflows to move faster on scaffolding, tests, migrations and plumbing. Every AI-generated change is reviewed by a senior engineer before it reaches your repo. That is how we ship fintech in two weeks without cutting corners."
+          />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {aiPoints.map(({ Icon, k, v }, i) => (
+              <motion.div key={k} {...rise(i)} className="glow-card">
+                <span className="tile-icon tile-icon--dark">
+                  <Icon size={20} />
+                </span>
+                <div className="mt-8 text-[15px] font-semibold text-white">{k}</div>
+                <p className="mt-2 text-[15px] leading-relaxed text-white/60">{v}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-24 border-t border-white/10 pt-20">
+            <SectionHead
+              eyebrow="Who you're working with"
+              title={
+                <>
+                  Digital product agency. <em>Senior by design.</em>
+                </>
+              }
+              action={
+                <Link to="/about" className="btn-outline btn-outline--dark" data-hover>
+                  More about the agency <ArrowUpRight size={16} />
+                </Link>
+              }
+            />
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              {team.map(({ Icon, k, title, body }, i) => (
+                <motion.div key={k} {...rise(i)} className="glow-card">
+                  <div className="flex items-center justify-between">
+                    <span className="tile-icon tile-icon--dark">
+                      <Icon size={20} />
+                    </span>
+                    <span className="text-[13px] font-medium text-white/40">{k}</span>
+                  </div>
+                  <h3 className="mt-8 text-[22px] font-semibold tracking-[-0.03em] text-white">
+                    {title}
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-white/60">{body}</p>
+                </motion.div>
+              ))}
+            </div>
+            <p className="mt-10 max-w-[60ch] text-[14px] text-white/50">
+              Based in Anand, Gujarat. Working with founders and agencies in the
+              US, UK, EU and Australia. Four-plus hours overlap with US East;
+              full working-day overlap with the UK.
             </p>
           </div>
-          <div
-            style={{
-              display: "grid",
-              gap: 12,
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            }}
-          >
-            {[
-              {
-                k: "Faster delivery",
-                v: "MVPs in two to four weeks, not two to four quarters.",
-              },
-              {
-                k: "Lower cost",
-                v: "Less time on repetitive plumbing means smaller invoices for the same outcome.",
-              },
-              {
-                k: "Senior review, always",
-                v: "No unreviewed AI output lands in your codebase. A human reads every diff.",
-              },
-              {
-                k: "Direct access",
-                v: "Slack or WhatsApp with the engineer writing your code. No relay.",
-              },
-            ].map((r) => (
-              <div
-                key={r.k}
-                style={{
-                  border: "1px solid var(--line)",
-                  borderRadius: 14,
-                  padding: "22px 24px",
-                  background: "var(--bg)",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--mono)",
-                    fontSize: 11,
-                    textTransform: "uppercase",
-                    letterSpacing: ".14em",
-                    color: "var(--muted)",
-                    marginBottom: 10,
-                  }}
-                >
-                  {r.k}
-                </div>
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "var(--display)",
-                    fontSize: 18,
-                    letterSpacing: "-.01em",
-                    lineHeight: 1.4,
-                    color: "var(--ink)",
-                  }}
-                >
-                  {r.v}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* ── Team: founder-led ── */}
-      <section
-        style={{
-          background: "var(--ink)",
-          color: "var(--bg)",
-          padding: "120px 0",
-          borderTop: "1px solid rgba(255,255,255,.06)",
-        }}
-      >
+      {/* ── Tech stack (light) ── */}
+      <section className="s">
         <div className="wrap">
-          <div className="s-head" style={{ marginBottom: 40 }}>
-            <div>
-              <div
-                className="eyebrow reveal"
-                style={{ color: "rgba(255,255,255,.5)" }}
-              >
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: 24,
-                    height: 1,
-                    background: "rgba(255,255,255,.3)",
-                    flexShrink: 0,
-                  }}
-                />
-                Who you're working with
-              </div>
-              <h2
-                className="s-title reveal"
-                data-d="1"
-                style={{ color: "var(--bg)" }}
-              >
-                Digital product agency. <em>Senior by design.</em>
-              </h2>
-            </div>
-            <Magnetic>
-              <Link
-                to="/about"
-                className="btn-ghost reveal"
-                data-d="2"
-                data-hover
-                style={{
-                  color: "var(--bg)",
-                  borderColor: "rgba(255,255,255,.25)",
-                }}
-              >
-                More about the agency <span className="arr" />
-              </Link>
-            </Magnetic>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gap: 24,
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              maxWidth: 1100,
-            }}
-          >
-            {[
-              {
-                k: "Expertise",
-                title: "Senior Engineering",
-                body: "Our team brings deep enterprise MERN stack expertise — MongoDB, Express, React, Node. Every engagement benefits from robust architecture design and thorough code reviews.",
-              },
-              {
-                k: "The Team",
-                title: "Full-Service Delivery",
-                body: "Engineers, designers, QA, and project managers — all working together in-house. No rotating cast of freelancers. We scale resources dynamically to fit your roadmap.",
-              },
-              {
-                k: "Our Process",
-                title: "Structured Project Management",
-                body: "Dedicated delivery management, daily async progress updates, weekly demos, and transparent communication. Full code repository access from day one.",
-              },
-            ].map((r, i) => (
-              <motion.div
-                key={r.k}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                style={{
-                  border: "1px solid rgba(255,255,255,.1)",
-                  borderRadius: 14,
-                  padding: "28px 26px",
-                  background: "rgba(255,255,255,.02)",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--mono)",
-                    fontSize: 11,
-                    textTransform: "uppercase",
-                    letterSpacing: ".14em",
-                    color: "rgba(255,255,255,.5)",
-                    marginBottom: 14,
-                  }}
-                >
-                  {r.k}
+          <SectionHead
+            eyebrow="The stack"
+            title={
+              <>
+                Boring tools, used <em>well.</em>
+              </>
+            }
+            note="No framework religion here. We pick whatever the team can still maintain after we’ve gone home, and we keep up with the field so you don’t have to."
+          />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {techStack.map(({ Icon, cat, tools }, i) => (
+              <motion.div key={cat} {...rise(i)} className="stack-card">
+                <div className="flex items-center gap-2.5 text-[13px] font-semibold text-[var(--accent)]">
+                  <Icon size={16} />
+                  {cat}
                 </div>
-                <div
-                  style={{
-                    fontFamily: "var(--display)",
-                    fontSize: 22,
-                    fontWeight: 500,
-                    letterSpacing: "-.01em",
-                    lineHeight: 1.25,
-                    marginBottom: 12,
-                    color: "var(--bg)",
-                  }}
-                >
-                  {r.title}
+                <div className="mt-4 text-[20px] font-semibold leading-snug tracking-[-0.03em]">
+                  {tools}
                 </div>
-                <p
-                  style={{
-                    margin: 0,
-                    color: "rgba(255,255,255,.65)",
-                    fontSize: 15,
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {r.body}
-                </p>
               </motion.div>
             ))}
           </div>
-          <p
-            className="reveal"
-            style={{
-              marginTop: 40,
-              fontFamily: "var(--mono)",
-              fontSize: 13,
-              color: "rgba(255,255,255,.55)",
-              letterSpacing: ".02em",
-              maxWidth: "60ch",
-            }}
-          >
-            Based in Anand, Gujarat. Working with founders and agencies in the
-            US, UK, EU and Australia. Four-plus hours overlap with US East; full
-            working-day overlap with the UK.
-          </p>
         </div>
       </section>
 
       {/* ── Stats band ── */}
-      <section className="band" style={{ borderTop: "1px solid var(--line)" }}>
+      <section className="band">
         <div className="wrap">
           <div className="band-grid">
             {bandStats.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{
-                  delay: i * 0.1,
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 18,
-                }}
-              >
+              <motion.div key={i} {...rise(i)}>
                 <div className="b-stat__n">
                   <CountUp to={s.n} />
                   <span className="unit">{s.unit}</span>
@@ -1651,60 +1085,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FAQ Section ── */}
+      {/* ── FAQ ── */}
       <Faq
         faqs={homepageFaqs}
         sub="The questions foreign founders ask before writing a first email. If yours is not here, write anyway — hello@satvixtech.com, one senior engineer, one business day."
       />
 
       {/* ── CTA ── */}
-      <section className="cta-section relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares
-            squareSize={60}
-            direction="up"
-            speed={0.08}
-            borderColor="#ffffff"
-          />
-        </div>
-        <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div
-            className="eyebrow reveal"
-            style={{
-              color: "rgba(255, 255, 255,.55)",
-              justifyContent: "center",
-              marginBottom: 24,
-            }}
-          >
-            One inbox, one human, no funnel
-          </div>
-          <h2 className="reveal" data-d="1">
+      <MarqueeCta
+        label="One inbox, one human, no funnel"
+        words="Worth building · Worth shipping · Worth keeping · "
+        title={
+          <>
             Got something worth <em>building?</em>
-          </h2>
-          <Magnetic>
-            <a
-              href="mailto:hello@satvixtech.com"
-              className="big-cta reveal"
-              data-d="2"
-              data-hover
-            >
-              hello@satvixtech.com
-              <span className="arrow">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14m-6-6 6 6-6 6" />
-                </svg>
-              </span>
-            </a>
-          </Magnetic>
-        </div>
-      </section>
+          </>
+        }
+        note="No decks, no detours: one call, your problem, and a senior team that ships. A real person replies within one business day."
+      >
+        <a href="mailto:hello@satvixtech.com" className="mcta__btn" data-hover>
+          hello@satvixtech.com
+          <span className="mcta__btn-arrow">
+            <ArrowUpRight size={18} />
+          </span>
+        </a>
+      </MarqueeCta>
     </div>
   );
 }

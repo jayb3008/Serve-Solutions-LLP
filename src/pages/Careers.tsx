@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Clock, ArrowUpRight } from "lucide-react";
 import SEO from "../components/SEO";
+import RevealText from "../components/ui/reveal-text";
+import MarqueeCta from "../components/ui/marquee-cta";
 import Faq from "../components/Faq";
-import Squares from "../components/ui/squares";
-import Magnetic from "../components/Magnetic";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -146,15 +146,6 @@ export default function Careers() {
 
       {/* Hero */}
       <section className="page-hero relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(18, 21, 24, 0.03)"
-          />
-        </div>
         <div className="wrap relative z-10">
           {/* <div className="page-hero__eyebrow">
             <span className="ping" />
@@ -200,7 +191,7 @@ export default function Careers() {
             <div>
               <div className="eyebrow reveal">Why you might stay</div>
               <h2 className="s-title reveal" data-d="1">
-                An agency that is <em>built around the work.</em>
+                <RevealText>An agency that is <em>built around the work.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -234,7 +225,7 @@ export default function Careers() {
                 The benefits we actually mean
               </div>
               <h2 className="s-title reveal" data-d="1">
-                Eight things, <em>no fine print.</em>
+                <RevealText>Eight things, <em>no fine print.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -285,7 +276,7 @@ export default function Careers() {
             <div>
               <div className="eyebrow reveal">Open rooms</div>
               <h2 className="s-title reveal" data-d="1">
-                Six chairs <em>currently empty.</em>
+                <RevealText>Six chairs <em>currently empty.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -306,28 +297,24 @@ export default function Careers() {
                   {o.role}
                 </div>
                 <div
-                  style={{
+                  style={{ fontWeight: 500,
                     display: "flex",
                     alignItems: "center",
                     gap: 8,
-                    fontFamily: "var(--mono)",
-                    fontSize: 12,
-                    textTransform: "uppercase",
-                    letterSpacing: ".08em",
+                    fontSize: 13,
+                    letterSpacing: "-0.005em",
                     color: "var(--ink-2)",
                   }}
                 >
                   <Clock size={14} /> {o.type}
                 </div>
                 <div
-                  style={{
+                  style={{ fontWeight: 500,
                     display: "flex",
                     alignItems: "center",
                     gap: 8,
-                    fontFamily: "var(--mono)",
-                    fontSize: 12,
-                    textTransform: "uppercase",
-                    letterSpacing: ".08em",
+                    fontSize: 13,
+                    letterSpacing: "-0.005em",
                     color: "var(--ink-2)",
                   }}
                 >
@@ -386,7 +373,7 @@ export default function Careers() {
                 data-d="1"
                 style={{ color: "var(--bg)" }}
               >
-                Four steps, no <em>vibes interviews.</em>
+                <RevealText>Four steps, no <em>vibes interviews.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -440,53 +427,18 @@ export default function Careers() {
       <Faq faqs={careersFaqs} eyebrow="What candidates ask us" />
 
       {/* CTA */}
-      <section className="cta-section relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares
-            squareSize={60}
-            direction="up"
-            speed={0.08}
-            borderColor="#ffffff"
-          />
-        </div>
-        <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div
-            className="eyebrow reveal"
-            style={{
-              color: "rgba(255,255,255,.55)",
-              justifyContent: "center",
-              marginBottom: 24,
-            }}
-          >
-            One inbox. A person reads it.
-          </div>
-          <h2 className="reveal" data-d="1">
-            Send something — even a <em>rough draft.</em>
-          </h2>
-          <Magnetic>
-            <a
-              href="mailto:careers@satvixtech.com"
-              className="big-cta reveal"
-              data-d="2"
-              data-hover
-            >
-              careers@satvixtech.com
-              <span className="arrow">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14m-6-6 6 6-6 6" />
-                </svg>
-              </span>
-            </a>
-          </Magnetic>
-        </div>
-      </section>
+      <MarqueeCta
+        label="One inbox. A person reads it."
+        words="rough draft · Satvix · "
+        title={<>Send something — even a <em>rough draft.</em></>}
+      >
+        <a href="mailto:careers@satvixtech.com" className="mcta__btn" data-hover>
+          careers@satvixtech.com
+          <span className="mcta__btn-arrow">
+            <ArrowUpRight size={18} />
+          </span>
+        </a>
+      </MarqueeCta>
     </div>
   );
 }

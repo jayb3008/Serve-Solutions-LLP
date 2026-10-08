@@ -1,18 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Code2,
-  Smartphone,
-  Cpu,
-  Server,
-  Palette,
-  ShieldCheck,
-  ArrowRight,
-} from "lucide-react";
+import { Code2, Smartphone, Cpu, Server, Palette, ShieldCheck, ArrowUpRight } from "lucide-react";
 import SEO from "../components/SEO";
+import RevealText from "../components/ui/reveal-text";
+import MarqueeCta from "../components/ui/marquee-cta";
 import Faq from "../components/Faq";
-import Magnetic from "../components/Magnetic";
-import Squares from "../components/ui/squares";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -147,15 +139,6 @@ export default function Hire() {
 
       {/* Hero */}
       <section className="page-hero relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(18, 21, 24, 0.03)"
-          />
-        </div>
         <div className="wrap relative z-10">
           {/* <div className="page-hero__eyebrow">
             <span className="ping" />
@@ -196,7 +179,7 @@ export default function Hire() {
             <div>
               <div className="eyebrow reveal">Three ways to work together</div>
               <h2 className="s-title reveal" data-d="1">
-                Pick the <em>shape</em> that fits.
+                <RevealText>Pick the <em>shape</em> that fits.</RevealText>
               </h2>
             </div>
           </div>
@@ -222,14 +205,12 @@ export default function Hire() {
                   {m.points.map((p) => (
                     <li
                       key={p}
-                      style={{
+                      style={{ fontWeight: 500,
                         display: "flex",
                         gap: 10,
                         alignItems: "center",
                         fontSize: 13,
-                        fontFamily: "var(--mono)",
-                        textTransform: "uppercase",
-                        letterSpacing: ".06em",
+                        letterSpacing: "-0.005em",
                       }}
                     >
                       <span
@@ -284,7 +265,7 @@ export default function Hire() {
                 data-d="1"
                 style={{ color: "var(--bg)" }}
               >
-                Specialists who have actually <em>shipped one of these.</em>
+                <RevealText>Specialists who have actually <em>shipped one of these.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -327,7 +308,7 @@ export default function Hire() {
                   style={{
                     margin: 0,
                     color: "rgba(255,255,255,.6)",
-                    fontFamily: "var(--mono)",
+                    fontFamily: "var(--sans)",
                     fontSize: 13,
                     letterSpacing: ".02em",
                   }}
@@ -347,7 +328,7 @@ export default function Hire() {
             <div>
               <div className="eyebrow reveal">How it goes</div>
               <h2 className="s-title reveal" data-d="1">
-                Brief, shortlist, start, scale — in <em>that order.</em>
+                <RevealText>Brief, shortlist, start, scale — in <em>that order.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -376,44 +357,18 @@ export default function Hire() {
       />
 
       {/* CTA */}
-      <section className="cta-section relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares
-            squareSize={60}
-            direction="up"
-            speed={0.08}
-            borderColor="#ffffff"
-          />
-        </div>
-        <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div
-            className="eyebrow reveal"
-            style={{
-              color: "rgba(255,255,255,.55)",
-              justifyContent: "center",
-              marginBottom: 24,
-            }}
-          >
-            We will reply within a working day
-          </div>
-          <h2 className="reveal" data-d="1">
-            Tell us what your <em>team is missing.</em>
-          </h2>
-          <Magnetic>
-            <Link
-              to="/contact"
-              className="big-cta reveal"
-              data-d="2"
-              data-hover
-            >
-              Send a brief
-              <span className="arrow">
-                <ArrowRight size={18} />
-              </span>
-            </Link>
-          </Magnetic>
-        </div>
-      </section>
+      <MarqueeCta
+        label="We will reply within a working day"
+        words="team is missing · Satvix · "
+        title={<>Tell us what your <em>team is missing.</em></>}
+      >
+        <Link to="/contact" className="mcta__btn" data-hover>
+          Send a brief
+          <span className="mcta__btn-arrow">
+            <ArrowUpRight size={18} />
+          </span>
+        </Link>
+      </MarqueeCta>
     </div>
   );
 }

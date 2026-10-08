@@ -2,9 +2,10 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import RevealText from "../components/ui/reveal-text";
+import { ArrowUpRight } from "lucide-react";
+import MarqueeCta from "../components/ui/marquee-cta";
 import Faq from "../components/Faq";
-import Squares from "../components/ui/squares";
-import Magnetic from "../components/Magnetic";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -204,15 +205,6 @@ export default function GraphicDesign() {
 
       {/* Page hero */}
       <section className="page-hero relative overflow-hidden" ref={heroRef}>
-        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(18, 21, 24, 0.03)"
-          />
-        </div>
         <div className="wrap relative z-10">
           <h1>
             {(
@@ -302,7 +294,7 @@ export default function GraphicDesign() {
             <div>
               <div className="eyebrow reveal">Capabilities</div>
               <h2 className="s-title reveal" data-d="1">
-                Four disciplines, <em>one design team.</em>
+                <RevealText>Four disciplines, <em>one design team.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -364,7 +356,7 @@ export default function GraphicDesign() {
                 data-d="1"
                 style={{ color: "var(--bg)" }}
               >
-                Design that <em>earns attention.</em>
+                <RevealText>Design that <em>earns attention.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -416,7 +408,7 @@ export default function GraphicDesign() {
             <div>
               <div className="eyebrow reveal">Tools</div>
               <h2 className="s-title reveal" data-d="1">
-                Our design <em>toolkit.</em>
+                <RevealText>Our design <em>toolkit.</em></RevealText>
               </h2>
             </div>
             <p
@@ -456,7 +448,7 @@ export default function GraphicDesign() {
             <div>
               <div className="eyebrow reveal">How we work</div>
               <h2 className="s-title reveal" data-d="1">
-                From brief to <em>print-ready.</em>
+                <RevealText>From brief to <em>print-ready.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -468,7 +460,7 @@ export default function GraphicDesign() {
                   style={{
                     fontSize: 20,
                     letterSpacing: ".04em",
-                    fontFamily: "var(--mono)",
+                    fontFamily: "var(--sans)",
                     fontWeight: 400,
                     color: "var(--muted)",
                   }}
@@ -487,69 +479,18 @@ export default function GraphicDesign() {
       <Faq faqs={faqs} eyebrow="05 Things people often ask" />
 
       {/* CTA */}
-      <section className="cta-section relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares
-            squareSize={60}
-            direction="up"
-            speed={0.08}
-            borderColor="#ffffff"
-          />
-        </div>
-        <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div
-            className="eyebrow reveal"
-            style={{
-              color: "rgba(255, 255, 255,.55)",
-              justifyContent: "center",
-              marginBottom: 24,
-            }}
-          >
-            Let's make something worth looking at
-          </div>
-          <h2 className="reveal" data-d="1">
-            Ready to look the <em>part?</em>
-          </h2>
-          <Magnetic>
-            <a
-              href="mailto:hello@satvixtech.com"
-              className="big-cta reveal"
-              data-d="2"
-              data-hover
-            >
-              hello@satvixtech.com
-              <span className="arrow">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14m-6-6 6 6-6 6" />
-                </svg>
-              </span>
-            </a>
-          </Magnetic>
-          <div style={{ marginTop: 48 }}>
-            <Magnetic>
-              <Link
-                to="/services"
-                className="btn-ghost reveal"
-                data-d="3"
-                data-hover
-                style={{
-                  color: "var(--bg)",
-                  borderColor: "rgba(255, 255, 255, 0.25)",
-                }}
-              >
-                All services <span className="arr" />
-              </Link>
-            </Magnetic>
-          </div>
-        </div>
-      </section>
+      <MarqueeCta
+        label="Let's make something worth looking at"
+        words="part · Satvix · "
+        title={<>Ready to look the <em>part?</em></>}
+      >
+        <Link to="/services" className="mcta__btn" data-hover>
+          All services
+          <span className="mcta__btn-arrow">
+            <ArrowUpRight size={18} />
+          </span>
+        </Link>
+      </MarqueeCta>
     </div>
   );
 }

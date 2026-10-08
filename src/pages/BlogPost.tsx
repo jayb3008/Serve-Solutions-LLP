@@ -1,7 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
-import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 import { posts, postBySlug } from "../data/blog";
 import { renderInline } from "../lib/prose";
@@ -66,15 +65,6 @@ export default function BlogPost() {
           className="page-hero relative overflow-hidden"
           style={{ paddingBottom: 56 }}
         >
-          <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-            <Squares
-              squareSize={65}
-              direction="diagonal"
-              speed={0.15}
-              borderColor="rgba(18, 21, 24, 0.08)"
-              hoverFillColor="rgba(18, 21, 24, 0.03)"
-            />
-          </div>
           <div className="wrap relative z-10" style={{ maxWidth: 900 }}>
             {/* <div className="page-hero__eyebrow">
               <span className="ping" />
@@ -124,12 +114,10 @@ export default function BlogPost() {
                   {post.author}
                 </div>
                 <div
-                  style={{
-                    fontFamily: "var(--mono)",
-                    fontSize: 12,
+                  style={{ fontWeight: 500,
+                    fontSize: 13,
                     color: "var(--muted)",
-                    textTransform: "uppercase",
-                    letterSpacing: ".08em",
+                    letterSpacing: "-0.005em",
                   }}
                 >
                   {post.role} · {post.date}
@@ -188,7 +176,6 @@ export default function BlogPost() {
                       borderLeft: "3px solid var(--accent)",
                       fontFamily: "var(--display)",
                       fontWeight: 400,
-                      fontStyle: "italic",
                       fontSize: "clamp(22px, 2.6vw, 30px)",
                       lineHeight: 1.3,
                       letterSpacing: "-.02em",
@@ -229,7 +216,9 @@ export default function BlogPost() {
                             flexShrink: 0,
                           }}
                         />
-                        {renderInline(it)}
+                        {/* One flex child: bare text + <a> siblings would each
+                            become their own column. */}
+                        <span>{renderInline(it)}</span>
                       </li>
                     ))}
                   </ul>
@@ -298,14 +287,6 @@ export default function BlogPost() {
             paddingBottom: 80,
           }}
         >
-          <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none">
-            <Squares
-              squareSize={60}
-              direction="up"
-              speed={0.06}
-              borderColor="rgba(18, 21, 24, 0.08)"
-            />
-          </div>
           <div className="wrap relative z-10">
             <div className="eyebrow reveal" style={{ marginBottom: 32 }}>
               Read next
@@ -314,7 +295,7 @@ export default function BlogPost() {
               <div
                 className="svc__num"
                 style={{
-                  fontFamily: "var(--mono)",
+                  fontFamily: "var(--sans)",
                   fontSize: 12,
                   color: "var(--muted)",
                 }}

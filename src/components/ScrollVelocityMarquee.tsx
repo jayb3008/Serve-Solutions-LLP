@@ -80,7 +80,6 @@ export default function ScrollVelocityMarquee({
               display: "inline-block",
               fontSize: "clamp(60px, 8vw, 120px)",
               fontFamily: "var(--display)",
-              fontStyle: "italic",
               fontWeight: 400,
               color: `rgba(18, 21, 24, 0.08)`,
               lineHeight: 1,

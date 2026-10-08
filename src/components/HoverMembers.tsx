@@ -133,7 +133,6 @@ export default function HoverMembers({
               fontWeight: 500,
               letterSpacing: "-0.045em",
               lineHeight: 0.88,
-              fontStyle: "italic",
               color: hovered ? "var(--accent)" : "transparent",
               WebkitTextStroke: hovered
                 ? "none"
@@ -154,11 +153,9 @@ export default function HoverMembers({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.24, ease, delay: 0.1 }}
-              style={{
-                fontFamily: "var(--mono)",
-                fontSize: 12,
-                textTransform: "uppercase",
-                letterSpacing: ".14em",
+              style={{ fontWeight: 500,
+                fontSize: 13,
+                letterSpacing: "-0.005em",
                 color: "rgba(255,255,255,.5)",
                 display: "flex",
                 alignItems: "center",

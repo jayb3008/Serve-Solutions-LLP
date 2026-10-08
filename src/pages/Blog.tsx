@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
-import Squares from "../components/ui/squares";
+import { ArrowUpRight } from "lucide-react";
+import MarqueeCta from "../components/ui/marquee-cta";
 import Magnetic from "../components/Magnetic";
 import { posts } from "../data/blog";
 
@@ -42,15 +43,6 @@ export default function Blog() {
 
       {/* Page hero */}
       <section className="page-hero relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(18, 21, 24, 0.03)"
-          />
-        </div>
         <div className="wrap relative z-10">
           {/* <div className="page-hero__eyebrow">
             <span className="ping" />
@@ -175,14 +167,12 @@ export default function Blog() {
         <div className="wrap">
           {rest.length === 0 && !showFeatured && (
             <p
-              style={{
+              style={{ fontWeight: 500,
                 color: "var(--muted)",
-                fontFamily: "var(--mono)",
                 fontSize: 13,
                 marginTop: 48,
                 textAlign: "center",
-                letterSpacing: ".08em",
-                textTransform: "uppercase",
+                letterSpacing: "-0.005em",
               }}
             >
               No articles in this category yet.
@@ -200,7 +190,7 @@ export default function Blog() {
                 <div
                   className="svc__num"
                   style={{
-                    fontFamily: "var(--mono)",
+                    fontFamily: "var(--sans)",
                     fontSize: 12,
                     letterSpacing: ".08em",
                     color: "var(--muted)",
@@ -211,11 +201,9 @@ export default function Blog() {
                 </div>
                 <div style={{ flex: "0 0 auto" }}>
                   <span
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: 10,
-                      textTransform: "uppercase",
-                      letterSpacing: ".12em",
+                    style={{ fontWeight: 500,
+                      fontSize: 13,
+                      letterSpacing: "-0.005em",
                       padding: "5px 10px",
                       border: "1px solid var(--line)",
                       borderRadius: 999,
@@ -260,23 +248,19 @@ export default function Blog() {
                   }}
                 >
                   <span
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: 11,
+                    style={{ fontWeight: 500,
+                      fontSize: 13,
                       color: "var(--muted)",
-                      textTransform: "uppercase",
-                      letterSpacing: ".08em",
+                      letterSpacing: "-0.005em",
                     }}
                   >
                     {p.date}
                   </span>
                   <span
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: 11,
+                    style={{ fontWeight: 500,
+                      fontSize: 13,
                       color: "var(--muted)",
-                      textTransform: "uppercase",
-                      letterSpacing: ".08em",
+                      letterSpacing: "-0.005em",
                     }}
                   >
                     {p.read} read
@@ -342,7 +326,6 @@ export default function Blog() {
               One letter, no{" "}
               <em
                 style={{
-                  fontStyle: "italic",
                   fontWeight: 300,
                   color: "var(--accent)",
                 }}
@@ -376,6 +359,7 @@ export default function Blog() {
                 required
                 style={{
                   flex: 1,
+                  minWidth: 0,
                   background: "rgba(255, 255, 255,.07)",
                   border: "1px solid rgba(255, 255, 255,.18)",
                   borderRight: "none",
@@ -419,54 +403,18 @@ export default function Blog() {
       </section>
 
       {/* CTA */}
-      <section className="cta-section relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-          <Squares
-            squareSize={60}
-            direction="up"
-            speed={0.08}
-            borderColor="#ffffff"
-          />
-        </div>
-        <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div
-            className="eyebrow reveal"
-            style={{
-              color: "rgba(255, 255, 255,.55)",
-              justifyContent: "center",
-              marginBottom: 24,
-            }}
-          >
-            Finished reading? Want to work together?
-          </div>
-          <h2 className="reveal" data-d="1">
-            Got something worth <em>building?</em>
-          </h2>
-          <Magnetic>
-            <a
-              href="mailto:hello@satvixtech.com"
-              className="big-cta reveal"
-              data-d="2"
-              data-hover
-              style={{ display: "inline-block" }}
-            >
-              hello@satvixtech.com
-              <span className="arrow">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14m-6-6 6 6-6 6" />
-                </svg>
-              </span>
-            </a>
-          </Magnetic>
-        </div>
-      </section>
+      <MarqueeCta
+        label="Finished reading? Want to work together?"
+        words="building · Satvix · "
+        title={<>Got something worth <em>building?</em></>}
+      >
+        <a href="mailto:hello@satvixtech.com" className="mcta__btn" data-hover>
+          hello@satvixtech.com
+          <span className="mcta__btn-arrow">
+            <ArrowUpRight size={18} />
+          </span>
+        </a>
+      </MarqueeCta>
     </div>
   );
 }

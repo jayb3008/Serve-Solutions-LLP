@@ -5,7 +5,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -30,66 +30,6 @@ import GraphicDesign from "./pages/GraphicDesign";
 import Hire from "./pages/Hire";
 import Careers from "./pages/Careers";
 import LocationLanding from "./pages/LocationLanding";
-
-/* ── Custom cursor ── */
-function CursorTracker() {
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const dotRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (window.matchMedia("(pointer:coarse)").matches) return;
-
-    let x = window.innerWidth / 2,
-      y = window.innerHeight / 2;
-    let cx = x,
-      cy = y;
-    let rafId: number;
-
-    const onMove = (e: MouseEvent) => {
-      x = e.clientX;
-      y = e.clientY;
-      if (dotRef.current)
-        dotRef.current.style.transform = `translate(${x}px,${y}px) translate(-50%,-50%)`;
-    };
-    window.addEventListener("mousemove", onMove);
-
-    const loop = () => {
-      cx += (x - cx) * 0.18;
-      cy += (y - cy) * 0.18;
-      if (cursorRef.current)
-        cursorRef.current.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`;
-      rafId = requestAnimationFrame(loop);
-    };
-    rafId = requestAnimationFrame(loop);
-
-    const onEnter = (e: Event) => {
-      if (!(e.target instanceof Element)) return;
-      if (e.target.closest("[data-hover], a, button"))
-        cursorRef.current?.classList.add("hovering");
-    };
-    const onLeave = (e: Event) => {
-      if (!(e.target instanceof Element)) return;
-      if (e.target.closest("[data-hover], a, button"))
-        cursorRef.current?.classList.remove("hovering");
-    };
-    document.addEventListener("mouseenter", onEnter, true);
-    document.addEventListener("mouseleave", onLeave, true);
-
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(rafId);
-      document.removeEventListener("mouseenter", onEnter, true);
-      document.removeEventListener("mouseleave", onLeave, true);
-    };
-  }, []);
-
-  return (
-    <>
-      <div ref={cursorRef} className="cursor" />
-      <div ref={dotRef} className="cursor-dot" />
-    </>
-  );
-}
 
 /* ── Animated routes (fade transition between pages) ──
    `initial={false}` keeps the first paint (and the prerendered HTML) at full
@@ -175,9 +115,10 @@ function AnimatedRoutes() {
 /* ── App shell (router-agnostic: BrowserRouter on the client, StaticRouter on the server) ── */
 export function AppShell() {
   return (
-    <>
+    // reducedMotion="user": every framer animation on the site (reveals,
+    // stacking cards, parallax) honours the OS reduce-motion setting.
+    <MotionConfig reducedMotion="user">
       <div className="noise-overlay" />
-      <CursorTracker />
       <ScrollProgress />
       <ScrollToTop />
       <div style={{ minHeight: "100vh" }}>
@@ -187,7 +128,7 @@ export function AppShell() {
         </main>
         <Footer />
       </div>
-    </>
+    </MotionConfig>
   );
 }
 

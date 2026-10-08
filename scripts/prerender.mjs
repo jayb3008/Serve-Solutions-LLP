@@ -31,7 +31,7 @@ let template = await fs.readFile(path.join(distDir, 'index.html'), 'utf-8');
 // Vite fingerprints the filenames, so resolve them from the built assets
 // rather than hardcoding. Only the faces used above the fold are worth
 // preloading; preloading everything competes for the same bandwidth.
-const CRITICAL_FONTS = [/^inter-latin-wght-normal-/, /^instrument-serif-latin-400-normal-/];
+const CRITICAL_FONTS = [/^inter-latin-wght-normal-/];
 const assetFiles = await fs.readdir(path.join(distDir, 'assets'));
 const preloadTags = assetFiles
   .filter((f) => f.endsWith('.woff2') && CRITICAL_FONTS.some((re) => re.test(f)))

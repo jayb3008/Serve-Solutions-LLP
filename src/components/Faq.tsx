@@ -1,4 +1,5 @@
 import { useState, type ReactNode, type CSSProperties } from "react";
+import RevealText from "./ui/reveal-text";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import AnimateIn from "./AnimateIn";
@@ -40,7 +41,7 @@ function FaqItem({
       >
         <span
           style={{
-            fontFamily: "var(--mono)",
+            fontFamily: "var(--sans)",
             fontSize: 12,
             color: "var(--muted)",
             letterSpacing: ".14em",
@@ -149,7 +150,7 @@ export default function Faq({
             <div>
               <div className="eyebrow reveal">{eyebrow}</div>
               <h2 className="s-title" data-d="1">
-                {title}
+                <RevealText>{title}</RevealText>
               </h2>
             </div>
           </AnimateIn>

@@ -40,10 +40,12 @@ export default function RollingText({ words, interval = 3000, className, style }
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={words[idx]}
-          initial={{ y: "100%", opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: "-30%", opacity: 0 }}
-          transition={{ duration: 0.3, ease }}
+          // Blur-morph after the 21st.dev "Text Morph": the outgoing word
+          // dissolves upward into a blur as the next one sharpens in.
+          initial={{ y: "60%", opacity: 0, filter: "blur(8px)" }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          exit={{ y: "-40%", opacity: 0, filter: "blur(8px)" }}
+          transition={{ duration: 0.5, ease }}
           style={{
             display: "block",
             position: "absolute",

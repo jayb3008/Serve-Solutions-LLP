@@ -2,8 +2,10 @@ import { useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import RevealText from "../components/ui/reveal-text";
+import { ArrowUpRight } from "lucide-react";
+import MarqueeCta from "../components/ui/marquee-cta";
 import Faq from "../components/Faq";
-import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
@@ -346,15 +348,6 @@ export default function ProjectDetail() {
 
       {/* ── Page hero ── */}
       <section className="page-hero relative overflow-hidden" ref={heroRef}>
-        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(18, 21, 24, 0.03)"
-          />
-        </div>
         <div className="wrap relative z-10">
           {/* <div className="page-hero__eyebrow">
             <span className="ping" />
@@ -404,11 +397,9 @@ export default function ProjectDetail() {
               ].map((m) => (
                 <div key={m.label}>
                   <div
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: 11,
-                      textTransform: "uppercase",
-                      letterSpacing: ".12em",
+                    style={{ fontWeight: 500,
+                      fontSize: 13,
+                      letterSpacing: "-0.005em",
                       color: "var(--muted)",
                       marginBottom: 6,
                     }}
@@ -478,7 +469,7 @@ export default function ProjectDetail() {
                   border: "1px solid var(--line)",
                   borderRadius: 6,
                   padding: "5px 14px",
-                  fontFamily: "var(--mono)",
+                  fontFamily: "var(--sans)",
                   fontSize: 12,
                   color: "var(--muted)",
                   textAlign: "center",
@@ -522,11 +513,9 @@ export default function ProjectDetail() {
           {project.tags.map((t) => (
             <span
               key={t}
-              style={{
-                fontFamily: "var(--mono)",
-                fontSize: 11,
-                textTransform: "uppercase",
-                letterSpacing: ".12em",
+              style={{ fontWeight: 500,
+                fontSize: 13,
+                letterSpacing: "-0.005em",
                 color: "var(--ink-2)",
                 padding: "6px 14px",
                 border: "1px solid var(--line)",
@@ -586,7 +575,7 @@ export default function ProjectDetail() {
                   <span
                     key={t}
                     style={{
-                      fontFamily: "var(--mono)",
+                      fontFamily: "var(--sans)",
                       fontSize: 12,
                       padding: "8px 16px",
                       border: "1px solid var(--line)",
@@ -689,7 +678,7 @@ export default function ProjectDetail() {
                 data-d="1"
                 style={{ color: "var(--bg)", maxWidth: "14ch" }}
               >
-                Where we <em>landed.</em>
+                <RevealText>Where we <em>landed.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -707,10 +696,8 @@ export default function ProjectDetail() {
               <div
                 className="tl-year"
                 style={{
-                  fontFamily: "var(--mono)",
-                  fontSize: 12,
-                  textTransform: "uppercase",
-                  letterSpacing: ".12em",
+                  fontSize: 13,
+                  letterSpacing: "-0.005em",
                   color: "rgba(255, 255, 255,.45)",
                   fontWeight: 400,
                 }}
@@ -751,10 +738,8 @@ export default function ProjectDetail() {
               <div
                 className="tl-year"
                 style={{
-                  fontFamily: "var(--mono)",
-                  fontSize: 12,
-                  textTransform: "uppercase",
-                  letterSpacing: ".12em",
+                  fontSize: 13,
+                  letterSpacing: "-0.005em",
                   color: "rgba(255, 255, 255,.45)",
                   fontWeight: 400,
                 }}
@@ -869,91 +854,29 @@ export default function ProjectDetail() {
       )}
 
       {/* ── Next project ── */}
-      <section
-        className="cta-section relative overflow-hidden"
-        style={{ position: "relative" }}
-      >
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-          <Squares
-            squareSize={60}
-            direction="up"
-            speed={0.08}
-            borderColor="#ffffff"
-          />
-        </div>
-        <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div
-            className="eyebrow reveal"
-            style={{
-              color: "rgba(255, 255, 255,.45)",
-              justifyContent: "center",
-              marginBottom: 20,
-            }}
-          >
-            Up next in the archive
-          </div>
-          {nextProject && (
-            <p
-              className="reveal"
-              data-d="0"
-              style={{
-                fontFamily: "var(--mono)",
-                fontSize: 12,
-                textTransform: "uppercase",
-                letterSpacing: ".14em",
-                color: "rgba(255, 255, 255,.5)",
-                marginBottom: 16,
-              }}
-            >
-              {nextProject.category}
-            </p>
-          )}
-          {nextProject ? (
-            <Link
-              to={`/portfolio/${project.next}`}
-              style={{
-                textDecoration: "none",
-                color: "inherit",
-                display: "inline-block",
-              }}
-            >
-              <Magnetic>
-                <h2
-                  className="reveal animate-pulse-subtle"
-                  data-d="1"
-                  style={{
-                    fontSize: "clamp(36px,6vw,96px)",
-                    cursor: "pointer",
-                  }}
-                >
-                  {nextProject.title} <em>→</em>
-                </h2>
-              </Magnetic>
+      <MarqueeCta
+        label="Up next in the archive"
+        words={`${nextProject ? nextProject.title : "More work"} · Satvix · `}
+        title={
+          nextProject ? (
+            <Link to={`/portfolio/${project.next}`} className="hover:opacity-80" data-hover>
+              {nextProject.title} <em>→</em>
             </Link>
           ) : (
-            <h2
-              className="reveal"
-              data-d="1"
-              style={{ fontSize: "clamp(36px,6vw,96px)" }}
-            >
+            <>
               See more <em>→</em>
-            </h2>
-          )}
-          <div style={{ marginTop: 48 }}>
-            <Magnetic>
-              <Link
-                to="/portfolio"
-                className="btn-ghost reveal"
-                data-d="3"
-                data-hover
-                style={{ display: "inline-block" }}
-              >
-                Back to the archive <span className="arr" />
-              </Link>
-            </Magnetic>
-          </div>
-        </div>
-      </section>
+            </>
+          )
+        }
+        note={nextProject?.category}
+      >
+        <Link to="/portfolio" className="mcta__btn" data-hover>
+          Back to the archive
+          <span className="mcta__btn-arrow">
+            <ArrowUpRight size={18} />
+          </span>
+        </Link>
+      </MarqueeCta>
     </div>
   );
 }

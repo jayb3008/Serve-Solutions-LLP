@@ -2,9 +2,10 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import RevealText from "../components/ui/reveal-text";
+import { ArrowUpRight } from "lucide-react";
+import MarqueeCta from "../components/ui/marquee-cta";
 import Faq from "../components/Faq";
-import Squares from "../components/ui/squares";
-import Magnetic from "../components/Magnetic";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -124,15 +125,6 @@ export default function About() {
 
       {/* Page hero */}
       <section className="page-hero relative overflow-hidden" ref={heroRef}>
-        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(18, 21, 24, 0.03)"
-          />
-        </div>
         <div className="wrap relative z-10">
           {/* <div className="page-hero__eyebrow">
             <span className="ping" />
@@ -206,7 +198,7 @@ export default function About() {
             <div>
               <div className="eyebrow reveal">House rules</div>
               <h2 className="s-title reveal" data-d="1">
-                Six things we have <em>stopped arguing about.</em>
+                <RevealText>Six things we have <em>stopped arguing about.</em></RevealText>
               </h2>
             </div>
           </div>
@@ -232,13 +224,13 @@ export default function About() {
             <div>
               <div className="eyebrow reveal">A short history</div>
               <h2 className="s-title reveal" data-d="1">
-                A short, honest <em>timeline.</em>
+                <RevealText>A short, honest <em>timeline.</em></RevealText>
               </h2>
             </div>
           </div>
           <div className="tl-rows">
             {timeline.map((row, i) => (
-              <div key={row.year} className="tl-row reveal" data-d={String(i)}>
+              <div key={`${row.year}-${row.title}`} className="tl-row reveal" data-d={String(i)}>
                 <div className="tl-year">{row.year}</div>
                 <div className="tl-title">{row.title}</div>
                 <div className="tl-body">{row.body}</div>
@@ -266,47 +258,18 @@ export default function About() {
       <Faq faqs={aboutFaqs} eyebrow="05 Things people often ask" />
 
       {/* CTA */}
-      <section className="cta-section relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares
-            squareSize={60}
-            direction="down"
-            speed={0.08}
-            borderColor="#ffffff"
-          />
-        </div>
-        <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div
-            className="eyebrow reveal"
-            style={{
-              color: "rgba(255, 255, 255,.55)",
-              justifyContent: "center",
-              marginBottom: 24,
-            }}
-          >
-            Partners — not vendors, not retainers
-          </div>
-          <h2 className="reveal" data-d="1">
-            Want to <em>build the next one</em> with us?
-          </h2>
-          <Magnetic>
-            <Link
-              to="/contact"
-              className="cta-btn reveal"
-              data-d="2"
-              data-hover
-              style={{
-                background: "var(--accent)",
-                color: "var(--ink)",
-                marginTop: 40,
-              }}
-            >
-              Say hello{" "}
-              <span className="dot" style={{ background: "var(--ink)" }} />
-            </Link>
-          </Magnetic>
-        </div>
-      </section>
+      <MarqueeCta
+        label="Partners — not vendors, not retainers"
+        words="build the next one · Satvix · "
+        title={<>Want to <em>build the next one</em> with us?</>}
+      >
+        <Link to="/contact" className="mcta__btn" data-hover>
+          Say hello
+          <span className="mcta__btn-arrow">
+            <ArrowUpRight size={18} />
+          </span>
+        </Link>
+      </MarqueeCta>
     </div>
   );
 }

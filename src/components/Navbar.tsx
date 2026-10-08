@@ -85,17 +85,17 @@ export default function Navbar() {
         .mega__grid--one { grid-template-columns: minmax(0, 1fr); }
         .mega__link { display: block; min-width: 0; padding: 11px 13px; border-radius: 11px; transition: background .18s ease; }
         .mega__link:hover { background: var(--bg-2); }
-        .mega__link .t { font-family: var(--display); font-size: 15px; font-weight: 500; letter-spacing: -.01em; display: block; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .mega__link .t { font-family: var(--display); font-size: 15px; font-weight: 600; letter-spacing: -.02em; display: block; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .mega__link .d { font-size: 12px; color: var(--muted); line-height: 1.4; margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .mega__link--ind { padding: 10px 12px; font-family: var(--display); font-size: 14px; font-weight: 500; color: var(--ink); }
         .mega__foot { margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-        .mega__foot span { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
-        .mega__foot a { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 500; white-space: nowrap; }
+        .mega__foot span { font-size: 13px; color: var(--muted); }
+        .mega__foot a { font-size: 13px; color: var(--accent); font-weight: 600; white-space: nowrap; }
 
         @media (max-width: 1140px) { .nav-desktop { display: none !important; } .nav-hamburger { display: inline-flex !important; } }
         @media (min-width: 1141px) { .nav-hamburger { display: none !important; } }
 
-        .m-acc { width: 100%; display:flex; align-items:center; justify-content:space-between; background:none; border:none; text-align:left; color: var(--bg); font-family: var(--display); font-weight: 500; font-size: clamp(26px,7vw,40px); letter-spacing:-.02em; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.08); cursor: pointer; }
+        .m-acc { width: 100%; display:flex; align-items:center; justify-content:space-between; background:none; border:none; text-align:left; color: var(--bg); font-family: var(--display); font-weight: 600; font-size: clamp(26px,7vw,40px); letter-spacing:-.02em; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.08); cursor: pointer; }
         .m-sub { display:flex; flex-direction:column; gap:2px; padding: 4px 0 14px; }
         .m-sub a { color: rgba(255,255,255,.7); font-size: 16px; padding: 7px 0; font-family: var(--sans); }
         .m-sub a:hover { color: var(--accent); }

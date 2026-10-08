@@ -83,15 +83,13 @@ export default function TestimonialSlider({ items }: Props) {
             >
               {/* Index counter */}
               <div
-                style={{
+                style={{ fontWeight: 500,
                   position: "absolute",
                   top: "clamp(24px, 4vw, 48px)",
                   right: "clamp(24px, 4vw, 48px)",
-                  fontFamily: "var(--mono)",
-                  fontSize: 12,
-                  letterSpacing: ".12em",
+                  fontSize: 13,
+                  letterSpacing: "-0.005em",
                   color: "var(--muted)",
-                  textTransform: "uppercase",
                 }}
               >
                 {String(i + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
@@ -118,7 +116,6 @@ export default function TestimonialSlider({ items }: Props) {
                   fontSize: "clamp(64px, 9vw, 120px)",
                   lineHeight: 0.7,
                   color: "var(--accent)",
-                  fontStyle: "italic",
                   marginBottom: "clamp(20px, 3vw, 36px)",
                   userSelect: "none",
                 }}
@@ -167,7 +164,6 @@ export default function TestimonialSlider({ items }: Props) {
                       display: "grid",
                       placeItems: "center",
                       fontFamily: "var(--display)",
-                      fontStyle: "italic",
                       fontSize: 22,
                       flexShrink: 0,
                     }}
@@ -185,12 +181,10 @@ export default function TestimonialSlider({ items }: Props) {
                       {t.name}
                     </div>
                     <div
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: 11,
+                      style={{ fontWeight: 500,
+                        fontSize: 13,
                         color: "var(--muted)",
-                        textTransform: "uppercase",
-                        letterSpacing: ".09em",
+                        letterSpacing: "-0.005em",
                         marginTop: 3,
                       }}
                     >

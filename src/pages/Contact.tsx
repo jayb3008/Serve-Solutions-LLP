@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Mail, Phone, MapPin, ArrowRight, Linkedin, Instagram, Github, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../components/SEO";
+import RevealText from "../components/ui/reveal-text";
 import Faq from "../components/Faq";
-import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 import { social } from "../data/social";
 
@@ -145,15 +145,6 @@ const Contact = () => {
         className="page-hero relative overflow-hidden"
         style={{ overflow: "hidden" }}
       >
-        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(18, 21, 24, 0.03)"
-          />
-        </div>
         <div className="wrap relative z-10">
           {/* <div className="page-hero__eyebrow">
             <span className="ping" />
@@ -201,7 +192,7 @@ const Contact = () => {
                     data-d="1"
                     style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
                   >
-                    Email, phone, <em>or a real door.</em>
+                    <RevealText>Email, phone, <em>or a real door.</em></RevealText>
                   </h2>
                 </div>
               </div>
@@ -250,11 +241,9 @@ const Contact = () => {
                         <item.icon size={18} />
                       </div>
                       <span
-                        style={{
-                          fontFamily: "var(--mono)",
-                          fontSize: 11,
-                          textTransform: "uppercase",
-                          letterSpacing: ".12em",
+                        style={{ fontWeight: 500,
+                          fontSize: 13,
+                          letterSpacing: "-0.005em",
                           color: "var(--muted)",
                         }}
                       >
@@ -299,11 +288,9 @@ const Contact = () => {
               {(social.linkedin || social.instagram || social.github || social.calendly) && (
                 <div className="reveal" data-d="3" style={{ marginTop: 48, paddingTop: 32, borderTop: "1px solid var(--line)" }}>
                   <div
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: 11,
-                      textTransform: "uppercase",
-                      letterSpacing: ".12em",
+                    style={{ fontWeight: 500,
+                      fontSize: 13,
+                      letterSpacing: "-0.005em",
                       color: "var(--muted)",
                       marginBottom: 16,
                     }}
@@ -332,7 +319,7 @@ const Contact = () => {
                             padding: "12px 18px",
                             border: "1px solid var(--line)",
                             borderRadius: 999,
-                            fontFamily: "var(--mono)",
+                            fontFamily: "var(--sans)",
                             fontSize: 13,
                             color: "var(--ink)",
                             textDecoration: "none",
@@ -353,6 +340,7 @@ const Contact = () => {
               <div className="reveal" data-d="1">
                 <form
                   onSubmit={handleSubmit}
+                  className="beam"
                   style={{
                     background: "var(--bg-2)",
                     padding: "clamp(32px, 5vw, 64px)",
@@ -363,11 +351,9 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div className="space-y-2">
                       <label
-                        style={{
-                          fontFamily: "var(--mono)",
-                          fontSize: 11,
-                          textTransform: "uppercase",
-                          letterSpacing: ".12em",
+                        style={{ fontWeight: 500,
+                          fontSize: 13,
+                          letterSpacing: "-0.005em",
                           color: "var(--muted)",
                         }}
                       >
@@ -401,11 +387,9 @@ const Contact = () => {
                     </div>
                     <div className="space-y-2">
                       <label
-                        style={{
-                          fontFamily: "var(--mono)",
-                          fontSize: 11,
-                          textTransform: "uppercase",
-                          letterSpacing: ".12em",
+                        style={{ fontWeight: 500,
+                          fontSize: 13,
+                          letterSpacing: "-0.005em",
                           color: "var(--muted)",
                         }}
                       >
@@ -442,11 +426,9 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div className="space-y-2">
                       <label
-                        style={{
-                          fontFamily: "var(--mono)",
-                          fontSize: 11,
-                          textTransform: "uppercase",
-                          letterSpacing: ".12em",
+                        style={{ fontWeight: 500,
+                          fontSize: 13,
+                          letterSpacing: "-0.005em",
                           color: "var(--muted)",
                         }}
                       >
@@ -479,11 +461,9 @@ const Contact = () => {
                     </div>
                     <div className="space-y-2">
                       <label
-                        style={{
-                          fontFamily: "var(--mono)",
-                          fontSize: 11,
-                          textTransform: "uppercase",
-                          letterSpacing: ".12em",
+                        style={{ fontWeight: 500,
+                          fontSize: 13,
+                          letterSpacing: "-0.005em",
                           color: "var(--muted)",
                         }}
                       >
@@ -521,11 +501,9 @@ const Contact = () => {
                   {/* Budget selector */}
                   <div className="space-y-2 mb-8">
                     <label
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: 11,
-                        textTransform: "uppercase",
-                        letterSpacing: ".12em",
+                      style={{ fontWeight: 500,
+                        fontSize: 13,
+                        letterSpacing: "-0.005em",
                         color: "var(--muted)",
                       }}
                     >
@@ -550,7 +528,7 @@ const Contact = () => {
                             }
                             data-hover
                             style={{
-                              fontFamily: "var(--mono)",
+                              fontFamily: "var(--sans)",
                               fontSize: 12,
                               padding: "9px 16px",
                               borderRadius: 999,
@@ -570,11 +548,9 @@ const Contact = () => {
 
                   <div className="space-y-2 mb-12">
                     <label
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: 11,
-                        textTransform: "uppercase",
-                        letterSpacing: ".12em",
+                      style={{ fontWeight: 500,
+                        fontSize: 13,
+                        letterSpacing: "-0.005em",
                         color: "var(--muted)",
                       }}
                     >

@@ -2,8 +2,10 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import RevealText from "../components/ui/reveal-text";
+import { ArrowUpRight } from "lucide-react";
+import MarqueeCta from "../components/ui/marquee-cta";
 import Faq from "../components/Faq";
-import Squares from "../components/ui/squares";
 import Magnetic from "../components/Magnetic";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
@@ -166,15 +168,6 @@ export default function Portfolio() {
 
       {/* Page hero */}
       <section className="page-hero relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(18, 21, 24, 0.03)"
-          />
-        </div>
         <div className="wrap relative z-10">
           {/* <div className="page-hero__eyebrow">
             <span className="ping" />
@@ -267,11 +260,9 @@ export default function Portfolio() {
                   <div>
                     <p className="arch__title">{c.title}</p>
                     <p
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: 11,
-                        letterSpacing: ".1em",
-                        textTransform: "uppercase",
+                      style={{ fontWeight: 500,
+                        fontSize: 13,
+                        letterSpacing: "-0.005em",
                         color: "rgba(255,255,255,.72)",
                         margin: "10px 0 0",
                       }}
@@ -292,14 +283,12 @@ export default function Portfolio() {
 
           {visible.length === 0 && (
             <p
-              style={{
+              style={{ fontWeight: 500,
                 color: "var(--muted)",
-                fontFamily: "var(--mono)",
                 fontSize: 13,
                 marginTop: 48,
                 textAlign: "center",
-                letterSpacing: ".08em",
-                textTransform: "uppercase",
+                letterSpacing: "-0.005em",
               }}
             >
               No projects in this category yet.
@@ -315,7 +304,7 @@ export default function Portfolio() {
             <div>
               <div className="eyebrow reveal">The terms</div>
               <h2 className="s-title" data-d="1">
-                Four products. <em>Check any of them.</em>
+                <RevealText>Four products. <em>Check any of them.</em></RevealText>
               </h2>
             </div>
             <p
@@ -339,10 +328,8 @@ export default function Portfolio() {
                       style={{
                         textAlign: "left",
                         padding: "14px 18px",
-                        fontFamily: "var(--mono)",
-                        fontSize: 11,
-                        letterSpacing: ".12em",
-                        textTransform: "uppercase",
+                        fontSize: 13,
+                        letterSpacing: "-0.005em",
                         color: "var(--muted)",
                         fontWeight: 400,
                         borderBottom: "1px solid var(--line)",
@@ -425,53 +412,18 @@ export default function Portfolio() {
       <Faq faqs={portfolioFaqs} eyebrow="Questions we get about this page" />
 
       {/* CTA */}
-      <section className="cta-section relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
-          <Squares
-            squareSize={60}
-            direction="up"
-            speed={0.08}
-            borderColor="#ffffff"
-          />
-        </div>
-        <div className="wrap relative z-10" style={{ position: "relative" }}>
-          <div
-            className="eyebrow reveal"
-            style={{
-              color: "rgba(255, 255, 255,.55)",
-              justifyContent: "center",
-              marginBottom: 24,
-            }}
-          >
-            Could your project sit here next year?
-          </div>
-          <h2 className="reveal" data-d="1">
-            Let’s make something <em>worth keeping.</em>
-          </h2>
-          <Magnetic>
-            <a
-              href="mailto:hello@satvixtech.com"
-              className="big-cta reveal"
-              data-d="2"
-              data-hover
-            >
-              hello@satvixtech.com
-              <span className="arrow">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14m-6-6 6 6-6 6" />
-                </svg>
-              </span>
-            </a>
-          </Magnetic>
-        </div>
-      </section>
+      <MarqueeCta
+        label="Could your project sit here next year?"
+        words="worth keeping · Satvix · "
+        title={<>Let’s make something <em>worth keeping.</em></>}
+      >
+        <a href="mailto:hello@satvixtech.com" className="mcta__btn" data-hover>
+          hello@satvixtech.com
+          <span className="mcta__btn-arrow">
+            <ArrowUpRight size={18} />
+          </span>
+        </a>
+      </MarqueeCta>
     </div>
   );
 }

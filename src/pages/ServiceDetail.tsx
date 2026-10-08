@@ -1,19 +1,18 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { servicesData } from "../data/services";
 import { buildDescription } from "../lib/meta";
-import { ArrowLeft, ArrowRight, ShieldCheck } from "lucide-react";
-import { useEffect, useRef } from "react";
-import Squares from "../components/ui/squares";
+import { ArrowLeft, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { useEffect } from "react";
 import SEO from "../components/SEO";
 import Faq from "../components/Faq";
-import Magnetic from "../components/Magnetic";
+import SectionHead from "../components/ui/section-head";
+import { rise } from "../lib/motion";
+import MarqueeCta from "../components/ui/marquee-cta";
 
 const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
   const { id } = useParams();
   const activeId = serviceId || id;
-  const navigate = useNavigate();
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const service = servicesData[activeId as string] || servicesData["web-development"];
 
@@ -75,10 +74,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
   }, [id]);
 
   return (
-    <div
-      ref={containerRef}
-      className="bg-[var(--bg-2)] min-h-screen text-[var(--ink)] font-sans pt-20 overflow-x-hidden"
-    >
+    <div className="overflow-x-hidden">
       <SEO
         title={service.title}
         description={service.metaDescription ?? buildDescription(service.tagline, service.overview)}
@@ -100,23 +96,12 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
         faq={faqs}
       />
       {/* Page hero */}
-      <section className="page-hero relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
-          <Squares
-            squareSize={65}
-            direction="diagonal"
-            speed={0.15}
-            borderColor="rgba(18, 21, 24, 0.08)"
-            hoverFillColor="rgba(227, 30, 36, 0.04)"
-            fadeColor="var(--bg)"
-          />
-        </div>
+      <section className="page-hero">
         <div className="wrap relative z-10">
-          {/* <div className="page-hero__eyebrow">
-                        <span className="ping" />
-                        <service.icon className="w-4 h-4 text-[var(--muted)] inline-block mr-2 align-text-bottom" />
-                        A practice at the agency
-                    </div> */}
+          <div className="page-hero__eyebrow">
+            <span className="ping" />
+            A practice at the agency
+          </div>
           <h1>
             <span className="row">
               <motion.span
@@ -129,7 +114,7 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
                 }}
                 style={{ display: "inline-block" }}
               >
-                {service.title.toUpperCase()} <em>PRACTICE.</em>
+                {service.title} <em>practice.</em>
               </motion.span>
             </span>
           </h1>
@@ -143,221 +128,155 @@ const ServiceDetail = ({ serviceId }: { serviceId?: string } = {}) => {
         </div>
       </section>
 
-      {/* Overview & Tech Stack */}
-      <section className="bg-[var(--bg)] border-b border-[var(--line)]">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            <div className="lg:col-span-7 p-8 sm:p-12 lg:p-24 lg:border-r border-b lg:border-b-0 border-[var(--line)]">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-8 sm:mb-12 flex items-center">
-                <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
-                01 How we think about it
-              </h2>
-              <p className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[var(--ink)] leading-[1.15]">
-                {service.overview}
-              </p>
-            </div>
-
-            <div className="lg:col-span-5 p-8 sm:p-12 lg:p-24 flex flex-col justify-center">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-8">
+      {/* Overview & tech stack */}
+      <section className="s">
+        <div className="wrap grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          <motion.div {...rise()} className="lg:col-span-7">
+            <div className="eyebrow">How we think about it</div>
+            <p className="mt-7 text-[clamp(24px,2.8vw,38px)] font-semibold leading-[1.2] tracking-[-0.035em] text-[var(--ink)]">
+              {service.overview}
+            </p>
+          </motion.div>
+          <motion.div {...rise(1)} className="lg:col-span-5 lg:pt-14">
+            <div className="rounded-[24px] border border-[var(--line)] bg-[var(--bg-2)] p-7">
+              <h2 className="text-[15px] font-semibold text-[var(--ink)]">
                 Tools we reach for first
-              </h3>
-              <div className="flex flex-wrap gap-2">
+              </h2>
+              <div className="mt-5 flex flex-wrap gap-2">
                 {service.tech.map((tool: string) => (
-                  <span
-                    key={tool}
-                    className="px-5 py-3 border border-[var(--line)] bg-[var(--bg-2)] text-xs font-mono font-bold uppercase tracking-wider hover:bg-[var(--ink)] hover:text-[var(--bg)] transition-colors cursor-default"
-                  >
+                  <span key={tool} className="tool-chip">
                     {tool}
                   </span>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* What's included */}
-      <section className="py-16 sm:py-24 border-b border-[var(--line)] bg-[var(--bg)]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-12 sm:mb-20 flex items-center">
-            <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
-            02 What you walk away with
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--line)] border border-[var(--line)]">
+      <section className="s bg-[var(--bg-2)]">
+        <div className="wrap">
+          <SectionHead
+            eyebrow="What you walk away with"
+            title={
+              <>
+                Six things, <em>every engagement.</em>
+              </>
+            }
+          />
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {deliverables.map((d, i) => (
-              <div
-                key={i}
-                className="bg-[var(--bg)] p-6 sm:p-10 group hover:bg-[var(--bg-2)] transition-colors"
-              >
-                <div className="text-5xl font-bold text-[var(--line)] mb-6 group-hover:text-[var(--muted)] transition-colors">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <h3 className="text-xl font-bold mb-3 tracking-tight">{d.t}</h3>
-                <p className="text-[var(--ink-2)] text-sm leading-relaxed">
-                  {d.d}
-                </p>
-              </div>
+              <motion.div key={d.t} {...rise(i)} className="cap-card">
+                <span className="case-card__n">{String(i + 1).padStart(2, "0")}</span>
+                <h3>{d.t}</h3>
+                <p>{d.d}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Core Capabilities */}
-      <section className="py-16 sm:py-24 border-b border-[var(--line)]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-12 sm:mb-20 flex items-center">
-            <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
-            03 What we are good at
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line)] border border-[var(--line)]">
+      {/* Core capabilities */}
+      <section className="s">
+        <div className="wrap">
+          <SectionHead
+            eyebrow="What we are good at"
+            title={
+              <>
+                Where {service.title} <em>earns its keep.</em>
+              </>
+            }
+          />
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
             {service.capabilities.map((cap, i) => (
-              <div
-                key={i}
-                className="bg-[var(--bg)] p-6 sm:p-10 lg:p-12 group hover:bg-[var(--bg-2)] transition-colors"
-              >
-                <div className="w-12 h-12 bg-[var(--ink)] text-[var(--bg)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">{cap.title}</h3>
-                <p className="text-[var(--ink-2)] text-sm leading-relaxed">
-                  {cap.desc}
-                </p>
-              </div>
+              <motion.div key={cap.title} {...rise(i)} className="cap-card">
+                <span className="tile-icon">
+                  <ShieldCheck size={20} />
+                </span>
+                <h3>{cap.title}</h3>
+                <p>{cap.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Methodology */}
-      <section className="bg-[var(--ink)] py-20 sm:py-32 text-[var(--bg)] overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 sm:mb-24 gap-8">
-            <div>
-              <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mb-8 flex items-center">
-                <span className="w-12 h-[1px] bg-[var(--line)] mr-4" />
-                04 How a project goes
-              </h2>
-              <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter">
-                FOUR STAGES,
-                <br />
-                NO RELAY RACE.
-              </h3>
-            </div>
-            <div className="lg:max-w-md">
-              <p className="text-[var(--muted)] leading-relaxed text-base sm:text-lg">
-                Four short stages and a Friday demo in every week. No status
-                decks, no surprise invoices, no silence.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
+      <section className="s dark band-dark band-dark--grid">
+        <div className="wrap relative">
+          <SectionHead
+            eyebrow="How a project goes"
+            title={
+              <>
+                Four stages, <em>no relay race.</em>
+              </>
+            }
+            note="Four short stages and a Friday demo in every week. No status decks, no surprise invoices, no silence."
+          />
+          <ol className="process-rail process-rail--4">
             {service.workflow.map((item, i) => (
-              <div key={i} className="relative">
-                <span className="text-6xl font-bold text-[var(--bg)]/10 absolute -top-10 -left-4 pointer-events-none">
-                  {item.step}
-                </span>
-                <div className="relative pt-8">
-                  <h4 className="text-xl font-bold mb-4 flex items-center">
-                    {item.title}
-                    <ArrowRight className="w-4 h-4 ml-2 opacity-20" />
-                  </h4>
-                  <p className="text-[var(--muted)] text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
+              <motion.li key={item.title} {...rise(i)}>
+                <span className="process-rail__n">{item.step}</span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </motion.li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
       {/* Why Satvix — stats */}
-      <section className="py-14 sm:py-20 border-b border-[var(--line)] bg-[var(--bg-2)]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {stats.map((s) => (
-              <div key={s.l}>
-                <div className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-[var(--ink)]">
-                  {s.n}
-                </div>
-                <div className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] mt-3">
-                  {s.l}
-                </div>
-              </div>
+      <section className="band">
+        <div className="wrap">
+          <div className="band-grid">
+            {stats.map((s, i) => (
+              <motion.div key={s.l} {...rise(i)}>
+                <div className="b-stat__n">{s.n}</div>
+                <div className="b-stat__l">{s.l}</div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <Faq faqs={faqs} eyebrow="05 Things people often ask" />
+      <Faq faqs={faqs} eyebrow="Things people often ask" />
 
-      {/* CTA Footer */}
-      <section className="py-16 sm:py-24 border-t border-[var(--line)] bg-[var(--bg)]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6">
-          <div className="bg-[var(--ink)] text-[var(--bg)] p-8 sm:p-12 md:p-16 lg:p-24 relative overflow-hidden group">
-            <div className="absolute inset-0 z-0 opacity-20">
-              <Squares
-                squareSize={60}
-                direction="up"
-                speed={0.1}
-                borderColor="#ffffff"
-                hoverFillColor="rgba(227, 30, 36, 0.06)"
-                fadeColor="var(--ink)"
-              />
-            </div>
-
-            <div className="relative z-10 text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 sm:mb-8 group-hover:scale-[1.02] transition-transform duration-700">
-                SHALL WE
-                <br />
-                MAKE A <em>START?</em>
-              </h2>
-              <p className="text-[var(--muted)] text-base sm:text-lg md:text-xl mb-8 sm:mb-12">
-                Tell us, in two paragraphs, what you are building. We will tell
-                you, honestly, whether {service.title} is the right place to
-                start.
-              </p>
-              <Magnetic>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => navigate("/contact")}
-                  className="bg-[var(--bg)] text-[var(--ink)] px-8 sm:px-12 py-5 sm:py-6 text-sm font-bold uppercase tracking-widest hover:bg-[var(--bg-2)] transition-colors"
-                >
-                  Send us a note
-                </motion.button>
-              </Magnetic>
-            </div>
-          </div>
-
-          <div className="mt-12 sm:mt-20 flex flex-col md:flex-row justify-between items-center py-6 border-t border-[var(--line)] gap-2">
-            <Link
-              to="/services"
-              className="flex items-center text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-all group py-3 px-1"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
-              Back to all practices
-            </Link>
-            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
-              <Link
-                to="/portfolio"
-                className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-colors py-3 px-3"
-              >
-                See the work
-              </Link>
-              <Link
-                to="/about"
-                className="text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-[var(--ink)] transition-colors py-3 px-3"
-              >
-                About the agency
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA */}
+      <MarqueeCta
+        label="Tell us in two paragraphs"
+        words={`${service.title} · Satvix · `}
+        title={
+          <>
+            Shall we make a <em>start?</em>
+          </>
+        }
+        note={
+          <>
+            Tell us, in two paragraphs, what you are building. We will tell you,
+            honestly, whether {service.title} is the right place to start.
+          </>
+        }
+      >
+        <Link to="/contact" className="mcta__btn" data-hover>
+          Send us a note
+          <span className="mcta__btn-arrow">
+            <ArrowUpRight size={18} />
+          </span>
+        </Link>
+        <nav className="mcta__links" aria-label="More from Satvix">
+          <Link to="/services" data-hover>
+            <ArrowLeft size={15} /> Back to all practices
+          </Link>
+          <Link to="/portfolio" data-hover>
+            See the work
+          </Link>
+          <Link to="/about" data-hover>
+            About the agency
+          </Link>
+        </nav>
+      </MarqueeCta>
     </div>
   );
 };
