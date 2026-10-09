@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="foot-brand">
             <Link to="/" className="foot-logo" style={{ display: 'block' }} aria-label="Satvix Tech Solutions Home">
-              <Logo style={{ height: '44px' }} />
+              <Logo variant="light" style={{ height: '40px' }} />
             </Link>
             <p>Premium digital product and software engineering agency in Anand, Gujarat. Partnering with startups, agencies, and enterprises in the US, UK, EU, and Australia.</p>
             {socialLinks.length > 0 && (

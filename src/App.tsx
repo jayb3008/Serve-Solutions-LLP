@@ -30,6 +30,7 @@ import GraphicDesign from "./pages/GraphicDesign";
 import Hire from "./pages/Hire";
 import Careers from "./pages/Careers";
 import LocationLanding from "./pages/LocationLanding";
+import FloatingActions from "./components/FloatingActions";
 
 /* ── Animated routes (fade transition between pages) ──
    `initial={false}` keeps the first paint (and the prerendered HTML) at full
@@ -121,6 +122,7 @@ export function AppShell() {
       <div className="noise-overlay" />
       <ScrollProgress />
       <ScrollToTop />
+      <FloatingActions />
       <div style={{ minHeight: "100vh" }}>
         <Navbar />
         <main>

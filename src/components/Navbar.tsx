@@ -103,7 +103,7 @@ export default function Navbar() {
 
       <header id="nav" className={`site-nav meganav${scrolled ? ' scrolled' : ''}`}>
         <Link to="/" className="logo" data-hover style={{ display: 'flex', alignItems: 'center' }} aria-label="Satvix Tech Solutions Home">
-          <Logo style={{ height: '42px' }} />
+          <Logo style={{ height: '34px' }} />
         </Link>
 
         <nav className="nav-links nav-desktop" aria-label="Main navigation" style={{ alignItems: 'center' }}>

@@ -29,6 +29,7 @@ import RollingText from "../components/RollingText";
 import InfiniteMarquee from "../components/InfiniteMarquee";
 import Spotlight from "../components/ui/spotlight";
 import MarqueeCta from "../components/ui/marquee-cta";
+import BookCall from "../components/BookCall";
 import StackingCards from "../components/ui/stacking-cards";
 import ParallaxShots from "../components/ui/parallax-shots";
 import SectionHead from "../components/ui/section-head";
@@ -1108,6 +1109,9 @@ export default function Home() {
             <ArrowUpRight size={18} />
           </span>
         </a>
+        <div className="mt-6 flex justify-center">
+          <BookCall />
+        </div>
       </MarqueeCta>
     </div>
   );

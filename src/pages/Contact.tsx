@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, ArrowRight, Linkedin, Instagram, Github, Calendar } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Linkedin, Instagram, Github } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../components/SEO";
+import { submitLead } from "../lib/leads";
+import BookCall from "../components/BookCall";
 import RevealText from "../components/ui/reveal-text";
 import Faq from "../components/Faq";
 import Magnetic from "../components/Magnetic";
@@ -59,23 +61,8 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    const SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbwmUK6mBWpFzkMUgzo3Afb-gswa8sqx_MglFhrcERGdICa3lpIDIPJ_4nVzAr7K3vBM/exec";
-
     try {
-      const params = new URLSearchParams();
-      Object.entries(formData).forEach(([key, value]) => {
-        params.append(key, value);
-      });
-
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: params.toString(),
-        mode: "no-cors",
-      });
+      await submitLead(formData);
 
       setSubmitStatus("success");
       setFormData({
@@ -285,7 +272,13 @@ const Contact = () => {
                 ))}
               </div>
 
-              {(social.linkedin || social.instagram || social.github || social.calendly) && (
+              {/* Faster than a blank form: book a slot directly. Renders
+                  nothing until social.calendly is set. */}
+              <div className="mt-10">
+                <BookCall />
+              </div>
+
+              {(social.linkedin || social.instagram || social.github) && (
                 <div className="reveal" data-d="3" style={{ marginTop: 48, paddingTop: 32, borderTop: "1px solid var(--line)" }}>
                   <div
                     style={{ fontWeight: 500,
@@ -299,7 +292,6 @@ const Contact = () => {
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                     {[
-                      { url: social.calendly, Icon: Calendar, label: "Book a 30-min call" },
                       { url: social.linkedin, Icon: Linkedin, label: "LinkedIn" },
                       { url: social.instagram, Icon: Instagram, label: "Instagram" },
                       { url: social.github, Icon: Github, label: "GitHub" },

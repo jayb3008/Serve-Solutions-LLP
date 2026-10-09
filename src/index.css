@@ -1455,9 +1455,9 @@ footer.site-footer {
 .foot-bottom {
   margin-top: 72px;
   padding-top: 24px;
-  /* The scroll-to-top button is fixed at right:40px and is 52px wide, so it
-     lands on top of whatever sits at the right edge down here. Reserve its
-     lane. */
+  /* The floating WhatsApp / back-to-top stack is fixed at right:24px and is
+     58px wide, so it lands on top of whatever sits at the right edge down
+     here. Reserve its lane. */
   padding-right: 104px;
   border-top: 1px solid var(--dark-line);
   display: flex;
@@ -2944,8 +2944,8 @@ body {
     padding-right: 12px;
   }
 
-  .logo svg {
-    height: 34px !important;
+  .logo img {
+    height: 28px !important;
   }
 
   .nav-hamburger {
@@ -3209,8 +3209,8 @@ body {
 }
 
 @media (max-width: 480px) {
-  .foot-brand .foot-logo svg {
-    height: 40px !important;
+  .foot-brand .foot-logo img {
+    height: 34px !important;
   }
 }
 
@@ -4405,5 +4405,260 @@ body {
   .stack-cards__item {
     position: relative;
     top: auto;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Lead tools — WhatsApp button, Book-a-call modal
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Floating action stack: back-to-top above, WhatsApp in the corner ── */
+.fab-stack {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .fab-stack {
+    right: 16px;
+    bottom: 16px;
+    gap: 10px;
+  }
+}
+
+.fab-wa {
+  position: relative;
+}
+
+/* WhatsApp button */
+.wa-btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #2ee57a, #1fb855);
+  color: #fff;
+  box-shadow:
+    0 14px 30px -10px rgba(31, 184, 85, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition:
+    transform 0.25s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.25s ease;
+}
+
+.wa-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    0 18px 36px -10px rgba(31, 184, 85, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 640px) {
+  .wa-btn {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+/* A few pulses to catch the eye on arrival, then it stays still. */
+.wa-btn__ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  opacity: 0;
+  animation: waPing 2.2s ease-out 1.5s 3;
+  pointer-events: none;
+}
+
+@keyframes waPing {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Hover label (desktop pointers only). */
+.wa-btn__label {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(6px, -50%);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .wa-btn:hover .wa-btn__label {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+/* Greeting bubble — beside the button, bottom-aligned, so it can never
+   cover the back-to-top button stacked above. */
+.wa-bubble {
+  position: absolute;
+  right: calc(100% + 14px);
+  bottom: 0;
+  width: 250px;
+  padding: 14px 34px 14px 16px;
+  border-radius: 16px 16px 4px 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 50px -20px rgba(10, 10, 12, 0.35);
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--ink-2);
+  animation: waBubbleIn 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.wa-bubble strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.wa-bubble__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--bg-2);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+@keyframes waBubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+}
+
+/* Back-to-top: round, with a ring that fills as the page is read. */
+.fab-top {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 10px 30px -12px rgba(10, 10, 12, 0.45);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.fab-top:hover {
+  color: var(--accent);
+}
+
+.fab-top__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  fill: none;
+  stroke-width: 2;
+}
+
+.fab-top__ring circle {
+  stroke: var(--line);
+}
+
+.fab-top__ring .fab-top__fill {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-btn__ping,
+  .wa-bubble {
+    animation: none;
+  }
+}
+
+/* ── Book-a-call modal ── */
+.book-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(10, 10, 12, 0.6);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.2s ease;
+}
+
+.book-modal__panel {
+  position: relative;
+  width: min(100%, 1000px);
+  height: min(100%, 720px);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 40px 120px -30px rgba(0, 0, 0, 0.6);
+}
+
+.book-modal__panel iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.book-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 }
