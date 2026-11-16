@@ -1,0 +1,43 @@
+# Satvix Tech Solutions
+
+> Satvix Tech Solutions is a digital product and software engineering agency in Anand, Gujarat, India. A small senior team (7+ years MERN experience, founder-led) that builds web platforms, mobile apps and production AI systems for founders and businesses in India, the US, UK, EU and Australia. Eight shipped, verifiable products; AI-augmented delivery with senior review on every change; clients own 100% of the code from day one.
+
+Key facts:
+- Location: Anand, Gujarat, India (working across US, UK, EU and Australia time zones; 4+ hours overlap with US East, full working-day overlap with the UK)
+- Contact: infosatvixtech@gmail.com · +91 70164 27729 · https://www.satvixtech.com/contact
+- Typical pricing: fixed-scope MVPs USD 3,000–12,000; monthly retainers for ongoing product work; staff augmentation for embedded senior engineers
+- Typical speed: fintech MVP shipped in 2 weeks; e-commerce in 4 weeks; a Gujarati ledger SaaS in 8 days
+- Delivery model: senior engineers only, AI-augmented (Claude Code, Cursor) with senior review on every diff, working demo every Friday, full repository access from day one
+
+## Services
+
+- [AI & ML development](https://www.satvixtech.com/ai-development): LLM features, RAG pipelines, autonomous agents, fine-tuned open-source models (Llama, Mistral, Qwen) — with evaluation harnesses, token cost caps and observability built in
+- [Web development](https://www.satvixtech.com/web-development): Next.js, React and Node.js platforms — marketing sites, SaaS dashboards, headless commerce — built to pass Core Web Vitals
+- [Mobile app development](https://www.satvixtech.com/mobile-app-development): iOS, Android, React Native and Flutter apps, shipped to the App Store and Play Store with submissions handled
+- [UI/UX & product design](https://www.satvixtech.com/ui-ux-design): research, interaction design, design systems, prototyping
+- [Graphic design & branding](https://www.satvixtech.com/graphic-design-branding): logo systems, print, social kits, packaging, motion
+- [Hire dedicated developers](https://www.satvixtech.com/hire): embedded senior engineers for US/UK/EU teams
+- [All services](https://www.satvixtech.com/services)
+
+## Shipped products (case studies)
+
+- [Nine Finance](https://www.satvixtech.com/portfolio/nine-finance): fintech lending platform — borrower and field-agent apps for daily EMI collections (React Native + Node.js, shipped in 2 weeks, live on real loan portfolios)
+- [Glamour Jewelry](https://www.satvixtech.com/portfolio/glamour-jewelry): jewelry e-commerce — catalog, orders, inventory, admin (React + Node + MongoDB, 4 weeks, live and processing orders)
+- [Charotar Soap Factory](https://www.satvixtech.com/portfolio/charotar-soap): white-label manufacturing SaaS — production batches, stock ledger, sales orders (Next.js + Node.js, licensable)
+- [Shreeji HRMS](https://www.satvixtech.com/portfolio/shreeji-hrms): bilingual (Gujarati/Hindi/English) attendance, payroll and ledger app for small business (React Native + Node.js, 3 weeks)
+- [Meshwa Traders](https://www.satvixtech.com/portfolio/meshwa-traders): Gujarati-first paddy purchase ledger — farmers, purchases, payments, bardan and labour registers, role-based access (React + Node.js, built in 8 days)
+- [D S Power Solution](https://www.satvixtech.com/portfolio/ds-power-solution): local-SEO website for a solar installer in Anand — live at dspowersolution.com
+- [Aurevanta Exim](https://www.satvixtech.com/portfolio/aurevanta-exim): B2B website for an Indian spice exporter — live at aurevantaexim.com
+- [SK Consultant](https://www.satvixtech.com/portfolio/sk-consultant): services website for an EPFO & HR consultancy — live at sk-consultant.info
+
+## Company
+
+- [About the agency](https://www.satvixtech.com/about)
+- [Industries we serve](https://www.satvixtech.com/industries)
+- [Blog — engineering notes](https://www.satvixtech.com/blog)
+- [Contact / start a project](https://www.satvixtech.com/contact)
+
+## Optional
+
+- [Careers](https://www.satvixtech.com/careers)
+- [Location pages: software development in Anand, Gujarat and India](https://www.satvixtech.com/software-development-company-anand)

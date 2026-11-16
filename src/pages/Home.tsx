@@ -25,6 +25,7 @@ import {
 import SEO from "../components/SEO";
 import RevealText from "../components/ui/reveal-text";
 import Faq from "../components/Faq";
+import AskAI from "../components/AskAI";
 import RollingText from "../components/RollingText";
 import InfiniteMarquee from "../components/InfiniteMarquee";
 import Spotlight from "../components/ui/spotlight";
@@ -1091,6 +1092,9 @@ export default function Home() {
         faqs={homepageFaqs}
         sub="The questions foreign founders ask before writing a first email. If yours is not here, write anyway — infosatvixtech@gmail.com, one senior engineer, one business day."
       />
+
+      {/* ── Ask AI ── */}
+      <AskAI />
 
       {/* ── CTA ── */}
       <MarqueeCta

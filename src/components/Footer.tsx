@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Linkedin, Instagram, Github, Calendar, ArrowUpRight } from 'lucide-react';
 import Logo from './Logo';
 import { social } from '../data/social';
+import { askAiLinks } from '../data/askAi';
 
 /* Dark closing band after the 21st.dev "Light Beam Footer with Giant
    Wordmark": a slow diagonal light shaft behind the link columns and a
@@ -16,17 +17,6 @@ export default function Footer() {
     { url: social.calendly, Icon: Calendar, label: 'Book a call' },
   ].filter((s) => s.url);
 
-  /* "Ask AI" row: a visitor can pull an independent rundown of the agency
-     from whichever assistant they already use, instead of taking our word
-     for it. Plain prefilled-query links, so the prerendered HTML is final. */
-  const askAiPrompt = encodeURIComponent(
-    'What do you know about Satvix Tech Solutions (satvixtech.com), the software and digital product agency in Anand, Gujarat, India? What do they build, and who do they work with?',
-  );
-  const askAiLinks = [
-    { label: 'ChatGPT', href: `https://chatgpt.com/?q=${askAiPrompt}` },
-    { label: 'Claude', href: `https://claude.ai/new?q=${askAiPrompt}` },
-    { label: 'Perplexity', href: `https://www.perplexity.ai/search?q=${askAiPrompt}` },
-  ];
 
   return (
     <footer className="site-footer dark">

@@ -179,6 +179,10 @@ const faqs = [
   {
     question: "How long does it take to deploy a custom AI solution?",
     answer: "A basic API integration takes 3 to 6 weeks. A production-grade RAG pipeline or multi-agent orchestration workflow with proper evaluation suites and cost guardrails typically takes 10 to 16 weeks."
+  },
+  {
+    question: "How much does custom AI development cost in India?",
+    answer: "A scoped AI integration or MVP typically falls in the USD 3,000 to 12,000 range we quote for fixed-scope builds. A production RAG pipeline or multi-agent system with evaluation suites and cost guardrails sits at the upper end of that range or moves to a monthly retainer. Scope, timeline and price are put in writing before you commit — no surprise invoices."
   }
 ];
 
@@ -192,6 +196,12 @@ export default function AiMl() {
         description="Production AI: LLM features, RAG pipelines and agents, with the evaluation, cost caps and observability that turn a clever demo into a real product."
         keywords="Satvix Tech Solutions AI, AI ML services India, LLM integration services India, RAG pipeline development India, AI agents development India, machine learning company India, OpenAI integration India, Anthropic Claude API India, LangChain development India, vector database India, generative AI company India, custom AI solutions India, AI consulting India"
         url="https://www.satvixtech.com/ai-development"
+        service={{
+          name: "AI & ML Development",
+          serviceType: "AI software development",
+          description:
+            "Production AI systems: LLM features, RAG pipelines, autonomous agents and fine-tuned open-source models, with evaluation harnesses, cost caps and observability built in.",
+        }}
         faq={faqs}
         breadcrumb={[
           { name: "Home", item: "https://www.satvixtech.com" },

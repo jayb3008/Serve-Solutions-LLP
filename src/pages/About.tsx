@@ -6,6 +6,7 @@ import RevealText from "../components/ui/reveal-text";
 import { ArrowUpRight } from "lucide-react";
 import MarqueeCta from "../components/ui/marquee-cta";
 import Faq from "../components/Faq";
+import AskAI from "../components/AskAI";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
@@ -256,6 +257,9 @@ export default function About() {
 
       {/* FAQ */}
       <Faq faqs={aboutFaqs} eyebrow="05 Things people often ask" />
+
+      {/* Ask AI */}
+      <AskAI />
 
       {/* CTA */}
       <MarqueeCta

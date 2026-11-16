@@ -6,6 +6,7 @@ import { submitLead } from "../lib/leads";
 import BookCall from "../components/BookCall";
 import RevealText from "../components/ui/reveal-text";
 import Faq from "../components/Faq";
+import AskAI from "../components/AskAI";
 import Magnetic from "../components/Magnetic";
 import SectionHead from "../components/ui/section-head";
 import { rise } from "../lib/motion";
@@ -695,11 +696,14 @@ const Contact = () => {
         eyebrow="Before you write"
         title={
           <>
-            Four answers, in <em>plain English.</em>
+            Six answers, in <em>plain English.</em>
           </>
         }
         sectionStyle={{ background: "var(--bg-2)" }}
       />
+
+      {/* Ask AI */}
+      <AskAI />
     </div>
   );
 };
