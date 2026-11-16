@@ -24,7 +24,7 @@ const companyItems = [
   { label: 'About us', path: '/about', desc: 'Who we are & how we work' },
   { label: 'Portfolio', path: '/portfolio', desc: 'Selected case studies' },
   { label: 'Blog', path: '/blog', desc: 'Engineering & product writing' },
-  { label: 'Careers', path: '/careers', desc: "We're hiring — join us" },
+  { label: 'Careers', path: '/careers', desc: 'Life at the agency' },
 ];
 
 type MenuKey = 'services' | 'industries' | 'company' | null;

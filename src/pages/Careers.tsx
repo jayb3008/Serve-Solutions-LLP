@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Clock, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import SEO from "../components/SEO";
 import RevealText from "../components/ui/reveal-text";
 import MarqueeCta from "../components/ui/marquee-cta";
@@ -40,45 +40,6 @@ const perks = [
   "Real ownership on real products",
   "A real leave policy people actually use",
   "A team that ships every fortnight",
-];
-
-const openings = [
-  {
-    role: "Senior React engineer",
-    team: "Web",
-    type: "Full-time",
-    loc: "Anand / Hybrid",
-  },
-  {
-    role: "React Native developer",
-    team: "Mobile",
-    type: "Full-time",
-    loc: "Anand / Hybrid",
-  },
-  {
-    role: "AI / ML engineer",
-    team: "AI",
-    type: "Full-time",
-    loc: "Anand / Hybrid",
-  },
-  {
-    role: "Product designer",
-    team: "Design",
-    type: "Full-time",
-    loc: "Anand / Hybrid",
-  },
-  {
-    role: "DevOps engineer",
-    team: "Platform",
-    type: "Full-time",
-    loc: "Anand / Hybrid",
-  },
-  {
-    role: "QA automation engineer",
-    team: "Quality",
-    type: "Full-time",
-    loc: "Anand / Hybrid",
-  },
 ];
 
 const hiring = [
@@ -134,8 +95,8 @@ export default function Careers() {
     <div>
       <SEO
         title="Careers at Satvix Tech Solutions — Anand, Gujarat"
-        description="Careers at Satvix Tech Solutions: we are hiring React, React Native, AI/ML, design, DevOps and QA roles in Anand, Gujarat. Hybrid, senior-only, real ownership of the work."
-        keywords="careers Satvix Tech Solutions, Satvix Tech Solutions jobs, IT jobs Anand Gujarat, software developer jobs India, React developer jobs Gujarat, hybrid developer jobs India, AI ML engineer jobs India, product designer jobs India, DevOps jobs India, software company careers Gujarat"
+        description="Careers at Satvix Tech Solutions. No open positions right now, but we're always looking for great people. Drop us a line if you care about craft."
+        keywords="careers Satvix Tech Solutions, Satvix Tech Solutions jobs, IT jobs Anand Gujarat, software developer jobs India, software company careers Gujarat"
         faq={careersFaqs}
         url="https://www.satvixtech.com/careers"
         breadcrumb={[
@@ -149,7 +110,7 @@ export default function Careers() {
         <div className="wrap relative z-10">
           {/* <div className="page-hero__eyebrow">
             <span className="ping" />
-            Six rooms open · we read every application
+            No open roles right now · we still read every message
           </div> */}
           <h1>
             {(
@@ -269,76 +230,6 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Open positions */}
-      <section className="s">
-        <div className="wrap">
-          <div className="s-head">
-            <div>
-              <div className="eyebrow reveal">Open rooms</div>
-              <h2 className="s-title reveal" data-d="1">
-                <RevealText>Six chairs <em>currently empty.</em></RevealText>
-              </h2>
-            </div>
-          </div>
-          <div style={{ borderTop: "1px solid var(--line)" }}>
-            {openings.map((o, i) => (
-              <Link
-                key={o.role}
-                to="/contact"
-                className="svc reveal"
-                data-hover
-                data-d={String(i % 4)}
-                style={{ gridTemplateColumns: "1.6fr 1fr 1fr auto" }}
-              >
-                <div
-                  className="svc__name"
-                  style={{ fontSize: "clamp(22px,2.6vw,34px)" }}
-                >
-                  {o.role}
-                </div>
-                <div
-                  style={{ fontWeight: 500,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                    fontSize: 13,
-                    letterSpacing: "-0.005em",
-                    color: "var(--ink-2)",
-                  }}
-                >
-                  <Clock size={14} /> {o.type}
-                </div>
-                <div
-                  style={{ fontWeight: 500,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                    fontSize: 13,
-                    letterSpacing: "-0.005em",
-                    color: "var(--ink-2)",
-                  }}
-                >
-                  <MapPin size={14} /> {o.loc}
-                </div>
-                <div className="svc__arrow">
-                  <ArrowUpRight size={18} />
-                </div>
-              </Link>
-            ))}
-          </div>
-          <p style={{ marginTop: 28, color: "var(--muted)", fontSize: 15 }}>
-            Your role not on the list?{" "}
-            <Link
-              to="/contact"
-              style={{ color: "var(--accent)", fontWeight: 500 }}
-            >
-              Write to us anyway.
-            </Link>{" "}
-            We have hired the wrong job description into the right person
-            before.
-          </p>
-        </div>
-      </section>
 
       {/* Hiring process */}
       <section
