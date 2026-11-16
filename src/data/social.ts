@@ -8,6 +8,6 @@ export const social = {
   calendly: "",
 } as const;
 
-export const emailAddress = "hello@satvixtech.com";
+export const emailAddress = "infosatvixtech@gmail.com";
 export const phoneNumber = "+91-7016427729";
 export const replyPromise = "A senior engineer replies within one business day.";

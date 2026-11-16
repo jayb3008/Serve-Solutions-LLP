@@ -96,7 +96,7 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
 }
 
 const heroStats = [
-  { n: 4, unit: "", label: "shipped products" },
+  { n: 8, unit: "", label: "shipped products" },
   { n: 2, unit: " wks", label: "fintech MVP" },
   { n: 7, unit: "+ yrs", label: "senior MERN" },
 ];
@@ -176,7 +176,7 @@ const workCards = [
 ];
 
 const bandStats = [
-  { n: 4, unit: "", label: "Shipped products you can verify" },
+  { n: 8, unit: "", label: "Shipped products you can verify" },
   { n: 2, unit: " wks", label: "Fastest delivery — Nine Finance (fintech)" },
   { n: 7, unit: "+ yrs", label: "Senior MERN experience — founder-led" },
   { n: 1, unit: "", label: "Working demo, every Friday" },
@@ -406,7 +406,7 @@ const homepageFaqs = [
   {
     question: "What proof do you have — real case studies, not stock work?",
     answer:
-      "Four shipped products we can show: a fintech lending platform (React Native + Node.js, two weeks, live and managing real EMI collections), a jewelry e-commerce platform (React + Node + MongoDB, four weeks, live and processing orders), a manufacturing inventory system (React + Next.js + Node, built as a white-label product), and a bilingual HRMS app for small businesses (React Native + Node.js, three weeks, running attendance, payroll and ledgers). Ask for a demo or a reference call.",
+      "Eight shipped products we can show: a fintech lending platform (React Native + Node.js, two weeks, live and managing real EMI collections), a jewelry e-commerce platform (React + Node + MongoDB, four weeks, live and processing orders), a manufacturing inventory system (React + Next.js + Node, built as a white-label product), a bilingual HRMS app (React Native + Node.js, three weeks), a Gujarati paddy purchase ledger (React + Node.js, eight days), and three live client websites you can open right now: dspowersolution.com, aurevantaexim.com and sk-consultant.info. Ask for a demo or a reference call.",
   },
   {
     question: "How do you handle contracts and invoicing with foreign clients?",
@@ -431,7 +431,7 @@ const homepageFaqs = [
   {
     question: "Where are you based, and how do we start?",
     answer:
-      "Anand, Gujarat, India. A small senior team. To start, email hello@satvixtech.com with a few sentences on what you're building and why — a real person replies within one business day.",
+      "Anand, Gujarat, India. A small senior team. To start, email infosatvixtech@gmail.com with a few sentences on what you're building and why — a real person replies within one business day.",
   },
 ];
 
@@ -939,10 +939,10 @@ export default function Home() {
             eyebrow="Case studies"
             title={
               <>
-                Four shipped products. <em>All verifiable.</em>
+                Eight shipped products. <em>All verifiable.</em>
               </>
             }
-            note="Problem, approach, outcome. Real timelines, real stacks, real users. Ask for a demo or a reference call — we encourage it."
+            note="Problem, approach, outcome. Real timelines, real stacks, real users. Four in depth below — all eight in the archive. Ask for a demo or a reference call."
           />
           <StackingCards
             items={caseStudies.map((c) => (
@@ -1089,7 +1089,7 @@ export default function Home() {
       {/* ── FAQ ── */}
       <Faq
         faqs={homepageFaqs}
-        sub="The questions foreign founders ask before writing a first email. If yours is not here, write anyway — hello@satvixtech.com, one senior engineer, one business day."
+        sub="The questions foreign founders ask before writing a first email. If yours is not here, write anyway — infosatvixtech@gmail.com, one senior engineer, one business day."
       />
 
       {/* ── CTA ── */}
@@ -1103,8 +1103,8 @@ export default function Home() {
         }
         note="No decks, no detours: one call, your problem, and a senior team that ships. A real person replies within one business day."
       >
-        <a href="mailto:hello@satvixtech.com" className="mcta__btn" data-hover>
-          hello@satvixtech.com
+        <a href="mailto:infosatvixtech@gmail.com" className="mcta__btn" data-hover>
+          infosatvixtech@gmail.com
           <span className="mcta__btn-arrow">
             <ArrowUpRight size={18} />
           </span>

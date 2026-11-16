@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import SEO from "../components/SEO";
@@ -323,8 +322,8 @@ export default function Careers() {
         words="rough draft · Satvix · "
         title={<>Send something — even a <em>rough draft.</em></>}
       >
-        <a href="mailto:careers@satvixtech.com" className="mcta__btn" data-hover>
-          careers@satvixtech.com
+        <a href="mailto:infosatvixtech@gmail.com" className="mcta__btn" data-hover>
+          infosatvixtech@gmail.com
           <span className="mcta__btn-arrow">
             <ArrowUpRight size={18} />
           </span>

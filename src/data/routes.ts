@@ -14,6 +14,10 @@ export const portfolioSlugs = [
   'glamour-jewelry',
   'charotar-soap',
   'shreeji-hrms',
+  'meshwa-traders',
+  'ds-power-solution',
+  'aurevanta-exim',
+  'sk-consultant',
 ];
 
 /* Hand-authored, non-parameterised routes */

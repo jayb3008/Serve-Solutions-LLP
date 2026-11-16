@@ -408,8 +408,8 @@ export default function Blog() {
         words="building · Satvix · "
         title={<>Got something worth <em>building?</em></>}
       >
-        <a href="mailto:hello@satvixtech.com" className="mcta__btn" data-hover>
-          hello@satvixtech.com
+        <a href="mailto:infosatvixtech@gmail.com" className="mcta__btn" data-hover>
+          infosatvixtech@gmail.com
           <span className="mcta__btn-arrow">
             <ArrowUpRight size={18} />
           </span>

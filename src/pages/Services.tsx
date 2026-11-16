@@ -461,8 +461,8 @@ export default function Services() {
         words="specific · Satvix · "
         title={<>Something <em>specific</em> in mind?</>}
       >
-        <a href="mailto:hello@satvixtech.com" className="mcta__btn" data-hover>
-          hello@satvixtech.com
+        <a href="mailto:infosatvixtech@gmail.com" className="mcta__btn" data-hover>
+          infosatvixtech@gmail.com
           <span className="mcta__btn-arrow">
             <ArrowUpRight size={18} />
           </span>

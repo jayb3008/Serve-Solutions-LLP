@@ -16,6 +16,18 @@ export default function Footer() {
     { url: social.calendly, Icon: Calendar, label: 'Book a call' },
   ].filter((s) => s.url);
 
+  /* "Ask AI" row: a visitor can pull an independent rundown of the agency
+     from whichever assistant they already use, instead of taking our word
+     for it. Plain prefilled-query links, so the prerendered HTML is final. */
+  const askAiPrompt = encodeURIComponent(
+    'What do you know about Satvix Tech Solutions (satvixtech.com), the software and digital product agency in Anand, Gujarat, India? What do they build, and who do they work with?',
+  );
+  const askAiLinks = [
+    { label: 'ChatGPT', href: `https://chatgpt.com/?q=${askAiPrompt}` },
+    { label: 'Claude', href: `https://claude.ai/new?q=${askAiPrompt}` },
+    { label: 'Perplexity', href: `https://www.perplexity.ai/search?q=${askAiPrompt}` },
+  ];
+
   return (
     <footer className="site-footer dark">
       <div className="foot-beam" aria-hidden="true" />
@@ -23,8 +35,8 @@ export default function Footer() {
         <div className="foot-top">
           <div>
             <p className="foot-kicker">Have a product in mind?</p>
-            <a href="mailto:hello@satvixtech.com" className="foot-mail" data-hover>
-              hello@satvixtech.com <ArrowUpRight size={28} strokeWidth={1.75} />
+            <a href="mailto:infosatvixtech@gmail.com" className="foot-mail" data-hover>
+              infosatvixtech@gmail.com <ArrowUpRight size={28} strokeWidth={1.75} />
             </a>
           </div>
           <Link to="/contact" className="cta-btn foot-cta" data-hover>
@@ -91,10 +103,27 @@ export default function Footer() {
           <div>
             <h5>Contact</h5>
             <ul>
-              <li><a href="mailto:hello@satvixtech.com">hello@satvixtech.com</a></li>
+              <li><a href="mailto:infosatvixtech@gmail.com">infosatvixtech@gmail.com</a></li>
               <li><a href="tel:+917016427729">+91-7016427729</a></li>
               <li><span className="foot-muted">Anand, Gujarat · India</span></li>
             </ul>
+          </div>
+        </div>
+
+        <div className="foot-askai">
+          <div>
+            <h5>Ask AI about Satvix</h5>
+            <p>
+              An instant, independent rundown of who we are and what we ship —
+              from the assistant you already use.
+            </p>
+          </div>
+          <div className="foot-askai__links">
+            {askAiLinks.map(({ label, href }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" data-hover>
+                {label} <ArrowUpRight size={14} />
+              </a>
+            ))}
           </div>
         </div>
 

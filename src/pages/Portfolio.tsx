@@ -108,6 +108,46 @@ const cards: Card[] = [
     cat: "SaaS",
     img: "/images/shreeji-hrms.webp",
   },
+
+  {
+    id: "meshwa-traders",
+    title: "Meshwa Traders — a paddy purchase ledger, in Gujarati, in eight days.",
+    outcome: "Live — ledgers, payments and registers",
+    year: "8 days",
+    tags: ["SaaS", "React", "Node.js", "Gujarati"],
+    cat: "SaaS",
+    img: "/images/meshwa-traders.webp",
+  },
+
+  {
+    id: "ds-power-solution",
+    title: "D S Power Solution — a solar installer's local-SEO website.",
+    outcome: "Live — calls and WhatsApp quotes",
+    year: "2 weeks",
+    tags: ["Website", "Next.js", "SEO", "Live"],
+    cat: "Websites",
+    img: "/images/ds-power-solution.webp",
+  },
+
+  {
+    id: "aurevanta-exim",
+    title: "Aurevanta Exim — a spice exporter's front door to global buyers.",
+    outcome: "Live — built for importer due diligence",
+    year: "2 weeks",
+    tags: ["Website", "Next.js", "B2B", "Live"],
+    cat: "Websites",
+    img: "/images/aurevanta-exim.webp",
+  },
+
+  {
+    id: "sk-consultant",
+    title: "SK Consultant — EPFO & HR services, explained and sold online.",
+    outcome: "Live — WhatsApp-first contact flow",
+    year: "1 week",
+    tags: ["Website", "React", "Services", "Live"],
+    cat: "Websites",
+    img: "/images/sk-consultant.webp",
+  },
 ];
 /* Answers the questions a buyer actually asks after seeing four case studies.
    Also fed to the FAQPage schema below — this page had none, which left the
@@ -116,7 +156,7 @@ const portfolioFaqs = [
   {
     question: "Can I see these products live?",
     answer:
-      "Glamour Jewelry is a public storefront — we will send you the link. Nine Finance and Shreeji HRMS are private products in daily use, so we demo them on a call with the client's screens. Charotar Soap Factory is our own product and we can give you a walkthrough any time.",
+      "Three are public websites you can open right now: dspowersolution.com, aurevantaexim.com and sk-consultant.info. Glamour Jewelry is a public storefront — we will send you the link. Nine Finance, Shreeji HRMS and Meshwa Traders are private products in daily use, so we demo them on a call. Charotar Soap Factory is our own product and we can give you a walkthrough any time.",
   },
   {
     question: "Can I talk to one of these clients?",
@@ -134,9 +174,9 @@ const portfolioFaqs = [
       "You do, from day one — 100% of it, in your repository, with full access. On handover you get documentation and a recorded walkthrough so your team or a future team can run it without us.",
   },
   {
-    question: "Why only four case studies?",
+    question: "Why these eight and not thirty?",
     answer:
-      "Because these are the four we can put a name, a live product and a phone number against. We would rather show four you can verify than thirty you cannot check.",
+      "Because these are the eight we can put a name, a live product or a public URL against. We would rather show eight you can verify than thirty you cannot check.",
   },
   {
     question: "What does a build like these cost?",
@@ -145,7 +185,7 @@ const portfolioFaqs = [
   },
 ];
 
-const filters = ["All", "Fintech", "SaaS", "Commerce"];
+const filters = ["All", "Fintech", "SaaS", "Commerce", "Websites"];
 
 export default function Portfolio() {
   const [active, setActive] = useState("All");
@@ -156,8 +196,8 @@ export default function Portfolio() {
     <div>
       <SEO
         title="Case studies — shipped products from Satvix Tech Solutions"
-        description="Four shipped products you can verify: Nine Finance, Glamour Jewelry, Charotar Soap Factory and Shreeji HRMS. Live, named, and open to a reference call."
-        keywords="Satvix Tech Solutions case studies, fintech case study React Native Node.js, jewelry e-commerce case study, white-label manufacturing SaaS, Shreeji HRMS attendance app"
+        description="Eight shipped products you can verify: fintech, e-commerce, SaaS ledgers and live client websites. Named, live, and open to a demo or a reference call."
+        keywords="Satvix Tech Solutions case studies, fintech case study React Native Node.js, jewelry e-commerce case study, white-label manufacturing SaaS, Shreeji HRMS attendance app, Gujarati paddy purchase ledger, solar installer website Anand, spice exporter website, EPFO consultancy website"
         url="https://www.satvixtech.com/portfolio"
         faq={portfolioFaqs}
         breadcrumb={[
@@ -197,9 +237,9 @@ export default function Portfolio() {
               Satvix Tech Solutions &nbsp;/&nbsp; Case studies
             </div>
             <p>
-              Fintech in two weeks. E-commerce in four. Manufacturing & HRMS
-              SaaS solutions. Ask for a live demo or a reference call —
-              every claim is verifiable.
+              Fintech in two weeks. E-commerce in four. A Gujarati ledger SaaS
+              in eight days. Client websites you can open right now. Ask for a
+              live demo or a reference call — every claim is verifiable.
             </p>
           </div>
         </div>
@@ -304,7 +344,7 @@ export default function Portfolio() {
             <div>
               <div className="eyebrow reveal">The terms</div>
               <h2 className="s-title" data-d="1">
-                <RevealText>Four products. <em>Check any of them.</em></RevealText>
+                <RevealText>Eight products. <em>Check any of them.</em></RevealText>
               </h2>
             </div>
             <p
@@ -347,6 +387,10 @@ export default function Portfolio() {
                   ["Glamour Jewelry", "4 weeks", "React · Node.js · MongoDB", "Live — processing real orders"],
                   ["Charotar Soap Factory", "2 months", "Next.js · Node.js · TypeScript", "Licensable white-label product"],
                   ["Shreeji HRMS", "3 weeks", "React Native · Node.js · MongoDB", "In daily use — owner and staff"],
+                  ["Meshwa Traders", "8 days", "React · Node.js · MongoDB", "Live — paddy purchase ledger"],
+                  ["D S Power Solution", "2 weeks", "Next.js · React", "Live — dspowersolution.com"],
+                  ["Aurevanta Exim", "2 weeks", "Next.js · React", "Live — aurevantaexim.com"],
+                  ["SK Consultant", "1 week", "React", "Live — sk-consultant.info"],
                 ].map((row) => (
                   <tr key={row[0]}>
                     {row.map((cell, i) => (
@@ -417,8 +461,8 @@ export default function Portfolio() {
         words="worth keeping · Satvix · "
         title={<>Let’s make something <em>worth keeping.</em></>}
       >
-        <a href="mailto:hello@satvixtech.com" className="mcta__btn" data-hover>
-          hello@satvixtech.com
+        <a href="mailto:infosatvixtech@gmail.com" className="mcta__btn" data-hover>
+          infosatvixtech@gmail.com
           <span className="mcta__btn-arrow">
             <ArrowUpRight size={18} />
           </span>

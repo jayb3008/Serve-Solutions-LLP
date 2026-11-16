@@ -95,7 +95,7 @@ const projectsData: Record<string, Project> = {
     ],
     img: "/images/satvix_fintech_showcase.webp",
     ogImg: "/images/satvix_fintech_showcase-og.jpg",
-    prev: "shreeji-hrms",
+    prev: "sk-consultant",
     next: "glamour-jewelry",
     faq: [
       {
@@ -296,7 +296,7 @@ const projectsData: Record<string, Project> = {
       },
     ],
     prev: "charotar-soap",
-    next: "nine-finance",
+    next: "meshwa-traders",
     faq: [
       {
         question: "What makes Shreeji HRMS unique for local Indian businesses?",
@@ -309,6 +309,173 @@ const projectsData: Record<string, Project> = {
           "Owners log in with email and password to access the full cockpit (staff management, receivables, expense logs, payroll). Employees sign in with a simple 4-digit PIN to mark attendance and view their personal earnings and advance history.",
       },
     ],
+  },
+
+  "meshwa-traders": {
+    title: "Meshwa Traders",
+    seoTitle: "Meshwa Traders — Gujarati paddy purchase ledger",
+    seoDescription:
+      "A Gujarati-first paddy purchase ledger for a grain trader: farmers, purchases, payments, bardan and labour registers with role-based access. Built in eight days.",
+    subtitle: "A paddy purchase ledger that replaced the paper books",
+    category: "SaaS · Web App · Operations",
+    timeline: "8 days",
+    client: "Meshwa Traders, Dehgam",
+    role: "Full-stack build — founder-led",
+    tags: ["SaaS", "React", "Node.js", "Gujarati"],
+    overview:
+      "A Gujarati-first web app that runs a paddy trading business end to end: farmer accounts, purchase entries with weight-and-deduction math, payments, running ledgers, and bardan (gunny bag) and labour registers — all role-gated, all live.",
+    challenge:
+      "A paddy trader ran purchases, farmer balances, gunny-bag counts and daily-wage labour across paper registers only the owner could read. Season-end meant days of reconciling books that never quite agreed, and no way to hand a screen to the munim without handing over everything.",
+    solution:
+      "A React web app on a Node.js + MongoDB API. The purchase math — bag tare, net weight, deductions, running balance — lives in one shared module used by both client and server. Ledger-affecting records are voided and restorable, never deleted. Roles decide which screens a user sees, and hiding a screen also closes its API routes. Gujarati first with an English fallback, and every screen is a shareable URL.",
+    tech: ["React", "Vite", "Node.js", "Express", "MongoDB"],
+    features: [
+      "Farmer accounts with running balances and printable ledgers",
+      "Purchase entries with bag-tare, net-weight and deduction math",
+      "Payments against purchases; farmer-wise and overall ledgers",
+      "Daily report, bardan (gunny bag) register and labour register",
+      "Owner and munim roles — hiding a screen also closes its API routes",
+      "Void-and-restore for ledger records; nothing is hard-deleted",
+      "Gujarati-first UI with English fallback; phone + PIN sign-in",
+    ],
+    outcomes: [
+      { n: "8 days", label: "First commit to live" },
+      { n: "13", label: "Screens, role-gated" },
+      { n: "2", label: "Languages (Gujarati · English)" },
+      { n: "Live", label: "Server, API and app deployed" },
+    ],
+    img: "/images/meshwa-traders.webp",
+    imgAlt:
+      "Meshwa Traders farmer ledger screen in Gujarati: balance, purchased and paid cards for one farmer, a running-balance chart, and a dated ledger table of purchases and payments.",
+    prev: "shreeji-hrms",
+    next: "ds-power-solution",
+    faq: [
+      {
+        question: "Why Gujarati first, not just a translation toggle?",
+        answer:
+          "Because the people entering purchases work in Gujarati. The UI, the seed data and even identifiers in the codebase are Gujarati-first, with English as the fallback — so the owner and the munim never work in a second language to use their own ledger.",
+      },
+      {
+        question: "What does 'hiding a screen also closes its API' mean?",
+        answer:
+          "Permissions live on the role, not the user: a role lists which screens it may open, and the API only serves a data collection to roles that can open a screen built from it. Taking a screen away from the munim also closes the raw REST routes behind it — there is no backdoor.",
+      },
+    ],
+  },
+
+  "ds-power-solution": {
+    title: "D S Power Solution",
+    seoTitle: "D S Power Solution — solar installer website",
+    seoDescription:
+      "A local-SEO website for a solar dealer and installer in Petlad, Anand: services, PM Surya Ghar subsidy guidance, a blog and a WhatsApp-first quote funnel.",
+    subtitle: "A local-SEO website for a solar installer in Anand",
+    category: "Website · Local SEO",
+    timeline: "2 weeks",
+    client: "D S Power Solution, Petlad",
+    role: "Design + build + SEO",
+    tags: ["Website", "Next.js", "SEO", "Live"],
+    overview:
+      "A marketing site for a rooftop-solar dealer and installer serving Petlad and Anand district — built to rank for the local searches that matter and convert visits into calls and WhatsApp quote requests.",
+    challenge:
+      "A solar installer with real rooftop installations and a PM Surya Ghar vendor registration had no web presence — while homeowners and shops in Anand district searched Google for a solar installer and found competitors instead.",
+    solution:
+      "A prerendered Next.js site with every page written around local search intent: services and solutions for homes, shops and industry, a dedicated PM Surya Ghar subsidy guide, and a blog for ongoing coverage. Call and WhatsApp CTAs sit in the header of every page, and a free-quote form closes the loop.",
+    tech: ["Next.js", "React"],
+    features: [
+      "Local-SEO page structure built around Petlad and Anand searches",
+      "Dedicated PM Surya Ghar subsidy guide",
+      "Services and solutions pages for homes, shops and industry",
+      "Blog for ongoing search coverage",
+      "Click-to-call and WhatsApp CTAs on every page",
+      "Free-quote funnel",
+    ],
+    outcomes: [
+      { n: "Live", label: "dspowersolution.com" },
+      { n: "Local", label: "SEO built for Anand & Petlad" },
+      { n: "1", label: "Subsidy guide (PM Surya Ghar)" },
+      { n: "2-tap", label: "Call or WhatsApp from any page" },
+    ],
+    img: "/images/ds-power-solution.webp",
+    imgAlt:
+      "D S Power Solution homepage: a solar-field hero with the headline 'Clean solar power for every roof in Anand', services navigation, phone and WhatsApp contact, and a free-quote call to action.",
+    prev: "meshwa-traders",
+    next: "aurevanta-exim",
+  },
+
+  "aurevanta-exim": {
+    title: "Aurevanta Exim",
+    seoTitle: "Aurevanta Exim — spice exporter website",
+    seoDescription:
+      "An export-focused website for an Indian spice exporter: product pages, certifications, FOB / CIF and freight terms, private-label packing and a quote pipeline.",
+    subtitle: "A spice exporter's front door to global buyers",
+    category: "Website · Export / B2B",
+    timeline: "2 weeks",
+    client: "Aurevanta Exim Pvt. Ltd.",
+    role: "Design + build",
+    tags: ["Website", "Next.js", "B2B", "Live"],
+    overview:
+      "A B2B website for a registered Indian spice exporter — cumin, black pepper, star anise, turmeric — built to give importers and food manufacturers the facts they check before they ask for a quote.",
+    challenge:
+      "Export buyers vet suppliers hard before first contact: registrations, ports, freight terms, packing capability. Aurevanta needed a site that answers that due diligence up front and routes serious buyers straight to a quote.",
+    solution:
+      "A product-and-proof site: a page per spice, certifications stated plainly (IEC, APEDA, Spices Board, FSSAI), sea and air freight from Mundra Port and Ahmedabad Airport, FOB / CIF terms and private-label packing — with a get-a-quote CTA on every screen.",
+    tech: ["Next.js", "React"],
+    features: [
+      "Product pages for cumin seeds, black pepper, star anise and turmeric",
+      "Certifications up front: IEC, APEDA, Spices Board, FSSAI",
+      "Export logistics: Mundra Port and Ahmedabad Airport, sea and air freight",
+      "FOB / CIF terms and private-label packing",
+      "Get-a-quote CTAs throughout",
+    ],
+    outcomes: [
+      { n: "Live", label: "aurevantaexim.com" },
+      { n: "4", label: "Spice lines, each with its own page" },
+      { n: "4", label: "Registrations stated up front" },
+      { n: "B2B", label: "Built for importer due diligence" },
+    ],
+    img: "/images/aurevanta-exim.webp",
+    imgAlt:
+      "Aurevanta Exim homepage: a cargo-port hero with 'Source. Pack. Export.', exporter registrations, freight routes from Mundra Port and Ahmedabad Airport, and a get-a-quote call to action.",
+    prev: "ds-power-solution",
+    next: "sk-consultant",
+  },
+
+  "sk-consultant": {
+    title: "SK Consultant",
+    seoTitle: "SK Consultant — EPFO & HR services website",
+    seoDescription:
+      "A services website for an EPFO and HR consultancy: EPF transfers, withdrawals, e-nomination, payroll and compliance — explained plainly, with WhatsApp-first contact.",
+    subtitle: "EPFO & HR services, explained plainly and sold online",
+    category: "Website · Services",
+    timeline: "1 week",
+    client: "SK Consultant, Ahmedabad",
+    role: "Design + build",
+    tags: ["Website", "React", "Services", "Live"],
+    overview:
+      "A website for an EPFO and HR consultancy that turns confusing government processes — EPF transfer, withdrawal, e-nomination — into clearly explained, fully online services with a WhatsApp-first contact flow.",
+    challenge:
+      "EPF problems are urgent and confusing, and most consultancies answer only by phone during office hours. SK Consultant needed a site that explains each service in plain language and converts anxious searchers into WhatsApp conversations.",
+    solution:
+      "A fast React site organised by the questions people actually arrive with — EPFO services, HR services, how it works, why us — backed by trust signals (years in practice, clients served, 100% online) and Contact / WhatsApp CTAs throughout.",
+    tech: ["React"],
+    features: [
+      "Service sections for EPF transfer, withdrawal and e-nomination",
+      "HR services: payroll and compliance",
+      "'How it works' flow for first-time users",
+      "WhatsApp-first contact alongside call and email",
+      "Fully-online positioning — no office visit needed",
+    ],
+    outcomes: [
+      { n: "Live", label: "sk-consultant.info" },
+      { n: "100%", label: "Online service flow" },
+      { n: "2", label: "Service lines: EPFO and HR" },
+      { n: "1-tap", label: "WhatsApp contact" },
+    ],
+    img: "/images/sk-consultant.webp",
+    imgAlt:
+      "SK Consultant homepage: 'EPFO & HR Services You Can Trust' headline, contact and WhatsApp buttons, and trust stats for years of experience and clients served.",
+    prev: "aurevanta-exim",
+    next: "nine-finance",
   },
 };
 

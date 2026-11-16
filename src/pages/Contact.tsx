@@ -7,11 +7,43 @@ import BookCall from "../components/BookCall";
 import RevealText from "../components/ui/reveal-text";
 import Faq from "../components/Faq";
 import Magnetic from "../components/Magnetic";
+import SectionHead from "../components/ui/section-head";
+import { rise } from "../lib/motion";
 import { social } from "../data/social";
 
 const ease = [0.7, 0, 0.2, 1] as [number, number, number, number];
 
+/* What actually happens after someone hits send — spelled out so writing
+   to us costs nothing but the sentences. */
+const nextSteps = [
+  {
+    n: "01",
+    title: "You write a few sentences",
+    body: "The problem, who it's for, and roughly when you need it. No spec required — if you only have a rough idea, say that and we'll help shape it.",
+  },
+  {
+    n: "02",
+    title: "A senior engineer replies within one business day",
+    body: "Not an autoresponder. A scoped reply with direct answers and a clear next step: what we would build first, and whether we're the right team for it.",
+  },
+  {
+    n: "03",
+    title: "A short call, only if it helps",
+    body: "A working conversation about scope, timeline and cost — not a sales call. If we're not the right fit, you'll hear that on the call, with a better suggestion.",
+  },
+];
+
 const contactFaqs = [
+  {
+    question: "What should the first message include?",
+    answer:
+      "The problem you're trying to solve, who it's for, and roughly when you need it. A spec is welcome but not required — if you only have a rough idea, say that and we'll help shape it on the call. The more context you give, the sharper our reply.",
+  },
+  {
+    question: "Is the intro call a sales call?",
+    answer:
+      "No. It's a working conversation with a senior engineer about whether the work fits and what we'd build first. If we're not the right team, you'll hear that on the call — along with who or what we'd suggest instead.",
+  },
   {
     question: "How long does a build take?",
     answer:
@@ -96,8 +128,8 @@ const Contact = () => {
     <div className="contact-page">
       <SEO
         title="Contact Satvix Tech Solutions — Get in Touch with Our Team"
-        description="Contact Satvix Tech Solutions. Write to hello@satvixtech.com and our team will reply within one business day. Based in Anand, Gujarat; working with clients in the US, UK, EU and Australia."
-        keywords="contact Satvix Tech Solutions, hire software development agency, senior engineer for hire India, offshore React Native Node.js team, hello@satvixtech.com, MERN engineer for US UK startups"
+        description="Contact Satvix Tech Solutions. Write to infosatvixtech@gmail.com and our team will reply within one business day. Based in Anand, Gujarat; working with clients in the US, UK, EU and Australia."
+        keywords="contact Satvix Tech Solutions, hire software development agency, senior engineer for hire India, offshore React Native Node.js team, infosatvixtech@gmail.com, MERN engineer for US UK startups"
         url="https://www.satvixtech.com/contact"
         breadcrumb={[
           { name: "Home", item: "https://www.satvixtech.com" },
@@ -107,7 +139,7 @@ const Contact = () => {
           {
             question: "How quickly will I hear back?",
             answer:
-              "A senior engineer reads every message and replies within one business day — often same day. If it is urgent, write \"urgent\" in the subject and email hello@satvixtech.com directly.",
+              "A senior engineer reads every message and replies within one business day — often same day. If it is urgent, write \"urgent\" in the subject and email infosatvixtech@gmail.com directly.",
           },
           {
             question: "What's the timezone overlap?",
@@ -157,9 +189,10 @@ const Contact = () => {
               Satvix Tech Solutions &nbsp;/&nbsp; Contact
             </div>
             <p>
-              A few sentences is enough. A senior engineer reads every message
-              and replies within one business day. No funnel, no calendar
-              link, no account manager in between.
+              Tell us the problem — we'll tell you how we'd build it. A senior
+              engineer reads every message and replies within one business
+              day, with a clear next step. No funnel, no account manager in
+              between.
             </p>
           </div>
         </div>
@@ -189,8 +222,8 @@ const Contact = () => {
                   {
                     icon: Mail,
                     label: "Write to us",
-                    value: "hello@satvixtech.com",
-                    href: "mailto:hello@satvixtech.com",
+                    value: "infosatvixtech@gmail.com",
+                    href: "mailto:infosatvixtech@gmail.com",
                   },
                   {
                     icon: Phone,
@@ -459,8 +492,12 @@ const Contact = () => {
                           color: "var(--muted)",
                         }}
                       >
-                        What kind of work
+                        What best describes your situation?
                       </label>
+                      {/* Situation-framed options (the problem in the
+                          client's words) convert better than a service
+                          menu. Values stay the same so the leads pipeline
+                          and any reporting on it are untouched. */}
                       <select
                         name="subject"
                         value={formData.subject}
@@ -479,12 +516,12 @@ const Contact = () => {
                         }}
                       >
                         <option value="">Pick the closest one</option>
-                        <option value="web">A web platform</option>
-                        <option value="mobile">A mobile app</option>
-                        <option value="ai-ml">An AI feature or product</option>
-                        <option value="design">Product or UI/UX design</option>
-                        <option value="brand">Brand or editorial</option>
-                        <option value="hire">A dedicated team to embed</option>
+                        <option value="web">We need a web platform or SaaS built</option>
+                        <option value="mobile">We need a mobile app in real users' hands</option>
+                        <option value="ai-ml">We want AI in the product, done properly</option>
+                        <option value="design">The product works, but the UX holds it back</option>
+                        <option value="brand">The brand doesn't match the product</option>
+                        <option value="hire">We need senior engineers embedded with our team</option>
                         <option value="other">Something else entirely</option>
                       </select>
                     </div>
@@ -622,6 +659,33 @@ const Contact = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── What happens next ── */}
+      <section className="s" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <SectionHead
+            eyebrow="What happens next"
+            title={
+              <>
+                Three steps. <em>No funnel.</em>
+              </>
+            }
+            note="What actually happens after you hit send — so writing to us costs you nothing but the sentences."
+          />
+          <ol
+            className="grid grid-cols-1 gap-4 md:grid-cols-3"
+            style={{ listStyle: "none", padding: 0, margin: 0 }}
+          >
+            {nextSteps.map((step, i) => (
+              <motion.li key={step.n} {...rise(i)} className="cap-card flex flex-col">
+                <span className="case-card__n">{step.n}</span>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </motion.li>
+            ))}
+          </ol>
         </div>
       </section>
 
